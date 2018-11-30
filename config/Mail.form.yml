@@ -1,0 +1,35 @@
+fields:
+  name:
+    type: String
+    label: ФИО
+    attributes:
+      required: true
+  phone:
+    type: String
+    label: Номер телефона
+    attributes:
+      required: true
+  job:
+    type: String
+    label: Должность
+    attributes:
+      required: true
+  company:
+    type: String
+    label: Компания
+    attributes:
+      required: true
+  lang:
+    type: Select
+    label: Язык подписки
+    params:
+        placeholder: Язык
+        multiple: true
+        values:
+          en: Английский
+          ru: Русский
+    attributes:
+      required: false
+#   validators:
+#     NonEmpty: [ email, name ]
+#     Email: [ email ]

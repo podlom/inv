@@ -1,0 +1,635 @@
+approach:
+  actions:
+    - type: sendMail
+      to:
+        - info@inventure.ua: Inventure
+  fields:
+    name:
+      type: String
+      label: ''
+      attributes:
+        required: true
+        placeholder: 'Имя'
+    email:
+      type: String
+      label: ''
+      attributes:
+        required: true
+        placeholder: 'E-mail'
+    tel:
+      type: String
+      label: ''
+      attributes:
+        required: true
+        placeholder: 'Телефон'
+    text:
+      type: Text
+      label: ''
+      attributes:
+        placeholder: 'Краткое описание инвестиционного предложения (до 200 символов)'
+
+callback:
+  actions:
+    - type: Experts\SendMailAction
+      to:
+#         - themastir@gmail.com: test
+        - info@inventure.ua: Inventure
+#        - info@feelgoodlabs.com: manager
+#      bcc:
+#        - info@inventure.ua: Inventure
+      subject: 'Вопрос Эксперту'
+  fields:
+    id:
+      type: Hidden
+      label: ''
+      attributes:
+        required: true
+    name:
+      type: String
+      label: ''
+      attributes:
+        required: true
+        placeholder: 'Ваше имя'
+    email:
+      type: String
+      label: ''
+      attributes:
+        required: true
+        placeholder: 'Ваша почта'
+    question:
+      type: Text
+      label: ''
+      attributes:
+        required: true
+        placeholder: 'Ваш вопрос'
+  success: 'Cпасибо за ваш вопрос, мы направили его эксперту. Вы будете уведомлены об ответе.'
+  error: 'Сожалеем, но возникла ошибка при отправке вашего вопроса. Проверьте правильность введенных данных или повторите отправку позже.'
+  invalid: 'Вы допустили ошибку при заполнении формы. Проверьте правильность введенных данных или задайте вопрос позже.'
+investor:
+  actions:
+    - type: sendMail
+      to:
+        - info@inventure.ua: Inventure
+#        - inventure@skynar.co: Inventure
+      bcc:
+        - investor@feelgoodlabs.co: Inventure
+  fields:
+    name:
+      type: String
+      label: ''
+      attributes:
+        placeholder: 'Ф.И.О.'
+    company:
+      type: String
+      label: ''
+      attributes:
+        placeholder: 'Компания'
+    job:
+      type: String
+      label: ''
+      attributes:
+        placeholder: 'Должность'
+    email:
+      type: String
+      label: ''
+      attributes:
+        required: true
+        placeholder: 'Email'
+    City:
+      type: String
+      label: 'Город проживания'
+    phone:
+      type: String
+      label: ''
+      attributes:
+        placeholder: 'Телефон'
+    skype:
+      type: String
+      label: ''
+      attributes:
+        placeholder: 'Skype'
+    stage:
+      type: Select
+      label: 'Стадии инвестирования'
+      params:
+        multiple: true
+        venilla: true
+        values:
+          - 'Стартап (Startup / Seed)'
+          - 'Поздние стадии (Later Stage / Exit)'
+          - 'Стадия роста и расширения (Growth / Expansion)'
+          - 'Проблемные активы (Distressed Assets)'
+    types:
+      type: Select
+      label: 'Направления инвестирования'
+      params:
+        multiple: true
+        venilla: true
+        values:
+           - 'Сельское хозяйство'
+           - 'Пищевая промышленность'
+           - 'Добывающая промышленность'
+           - 'Металлургия и металлообработка'
+           - 'Машиностроение и производство электрооборудования'
+           - 'Нефтехимическая промышленность'
+           - 'Фармацевтическая промышленность'
+           - 'Деревообработка и целлюлозно-бумажная промышленность'
+           - 'Текстильная промышленность'
+           - 'Строительство и недвижимость'
+           - 'Финансовая деятельность'
+           - 'Оптовая и розничная торговля'
+           - 'Бизнес услуги'
+           - 'Транспорт и складское хозяйство'
+           - 'Телекоммуникации и связь'
+           - 'Искусство, развлечения, спорт и отдых'
+           - 'Электроэнергетика и топливная промышленность'
+           - 'Водообеспечение и переработка отходов'
+           - 'Информационные технологии и интернет проекты'
+           - 'Инновации и высокие технологии'
+           - 'Гостиницы и общественное питание'
+           - 'Здравоохранение и социальная помощь'
+           - 'Потребительские услуги'
+           - 'Обазование'
+           - 'Организации и ассоциации'
+           - 'Инновации и высокие технологии'
+    type_other:
+      type: String
+      label: 'Ваш вариант'
+      attributes:
+         placeholder: 'Ваш вариант'
+    location:
+      type: Select
+      label: 'Регион '
+      params:
+        multiple: true
+        venilla: true
+        values:
+            - 'Украина'
+            - 'СНГ'
+            - 'Центральная и Восточная Европа'
+            - 'Западная Европа'
+            - 'США'
+            - 'Азия'
+    location_other:
+      type: String
+      label: 'Ваш вариант'
+    size:
+      type: Select
+      label: 'Объемы инвестирования'
+      params:
+        multiple: true
+        venilla: true
+        values:
+          - 'до $100 тыс.'
+          - 'от $100 тыс. до $500 тыс.'
+          - 'от 500 тыс. до $1 млн.'
+          - 'от $1 млн. до $5 млн.'
+          - 'от $5 млн. до $10 млн.'
+          - 'более $10 млн.'
+    inv:
+      type: Select
+      label: 'Форма инвестирования'
+      params:
+        multiple: true
+        venilla: true
+        values:
+           - 'Кредитование'
+           - 'Контрольный пакет (более 50% доли в бизнесе)'
+           - 'Сотрудничество'
+           - 'Миноритарный пакет (менее 50% доли в бизнесе)'
+    type:
+      type: Select
+      label: 'Участие в капитале'
+      params:
+        multiple: true
+        venilla: true
+        values:
+           - '100%'
+           - 'Контрольный пакет (более 50% доли в бизнесе)'
+           - 'Миноритарный пакет (менее 50% доли в бизнесе)'
+    type2:
+      type: Select
+      label: 'Тип инвестирования'
+      params:
+        multiple: true
+        venilla: true
+        values:
+           - 'Инвестиции в новые проекты (greenfield investment)'
+           - 'Инвестиции в готовый бизнес (brownfield investment)'
+    term:
+      type: Select
+      label: 'Предполагаемые сроки инвестиционных вложений'
+      params:
+        multiple: true
+        venilla: true
+        values:
+           - 'до 1 года'
+           - 'от 1 до 3 лет'
+           - 'от 3 до 5 лет'
+           - 'более 5 лет'
+    rdy:
+      type: Select
+      label: 'Готовность принимать участие в управлении'
+      params:
+        values: ["Да", "Нет"]
+    strong:
+      type: Select
+      label: 'Сильные стороны'
+      params:
+        multiple: true
+        venilla: true
+        values: ["Финансы", "Управление", "Связи", "Технологии", "Недвижимость"]
+    strong_other:
+      type: String
+      label: 'Ваш вариант'
+    info:
+      type: Text
+      label: 'Дополнительные критерии'
+  validators: []
+  success: 'Данные отправленны'
+  error: 'При отправке данных возникла ошибка, обратитесь к администрации.'
+  invalid: 'Вы допустили ошибку при заполнении формы.'
+investor_en:
+  template: 'investor'
+  actions:
+    - type: sendMail
+      to:
+        - info@inventure.ua: Inventure
+#        - inventure@skynar.co: Inventure
+      bcc:
+        - investor@feelgoodlabs.co: Inventure
+  fields:
+    name:
+      type: String
+      label: ''
+      attributes:
+        placeholder: 'Name'
+    company:
+      type: String
+      label: ''
+      attributes:
+        placeholder: 'Company'
+    job:
+      type: String
+      label: ''
+      attributes:
+        placeholder: 'Position'
+    email:
+      type: String
+      label: ''
+      attributes:
+        required: true
+        placeholder: 'Email'
+    City:
+      type: String
+      label: 'City'
+    phone:
+      type: String
+      label: ''
+      attributes:
+        placeholder: 'Tel'
+    skype:
+      type: String
+      label: ''
+      attributes:
+        placeholder: 'Skype'
+    stage:
+      type: Select
+      label: 'Investment stage'
+      params:
+        multiple: true
+        venilla: true
+        values:
+          - 'Startup / Seed'
+          - 'Later Stage / Exit'
+          - 'Growth / Expansion Stage'
+          - 'Distressed Assets'
+    types:
+      type: Select
+      label: 'Sector'
+      params:
+        multiple: true
+        venilla: true
+        values:
+           - 'Agriculture'
+           - 'Food processing'
+           - 'Extraction and mining'
+           - 'Metallurgy'
+           - 'Machinery and production of electrical equipment'
+           - 'Petrochemical industry'
+           - 'Pharmacy'
+           - 'Wood and paper'
+           - 'Textile industry'
+           - 'Construction and real estate'
+           - 'Financial services'
+           - 'Wholesale and retail'
+           - 'Business services'
+           - 'Transport & logistics'
+           - 'Telecommunications'
+           - 'Arts, entertainment, sports and recreation'
+           - 'Energy and electricity'
+           - 'Water supply and waste management'
+           - 'ICT'
+           - 'Innovation and high technology'
+           - 'Hotels and restaurants'
+           - 'Health care'
+           - 'Consumer services'
+           - 'Education'
+           - 'Organizations and Associations'
+           - 'Innovations and high-tech'
+    type_other:
+      type: String
+      label: 'Your variant'
+      attributes:
+         placeholder: 'Your variant'
+    location:
+      type: Select
+      label: 'Region'
+      params:
+        multiple: true
+        venilla: true
+        values:
+            - 'Ukraine'
+            - 'CIS'
+            - 'Central and Eastern Europe'
+            - 'Western Europe'
+            - 'USA'
+            - 'Asia'
+    location_other:
+      type: String
+      label: 'Your variant'
+    size:
+      type: Select
+      label: 'Investment amount'
+      params:
+        multiple: true
+        venilla: true
+        values:
+          - 'up to $100K'
+          - 'from $100K up to $500K'
+          - 'from $500K up to $1 million'
+          - 'from $1 million to $5 million'
+          - 'from $5 million to $10 million'
+          - 'more than $10 million'
+    inv:
+      type: Select
+      label: 'Form of investment'
+      params:
+        multiple: true
+        venilla: true
+        values:
+           - 'Lending'
+           - 'Control stake (more than 50% of shares) '
+           - 'Cooperation'
+           - 'Minority package (less than 50% of shares)'
+    type:
+      type: Select
+      label: 'Участие в капитале'
+      params:
+        multiple: true
+        venilla: true
+        values:
+           - '100%'
+           - 'Контрольный пакет (более 50% доли в бизнесе)'
+           - 'Миноритарный пакет (менее 50% доли в бизнесе)'
+    type2:
+      type: Select
+      label: 'Тип инвестирования'
+      params:
+        multiple: true
+        venilla: true
+        values:
+           - 'Инвестиции в новые проекты (greenfield investment)'
+           - 'Инвестиции в готовый бизнес (brownfield investment)'
+    term:
+      type: Select
+      label: 'Предполагаемые сроки инвестиционных вложений'
+      params:
+        multiple: true
+        venilla: true
+        values:
+           - 'до 1 года'
+           - 'от 1 до 3 лет'
+           - 'от 3 до 5 лет'
+           - 'более 5 лет'
+    rdy:
+      type: Select
+      label: 'Готовность принимать участие в управлении'
+      params:
+        venilla: true
+        values: ["Да", "Нет"]
+    strong:
+      type: Select
+      label: 'Сильные стороны'
+      params:
+        multiple: true
+        venilla: true
+        values: ["Финансы", "Управление", "Связи", "Технологии", "Недвижимость"]
+    strong_other:
+      type: String
+      label: 'Ваш вариант'
+    info:
+      type: Text
+      label: 'Additional criteria'
+  validators: []
+  success: 'Данные отправленны'
+  error: 'При отправке данных возникла ошибка, обратитесь к администрации.'
+  invalid: 'Вы допустили ошибку при заполнении формы.'
+project:
+  actions:
+    - type: sendMail
+      to:
+#        - inventure@skynar.co: Inventure
+        - info@inventure.ua: Inventure
+      bcc:
+         - startup@feelgoodlabs.co: Inventure
+  fields:
+    name:
+      type: String
+      label: 'Фамилия Имя'
+    job:
+      type: String
+      label: 'Место работы (должность) / учебы'
+    email:
+      type: String
+      label: 'Email'
+      attributes:
+         type: 'email'
+         required: true
+    phone:
+      type: String
+      label: 'Контактный телефон'
+    company:
+      type: String
+      label: 'Наименование проекта / компании'
+    period:
+      type: Number
+      label: 'Срок реализации проекта'
+    site:
+      type: String
+      label: 'Web адрес'
+    region:
+      type: String
+      label: 'Регион'
+    stage:
+      type: Select
+      label: 'Стадия проекта'
+      params:
+        venilla: true
+        values:
+          - 'Стартап (Startup / Seed)'
+          - 'Ранние стадии (Early Stage)'
+          - 'Стадия роста и расширения (Growth / Expansion)'
+          - 'Поздние стадии (Later Stage / Exit)'
+          - 'Проблемные активы (Distressed Assets)'
+    types:
+      type: Select
+      label: 'Отрасль / вид экономической деятельности'
+      params:
+        venilla: true
+        required: true
+        values:
+           - 'Сельское хозяйство'
+           - 'Пищевая промышленность'
+           - 'Добывающая промышленность'
+           - 'Металлургия и металлообработка'
+           - 'Машиностроение и производство электрооборудования'
+           - 'Нефтехимическая промышленность'
+           - 'Фармацевтическая промышленность'
+           - 'Деревообработка и целлюлозно-бумажная промышленность'
+           - 'Текстильная промышленность'
+           - 'Строительство и недвижимость'
+           - 'Финансовая деятельность'
+           - 'Оптовая и розничная торговля'
+           - 'Бизнес услуги'
+           - 'Транспорт'
+           - 'Телекоммуникации и связь'
+           - 'Искусство, развлечения, спорт и отдых'
+           - 'Электроэнергетика и топливная промышленность'
+           - 'Водообеспечение и переработка отходов'
+           - 'Информационные технологии и интернет проекты'
+           - 'Инновации и высокие технологии'
+           - 'Гостиницы и общественное питание'
+           - 'Здравоохранение и социальная помощь'
+           - 'Другой (указать)'
+    types_other:
+      type: String
+      label: 'Ваш вариант'
+      attributes:
+         placeholder: 'Ваш вариант'
+    cost:
+      type: Number
+      label: 'Общая стоимость проекта, тыс $'
+    money:
+      type: Number
+      label: 'Собственные средства (текущая стоимость активов), тыс. $'
+    actives:
+      type: String
+      label: 'Активы компании'
+    price:
+      type: Number
+      label: 'Объем необходимых инвестиций, тыс. $'
+    conditions:
+      type: Select
+      label: 'Условия привлечения инвестиций'
+      params:
+        multiple: true
+        venilla: true
+        values:
+          - 'Прямые инвестиции (участие в капитале)'
+          - 'Кредитование'
+          - 'Участие в прибыли'
+    curs:
+      type: Select
+      label: 'Направления освоения инвестиций'
+      params:
+        multiple: true
+        venilla: true
+        values:
+          - 'Создание нового предприятия'
+          - 'Пополнение оборотных средств'
+          - 'Исследования и разработки'
+          - 'Строительство'
+          - 'Приобретение недвижимости'
+          - 'Приобретение оборудования'
+          - 'Другое (указать)'
+    curs_other:
+      type: String
+      label: 'Ваш вариант'
+      attributes:
+         placeholder: 'Ваш вариант'
+    plan_stage:
+      type: Select
+      label: 'Степень проработки инвестиционного проекта'
+      params:
+        venilla: true
+        values:
+          - 'Бизнес идея и общая концепция '
+          - 'Бизнес план / ТЭО / Инвестиционный меморандум'
+    plan_done:
+      type: Text
+      label: 'По проекту реализовано'
+    gross_income:
+      type: Number
+      label: 'Валовой доход (за последний год)'
+    clean_income:
+      type: Number
+      label: 'Чистая прибыль (за последний год)'
+    irr:
+      type: Number
+      label: 'IRR (%) – Внутренняя норма прибыльности '
+    nvp:
+      type: Number
+      label: 'NPV ($) – Чистая приведенная стоимость '
+    pi:
+      type: Number
+      label: 'PI (%) – Индекс рентабельности инвестиций '
+    pp:
+      type: Number
+      label: 'PP (лет) – Период окупаемости инвестиций'
+    dpp:
+      type: Number
+      label: 'DPP (лет) – Дисконтированный период окупаемости инвестиций'
+    requests:
+      type: Text
+      label: 'Предложение инвестору'
+    concept:
+      type: Text
+      label: 'Бизнес концепция'
+      attributes:
+         placeholder: 'В чем заключается суть проекта, социально-экономический эффект проекта, какую проблему решает проект'
+    product:
+      type: Text
+      label: 'Продукт и его конкурентные преимущества'
+      attributes:
+         placeholder: 'Какая продукция или услуги будут производиться в рамках реализации проекта. В чем заключается уникальность, инновационность и конкурентное преимущество продукции и услуг в рамках реализации проекта'
+    concurent:
+      type: Text
+      label: 'Рынок и конкурентная среда'
+      attributes:
+         placeholder: 'Какой размер и потенциал рынка, предполагаемая ниша на рынке, основные категории потребителей продукции, а также основные конкуренты на рынке'
+    marketing:
+      type: Text
+      label: 'Сбыт и маркетинг'
+      attributes:
+         placeholder: 'Маркетинговая стратегия проекта (особенности продвижения и рекламы продукции или услуги), основные каналы сбыта'
+    risk:
+      type: Text
+      label: 'Риски и возможности'
+      attributes:
+         placeholder: 'Какие основные риски и возможности предусматриваются в рамках реализации проекта'
+    team:
+      type: Text
+      label: 'Менеджмент и команда'
+      attributes:
+         placeholder: 'Информация о руководителе проекта, партнерах и ключевых сотрудниках (профессиональный и управленческий опыт команды проекта)'
+    strategy:
+      type: Text
+      label: 'Стратегия выхода'
+      attributes:
+         placeholder: 'Перспективы продажи компании и выхода из проекта'
+    other_info:
+      type: Text
+      label: 'Другие важные сведения'
+      attributes:
+         placeholder: 'Произвольное краткое описание инвестиционного проекта (указать другую наиболее важную информацию о Вашем проекте)'

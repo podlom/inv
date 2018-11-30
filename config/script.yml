@@ -1,0 +1,133 @@
+jquery:
+    file: jquery.min.js
+    position: first
+    require: {  }
+    compress: false
+autocomplete:
+    file: jquery.autocomplete.js
+    position: top
+    require: [jquery]
+tinymce:
+    file: tinymce_4.9/tinymce.min.js
+    position: top
+    require: [jquery, filemanager]
+urlslug:
+    file: ui/urlslug.js
+    position: top
+    require: [jquery]
+formModal:
+    file: ui/formModal.js
+    position: top
+    require: [jquery]
+gmap3:
+    file: jquery.gmap3.min.js
+    position: top
+    require: [jquery, google_maps_api, autocomplete]
+gmap:
+    file: GMap.js
+    position: top
+    require: [jquery, gmap3]
+google_maps_api:
+    file: '//maps.google.com/maps/api/js?sensor=false&libraries=places&callback=google_loaded&key=AIzaSyCdEPd54e6zNaTrkm--VOW1EsC3yYH1HGg'
+    position: top
+    require: {  }
+easySlider:
+    file: jquery.easySlider.js
+    position: top
+lightbox:
+    file: lightbox-2.6.min.js
+    position: top
+app:
+    file: app.min.js
+    position: end
+    require: [jquery, foundation, moment]
+foundation.modernizr:
+    file: modernizr.foundation.js
+    position: top
+foundation:
+    file: foundation.min.js
+    require: [jquery]
+    position: top
+filemanager:
+    file: FileManager.js
+    require: [jquery, lazyload, Collections, scrollto, informers, progress]
+    position: top
+    css: [filemanager.css]
+Collections:
+    file: Collections.min.js
+    position: top
+moment:
+    file: moment-with-langs.min.js
+    position: top
+lazyload:
+    file: jquery.lazyload.min.js
+    require: [jquery]
+scrollto:
+    file: jquery.scrollto.min.js
+    require: [jquery]
+ui:
+    file: ui.min.js
+    position: end
+    require: [jquery]
+    css: [ui.css]
+setproperty:
+    file: setPropety.js
+    require: [jquery]
+    position: top
+slug:
+    file: slug.js
+    require: [jquery]
+google_maps_markercluster:
+    file: google.maps.markerclusterer.js
+    position: top
+    require: [google_maps_api, jquery]
+informers:
+    file: Informers.min.js
+    require: [jquery]
+    css: [/css/informers.css]
+progress:
+    file: jquery.progress.js
+    require: [jquery]
+range:
+    file: ion.rangeSlider.min.js
+    require: [jquery]
+    css: [ion.rangeSlider.skinNice.css]
+grid:
+    file: grid.js
+    require: [ui, jquery]
+    css: [grid.css]
+webshim:
+    require: [jquery]
+    file: webshim/polyfiller.js
+select:
+    require: [jquery]
+    file: select.js
+select2:
+    require: [jquery]
+    file: select2.min.js
+    css: [select2.min.css]
+react:
+    file: 'https://unpkg.com/react@16/umd/react.development.js'
+react-dom:
+    file: 'https://unpkg.com/react-dom@16/umd/react-dom.development.js'
+    require: [react]
+sci:
+    file: sci.js
+    css: [sci.css]
+    require: [filemanager, react-dom, tinymce]
+react15:
+    file: 'https://unpkg.com/react@15/dist/react.js'
+react-dom15:
+    file: 'https://unpkg.com/react-dom@15/dist/react-dom.js'
+    require: [react]
+foundation2:
+    file: /js/foundation.min.js
+    require: [jquery]
+    position: top
+app2:
+    file: /js/app.js
+    position: end
+    require: [jquery, foundation2, moment]
+react_components:
+    file: /assets/skynar/react_loader.js
+    require: [react-dom]

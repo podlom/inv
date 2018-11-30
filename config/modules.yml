@@ -1,0 +1,52 @@
+event:
+    Core: { core.request: 5 }
+    Auth: { core.init: 5, core.request: 5, core.exception: 5 }
+    Page: { sitemap: 5, content.edit: 5, doctrine.update: 5, locale.translate: 5 }
+    React: { core.postrender: 5, module.update: 5 }
+    Blog: { sitemap: 5, content.edit: 5, locale.translate: 5 }
+    Attribute: {  }
+    Analytics: { core.init: 5, core.terminate: 5, doctrine.update: 5, page.view: 5 }
+    Metadata: { page.edit: 5, page.update: 5, assets.prepare: 5 }
+    Locale: { core.route: 5, page.edit: 5 }
+    Sphinx: { doctrine.update: 5, core.init: 5 }
+    Redirect: {  }
+    Sitemap: {  }
+    Blacklist: { core.request: 5 }
+    Digest: {  }
+    EventSort: {  }
+    Widget: {  }
+    Poll: {  }
+    Rating: { Widget.manage: 5 }
+    Map: {  }
+    Payment: {  }
+    Liqpay: {  }
+    Mail: {  }
+    BulletinBoard: { payment.success: 5 }
+    Banner: { Widget.manage: 5 }
+helper:
+    install: { core: Core\InstallHelper, auth: Auth\InstallHelper, react: React\InstallHelper }
+modules:
+    Core: { status: 3, version: 1.0.6 }
+    Auth: { status: 3, version: 1.1.1 }
+    Page: { status: 3, version: 0.3 }
+    React: { status: 3, version: 0.1 }
+    Blog: { status: 3, version: 1.0.1 }
+    Attribute: { status: 3, version: 0.1 }
+    Analytics: { status: 3, version: 0.1.2 }
+    Metadata: { status: 3, version: 0.1 }
+    Locale: { status: 3, version: 0.1.1 }
+    Sphinx: { status: 3, version: 0.1 }
+    Redirect: { status: 3, version: 0.1 }
+    Sitemap: { status: 3, version: 0.1.1 }
+    Blacklist: { status: 3, version: 0.1 }
+    Digest: { status: 3, version: 0.1 }
+    EventSort: { status: 3, version: 0.1 }
+    Widget: { status: 3, version: 0.1 }
+    Poll: { status: 3, version: 0.1 }
+    Rating: { status: 3, version: 0.1.1 }
+    Map: { status: 3, version: 0.1 }
+    Payment: { status: 3, version: 0.1.1 }
+    Liqpay: { status: 3, version: 0.1 }
+    Mail: { status: 3, version: 0.1.3 }
+    BulletinBoard: { status: 3, version: 0.1 }
+    Banner: { status: 3, version: 0.1.1 }

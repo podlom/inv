@@ -1,0 +1,7 @@
+currency:
+    avaible: [USD, EUR, UAH, RUB, USD, EUR, UAH, RUB, USD, EUR, UAH, RUB, USD, EUR, UAH, RUB, USD, EUR, UAH, RUB, USD, EUR, UAH, RUB, USD, EUR, UAH, RUB, USD, EUR, UAH, RUB]
+    active: [UAH]
+    default: UAH
+system:
+    lliqpay: { name: Liqpay, class: Liqpay\Liqpay, active: true, options: { public_key: i9798622151, private_key: Plt39BF9ykF2f22KukD7GBkV4szk, test_mode: false } }
+redirect: /

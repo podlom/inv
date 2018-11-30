@@ -1,0 +1,10 @@
+password:
+    rules: [letter]
+    min: 6
+    max: 32
+confirm:
+    success: /
+    code_length: 6
+provider:
+    token: { class: Token, options: {  } }
+    facebook: { class: Auth\Provider\FacebookSdk, options: {  } }

@@ -1,0 +1,367 @@
+home:
+   urls:
+      - '/'
+   template: index
+news_list:
+   urls:
+      - '/news/+'
+      - '/news/+/+'
+      - '/news'
+   template: 'blog/news.list'
+   default_template: 'Blog.blog'
+news:
+   urls:
+      - '/news/*'
+   template: 'blog/news'
+   default_template: 'Blog.post'
+board_list:
+   urls:
+     - '/board'
+     - '/board/projects'
+     - '/board/business'
+     - '/board/realestate'
+     - '/board/land'
+     - '/board/offer'
+   template: 'blog/board'
+board_single:
+   urls:
+     - '/board/projects/+'
+     - '/board/business/+'
+     - '/board/realestate/+'
+     - '/board/land/+'
+     - '/board/offer/+'
+   template: 'blog/board.post'
+add-adv:
+   urls:
+     - '/add-adv'
+   template: 'blog/add-adv'
+add-inv-prop:
+   urls:
+     - '/add-inv-prop'
+   template: 'blog/add-inv-prop'
+complex-approach:
+   urls:
+     - '/complex-approach'
+   template: 'blog/complex-approach'
+analytics_list:
+   urls:
+     - '/analytics'
+     - '/analytics/investments'
+     - '/analytics/articles'
+     - '/analytics/formula'
+     - '/analytics/we-invest-in-ukraine'
+   template: 'blog/analytics.list'
+analytics:
+   urls:
+     - '/analytics/investments/+'
+     - '/analytics/articles/+'
+     - '/analytics/formula/+'
+     - '/analytics/we-invest-in-ukraine/+'
+   template: 'blog/analytics.post'
+didgest:
+   urls:
+      - '/analytics/digest'
+   template: digest.page
+expert:
+  urls:
+    - '/tools/experts/+'
+  template: 'blog/experts.post'
+experts:
+  urls:
+    - '/tools/experts'
+  template: 'blog/experts.list'
+library:
+  urls:
+    - '/tools/library'
+  template: 'blog/library.list'
+video_list:
+  urls:
+    - '/tools/video'
+  template: 'blog/video.list'
+video:
+  urls:
+    - '/tools/video/*'
+  template: 'blog/video.post'
+database_post:
+  urls:
+    - '/tools/database/*'
+  template: 'blog/database.post'
+database_post_en:
+  urls:
+    - '/en/tools/database/*'
+  template: 'blog/database.post'
+  layout: Core.layout_en
+atlas_list:
+  urls:
+    - '/tools/investors'
+  template: 'blog/atlas.list'
+atlas_list_en:
+  urls:
+    - '/en/tools/investors'
+  template: 'blog/atlas.list_en'
+  layout: Core.layout_en
+atlas_post:
+  urls:
+    - '/tools/investors/*'
+  template: 'blog/atlas.post'
+atlas_post_en:
+  urls:
+    - '/en/tools/investors/+'
+  template: 'blog/atlas.post_en'
+  layout: Core.layout_en
+votes:
+  urls:
+    - '/votes'
+  template: 'vote.page'
+events:
+  urls:
+    - '/tools/events'
+    - '/tools/events/archive'
+  template: 'blog/event.lent'
+event:
+  urls:
+    - '/tools/events/*'
+  template: 'blog/event.item'
+investor:
+  urls:
+     - '/investor'
+  template: 'investor'
+project:
+  urls:
+     - '/project'
+  template: 'project'
+calculator:
+  urls:
+     - '/tools/calculator'
+  template: 'calculator'
+hr:
+  urls:
+     - '/tools/calculator'
+  template: 'Page.view'
+investments:
+  urls:
+    - '/investments'
+    - '/investments/projects'
+    - '/investments/business'
+    - '/investments/realestate'
+    - '/investments/land'
+    - '/investments/offer'
+  template: 'blog/inventure.list'
+investment_posts:
+  urls:
+    - '/investments/+'
+  template: 'blog/inventure.post'
+  default_template: 'Blog.post'
+tools:
+  urls:
+    - '/tools'
+  template: 'blog/tools.index'
+tools_list:
+  urls:
+    - '/tools/+'
+  template: 'blog/tools.list'
+  default_template: 'Blog.post'
+
+about:
+  urls:
+    - '/about'
+  template: 'Template.view'
+advertising:
+  urls:
+    - '/about/advertising'
+  template: 'Template.view'
+team:
+  urls:
+    - '/about/team'
+  template: 'Template.view'
+job_list:
+  urls:
+    - '/about/jobs'
+  template: 'blog/job.list'
+job:
+  urls:
+    - '/about/jobs/+'
+  template: 'blog/job'
+faq:
+  urls:
+    - '/about/faq'
+  template: 'Template.view'
+rules:
+  urls:
+    - '/rules'
+  template: 'Template.view'
+contacts:
+  urls:
+    - '/about/contacts'
+  template: 'Template.view'
+services:
+  urls:
+    - '/services'
+  template: 'blog/services.list'
+services_post:
+  urls:
+    - '/services/+'
+  template: 'blog/services'
+home_en:
+   urls:
+      - '/en'
+   template: index_en
+   layout: Core.layout_en
+investor_en:
+  urls:
+     - '/en/investor'
+  template: 'investor'
+  layout: Core.layout_en
+news_list_en:
+   urls:
+      - '/en/news'
+      - '/en/news/+'
+      - '/en/news/+/+'
+   template: 'blog/news.list_en'
+   default_template: 'Blog.blog'
+   layout: Core.layout_en
+news_en:
+   urls:
+      - '/en/news/*'
+   template: 'blog/news_en'
+   layout: Core.layout_en
+investments_en:
+  urls:
+    - '/en/investments'
+    - '/en/investments/+'
+  template: 'blog/inventure.list_en'
+  default_template: 'Blog.blog'
+  layout: Core.layout_en
+investment_posts_en:
+  urls:
+    - '/en/investments/*'
+  template: 'blog/inventure.post_en'
+  default_template: 'Blog.post'
+  layout: Core.layout_en
+analytics_en:
+   urls:
+     - '/en/analytics/investments/+'
+     - '/en/analytics/articles/+'
+     - '/en/analytics/formula/+'
+     - '/en/analytics/we-invest-in-ukraine/+'
+   template: 'blog/analytics.post_en'
+   layout: Core.layout_en
+analytics_list_en:
+   urls:
+     - '/en/analytics'
+     - '/en/analytics/investments'
+     - '/en/analytics/articles'
+     - '/en/analytics/formula'
+     - '/en/analytics/we-invest-in-ukraine'
+   template: 'blog/analytics.list_en'
+   layout: Core.layout_en
+events_en:
+  urls:
+    - '/en/tools/events'
+  template: 'blog/event.lent_en'
+  layout: Core.layout_en
+event_en:
+  urls:
+    - '/en/tools/events/*'
+  template: 'blog/event.item_en'
+  layout: Core.layout_en
+video_list_en:
+  urls:
+    - '/en/tools/video'
+  template: 'blog/video.list_en'
+video_en:
+  urls:
+    - '/en/tools/video/*'
+  template: 'blog/video.post_en'
+didgest_en:
+   urls:
+      - '/en/analytics/digest'
+   template: digest.page_en
+   layout: Core.layout_en
+library_en:
+  urls:
+    - '/en/tools/library'
+  template: 'blog/library.list_en'
+  layout: Core.layout_en
+tools_list_en:
+  urls:
+    - '/en/tools/+'
+  template: 'blog/tools.list_en'
+  layout: Core.layout_en
+about_en:
+  urls:
+    - '/en/about'
+  template: 'Template.view'
+  layout: Core.layout_en
+advertising_en:
+  urls:
+    - '/en/about/advertising'
+  template: 'Template.view'
+  layout: Core.layout_en
+team_en:
+  urls:
+    - '/en/about/team'
+  template: 'Template.view'
+  layout: Core.layout_en
+job_list_en:
+  urls:
+    - '/en/about/jobs'
+  template: 'blog/job.list'
+  layout: Core.layout_en
+job_en:
+  urls:
+    - '/en/about/jobs/+'
+  template: 'blog/job'
+  layout: Core.layout_en
+faq_en:
+  urls:
+    - '/en/about/faq'
+  template: 'Template.view'
+  layout: Core.layout_en
+contacts_en:
+  urls:
+    - '/en/about/contacts'
+  template: 'Template.view'
+  layout: Core.layout_en
+services_en:
+  urls:
+    - '/en/services'
+  template: 'blog/services.list'
+  layout: Core.layout_en
+services_post_en:
+  urls:
+    - '/en/services/+'
+  template: 'blog/services'
+  layout: Core.layout_en
+add-inv-prop_en:
+   urls:
+     - '/en/add-inv-prop'
+   template: 'blog/add-inv-prop.en'
+   layout: Core.layout_en
+complex-approach_en:
+   urls:
+     - '/en/complex-approach'
+   template: 'blog/complex-approach_en'
+   layout: Core.layout_en
+en:
+   urls:
+      - '/en/*'
+   layout: Core.layout_en
+en_404:
+   urls:
+      - '/en/*'
+   code: 404
+   template: 404
+   layout: Core.layout_en
+404:
+   urls:
+      - '/*'
+   code: 404
+   template: 404
+   layout: Core.layout
+451:
+   urls:
+      - '/*'
+   code: 451
+   template: 451
+   layout: Core.layout

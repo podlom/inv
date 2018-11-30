@@ -1,0 +1,6 @@
+mailing_1:
+    subject: ttt
+    from_name: 'DelFast Mailer'
+    to: false
+    cc: false
+    bcc: false
