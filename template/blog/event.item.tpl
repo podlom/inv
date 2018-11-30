@@ -42,11 +42,11 @@
         {block 'post.image'}
             <div id="newsThumb">
                 <a href="#" itemprop="url" data-reveal-id="thumbBig">
-                    {if $post->hasImage()}{$post->getImage()->thumbup(350,254)}{else}<img src="/skynar/img/no_image.svg" />{/if}
+                    {if $post->hasImage()}{$post->getImage()->thumbup(350,254)}{else}<img src="/skynar/images/no_image.svg" />{/if}
                 </a>
             </div>
             <div id="thumbBig" class="reveal-modal large medium" data-reveal>
-                <img itemprop="image"  src="{$post->getImage()->getUrl()}" itemscope itemtype="http://schema.org/URL" itemtype="http://schema.org/ImageObject" alt='{$post->getTitle()}' />
+                 <img itemprop="image"  src="{if $post->hasImage()}{$post->getImage()->getUrl()}{else}/skynar/images/no_image.svg{/if}" itemscope itemtype="http://schema.org/URL" itemtype="http://schema.org/ImageObject" alt='{$post->getTitle()}' />
                 <p><b>{$post->getTitle()}</b></p>
                 <a class="close-reveal-modal">&#215;</a>
             </div>
