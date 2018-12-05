@@ -132,18 +132,18 @@
 
                     <div class="avatar"><img src="/i/no-photo.png" alt=""></div>
                     <div class="data_contacts">
-                    <p><b>Имя:</b> {$post->getAttr(5)}</p>
+                    <p><b>{if $lang=='en'}Name{else}Имя{/if}:</b> {$post->getAttr(5)}</p>
                     <p><b>E-Mail:</b> <a href="mailto:{$post->getAttr(5)}">{$post->getAttr(4)}</a></p>
-                    <p><b>Телефон:</b> <a href="tel:{$post->getAttr(3)}">{$post->getAttr(3)}</a></p>
+                    <p><b>{if $lang=='en'}Phone{else}Телефон{/if}:</b> <a href="tel:{$post->getAttr(3)}">{$post->getAttr(3)}</a></p>
                     </div>
 
                 {else}{#/mod}
 
                     <div class="avatar"><img src="/i/no-photo.png" alt=""></div>
                     <div class="data_contacts">
-                        <p><b>Имя:</b> Алексей Олейников</p>
+                        <p><b>{if $lang=='en'}Name{else}Имя{/if}:</b> {if $lang=='en'}Alex Oleynikov{else}Алексей Олейников{/if}</p>
                         <p><b>E-Mail:</b> <a href="mailto:info@inventure.ua">info@inventure.ua</a></p>
-                        <p><b>Телефон:</b> <a href="tel:+380677136571">+38(067)713-65-71</a></p>
+                        <p><b>{if $lang=='en'}Phone{else}Телефон{/if}:</b> <a href="tel:+380677136571">+38(067)713-65-71</a></p>
                     </div>
 
                 {#mod Attributes}{/if}{#/mod}

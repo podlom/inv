@@ -91,17 +91,17 @@
                             {if $post->getParent()->getId() == 7861 || $post->getParent()->getId() == 7862 ||$post->getParent()->getId() == 7863}
                                 <p>
                                     <span style="font-weight: 700;">ЦЕНА</span> -
-                                    {if $post->getAttr("15")!=''} ${$post->printAttr("15")|number_format:0:'.':' '}{else}Договорная{/if}
+                                    {if trim($post->getAttr("15"))} ${$post->printAttr("15")|number_format:0:'.':' '}{else}Договорная{/if}
                                 </p>
                             {elseif $post->getParent()->getId() == 7860}
                                 <p>
                                     <span style="font-weight: 700;">ИНВЕСТИЦИИ</span> -
-                                    {if $post->hasAttr("34")} ${$post->printAttr("34")|number_format:0:'.':' '}{/if}
+                                    {if trim($post->getAttr("34"))} ${$post->printAttr("34")|number_format:0:'.':' '}{else}Договорная{/if}
                                 </p>
                             {elseif $post->getParent()->getId() == 7864}
                                 <p>
                                     <span style="font-weight: 700;">ИНВЕСТИЦИИ</span> -
-                                    {if $post->hasAttr("31")} ${$post->printAttr("31")|number_format:0:'.':' '}{/if}
+                                    {if trim($post->getAttr("31"))} ${$post->printAttr("31")|number_format:0:'.':' '}{else}Договорная{/if}
                                 </p>
                             {/if}
                             </div>

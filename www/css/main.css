@@ -2117,10 +2117,17 @@ table tr td {
 
 .the_post .viewbox-cnt-body{
     color: #4a4a4a;
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 500;
     padding: 45px;
     margin-bottom: 0!important
+}
+
+.the_post .viewbox-cnt-body *{
+    color: #4a4a4a;
+    font-size: 14px;
+    font-weight: 500;
+
 }
 
 .the_post .viewbox-cnt-body .row{
@@ -2136,7 +2143,8 @@ table tr td {
 .the_post .viewbox-cnt-body p,.board_page .accordion .block p {
     margin-bottom: 17.5px;
     font-family: Montserrat;
-    font-size: 13px
+    font-size: 13px;
+    /* font-weight: 500; */
 }
 
 .the_post .viewbox-cnt-body p:last-child{
@@ -2397,13 +2405,14 @@ table tr td {
 .inventure_list article {
     display: flex!important;
     align-items: baseline;
-    flex-wrap: wrap
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 .inventure_list .auto-height article>div {
     position: relative;
     height: 500px;
-    margin: 0 10px 24px 10px
+    margin: 0 0 24px 0;
 }
 
 .inventure_list .auto-height article>div .box-shadow {
