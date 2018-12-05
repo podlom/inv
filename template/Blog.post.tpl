@@ -1,12 +1,7 @@
-{* prefilter=o *}
+{* prefilter=off *}
 {extends 'Page.view'}
-{if $post->hasImage()}
-    {meta 'og:image' full_link($post->getImage()->getUrl()) property='og:image'}
-{/if}
-{meta 'og:url' full_link($post->getPath()) property='og:url' }
-{meta 'og:title' html_entity_decode($post->getTitle()) property='og:title'}
-{meta 'og:description' $post->getShortText() property='og:description'}
-
+{block 'page.class' append} the_post{/block}
+{block 'config'}
 {script src="https://ws.sharethis.com/button/buttons.js" name="share_button"}
 {script_code require="share_button"}
     stLight.options({
@@ -18,112 +13,40 @@
         servicePopup: true
     });
 {/script_code}
-{block 'config'}
 {if !$page}{$page = $post}{/if}
 {/block}
+{block 'page.title'}
+<div class="clearfix border-bottom">
+    <h2>{$blog->getTitle()}</h2>
+</div>
+{/block}
 {block 'breadcrumbs'}
-    <div class="clearfix border-bottom">
-        <h2>{$blog->getTitle()}</h2>
-    </div>
-        <ul class="breadcrumbs-box">
-        {if $blog}
-            {if !$post && !$rubric && !$category}
-                <li class="current">{$blog->getTitle()}</li>
-            {else}
-                <li><a href="{$blog->getPath()}">{$blog->getTitle()}</a></li>
-            {/if}
-        {/if}
-        {if $category}
-            {if !$post && !$rubric}
-                <li class="current">{$category->getTitle()}</li>
-            {else}
-                <li class="current"><a href="{$category->getPath()}">{$category->getTitle()}</a></li>
-            {/if}
-        {/if}
-        </ul>
+{$breadcrumbs = []}
+{if $blog}
+    {$breadcrumbs[$blog->getPath()]=$blog->getTitle()}
+{/if}
+{if $category}
+    {$breadcrumbs[$category->getPath()]=$category->getTitle()}
+{/if}
+{if $rubric}
+    {$breadcrumbs[$rubric->getPath()]=$rubric->getTitle()}
+{/if}
+{if $post}
+    {$breadcrumbs[$post->getPath()]=$post->getTitle()}
+{/if}
+<ul class="breadcrumbs-box">
+{foreach $breadcrumbs as $link=>$title}
+    {if $title@last}
+    <li class="current">{$title}</li>
+    {else}
+    <li><a href="{$link}">{$title}</a></li>
+    {/if}
+{/foreach}
+</ul>
 {/block}
 {block 'content'}
-    {block 'post.head'}
-    <div style="position: relative;" class="board-single">
-        <div class="box-shadow"></div>
-        <div class="row m_b-20 auto-height">
-            <div class="medium-{$post_head_size.0|default:5} columns photo-in">
-            {block 'post.image'}
-                {if $post->hasImage()}
-                <div id="newsThumb">
-                    <a href="#" data-reveal-id="thumbBig">
-                        {$post->getImage()->thumbup(350,254)}
-                    </a>
-                </div>
-                {/if}
-                <div id="thumbBig" class="reveal-modal large medium" data-reveal>
-                    {if $post->hasImage()}
-                    <img itemprop="image" src="{$post->getImage()->getUrl()}" alt='{$post->getTitle()}' itemscope itemtype="http://schema.org/ImageObject"/>
-                    {/if}
-                    <p><b>{$post->getTitle()}</b></p>
-                    <a class="close-reveal-modal">&#215;</a>
-                </div>
-            {/block}
-            </div>
-            <div class="medium-{$post_size.1|default:7} columns">
-                <div class="viewbox-cnt attr-in">
-                    <div class="hint m_b-10">
-                    {block 'post.meta'}
-                        <span>ID: {$post->getId()}</span>
-                        {block 'post.publish'}<time class="time">{$post->getPublished()->format('d.m.y')}</time>{/block}
-                    {if $post->getParent()}
-                        {if $post->getParent()->getId() == 15088}
-                            <a href="{$post->getParent()->getPath()}"><img src="/i/projects.png" alt="" class="category"/>{$post->getParent()->getH1()}</a>
-                        {elseif $post->getParent()->getId() == 15089}
-                            <a href="{$post->getParent()->getPath()}"><img src="/i/business.png" alt="" class="category"/>{$post->getParent()->getH1()}</a>
-                        {elseif $post->getParent()->getId() == 15090}
-                            <a href="{$post->getParent()->getPath()}"><img src="/i/realestate.png" alt="" class="category"/>{$post->getParent()->getH1()}</a>
-                        {elseif $post->getParent()->getId() == 15091}
-                            <a href="{$post->getParent()->getPath()}"><img src="/i/land.png" alt="" class="category"/>{$post->getParent()->getH1()}</a>
-                        {elseif $post->getParent()->getId() == 15092}
-                            <a href="{$post->getParent()->getPath()}"><img src="/i/offer.png" alt="" class="category"/>{$post->getParent()->getH1()}</a>
-                        {else}
-                            <span></span>
-                        {/if}
-                    {/if}
-                    {/block}
-                    </div>
-                    <h3><a href="{$post->getPath()}">{$post->getH1()}</a></h3>
-                    <div class="place">
-                        <img src="/i/ukraine.png">{#mod Attributes}{if $post->hasAttr("10")} {$post->printAttr("10")}{/if}{#/mod}
-                    </div>
-                    <div class="price">
-                    {if $post->getParent()}
-                        {if $post->getParent()->getId() == 15089 || $post->getParent()->getId() == 15090 ||$post->getParent()->getId() == 15091}
-                        <p><span style="font-weight: 700;">ЦЕНА</span> -
-                            {if $post->getAttr("15")!=''} ${$post->printAttr("15")|number_format:0:'.':' '}{else}Договорная{/if}
-                        </p>
-                        {elseif $post->getParent()->getId() == 15088}
-                        <p><span style="font-weight: 700;">ИНВЕСТИЦИИ</span> -
-                            {if $post->hasAttr("15")} ${$post->printAttr("15")|number_format:0:'.':' '}{/if}
-                        </p>
-                        {elseif $post->getParent()->getId() == 15092}
-                        <p><span style="font-weight: 700;">ИНВЕСТИЦИИ</span> -
-                            {if $post->hasAttr("15")} ${$post->printAttr("15")|number_format:0:'.':' '}{/if}
-                        </p>
-                        {/if}
-                      {/if}
-                    </div>
-                    <div class="row">
-                        <div class="columns">
-                            <ul class="inline-list share-btn">
-                                <li><span class='st_facebook_hcount' st_url="https://inventure.com.ua{$post->getPath()}" displayText='Facebook'></span></li>
-                                <li><span class='st_twitter_hcount' st_url="https://inventure.com.ua{$post->getPath()}" displayText='Tweet'></span></li>
-                                <li><span class='st_linkedin_hcount' st_url="https://inventure.com.ua{$post->getPath()}" displayText='LinkedIn'></span></li>
-                                <li><span class='st_googleplus_hcount' st_url="https://inventure.com.ua{$post->getPath()}" displayText='Google +'></span></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    {/block}
+    {include 'partial/post'}
+    {block 'main'}
     <div class="wrapper">
         <div class="row" itemscope itemtype="http://schema.org/articleBody">
             <div class="box-shadow"></div>
@@ -167,6 +90,7 @@
              </div>
         </div>
     </div>
+    {/block}
     {block 'map'}
         {#mod Attributes}
         {$loc = $post->getAttr(10)}
@@ -198,6 +122,7 @@
         {/if}
         {#/mod}
     {/block}
+    {block 'contacts'}
     <div style="position: relative;" id="contacts">
         <div class="box-shadow box-shadow1"></div>
         <div class="contacts">
@@ -225,8 +150,11 @@
             </div>
         </div>
     </div>
-<div class="columns" id="newsComments">
-    <h2>Комментарии</h2>
-    {include 'inc/disqus'}
-</div>
+    {/block}
+    {block 'comment'}
+    <div class="columns" id="newsComments">
+        <h2>Комментарии</h2>
+        {include 'inc/disqus'}
+    </div>
+    {/block}
 {/block}

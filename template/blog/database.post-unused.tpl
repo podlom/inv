@@ -1,26 +1,29 @@
-{extends 'Page.view'}
+{script src="https://ws.sharethis.com/button/buttons.js" name="share_button"}
+{script_code require="share_button"}
+    stLight.options({
+        publisher: "4251639a-288c-4b8a-a294-b65b62a0c7e1",
+        doNotHash: false,
+        doNotCopy: false,
+        hashAddressBar: false,
+        popup:true,
+        servicePopup: true
+    });
+{/script_code}
+    <section class="grid-container news_single search_result database_single">
+      <div class="grid-x grid-margin-x">
+        <div class="cell small-9">
           {block 'breadcrumbs'}
     <div class="clearfix border-bottom">
-        <h2>News</h2>
+        <h2>
+            {if $lang == 'en'}
+            ratings
+            {else}
+            рейтинги
+            {/if}
+        </h2>
     </div>
-                <ul class="breadcrumbs-box">
-        {if $blog}
-            {if !$post && !$rubric && !$category}
-                <li class="current">{$blog->getTitle()}</li>
-            {else}
-                <li><a href="{$blog->getPath()}">{$blog->getTitle()}</a></li>
-            {/if}
-        {/if}
-        {if $category}
-            {if !$post && !$rubric}
-                <li class="current">{$category->getTitle()}</li>
-            {else}
-                <li class="current"><a href="{$category->getPath()}">{$category->getTitle()}</a></li>
-            {/if}
-        {/if}
-        </ul>
 {/block}
-            {block 'content'}
+{block 'content'}
     {block 'post.head'}
     <div style="position: relative;">
     <div class="box-shadow"></div>
@@ -33,7 +36,7 @@
                 </a>
             </div>
             <div id="thumbBig" class="reveal-modal large medium" data-reveal>
-                <img itemprop="image" src="{$post->getImage()->getUrl()}" alt='{$post->getTitle()}' itemscope itemtype="http://schema.org/ImageObject"/>
+                <img itemprop="image" itemscope itemtype="http://schema.org/ImageObject" src="{$post->getImage()->getUrl()}" alt='{$post->getTitle()}' />
                 <p><b>{$post->getTitle()}</b></p>
                 <a class="close-reveal-modal">&#215;</a>
             </div>
@@ -47,13 +50,13 @@
                                 {block 'post.views'}<img src="/i/views.png" /><span class="number">{$post->getViews()+1}</span>{/block}
                                 {block 'post.rubric'}
                                 {$r=$post->getRubrics()}
-                                {if substr($blog->getPath(),0,5) == '/en/news' && $r.0}
+                                {if substr($blog->getPath(),0,5) == '/news' && $r.0}
                                     <img src="/i/folded-newspaper.png" />{$r.0->getH1()}
                                 {/if}
                                 {/block}
                             {/block}
                             </div>
-                            <div class="author" itemprop="author">{block 'post.author'}
+                            <div class="author">{block 'post.author'}
                                     {if $post->getAttr(1)}<img src="/i/pers.png" alt="" />
                                         {if $post->getAttr(2)}
                                             <a href="{$post->getAttr(2)}">{$post->getAttr(1)}</a>
@@ -139,59 +142,97 @@
                         </div>
                     {/if}
                 {/block}
-                {block 'post.contacts'}{/block}
-                {block 'map'}
-                    {$loc = $post->getAttr(10)}
-                    {if $loc.lat && $loc.lng}
-                    <div class="viewbox-cnt-body m_b-20" id="eventMapBlock">
-                        <h2>Карта</h2>
-                        <div id="google_map"></div>
-                    </div>
-                    {script_code require="jquery,google_maps_api"}
-                    {script 'google_maps_api'}
-                    loader.on('google_maps',function(){
-                        map = new google.maps.Map($('#google_map')[0], {
-                                zoom: 14,
-                                center: new google.maps.LatLng({number_format($loc.lat,5,'.','')}, {number_format($loc.lng,5,'.','')}),
-                                mapTypeId: google.maps.MapTypeId.ROADMAP,
-                                mapTypeControl: false,
-                                rotateControl: false,
-                                streetViewControl: false,
-                        });
-                        marker = new google.maps.Marker({
-                            map: map,
-                            position: new google.maps.LatLng({number_format($loc.lat,5,'.','')}, {number_format($loc.lng,5,'.','')})
-                        });
-                    });
-                    {/script_code}
-                {/if}
-                {/block}
+
              </div>
            </div>
     </div>
-    	<div class="title_read_also">
-              <h2><a href="tools/events">Related Posts</a></h2>
-            </div>
-        <article class="grid-container read_also">
-    	<div class="grid-margin-x grid-x">
-		{similar_posts $post 4}
-	  <div class="cell small-12 medium-6">
-      <div class="news_inv">
-        <div class="img">
-          <a href="{$lent->getPath()}" >
-            <img src="/img/thumbup.236.170{$lent->getImage()->getUrl()}" alt='{$lent->getTitle()}' />
-          </a>
-        </div>
-        <div class="content">
-          <h5><a href="{$lent->getPath()}" >{$lent->getH1()}</h5>
-        </div>
-      </div>
-    </div>
-    {/similar_posts}
-    	</div>
-    </article>
     <div class="columns" id="newsComments">
-        <h2>Comments</h2>
+        <h2>Комментарии</h2>
         {include 'inc/disqus'}
     </div>
 {/block}
+           </div>
+           <div class="cell small-3">
+<aside class="sidebar">
+                <a href="/investor" class="invest_btn">{if $lang == 'en'}
+                            invest
+                        {else}
+                            инвестировать
+                        {/if}</a>
+                <a href="/add-inv-prop" class="invest_btn invest_btn1">{if $lang == 'en'}
+                            find an investor
+                        {else}
+                            найти инвестора
+                        {/if}</a>
+                      <div class="box-shadow_form">
+                    <div class="box-shadow"></div>
+                    <div class="form">
+                        <div class="title">
+                            <a href="/analytics/digest"> <i class="fa fa-rss"></i>
+                        {if $lang == 'en'}
+                            Sign up for Digest
+                        {else}
+                            Подписка на дайджест
+                        {/if}
+                         </a>
+                          </div>
+                          <div class="img"><img src="/i/digest_img.jpg"></div>
+                        {subscribe}
+                    </div>
+                  </div>
+                   <div class="box-shadow_archive">
+                    <div class="box-shadow"></div>
+                    <div class="archive">
+                        <div class="title">
+                           <a href="/analytics/digest"> <img src="/i/download_icon.png" alt="Загрузить" title="Загрузить">
+                           {if $lang == 'en'}
+                            Archive
+                        {else}
+                           Архив выпусков
+                        {/if}</a>
+                          </div>
+                        <form name="archiveForm" method="post" action="#">
+                            <div class="d_n" id="digest">
+                                {load_digests}
+                                {foreach $digests as $digest}
+                                    <a class="m{$digest->getPubDate()->format('n')} y{$digest->getPubDate()->format('Y')}" href="{$digest->getUrl()}"></a>
+                                {/foreach}
+                            </div>
+                            <div class="option">
+                                <select name="archiveFormYear" id="archiveFormYear" class="select1">
+                                    {$now = date_create()}
+                                    {for $year=2012 to $now->format('Y')}
+                                        <option value="{$year}" label="{$year}"{if $digest->getPubDate()->format('Y')==$year} selected{/if}>{$year}</option>
+                                    {/for}
+                                </select>
+                                <select name="archiveFormMonths" id="archiveFormMonths" class="select2">
+                                  {if $lang == 'en'}
+                                     {foreach ["January","February", "March","April", "May", "June", "July", "August", "September", "October", "November", "December"] as $id => $name}
+                                        <option value="{$id+1}"{if $digest->getPubDate()->format('n')==$id+1} selected{/if} label="{$name}">{$name}</option>
+                                    {/foreach}
+                                  {else}
+                                      {foreach ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'] as $id => $name}
+                                        <option value="{$id+1}"{if $digest->getPubDate()->format('n')==$id+1} selected{/if} label="{$name}">{$name}</option>
+                                    {/foreach}
+                                  {/if}
+
+                                </select>
+                            </div>
+                                <a class="blue_but cell-but"  target="_blank" id="archiveFormButton" href="#" disabled="disabled">{if $lang == 'en'}
+                            Download
+                        {else}
+                            Скачать
+                        {/if}</a>
+                        </form>
+                    </div>
+                  </div>
+                <div class="advertising" id="advertising">
+                <div class="box-shadow"></div>
+                {widget_slot 'main (370x450)' size=[370,450]}
+                {widget_slot 'post_2 (370x450)' size=[370,450]}
+                {widget_slot 'post_6 (270x350)' size=[270,350]}
+              </div>
+              </aside>
+        </div>
+          </div>
+         </section>

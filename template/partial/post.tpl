@@ -1,52 +1,62 @@
-{block 'post'}
-<div class="row">
+{* prefilter=off *}
+{block 'post.preview'}
+<div class="row the_preview">
   <div style="position: relative; background-color: white;">
     <div class="box-shadow"></div>
     <div class="auto-height">
-        <div class="medium-{$post_size.0|default:5} columns photo-in {$image_class}">
+        <div class="medium-{$post_size.0|default:5} columns {$image_class}">
             {block 'image'}
             {if substr($post->getPath(),0,14) == "/tools/video"}
                 <div>{$post->getAttr(55)}</div>
             {elseif $post->getImage()}
                 <a href="{$post->getPath()}">
-                    {$post->getImage()->thumbup(350,254)}
+                    {$post->getImage()->thumbup(350,254)->addClass('the_img')}
                 </a>
             {else}
                 <a href="{$post->getPath()}">
-                    <img src="/img/resize.375.225/images/noThumb.jpg" alt="{$post->getH1()}" itemscope itemtype="http://schema.org/ImageObject"/>
+                    <img class="the_img" src="/img/resize.375.225/images/noThumb.jpg" alt="{$post->getH1()}" itemscope itemtype="http://schema.org/ImageObject"/>
                 </a>
             {/if}
             {/block}
         </div>
         <div class="medium-{$post_size.1|default:7} columns">
-            <div class="viewbox-cnt attr-in">
-                <div class="hint m_b-10">
+            <div class="the_description">
+                <div class="hint">
                 {block 'post.meta'}
-                    {block 'post.publish'}<time class="time">{$post->getPublished()->format('d.m.y')}</time>{/block}
-                    {block 'post.views'}<img src="/i/views.png"/><span class="number">{$post->getViews()+1}</span>{/block}
-                    {block 'post.rubric'}
-                    {$r=$post->getRubrics()}
-                    {if substr($blog->getPath(),0,5) == '/news' && $r.0}
-                        <img src="/i/folded-newspaper.png" alt="" />{$r.0->getH1()}
+                    {block 'post.publish'}<time class="time" itemprop="datePublished">{$post->getPublished()->format('d.m.y')}</time>{/block}
+                    {block 'post.views'}<img src="/i/views.png" /><span class="number">{$post->getViews()+1}</span>{/block}
+                    {block 'post.parent'}
+                    {if $post->getParent()}
+                        <a href="{$post->getParent()->getPath()}">
+                            {if file_exists(concat($module->getApp()->getWebRoot(),'/i/',$post->getParent()->getSubpath(),'.png'))}
+                                <img src="{concat('/i/',$post->getParent()->getSubpath(),'.png')}" alt="" class="category"/>
+                            {else}
+                                <img src="/i/folded-newspaper.png" alt="" />
+                            {/if}
+                            {$post->getParent()->getH1()}
+                        </a>
                     {/if}
                     {/block}
                 {/block}
                 </div>
-                <div class="author">{block 'post.author'}
-                        {if $post->getAttr(1)}<img src="/i/pers.png" alt="" />
-                            {if $post->getAttr(2)}
-                                <a href="{$post->getAttr(2)}">{$post->getAttr(1)}</a>
-                            {else}
-                                {$post->getAttr(1)}
-                            {/if}
+                {block 'post.title'}<a href="{$post->getPath()}"><h3>{$post->getH1()}</h3></a>{/block}
+                {block 'post.author'}
+                <div class="author">
+                    {if $post->getAttr(1)}<img src="/i/pers.png" alt="" />
+                        {if $post->getAttr(2)}
+                            <a href="{$post->getAttr(2)}">{$post->getAttr(1)}</a>
+                        {else}
+                            {$post->getAttr(1)}
                         {/if}
-                    {/block}</div>
-                <h3><a href="{$post->getPath()}">{$post->getH1()}</a></h3>
-                {block 'description'}
+                    {/if}
+                </div>
+                {/block}
+                {block 'post.description'}
                     <ul class="list_attr">
                         <li>{$post->getShortText()|truncate:200:"  ..."}</li>
                     </ul>
                 {/block}
+                {block 'post.share'}
                 <div class="row">
                     <div class="columns">
                         <ul class="inline-list share-btn">
@@ -57,9 +67,11 @@
                           </ul>
                     </div>
                 </div>
+                {/block}
             </div>
         </div>
     </div>
+    {block 'post.extras'}{/block}
    </div>
 </div>
 {/block}

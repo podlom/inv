@@ -90,7 +90,6 @@ $(document).ready(function() {
     $("form[name='inventure-form'] .label-click").click(function() {
         $(this).parent().parent().children(".tged").slideToggle();
     });
-    $('textarea').autosize();
 
     $('.show_res').click(function() {
         if ($(this).parent().find(".answer").hasClass("margin-answer")) {

@@ -2,7 +2,7 @@
 <!--[if lt IE 7]><html class="lt-ie9 lt-ie8 lt-ie7" /> <![endif]-->
 <!--[if IE 7]><html class="lt-ie9 lt-ie8" /> <![endif]-->
 <!--[if IE 8]><html class="lt-ie9" /> <![endif]-->
-<!--[if gt IE 8]><!--><html lang="ru"><!--<![endif]-->
+<!--[if gt IE 8]><!--><html lang="{$lang|default:'ru'}"><!--<![endif]-->
 <head itemscope itemtype="http://schema.org/Article">
 {if $sm}
 {$user = $sm->getUser()}
@@ -18,7 +18,6 @@
     <link rel="apple-touch-icon" sizes="120x120" href="/images/theme/favicon/touch-icon-iphone-retina.png" />
     <link rel="apple-touch-icon" sizes="152x152" href="/images/theme/favicon/touch-icon-ipad-retina.png" />
     <link rel="shortcut icon" href="/images/theme/favicon/favicon.ico" type="image/x-icon" />
-    <link rel="alternate"  href="http://beta.inventure.com.ua/" hreflang="ru">
     {if $post}
         {meta 'og:title' html_entity_decode($post->getH1())}
         {meta 'og:description' html_entity_decode($post->getShortText())}
@@ -64,8 +63,9 @@
           <div class="menu_icons">
               <i class="fa fa-bars"></i>
           </div>
-          <div class="inv_logo"><a href="/"><img src="/i/logo_header.png"></a></div>
+          <div class="inv_logo"><a href="/{if $lang!='ru'}{$lang}{/if}"><img src="/i/logo_header.png"></a></div>
           <div class="menu">
+            {block 'menu'}
             <nav id="nav">
               <li class="menu-item1">
                 <span><a href="/investments">Инвестиционные предложения</a></span>
@@ -118,6 +118,7 @@
                 </div>
               </li>
             </nav>
+            {/block}
           </div>
             <div class="right">
               <div class="search">
@@ -139,12 +140,14 @@
                 {#/mod}
               </div>
                  <div class="social">
+                {block 'login'}
                 {if !$user || !$user->getId()}
                 <a href="/user/login">Вход</a>
                 {else}
                 <a href="/bulletin" class="my_adv">Мои объявления</a>
                 <a href="/user/logout" class="logout">Выйти</a>
                 {/if}
+                {/block}
               </div>
             </div>
         </div>
@@ -172,17 +175,18 @@
       </div>
     </div>
 </div>
+    {block 'mobile_menu'}
     <div class="mobile_menu">
         <div class="lang_switch">
             <a href="{$data.url|default:'#'}" {if $data}title="{$data['title']}"{/if} {if !$data}disabled{/if}>Switch to English</a>
         </div>
-                         <div class="social">
-                {if !$user || !$user->getId()}
-                <a href="/user/login">Вход</a>
-                {else}
-                <a href="/bulletin" class="my_adv">Мои обьявления</a>
-                {/if}
-              </div>
+        <div class="social">
+        {if !$user || !$user->getId()}
+            <a href="/user/login">Вход</a>
+        {else}
+            <a href="/bulletin" class="my_adv">Мои обьявления</a>
+        {/if}
+        </div>
         <div class="investments">
             <a href="/investments">Инвестиционные предложения </a><i class="fa fa-chevron-right"></i><i class="fa fa-chevron-down"></i>
             <ul class="ul1">
@@ -228,10 +232,13 @@
             </ul>
         </div>
     </div>
+    {/block}
     <div class="grid-container tablet_buttons">
       <div class="grid-x grid-margin-x">
+    {block 'side_buttons'}
         <a href="/investor" class="tablet_button1">инвестировать</a>
         <a href="/add-inv-prop" class="tablet_button2">Найти инвестора</a>
+    {/block}
       </div>
     </div>
     <div class="off-canvas-wrap" data-offcanvas="">
@@ -261,6 +268,7 @@
         <div class="logo">
           <img src="/i/logo_footer.png">
         </div>
+        {block 'footer_menu'}
         <div class="grid-x grid-margin-x">
           <div class="cell small-6 medium-3">
             <h6><a href="http://inventure.ua/">InVenture <span>Media Group</span></a></h6>
@@ -304,6 +312,7 @@
             <p><a href="/tools/investors">Инвесторы</a></p>
           </div>
         </div>
+        {/block}
        <div class="social">
           <a href="https://www.facebook.com/inventure.com.ua" target="_blank"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>
             <a href="http://goo.gl/3WiX8K" target="_blank"><i class="fa fa-google-plus-square" aria-hidden="true"></i></a>
@@ -312,8 +321,9 @@
             <a href="https://t.me/inventure" target="_blank"><i class="fa fa-telegram" aria-hidden="true"></i></a>
         </div>
         <div class="copyright">
-            Публикация материалов InVenture разрешается только при условии размещения активной ссылки - https://inventure.com.ua
-<br>© 2010-2018 InVenture™  All Rights Reserved
+            {block 'copyright'}
+            Публикация материалов InVenture разрешается только при условии размещения активной ссылки - https://inventure.com.ua <br>© 2010-2018 InVenture™  All Rights Reserved
+            {/block}
         </div>
       </div>
     </footer>
@@ -344,11 +354,6 @@
     <div id="questionForm" class="reveal-modal questionFormCenter" data-reveal>
         <h2>Задать вопрос</h2>
         {form callback}
-        {*if $form}
-        {$s = $form->getSubmit()->setAttr('value', 'Задать вопрос')}
-        {$s = $form->getSubmit()->addClass('blue_but right')}
-        {$form}
-        {/if*}
         <a class="close-reveal-modal">&#215;</a>
     </div>
 {if $user && $user->canAccess('Page.publish') && ($page || $post || $blog)}

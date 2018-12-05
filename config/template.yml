@@ -34,15 +34,15 @@ board_single:
 add-adv:
    urls:
      - '/add-adv'
-   template: 'blog/add-adv'
+   template: 'add-adv'
 add-inv-prop:
    urls:
      - '/add-inv-prop'
-   template: 'blog/add-inv-prop'
+   template: 'add-inv-prop'
 complex-approach:
    urls:
      - '/complex-approach'
-   template: 'blog/complex-approach'
+   template: 'complex-approach'
 analytics_list:
    urls:
      - '/analytics'
@@ -51,13 +51,15 @@ analytics_list:
      - '/analytics/formula'
      - '/analytics/we-invest-in-ukraine'
    template: 'blog/analytics.list'
-analytics:
+analytics_list_en:
    urls:
-     - '/analytics/investments/+'
-     - '/analytics/articles/+'
-     - '/analytics/formula/+'
-     - '/analytics/we-invest-in-ukraine/+'
-   template: 'blog/analytics.post'
+     - '/analytics'
+     - '/analytics/investments'
+     - '/analytics/articles'
+     - '/analytics/formula'
+     - '/analytics/we-invest-in-ukraine'
+   template: 'blog/analytics.list'
+   layout: 'Core.layout_en'
 didgest:
    urls:
       - '/analytics/digest'
@@ -82,15 +84,6 @@ video:
   urls:
     - '/tools/video/*'
   template: 'blog/video.post'
-database_post:
-  urls:
-    - '/tools/database/*'
-  template: 'blog/database.post'
-database_post_en:
-  urls:
-    - '/en/tools/database/*'
-  template: 'blog/database.post'
-  layout: Core.layout_en
 atlas_list:
   urls:
     - '/tools/investors'
@@ -134,10 +127,6 @@ calculator:
   urls:
      - '/tools/calculator'
   template: 'calculator'
-hr:
-  urls:
-     - '/tools/calculator'
-  template: 'Page.view'
 investments:
   urls:
     - '/investments'
@@ -152,56 +141,11 @@ investment_posts:
     - '/investments/+'
   template: 'blog/inventure.post'
   default_template: 'Blog.post'
-tools:
-  urls:
-    - '/tools'
-  template: 'blog/tools.index'
 tools_list:
   urls:
     - '/tools/+'
   template: 'blog/tools.list'
-  default_template: 'Blog.post'
-
-about:
-  urls:
-    - '/about'
-  template: 'Template.view'
-advertising:
-  urls:
-    - '/about/advertising'
-  template: 'Template.view'
-team:
-  urls:
-    - '/about/team'
-  template: 'Template.view'
-job_list:
-  urls:
-    - '/about/jobs'
-  template: 'blog/job.list'
-job:
-  urls:
-    - '/about/jobs/+'
-  template: 'blog/job'
-faq:
-  urls:
-    - '/about/faq'
-  template: 'Template.view'
-rules:
-  urls:
-    - '/rules'
-  template: 'Template.view'
-contacts:
-  urls:
-    - '/about/contacts'
-  template: 'Template.view'
-services:
-  urls:
-    - '/services'
-  template: 'blog/services.list'
-services_post:
-  urls:
-    - '/services/+'
-  template: 'blog/services'
+  default_template: 'Blog.blog'
 home_en:
    urls:
       - '/en'
@@ -217,13 +161,13 @@ news_list_en:
       - '/en/news'
       - '/en/news/+'
       - '/en/news/+/+'
-   template: 'blog/news.list_en'
+   template: 'blog/news.list'
    default_template: 'Blog.blog'
    layout: Core.layout_en
 news_en:
    urls:
       - '/en/news/*'
-   template: 'blog/news_en'
+   template: 'blog/news'
    layout: Core.layout_en
 investments_en:
   urls:
@@ -238,27 +182,11 @@ investment_posts_en:
   template: 'blog/inventure.post_en'
   default_template: 'Blog.post'
   layout: Core.layout_en
-analytics_en:
-   urls:
-     - '/en/analytics/investments/+'
-     - '/en/analytics/articles/+'
-     - '/en/analytics/formula/+'
-     - '/en/analytics/we-invest-in-ukraine/+'
-   template: 'blog/analytics.post_en'
-   layout: Core.layout_en
-analytics_list_en:
-   urls:
-     - '/en/analytics'
-     - '/en/analytics/investments'
-     - '/en/analytics/articles'
-     - '/en/analytics/formula'
-     - '/en/analytics/we-invest-in-ukraine'
-   template: 'blog/analytics.list_en'
-   layout: Core.layout_en
 events_en:
   urls:
     - '/en/tools/events'
-  template: 'blog/event.lent_en'
+    - '/en/tools/events/archive'
+  template: 'blog/event.lent'
   layout: Core.layout_en
 event_en:
   urls:
@@ -268,11 +196,13 @@ event_en:
 video_list_en:
   urls:
     - '/en/tools/video'
-  template: 'blog/video.list_en'
+  template: 'blog/video.list'
+  layout: Core.layout_en
 video_en:
   urls:
     - '/en/tools/video/*'
-  template: 'blog/video.post_en'
+  template: 'blog/video.post'
+  layout: Core.layout_en
 didgest_en:
    urls:
       - '/en/analytics/digest'
@@ -286,42 +216,27 @@ library_en:
 tools_list_en:
   urls:
     - '/en/tools/+'
-  template: 'blog/tools.list_en'
+  template: 'blog/tools.list'
   layout: Core.layout_en
 about_en:
   urls:
     - '/en/about'
-  template: 'Template.view'
   layout: Core.layout_en
 advertising_en:
   urls:
     - '/en/about/advertising'
-  template: 'Template.view'
   layout: Core.layout_en
 team_en:
   urls:
     - '/en/about/team'
-  template: 'Template.view'
-  layout: Core.layout_en
-job_list_en:
-  urls:
-    - '/en/about/jobs'
-  template: 'blog/job.list'
-  layout: Core.layout_en
-job_en:
-  urls:
-    - '/en/about/jobs/+'
-  template: 'blog/job'
   layout: Core.layout_en
 faq_en:
   urls:
     - '/en/about/faq'
-  template: 'Template.view'
   layout: Core.layout_en
 contacts_en:
   urls:
     - '/en/about/contacts'
-  template: 'Template.view'
   layout: Core.layout_en
 services_en:
   urls:
@@ -336,12 +251,12 @@ services_post_en:
 add-inv-prop_en:
    urls:
      - '/en/add-inv-prop'
-   template: 'blog/add-inv-prop.en'
+   template: 'add-inv-prop.en'
    layout: Core.layout_en
 complex-approach_en:
    urls:
      - '/en/complex-approach'
-   template: 'blog/complex-approach_en'
+   template: 'complex-approach_en'
    layout: Core.layout_en
 en:
    urls:

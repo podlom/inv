@@ -1,5 +1,5 @@
 <div class="admin-pages">
-    <div class="menu-blocks">   
+    <div class="menu-blocks">
         <div>
             <div>
                 <p>Новости</p>
@@ -54,12 +54,22 @@
                                    {$label}
                                 </td>
                             {/foreach}
+                            <td>Дата</td>
                         </tr>
                     </thead>
                     <tbody>
                         {foreach $items as $subsriber}
                             <tr>
-                                <td>{$subsriber->getEmail()|escape}</td>
+                                <td>
+                                    <a href="#" disabled>{$subsriber->getEmail()|escape}</a>
+                                    {try}
+                                    <a href="{$controller->purl('remove', ['id'=>rawurlencode($subsriber->getEmail())])}"><i class="fa fa-close"></i></a>
+                                    {catch type="DOMException"}
+                                    DOM Exception!
+                                    {catch}
+                                    <a href="#"><i class="fa fa-close"></i></a>
+                                    {/try}
+                                </td>
                                 <td style="display: none;">{if $subsriber->getStatus()}<b>Подписан</b>{else}<b>Отписался</b>{/if}</td>
                                 {foreach $fields as $name=>$label}
                                     {$value = $subsriber->getData($name)}
@@ -71,6 +81,7 @@
                                     {/if}
                                     </td>
                                 {/foreach}
+                                <td>{$subsriber->getCreated()->format('Y.m.d H:i')}</td>
                             </tr>
                         {/foreach}
                     </tbody>
