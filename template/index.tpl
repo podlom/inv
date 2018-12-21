@@ -426,7 +426,7 @@
                 <div class="form">
                 	<div class="title">
 		               <a href="/analytics/digest"> <i class="fa fa-rss"></i>
-		                Подписка на дайджест </a>
+		                Инвестиционный дайджест </a>
 		              </div>
 		              <div class="img"><img src="/i/digest_img.jpg"></div>
                     {subscribe}

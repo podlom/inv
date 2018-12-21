@@ -1,12 +1,12 @@
-{extends 'Blog.blog'}
+{extends 'blog/analytics.list'}
 {block 'page.class' append} atlas_list{/block}
-{block 'config'}
+{block 'config' append}
 {capture assign='filters'}
     <div class="filter m_b-15" >
         {filter fields=[60,16,53,46]} {*investments,kved,stage,type *}
         <form name="atlas-form" method="get" action="">
             <h3><i class="fa fa-search"></i>Поиск инвестора</h3>
-            <div class="row">
+            <div class="p8">
                 <div>
                     {$filter->getField('search')->getInput()->setAttr('placeholder', "Поиск по названию")}
                 </div>
@@ -32,7 +32,7 @@
                     <label class="label-click6 label-input">Размер инвестиций<span class="open icon"></span><span class="close icon">&#215;</span></label>
                     <div class="tged6 otr-inv">{$filter->getField(60)->getInput()->setAttr('placeholder', "Размер инвестиций")}</div>
                 </div>
-                <div class="columns">
+                <div>
                     <center><button class="blue_but" type="submit" aria-label="submit form">Искать</button></center>
                 </div>
             </div>
@@ -51,4 +51,11 @@
     <div class="box-shadow1"></div>
     {$filters}
 </div>
+{/block}
+{block 'post.description'}
+<ul class="list_attr">
+    {if $post->printAttr(46)}<li><b>Тип инвестора:</b> {$post->printAttr(46)}</li>{/if}
+    {if $post->printAttr(52)}<li><b>Размер инвестицй:</b> {$post->printAttr(52)}</li>{/if}
+    {if $post->printAttr(53)}<li><b>Стадии инвестирования:</b> {$post->printAttr(53)}</li>{/if}
+</ul>
 {/block}

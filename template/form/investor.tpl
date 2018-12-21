@@ -19,18 +19,18 @@
 </fieldset>
 <div class="checkbox">
 	{foreach ['types','stage','location','strong','size','inv'] as $t}
-    <div class="row">
+    <h3>{$form->getField($t)->getLabel()}</h3>
+    <div class="grid-x grid-margin-x">
         {$arr=$form->getField($t)->getInput()->getChilds()}
         {$count = round(count($arr)/2)}
         {$arr1 = array_slice($arr,0,$count)}
         {$arr2 = array_slice($arr,$count)}
-        <h3>{$form->getField($t)->getLabel()}</h3>
-        <div class="large-6 medium-6 columns check-row">{foreach $arr1 as $f}{$f}{/foreach}</div>
-        <div class="large-6 medium-6 columns check-row">{foreach $arr2 as $f}{$f}{/foreach}</div>
+        <div class="large-6 medium-6 cell check-row">{foreach $arr1 as $f}{$f}{/foreach}</div>
+        <div class="large-6 medium-6 cell check-row">{foreach $arr2 as $f}{$f}{/foreach}</div>
     </div>
     {/foreach}
-    <div class="row info">
-        <div class="columns">{$form->getField('info')}</div>
+    <div class="info">
+        <div>{$form->getField('info')}</div>
         <center>
         	{$form->getSubmit()->addClass('my_but')}
     	</center>

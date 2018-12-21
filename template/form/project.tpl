@@ -12,74 +12,74 @@
 {/foreach}
 <fieldset>
     <legend>Данные об инциаторе инвестиционного проекта</legend>
-    <div class="row medium-uncollapse">
-        <div class="large-6 medium-6 columns">{$form->getField('name')}</div>
-        <div class="large-6 medium-6 columns">{$form->getField('job')}</div>
-        <div class="large-6 medium-6 columns">{$form->getField('email')}</div>
-        <div class="large-6 medium-6 columns">{$form->getField('phone')}</div>
+    <div class="grid-x grid-margin-x ">
+        <div class="medium-6 small-12 cell">{$form->getField('name')}</div>
+        <div class="medium-6 small-12 cell">{$form->getField('job')}</div>
+        <div class="medium-6 small-12 cell">{$form->getField('email')}</div>
+        <div class="medium-6 small-12 cell">{$form->getField('phone')}</div>
     </div>
 </fieldset>
 <fieldset>
     <legend>Общая информация об инвестиционном проекте</legend>
-    <div class="row medium-uncollapse">
-        <div class="large-6 medium-6 columns">{$form->getField('company')}</div>
-        <div class="large-6 medium-6 columns">{$form->getField('period')}</div>
-        <div class="large-6 medium-6 columns">{$form->getField('site')}</div>
-        <div class="large-6 medium-6 columns">{$form->getField('region')}</div>
-        <div class="large-6 medium-6 columns end">{$form->getField('stage')}</div>
+    <div class="grid-x grid-margin-x ">
+        <div class="medium-6 small-12 cell">{$form->getField('company')}</div>
+        <div class="medium-6 small-12 cell">{$form->getField('period')}</div>
+        <div class="medium-6 small-12 cell">{$form->getField('site')}</div>
+        <div class="medium-6 small-12 cell">{$form->getField('region')}</div>
+        <div class="medium-6 small-12 cell end">{$form->getField('stage')}</div>
     </div>
 </fieldset>
 
 <fieldset>
     <legend>{$form->getField('types')->getLabel()}</legend>
-    <div class="row medium-uncollapse">
-        <div class="large-6 medium-6 columns"><div class="row"><label>{$form->getField('types')->getInput()}</label></div></div>
-        <div class="large-6 medium-6 columns"><div class="row"><label>{$form->getField('types_other')->getInput()}</label></div></div>
+    <div class="grid-x grid-margin-x ">
+        <div class="medium-6 small-12 cell"><div class="row"><label>{$form->getField('types')->getInput()}</label></div></div>
+        <div class="medium-6 small-12 cell"><div class="row"><label>{$form->getField('types_other')->getInput()}</label></div></div>
     </div>
 </fieldset>
-<div class="row medium-uncollapse">
-    <div class="large-6 medium-6 columns">{$form->getField('cost')}</div>
-    <div class="large-6 medium-6 columns">{$form->getField('money')}</div>
-    <div class="large-6 medium-6 columns">{$form->getField('actives')}</div>
-    <div class="large-6 medium-6 columns">{$form->getField('price')}</div>
+<div class="grid-x grid-margin-x ">
+    <div class="medium-6 small-12 cell">{$form->getField('cost')}</div>
+    <div class="medium-6 small-12 cell">{$form->getField('money')}</div>
+    <div class="medium-6 small-12 cell">{$form->getField('actives')}</div>
+    <div class="medium-6 small-12 cell">{$form->getField('price')}</div>
 </div>
-<div class="row medium-uncollapse">
-    <div class="large-6 medium-6 columns">{$form->getField('conditions')}</div>
-    <div class="large-6 medium-6 columns">{$form->getField('curs')}</div>
+<div class="grid-x grid-margin-x ">
+    <div class="medium-6 small-12 cell">{$form->getField('conditions')}</div>
+    <div class="medium-6 small-12 cell">{$form->getField('curs')}</div>
 </div>
-<div class="row medium-uncollapse">
-    <div class="large-6 medium-6 columns">{$form->getField('plan_stage')}</div>
-    <div class="large-6 medium-6 columns">{$form->getField('plan_done')}</div>
+<div class="grid-x grid-margin-x ">
+    <div class="medium-6 small-12 cell">{$form->getField('plan_stage')}</div>
+    <div class="medium-6 small-12 cell">{$form->getField('plan_done')}</div>
 </div>
 <fieldset>
     <legend>Текущие финансово-экономические показатели проекта</legend>
-    <div class="row medium-uncollapse">
-        <div class="large-6 medium-6 columns">{$form->getField('gross_income')}</div>
-        <div class="large-6 medium-6 columns">{$form->getField('clean_income')}</div>
+    <div class="grid-x grid-margin-x ">
+        <div class="medium-6 small-12 cell">{$form->getField('gross_income')}</div>
+        <div class="medium-6 small-12 cell">{$form->getField('clean_income')}</div>
     </div>
 </fieldset>
 <fieldset>
     <legend>Показатели эффективности инвестиционного проекта</legend>
-    <div class="row medium-uncollapse">
-        <div class="large-6 medium-6 columns">{$form->getField('irr')}</div>
-        <div class="large-6 medium-6 columns">{$form->getField('nvp')}</div>
-        <div class="large-6 medium-6 columns">{$form->getField('pi')}</div>
-        <div class="large-6 medium-6 columns">{$form->getField('pp')}</div>
-        <div class="large-6 medium-6 columns end">{$form->getField('dpp')}</div>
+    <div class="grid-x grid-margin-x ">
+        <div class="medium-6 small-12 cell">{$form->getField('irr')}</div>
+        <div class="medium-6 small-12 cell">{$form->getField('nvp')}</div>
+        <div class="medium-6 small-12 cell">{$form->getField('pi')}</div>
+        <div class="medium-6 small-12 cell">{$form->getField('pp')}</div>
+        <div class="medium-6 small-12 cell end">{$form->getField('dpp')}</div>
     </div>
 </fieldset>
 {$form->getField('request')}
 <fieldset>
     <legend>Расширенная информация о проекте</legend>
-    <div class="row medium-uncollapse">
-        <div class="large-6 medium-6 columns">{$form->getField('concept')}</div>
-        <div class="large-6 medium-6 columns">{$form->getField('product')}</div>
-        <div class="large-6 medium-6 columns">{$form->getField('concurent')}</div>
-        <div class="large-6 medium-6 columns">{$form->getField('marketing')}</div>
-        <div class="large-6 medium-6 columns">{$form->getField('risk')}</div>
-        <div class="large-6 medium-6 columns">{$form->getField('team')}</div>
-        <div class="large-6 medium-6 columns">{$form->getField('strategy')}</div>
-        <div class="large-6 medium-6 columns">{$form->getField('other_info')}</div>
+    <div class="grid-x grid-margin-x ">
+        <div class="medium-6 small-12 cell">{$form->getField('concept')}</div>
+        <div class="medium-6 small-12 cell">{$form->getField('product')}</div>
+        <div class="medium-6 small-12 cell">{$form->getField('concurent')}</div>
+        <div class="medium-6 small-12 cell">{$form->getField('marketing')}</div>
+        <div class="medium-6 small-12 cell">{$form->getField('risk')}</div>
+        <div class="medium-6 small-12 cell">{$form->getField('team')}</div>
+        <div class="medium-6 small-12 cell">{$form->getField('strategy')}</div>
+        <div class="medium-6 small-12 cell">{$form->getField('other_info')}</div>
     </div>
 </fieldset>
 {$form->getSubmit()->addClass('blue_but')}

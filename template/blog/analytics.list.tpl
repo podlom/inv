@@ -1,4 +1,4 @@
-{extends 'Blog.blog'}{* used by: board,experts,lirary,tools*}
+{extends 'Blog.blog'}{* used by: board,experts,lirary,tools,atlas*}
 {block 'config' append}
 {if $lang == 'en'}
 {$links = [

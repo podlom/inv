@@ -1,6 +1,6 @@
 {extends 'blog/analytics.list'}{* ANALYTICS TEMPLATE! *}
 {block 'page.class' append} experts{/block}
-{block 'config'}
+{block 'config' append}
 {$post_size = [2,10]}
 {/block}
 {block 'breadcrumbs!NO' append}

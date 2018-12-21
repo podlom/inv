@@ -46,8 +46,8 @@
     {block 'post.head'}
     <div style="position: relative;" class="board-single">
         <div class="box-shadow"></div>
-        <div class="row m_b-20 auto-height">
-            <div class="medium-{$post_head_size.0|default:5} columns photo-in">
+        <div class="grid-x m_b-20 auto-height">
+            <div class="medium-{$post_head_size.0|default:5} cell photo-in">
             {block 'post.image'}
                 {if $post->hasImage()}
                 <div id="newsThumb">
@@ -65,7 +65,7 @@
                 </div>
             {/block}
             </div>
-            <div class="medium-{$post_size.1|default:7} columns">
+            <div class="medium-{$post_size.1|default:7} cell">
                 <div class="viewbox-cnt attr-in">
                     <div class="hint m_b-10">
                     {block 'post.meta'}

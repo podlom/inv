@@ -35,3 +35,6 @@
     </div>
 </div>
 {/block}
+{block 'post.views' append}
+<div class="reviews">{widget 6 target=$post->getId()}</div> {$post->getRating()|number_format:1}
+{/block}

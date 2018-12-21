@@ -31,6 +31,16 @@ iframe {
     width: 100%!important
 }
 
+.p8{
+    padding: 8px;
+}
+
+.inline-list{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
 #content_editable,.admin_edit {
     top: 100px!important
 }
@@ -1784,10 +1794,6 @@ footer .copyright {
     margin-bottom: 24px
 }
 
-.the_post .viewbox-cnt-body li {
-    font-size: 13px
-}
-
 .the_post nav {
     color: #0e618a;
     margin-bottom: 24px;
@@ -1819,10 +1825,6 @@ footer .copyright {
     border-bottom: 1px solid #5287b0
 }
 
-.the_post .viewbox-cnt-body {
-    padding: 45px;
-    background: #fff
-}
 
 .the_post .content_nav1 li {
     float: left
@@ -1857,9 +1859,6 @@ footer .copyright {
     font-weight: 500
 }
 
-.the_post .viewbox-cnt-body .share-btn {
-    margin: 30px 0 0 10px
-}
 
 .the_post .content_nav1 li a:hover {
     background-color: #fafafa;
@@ -1929,7 +1928,7 @@ footer .copyright {
     margin-bottom: 24px
 }
 
-.my_board .large-9 .viewbox-cnt .del_edit_buttons {
+.my_board .del_edit_buttons {
     position: absolute;
     bottom: 16px;
     width: 100%;
@@ -1937,30 +1936,30 @@ footer .copyright {
     padding: 0 12px
 }
 
-.my_board .large-9 .viewbox-cnt .del_edit_buttons a {
+.my_board .del_edit_buttons a {
     color: #9b9b9b;
     font-family: Montserrat;
     font-size: 13px;
     font-weight: bold
 }
 
-.my_board .large-9 .viewbox-cnt .del_edit_buttons a img {
+.my_board .del_edit_buttons a img {
     margin-right: 5px
 }
 
-.my_board .large-9 .viewbox-cnt .del_edit_buttons a:first-child {
+.my_board .del_edit_buttons a:first-child {
     margin-right: 21px
 }
 
-.my_board .large-9 .viewbox-cnt .del_edit_buttons a:first-child img {
+.my_board .del_edit_buttons a:first-child img {
     margin-top: -4px
 }
 
-.my_board .large-9 .viewbox-cnt .del_edit_buttons a:nth-child(2) img {
+.my_board .del_edit_buttons a:nth-child(2) img {
     margin-top: -3px
 }
 
-.my_board .large-9 .viewbox-cnt .del_edit_buttons a.pay_btn {
+.my_board .del_edit_buttons a.pay_btn {
     float: right;
     height: 24px;
     width: 100px;
@@ -1973,7 +1972,7 @@ footer .copyright {
     text-align: center
 }
 
-.my_board .large-9 .viewbox-cnt .del_edit_buttons p.status {
+.my_board .del_edit_buttons p.status {
     float: right;
     color: #9b9b9b;
     font-family: Montserrat;
@@ -2083,10 +2082,6 @@ table tr td {
     font-family: Montserrat
 }
 
-.the_post .viewbox-cnt-body .share-btn {
-    margin-top: 24px;
-    margin-left: 0!important
-}
 
 .inner-wrap .pagination {
     width: 100%;
@@ -2115,41 +2110,13 @@ table tr td {
     display: inline
 }
 
-.the_post .viewbox-cnt-body{
-    color: #4a4a4a;
-    font-size: 14px;
-    font-weight: 500;
-    padding: 45px;
-    margin-bottom: 0!important
-}
 
-.the_post .viewbox-cnt-body *{
-    color: #4a4a4a;
-    font-size: 14px;
-    font-weight: 500;
-
-}
-
-.the_post .viewbox-cnt-body .row{
-    margin-bottom: 0
-}
-
-.the_post .viewbox-cnt-body li{
-    font-size: 13px;
-    font-weight: 400;
-    margin-top: 10px
-}
-
-.the_post .viewbox-cnt-body p,.board_page .accordion .block p {
+.board_page .accordion .block p {
     margin-bottom: 17.5px;
     font-family: Montserrat;
     font-size: 13px;
-    /* font-weight: 500; */
 }
 
-.the_post .viewbox-cnt-body p:last-child{
-    margin-bottom: 0
-}
 
 .the_post .columns{
     padding-left: 0;
@@ -2354,7 +2321,7 @@ table tr td {
     top: 10px;
     width: 100%;
     height: 100%;
-    text-align: right
+    text-align: right;
 }
 
 .atlas_single .label-input .open::before,.atlas_list .label-input .open::before {
@@ -2676,12 +2643,11 @@ table tr td {
     display: block;
     font-family: inherit;
     font-size: 13px;
-    border-radius: 4px;
     height: 2.3125rem;
     margin: 0 0 1rem 0;
     padding: .3rem .5rem;
     width: 100%;
-    position: relative
+    position: relative;
 }
 
 .atlas_single form fieldset label,.atlas_list form fieldset label {
@@ -2702,8 +2668,7 @@ table tr td {
 }
 
 .atlas_single .filter input,.atlas_list .filter input {
-    border-radius: 4px;
-    font-size: 13px
+    font-size: 13px;
 }
 
 .atlas_list .box-shadow1 {
@@ -2738,15 +2703,7 @@ table tr td {
     color: #1c2e36
 }
 
-.the_post #panel3 .viewbox-cnt-body {
-    padding: 10px 38px
-}
 
-.the_post #panel3 .viewbox-cnt-body a img {
-    width: 149px;
-    height: 112px;
-    margin-bottom: 4px
-}
 
 .the_post #panel2 {
     padding: 20px 45px 0
@@ -3111,96 +3068,6 @@ table tr td {
     margin-bottom: 20px
 }
 
-.investor-form .viewbox-cnt-body {
-    padding: 45px;
-    font-size: 14px
-}
-
-.investor-form .viewbox-cnt-body ol {
-    margin-top: 24px
-}
-
-.investor-form .viewbox-cnt-body ol li {
-    list-style: none;
-    font-size: 14px;
-    margin-bottom: 16px;
-    color: #4a4a4a;
-    font-weight: 500
-}
-
-.investor-form .viewbox-cnt-body ol li input {
-    vertical-align: middle;
-    margin-bottom: 3px
-}
-
-.investor-form .viewbox-cnt-body>div:first-child>div:nth-child(2) strong {
-    margin: 24px 0;
-    display: block;
-    color: #4a4a4a;
-    font-size: 14px
-}
-
-.investor-form .viewbox-cnt-body>div:first-child ul li {
-    color: #4a4a4a;
-    font-size: 14px;
-    margin-bottom: 8px;
-    font-weight: 500;
-    list-style: none
-}
-
-.investor-form .viewbox-cnt-body>div:first-child div:last-child p {
-    font-size: 14px;
-    color: #4a4a4a;
-    font-weight: 500;
-    margin-bottom: 17.5px
-}
-
-.investor-form .viewbox-cnt-body .form-default {
-    margin-top: 32px
-}
-
-.investor-form .viewbox-cnt-body .form-default .row {
-    margin: 0
-}
-
-.investor-form .viewbox-cnt-body .form-default form fieldset {
-    margin-bottom: 16px
-}
-
-.investor-form .viewbox-cnt-body .form-default form fieldset h3 {
-    margin-bottom: 15px
-}
-
-.investor-form .viewbox-cnt-body .form-default form fieldset input[type="text"] {
-    display: inline-block;
-    height: 32px;
-    width: 330px;
-    border-radius: 2px;
-    margin-right: 45px;
-    font-size: 13px
-}
-
-.investor-form .viewbox-cnt-body .form-default form .checkbox .columns {
-    padding: 0
-}
-
-.investor-form .viewbox-cnt-body .form-default form .checkbox .columns input[type="checkbox"] {
-    top: 6px
-}
-
-.investor-form .viewbox-cnt-body .form-default form .checkbox .columns input[type="radio"] {
-    top: 7px
-}
-
-.investor-form .viewbox-cnt-body .form-default form .checkbox .columns label {
-    color: #4a4a4a;
-    font-weight: 500;
-    font-size: 14px
-}
-
-.investor-form .viewbox-cnt-body .form-default form .checkbox .row {
-    margin-bottom: 32px
-}
 
 .investor-form .info label {
     color: #4a4a4a;
@@ -3226,7 +3093,7 @@ table tr td {
     padding: 10px
 }
 
-.the_post .tabs {
+.the_post ul.tabs {
     border: 0;
     border-bottom: 1px solid #5287b0;
     background-color: #fafafa
@@ -3265,10 +3132,6 @@ table tr td {
 
 .the_post .tabs-panel {
     padding: 0
-}
-
-.the_post .clearfix {
-    margin-bottom: 24px
 }
 
 .the_preview .date {
@@ -3686,253 +3549,6 @@ table tr td {
     margin: 32px auto 0 auto
 }
 
-.digest .inner{
-    position: relative;
-}
-
-.digest .pad{
-    padding: 16px 8px;
-}
-
-.digest .pad button{
-    margin: 0 auto;
-}
-
-.digest .box-shadow1 {
-    width: 538.45px;
-    height: 202px;
-    background: #fff;
-    position: absolute;
-    bottom: 4px;
-    left: 15px;
-    box-shadow: 0 2px 16px 0 rgba(0,0,0,0.25);
-    z-index: -1
-}
-
-.digest .box-shadow2 {
-    width: 256px!important;
-    height: 202px;
-    background: #fff;
-    position: absolute;
-    bottom: 4px;
-    left: 8px;
-    box-shadow: 0 2px 16px 0 rgba(0,0,0,0.25);
-    z-index: -1
-}
-
-.digest .box-shadow3 {
-    width: 100%;
-    height: 99%;
-    background: #fff;
-    left: 0;
-    position: absolute;
-    bottom: 0;
-    box-shadow: 0 2px 16px 0 rgba(0,0,0,0.25);
-    z-index: -1
-}
-
-.digest .clearfix {
-    margin-bottom: 18px
-}
-
-.digest #newsThumb img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center
-}
-
-.digest .viewbox-cnt {
-    padding: 12px 18px
-}
-
-.digest .viewbox-cnt h3 {
-    font-size: 20px;
-    color: #1c2e36;
-    font-weight: 700
-}
-
-.digest .viewbox-cnt .list_attr li {
-    font-size: 14px;
-    font-family: Montserrat;
-    font-weight: 500
-}
-
-.digest .subf h3,.digest .arch h3 {
-    background: #5287b0;
-    color: #fff;
-    font-size: 13px;
-    font-weight: 700;
-    margin-bottom: 0;
-    padding: 12px 8px
-}
-
-.digest .arch h3 a {
-    color: #fff
-}
-
-.digest .subf h3 i,.digest .arch h3 i {
-    margin-right: 8px
-}
-
-.digest .subscribe_digest {
-    background: #fff;
-    padding: 24px 8px 0
-    font-size: 13px;
-    color: #9b9b9b;
-}
-
-
-.digest .subscribe_digest label{
-    text-align: left;
-}
-
-.digest .subscribe_digest button {
-    height: 32px;
-    width: 125px;
-    border-radius: 2px;
-    background-color: #ef767a;
-    box-shadow: 0 2px 16px 0 rgba(0,0,0,0.06);
-    font-size: 13px;
-    font-weight: 700;
-    color: #fff
-}
-
-.digest form.row fieldset {
-    margin-top: 0!important;
-    margin-left: 8px;
-    margin-bottom: 8px
-}
-
-.digest form.row fieldset label {
-    display: inline;
-    margin-left: 8px;
-    margin-right: 24px
-}
-
-.digest form.row fieldset input {
-    width: auto;
-    margin: 0;
-    height: auto
-}
-
-.digest form.row button {
-    margin: 8px auto;
-    display: block!important
-}
-
-.digest .arch select {
-    height: 32px;
-    font-size: 13px;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 0 7px;
-    position: relative;
-    margin-bottom: 0;
-}
-
-.digest .arch .select {
-    position: relative;
-    margin-bottom: 16px
-}
-
-.digest .arch .select::before {
-    content: '';
-    position: absolute;
-    bottom: 9px;
-    border: 4px solid transparent;
-    border-top: 5.5px solid #8a8a8a;
-    right: 20px;
-    width: 4px;
-    z-index: 2
-}
-
-.digest .arch .blue_but {
-    background-color: #ef767a;
-    box-shadow: 0 2px 16px 0 rgba(0,0,0,0.06);
-    font-weight: 700
-}
-
-.digest .viewbox-cnt-body li {
-    margin-top: 0;
-    font-size: 14px;
-    list-style-type: disc
-}
-
-.digest .viewbox-cnt-body {
-    background: 0;
-    padding: 0
-}
-
-.digest .viewbox-cnt-body .content {
-    position: relative;
-    background: #fff;
-    padding: 45px;
-    margin-bottom: 50px;
-}
-
-.digest .viewbox-cnt-body .reviews {
-    padding: 15px 45px;
-    background: #fff;
-    margin-bottom: 50px;
-    position: relative
-}
-
-.digest .viewbox-cnt-body .reviews .box-shadow4 {
-    width: 100%;
-    height: 99%;
-    background: #fff;
-    position: absolute;
-    margin-bottom: 0;
-    bottom: 0;
-    left: 0;
-    box-shadow: 0 2px 16px 0 rgba(0,0,0,0.25);
-    z-index: -1
-}
-
-.digest .viewbox-cnt-body .reviews>div {
-    display: flex;
-    align-items: flex-start;
-    margin-bottom: 24px
-}
-
-.digest .viewbox-cnt-body .reviews>div div:first-child {
-    margin-right: 24px;
-    width: 102px;
-    height: 102px;
-    border-radius: 50%;
-    border: 3px solid #fff;
-    flex: 1 0 auto;
-    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2)
-}
-
-.digest .viewbox-cnt-body .reviews>div img {
-    margin: 0!important;
-    object-fit: cover;
-    object-position: center;
-    width: 100%;
-    height: 100%;
-    border-radius: 50%
-}
-
-.digest .viewbox-cnt-body .reviews>div h4 {
-    text-align: left;
-    color: #1c2e36;
-    font-size: 14px;
-    font-weight: 700
-}
-
-.digest .viewbox-cnt-body .reviews>div p {
-    color: #9b9b9b;
-    font-size: 13px;
-    font-weight: 500;
-    font-style: italic;
-    text-align: left
-}
-
-.digest .viewbox-cnt-body .reviews h2 {
-    text-align: left
-}
 
 .library .info_table {
     background: #fff;
@@ -4044,13 +3660,6 @@ table tr td {
 
 .projf{
     margin: 16px 0;
-}
-
-
-.projf label{
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
 }
 
 .projf select,.projf input[type="text"],.projf input[type="email"],.projf input[type="number"]{
@@ -4196,13 +3805,6 @@ table tr td {
     margin-bottom: 24px
 }
 
-.template_view .viewbox-cnt-body li {
-    font-size: 13px
-}
-
-.template_view .viewbox-cnt-body li a {
-    font-size: 13px
-}
 
 .template_view iframe {
     margin-top: 24px
@@ -4215,7 +3817,8 @@ table tr td {
 .the_post .search-cnt {
     position: relative;
     float: none;
-    overflow: hidden
+    overflow: hidden;
+    margin:0;
 }
 
 .the_post .search-cnt h3 {
@@ -5194,39 +4797,10 @@ a:hover img {
     min-height: 195px
 }
 
-.viewbox-cnt-body {
-    float: left;
-    width: 100%;
-    padding: 20px;
-    background-color: #fff
-}
-
-.viewbox-cnt-body a {
-    color: #1d92cf
-}
-
-.viewbox-cnt-body ul,.viewbox-cnt-body ol {
-    list-style: circle;
-    margin-left: 25px
-}
-
-.viewbox-cnt-body h2 {
-    padding: 0
-}
-
-.viewbox-cnt-body img.left {
-    margin-right: 10px
-}
-
-.viewbox-cnt-body img.right {
-    margin-left: 10px
-}
-
 .search-cnt {
     float: left;
     width: 100%;
     padding: 15px;
-    margin-bottom: 15px;
     background-color: #fff
 }
 
@@ -6324,10 +5898,6 @@ aside.poll .answer progress::progress-value {
         margin-top: 0
     }
 
-    .digest .small-3 {
-        display: none
-    }
-
     .atlas_list aside .atlas_filter,.atlas_list aside .advertising,.library aside .advertising,.investor-form aside .advertising,.template_view aside .advertising {
         display: none
     }
@@ -6406,10 +5976,6 @@ aside.poll .answer progress::progress-value {
 }
 
 @media only screen and (max-width : 890px) {
-    .digest .subf,.digest .arch {
-        float:none!important;
-        margin: 0 auto 24px auto
-    }
 
     .add_adv_form form .personal_data {
         display: block
@@ -6520,10 +6086,6 @@ aside.poll .answer progress::progress-value {
     .the_post .viewbox-cnt{
         height: auto;
         padding-bottom: 60px
-    }
-
-    .digest .medium-7 {
-        height: auto
     }
 
     .inventure_list article {
@@ -6665,35 +6227,6 @@ aside.poll .answer progress::progress-value {
         width: 200px
     }
 
-    .digest form.row {
-        width: 100%
-    }
-
-    .digest .box-shadow1 {
-        width: 100%;
-        left: 0
-    }
-
-    .digest form>div {
-        display: block;
-        text-align: center
-    }
-
-    .digest form button {
-        margin: 24px auto
-    }
-
-    .digest .arch select {
-        width: 96%;
-        margin-left: auto;
-        margin-right: auto
-    }
-
-    .digest .box-shadow2 {
-        width: 100%;
-        left: 0
-    }
-
 
     .video_list .auto-height .viewbox-cnt,.atlas_list .auto-height .viewbox-cnt,.atlas_single .auto-height .viewbox-cnt {
         height: auto!important
@@ -6733,7 +6266,7 @@ aside.poll .answer progress::progress-value {
         margin-bottom: 16px
     }
 
-    .my_board .large-9 .viewbox-cnt .del_edit_buttons p.status {
+    .my_board .del_edit_buttons p.status {
         float: none;
         margin-top: 16px
     }
@@ -6821,7 +6354,6 @@ aside.poll .answer progress::progress-value {
 
     .the_post .viewbox-cnt-body{
         padding: 15px;
-        font-size: 13px
     }
 
     .library .search-cnt {
@@ -6886,11 +6418,11 @@ aside.poll .answer progress::progress-value {
         margin-left: 0!important
     }
 
-    .my_board .large-9 .viewbox-cnt .del_edit_buttons {
+    .my_board .del_edit_buttons {
         bottom: 0
     }
 
-    .my_board .large-9 .viewbox-cnt .del_edit_buttons a {
+    .my_board .del_edit_buttons a {
         display: block;
         margin-bottom: 5px
     }
@@ -6998,7 +6530,9 @@ nav a.active {
     height: 100%;
     object-fit: cover;
 }
-
+.the_preview .the_description_wrap{
+    position: relative;
+}
 .the_preview .the_description{
     padding: 10px;
     padding-left: 16px;
@@ -7016,4 +6550,453 @@ div .sci-html .sci-controlls{
     top: 0;
     border-radius: 0 0 0 2px;
     z-index: 1;
+}
+
+.the_post_content,
+.the_post_content p,
+.the_post_content div,
+.the_post_content pre,
+.the_post_content blockquote,
+.the_post_content li,
+.the_post_content h1,
+.the_post_content h2,
+.the_post_content h3,
+.the_post_content h4,
+.the_post_content h5,
+.the_post_content h6
+{
+    font-size: 14px;
+    line-height: 1.6;
+    font-family: "Montserrat";
+    font-weight: normal;
+    color: #4a4a4a;
+    padding: 0;
+    text-rendering: optimizeLegibility;
+}
+
+.the_post_content h1,
+.the_post_content h2,
+.the_post_content h3,
+.the_post_content h4,
+.the_post_content h5,
+.the_post_content h6{
+    margin: 8px 0 16px;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+.the_post_content p{
+    margin-bottom: 12px;
+}
+.the_post_content strong,
+.the_post_content b
+{
+    font-weight: 700;
+}
+
+.the_post_content h1{
+    font-size:24px;
+}
+.the_post_content h2{
+    font-size:20px;
+}
+.the_post_content h3{
+    font-size: 16px;
+}
+.the_post_content h4{
+    font-size: 15px;
+}
+.the_post_content h5{
+    font-size: 14px;
+}
+.the_post_content h6{
+    font-size: 12px;
+    color: #1c2e36;
+}
+.the_post_content ul{
+    list-style: disc;
+}
+
+.the_post_content ol{
+    list-style: decimal;
+}
+
+.the_post_content a{
+    color: #1d92cf;
+}
+
+/* global */
+
+.viewbox-cnt-body {
+    padding: 45px;
+    background: #fff;
+}
+
+.the_post .viewbox-cnt-body .row{
+    margin-bottom: 0
+}
+
+.the_post .viewbox-cnt-body .share-btn {
+    margin: 24px 0 0 10px;
+}
+
+.viewbox-cnt-body img.left {
+    margin-right: 10px
+}
+
+.viewbox-cnt-body img.right {
+    margin-left: 10px
+}
+
+
+
+
+
+/* local */
+
+.investor-form .viewbox-cnt-body{
+    color: #4a4a4a;
+}
+
+.investor-form .viewbox-cnt-body ol {
+    margin-top: 24px;
+    margin-left: 25px;
+}
+
+.investor-form .viewbox-cnt-body ol li {
+    list-style: none;
+    font-size: 14px;
+    margin-bottom: 16px;
+    color: #4a4a4a;
+    font-weight: 500
+}
+
+.investor-form .viewbox-cnt-body ol li input {
+    vertical-align: middle;
+    margin-bottom: 3px
+}
+
+.investor-form .viewbox-cnt-body .form-default {
+    margin-top: 32px
+}
+
+
+.investor-form .viewbox-cnt-body .form-default form fieldset {
+    margin-bottom: 16px
+}
+
+.investor-form .viewbox-cnt-body .form-default form fieldset h3 {
+    margin-bottom: 15px
+}
+
+.investor-form .viewbox-cnt-body .form-default form fieldset input[type="text"] {
+    display: inline-block;
+    height: 32px;
+    width: 330px;
+    border-radius: 2px;
+    margin-right: 45px;
+    font-size: 13px
+}
+
+.investor-form .viewbox-cnt-body .form-default form .checkbox .columns {
+    padding: 0
+}
+
+.investor-form .viewbox-cnt-body .form-default form .checkbox .columns input[type="checkbox"] {
+    top: 6px
+}
+
+.investor-form .viewbox-cnt-body .form-default form .checkbox .columns label {
+    color: #4a4a4a;
+    font-weight: 500;
+    font-size: 14px
+}
+
+.investor-form .viewbox-cnt-body .form-default form .checkbox .row {
+    margin-bottom: 32px
+}
+
+
+
+/* where is it? */
+
+/*.viewbox-cnt-body {
+    float: left;
+    width: 100%;
+    padding: 20px;
+    background-color: #fff
+}*/
+
+
+.template_view .viewbox-cnt-body li {
+    font-size: 13px
+}
+
+.template_view .viewbox-cnt-body li a {
+    font-size: 13px
+}
+
+.the_post #panel3 .viewbox-cnt-body {
+    padding: 10px 38px
+}
+
+.the_post #panel3 .viewbox-cnt-body a img {
+    width: 149px;
+    height: 112px;
+    margin-bottom: 4px
+}
+
+.the_post .viewbox-cnt-body p:last-child{
+    margin-bottom: 0
+}
+
+.digest .digest_row h3 {
+    font-weight: 700;
+    background: #5287b0;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 0;
+    padding: 12px 8px;
+}
+
+.digest .digest_row input[type="text"],.digest .digest_row input[type="email"],.digest .digest_row input[type="tel"],.digest .digest_row select{
+    height: 32px;
+    font-size: 13px;
+}
+
+.digest .inner{
+    position: relative;
+}
+
+.digest .pad{
+    padding: 16px 8px;
+}
+
+.digest .pad button{
+    margin: 0 auto;
+}
+
+.digest .box-shadow1 {
+    width: 538.45px;
+    height: 202px;
+    background: #fff;
+    position: absolute;
+    bottom: 4px;
+    left: 15px;
+    box-shadow: 0 2px 16px 0 rgba(0,0,0,0.25);
+    z-index: -1
+}
+
+.digest .box-shadow2 {
+    width: 256px!important;
+    height: 202px;
+    background: #fff;
+    position: absolute;
+    bottom: 4px;
+    left: 8px;
+    box-shadow: 0 2px 16px 0 rgba(0,0,0,0.25);
+    z-index: -1
+}
+
+.digest .box-shadow3 {
+    width: 100%;
+    height: 99%;
+    background: #fff;
+    left: 0;
+    position: absolute;
+    bottom: 0;
+    box-shadow: 0 2px 16px 0 rgba(0,0,0,0.25);
+    z-index: -1
+}
+
+.digest .clearfix {
+    margin-bottom: 18px
+}
+
+.digest #newsThumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center
+}
+
+.digest .viewbox-cnt-body {
+    padding: 12px 18px
+}
+
+
+.digest .viewbox-cnt-body .list_attr li {
+    font-size: 14px;
+    font-family: Montserrat;
+    font-weight: 500
+}
+
+.digest .arch h3 a {
+    color: #fff
+}
+
+.digest_row h3 i {
+    margin-right: 8px
+}
+
+.digest_row fieldset{
+    display: flex;
+}
+
+.digest_row .inline .cell{
+    width: auto;
+}
+
+.digest_row fieldset label{
+    display: inline-block;
+}
+
+.digest .subscribe_digest {
+    background: #fff;
+    padding: 24px 8px 0
+    font-size: 13px;
+    color: #9b9b9b;
+}
+
+
+.digest .subscribe_digest label{
+    text-align: left;
+}
+
+.digest .subscribe_digest button {
+    height: 32px;
+    width: 125px;
+    border-radius: 2px;
+    background-color: #ef767a;
+    box-shadow: 0 2px 16px 0 rgba(0,0,0,0.06);
+    font-size: 13px;
+    font-weight: 700;
+    color: #fff
+}
+
+.digest form.row fieldset {
+    margin-top: 0!important;
+    margin-left: 8px;
+    margin-bottom: 8px
+}
+
+.digest form.row fieldset label {
+    display: inline;
+    margin-left: 8px;
+    margin-right: 24px
+}
+
+.digest form.row fieldset input {
+    width: auto;
+    margin: 0;
+    height: auto
+}
+
+.digest form.row button {
+    margin: 8px auto;
+    display: block!important
+}
+
+
+.digest .arch .select {
+    position: relative;
+    margin-bottom: 16px
+}
+
+.digest .arch .select::before {
+    content: '';
+    position: absolute;
+    bottom: 9px;
+    border: 4px solid transparent;
+    border-top: 5.5px solid #8a8a8a;
+    right: 20px;
+    width: 4px;
+    z-index: 2
+}
+
+.digest .arch .blue_but {
+    background-color: #ef767a;
+    box-shadow: 0 2px 16px 0 rgba(0,0,0,0.06);
+    font-weight: 700
+}
+
+.digest .viewbox-cnt-body li {
+    margin-top: 0;
+    font-size: 14px;
+    list-style-type: disc
+}
+
+.digest .viewbox-cnt-body {
+    background: 0;
+    padding: 0
+}
+
+.digest .viewbox-cnt-body .content {
+    position: relative;
+    background: #fff;
+    padding: 45px;
+    margin-bottom: 50px;
+}
+
+.digest .viewbox-cnt-body .reviews {
+    padding: 15px 45px;
+    background: #fff;
+    margin-bottom: 50px;
+    position: relative
+}
+
+.digest .viewbox-cnt-body .reviews .box-shadow4 {
+    width: 100%;
+    height: 99%;
+    background: #fff;
+    position: absolute;
+    margin-bottom: 0;
+    bottom: 0;
+    left: 0;
+    box-shadow: 0 2px 16px 0 rgba(0,0,0,0.25);
+    z-index: -1
+}
+
+.digest .viewbox-cnt-body .reviews>div {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 24px
+}
+
+.digest .viewbox-cnt-body .reviews>div div:first-child {
+    margin-right: 24px;
+    width: 102px;
+    height: 102px;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    flex: 1 0 auto;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2)
+}
+
+.digest .viewbox-cnt-body .reviews>div img {
+    margin: 0!important;
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%
+}
+
+.digest .viewbox-cnt-body .reviews>div h4 {
+    text-align: left;
+    color: #1c2e36;
+    font-size: 14px;
+    font-weight: 700
+}
+
+.digest .viewbox-cnt-body .reviews>div p {
+    color: #9b9b9b;
+    font-size: 13px;
+    font-weight: 500;
+    font-style: italic;
+    text-align: left
+}
+
+.digest .viewbox-cnt-body .reviews h2 {
+    text-align: left
 }

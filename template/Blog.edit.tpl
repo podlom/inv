@@ -1,5 +1,5 @@
 <div class="admin-pages">
-    <div class="menu-blocks">   
+    <div class="menu-blocks">
         <div>
             <div>
                 <p>Новости</p>
@@ -62,7 +62,7 @@
                         Описание:
                         {$form->getField('announce')->getField('short_text')->getInput()->setAttr('placeholder','Описание')}
                     </label>
-                </div> 
+                </div>
                 <div class="img-load">
                     <h3>Изображение</h3>
                     <label>
@@ -107,8 +107,12 @@
                     {/if}
                 </div>
                 <div class="category">
-                    {if $form->getField('category')}<h3>Категории</h3>{/if}
+                    <h3>Категории</h3>
                     {$form->getField('category')}
+                </div>
+                <div class="category">
+                    <h3>Рубрики</h3>
+                    {$form->getField('rubric')}
                 </div>
                 {#mod Metadata}
                 <div class="metadata">

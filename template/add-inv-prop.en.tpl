@@ -1,7 +1,8 @@
 {extends 'Page.view'}
+{block 'breadcrumbs'}{/block}
 {block 'page.class' append} add-inv-prop{/block}
-{block 'content.text'}
-<img src="/i/add-inv-prop-img.png" itemscope itemtype="http://schema.org/ImageObject">
+{block 'content.text' prepend}
+    <img src="/i/add-inv-prop-img.png" itemscope itemtype="http://schema.org/ImageObject">
     <table class="add-inv-prop-table">
             <thead>
                 <tr>
@@ -58,5 +59,4 @@
                 </tfoot>
             </tbody>
         </table>
-    {content $editable}
 {/block}

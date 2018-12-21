@@ -1,23 +1,75 @@
-
-    <section class="grid-container news_list board_page my_board">
-      <div class="grid-x grid-margin-x">
-        <div class="cell large-9 medium-12">
-          {block 'breadcrumbs'}
-    <div class="clearfix border-bottom">
-        <h2>Мои обьявления ({$items->getTotal()})</h2>
-        <a href="/bulletin/add">Добавить объявление</a>
-    </div>
-
-<span  class="del_adv">Вы подали запрос на удаление объявления. Оно больше не отображается на сайте и не участвует в поиске. После проверки нашим модератором, объявление будет удалено полностью.</span>
+{extends 'Blog.blog'}
+{block 'config'}
+{$posts = $items}
 {/block}
+{block 'post.meta'}
+    <span>ID: {$post->getId()}</span>
+    {block 'post.publish'}<time class="time">{$post->getPublished()->format('d.m.y')}</time>{/block}
+{if $post->getParent()->getId() == 15088}
+    <a href="{$post->getParent()->getPath()}"><img src="/i/projects.png" alt="" class="category"/>{$post->getParent()->getH1()}</a>
+{elseif $post->getParent()->getId() == 15089}
+    <a href="{$post->getParent()->getPath()}"><img src="/i/business.png" alt="" class="category"/>{$post->getParent()->getH1()}</a>
+{elseif $post->getParent()->getId() == 15090}
+    <a href="{$post->getParent()->getPath()}"><img src="/i/realestate.png" alt="" class="category"/>{$post->getParent()->getH1()}</a>
+{elseif $post->getParent()->getId() == 15091}
+    <a href="{$post->getParent()->getPath()}"><img src="/i/land.png" alt="" class="category"/>{$post->getParent()->getH1()}</a>
+{elseif $post->getParent()->getId() == 15092}
+    <a href="{$post->getParent()->getPath()}"><img src="/i/offer.png" alt="" class="category"/>{$post->getParent()->getH1()}</a>
+{else}
+    <span></span>
+{/if}
+{/block}
+{block 'page.class' append} board_page my_board{/block}
+{block 'page.title'}
+<div class="clearfix border-bottom">
+    <h2>Мои обьявления ({$items->getTotal()})</h2>
+    <a href="/bulletin/add">Добавить объявление</a>
+</div>
+{/block}
+{block 'breadcrumbs'}
+<div class="del_adv">Вы подали запрос на удаление объявления. Оно больше не отображается на сайте и не участвует в поиске. После проверки нашим модератором, объявление будет удалено полностью.</div>
+{/block}
+{block 'post.share'}{/block}
+{block 'post.author'}{/block}
+{block 'post.description'}
+<div class="place">
+    <img src="/i/ukraine.png">{if $post->hasAttr("10")} {$post->printAttr("10")}{/if}
+</div>
+<div class="price">
+{if $post->getParent()->getId() == 15089 || $post->getParent()->getId() == 15090 ||$post->getParent()->getId() == 15091}
+    <p><span style="font-weight: 700;">ЦЕНА</span> -
+    {if $post->getAttr("15")!=''} ${$post->printAttr("15")|number_format:0:'.':' '}{else}Договорная{/if}</p>
+{elseif $post->getParent()->getId() == 15088}
+    <p><span style="font-weight: 700;">ИНВЕСТИЦИИ</span> -
+    {if $post->hasAttr("15")} ${$post->printAttr("15")|number_format:0:'.':' '}{/if}</p>
+{elseif $post->getParent()->getId() == 15092}
+    <p><span style="font-weight: 700;">ИНВЕСТИЦИИ</span> -
+    {if $post->hasAttr("15")} ${$post->printAttr("15")|number_format:0:'.':' '}{/if}</p>
+    {/if}
+</div>
+<div class="del_edit_buttons">
+    <a href="{$controller->getUrlGenerator()->generate('edit', ['id'=>$post->getId()])}"><img src="/i/edit.png"> Редактировать обьявление</a>
+    {if $post->getStatus() == '1'}<a href="{$controller->getUrlGenerator()->generate('hide', ['id'=>$post->getId()])}" id="del_adv"><img src="/i/trash.png"> Удалить</a>{/if}
+
+    {if $post->getAttr(61) != '1'}
+    <a href="/bulletin/pay/{$post->getId()}" class="pay_btn">Оплатить</a>
+    {elseif $post->getStatus() == '0'}
+    <p class="status">На модерации</p>
+    {elseif $post->getStatus() == '1'}
+    <p class="status">Опубликовано</p>
+    {/if}
+</div>
+{/block}
+{*
         {block 'posts'}
         {foreach $items as $post}
+            {include 'partial/post'}
             {block 'post'}
-            <div class="row">
+            <div class="grid-x grid-margin-x">
               <div style="position: relative;">
                 <div class="box-shadow"></div>
                 <div class="auto-height">
-                    <div class="medium-{$post_size.0|default:5} columns photo-in {$image_class}">
+                    <div class="medium-{$post_size.0|default:5} cell photo-in {$image_class}">
                         {block 'image'}
                         {if $post->getImage()}
                                 {$post->getImage()->thumbup(350,254)}
@@ -28,26 +80,10 @@
                         {/if}
                         {/block}
                     </div>
-                    <div class="medium-{$post_size.1|default:7} columns">
+                    <div class="medium-{$post_size.1|default:7} cell">
                         <div class="viewbox-cnt attr-in">
                             <div class="hint m_b-10">
-                            {block 'post.meta'}
-                                <span>ID: {$post->getId()}</span>
-                                {block 'post.publish'}<time class="time">{$post->getPublished()->format('d.m.y')}</time>{/block}
-                            {if $post->getParent()->getId() == 15088}
-                                <a href="{$post->getParent()->getPath()}"><img src="/i/projects.png" alt="" class="category"/>{$post->getParent()->getH1()}</a>
-                            {elseif $post->getParent()->getId() == 15089}
-                                <a href="{$post->getParent()->getPath()}"><img src="/i/business.png" alt="" class="category"/>{$post->getParent()->getH1()}</a>
-                            {elseif $post->getParent()->getId() == 15090}
-                                <a href="{$post->getParent()->getPath()}"><img src="/i/realestate.png" alt="" class="category"/>{$post->getParent()->getH1()}</a>
-                            {elseif $post->getParent()->getId() == 15091}
-                                <a href="{$post->getParent()->getPath()}"><img src="/i/land.png" alt="" class="category"/>{$post->getParent()->getH1()}</a>
-                            {elseif $post->getParent()->getId() == 15092}
-                                <a href="{$post->getParent()->getPath()}"><img src="/i/offer.png" alt="" class="category"/>{$post->getParent()->getH1()}</a>
-                            {else}
-                                <span></span>
-                            {/if}
-                            {/block}
+
                             </div>
                             <h3><a href="{$post->getPath()}">{$post->getH1()}</h3>
                             <div class="place">
@@ -142,3 +178,4 @@
         </div>
       </div>
     </section>
+*}

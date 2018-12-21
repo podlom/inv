@@ -59,36 +59,29 @@
         {/block}
         {/if}
     {/block}
-
-    {block 'posts'}
-        {foreach $posts as $post}
-            {include 'partial/post'}
-        {/foreach}
-    {/block}
-    {block 'pagination'}
-    <div class="row">
-        <div class="columns">
+    {block 'content.text'}
+        {block 'posts'}
+            {foreach $posts as $post}
+                {include 'partial/post'}
+            {/foreach}
+        {/block}
+        {block 'pagination'}
             <ul class="pagination">
                 {foreach $posts->getPagination()->getLinks() as $a}
                     <li class="{$a->getAttr('class')}">{$a->setAttr('class', '')}</li>
                 {/foreach}
             </ul>
-        </div>
-    </div>
+        {/block}
     {/block}
 {/block}
 {block 'main' append}
 {block seo}
-<div class="row">
-    <div class="columns">
-        <div class="seo-box">
-            <div class="large-3 medium-3 columns">
-                {content $blog 'seo' tag="h2" new=1}
-            </div>
-            <div class="large-9 medium-9 columns text">
-                {content $blog 'seo_text' new=1}
-            </div>
-        </div>
+<div class="seo-box">
+    <div class="large-3 medium-3 columns">
+        {content $blog 'seo' tag="h2" new=1}
+    </div>
+    <div class="large-9 medium-9 columns text">
+        {content $blog 'seo_text' new=1}
     </div>
 </div>
 {/block}

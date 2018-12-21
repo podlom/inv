@@ -3,21 +3,21 @@
 {block 'breadcrumbs' append}
 <div class="search-cnt m_b-15 clearfix">
     {filter fields=[48,49,62]}
-    <form class="columns m_b-20" name="library-form" method="get">
-        <div class="row">
+    <form class="m_b-20" name="library-form" method="get">
+        <div>
                 {$filter->getField('search')->getInput()->setAttr('placeholder', "Search by name")}
                 <button class="blue_but m_t-5" type="submit" aria-label="submit form">Search</button>
         </div>
-        <div class="row">
-            <div class="large-4 medium-4 columns">
+        <div class="grid-x">
+            <div class="large-4 medium-4 cell">
                 <h3>Type:</h3>
                 {$filter->getField(48)->getInput()->setId('lib2')->addClass('')}
             </div>
-            <div class="large-4 medium-4 columns">
+            <div class="large-4 medium-4 cell">
                 <h3>Language:</h3>
                 {$filter->getField(49)->getInput()->setId('lib3')->addClass('')}
             </div>
-            <div class="large-4 medium-4 columns">
+            <div class="large-4 medium-4 cell">
                 <h3>Year:</h3>
                 <select>
                     <option>2018</option>

@@ -1,10 +1,9 @@
-{* prefilter=off *}
 {block 'post.preview'}
 <div class="row the_preview">
   <div style="position: relative; background-color: white;">
     <div class="box-shadow"></div>
-    <div class="auto-height">
-        <div class="medium-{$post_size.0|default:5} columns {$image_class}">
+    <div class="grid-x">
+        <div class="medium-{$post_size.0|default:5} cell {$image_class}">
             {block 'image'}
             {if substr($post->getPath(),0,14) == "/tools/video"}
                 <div>{$post->getAttr(55)}</div>
@@ -19,7 +18,7 @@
             {/if}
             {/block}
         </div>
-        <div class="medium-{$post_size.1|default:7} columns">
+        <div class="medium-{$post_size.1|default:7} cell the_description_wrap">
             <div class="the_description">
                 <div class="hint">
                 {block 'post.meta'}

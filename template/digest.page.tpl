@@ -2,15 +2,15 @@
 {block 'page.class' append} digest{/block}
 {block 'content' prepend}
     {include 'partial/post' post=$page}
-    <div class="row">
-        <div class="medium-7 columns m_b-20 subf" style="position: relative;">
+    <div class="grid-x grid-margin-x digest_row wrapper">
+        <div class="medium-8 cell" style="position: relative;">
             <div class="inner">
                 <div class="box-shadow"></div>
                 <h3><i class="fa fa-rss"></i>Бесплатная подписка на дайджест</h3>
                 <div class="pad">{subscribe template="Mail.subscribe_digest"}</div>
             </div>
         </div>
-        <div  class="medium-4 columns m_b-20 arch" style="position: relative;">
+        <div  class="medium-4 cell" style="position: relative;">
             <div class="inner">
                 <div class="box-shadow"></div>
                 <h3><i class="fa fa-rss"></i>Архив выпусков</h3>

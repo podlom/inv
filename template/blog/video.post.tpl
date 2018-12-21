@@ -39,15 +39,13 @@
                     <li>{$post->getShortText()|truncate:200:"  ..."}</li>
                 </ul>
             {/block}
-            <div class="row">
-                <div class="columns">
-                    <ul class="inline-list share-btn">
-                        <li><span class='st_facebook_hcount' displayText='Facebook'></span></li>
-                        <li><span class='st_twitter_hcount' displayText='Tweet'></span></li>
-                        <li><span class='st_linkedin_hcount' displayText='LinkedIn'></span></li>
-                        <li><span class='st_googleplus_hcount' displayText='Google +'></span></li>
-                    </ul>
-                </div>
+            <div>
+                <ul class="inline-list share-btn">
+                    <li><span class='st_facebook_hcount' displayText='Facebook'></span></li>
+                    <li><span class='st_twitter_hcount' displayText='Tweet'></span></li>
+                    <li><span class='st_linkedin_hcount' displayText='LinkedIn'></span></li>
+                    <li><span class='st_googleplus_hcount' displayText='Google +'></span></li>
+                </ul>
             </div>
         </div>
 </div>

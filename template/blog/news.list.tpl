@@ -1,3 +1,4 @@
+{* prefilter=off *}
 {extends 'Blog.blog'}
 {block 'breadcrumbs'}{/block}
 {block 'config' append}
@@ -24,4 +25,18 @@
     <li class="tabs-title {if $category && $category->getSubpath() =='ukraine'}is-active{/if}"><a href="{$blog->getPath()}/ukraine{if $rubric}/{$rubric->getSubpath()}{/if}">{if $lang=='en'}Ukraine{else}Украина{/if}</a><li>
     <li class="tabs-title {if $category && $category->getSubpath() =='world'}is-active{/if}"><a href="{$blog->getPath()}/world{if $rubric}/{$rubric->getSubpath()}{/if}">{if $lang=='en'}World{else}Мир{/if}</a><li>
 </ul>
+{/block}
+{block 'post.parent'}
+{if $post->getRubrics()}
+    {$r = $post->getRubrics()}
+    {$r = $r.0}
+    <a href="{$r->getPath()}">
+        {if file_exists(concat($module->getApp()->getWebRoot(),'/i/',$r->getSubpath(),'.png'))}
+            <img src="{concat('/i/',$r->getSubpath(),'.png')}" alt="" class="category"/>
+        {else}
+            <img src="/i/folded-newspaper.png" alt="" />
+        {/if}
+        {$r->getH1()}
+    </a>
+{/if}
 {/block}

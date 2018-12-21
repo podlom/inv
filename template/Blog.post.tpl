@@ -47,52 +47,42 @@
 {block 'content'}
     {include 'partial/post'}
     {block 'main'}
-    <div class="wrapper">
-        <div class="row" itemscope itemtype="http://schema.org/articleBody">
-            <div class="box-shadow"></div>
-            <div class="columns">
-                <div class="viewbox-cnt-body m_b-20" itemprop="text">
-                    {block 'post.content'}
-                        {content $post}
-                    {/block}
-                    <div class="row">
-                    <div class="columns">
-                        <ul class="inline-list share-btn">
-                            <li><span class='st_facebook_hcount' displayText='Facebook'></span></li>
-                            <li><span class='st_twitter_hcount' displayText='Tweet'></span></li>
-                            <li><span class='st_linkedin_hcount' displayText='LinkedIn'></span></li>
-                            <li><span class='st_googleplus_hcount' displayText='Google +'></span></li>
-                        </ul>
-                    </div>
-                </div>
-                </div>
-             </div>
-           </div>
-           <div class="row">
-            <div class="box-shadow"></div>
-             <div class="columns">
-                {block 'post.images'}
-                    {if count($post->getImages())>1}
-                        <div  class="" id="photosContent">
-                            <h2>Галерея</h2>
-                            <section id="newsThumb">
-                                <ul class="pgwSlideshow">
-                                {foreach $post->getImages() as $idx=>$image}
-                                    {if $image != $post->getImage()}
-                                         <li>{$image->setAttr('itemprop','image')}</li>
-                                    {/if}
-                                {/foreach}
-                                </ul>
-                            </section>
-                        </div>
-                    {/if}
-                {/block}
-             </div>
+    <div class="wrapper" itemscope itemtype="http://schema.org/articleBody">
+        <div class="box-shadow"></div>
+        <div class="viewbox-cnt-body m_b-20" itemprop="text">
+            {block 'post.content'}
+                {content $post attr=['class'=>'the_post_content']}
+            {/block}
+            <ul class="inline-list share-btn">
+                <li><span class='st_facebook_hcount' displayText='Facebook'></span></li>
+                <li><span class='st_twitter_hcount' displayText='Tweet'></span></li>
+                <li><span class='st_linkedin_hcount' displayText='LinkedIn'></span></li>
+                <li><span class='st_googleplus_hcount' displayText='Google +'></span></li>
+            </ul>
         </div>
+    </div>
+    <div class="wrapper">
+        <div class="box-shadow"></div>
+        {block 'post.images'}
+            {if count($post->getImages())>1}
+                <div  class="" id="photosContent">
+                    <h2>Галерея</h2>
+                    <section id="newsThumb">
+                        <ul class="pgwSlideshow">
+                        {foreach $post->getImages() as $idx=>$image}
+                            {if $image != $post->getImage()}
+                                 <li>{$image->setAttr('itemprop','image')}</li>
+                            {/if}
+                        {/foreach}
+                        </ul>
+                    </section>
+                </div>
+            {/if}
+        {/block}
     </div>
     {/block}
     {block 'map'}
-        {#mod Attributes}
+        {#mod Attribute}
         {$loc = $post->getAttr(10)}
         {if $loc.lat && $loc.lng}
         <div style="position: relative;">
@@ -152,7 +142,7 @@
     </div>
     {/block}
     {block 'comment'}
-    <div class="columns" id="newsComments">
+    <div id="newsComments">
         <h2>Комментарии</h2>
         {include 'inc/disqus'}
     </div>

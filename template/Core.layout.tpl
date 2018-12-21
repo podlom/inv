@@ -34,7 +34,7 @@
 
 
     {meta 'fb:app_id' '160711107658620'}
-    {style '/css/foundation.min.css'}
+    {*style '/css/foundation.min.css'*}
     {style '/css/libs.css'}
     {style '/css/main.css'}
     {style '//fonts.googleapis.com/css?family=Open+Sans:400italic,400,500,600' async=true}
@@ -250,18 +250,14 @@
         </div>
     </div>
     {#mod 'Widget'}
-    <div class="row">
-        <div class="columns">
-            <ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-2">
-                <li>
-                    {widget_slot 'footer_1 (728x90)' size=[729, 90]}
-                </li>
-                <li>
-                    {widget_slot 'footer_2 (728x90)' size=[729, 90]}
-                </li>
-            </ul>
-        </div>
-    </div>
+    <ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-2">
+        <li>
+            {widget_slot 'footer_1 (728x90)' size=[729, 90]}
+        </li>
+        <li>
+            {widget_slot 'footer_2 (728x90)' size=[729, 90]}
+        </li>
+    </ul>
     {#/mod}
     <footer>
       <div class="grid-container">

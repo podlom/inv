@@ -33,14 +33,12 @@
             {block 'menu'}{/block}
             {block 'filter'}{/block}
             {block 'content'}
-            <div class="row" itemscope itemtype="http://schema.org/articleBody">
-                <div class="columns">
-                    <div class="box-shadow"></div>
-                    <div class="viewbox-cnt-body m_b-20" itemprop="text">
-                        {block 'content.text'}
-                        {content $editable}
-                        {/block}
-                    </div>
+            <div class="wrapper">
+                <div class="box-shadow"></div>
+                <div class="viewbox-cnt-body m_b-20" itemprop="text">
+                    {block 'content.text'}
+                    {content $editable attr=['class'=>'the_post_content']}
+                    {/block}
                 </div>
             </div>
             {/block}
@@ -67,7 +65,7 @@
                         <div class="title">
                             {if $lang == 'en'}<a href="/en/analytics/digest"> <i class="fa fa-rss"></i>Sign up for Digest</a>
                         {else}
-                            <a href="/analytics/digest"> <i class="fa fa-rss"></i>Подписка на дайджест</a>
+                            <a href="/analytics/digest"> <i class="fa fa-rss"></i>Инвестиционный дайджест</a>
                         {/if}
                           </div>
                           <div class="img"><img src="/i/digest_img.jpg"></div>
