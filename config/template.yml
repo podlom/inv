@@ -43,6 +43,13 @@ complex-approach:
    urls:
      - '/complex-approach'
    template: 'complex-approach'
+analytics:
+   urls:
+      - '/analytics/*'
+      - '/tools/database/*'
+      - '/tools/investors/*'
+   template: 'blog/analytics.post'
+   default_template: 'Blog.post'
 analytics_list:
    urls:
      - '/analytics'

@@ -6536,6 +6536,12 @@ nav a.active {
 .the_preview .the_description{
     padding: 10px;
     padding-left: 16px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.the_preview .the_description .share-btn{
+    margin-top: auto;
 }
 
 .the_preview .the_description h3{
@@ -6622,6 +6628,17 @@ div .sci-html .sci-controlls{
 
 .the_post_content a{
     color: #1d92cf;
+}
+
+.the_post_content blockquote{
+    margin: 0 0 1rem;
+    padding: .5625rem 1.25rem 0 1.1875rem;
+    border-left: 1px solid #cacaca;
+    color: #8a8a8a;
+}
+
+.the_post_content blockquote p, .the_post_content blockquote div, .the_post_content blockquote pre{
+    color: #8a8a8a;
 }
 
 /* global */
