@@ -69,6 +69,9 @@
             <li>
                 <a href="/admin/payment" class="{if mb_substr($request->getPathInfo(),0,14) == '/admin/payment'}active{/if}"><i class="fa fa-credit-card"></i><span class="text-hide">Invoices</span></a>
             </li>
+            <li>
+                <a href="/admin/widget" class="{if mb_substr($request->getPathInfo(),0,14) == '/admin/widget'}active{/if}"><i class="fa fa-puzzle-piece"></i><span class="text-hide">Widgets</span></a>
+            </li>
         </ul>
     </aside>
 
