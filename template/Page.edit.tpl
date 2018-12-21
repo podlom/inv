@@ -37,19 +37,19 @@
             </div>
         </div>
     </div>
+    <div class="buttons" style="margin-bottom: 30px;">
+        <div class="language">
+            {if is_mod('Locale') && $entity && $entity->getId()}
+                {$form->getBound('locale')}
+            {/if}
+        </div>
+         {if $entity && $entity->getId()}
+            <a class="blue button" href="{$link}">{t('Назад')}</a>
+            <a href="{$entity->getPath()}" class="green button" style="display:inline">{t('Просмотр')}</a>
+        {/if}
+    </div>
     <div class="edit">
         {$form->open()}
-            <div class="buttons" style="margin-bottom: 30px;">
-                <div class="language">
-                    {if is_mod('Locale') && $entity && $entity->getId()}
-                        {$form->getBound('locale')}
-                    {/if}
-                </div>
-                 {if $entity && $entity->getId()}
-                    <a class="blue button" href="{$link}">{t('Назад')}</a>
-                    <a href="{$entity->getPath()}" class="green button" style="display:inline">{t('Просмотр')}</a>
-                {/if}
-            </div>
             <div class="flex-form">
             <div>
                 <div class="preview">
