@@ -60,6 +60,11 @@
             <a href="{$controller->getUrlGenerator()->generate(concat('blog.add'))}" class="green button">Создать</a>
             {* <a href="#" class="button tiny radius alert" style="display:inline">Удалить</a> *}
         {/if}
+        {if $blog && $blog->getId() == 14976}
+            <a href="{$controller->getUrlGenerator()->generate('post.index', ['blog_id'=>14976, 'status'=>2])}" class="button blue" style="display:inline">На модерации</a>
+            <a href="{$controller->getUrlGenerator()->generate('post.index', ['blog_id'=>14976, 'status'=>1])}" class="button blue" style="display:inline">Опубликовано</a>
+            <a href="{$controller->getUrlGenerator()->generate('post.index', ['blog_id'=>14976, 'status'=>0])}" class="button blue" style="display:inline">Нe оплачено</a>
+        {/if}
     </div>
     <div class="breadcrumbs">
         <h3>{if $blog}{$blog->getH1()}{else}Каталог{/if}</h3>
