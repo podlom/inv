@@ -186,7 +186,7 @@
                               </div>
                             </div>
                             {/lent}
-                            <a href="" class="more">Показать все</a>
+                            <a href="/investments" class="more">Показать все</a>
                           </div>
 
                           <div class="tabs__content">
@@ -230,7 +230,7 @@
                               </div>
                             </div>
                             {/lent}
-                            <a href="" class="more">Показать все</a>
+                            <a href="/investments" class="more">Показать все</a>
                           </div>
                           <div class="tabs__content">
                             qwerty
@@ -356,7 +356,7 @@
                         </div>
                       </div>
                       {/foreach}
-                      <a href="/news/ukraine" class="more">Показать все</a>
+                      <a href="/news" class="more">Показать все</a>
                       </div>
 
                           <div class="tabs__content">
@@ -383,7 +383,7 @@
                         </div>
                       </div>
                       {/lent}
-                            <a href="" class="more">Показать все</a>
+                            <a href="/news/ukraine" class="more">Показать все</a>
                           </div>
 
                           <div class="tabs__content">
@@ -395,7 +395,7 @@
                         </a>
                         </div>
                         <div class="content">
-                            <h4><a href="{$post->getPath()}">{$news->getTitle()}</a></h4>
+                            <h4><a href="{$news->getPath()}">{$news->getTitle()}</a></h4>
                             {$r=$news->getRubrics()}
                           {if $r.0}<div class="hint m_t-5 category"><a href="#"><img src="/i/folded-newspaper.png" alt="" />{$r.0->getH1()}</a></div>{/if}
                             <div class="statistic">
@@ -410,7 +410,7 @@
                         </div>
                       </div>
                       {/lent}
-                            <a href="" class="more">Показать все</a>
+                            <a href="/news/world" class="more">Показать все</a>
                           </div>
                         </div>
                 </div>

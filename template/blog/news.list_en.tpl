@@ -10,7 +10,7 @@
     });
 {/script_code}
     <section class="grid-container news_list">
-      <div class="grid-x grid-margin-x"> 
+      <div class="grid-x grid-margin-x">
         <div class="cell large-9 medium-12">
           {block 'breadcrumbs'}
     <div class="clearfix border-bottom">
@@ -72,7 +72,9 @@
                                 {block 'post.views'}<img src="/i/views.png"/><span class="number">{$post->getViews()+1}</span>{/block}
                                 {block 'post.rubric'}
                                 {$r=$post->getRubrics()}
+                                {if $r.0}
                                     <img src="/i/folded-newspaper.png" alt="" />{$r.0->getH1()}
+                                {/if}
                                 {/block}
                             {/block}
                             </div>

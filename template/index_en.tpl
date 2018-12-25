@@ -413,7 +413,7 @@
                         </a>
                         </div>
                         <div class="content">
-                            <h4><a href="{$post->getPath()}">{$news->getTitle()}</a></h4>
+                            <h4><a href="{$news->getPath()}">{$news->getTitle()}</a></h4>
                             {$r=$news->getRubrics()}
                           {if $r.0}<div class="hint m_t-5 category"><a href="#"><img src="/i/folded-newspaper.png" alt="" />{$r.0->getH1()}</a></div>{/if}
                             <div class="statistic">
