@@ -68,6 +68,14 @@ $(document).ready(function() {
 	var i = $('.investment_single iframe').parent(); i.parent().css('text-align','center');
 
 	$('.board_page .accordion .toggle_btn').on('click', togg);
+	var c = $('.board_page .accordion'+location.hash+' .block');
+	if(c.length > 0){
+		c.slideDown(0);
+		$('html,body').animate({
+	        scrollTop: c.parents('.the_preview').offset().top - 80
+	    }, 50);
+	}
+	
 
 	function togg() {
 		$('.board_page .accordion .block').not($(this).next()).slideUp(400);
