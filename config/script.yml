@@ -129,5 +129,5 @@ app2:
     position: end
     require: [jquery, foundation2, moment]
 react_components:
-    file: /assets/skynar/react_loader.js
+    file: /assets/webpack/react_loader.js
     require: [react-dom]

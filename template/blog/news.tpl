@@ -1,5 +1,16 @@
 {* prefilter=off *}
 {extends 'Blog.post'}
+{block 'page.scope'}itemtype="http://schema.org/NewsArticle"{/block}
+{block 'post.parent'}
+    {$rubrics = $post->getRubrics()}
+    {$r = $rubrics[0]}
+    {if $r}
+        <a href="{$r->getPath()}">
+            <img src="/i/folded-newspaper.png" alt="" />
+            {$r->getH1()}
+        </a>
+    {/if}
+{/block}
 {block 'main' append}
 {block 'similar'}
 <div class="title_read_also">

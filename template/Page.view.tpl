@@ -14,12 +14,12 @@
 {if !$page}{$page = $rubric}{/if}
 {if !$page}{$page = $blog}{/if}
 {block 'config'}{/block}
-<div class="{block 'page.class'}grid-container {if $request->getPathInfo() == '/investor'||$request->getPathInfo() == '/en/investor'}investor-form{else}the_post{/if}{/block}">
+<div itemscope itemtype="http://schema.org/WebPage" class="{block 'page.class'}grid-container {if $request->getPathInfo() == '/investor'||$request->getPathInfo() == '/en/investor'}investor-form{else}the_post{/if}{/block}">
     <div class="grid-x grid-margin-x">
         <div class="large-9 medium-12 cell">
             {block 'page.title'}
             <div class="clearfix border-bottom">
-                {content $editable part="title" tag="h2"}
+                {content $editable part="title" tag="h2" attrs=['itemprop'=>'headline']}
             </div>
             {/block}
             {block 'breadcrumbs'}
@@ -33,11 +33,11 @@
             {block 'menu'}{/block}
             {block 'filter'}{/block}
             {block 'content'}
-            <div class="wrapper">
+            <div class="wrapper" itemprop="mainEntity" {block 'page.scope'}itemtype="http://schema.org/CreativeWork"{/block} itemscope>
                 <div class="box-shadow"></div>
-                <div class="viewbox-cnt-body m_b-20" itemprop="text">
+                <div class="viewbox-cnt-body m_b-20">
                     {block 'content.text'}
-                    {content $editable attr=['class'=>'the_post_content']}
+                    {content $editable attr=['class'=>'the_post_content', 'itemprop'=>'text']}
                     {/block}
                 </div>
             </div>

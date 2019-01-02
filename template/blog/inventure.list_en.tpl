@@ -1,44 +1,29 @@
 {* prefilter=off *}
+{* prefilter=off *}
 {extends 'Blog.blog'}
-{block 'page.class' append} inventure_list inventure_list_en{/block}
-{block 'breadcrumbs'}
+{block 'page.class' append} inventure_list{/block}
+{block 'config'}
 {$links = [
     '/en/investments/projects'=>'Investment Projects and Startups',
     '/en/investments/business'=>'Business for Sale',
     '/en/investments/realestate'=>'Commercial Property',
     '/en/investments/land'=>'Land',
     '/en/investments/offer'=>'Investor Offers'
-]} 
-<nav>
-  {foreach $links as $url=>$name}
-    <a href="{$url}"{if $category && $category->getPath()===$url} class="active"{/if}>{$name}</a>{if !$name@last} | {/if}
-  {/foreach}
-</nav>
-<div class="mobile_category">
-  {if $category}
-  <a href="#">{$category->getH1()}</a><i class="fa fa-chevron-right"></i><i class="fa fa-chevron-down"></i>
-  {else}
-  <a href="#">Category</a><i class="fa fa-chevron-right"></i><i class="fa fa-chevron-down"></i>
-  {/if}
-  <ul>
-  {foreach $links as $url=>$name}
-    {if $category && $category->getPath() != $url}
-    <li><a href="{$url}">{$name}</a></li>
-    {/if}
-  {/foreach}
-  </ul>
-</div>
-
+]}
 {$sorts = [
-    ['!published', 'Latest'],
+    ['', 'Latest'],
     ['views', 'Popular'],
     ['rating', 'Featured']
 ]}
-<div class="filter-cnt clearfix">  
-{foreach $sorts as $s}
-    <a href="?sort={$s.0}">{$s.1}</a>
-{/foreach}
-</div>
+{/block}
+{block 'breadcrumbs'}{/block}
+{block 'nav' append}
+{$f = $request->query->get('filter')}
+<ul class="tabs">
+    {foreach $sorts as $s}
+    <li class="tabs-title {if $f.sort==$s.0}is-active{/if}"><a href="?{if $s.0}filter[sort]={$s.0}{/if}">{$s.1}</a><li>
+    {/foreach}
+</ul>
 {/block}
 {block 'posts'}
 <div class="auto-height">
@@ -67,7 +52,7 @@
                     </a>
                 {/if}
         {/block}
-                <div class="padding">  
+                <div class="padding">
                     <div class="statistic">
                         <div class="date">
                           {$post->getPublished()->format('d.m.y')}
@@ -82,8 +67,16 @@
                         </div>
                     </div>
                     <div class="category">
-                        {if $post->getParent()}
-                            <a href="{$post->getParent()->getPath()}"><img src="/i/{$post->getParent()->getSubpath()}.png" alt="" />{$post->getParent()->getH1()}</a>
+                        {if $post->getParent()->getId() == 7860}
+                            <a href="{$post->getParent()->getPath()}"><img src="/i/projects.png" alt="" />{$post->getParent()->getH1()}</a>
+                        {elseif $post->getParent()->getId() == 7861}
+                            <a href="{$post->getParent()->getPath()}"><img src="/i/business.png" alt="" />{$post->getParent()->getH1()}</a>
+                        {elseif $post->getParent()->getId() == 7862}
+                            <a href="{$post->getParent()->getPath()}"><img src="/i/realestate.png" alt="" />{$post->getParent()->getH1()}</a>
+                        {elseif $post->getParent()->getId() == 7863}
+                            <a href="{$post->getParent()->getPath()}"><img src="/i/land.png" alt="" />{$post->getParent()->getH1()}</a>
+                        {elseif $post->getParent()->getId() == 7864}
+                            <a href="{$post->getParent()->getPath()}"><img src="/i/offer.png" alt="" />{$post->getParent()->getH1()}</a>
                         {else}
                             <span></span>
                         {/if}
@@ -96,21 +89,22 @@
                         <hr>
                         <div class="footer">
                             <div>
-                            {if $post->getParent()->getId() == 9779 || $post->getParent()->getId() == 9780 ||$post->getParent()->getId() == 9781}
-                                <p><span style="font-weight: 700;">PRICE</span> - 
-                                    {if $post->getAttr("15")!=''} ${$post->printAttr("15")|number_format:0:'.':' '}{else}Negotiable{/if}
-                                </p>
-                            {elseif $post->getParent()->getId() == 9778}
+                            {if $post->getParent()->getId() == 7861 || $post->getParent()->getId() == 7862 ||$post->getParent()->getId() == 7863}
                                 <p>
-                                    <span style="font-weight: 700;">INVESTMENTS</span> - 
-                                    {if $post->hasAttr("34")} ${$post->printAttr("34")|number_format:0:'.':' '}{/if}
+                                    <span style="font-weight: 700;">PRICE</span> -
+                                    {if trim($post->getAttr("15"))} ${$post->printAttr("15")|number_format:0:'.':' '}{else}Договорная{/if}
                                 </p>
-                            {elseif $post->getParent()->getId() == 9782}
+                            {elseif $post->getParent()->getId() == 7860}
                                 <p>
-                                    <span style="font-weight: 700;">INVESTMENTS</span> - 
-                                    {if $post->hasAttr("31")} ${$post->printAttr("31")|number_format:0:'.':' '}{/if}
+                                    <span style="font-weight: 700;">INVESTMENTS</span> -
+                                    {if trim($post->getAttr("34"))} ${$post->printAttr("34")|number_format:0:'.':' '}{else}Договорная{/if}
                                 </p>
-                            {/if} 
+                            {elseif $post->getParent()->getId() == 7864}
+                                <p>
+                                    <span style="font-weight: 700;">INVESTMENTS</span> -
+                                    {if trim($post->getAttr("31"))} ${$post->printAttr("31")|number_format:0:'.':' '}{else}Договорная{/if}
+                                </p>
+                            {/if}
                             </div>
                         </div>
                     </div>
@@ -122,38 +116,3 @@
     </article>
 </div>
 {/block}
-                
-{* {filter fields=[10,16,15,34]}
-            <form method="get">
-                <h3><i class="fa fa-search"></i>Поиск предложений</h3>
-                <div class="row">
-                        {$filter->getField('search')->getInput()->setAttr('placeholder', 'Поиск по названию')}
-                    
-
-                    {if !$category}
-                            <select onchange="this.form.action=this.value">
-                                <option value="/investments">Тип предложения</option>
-                                {foreach $blog->getCategories() as $cat}
-                                    <option value="{$cat->getPath()}">{$cat->getH1()}</option>
-                                {/foreach}
-                            </select>
-                    {/if}
-                            {$filter->getField(10)->getInput()->setAttr('placeholder','Локация')}
-                    {if !$category || in_array($category->getSubpath(), ['projects', 'business', 'offer'])}
-                        <div>
-                            <label class="otr-invtitle label-click4 field-int">Отрасль<span class="open icon"></span><span class="close icon">&#215;</span></label>
-                            <div class="otr-inv tged4 hide check-row">
-                                {$filter->getField(16)->getInput()}
-                            </div>
-                        </div>
-                    {/if}
-                    <div class="columns my_button">
-                        <button class="blue_but" type="submit" aria-label="submit form">Искать</button>
-                    </div>
-                    
-                    {$filter = $request->query->get('filter')}
-                    {if $filter.sort}
-                        <input type="hidden" name="filter[sort]" value="{$filter.sort}" >
-                    {/if}
-                </div>
-            </form> *}

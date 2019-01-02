@@ -97,7 +97,7 @@
                         <div>
                             {$form->getField('advanced')->getField('visible')->getInput()->setId('visible')}
                             <div class="date-range">
-                                <a href=""><i class="fa fa-calendar"></i></a>
+                                <a href="#"><i class="fa fa-calendar"></i></a>
                                 {$form->getField('advanced')->getField('published')->getInput()}
                             </div>
                         </div>
@@ -106,14 +106,18 @@
                         {$form->getField('advanced')->getField('lang')}
                     {/if}
                 </div>
-                <div class="category">
-                    <h3>Категории</h3>
-                    {$form->getField('category')}
-                </div>
-                <div class="category">
-                    <h3>Рубрики</h3>
-                    {$form->getField('rubric')}
-                </div>
+                {if $form->getField('category')}
+                    <div class="category">
+                        <h3>{$form->getField('category')->getField('parent')->getLabel()}</h3>
+                        <label>{$form->getField('category')->getField('parent')->getInput()}</label>
+                    </div>
+                    {if $form->getField('category')->getField('rubric')}
+                    <div class="category">
+                        <h3>{$form->getField('category')->getField('rubric')->getLabel()}</h3>
+                        <label>{$form->getField('category')->getField('rubric')->getInput()}</label>
+                    </div>
+                    {/if}
+                {/if}
                 {#mod Metadata}
                 <div class="metadata">
                     <h3>Метаданные</h3>

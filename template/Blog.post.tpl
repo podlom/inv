@@ -21,37 +21,34 @@
 </div>
 {/block}
 {block 'breadcrumbs'}
-{$breadcrumbs = []}
-{if $blog}
-    {$breadcrumbs[$blog->getPath()]=$blog->getTitle()}
-{/if}
-{if $category}
-    {$breadcrumbs[$category->getPath()]=$category->getTitle()}
-{/if}
-{if $rubric}
-    {$breadcrumbs[$rubric->getPath()]=$rubric->getTitle()}
-{/if}
-{if $post}
-    {$breadcrumbs[$post->getPath()]=$post->getTitle()}
-{/if}
-<ul class="breadcrumbs-box">
-{foreach $breadcrumbs as $link=>$title}
-    {if $title@last}
-    <li class="current">{$title}</li>
-    {else}
-    <li><a href="{$link}">{$title}</a></li>
-    {/if}
+{$rubrics = $post->getRubrics()}
+{$breadcrumbs = array_filter([$blog, $category,$rubrics[0]])}
+<ul class="breadcrumbs-box" itemprop="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" style="display:none">
+        <meta itemprop="position" content="0">
+        <a href="/" itemprop="item">
+            <span itemprop="name">{site_name()}</span>
+        </a>
+    </li>
+{foreach $breadcrumbs as $item}
+    <li {if $item@last}style="display:none;"{elseif $item@index ==count($breadcrumbs)-2}class="current"{/if} itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+        <meta itemprop="position" content="{$item@index+1}">
+        <a href="{$item->getPath()}" itemprop="item">
+            <span itemprop="name">{$item->geth1()|truncate:75:" ..."}</span>
+        </a>
+    </li>
 {/foreach}
 </ul>
 {/block}
 {block 'content'}
+<div itemprop="mainEntity" {block 'page.scope'}itemtype="http://schema.org/Article"{/block} itemscope>
     {include 'partial/post'}
     {block 'main'}
-    <div class="wrapper" itemscope itemtype="http://schema.org/articleBody">
+    <div class="wrapper">
         <div class="box-shadow"></div>
-        <div class="viewbox-cnt-body m_b-20" itemprop="text">
+        <div class="viewbox-cnt-body m_b-20">
             {block 'post.content'}
-                {content $post attr=['class'=>'the_post_content']}
+                {content $post attr=['class'=>'the_post_content','itemprop'=>'articleBody']}
             {/block}
             <ul class="inline-list share-btn">
                 <li><span class='st_facebook_hcount' displayText='Facebook'></span></li>
@@ -87,7 +84,7 @@
         {if $loc.lat && $loc.lng}
         <div style="position: relative;">
             <div class="box-shadow box-shadow2"></div>
-            <div class="map" id="eventMapBlock" itemscope itemtype="http://schema.org/Place">
+            <div class="map" id="eventMapBlock"itemprop="contentLocation" itemscope itemtype="http://schema.org/Place">
                 <h2>Карта</h2>
                 <div><div id="google_map" itemprop="maps"></div></div>
             </div>
@@ -147,4 +144,5 @@
         {include 'inc/disqus'}
     </div>
     {/block}
+</div>
 {/block}

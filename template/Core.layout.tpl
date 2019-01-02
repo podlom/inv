@@ -3,7 +3,7 @@
 <!--[if IE 7]><html class="lt-ie9 lt-ie8" /> <![endif]-->
 <!--[if IE 8]><html class="lt-ie9" /> <![endif]-->
 <!--[if gt IE 8]><!--><html lang="{$lang|default:'ru'}"><!--<![endif]-->
-<head itemscope itemtype="http://schema.org/Article">
+<head>
 {if $sm}
 {$user = $sm->getUser()}
 {/if}
@@ -25,9 +25,6 @@
         {if $post->hasImage()}
         {meta 'og:image' full_link($post->getImage()->getUrl())}
         {/if}
-        <meta itemscope itemtype="http://schema.org/Article" />
-        <meta itemprop="headline" content="{$post->getH1()}" />
-        <meta itemprop="description" content="{$post->getShortText()}" />
     {else}
         {meta 'og:image' full_link('https://inventure.com.ua/i/inventure_corp.png')}
     {/if}
@@ -259,15 +256,23 @@
         </li>
     </ul>
     {#/mod}
-    <footer>
+    <footer itemscope itemtype="http://schema.org/Organization">
+      <div itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+            <meta itemprop="addressCountry" content="UA">
+            <meta itemprop="addressRegion" content="місто Київ">
+            <meta itemprop="addressLocality" content="Київ">
+            <meta itemprop="streetAddress" content="вулиця Старовокзальна, 24">
+            <meta itemprop="postalCode" content="01054">
+            <meta itemprop="telephone" content="+380677136571">
+      </div>
       <div class="grid-container">
         <div class="logo">
-          <img src="/i/logo_footer.png">
+          <img src="/i/logo_footer.png" itemprop="logo">
         </div>
         {block 'footer_menu'}
         <div class="grid-x grid-margin-x">
           <div class="cell small-6 medium-3">
-            <h6><a href="http://inventure.ua/">InVenture <span>Media Group</span></a></h6>
+            <h6 itemprop="name"><a href="http://inventure.ua/" itemprop="url">InVenture <span>Media Group</span></a></h6>
             <p><a href="/about">О проекте</a></p>
             <p><a href="/about/advertising">Реклама</a></p>
             <p><a href="/board">Доска объявлений</a></p>
@@ -310,11 +315,11 @@
         </div>
         {/block}
        <div class="social">
-          <a href="https://www.facebook.com/inventure.com.ua" target="_blank"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>
-            <a href="http://goo.gl/3WiX8K" target="_blank"><i class="fa fa-google-plus-square" aria-hidden="true"></i></a>
-            <a href="http://www.linkedin.com/groups/Investments-Ventures-in-Ukraine-4386794" target="_blank"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a>
-            <a href="https://twitter.com/inventure_ua" target="_blank"><i class="fa fa-twitter-square" aria-hidden="true"></i></a>
-            <a href="https://t.me/inventure" target="_blank"><i class="fa fa-telegram" aria-hidden="true"></i></a>
+          <a itemprop="sameAs" href="https://www.facebook.com/inventure.com.ua" target="_blank"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>
+            <a itemprop="sameAs" href="http://goo.gl/3WiX8K" target="_blank"><i class="fa fa-google-plus-square" aria-hidden="true"></i></a>
+            <a itemprop="sameAs" href="http://www.linkedin.com/groups/Investments-Ventures-in-Ukraine-4386794" target="_blank"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a>
+            <a itemprop="sameAs" href="https://twitter.com/inventure_ua" target="_blank"><i class="fa fa-twitter-square" aria-hidden="true"></i></a>
+            <a itemprop="sameAs" href="https://t.me/inventure" target="_blank"><i class="fa fa-telegram" aria-hidden="true"></i></a>
         </div>
         <div class="copyright">
             {block 'copyright'}
@@ -323,7 +328,7 @@
         </div>
       </div>
     </footer>
-    <div class="up">
+    <div class="up" style="display: none;">
         <img src="/i/up.png" alt="Вверх" title="Вверх">
     </div>
 

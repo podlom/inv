@@ -1,5 +1,7 @@
 {extends 'Page.view'}
 {block 'page.class' append} digest{/block}
+{block 'aside.digest'}{/block}
+{block 'aside.subscribe'}{/block}
 {block 'content' prepend}
     {include 'partial/post' post=$page}
     <div class="grid-x grid-margin-x digest_row wrapper">

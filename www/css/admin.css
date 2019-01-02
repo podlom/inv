@@ -1,0 +1,1420 @@
+* {
+    margin: 0;
+    padding-top: 0;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,Arial,sans-serif;
+    font-weight: 400;
+    background-color: #ECF0F5;
+}
+
+img {
+    width: 100%;
+}
+
+label {
+    display: block;
+}
+
+a.button,input.button,button.button {
+    padding-top: 0.625rem;
+    padding-right: 1.25rem;
+    padding-bottom: 0.6875rem;
+    padding-left: 1.25rem;
+    font-size: 14px;
+    text-decoration: none;
+    color: #fff;
+    border-radius: 3px;
+    border: none;
+}
+
+a.green,input.green,button.green {
+    background-color: #00a65a;
+    border-color: #008d4c;
+}
+
+a.green:hover,input.green:hover,button.green:hover {
+    background-color: #008d4c;
+}
+
+a.red {
+    background-color: #dd4b39;
+    border-color: #d73925;
+}
+
+a.red:hover {
+    background-color: #d73925;
+}
+
+a.blue,input.blue,button.blue {
+    background-color: #3c8dbc;
+    border-color: #367fa9;
+}
+
+a.blue:hover,input.blue:hover,button.blue:hover {
+    background-color: #367fa9;
+}
+
+aside {
+    width: 230px;
+    background-color: #222D32;
+    height: 100%;
+    position: fixed;
+    z-index: 3;
+}
+
+aside > div:first-child {
+    text-align: center;
+    font-size: 20px;
+    line-height: 50px;
+    background-color: #367FA9;
+    color: #fff;
+}
+
+aside > div:first-child .button-burger {
+    color: #fff;
+    margin-left: 15px;
+    cursor: pointer;
+    position: absolute;
+    right: -40px;
+    padding: 0 11px;
+    top: 0;
+    background-color: #3C8DBC;
+}
+
+aside > div:first-child .button-burger i {
+    font-size: 21px;
+}
+
+aside > div:first-child .button-burger-hide {
+    display: none;
+}
+
+aside > div:nth-child(2) {
+    padding: 10px;
+}
+
+aside > div:nth-child(2) .admin {
+    display: flex;
+    align-items: center;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+aside > div:nth-child(2) .admin div:first-child {
+    width: 45px;
+    height: 45px;
+    margin-right: 15px;
+}
+
+aside > div:nth-child(2) .admin div:first-child img {
+    border-radius: 50%;
+}
+
+aside > div:nth-child(2) .admin div:last-child h6 {
+    font-size: 14px;
+    margin-bottom: 9px;
+    font-weight: 600;
+}
+
+aside > div:nth-child(2) .admin div:last-child p {
+    font-size: 11px;
+    position: relative;
+    padding-left: 15px;
+}
+
+aside > div:nth-child(2) .admin div:last-child p::before {
+    content: '';
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background-color: #3C763D;
+    position: absolute;
+    top: calc(50% - 4.5px);
+    left: 0;
+}
+
+aside > div:nth-child(2) .search {
+    width: 210px;
+}
+
+aside > div:nth-child(2) .search input {
+    width: 170px;
+    height: 35px;
+    color: #666;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 2px;
+    box-shadow: none;
+    background-color: #374850;
+    border: 1px solid transparent;
+    padding: 6px 12px;
+    font-size: 14px;
+    box-sizing: border-box;
+    float: left;
+    outline: none;
+}
+
+aside > div:nth-child(2) .search input::placeholder {
+    font-size: 14px;
+}
+
+aside > div:nth-child(2) .search input:focus {
+    background-color: #fff;
+}
+
+aside > div:nth-child(2) .search button {
+    width: 39px;
+    height: 35px;
+    outline: none;
+    box-shadow: none;
+    background-color: #374850;
+    border: 1px solid transparent;
+    color: #999;
+    border-top-left-radius: 0;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+    border-bottom-left-radius: 0;
+    padding-top: 5px;
+}
+
+aside > div:nth-child(3) {
+    color: #4b646f;
+    background: #1a2226;
+    padding: 10px 25px 10px 15px;
+    font-size: 12px;
+    text-transform: uppercase;
+    display: none !important;
+}
+
+aside ul {
+    padding: 0;
+}
+
+aside ul li {
+    list-style: none;
+}
+
+aside ul li a {
+    color: #b8c7ce;
+    text-decoration: none;
+    padding: 12px 5px 12px 15px;
+    display: block;
+    font-size: 14px;
+    border-left: 3px solid transparent;
+}
+
+aside ul li a.active {
+    color: #fff;
+    border-left-color: #3c8dbc;
+}
+
+aside ul li a:hover {
+    background-color: #1E282C;
+    color: #fff;
+}
+
+aside ul li a i {
+    font-size: 12px;
+    margin-right: 10px;
+}
+
+section {
+    padding-left: 230px;
+}
+
+section .header {
+    background-color: #3C8DBC;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+section .header ul {
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    color: #fff;
+}
+
+section .header ul li {
+    list-style: none;
+    position: relative;
+    padding: 15px;
+    cursor: pointer;
+}
+
+section .header ul li:hover {
+    background-color: #367FA9;
+}
+
+section .header ul li:hover div.dropdown {
+    display: block;
+}
+
+section .header ul li i {
+    color: #fff;
+}
+
+section .header ul li.admin {
+    padding: 12.5px 15px;
+}
+
+section .header ul li.admin div.dropdown {
+    width: 260px;
+    height: 296px;
+    border: 1px solid #fff;
+    position: absolute;
+    top: 50px;
+    right: 0;
+    z-index: 2;
+}
+
+section .header ul li.admin div.dropdown > div:first-child {
+    height: 175px;
+    padding: 10px;
+    background-color: #3C8DBC;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+section .header ul li.admin div.dropdown > div:first-child img {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    margin: 0 auto 10px;
+    border: 3px solid rgba(255, 255, 255, 0.2);
+    display: block;
+}
+
+section .header ul li.admin div.dropdown > div:first-child h5 {
+    font-size: 17px;
+    font-weight: 400;
+    text-align: center;
+}
+
+section .header ul li.admin div.dropdown > div:first-child p {
+    text-align: center;
+    font-size: 12px;
+}
+
+section .header ul li.admin div.dropdown > div:nth-child(2) {
+    padding: 15px;
+    border-bottom: 1px solid #f4f4f4;
+    border-top: 1px solid #dddddd;
+    display: flex;
+    justify-content: space-between;
+}
+
+section .header ul li.admin div.dropdown > div:nth-child(2) a {
+    display: block;
+    color: #444;
+    font-size: 14px;
+}
+
+section .header ul li.admin div.dropdown > div:last-child {
+    background-color: #f9f9f9;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+section .header ul li.admin div.dropdown > div:last-child a {
+    display: block;
+    padding: 6px 12px;
+    background-color: #f4f4f4;
+    color: #666;
+    font-size: 14px;
+    border: 1px solid #ddd;
+}
+
+section .header ul li.admin a {
+    display: flex;
+    align-items: center;
+    color: #fff;
+    text-decoration: none;
+}
+
+section .header ul li.admin a div {
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+}
+
+section .header ul li.admin a div img {
+    border-radius: 50%;
+}
+
+section .header ul li.admin a h6 {
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 400;
+}
+
+section .header ul li div.dropdown {
+    width: 260px;
+    height: 270px;
+    position: absolute;
+    display: block;
+    right: 0;
+    top: 50px;
+    background-color: #fff;
+    display: none;
+    z-index: 2;
+}
+
+section .header ul li div.dropdown .title {
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+    background-color: #ffffff;
+    padding: 7px 10px;
+    border-bottom: 1px solid #f4f4f4;
+    color: #444444;
+    font-size: 14px;
+    border-bottom: 1px solid #f4f4f4;
+}
+
+section .header ul li div.dropdown ul {
+    display: block;
+    height: 208px;
+    overflow-y: auto;
+}
+
+section .header ul li div.dropdown li {
+    border-bottom: 1px solid #f4f4f4;
+}
+
+section .header ul li div.dropdown li:hover {
+    background-color: #f4f4f4;
+}
+
+section .header ul li div.dropdown li a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+section .header ul li div.dropdown li a > div:first-child {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+section .header ul li div.dropdown li a > div:first-child img {
+    border-radius: 50px;
+}
+
+section .header ul li div.dropdown li a > div:last-child {
+    position: relative;
+}
+
+section .header ul li div.dropdown li a > div:last-child h6 {
+    color: #444444;
+    font-size: 15px;
+    font-weight: 400;
+    margin-bottom: 0;
+}
+
+section .header ul li div.dropdown li a > div:last-child p {
+    font-size: 12px;
+    color: #888888;
+}
+
+section .header ul li div.dropdown li a > div:last-child span {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: #999999;
+    font-size: 10px;
+}
+
+section .header ul li div.dropdown li a > div:last-child span i {
+    color: #999;
+}
+
+section .header ul li div.dropdown li a.tasks {
+    display: block;
+}
+
+section .header ul li div.dropdown li a.tasks h6 {
+    font-size: 14px;
+    padding: 0;
+    margin: 0 0 10px 0;
+    color: #666666;
+    overflow: hidden;
+    font-weight: 400;
+}
+
+section .header ul li div.dropdown li a.tasks h6 span {
+    float: right;
+    display: block;
+    font-size: 65%;
+}
+
+section .header ul li div.dropdown li a.tasks .progress {
+    width: 100%;
+    height: 7px;
+    background-color: #f5f5f5;
+}
+
+section .header ul li div.dropdown li a.tasks .progress span {
+    width: 20%;
+    background-color: #00C0EF;
+    display: block;
+    height: 100%;
+    position: static;
+}
+
+section .header ul li div.dropdown .footer {
+    display: block;
+    text-align: center;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+    font-size: 12px;
+    background-color: #fff;
+    padding: 7px 10px;
+    border-bottom: 1px solid #eeeeee;
+    color: #444 !important;
+    text-decoration: none;
+}
+
+section .container {
+    padding: 40px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+section .container .admin {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+section .container .admin > div {
+    width: 49%;
+    margin-bottom: 30px;
+    background: #fff;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    min-height: 200px;
+    border-radius: 3px;
+    overflow: hidden;
+    box-sizing: border-box;
+    position: relative;
+}
+
+section .container .admin > div > div:first-child {
+    padding: 20px;
+}
+
+section .container .admin > div > div:first-child p {
+    color: #fff;
+    font-size: 48px;
+    font-weight: 700;
+    max-width: 75%;
+    position: absolute;
+}
+
+section .container .admin > div > div:first-child i {
+    font-size: 120px;
+    float: right;
+}
+
+section .container .admin > div > div:last-child {
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+section .container .admin > div > div:last-child a {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(0, 0, 0, 0.1);
+    display: block;
+    width: 100%;
+    padding: 3px 0;
+    font-size: 14px;
+}
+
+section .container .admin > div > div:last-child a i {
+    margin-left: 10px;
+}
+
+section .container .admin > div > div:last-child a:hover {
+    color: #fff;
+    background: rgba(0, 0, 0, 0.15);
+}
+
+section .container .admin > div:first-child {
+    background-color: #00C0EF;
+}
+
+section .container .admin > div:first-child div:first-child i {
+    color: #00A3CB;
+}
+
+section .container .admin > div:nth-child(2) {
+    background-color: #00A65A;
+}
+
+section .container .admin > div:nth-child(2) div:first-child i {
+    color: #008D4D;
+}
+
+section .container .admin > div:nth-child(3) {
+    background-color: #F39C12;
+}
+
+section .container .admin > div:nth-child(3) div:first-child i {
+    color: #CF850F;
+}
+
+section .container .admin > div:last-child {
+    background-color: #DD4B39;
+}
+
+section .container .admin > div:last-child div:first-child i {
+    color: #BC4031;
+}
+
+section .container .admin-pages {
+    position: relative;
+}
+
+section .container .admin-pages .menu-blocks {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    position: sticky;
+    background-color: #ECF0F5;
+    padding-bottom: 30px;
+    top: 50px;
+    z-index: 1;
+}
+
+section .container .admin-pages .menu-blocks > div {
+    width: 24%;
+    position: relative;
+    height: 100px;
+}
+
+section .container .admin-pages .menu-blocks > div > div:first-child {
+    padding: 10px;
+}
+
+section .container .admin-pages .menu-blocks > div > div:first-child p {
+    font-size: 20px;
+    color: #fff;
+    font-weight: 600;
+    position: absolute;
+}
+
+section .container .admin-pages .menu-blocks > div > div:first-child i {
+    font-size: 32px;
+    float: right;
+}
+
+section .container .admin-pages .menu-blocks > div > div:last-child {
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+section .container .admin-pages .menu-blocks > div > div:last-child a {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(0, 0, 0, 0.1);
+    display: block;
+    width: 100%;
+    padding: 3px 0;
+    font-size: 14px;
+}
+
+section .container .admin-pages .menu-blocks > div > div:last-child a i {
+    margin-left: 10px;
+}
+
+section .container .admin-pages .menu-blocks > div > div:last-child a:hover {
+    color: #fff;
+    background: rgba(0, 0, 0, 0.15);
+}
+
+section .container .admin-pages .menu-blocks > div:first-child {
+    background-color: #00C0EF;
+}
+
+section .container .admin-pages .menu-blocks > div:first-child div:first-child i {
+    color: #00A3CB;
+}
+
+section .container .admin-pages .menu-blocks > div:nth-child(2) {
+    background-color: #00A65A;
+}
+
+section .container .admin-pages .menu-blocks > div:nth-child(2) div:first-child i {
+    color: #008D4D;
+}
+
+section .container .admin-pages .menu-blocks > div:nth-child(3) {
+    background-color: #F39C12;
+}
+
+section .container .admin-pages .menu-blocks > div:nth-child(3) div:first-child i {
+    color: #CF850F;
+}
+
+section .container .admin-pages .menu-blocks > div:last-child {
+    background-color: #DD4B39;
+}
+
+section .container .admin-pages .menu-blocks > div:last-child div:first-child i {
+    color: #BC4031;
+}
+
+section .container .admin-pages .buttons {
+    overflow: hidden;
+}
+
+section .container .admin-pages .buttons .language {
+    float: left;
+    display: flex;
+}
+
+section .container .admin-pages .buttons .language a {
+    float: none;
+    text-decoration: none;
+    width: 80px;
+    height: 39px;
+    margin: 0;
+    text-align: center;
+    color: #444;
+    padding-top: 8px;
+    box-sizing: border-box;
+    font-weight: 600;
+    color: #333;
+    background-color: #e6e6e6;
+    border: 1px solid #adadad;
+    box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+}
+
+section .container .admin-pages .buttons .language a:first-child {
+    border-radius: 3px 0 0 3px;
+}
+
+section .container .admin-pages .buttons .language a:last-child {
+    border-radius: 0 3px 3px 0;
+}
+
+section .container .admin-pages .buttons .language a.disabled {
+    color: #333;
+    background-color: #f4f4f4;
+    border-color: #ddd;
+    cursor: inherit;
+    box-shadow: none;
+}
+
+section .container .admin-pages .buttons .language .button-group {
+    display: flex;
+}
+
+section .container .admin-pages .buttons .language .button-group li {
+    list-style: none;
+}
+
+section .container .admin-pages .buttons a {
+    display: block;
+    float: right;
+    margin-left: 20px;
+}
+
+section .container .admin-pages .breadcrumbs {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+section .container .admin-pages .breadcrumbs h3 {
+    font-size: 24px;
+    font-weight: 400;
+}
+
+section .container .admin-pages .breadcrumbs div {
+    font-size: 12px;
+    color: #444;
+}
+
+section .container .admin-pages .breadcrumbs div span {
+    margin: 0 5px;
+    display: inline-block;
+}
+
+section .container .admin-pages .breadcrumbs div a {
+    text-decoration: none;
+    color: #444;
+}
+
+section .container .admin-pages .table-foot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px;
+}
+
+section .container .admin-pages .table-foot p {
+    font-size: 14px;
+    color: #333;
+}
+
+section .container .admin-pages .table-foot .pagination {
+    display: flex;
+}
+
+section .container .admin-pages .table-foot .pagination li {
+    list-style: none;
+}
+
+section .container .admin-pages .table-foot .pagination li a {
+    color: #444;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 6px 12px;
+    border: 1px solid #ddd;
+    border-left: none;
+}
+
+section .container .admin-pages .table-foot .pagination li a.current {
+    background-color: #337AB7;
+    color: #fff;
+}
+
+section .container .admin-pages .table-foot .pagination li a:hover {
+    background-color: #eee;
+}
+
+section .container .admin-pages .table-foot .pagination li:first-child a {
+    border-left: 1px solid #ddd;
+    border-radius: 4px 0 0 4px;
+}
+
+section .container .admin-pages .table-foot .pagination li:last-child a {
+    border-radius: 0 4px 4px 0;
+}
+
+section .table {
+    margin-top: 10px;
+    background-color: #fff;
+    padding: 10px;
+}
+
+section .table .search {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    font-size: 14px;
+    color: #333;
+}
+
+section .table .search select {
+    width: 75px;
+    height: 30px;
+}
+
+section .table .search input {
+    height: 30px;
+    padding: 10px;
+    margin-left: 5px;
+    box-sizing: border-box;
+}
+
+section .table table {
+    width: 100%;
+    background-color: #fff;
+    border: 1px solid #f4f4f4;
+}
+
+section .table table thead tr {
+    border-bottom: 1px solid #f4f4f4;
+}
+
+section .table table thead tr td {
+    font-weight: 600;
+    padding: 8px;
+    font-size: 14px;
+    border-bottom: 3px solid #f4f4f4;
+    border-right: 1px solid #f4f4f4;
+    color: #444;
+    position: relative;
+}
+
+section .table table thead tr td select {
+    border: none;
+    color: #444;
+    font-weight: 600;
+}
+
+section .table table thead tr td a.sort-button {
+    position: absolute;
+    font-size: 14px;
+    color: #D6D6D6;
+    right: 5px;
+}
+
+section .table table thead tr td a.sort-button-up {
+    top: 3px;
+}
+
+section .table table thead tr td a.sort-button-down {
+    top: 15px;
+}
+
+section .table table thead tr td a i {
+    font-size: 14px;
+    color: #D6D6D6;
+}
+
+section .table table thead tr td a i:hover {
+    color: #444;
+}
+
+section .table table thead tr td:first-child {
+    width: 50px;
+}
+
+section .table table thead tr td:last-child {
+    border-right: none;
+}
+
+section .table table tbody tr:nth-child(odd) {
+    background-color: #F9F9F9;
+}
+
+section .table table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+section .table table tbody tr td {
+    padding: 8px;
+    font-size: 14px;
+    border-bottom: 1px solid #f4f4f4;
+    border-right: 1px solid #f4f4f4;
+    color: #444;
+    position: relative;
+}
+
+section .table table tbody tr td a {
+    text-decoration: none;
+    color: #444;
+}
+
+section .table table tbody tr td a:first-child {
+    display: inline-block;
+    width: calc(100% - 30px);
+}
+
+section .table table tbody tr td a.icon-button {
+    display: block;
+    color: #D6D6D6;
+    position: absolute;
+    top: 8px;
+}
+
+section .table table tbody tr td a.icon-button:hover {
+    color: #444;
+}
+
+section .table table tbody tr td a.del {
+    right: 8px;
+}
+
+section .table table tbody tr td a.view {
+    right: 23px;
+}
+
+section .table table tbody tr td:first-child {
+    width: 50px;
+}
+
+section .table table tbody tr td:last-child {
+    border-right: none;
+}
+
+section .edit {
+    margin-top: 30px;
+}
+
+section .edit form .flex-form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+section .edit form .flex-form> div > div {
+    background-color: #fff;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+section .edit form .flex-form> div:nth-child(odd) {
+    width: 55%;
+}
+
+section .edit form .flex-form> div:nth-child(even) {
+    width: 43%;
+}
+
+section .edit form .flex-form> div >div h3 {
+    padding: 10px;
+    color: #444;
+    font-weight: 400;
+    border-bottom: 1px solid #f4f4f4;
+    font-size: 18px;
+}
+
+section .edit form .flex-form> div >div label {
+    padding: 10px;
+    display: block;
+    font-weight: 700;
+    color: #333;
+    font-size: 14px;
+}
+
+section .edit form .flex-form> div >div label input, section .edit form > div >div label textarea,section .edit form .flex-form> div >div label select {
+    display: block;
+    width: 100%;
+    margin-top: 5px;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    outline: none;
+    font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,Arial,sans-serif;
+}
+
+section .edit form .flex-form> div >div label input[type=checkbox] {
+    width: auto;
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: -2px;
+}
+
+section .edit form .flex-form> div >div label textarea {
+    height: 60px;
+}
+
+section .edit form .flex-form> div > div.url label.label-url input[name="url"] {
+    width: auto!important;
+    padding: 0 0 0 15px !important;
+    margin: 0 !important;
+    border: none !important;
+}
+
+section .edit form .flex-form> div > div.url label:last-child div {
+    display: flex;
+    align-items: center;
+}
+
+section .edit form .flex-form> div > div.url label:last-child div input {
+    width: auto;
+}
+
+section .edit form .flex-form> div > div.url label:last-child div input[type="checkbox"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    margin-top: 4px;
+    border: 1px solid #ccc;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+section .edit form .flex-form> div > div.url label:last-child div input[type="checkbox"]:checked{
+  background: url('/i/check.png') center center no-repeat;
+}
+
+section .edit form .flex-form> div > div.url label:last-child div input[type="text"] {
+    width: calc(100% - 30px);
+}
+
+section .edit form .flex-form> div > div.url label .date-range {
+    display: flex;
+    align-items: center;
+    width: calc(100% - 30px);
+}
+
+section .edit form .flex-form> div > div.url label .date-range a {
+    width: 38px;
+    height: 34px;
+    border: 1px solid #ccc;
+    border-right: none;
+    display: block;
+    text-align: center;
+    margin-top: 5px;
+    box-sizing: border-box;
+    padding-top: 7px;
+    color: #555;
+}
+
+section .edit form .flex-form> div > div.url label .date-range input {
+    width: calc(100% - 38px) !important;
+}
+
+section .edit form .flex-form> div > div.img-load label {
+    display: flex;
+    align-items: center;
+}
+
+section .edit form .flex-form> div > div.img-load label div {
+    /* width: 250px; */
+    margin-right: 20px;
+}
+
+section .edit form .flex-form> div > div.img-load label a {
+    display: block;
+}
+
+section .edit form .flex-form> div > div.img-load div.button {
+    padding-top: 0.625rem;
+    padding-right: 1.25rem;
+    padding-bottom: 0.6875rem;
+    padding-left: 1.25rem;
+    font-size: 14px;
+    text-decoration: none;
+    color: #fff;
+    border-radius: 3px;
+    background-color: #00a65a;
+    border-color: #008d4c;
+    width: auto;
+    text-align: center;
+}
+
+section .edit form .flex-form> div > div.category fieldset {
+    border: none;
+}
+
+section .edit form .flex-form> div > div.category fieldset legend {
+    display: none;
+}
+
+section .edit form .flex-form> div > div.category label label {
+    padding: 0px 20px;
+}
+
+section .edit form .flex-form> div > div.category select {
+    display: block;
+    width: 100%;
+    height: 34px;
+    padding: 6px 12px;
+    margin-top: 5px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+section .edit form .flex-form> div > div.category input[type="checkbox"] {
+    width: auto;
+    display: inline-block;
+    height: auto;
+    vertical-align: middle;
+    margin-bottom: 8px;
+    margin-right: 5px;
+}
+
+section .edit form .flex-form> div > div.attributes .date-range {
+    display: flex;
+    align-items: center;
+}
+
+section .edit form .flex-form> div > div.attributes fieldset {
+    border: none;
+}
+
+section .edit form .flex-form> div > div.attributes fieldset legend {
+    display: none;
+}
+
+section .edit form .flex-form> div > div.attributes .date-range a {
+    width: 38px;
+    height: 34px;
+    border: 1px solid #ccc;
+    border-right: none;
+    display: block;
+    text-align: center;
+    margin-top: 5px;
+    box-sizing: border-box;
+    padding-top: 7px;
+    color: #555;
+}
+
+section .edit form .flex-form> div > div.attributes .date-range input {
+    width: calc(100% - 38px);
+}
+
+section .light-form form label {
+    margin-bottom: 20px;
+    display: block;
+    font-weight: 700;
+    color: #333;
+    font-size: 14px;
+}
+
+section .light-form form label input,section .light-form form label select {
+    display: block;
+    width: 100%;
+    margin-top: 5px;
+    height: 34px;
+    padding: 6px 12px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    outline: none;
+    font-size: 14px;
+    font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,Arial,sans-serif;
+}
+
+section .redirect-edit-form form label input {
+    width: 70%;
+    background: none !important;
+    padding: 0 0 0 15px;
+    margin: 0;
+    border: none;
+}
+
+section .digest-edit-form form div.button {
+    padding-top: 0.625rem;
+    padding-right: 1.25rem;
+    padding-bottom: 0.6875rem;
+    padding-left: 1.25rem;
+    font-size: 14px;
+    text-decoration: none;
+    color: #fff;
+    border-radius: 3px;
+    border: none;
+    background-color: #00a65a;
+    border-color: #008d4c;
+    margin-left: 20px;
+}
+
+section .digest-edit-form form div.button:hover {
+    background-color: #00a65a;
+    border-color: #008d4c;
+}
+
+section .invoice {
+    background-color: #fff;
+    margin-top: 30px;
+    padding: 20px;
+}
+
+section .invoice .title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px 0 20px 0;
+    padding-bottom: 9px;
+    border-bottom: 1px solid #eee;
+}
+
+section .invoice .title h2 {
+    color: #333333;
+    font-size: 22px;
+}
+
+section .invoice .title div {
+    color: #666;
+    font-size: 14px;
+}
+
+section .invoice > div:nth-child(2) {
+    margin: 50px 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+    font-size: 14px;
+    color: #333;
+}
+
+section .invoice > div:nth-child(2) p {
+    margin-bottom: 3px;
+    width: 200px;
+}
+
+section .invoice .table {
+    padding: 0;
+}
+
+.svr-url{
+    border: 1px solid #ccc;
+    padding: 6px 12px;
+}
+
+@media only screen and (max-width: 1200px) {
+    section .container .admin > div > div:first-child p {
+        font-size: 34px;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    section .container .admin > div {
+        min-height: 160px;
+    }
+
+    section .container .admin-pages .menu-blocks {
+        position: static;
+    }
+
+    section .container .admin-pages .menu-blocks > div {
+        width: 48%;
+        margin-bottom: 20px;
+    }
+
+    section .container .table {
+        width: 1000px;
+    }
+
+    section .container .table table {
+        width: 100%;
+    }
+
+    section .container .edit form > .flex-form {
+        display: block;
+    }
+
+    section .container .edit form .flex-form > div {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    aside > div:nth-child(2) .admin div:first-child {
+        margin: 0;
+    }
+
+    aside {
+        width: 50px;
+    }
+
+    aside .text-hide {
+        display: none;
+    }
+
+    aside .text-show {
+        display: block;
+    }
+
+    aside .button-burger-show {
+        display: none;
+    }
+
+    aside .button-burger-hide {
+        display: block;
+    }
+
+    section {
+        padding-left: 50px !important;
+    }
+
+    section .header {
+        position: sticky;
+        top: 0;
+        z-index: 2;
+    }
+
+    section .header ul li.admin a h6 {
+        display: none;
+    }
+
+    section .container .admin {
+        display: block;
+    }
+
+    section .container .admin > div {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 750px) {
+    section .container .invoice > div:nth-child(2) {
+        display: block;
+    }
+
+    section .container .invoice > div:nth-child(2) > div {
+        margin-bottom: 30px;
+    }
+}
+
+@media only screen and (max-width: 650px) {
+    section .container .buttons .language {
+        float: none !important;
+    }
+
+    section .container .buttons > a {
+        float: none !important;
+        display: inline-block !important;
+        margin: 15px 10px 0 0 !important;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    section .header ul li.messages div.dropdown {
+        right: -157px;
+    }
+
+    section .header ul li.notifications div.dropdown {
+        right: -111px;
+    }
+
+    section .header ul li.tasks div.dropdown {
+        right: -65px;
+    }
+
+    section .container {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    section .container .admin > div > div:first-child p {
+        font-size: 24px;
+    }
+
+    section .container .admin-pages .menu-blocks {
+        position: static;
+    }
+
+    section .container .admin-pages .menu-blocks > div {
+        width: 100%;
+    }
+
+    section .container .admin-pages .breadcrumbs {
+        display: block;
+    }
+
+    section .container .admin-pages .breadcrumbs h3 {
+        margin-bottom: 15px;
+    }
+}

@@ -1650,6 +1650,12 @@ aside .archive form a {
     font-family: Montserrat
 }
 
+.the_video{
+    background: #fff;
+    position: relative;
+    padding: 1px 0;
+}
+
 .events {
     margin-top: 50px
 }
@@ -1758,7 +1764,8 @@ footer h6 span {
 }
 
 footer p {
-    margin-bottom: 8px
+    margin-bottom: 8px;
+    line-height: 1.2;
 }
 
 footer p a,footer h6 a {
@@ -3155,7 +3162,10 @@ table tr td {
 .the_post .event_time {
     background: #fff;
     margin-bottom: 24px;
-    padding: 24px 45px
+    padding: 24px 45px;
+    color: #1c2e36;
+    font-size: 13px;
+    line-height: 1.6;
 }
 
 .the_post .box-shadow3 {
@@ -6558,6 +6568,12 @@ div .sci-html .sci-controlls{
     z-index: 1;
 }
 
+.the_shorttext{
+    font-size: 13px;
+    font-weight: 500;
+    color: #4a4a4a;
+}
+
 .the_post_content,
 .the_post_content p,
 .the_post_content div,
@@ -7016,4 +7032,11 @@ div .sci-html .sci-controlls{
 
 .digest .viewbox-cnt-body .reviews h2 {
     text-align: left
+}
+
+#all_news aside .form .img{
+    height: 0;
+}
+#all_news aside .form .img img{
+    display: none;
 }

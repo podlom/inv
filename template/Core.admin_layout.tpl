@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!--<link rel="stylesheet" type="text/css"  href="/skynar/css/foundation.css" />
         <link rel="stylesheet" type="text/css"  href="/skynar/css/admin.css" />-->
-        <link rel="stylesheet" type="text/css"  href="/skynar/css/main.css" />
+        <link rel="stylesheet" type="text/css"  href="/css/admin.css" />
         <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
         <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
         <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,600,600i,700,700i,900,900i&amp;subset=cyrillic" rel="stylesheet">
@@ -214,7 +214,7 @@
                         <div>
                             <img src="/skynar/images/oleynikov.jpg">
                             <h5>Oleksiy Oleynikov - Managing partner</h5>
-                            <p>Member since Now.2014</p>    
+                            <p>Member since Now.2014</p>
                         </div>
                         <div>
                             <a href="">Followers</a>

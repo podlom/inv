@@ -1,4 +1,5 @@
 {extends 'Blog.blog'}
+{block 'post.share'}{/block}
 {block 'config'}
 {$links = [
     concat($blog->getPath(),'/projects')=>'Инвестиционные проекты и стартапы',

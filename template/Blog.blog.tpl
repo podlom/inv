@@ -2,34 +2,20 @@
 {extends 'Page.view'}
 {block 'page.title'}
 <div class="clearfix border-bottom">
-    <h2>{$blog->getTitle()}</h2>
+    <h2>{$blog->getTitle('content')}</h2>
 </div>
 {/block}
 {block 'breadcrumbs'}
     <div class="clearfix">
-        <ul class="breadcrumbs-box">
-        {if $blog}
-            {if !$post && !$rubric && !$category}
-                <li class="current">{$blog->getTitle()}</li>
+        <ul class="breadcrumbs-box" itemprop="breadcrumb" itemscope>
+        {$bc = array_filter([$blog, $category, $rubric, $post])}
+        {foreach $bc as $bi}
+            {if $bi@last}
+                <li class="current">{$bi->getTitle()|truncate:75:" ..."}</li>
             {else}
-                <li><a href="{$blog->getPath()}">{$blog->getTitle()}</a></li>
+                <li><a href="{$bi->getPath()}">{$bi->getTitle()|truncate:75:" ..."}</a></li>
             {/if}
-        {/if}
-        {if $category}
-            {if !$post && !$rubric}
-                <li class="current">{$category->getTitle()}</li>
-            {else}
-                <li><a href="{$category->getPath()}">{$category->getTitle()}</a></li>
-            {/if}
-        {/if}
-        {if $rubric}
-        {if !$post}
-                <li class="current">{$rubric->getTitle()}</li>
-            {else}
-                <li><a href="{$rubric->getPath()}">{$rubric->getTitle()}</a></li>
-            {/if}
-        {/if}
-        {if $post}<li class="current">{$post->getH1()|truncate:75:" ..."}</li>{/if}
+        {/foreach}
         </ul>
     </div>
 {/block}
@@ -61,9 +47,14 @@
     {/block}
     {block 'content.text'}
         {block 'posts'}
-            {foreach $posts as $post}
+        <div class="the_list" itemprop="mainEntity" itemscope itemtype="https://schema.org/ItemList">
+            {foreach $posts as $idx=>$post}
+            <div itemprop="itemListElement" itemscope itemtype="http://schema.org/Article">
+                <meta itemprop="position" content="{$idx}">
                 {include 'partial/post'}
+            </div>
             {/foreach}
+        </div>
         {/block}
         {block 'pagination'}
             <ul class="pagination">

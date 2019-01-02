@@ -27,9 +27,9 @@
 </ul>
 {/block}
 {block 'post.parent'}
-{if $post->getRubrics()}
-    {$r = $post->getRubrics()}
-    {$r = $r.0}
+{$rubrics = $post->getRubrics()}
+{$r = $rubrics.0}
+{if $r}
     <a href="{$r->getPath()}">
         {if file_exists(concat($module->getApp()->getWebRoot(),'/i/',$r->getSubpath(),'.png'))}
             <img src="{concat('/i/',$r->getSubpath(),'.png')}" alt="" class="category"/>

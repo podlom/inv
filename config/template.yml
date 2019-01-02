@@ -60,11 +60,11 @@ analytics_list:
    template: 'blog/analytics.list'
 analytics_list_en:
    urls:
-     - '/analytics'
-     - '/analytics/investments'
-     - '/analytics/articles'
-     - '/analytics/formula'
-     - '/analytics/we-invest-in-ukraine'
+     - '/en/analytics'
+     - '/en/analytics/investments'
+     - '/en/analytics/articles'
+     - '/en/analytics/formula'
+     - '/en/analytics/we-invest-in-ukraine'
    template: 'blog/analytics.list'
    layout: 'Core.layout_en'
 didgest:
@@ -98,7 +98,7 @@ atlas_list:
 atlas_list_en:
   urls:
     - '/en/tools/investors'
-  template: 'blog/atlas.list_en'
+  template: 'blog/atlas.list'
   layout: Core.layout_en
 atlas_post:
   urls:

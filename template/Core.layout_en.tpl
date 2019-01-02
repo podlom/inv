@@ -13,7 +13,7 @@
       </div>
       <div class="block2">
         <a href="/en/add-inv-prop">Services for Raising Capital & Sell a Business</a>
-        <a href="en/investor">Services for Investors</a>
+        <a href="/en/investor">Services for Investors</a>
       </div>
     </div>
   </li>
@@ -115,7 +115,7 @@
     <p><a href="/en/about">About</a></p>
     <p><a href="/en/about/advertising">Adversiting</a></p>
     <p><a href="/en/add-inv-prop">Services for Raising Capital</a></p>
-    <p><a href="en/investor">Services for Investors</a></p>
+    <p><a href="/en/investor">Services for Investors</a></p>
     <p><a href="/en/tools/events">Events</a></p>
     <p><a href="https://www.inventure.ua/en/management" target="_blank">Team</a></p>
     <p><a href="/en/about/jobs">Careers</a></p>

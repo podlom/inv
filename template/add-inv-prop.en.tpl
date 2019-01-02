@@ -19,38 +19,38 @@
                 </tr>
                 <tr>
                     <td>Online sales</td>
-                    <td><span class="check"></span></td>
-                    <td><span class="check"></span></td>
+                    <td><img src="/i/check.png"></td>
+                    <td><img src="/i/check.png"></td>
                 </tr>
                 <tr>
                     <td>Direct sales</td>
                     <td></td>
-                    <td><span class="check"></span></td>
+                    <td><img src="/i/check.png"></td>
                 </tr>
                 <tr>
                     <td>Success Fee</td>
-                    <td><span class="check"></span></td>
-                    <td><span class="check"></span></td>
+                    <td><img src="/i/check.png"></td>
+                    <td><img src="/i/check.png"></td>
                 </tr>
                 <tr>
                     <td>Deal support</td>
-                    <td><span class="check"></span></td>
-                    <td><span class="check"></span></td>
+                    <td><img src="/i/check.png"></td>
+                    <td><img src="/i/check.png"></td>
                 </tr>
                 <tr>
                     <td>Consulting support</td>
-                    <td><span class="check"></span></td>
-                    <td><span class="check"></span></td>
+                    <td><img src="/i/check.png"></td>
+                    <td><img src="/i/check.png"></td>
                 </tr>
                 <tr>
                     <td>Individual manager</td>
                     <td></td>
-                    <td><span class="check"></span></td>
+                    <td><img src="/i/check.png"></td>
                 </tr>
                 <tr>
                     <td>Budget</td>
-                    <td><span class="gold2"></span></td>
-                    <td><span class="gold3"></span></td>
+                    <td><img src="/i/gold_3.png"></td>
+                    <td><img src="/i/gold_5.png"></td>
                 </tr>
                 <tfoot>
                     <td></td>

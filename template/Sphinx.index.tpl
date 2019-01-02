@@ -1,8 +1,11 @@
 {extends 'Blog.blog'}
-{block 'menu'}
+{block 'page.title'}
 <div class="clearfix border-bottom">
-        <h2>Результаты поиска</h2>
-    </div>
+    <h2>Результаты поиска</h2>
+</div>
+{/block}
+{block 'breadcrumbs'}{/block}
+{block 'menu'}
 <div class="search-cnt m_b-15">
     <div class="box-shadow"></div>
     <h3>Изменить поисковый запрос</h3>
@@ -35,7 +38,4 @@
             Введите поисковый запрос.
     </div>
     {/if}
-{/block}
-{block 'pagination'}
-
 {/block}

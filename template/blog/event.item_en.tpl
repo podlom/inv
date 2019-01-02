@@ -1,20 +1,23 @@
 {extends 'Blog.post'}
 {block 'main' prepend}
-<div style="position: relative;">
+<div style="position: relative;" itemprop="about" itemscope itemtype="http://schema.org/Event">
+    <meta itemprop="name" content="{$post->getH1()}">
+    <meta itemprop="description" content="{$post->getShortText()}">
+    {if $post->getImage()}<meta itemprop="image" content="{url_fix($post->getImage()->getUrl())}">{/if}
     <div class="box-shadow3"></div>
     <div class="event_time">
-        <ul>
-            <li itemprop="organizer"><b>Organizer</b>: {$post->getAttr(9)}</li>
-            <li><b>Start</b>: <span itemprop="startDate" content="{$post->getAttr(7)->format('Y-m-d,H:i')}">{$post->getAttr(7)->format('d.m.Y, H:i')}</span></li>
-            <li><b>Ending</b>: <span itemprop="endtDate" content="{$post->getAttr(8)->format('Y-m-d')}">{$post->getAttr(8)->format('d.m.Y, H:i')}</span></li>
-            <li itemprop="location" ><b>Location</b>: <span>{$post->getAttr(11)}</span></li>
+        <div><b>Organizer</b>: <span itemprop="organizer">{$post->getAttr(9)}</span></div>
+        <div><b>Start</b>: <span itemprop="startDate" content="{$post->getAttr(7)->format('Y-m-d,H:i')}">{$post->getAttr(7)->format('d.m.Y, H:i')}</span></div>
+        <div><b>Ending</b>: <span itemprop="endDate" content="{$post->getAttr(8)->format('Y-m-d')}">{$post->getAttr(8)->format('d.m.Y, H:i')}</span></div>
+        <div itemprop="location" itemscope itemtype="https://schema.org/Place">
+        <div><b>Location</b>: <span itemprop="name">{$post->getAttr(11)}</span></div>
         {if ($post->getAttr(10))}
-            <li><b>Address</b>: <span  itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">{$post->printAttr(10)}</span></li>
+            <div><b>Address</b>: <span itemprop="address">{$post->printAttr(10)}</span></div>
         {/if}
+        </div>
         {if ($post->getAttr(6))}
-            <li><b>Website</b>: <a href="{$post->getAttr(6)}" itemprop="url" target="_blank">{$post->getAttr(6)}</a></li>
+            <div><b>Website</b>: <a href="{$post->getAttr(6)}" target="_blank" itemprop="url" rel="nofollow">{$post->getAttr(6)}</a></div>
         {/if}
-        </ul>
     </div>
 </div>
 {/block}
