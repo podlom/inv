@@ -33,7 +33,11 @@
                         <div class="title-news">
                           <div class="img">
                             <a href="{$bigpost->getPath()}">
-                              {$bigpost->getImage()->thumbup(350,254)}
+                              {if $bigpost->getImage()}
+                                {$bigpost->getImage()->thumbup(350,254)}
+                              {else}
+                                <img class="the_img" src="/img/resize.375.225/images/noThumb.jpg" alt="{$bigpost->getH1()}"/>
+                              {/if}
                             </a>
                           </div>
                           <div class="info">
@@ -106,7 +110,11 @@
                             <div class="item">
                               <div class="img">
                                 <a href="{$post->getPath()}" >
-                                  {$post->getImage()->thumbup(120,90)}
+                                 {if $post->getImage()}
+                                    {$post->getImage()->thumbup(120,90)}
+                                  {else}
+                                    <img class="the_img" src="/img/thumbup.120.90/images/noThumb.jpg" alt="{$post->getH1()}"/>
+                                  {/if}
                                 </a>
                               </div>
                               <div class="content">
@@ -150,7 +158,11 @@
                             <div class="item">
                               <div class="img">
                                 <a href="{$news->getPath()}" >
-                                  {$news->getImage()->thumbup(120,90)}
+                                  {if $news->getImage()}
+                                    {$news->getImage()->thumbup(120,90)}
+                                  {else}
+                                    <img class="the_img" src="/img/thumbup.120.90/images/noThumb.jpg" alt="{$news->getH1()}"/>
+                                  {/if}
                                 </a>
                               </div>
                               <div class="content">
@@ -194,7 +206,11 @@
                             <div class="item">
                               <div class="img">
                                 <a href="{$news->getPath()}" >
-                                  {$news->getImage()->thumbup(120,90)}
+                                  {if $news->getImage()}
+                                    {$news->getImage()->thumbup(120,90)}
+                                  {else}
+                                    <img class="the_img" src="/img/thumbup.120.90/images/noThumb.jpg" alt="{$news->getH1()}"/>
+                                  {/if}
                                 </a>
                               </div>
                               <div class="content">
@@ -303,7 +319,12 @@
                   <div class="title-news">
                     <div class="img">
                       <a href="{$bignews->getPath()}">
-                                {$bignews->getImage()->thumbup(350,254)}
+                        {if $bignews->getImage()}
+                          {$bignews->getImage()->thumbup(350,254)}
+                        {else}
+                          <img class="the_img" src="/img/thumbup.350.254/images/noThumb.jpg" alt="{$bignews->getH1()}"/>
+                        {/if}
+                                
                             </a>
                     </div>
                     <div class="info">
@@ -337,7 +358,11 @@
                       <div class="item">
                         <div class="img">
                             <a href="{$news->getPath()}" >
-                            {$news->getImage()->thumbup(120,90)}
+                            {if $news->getImage()}
+                              {$news->getImage()->thumbup(120,90)}
+                            {else}
+                              <img class="the_img" src="/img/thumbup.120.90/images/noThumb.jpg" alt="{$news->getH1()}"/>
+                            {/if}
                         </a>
                         </div>
                         <div class="content">
@@ -364,7 +389,11 @@
                       <div class="item">
                         <div class="img">
                             <a href="{$news->getPath()}" >
-                            {$news->getImage()->thumbup(120,90)}
+                            {if $news->getImage()}
+                              {$news->getImage()->thumbup(120,90)}
+                            {else}
+                              <img class="the_img" src="/img/thumbup.120.90/images/noThumb.jpg" alt="{$news->getH1()}"/>
+                            {/if}
                         </a>
                         </div>
                         <div class="content">
@@ -391,7 +420,11 @@
                       <div class="item">
                         <div class="img">
                             <a href="{$news->getPath()}" >
-                            {$news->getImage()->thumbup(120,90)}
+                            {if $news->getImage()}
+                              {$news->getImage()->thumbup(120,90)}
+                            {else}
+                              <img class="the_img" src="/img/thumbup.120.90/images/noThumb.jpg" alt="{$news->getH1()}"/>
+                            {/if}
                         </a>
                         </div>
                         <div class="content">
@@ -507,7 +540,11 @@
                   <div class="read_news">
                     <div class="img">
                       <a href="{$analytics->getPath()}">
-                        {$analytics->getImage()->thumbup(270,202)}
+                        {if $analytics->getImage()}
+                          {$analytics->getImage()->thumbup(270,202)}
+                        {else}
+                          <img class="the_img" src="/img/thumbup.270.202/images/noThumb.jpg" alt="{$analytics->getH1()}"/>
+                        {/if}
                       </a>
                     </div>
                     <div class="info">
@@ -554,13 +591,19 @@
             </div>
             <article class="grid-container">
               <div class="grid-x grid-margin-x">
-              	{$event=[]}
+            	{$event=[]}
 	            {events 4 var='events' analytics=1}
 	            {$event[]=$events}
                 <div class="cell small-6">
                   <div class="event">
                     <div class="img">
-                      <a href="{$events->getPath()}">{$events->getImage()->thumbup(120,90)}</a>
+                      <a href="{$events->getPath()}">
+                        {if $events->getImage()}
+                          {$events->getImage()->thumbup(120,90)}
+                        {else}
+                          <img class="the_img" src="/img/thumbup.120.90/images/noThumb.jpg" alt="{$events->getH1()}"/>
+                        {/if}
+                      </a>
                     </div>
                     <div class="content">
                       <h5><a href="{$events->getPath()}" >{$events->getTitle()}</a></h5>
