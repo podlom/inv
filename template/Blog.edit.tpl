@@ -56,11 +56,11 @@
                     <h3>Анонс</h3>
                     <label>
                         Название:
-                        {$form->getField('announce')->getField('h1')->getInput()->setAttr('placeholder','Название')}
+                        {$form->getField('announce')->getField('h1')->getInput()->setAttr('placeholder','Название')->setId('h1')}
                     </label>
                     <label>
                         Описание:
-                        {$form->getField('announce')->getField('short_text')->getInput()->setAttr('placeholder','Описание')}
+                        {$form->getField('announce')->getField('short_text')->getInput()->setAttr('placeholder','Описание')->setId('shtt')}
                     </label>
                 </div>
                 <div class="img-load">
@@ -73,11 +73,11 @@
                     <h3>Полное описание</h3>
                     <label>
                         Заголовок:
-                        {$form->getField('content')->getField('title')->getInput()->setAttr('placeholder','Заголовок')}
+                        {$form->getField('content')->getField('title')->getInput()->setAttr('placeholder','Заголовок')->addClass('h1_input')}
                     </label>
                     <label>
                         Описание:
-                        {$form->getField('content')->getField('text')->getInput()->setAttr('placeholder','Описание')}
+                        {$form->getField('content')->getField('text')->getInput()->setAttr('placeholder','Описание')->addClass('shtt_input')}
                     </label>
                 </div>
                 <div class="attributes">
@@ -123,7 +123,7 @@
                     <h3>Метаданные</h3>
                     <label>
                         Заголовок:
-                        {$form->getField('meta')->getField('title')->getInput()->setAttr('placeholder','Заголовок')}
+                        {$form->getField('meta')->getField('title')->getInput()->setAttr('placeholder','Заголовок')->addClass('h1_input')}
                     </label>
                     <label>
                         Ключевые слова:
@@ -131,7 +131,7 @@
                     </label>
                     <label>
                         Описание:
-                        {$form->getField('meta')->getField('description')->getInput()->setAttr('placeholder','Описание')}
+                        {$form->getField('meta')->getField('description')->getInput()->setAttr('placeholder','Описание')->addClass('shtt_input')}
                     </label>
                 </div>
                 {#/mod}
@@ -146,3 +146,19 @@
         {$form->close()}
     </div>
 </div>
+{script_code requre="jquery"}
+$('#h1').change(function(e){
+    $('.h1_input').each(function(k,i){
+        if(!i.value){
+            i.value = e.target.value;
+        }
+    });
+});
+$('#shtt').change(function(e){
+    $('.shtt_input').each(function(k,i){
+        if(!i.value){
+            i.value = e.target.value;
+        }
+    });
+});
+{/script_code}
