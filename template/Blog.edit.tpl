@@ -1,5 +1,5 @@
 <div class="admin-pages">
-    <div class="menu-blocks">   
+    <div class="menu-blocks">
         <div>
             <div>
                 <p>Новости</p>
@@ -56,13 +56,13 @@
                     <h3>Анонс</h3>
                     <label>
                         Название:
-                        {$form->getField('announce')->getField('h1')->getInput()->setAttr('placeholder','Название')->setId('h1')}
+                        {$form->getField('announce')->getField('h1')->getInput()->setAttr('placeholder','Название')->setAttr('data-group', 'title')}
                     </label>
                     <label>
                         Описание:
-                        {$form->getField('announce')->getField('short_text')->getInput()->setAttr('placeholder','Описание')->setId('shtt')}
+                        {$form->getField('announce')->getField('short_text')->getInput()->setAttr('placeholder','Описание')->setAttr('data-group', 'text')}
                     </label>
-                </div> 
+                </div>
                 <div class="img-load">
                     <h3>Изображение</h3>
                     <label>
@@ -73,11 +73,11 @@
                     <h3>Полное описание</h3>
                     <label>
                         Заголовок:
-                        {$form->getField('content')->getField('title')->getInput()->setAttr('placeholder','Заголовок')->addClass('h1_input')}
+                        {$form->getField('content')->getField('title')->getInput()->setAttr('placeholder','Заголовок')->setAttr('data-group', 'title')}
                     </label>
                     <label>
                         Описание:
-                        {$form->getField('content')->getField('text')->getInput()->setAttr('placeholder','Описание')->addClass('shtt_input')}
+                        {$form->getField('content')->getField('text')->getInput()->setAttr('placeholder','Описание')->setAttr('data-group', 'text')}
                     </label>
                 </div>
                 <div class="attributes">
@@ -115,7 +115,7 @@
                     <h3>Метаданные</h3>
                     <label>
                         Заголовок:
-                        {$form->getField('meta')->getField('title')->getInput()->setAttr('placeholder','Заголовок')->addClass('h1_input')}
+                        {$form->getField('meta')->getField('title')->getInput()->setAttr('placeholder','Заголовок')->setAttr('data-group', 'title')}
                     </label>
                     <label>
                         Ключевые слова:
@@ -123,7 +123,7 @@
                     </label>
                     <label>
                         Описание:
-                        {$form->getField('meta')->getField('description')->getInput()->setAttr('placeholder','Описание')->addClass('shtt_input')}
+                        {$form->getField('meta')->getField('description')->getInput()->setAttr('placeholder','Описание')->setAttr('data-group', 'text')}
                     </label>
                 </div>
                 {#/mod}
@@ -139,15 +139,9 @@
     </div>
 </div>
 {script_code requre="jquery"}
-$('#h1').change(function(e){
-    $('.h1_input').each(function(k,i){
-        if(!i.value){
-            i.value = e.target.value;
-        }
-    });
-});
-$('#shtt').change(function(e){
-    $('.shtt_input').each(function(k,i){
+$('[data-group]').change(function(e){
+    var g = $(e.target).attr('data-group');
+    $('[data-group="'+g+'"]').each(function(k,i){
         if(!i.value){
             i.value = e.target.value;
         }

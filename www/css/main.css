@@ -30,3 +30,9 @@
 nav a.active{
 	color: #ef767a;
 }
+#all_news aside .form .img{
+	height: 0;
+}
+#all_news aside .form .img img{
+	display: none;
+}
