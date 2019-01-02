@@ -115,7 +115,7 @@
         <div class="contacts">
             <h2>Контакты</h2>
             <div class="contacts1">
-                {#mod Attributes}{if $post->getAttr(5) && $post->getAttr(4) && $post->getAttr(3)}
+                {#mod Attribute}{if $post->getAttr(5) && $post->getAttr(4) && $post->getAttr(3)}
 
                     <div class="avatar"><img src="/i/no-photo.png" alt=""></div>
                     <div class="data_contacts">
@@ -133,7 +133,7 @@
                         <p><b>{if $lang=='en'}Phone{else}Телефон{/if}:</b> <a href="tel:+380677136571">+38(067)713-65-71</a></p>
                     </div>
 
-                {#mod Attributes}{/if}{#/mod}
+                {#mod Attribute}{/if}{#/mod}
             </div>
         </div>
     </div>
