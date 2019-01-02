@@ -64,7 +64,7 @@
                 <a href="/admin/digest" class="{if mb_substr($request->getPathInfo(),0,13) == '/admin/digest'}active{/if}"><i class="fa fa-newspaper-o"></i><span class="text-hide">Дайджест</span></a>
             </li>
             <li>
-                <a href="/admin/mail" class="{if mb_substr($request->getPathInfo(),0,11) == '/admin/mail'}active{/if}"><i class="fa fa-envelope"></i><span class="text-hide">Почта</span></a>
+                <a href="/admin/mail?sort=!created" class="{if mb_substr($request->getPathInfo(),0,11) == '/admin/mail'}active{/if}"><i class="fa fa-envelope"></i><span class="text-hide">Почта</span></a>
             </li>
             <li>
                 <a href="/admin/payment" class="{if mb_substr($request->getPathInfo(),0,14) == '/admin/payment'}active{/if}"><i class="fa fa-credit-card"></i><span class="text-hide">Invoices</span></a>
