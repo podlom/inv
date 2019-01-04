@@ -6279,14 +6279,6 @@ aside.poll .answer progress::progress-value {
         padding-bottom: 10px
     }
 
-    .video_block article .grid-margin-x>div:nth-child(2) {
-        display: none
-    }
-
-    .video_block article .grid-margin-x>div {
-        width: calc(100% - 1.875rem)
-    }
-
     .video-iframe-index {
         max-width: 100%!important
     }

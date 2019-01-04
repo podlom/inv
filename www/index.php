@@ -12,7 +12,7 @@ require_once realpath(realpath(__DIR__).'/../cms/actual/global.php');
 //error_reporting(E_ALL);
 
 
-$app = new Skynar\Application('inventure', realpath(__DIR__.'/../'), __DIR__);
+$app = new Skynar\Application('inventure#beta', realpath(__DIR__.'/../'), __DIR__);
 try{
 $app->init();
 $app->run();
