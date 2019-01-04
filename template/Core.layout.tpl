@@ -351,12 +351,13 @@
 {/literal}
 <!-- Scripts on loading page  End -->
 </div><!-- wrapper end -->
-
-    <div id="questionForm" class="reveal-modal questionFormCenter" data-reveal>
-        <h2>Задать вопрос</h2>
-        {form callback}
-        <a class="close-reveal-modal">&#215;</a>
-    </div>
+{* 
+<div id="questionForm" class="reveal-modal questionFormCenter" data-reveal style="display:none">
+    <h2>Задать вопрос</h2>
+    {form callback}
+    <a class="close-reveal-modal">&#215;</a>
+</div>
+*}
 {if $user && $user->canAccess('Page.publish') && ($page || $post || $blog)}
 <div class="admin_edit">
     <a href="{if $page}/admin/page/edit/{$page->getId()}{else}{if $post}/admin/blog/{$blog->getId()}/edit/{$post->getId()}{else}/admin/blog/{$blog->getId()}{/if}{/if}" title="edit" class="icon-edit">Редактировать</a>
