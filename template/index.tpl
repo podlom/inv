@@ -2,7 +2,7 @@
 {$month=[1=>"января","февраля", "марта","апреля", "мая", "июня", "июля", "августа", "сентября", "октября", "ноября", "декабря"]}
 <div class="grid-container investment_proposals" id="investment">
       <div class="grid-x grid-margin-x">
-        <div class="cell medium-12 large-9">
+        <div class="cell small-12 large-9">
           <section class="investment">
             <div class="title">
               <h2><a href="/investments">Инвестиционные предложения</a></h2>
@@ -25,7 +25,7 @@
           </div>
             <article class="grid-container">
                     <div class="grid-x grid-margin-x">
-                      <div class="cell small-5">
+                      <div class="cell small-12 medium-5 large-5">
                       	{lent_load '/investments' 6 var="posts" analytics=1}
 						            {$bigpost=array_shift($posts)}
                       <div style="position: relative;">
@@ -95,7 +95,7 @@
                         </div>
                       </div>
                       </div>
-                      <div class="cell small-7">
+                      <div class="cell small-12 medium-7 large-7">
                         <div class="tabs">
                           <ul class="tabs__caption">
                             <li class="active">Новые</li>
@@ -248,12 +248,6 @@
                             {/lent}
                             <a href="/investments" class="more">Показать все</a>
                           </div>
-                          <div class="tabs__content">
-                            qwerty
-                          </div>
-                          <div class="tabs__content">
-                            qwerty 2
-                          </div>
                         </div>
                       </div>
                     </div>
@@ -311,7 +305,7 @@
           </div>
             <article class="grid-container">
               <div class="grid-x grid-margin-x">
-                <div class="cell small-5">
+                <div class="cell small-12 madium-5 large-5">
                 	{lent_load '/news' 6 var="news_all" analytics=1}
 					{$bignews=array_shift($news_all)}
                 <div style="position: relative;">
@@ -345,7 +339,7 @@
                   </div>
                 </div>
                 </div>
-                <div class="cell small-7">
+                <div class="cell small-12 medium-7 large-7">
                   <div class="tabs">
                           <ul class="tabs__caption">
                             <li class="active">Все</li>
@@ -535,7 +529,7 @@
               	{$invest=[]}
                 {lent '/analytics' 3 var='analytics' analytics=1}
                 {$invest[] = $analytics}
-                <div class="cell small-4">
+                <div class="cell small-12 medium-4 large-4">
                   <div class="box-shadow"></div>
                   <div class="read_news">
                     <div class="img">
@@ -594,7 +588,7 @@
             	{$event=[]}
 	            {events 4 var='events' analytics=1}
 	            {$event[]=$events}
-                <div class="cell small-6">
+                <div class="cell small-12 medium-6 large-6">
                   <div class="event">
                     <div class="img">
                       <a href="{$events->getPath()}">
@@ -636,7 +630,7 @@
                 {$video=[]}
                 {lent '/tools/video' 3 var='news'}
                 {$video[] = $news}
-                <div class="cell small-4">
+                <div class="cell small-12 medium-4 large-4">
                   <div class="box-shadow"></div>
                   <div class="video">
                     <div class="this_video">

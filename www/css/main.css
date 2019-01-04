@@ -578,13 +578,13 @@ button {
     padding: 0
 }
 
-.investment article.grid-container .small-5 .title-news {
+.investment article .title-news {
     width: 100%;
     height: 618px;
     background-color: #fff
 }
 
-.investment article.grid-container .small-5 .box-shadow {
+.investment article .box-shadow {
     width: calc(100% - 15px);
     height: 609px;
     position: absolute;
@@ -595,20 +595,20 @@ button {
     z-index: -1
 }
 
-.investment article.grid-container .small-5 .title-news .img {
+.investment article .title-news .img {
     width: 100%;
     height: 258px;
     margin-bottom: 12px
 }
 
-.investment article.grid-container .small-5 .title-news .img img {
+.investment article .title-news .img img {
     -o-object-fit: cover;
     object-fit: cover;
     width: 100%;
     height: 100%
 }
 
-.investment article.grid-container .small-5 .title-news .statistic {
+.investment article .title-news .statistic {
     padding-left: 12px;
     display: -webkit-box;
     display: -webkit-flex;
@@ -620,15 +620,15 @@ button {
     margin-bottom: 12px
 }
 
-.investment article.grid-container .small-5 .title-news .statistic div {
+.investment article .title-news .statistic div {
     margin-right: 20px
 }
 
-.investment article.grid-container .small-5 .title-news .statistic div img {
+.investment article .title-news .statistic div img {
     margin-top: -3px
 }
 
-.investment article.grid-container .small-5 .title-news .category {
+.investment article .title-news .category {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -644,15 +644,15 @@ button {
     margin-bottom: 16px
 }
 
-.investment article.grid-container .small-5 .title-news .category a {
+.investment article .title-news .category a {
     color: #9b9b9b
 }
 
-.investment article.grid-container .small-5 .title-news .category a:hover {
+.investment article .title-news .category a:hover {
     color: #1779ba
 }
 
-.investment article.grid-container .small-5 .title-news .category img {
+.investment article .title-news .category img {
     margin-right: 5px;
     margin-bottom: 0;
     margin-left: 0;
@@ -661,22 +661,22 @@ button {
     width: 15px
 }
 
-.investment article.grid-container .small-5 .title-news .sector {
+.investment article .title-news .sector {
     padding: 0 12px
 }
 
-.investment article.grid-container .small-5 .title-news .sector ul {
+.investment article .title-news .sector ul {
     display: inline-block;
     margin-left: 5px
 }
 
-.investment article.grid-container .small-5 .title-news .sector ul li {
+.investment article .title-news .sector ul li {
     font-size: 13px;
     color: #9b9b9b;
     font-weight: 500
 }
 
-.investment article.grid-container .small-5 .title-news h4 {
+.investment article .title-news h4 {
     padding-left: 12px;
     color: #1c2e36;
     font-size: 13px;
@@ -685,11 +685,11 @@ button {
     text-transform: none
 }
 
-.investment article.grid-container .small-5 .title-news h4 a {
+.investment article .title-news h4 a {
     color: #1c2e36
 }
 
-.investment article.grid-container .small-5 .title-news p {
+.investment article .title-news p {
     padding-left: 12px;
     color: #4a4a4a;
     font-size: 13px;
@@ -697,14 +697,14 @@ button {
     margin-bottom: 22px
 }
 
-.investment article.grid-container .small-5 .title-news .position {
+.investment article .title-news .position {
     position: absolute;
     bottom: 16px;
     background: #fff;
     z-index: 10
 }
 
-.investment article.grid-container .small-5 .title-news .place {
+.investment article .title-news .place {
     padding-left: 12px;
     font-size: 13px;
     color: #9b9b9b;
@@ -712,19 +712,19 @@ button {
     margin-bottom: 16px
 }
 
-.investment article.grid-container .small-5 .title-news .place img {
+.investment article .title-news .place img {
     margin-right: 8px
 }
 
-.investment article.grid-container .small-5 .title-news .position .footer {
+.investment article .title-news .position .footer {
     padding: 0 12px
 }
 
-.investment article.grid-container .small-5 .title-news .position .footer>div {
+.investment article .title-news .position .footer>div {
     overflow: hidden
 }
 
-.investment article.grid-container .small-5 .title-news .position .footer p {
+.investment article .title-news .position .footer p {
     margin: 0 4px 0 0;
     float: left;
     font-size: 13px;
@@ -732,37 +732,37 @@ button {
     padding: 0
 }
 
-.investment article.grid-container .small-5 .title-news .position .footer ul li {
+.investment article .title-news .position .footer ul li {
     font-size: 13px;
     color: #4a4a4a
 }
 
-.investment article.grid-container .small-5 .title-news .position hr {
+.investment article .title-news .position hr {
     margin: 10px 12px
 }
 
-.investment article.grid-container .small-5 .title-news .position .footer ul {
+.investment article .title-news .position .footer ul {
     margin: 0;
     color: #5287b0
 }
 
-.investment article.grid-container .small-7 .tabs {
+.investment article .tabs {
     background-color: #fafafa;
     border: 0
 }
 
-.investment article.grid-container .small-7 .tabs .tabs__caption {
+.investment article .tabs .tabs__caption {
     border: 0;
     border-bottom: 1px solid #5287b0;
     background-color: #fafafa
 }
 
-.investment article.grid-container .small-7 .tabs__content {
+.investment article .tabs__content {
     border: 0;
     background-color: #fafafa
 }
 
-.investment article.grid-container .small-7 .tabs-title>a[aria-selected="true"] {
+.investment article .tabs-title>a[aria-selected="true"] {
     background: #5287b0;
     color: #fff;
     -webkit-border-radius: 4px 4px 0 0;
@@ -770,16 +770,16 @@ button {
     font-weight: 700
 }
 
-.investment article.grid-container .small-7 .tabs-title a {
+.investment article .tabs-title a {
     color: #1c2e36;
     font-size: 13px
 }
 
-.investment article.grid-container .small-7 .tabs .tabs__content {
+.investment article .tabs .tabs__content {
     padding: 0
 }
 
-.investment article.grid-container .small-7 .tabs .tabs__content .item {
+.investment article .tabs .tabs__content .item {
     margin-top: 13.4px;
     overflow: hidden;
     display: -webkit-box;
@@ -788,19 +788,19 @@ button {
     display: flex
 }
 
-.investment article.grid-container .small-7 .tabs .tabs__content .item .img {
+.investment article .tabs .tabs__content .item .img {
     margin-right: 30px;
     width: 120px;
     height: 90px;
     flex: 0 0 auto
 }
 
-.investment article.grid-container .small-7 .tabs .tabs__content .item .img img {
+.investment article .tabs .tabs__content .item .img img {
     -o-object-fit: cover;
     object-fit: cover
 }
 
-.investment article.grid-container .small-7 .tabs .tabs__content .item .content h4 {
+.investment article .tabs .tabs__content .item .content h4 {
     color: #1c2e36;
     font-size: 13px;
     font-weight: 700;
@@ -810,11 +810,11 @@ button {
     text-transform: none
 }
 
-.investment article.grid-container .small-7 .tabs .tabs__content .item .content h4 a {
+.investment article .tabs .tabs__content .item .content h4 a {
     color: #1c2e36
 }
 
-.investment article.grid-container .small-7 .tabs .tabs__content .item .content .category {
+.investment article .tabs .tabs__content .item .content .category {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -829,15 +829,15 @@ button {
     margin-bottom: 4px
 }
 
-.investment article.grid-container .small-7 .tabs .tabs__content .item .content .category a {
+.investment article .tabs .tabs__content .item .content .category a {
     color: #9b9b9b
 }
 
-.investment article.grid-container .small-7 .tabs .tabs__content .item .content .category a:hover {
+.investment article .tabs .tabs__content .item .content .category a:hover {
     color: #1779ba
 }
 
-.investment article.grid-container .small-7 .tabs .tabs__content .item .content .category img {
+.investment article .tabs .tabs__content .item .content .category img {
     margin-right: 10px;
     margin-left: 0;
     display: inline;
@@ -845,11 +845,11 @@ button {
     width: 15px
 }
 
-.investment article.grid-container .small-7 .tabs .tabs__content .item .content .category div {
+.investment article .tabs .tabs__content .item .content .category div {
     line-height: 16px
 }
 
-.investment article.grid-container .small-7 .tabs .tabs__content .item .content .statistic {
+.investment article .tabs .tabs__content .item .content .statistic {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -859,11 +859,11 @@ button {
     font-weight: 500
 }
 
-.investment article.grid-container .small-7 .tabs .tabs__content .item .content .statistic div img {
+.investment article .tabs .tabs__content .item .content .statistic div img {
     margin-top: -3px
 }
 
-.investment article.grid-container .small-7 .tabs .tabs__content .item .content .statistic div {
+.investment article .tabs .tabs__content .item .content .statistic div {
     margin-right: 20px
 }
 
@@ -1075,37 +1075,31 @@ aside .advertising .box-shadow {
     padding: 0
 }
 
-.news article.grid-container .small-5 .title-news {
+
+.news article.grid-container .cell{
+    position: relative;
+}
+
+.news article .title-news {
     width: 100%;
     height: 618px;
     background-color: #fff
 }
 
-.news article.grid-container .small-5 .box-shadow {
-    width: calc(100% - 15px);
-    height: 609px;
-    position: absolute;
-    bottom: 0;
-    left: 7.5px;
-    background: #fff;
-    box-shadow: 0 2px 16px 0 rgba(0,0,0,0.25);
-    z-index: -1
-}
-
-.news article.grid-container .small-5 .title-news .img {
+.news article .title-news .img {
     width: 100%;
     height: 258px;
     margin-bottom: 12px
 }
 
-.news article.grid-container .small-5 .title-news .img img {
+.news article .title-news .img img {
     -o-object-fit: cover;
     object-fit: cover;
     width: 100%;
     height: 100%
 }
 
-.news article.grid-container .small-5 .title-news .statistic {
+.news article .title-news .statistic {
     padding-left: 12px;
     display: -webkit-box;
     display: -webkit-flex;
@@ -1117,15 +1111,15 @@ aside .advertising .box-shadow {
     margin-bottom: 12px
 }
 
-.news article.grid-container .small-5 .title-news .statistic div {
+.news article .title-news .statistic div {
     margin-right: 20px
 }
 
-.news article.grid-container .small-5 .title-news .statistic div img {
+.news article .title-news .statistic div img {
     margin-top: -3px
 }
 
-.news article.grid-container .small-5 .title-news .category {
+.news article .title-news .category {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -1141,12 +1135,12 @@ aside .advertising .box-shadow {
     margin-bottom: 16px
 }
 
-.news article.grid-container .small-5 .title-news .category img {
+.news article .title-news .category img {
     margin: -3px 5px 0 0;
     display: inline-block
 }
 
-.news article.grid-container .small-5 .title-news h4 {
+.news article .title-news h4 {
     padding: 0 12px;
     color: #1c2e36;
     font-size: 13px;
@@ -1155,11 +1149,11 @@ aside .advertising .box-shadow {
     text-transform: none
 }
 
-.news article.grid-container .small-5 .title-news h4 a {
+.news article .title-news h4 a {
     color: #1c2e36
 }
 
-.news article.grid-container .small-5 .title-news p {
+.news article .title-news p {
     padding: 0 12px;
     color: #4a4a4a;
     font-size: 13px;
@@ -1167,33 +1161,33 @@ aside .advertising .box-shadow {
     margin-bottom: 22px
 }
 
-.news article.grid-container .small-5 .title-news .social {
+.news article .title-news .social {
     position: absolute;
     left: 12px;
     bottom: 30px;
     font-size: 28px
 }
 
-.news article.grid-container .small-5 .title-news .social a:hover {
+.news article .title-news .social a:hover {
     color: #ef767a
 }
 
-.news article.grid-container .small-7 .tabs {
+.news article .tabs {
     border: 0;
     background: 0
 }
 
-.news article.grid-container .small-7 .tabs__caption {
+.news article .tabs__caption {
     border-bottom: 1px solid #5287b0;
     background-color: #fafafa
 }
 
-.news article.grid-container .small-7 .tabs-content {
+.news article .tabs-content {
     border: 0;
     background-color: #fafafa
 }
 
-.news article.grid-container .small-7 .tabs-title>a[aria-selected="true"] {
+.news article .tabs-title>a[aria-selected="true"] {
     background: #5287b0;
     color: #fff;
     -webkit-border-radius: 4px 4px 0 0;
@@ -1201,33 +1195,33 @@ aside .advertising .box-shadow {
     font-weight: 700
 }
 
-.news article.grid-container .small-7 .tabs-title a {
+.news article .tabs-title a {
     color: #1c2e36;
     font-size: 13px
 }
 
-.news article.grid-container .small-7 .tabs-panel {
+.news article .tabs-panel {
     padding: 0
 }
 
-.news article.grid-container .small-7 .tabs .tabs__content .item {
+.news article .tabs .tabs__content .item {
     margin-top: 14.6px;
     overflow: hidden
 }
 
-.news article.grid-container .small-7 .tabs .tabs__content .item .img {
+.news article .tabs .tabs__content .item .img {
     margin-right: 30px;
     width: 120px;
     height: 90px;
     float: left
 }
 
-.news article.grid-container .small-7 .tabs .tabs__content .item .img img {
+.news article .tabs .tabs__content .item .img img {
     -o-object-fit: cover;
     object-fit: cover
 }
 
-.news article.grid-container .small-7 .tabs .tabs__content .item .content h4 {
+.news article .tabs .tabs__content .item .content h4 {
     color: #1c2e36;
     font-size: 13px;
     font-weight: 700;
@@ -1237,11 +1231,11 @@ aside .advertising .box-shadow {
     text-transform: none
 }
 
-.news article.grid-container .small-7 .tabs .tabs__content .item .content h4 a {
+.news article .tabs .tabs__content .item .content h4 a {
     color: #1c2e36
 }
 
-.news article.grid-container .small-7 .tabs .tabs__content .item .content .category {
+.news article .tabs .tabs__content .item .content .category {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -1256,16 +1250,16 @@ aside .advertising .box-shadow {
     margin-bottom: 4px
 }
 
-.news article.grid-container .small-7 .tabs .tabs__content .item .content .category img {
+.news article .tabs .tabs__content .item .content .category img {
     margin-right: 5px;
     margin-top: -4px
 }
 
-.news article.grid-container .small-7 .tabs .tabs__content .item .content .category div {
+.news article .tabs .tabs__content .item .content .category div {
     line-height: 16px
 }
 
-.news article.grid-container .small-7 .tabs .tabs__content .item .content .statistic {
+.news article .tabs .tabs__content .item .content .statistic {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -1275,11 +1269,11 @@ aside .advertising .box-shadow {
     font-weight: 500
 }
 
-.news article.grid-container .small-7 .tabs .tabs__content .item .content .statistic div {
+.news article .tabs .tabs__content .item .content .statistic div {
     margin-right: 20px
 }
 
-.news article.grid-container .small-7 .tabs .tabs__content .item .content .statistic div img {
+.news article .tabs .tabs__content .item .content .statistic div img {
     margin-top: -3px
 }
 
@@ -6017,22 +6011,6 @@ aside.poll .answer progress::progress-value {
         margin: 0 auto 24px
     }
 
-    .video_block article .grid-margin-x>div {
-        width: calc(49.93333% - 1.875rem)
-    }
-
-    .video_block article .grid-margin-x>div:last-child {
-        display: none
-    }
-
-    .all_read article .grid-margin-x>div {
-        width: calc(49.93333% - 1.875rem)
-    }
-
-    .all_read article .grid-margin-x>div:last-child {
-        display: none
-    }
-
     .library .search-cnt input[name="filter[search]"] {
         width: 300px
     }
@@ -6069,9 +6047,6 @@ aside.poll .answer progress::progress-value {
 }
 
 @media only screen and (max-width : 768px) {
-    .investment_proposals .large-9 .grid-margin-x,.all_news .large-9 .grid-margin-x {
-        display:block
-    }
 
     .investment_proposals .large-9 .grid-margin-x .small-5 .title-news {
         height: auto;
@@ -6083,7 +6058,7 @@ aside.poll .answer progress::progress-value {
         padding-bottom: 24px
     }
 
-    .investment article.grid-container .small-5 .box-shadow,.all_news article.grid-container .small-5 .box-shadow {
+    .investment article .box-shadow,.all_news article.grid-container .small-5 .box-shadow {
         height: calc(100% - 9px)
     }
 
@@ -6322,11 +6297,7 @@ aside.poll .answer progress::progress-value {
 }
 
 @media only screen and (max-width : 451px) {
-    .investment article.grid-container .small-7 .tabs .tabs__content .item .img,.all_news article.grid-container .small-7 .tabs .tabs__content .item .img {
-        display:none
-    }
-
-    .investment article.grid-container .small-7 .tabs .tabs__content .item {
+    .investment article .tabs .tabs__content .item {
         border-bottom: 2px solid #d7d7d7;
         padding-bottom: 11px
     }
@@ -6387,11 +6358,11 @@ aside.poll .answer progress::progress-value {
         width: 100%
     }
 
-    .investment article.grid-container .small-5 .title-news .statistic {
+    .investment article .title-news .statistic {
         margin-bottom: 6px
     }
 
-    .investment article.grid-container .small-5 .title-news .category {
+    .investment article .title-news .category {
         margin-bottom: 8px
     }
 
