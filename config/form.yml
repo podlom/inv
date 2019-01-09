@@ -27,44 +27,52 @@ approach:
       label: ''
       attributes:
         placeholder: 'Краткое описание инвестиционного предложения (до 200 символов)'
-
-callback:
+investment_callback:
   actions:
-    - type: Experts\SendMailAction
+    - type: sendMail
       to:
-#         - themastir@gmail.com: test
+        #- themastir@gmail.com: Inventure
         - info@inventure.ua: Inventure
-#        - info@feelgoodlabs.com: manager
-#      bcc:
-#        - info@inventure.ua: Inventure
-      subject: 'Вопрос Эксперту'
   fields:
-    id:
-      type: Hidden
-      label: ''
-      attributes:
-        required: true
     name:
       type: String
       label: ''
       attributes:
         required: true
-        placeholder: 'Ваше имя'
+        placeholder: 'ФИО'
     email:
       type: String
       label: ''
       attributes:
         required: true
-        placeholder: 'Ваша почта'
-    question:
-      type: Text
+        type: 'email'
+        placeholder: 'E-mail'
+    tel:
+      type: String
       label: ''
       attributes:
         required: true
-        placeholder: 'Ваш вопрос'
-  success: 'Cпасибо за ваш вопрос, мы направили его эксперту. Вы будете уведомлены об ответе.'
-  error: 'Сожалеем, но возникла ошибка при отправке вашего вопроса. Проверьте правильность введенных данных или повторите отправку позже.'
-  invalid: 'Вы допустили ошибку при заполнении формы. Проверьте правильность введенных данных или задайте вопрос позже.'
+        type: 'tel'
+        placeholder: 'Телефон'
+    url:
+      type: Hidden
+      label: ''
+callback:
+  actions:
+    - type: sendMail
+      to:
+      #   - themastir@gmail.com: test
+        - info@inventure.ua: Inventure
+      #  - info@feelgoodlabs.com: manager
+      #bcc:
+      #  - info@inventure.ua: Inventure
+      subject: 'Перезвоните мне'
+  fields:
+    tel:
+      type: String
+      label: ''
+  success: 'Cпасибо мы свяжемся с вами в ближайшее время.'
+  error: 'Сожалеем, но возникла ошибка. Попробуйте позже.'
 investor:
   actions:
     - type: sendMail
@@ -149,7 +157,7 @@ investor:
            - 'Гостиницы и общественное питание'
            - 'Здравоохранение и социальная помощь'
            - 'Потребительские услуги'
-           - 'Обазование'
+           - 'Образование'
            - 'Организации и ассоциации'
            - 'Инновации и высокие технологии'
     type_other:

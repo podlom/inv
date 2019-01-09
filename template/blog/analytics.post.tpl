@@ -30,3 +30,4 @@
 </article>
 {/block}
 {/block}
+{block 'contacts'}{/block}

@@ -27,7 +27,7 @@
                     <div class="grid-x grid-margin-x">
                       <div class="cell small-12 medium-5 large-5">
                       	{lent_load '/investments' 6 var="posts" analytics=1}
-						            {$bigpost=array_shift($posts)}
+			            {$bigpost=array_shift($posts)}
                       <div style="position: relative;">
                         <div class="box-shadow"></div>
                         <div class="title-news">
@@ -119,21 +119,6 @@
                               </div>
                               <div class="content">
                                   <h4><a href="{$post->getPath()}">{$post->getTitle()}</a></h4>
-                                  <div class="category">
-                                  {if $post->getParent()->getId() == 7860}
-                                      <a href="{$post->getParent()->getPath()}"><img src="/i/projects.png" alt="" />{$post->getParent()->getH1()}</a>
-                                  {elseif $post->getParent()->getId() == 7861}
-                                      <a href="{$post->getParent()->getPath()}"><img src="/i/business.png" alt="" />{$post->getParent()->getH1()}</a>
-                                  {elseif $post->getParent()->getId() == 7862}
-                                      <a href="{$post->getParent()->getPath()}"><img src="/i/realestate.png" alt="" />{$post->getParent()->getH1()}</a>
-                                  {elseif $post->getParent()->getId() == 7863}
-                                      <a href="{$post->getParent()->getPath()}"><img src="/i/land.png" alt="" />{$post->getParent()->getH1()}</a>
-                                  {elseif $post->getParent()->getId() == 7864}
-                                      <a href="{$post->getParent()->getPath()}"><img src="/i/offer.png" alt="" />{$post->getParent()->getH1()}</a>
-                                  {else}
-                                      <span></span>
-                                  {/if}
-                                </div>
                                 <div class="statistic">
                                   <div class="date">
                                     {$post->getPublished()->format('d.m.y')}
@@ -167,21 +152,6 @@
                               </div>
                               <div class="content">
                                   <h4><a href="{$news->getPath()}">{$news->getTitle()}</a></h4>
-                                  <div class="category">
-                                  {if $news->getParent()->getId() == 7860}
-                                      <a href="{$news->getParent()->getPath()}"><img src="/i/projects.png" alt="" />{$news->getParent()->getH1()}</a>
-                                  {elseif $news->getParent()->getId() == 7861}
-                                      <a href="{$news->getParent()->getPath()}"><img src="/i/business.png" alt="" />{$news->getParent()->getH1()}</a>
-                                  {elseif $news->getParent()->getId() == 7862}
-                                      <a href="{$news->getParent()->getPath()}"><img src="/i/realestate.png" alt="" />{$news->getParent()->getH1()}</a>
-                                  {elseif $news->getParent()->getId() == 7863}
-                                      <a href="{$news->getParent()->getPath()}"><img src="/i/land.png" alt="" />{$news->getParent()->getH1()}</a>
-                                  {elseif $news->getParent()->getId() == 7864}
-                                      <a href="{$news->getParent()->getPath()}"><img src="/i/offer.png" alt="" />{$news->getParent()->getH1()}</a>
-                                  {else}
-                                      <span></span>
-                                  {/if}
-                                </div>
                                 <div class="statistic">
                                   <div class="date">
                                     {$news->getPublished()->format('d.m.y')}
@@ -215,21 +185,6 @@
                               </div>
                               <div class="content">
                                   <h4><a href="{$news->getPath()}">{$news->getTitle()}</a></h4>
-                                  <div class="category">
-                                  {if $news->getParent()->getId() == 7860}
-                                      <a href="{$news->getParent()->getPath()}"><img src="/i/projects.png" alt="" />{$news->getParent()->getH1()}</a>
-                                  {elseif $news->getParent()->getId() == 7861}
-                                      <a href="{$news->getParent()->getPath()}"><img src="/i/business.png" alt="" />{$news->getParent()->getH1()}</a>
-                                  {elseif $news->getParent()->getId() == 7862}
-                                      <a href="{$news->getParent()->getPath()}"><img src="/i/realestate.png" alt="" />{$news->getParent()->getH1()}</a>
-                                  {elseif $news->getParent()->getId() == 7863}
-                                      <a href="{$news->getParent()->getPath()}"><img src="/i/land.png" alt="" />{$news->getParent()->getH1()}</a>
-                                  {elseif $news->getParent()->getId() == 7864}
-                                      <a href="{$news->getParent()->getPath()}"><img src="/i/offer.png" alt="" />{$news->getParent()->getH1()}</a>
-                                  {else}
-                                      <span></span>
-                                  {/if}
-                                </div>
                                 <div class="statistic">
                                   <div class="date">
                                     {$news->getPublished()->format('d.m.y')}
@@ -331,8 +286,6 @@
                           {$bignews->getViews()}
                         </div>
                       </div>
-                      {$r=$bignews->getRubrics()}
-                        {if $r.0}<div class="hint m_t-5 category"><a href="#"><img src="/i/folded-newspaper.png" alt="" />{$r.0->getH1()}</a></div>{/if}
                       <h4><a href="{$bignews->getPath()}">{$bignews->getTitle()}</a></h4>
                       <p>{$bignews->getShortText()|truncate:300:"  ..."}</p>
                     </div>
@@ -361,8 +314,6 @@
                         </div>
                         <div class="content">
                             <h4><a href="{$news->getPath()}">{$news->getTitle()}</a></h4>
-                            {$r=$news->getRubrics()}
-                          {if $r.0}<div class="hint m_t-5 category"><a href="#"><img src="/i/folded-newspaper.png" alt="" />{$r.0->getH1()}</a></div>{/if}
                           <div class="statistic">
                             <div class="date">
                              {$news->getPublished()->format('d.m.y')}
@@ -392,8 +343,6 @@
                         </div>
                         <div class="content">
                             <h4><a href="{$news->getPath()}">{$news->getTitle()}</a></h4>
-                            {$r=$news->getRubrics()}
-                          {if $r.0}<div class="hint m_t-5 category"><a href="#"><img src="/i/folded-newspaper.png" alt="" />{$r.0->getH1()}</a></div>{/if}
                             <div class="statistic">
                             <div class="date">
                              {$news->getPublished()->format('d.m.y')}
@@ -423,8 +372,6 @@
                         </div>
                         <div class="content">
                             <h4><a href="{$news->getPath()}">{$news->getTitle()}</a></h4>
-                            {$r=$news->getRubrics()}
-                          {if $r.0}<div class="hint m_t-5 category"><a href="#"><img src="/i/folded-newspaper.png" alt="" />{$r.0->getH1()}</a></div>{/if}
                             <div class="statistic">
                             <div class="date">
                              {$news->getPublished()->format('d.m.y')}

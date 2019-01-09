@@ -36,7 +36,7 @@
           {/if}
           <ul>
           {foreach $links as $url=>$name}
-            {if $category && $category->getPath() != $url}
+            {if !$category || $category->getPath() != $url}
             <li><a href="{$url}">{$name}</a></li>
             {/if}
           {/foreach}

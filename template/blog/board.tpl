@@ -38,10 +38,13 @@
 {/block}
 {block 'post.extras'}
 <div class="accordion" id="adv-{$post->getId()}">
-  <p class="toggle_btn"><span>Показать текст обьявления</span><span>Скрыть текст обьявления</span></p>
+  <p class="toggle_btn">
+    <span>Показать текст обьявления</span>
+    <span style="display: none;">Скрыть текст обьявления</span>
+  </p>
   <article class="block">
       {block 'post.content'}
-        {content $post}
+        {content $post attr=['class'=>'the_post_content']}
       {/block}
       <div class="contacts">
         <h2>Контакты</h2>

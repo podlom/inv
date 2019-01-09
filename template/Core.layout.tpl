@@ -42,12 +42,12 @@
     {script 'jquery'}
     {script "foundation2"}
     {script src="/js/libs.min.js" require="jquery" name="libs" }
+    {script src="/js/common.js" require="libs" }
     {script src="/js/jquery.lazyload.min.js" require="jquery" name="lazyload" }
     {script src="/js/autosize.min.js" require="jquery" name="autosize" }
 
     {script src="/js/jquery.hoverIntent.minified.js" name="hoverIntent" require="jquery" }
     {script src="/js/script.js" require="jquery,hoverIntent,autosize" }
-    {script src="/js/common.js" require="libs" }
     {script src="/js/owl.carousel.min.js" require="jquery" }
     {script_code require=['foundation2', 'jquery']}$(document).foundation();{/script_code}
 </head>
@@ -323,7 +323,7 @@
         </div>
         <div class="copyright">
             {block 'copyright'}
-            Публикация материалов InVenture разрешается только при условии размещения активной ссылки - https://inventure.com.ua <br>© 2010-2018 InVenture™  All Rights Reserved
+            Публикация материалов InVenture разрешается только при условии размещения активной ссылки - https://inventure.com.ua <br>© 2010-2019 InVenture™ All Rights Reserved
             {/block}
         </div>
       </div>
@@ -351,7 +351,7 @@
 {/literal}
 <!-- Scripts on loading page  End -->
 </div><!-- wrapper end -->
-{* 
+{*
 <div id="questionForm" class="reveal-modal questionFormCenter" data-reveal style="display:none">
     <h2>Задать вопрос</h2>
     {form callback}
@@ -363,6 +363,15 @@
     <a href="{if $page}/admin/page/edit/{$page->getId()}{else}{if $post}/admin/blog/{$blog->getId()}/edit/{$post->getId()}{else}/admin/blog/{$blog->getId()}{/if}{/if}" title="edit" class="icon-edit">Редактировать</a>
 </div>
 {/if}
-
+<div id="gm_callback">
+    <div class="gm_call"></div>
+    <div class="gm_form">
+        <div class="gm_text">Перезвоните мне!</div>
+        {form 'callback' template="gm_callback"}
+        <div class="gm_close"></div>
+    </div>
+    <div class="gm_result">Спасибо! Мы с вами свяжемся. <div class="gm_close"></div>
+    </div>
+</div>
 </body>
 </html>

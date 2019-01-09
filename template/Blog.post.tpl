@@ -110,39 +110,41 @@
         {#/mod}
     {/block}
     {block 'contacts'}
-    <div style="position: relative;" id="contacts">
-        <div class="box-shadow box-shadow1"></div>
-        <div class="contacts">
-            <h2>Контакты</h2>
-            <div class="contacts1">
-                {#mod Attribute}{if $post->getAttr(5) && $post->getAttr(4) && $post->getAttr(3)}
+        <div class="contacts-wrap">
+        {block 'contacts.inner'}
+            <div class="contacts">
+            <div class="box-shadow box-shadow1"></div>
+                <h2>Контакты</h2>
+                <div class="contacts1">
+                    {#mod Attribute}{if $post->getAttr(5) && $post->getAttr(4) && $post->getAttr(3)}
 
-                    <div class="avatar"><img src="/i/no-photo.png" alt=""></div>
-                    <div class="data_contacts">
-                    <p><b>{if $lang=='en'}Name{else}Имя{/if}:</b> {$post->getAttr(5)}</p>
-                    <p><b>E-Mail:</b> <a href="mailto:{$post->getAttr(5)}">{$post->getAttr(4)}</a></p>
-                    <p><b>{if $lang=='en'}Phone{else}Телефон{/if}:</b> <a href="tel:{$post->getAttr(3)}">{$post->getAttr(3)}</a></p>
-                    </div>
+                        <div class="avatar"><img src="/i/no-photo.png" alt=""></div>
+                        <div class="data_contacts">
+                        <p><b>{if $lang=='en'}Name{else}Имя{/if}:</b> {$post->getAttr(5)}</p>
+                        <p><b>E-Mail:</b> <a href="mailto:{$post->getAttr(5)}">{$post->getAttr(4)}</a></p>
+                        <p><b>{if $lang=='en'}Phone{else}Телефон{/if}:</b> <a href="tel:{preg_replace('![^\+0-9]!', '',$post->getAttr(3))}">{$post->getAttr(3)}</a></p>
+                        </div>
 
-                {else}{#/mod}
+                    {else}{#/mod}
 
-                    <div class="avatar"><img src="/i/no-photo.png" alt=""></div>
-                    <div class="data_contacts">
-                        <p><b>{if $lang=='en'}Name{else}Имя{/if}:</b> {if $lang=='en'}Alex Oleynikov{else}Алексей Олейников{/if}</p>
-                        <p><b>E-Mail:</b> <a href="mailto:info@inventure.ua">info@inventure.ua</a></p>
-                        <p><b>{if $lang=='en'}Phone{else}Телефон{/if}:</b> <a href="tel:+380677136571">+38(067)713-65-71</a></p>
-                    </div>
+                        <div class="avatar"><img src="/i/no-photo.png" alt=""></div>
+                        <div class="data_contacts">
+                            <p><b>{if $lang=='en'}Name{else}Имя{/if}:</b> {if $lang=='en'}Alex{else}Алексей{/if}</p>
+                            <p><b>E-Mail:</b> <a href="mailto:info@inventure.ua">info@inventure.ua</a></p>
+                            <p><b>{if $lang=='en'}Phone{else}Телефон{/if}:</b> <a href="tel:+380977727292">+38 097 772 72 92</a></p>
+                        </div>
 
-                {#mod Attribute}{/if}{#/mod}
+                    {#mod Attribute}{/if}{#/mod}
+                </div>
             </div>
+        {/block}
         </div>
-    </div>
     {/block}
-    {block 'comment'}
+    {* block 'comment'}
     <div id="newsComments">
         <h2>Комментарии</h2>
         {include 'inc/disqus'}
     </div>
-    {/block}
+    {/block *}
 </div>
 {/block}

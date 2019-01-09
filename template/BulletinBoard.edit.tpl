@@ -11,19 +11,28 @@
             {block 'content'}
     <div class="box-shadow"></div>
     <div class="viewbox-cnt-body board_edit">
+        {if $post && $post->getId()}
         <h3>Редактировать объявление</h3>
-        {content $page}
+        {else}
+        <h3>Добавить объявление</h3>
+        <div class="rules">
+            <div>Цена размещения объявления – <b>99 грн</b></div>
+            <div>Срок размещения объявления – <b>3 месяца</b></div>
+            <div>Ознакомиться с <a href="/rules">правилами размещения объявлений</a></div>
+        </div>
+        {/if}
+        {content $post}
 		{$form->open()}
             <h4>Персональные данные</h4>
-            <div class="personal_data">
-                <div>{$form->getField('attr')->getField('attr_5')->getInput()->setAttr('placeholder','Ф.И.О')}</div>
-                <div>{$form->getField('attr')->getField('attr_3')->getInput()->setAttr('placeholder','Телефон')}</div>
-                <div>{$form->getField('attr')->getField('attr_4')->getInput()->setAttr('placeholder','E-mail')}</div>
+            <div class="personal_data grid-x grid-margin-x">
+                <div class="cell medium-4 small-12">{$form->getField('attr')->getField('attr_5')->getInput()->setAttr('placeholder','Ф.И.О')}</div>
+                <div class="cell medium-4 small-12">{$form->getField('attr')->getField('attr_3')->getInput()->setAttr('placeholder','Телефон')}</div>
+                <div class="cell medium-4 small-12">{$form->getField('attr')->getField('attr_4')->getInput()->setAttr('placeholder','E-mail')}</div>
             </div>
             <h4>Данные об инвестиционном предложении</h4>
             <div class="proposals_data">
-                <div class="flex">
-                    <div>{$form->getField('category')->getField('parent')->getInput()->setAttr('placeholder','Тип предложения')}</div>
+                <div class="grid-x grid-margin-x">
+                    <div class="cell medium-4 small-12">{$form->getField('category')->getField('parent')->getInput()->setAttr('placeholder','Тип предложения')}</div>
                 </div>
             <h4>Указать расположение</h4>
                 <div>{$form->getField('attr')->getField('attr_10')->getInput()}</div>
