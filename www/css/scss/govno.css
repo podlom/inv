@@ -889,7 +889,7 @@ aside .advertising .box-shadow {
 }
 
 .investment_proposals aside .board .box-shadow {
-    height: calc(100% - 129px);
+    height: calc(100% - 9px);
     position: absolute;
     width: 256px;
     left: calc(50% - 128px);

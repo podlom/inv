@@ -366,7 +366,7 @@
 <div id="gm_callback">
     <div class="gm_call"></div>
     <div class="gm_form">
-        <div class="gm_text">Перезвоните мне!</div>
+        <div class="gm_text">Обратный звонок</div>
         {form 'callback' template="gm_callback"}
         <div class="gm_close"></div>
     </div>

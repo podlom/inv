@@ -6,7 +6,7 @@
         	->setAttr('type', 'tel')
         	->setAttr('pattern', '^\+?[0-9]{9,15}$')
         }
-        <button>Отправить</button>
+        <button>Заказать</button>
     </div>
 {$form->protection()}
 {$form->close()}

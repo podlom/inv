@@ -38,9 +38,12 @@ $(document.body).ready(function(){
 		}
 	});
 	$('#gm_callback form').submit(function(e){
+		var tel = $('#gm_callback input[type=tel]').val();
+		if(tel.length < 7)
+			return;
 		$.post('/form/callback.json', {
 			'sf_callback[_token]': $('#gm_callback input[name="sf_callback[_token]"]').val(),
-			'sf_callback[tel]': $('#gm_callback input[type=tel]').val()
+			'sf_callback[tel]': tel
 		});
 		is_sent = true;
 		if(storage)storage.setItem('callback_send', true);
@@ -49,14 +52,6 @@ $(document.body).ready(function(){
 		e.stopPropagation();
 		return false;
 	});
-	setTimeout(function(){
-		var n = storage && storage.getItem('callback_show') || 0;
-		if(state=='init' && !is_sent && n < 2){
-			open();
-			n++;
-			storage && storage.setItem('callback_show', n);
-		}
-	}, 15000);
 });
 $(document).ready(function(){
 	$('#gm_callback').fadeIn(300);
