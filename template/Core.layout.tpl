@@ -19,18 +19,22 @@
     <link rel="apple-touch-icon" sizes="152x152" href="/images/theme/favicon/touch-icon-ipad-retina.png" />
     <link rel="shortcut icon" href="/images/theme/favicon/favicon.ico" type="image/x-icon" />
     {if $post}
-        {meta 'og:title' html_entity_decode($post->getH1())}
-        {meta 'og:description' html_entity_decode($post->getShortText())}
-        {meta 'og:type' 'website'}
+        {meta 'og.1' property='og:title'  content=html_entity_decode($post->getH1()) raw=1}
+        {meta 'og.2' property='og:description'  content=html_entity_decode($post->getShortText()) raw=1}
+        {meta 'og.3' property='og:type'  content='website' raw=1}
+        {meta 'og.4' property='og:url'  content=full_link($post->getPath()) raw=1}
         {if $post->hasImage()}
-        {meta 'og:image' full_link($post->getImage()->getUrl())}
+        {meta 'og1' property='og:image' content=full_link($post->getImage()->getUrl()) raw=1}
+        {meta 'og2' property='og:image' content=full_link($post->getImage()->thumbup(600,315)->getUrl()) raw=1}
+        {meta 'og3' property='og:image' content=full_link($post->getImage()->thumbup(180,110)->getUrl()) raw=1}
+        {meta 'twitter:image' full_link($post->getImage()->thumbup(120,120)->getUrl())}
         {/if}
     {else}
-        {meta 'og:image' full_link('https://inventure.com.ua/i/inventure_corp.png')}
+        {meta 'og:5'raw=1  property='og:image' content=full_link('/i/inventure_corp.png')}
     {/if}
 
 
-    {meta 'fb:app_id' '160711107658620'}
+    {*meta 'fb1' property='fb:app_id' content='160711107658620' raw=1*}
     {*style '/css/foundation.min.css'*}
     {style '/css/libs.css'}
     {style '/css/main.css'}
@@ -174,6 +178,12 @@
 </div>
     {block 'mobile_menu'}
     <div class="mobile_menu">
+        <div class="search">
+            <form method="GET" action="/search">
+                <input type="search" name="q" placeholder="Поиск" />
+                <i class="fa fa-search" data-submit></i>
+            </form>
+        </div>
         <div class="lang_switch">
             <a href="{$data.url|default:'#'}" {if $data}title="{$data['title']}"{/if} {if !$data}disabled{/if}>Switch to English</a>
         </div>

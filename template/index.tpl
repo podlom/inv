@@ -22,56 +22,56 @@
                   <li><a href="/investments/land">Земельные участки</a></li>
                   <li><a href="/investments/offer">Предложения инвесторов</a></li>
               </ul>
-          </div>
-            <article class="grid-container">
-                    <div class="grid-x grid-margin-x">
-                      <div class="cell small-12 medium-5 large-5">
-                      	{lent_load '/investments' 6 var="posts" analytics=1}
-			            {$bigpost=array_shift($posts)}
-                      <div style="position: relative;">
-                        <div class="box-shadow"></div>
-                        <div class="title-news">
-                          <div class="img">
-                            <a href="{$bigpost->getPath()}">
-                              {if $bigpost->getImage()}
-                                {$bigpost->getImage()->thumbup(350,254)}
-                              {else}
-                                <img class="the_img" src="/img/resize.375.225/images/noThumb.jpg" alt="{$bigpost->getH1()}"/>
-                              {/if}
-                            </a>
+            </div>
+            <article>
+              <div class="grid-x grid-margin-x">
+                <div class="cell small-12 medium-5 large-5">
+              	{lent_load '/investments' 6 var="posts" analytics=1}
+                {$bigpost=array_shift($posts)}
+                  <div style="position: relative;">
+                    <div class="box-shadow"></div>
+                    <div class="title-news">
+                      <div class="img">
+                        <a href="{$bigpost->getPath()}">
+                          {if $bigpost->getImage()}
+                            {$bigpost->getImage()->thumbup(350,254)}
+                          {else}
+                            <img class="the_img" src="/img/resize.375.225/images/noThumb.jpg" alt="{$bigpost->getH1()}"/>
+                          {/if}
+                        </a>
+                      </div>
+                      <div class="info">
+                        <div class="statistic">
+                          <div class="date">
+                            {$bigpost->getPublished()->format('d.m.y')}
                           </div>
-                          <div class="info">
-                            <div class="statistic">
-                              <div class="date">
-                                {$bigpost->getPublished()->format('d.m.y')}
-                              </div>
-                              <div class="views">
-                                <img src="/i/views.png">
-                                {$bigpost->getViews()}
-                              </div>
-                              <div class="rating">
-                                <img src="/i/rating.png">
-                                {$bigpost->getRating()|number_format:1}
-                              </div>
-                            </div>
-                            <div class="category">
-                              {if $bigpost->getParent()->getId() == 7860}
-                                  <a href="{$bigpost->getParent()->getPath()}"><img src="/i/projects.png" alt="" />{$bigpost->getParent()->getH1()}</a>
-                              {elseif $bigpost->getParent()->getId() == 7861}
-                                  <a href="{$bigpost->getParent()->getPath()}"><img src="/i/business.png" alt="" />{$bigpost->getParent()->getH1()}</a>
-                              {elseif $bigpost->getParent()->getId() == 7862}
-                                  <a href="{$bigpost->getParent()->getPath()}"><img src="/i/realestate.png" alt="" />{$bigpost->getParent()->getH1()}</a>
-                              {elseif $bigpost->getParent()->getId() == 7863}
-                                  <a href="{$bigpost->getParent()->getPath()}"><img src="/i/land.png" alt="" />{$bigpost->getParent()->getH1()}</a>
-                              {elseif $bigpost->getParent()->getId() == 7864}
-                                  <a href="{$bigpost->getParent()->getPath()}"><img src="/i/offer.png" alt="" />{$bigpost->getParent()->getH1()}</a>
-                              {else}
-                                  <span></span>
-                              {/if}
-                            </div>
-                            <h4><a href="{$bigpost->getPath()}">{$bigpost->getTitle()}</a></h4>
-                            <p>{$bigpost->getShortText()|truncate:150:"  ..."}</p>
-                            <div class="position">
+                          <div class="views">
+                            <img src="/i/views.png">
+                            {$bigpost->getViews()}
+                          </div>
+                          <div class="rating">
+                            <img src="/i/rating.png">
+                            {$bigpost->getRating()|number_format:1}
+                          </div>
+                        </div>
+                        <div class="category">
+                          {if $bigpost->getParent()->getId() == 7860}
+                              <a href="{$bigpost->getParent()->getPath()}"><img src="/i/projects.png" alt="" />{$bigpost->getParent()->getH1()}</a>
+                          {elseif $bigpost->getParent()->getId() == 7861}
+                              <a href="{$bigpost->getParent()->getPath()}"><img src="/i/business.png" alt="" />{$bigpost->getParent()->getH1()}</a>
+                          {elseif $bigpost->getParent()->getId() == 7862}
+                              <a href="{$bigpost->getParent()->getPath()}"><img src="/i/realestate.png" alt="" />{$bigpost->getParent()->getH1()}</a>
+                          {elseif $bigpost->getParent()->getId() == 7863}
+                              <a href="{$bigpost->getParent()->getPath()}"><img src="/i/land.png" alt="" />{$bigpost->getParent()->getH1()}</a>
+                          {elseif $bigpost->getParent()->getId() == 7864}
+                              <a href="{$bigpost->getParent()->getPath()}"><img src="/i/offer.png" alt="" />{$bigpost->getParent()->getH1()}</a>
+                          {else}
+                              <span></span>
+                          {/if}
+                        </div>
+                        <h4><a href="{$bigpost->getPath()}">{$bigpost->getTitle()}</a></h4>
+                        <p>{$bigpost->getShortText()|truncate:150:"  ..."}</p>
+                        <div class="position">
                           <div class="place">
                             <img src="/i/ukraine.png">{if $bigpost->hasAttr("10")} {$bigpost->printAttr("10")}{/if}
                           </div>
@@ -91,122 +91,122 @@
                             </div>
                           </div>
                         </div>
-                          </div>
-                        </div>
-                      </div>
-                      </div>
-                      <div class="cell small-12 medium-7 large-7">
-                        <div class="tabs">
-                          <ul class="tabs__caption">
-                            <li class="active">Новые</li>
-                            <li>Популярные</li>
-                            <li>Лучшие</li>
-                            <!--<li>По цене <i class="fa fa-arrow-up"></i></li>
-                            <li>По цене <i class="fa fa-arrow-down"></i></li>-->
-                          </ul>
-
-                          <div class="tabs__content  active">
-                                                   {foreach $posts as $post}
-                            <div class="item">
-                              <div class="img">
-                                <a href="{$post->getPath()}" >
-                                 {if $post->getImage()}
-                                    {$post->getImage()->thumbup(120,90)}
-                                  {else}
-                                    <img class="the_img" src="/img/thumbup.120.90/images/noThumb.jpg" alt="{$post->getH1()}"/>
-                                  {/if}
-                                </a>
-                              </div>
-                              <div class="content">
-                                  <h4><a href="{$post->getPath()}">{$post->getTitle()}</a></h4>
-                                <div class="statistic">
-                                  <div class="date">
-                                    {$post->getPublished()->format('d.m.y')}
-                                  </div>
-                                  <div class="views">
-                                    <img src="/i/views.png">
-                                    {$post->getViews()}
-                                  </div>
-                                  <div class="rating">
-                                    <img src="/i/rating.png">
-                                    {$post->getRating()|number_format:1}
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            {/foreach}
-                            <a href="/investments" class="more">Показать все</a>
-                          </div>
-
-                          <div class="tabs__content">
-                            {lent '/investments' 5 order_by="a.views DESC" var='news' analytics=1}
-                            <div class="item">
-                              <div class="img">
-                                <a href="{$news->getPath()}" >
-                                  {if $news->getImage()}
-                                    {$news->getImage()->thumbup(120,90)}
-                                  {else}
-                                    <img class="the_img" src="/img/thumbup.120.90/images/noThumb.jpg" alt="{$news->getH1()}"/>
-                                  {/if}
-                                </a>
-                              </div>
-                              <div class="content">
-                                  <h4><a href="{$news->getPath()}">{$news->getTitle()}</a></h4>
-                                <div class="statistic">
-                                  <div class="date">
-                                    {$news->getPublished()->format('d.m.y')}
-                                  </div>
-                                  <div class="views">
-                                    <img src="/i/views.png">
-                                    {$news->getViews()}
-                                  </div>
-                                  <div class="rating">
-                                    <img src="/i/rating.png">
-                                    {$news->getRating()|number_format:1}
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            {/lent}
-                            <a href="/investments" class="more">Показать все</a>
-                          </div>
-
-                          <div class="tabs__content">
-                            {lent '/investments' 5 order_by="a.rating DESC" var='news' analytics=1}
-                            <div class="item">
-                              <div class="img">
-                                <a href="{$news->getPath()}" >
-                                  {if $news->getImage()}
-                                    {$news->getImage()->thumbup(120,90)}
-                                  {else}
-                                    <img class="the_img" src="/img/thumbup.120.90/images/noThumb.jpg" alt="{$news->getH1()}"/>
-                                  {/if}
-                                </a>
-                              </div>
-                              <div class="content">
-                                  <h4><a href="{$news->getPath()}">{$news->getTitle()}</a></h4>
-                                <div class="statistic">
-                                  <div class="date">
-                                    {$news->getPublished()->format('d.m.y')}
-                                  </div>
-                                  <div class="views">
-                                    <img src="/i/views.png">
-                                    {$news->getViews()}
-                                  </div>
-                                  <div class="rating">
-                                    <img src="/i/rating.png">
-                                    {$news->getRating()|number_format:1}
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            {/lent}
-                            <a href="/investments" class="more">Показать все</a>
-                          </div>
-                        </div>
                       </div>
                     </div>
-                  </article>
+                  </div>
+                </div>
+                <div class="cell small-12 medium-7 large-7">
+                  <div class="tabs">
+                    <ul class="tabs__caption">
+                      <li class="active">Новые</li>
+                      <li>Популярные</li>
+                      <li>Лучшие</li>
+                      <!--<li>По цене <i class="fa fa-arrow-up"></i></li>
+                      <li>По цене <i class="fa fa-arrow-down"></i></li>-->
+                    </ul>
+
+                    <div class="tabs__content  active">
+                      {foreach $posts as $post}
+                      <div class="item">
+                        <div class="img">
+                          <a href="{$post->getPath()}" >
+                           {if $post->getImage()}
+                              {$post->getImage()->thumbup(120,90)}
+                            {else}
+                              <img class="the_img" src="/img/thumbup.120.90/images/noThumb.jpg" alt="{$post->getH1()}"/>
+                            {/if}
+                          </a>
+                        </div>
+                        <div class="content">
+                          <h4><a href="{$post->getPath()}">{$post->getTitle()}</a></h4>
+                          <div class="statistic">
+                            <div class="date">
+                              {$post->getPublished()->format('d.m.y')}
+                            </div>
+                            <div class="views">
+                              <img src="/i/views.png">
+                              {$post->getViews()}
+                            </div>
+                            <div class="rating">
+                              <img src="/i/rating.png">
+                              {$post->getRating()|number_format:1}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      {/foreach}
+                      <a href="/investments" class="more">Показать все</a>
+                    </div>
+
+                    <div class="tabs__content">
+                      {lent '/investments' 5 order_by="a.views DESC" var='news' analytics=1}
+                      <div class="item">
+                        <div class="img">
+                          <a href="{$news->getPath()}" >
+                            {if $news->getImage()}
+                              {$news->getImage()->thumbup(120,90)}
+                            {else}
+                              <img class="the_img" src="/img/thumbup.120.90/images/noThumb.jpg" alt="{$news->getH1()}"/>
+                            {/if}
+                          </a>
+                        </div>
+                        <div class="content">
+                            <h4><a href="{$news->getPath()}">{$news->getTitle()}</a></h4>
+                          <div class="statistic">
+                            <div class="date">
+                              {$news->getPublished()->format('d.m.y')}
+                            </div>
+                            <div class="views">
+                              <img src="/i/views.png">
+                              {$news->getViews()}
+                            </div>
+                            <div class="rating">
+                              <img src="/i/rating.png">
+                              {$news->getRating()|number_format:1}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      {/lent}
+                      <a href="/investments" class="more">Показать все</a>
+                    </div>
+
+                    <div class="tabs__content">
+                      {lent '/investments' 5 order_by="a.rating DESC" var='news' analytics=1}
+                      <div class="item">
+                        <div class="img">
+                          <a href="{$news->getPath()}" >
+                            {if $news->getImage()}
+                              {$news->getImage()->thumbup(120,90)}
+                            {else}
+                              <img class="the_img" src="/img/thumbup.120.90/images/noThumb.jpg" alt="{$news->getH1()}"/>
+                            {/if}
+                          </a>
+                        </div>
+                        <div class="content">
+                            <h4><a href="{$news->getPath()}">{$news->getTitle()}</a></h4>
+                          <div class="statistic">
+                            <div class="date">
+                              {$news->getPublished()->format('d.m.y')}
+                            </div>
+                            <div class="views">
+                              <img src="/i/views.png">
+                              {$news->getViews()}
+                            </div>
+                            <div class="rating">
+                              <img src="/i/rating.png">
+                              {$news->getRating()|number_format:1}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      {/lent}
+                      <a href="/investments" class="more">Показать все</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
           </section>
         </div>
         <div class="cell large-3 medium-12">
@@ -273,7 +273,7 @@
                         {else}
                           <img class="the_img" src="/img/thumbup.350.254/images/noThumb.jpg" alt="{$bignews->getH1()}"/>
                         {/if}
-                                
+
                             </a>
                     </div>
                     <div class="info">

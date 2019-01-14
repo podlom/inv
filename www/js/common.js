@@ -57,6 +57,10 @@ $(document).ready(function(){
 	$('#gm_callback').fadeIn(300);
 });
 $(document).ready(function() {
+	$('.mobile_menu form [data-submit]').click(function(){
+		$(this).parents('form').submit();
+		console.log(this.form);
+	});
 
 	$('#nav .menu-item1').hover(function() {
 		$('#nav .menu-item1 .submenu').show();

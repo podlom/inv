@@ -129,7 +129,7 @@
                     {#mod Widget}
                     {widget_slot 'main (370x450)' size=[370,450]}
                     {widget_slot 'post_2 (370x450)' size=[370,450]}
-                    {widget_slot 'post_6 (270x350)' size=[270,350]}
+                    {widget_slot 'post_6 (270x350)' size=[370,450]}
                     {#/mod}
                 </div>
             {/block}

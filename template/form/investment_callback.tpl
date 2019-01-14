@@ -8,7 +8,7 @@
 	<div class="cell small-6">{$form->getField('name')->getInput()}</div>
 	<div class="cell small-6">{$form->getField('email')->getInput()}</div>
 	<div class="cell small-6">{$form->getField('tel')->getInput()}</div>
-	<div class="cell small-6">{$form->getSubmit()->addClass('button alert expanded')}</div>
+	<div class="cell small-6">{$form->getSubmit()->addClass('button alert expanded')->setAttr('value', 'Отправить')}</div>
 </div>
 {$form->getField('url')->getInput()->setValue(full_link($request->getPathInfo()))}
 {$form->protection()}

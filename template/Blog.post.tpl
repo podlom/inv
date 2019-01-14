@@ -17,7 +17,7 @@
 {/block}
 {block 'page.title'}
 <div class="clearfix border-bottom">
-    <h2>{$blog->getTitle()}</h2>
+    <h2><a href="{$blog->getPath()}">{$blog->getTitle()}</a></h2>
 </div>
 {/block}
 {block 'breadcrumbs'}
@@ -31,7 +31,7 @@
         </a>
     </li>
 {foreach $breadcrumbs as $item}
-    <li {if $item@last}style="display:none;"{elseif $item@index ==count($breadcrumbs)-2}class="current"{/if} itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+    <li {if $item@last || $item@first}style="display:none;"{elseif $item@index ==count($breadcrumbs)-2}class="current"{/if} itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
         <meta itemprop="position" content="{$item@index+1}">
         <a href="{$item->getPath()}" itemprop="item">
             <span itemprop="name">{$item->geth1()|truncate:75:" ..."}</span>

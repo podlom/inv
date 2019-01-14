@@ -36,7 +36,7 @@
 </div>
 {/block}
 {block 'post.views' append}
-<div class="reviews">{widget 6 target=$post->getId()}</div> {$post->getRating()|number_format:1}
+<div class="reviews">{widget 6 target=$post->getId()}</div> <span class="number">{$post->getRating()|number_format:1}</span>
 {/block}
 {block 'contacts.inner'}
 <div class="grid-x grid-margin-x">

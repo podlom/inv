@@ -134,14 +134,6 @@ button {
     outline: 0;
 }
 
-.clearfix h2 {
-    padding: 0;
-    color: #5287b0;
-    font-size: 24px;
-    text-transform: uppercase;
-    font-weight: 700;
-}
-
 .border-bottom {
     border-bottom: 1px solid #5287b0;
     margin-bottom: 18px!important;
@@ -448,7 +440,7 @@ button {
 .mobile_menu>div.social a.my_adv {
     border-radius: 2px;
     background-color: #ef767a;
-    color: #fff!important;
+    color: #fff;
     font-weight: 600;
     padding: 4px 6px;
     width: auto;
@@ -456,12 +448,17 @@ button {
 }
 
 .mobile_menu>div i {
-    font-size: 12px!important;
+    font-size: 12px;
     color: #fff;
     position: absolute;
     right: 10px;
     top: 10px;
     cursor: pointer;
+}
+
+.mobile_menu>div form i.fa-search{
+    color: #444;
+    font-size: 16px;
 }
 
 .mobile_menu>div .fa-chevron-down {
@@ -1707,6 +1704,16 @@ footer .copyright {
     color: #fff;
 }
 
+
+.the_post h2,.the_post h2 a {
+    padding: 0;
+    color: #5287b0;
+    font-size: 24px;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+
 .the_post .border-bottom {
     margin-bottom: 24px;
 }
@@ -1715,6 +1722,7 @@ footer .copyright {
     color: #0e618a;
     margin-bottom: 24px;
     margin-top: 18px;
+    font-size: 13px;
 }
 
 .the_post nav a {
