@@ -27,10 +27,15 @@
         {meta 'og1' property='og:image' content=full_link($post->getImage()->getUrl()) raw=1}
         {meta 'og2' property='og:image' content=full_link($post->getImage()->thumbup(600,315)->getUrl()) raw=1}
         {meta 'og3' property='og:image' content=full_link($post->getImage()->thumbup(180,110)->getUrl()) raw=1}
-        {meta 'twitter:image' full_link($post->getImage()->thumbup(120,120)->getUrl())}
+        {meta 'twitter:title' html_entity_decode($post->getH1())}
+        {meta 'twitter:description' html_entity_decode($post->getShortText())}
+        {meta "twitter:card" "summary_large_image"}
+        {meta "twitter:site" "@inventure_ua"}
+        {meta "twitter:creator" "@inventure_ua"}
+        {meta 'twitter:image' full_link($post->getImage()->getUrl())}
         {/if}
     {else}
-        {meta 'og:5'raw=1  property='og:image' content=full_link('/i/inventure_corp.png')}
+        {meta 'og:5' raw=1  property='og:image' content=full_link('/i/inventure_corp.png')}
     {/if}
 
 
