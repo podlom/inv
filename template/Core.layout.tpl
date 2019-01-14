@@ -34,7 +34,7 @@
     {/if}
 
 
-    {*meta 'fb1' property='fb:app_id' content='160711107658620' raw=1*}
+    {meta 'fb1' property='fb:app_id' content='160711107658620' raw=1}
     {*style '/css/foundation.min.css'*}
     {style '/css/libs.css'}
     {style '/css/main.css'}
