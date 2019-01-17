@@ -981,7 +981,16 @@ aside .advertising .box-shadow {
   color: #fff;
 }
 
-.investment_proposals aside .board .buttons a[href="/add-adv"]:hover, aside .form form button:hover, aside .archive form a:hover, .inventure_list .filter form button:hover, .digest form button:hover, #archiveFormButton:hover, .atlas_single .filter .row button:hover, .atlas_list .filter .row button:hover, .library .search-cnt .blue_but:hover, .investor-form .info .my_but:hover, .board_page .clearfix a:hover, .add_adv_form .clearfix a:hover {
+.investment_proposals aside .board .buttons a[href="/add-adv"]:hover,
+aside .form form button:hover,
+aside .archive form a:hover,
+.inventure_list .filter form button:hover,
+.digest form button:hover,
+#archiveFormButton:hover,
+.atlas_single .filter .row button:hover,
+.atlas_list .filter .row button:hover,
+.library .search-cnt .blue_but:hover,
+.investor-form .info .my_but:hover {
   background: #f75358;
 }
 
@@ -2971,7 +2980,7 @@ table tr td {
   display: none;
 }
 
-.board_page .clearfix a, .add_adv_form .clearfix a {
+.board_page .add_board, .add_adv_form .clearfix a {
   float: right;
   display: inline-block;
   width: 189px;

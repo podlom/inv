@@ -13,7 +13,7 @@
 {block 'page.title'}
 <div class="clearfix border-bottom">
     <h2>{$blog->getTitle()}</h2>
-    <a href="/bulletin/add">Добавить объявление</a>
+    <a class="add_board" href="/bulletin/add">Добавить объявление</a>
 </div>
 {/block}
 {block 'page.class' append} board_page{/block}

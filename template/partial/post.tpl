@@ -8,9 +8,17 @@
             {if substr($post->getPath(),0,14) == "/tools/video"}
                 <div>{$post->getAttr(55)}</div>
             {elseif $post->getImage()}
+                {if $parent != 'post'}
                 <a href="{$post->getPath()}">
                     {$post->getImage()->thumbup(350,254)->addClass('the_img')->setAttr('itemprop','image')}
                 </a>
+                {else}
+                {css "https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.6/dist/jquery.fancybox.min.css"}
+                {script name="fancybox" src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.6/dist/jquery.fancybox.min.js" require=['jquery']}
+                <a href="{$post->getImage()->getUrl()}" data-fancybox>
+                    {$post->getImage()->thumbup(350,254)->addClass('the_img')->setAttr('itemprop','image')}
+                </a>
+                {/if}
             {else}
                 <a href="{$post->getPath()}">
                     <img class="the_img" src="/img/resize.375.225/images/noThumb.jpg" alt="{$post->getH1()}"/>

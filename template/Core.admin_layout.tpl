@@ -55,6 +55,9 @@
                 <a href="/admin/blog" class="{if mb_substr($request->getPathInfo(),0,11) == '/admin/blog'}active{/if}"><i class="fa fa-folder-open"></i><span class="text-hide">Каталог</span></a>
             </li>
             <li>
+                <a href="/admin/user" class="{if mb_substr($request->getPathInfo(),0,11) == '/admin/user'}active{/if}"><i class="fa fa-user"></i><span class="text-hide">Пользователи</span></a>
+            </li>
+            <li>
                 <a href="/admin/attribute" class="{if mb_substr($request->getPathInfo(),0,16) == '/admin/attribute'}active{/if}"><i class="fa fa-wrench"></i><span class="text-hide">Атрибуты</span></a>
             </li>
             <li>

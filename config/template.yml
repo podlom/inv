@@ -50,6 +50,14 @@ analytics:
       - '/tools/investors/*'
    template: 'blog/analytics.post'
    default_template: 'Blog.post'
+analytics_en:
+   urls:
+      - '/en/analytics/*'
+      - '/en/tools/database/*'
+      - '/en/tools/investors/*'
+   template: 'blog/analytics.post'
+   default_template: 'Blog.post'
+   layout: 'Core.layout_en'
 analytics_list:
    urls:
      - '/analytics'

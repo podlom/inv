@@ -42,7 +42,7 @@
 {/block}
 {block 'content'}
 <div itemprop="mainEntity" {block 'page.scope'}itemtype="http://schema.org/Article"{/block} itemscope>
-    {include 'partial/post'}
+    {include 'partial/post' parent="post"}
     {block 'main'}
     <div class="wrapper">
         <div class="box-shadow"></div>
