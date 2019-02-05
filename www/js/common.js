@@ -93,12 +93,20 @@ $(document).ready(function() {
 		$('.header').show();
 	})
 	$('.open_popup').click(function() {
-		$('.my_popup').show()
-		$('.dark_bg').show()
+		$('.my_popup').addClass('opened')
+		$('.dark_bg').addClass('opened')
 	})
-	$('.my_popup i').click(function() {
-		$('.my_popup').hide()
-		$('.dark_bg').hide()
+	$('.my_popup i, .close__popup, .dark_bg').click(function() {
+		$('.my_popup').removeClass('opened')
+		$('.dark_bg').removeClass('opened')
+	})
+	$(".my_popup").click(function(e){
+		var container = $(".my_popup__wrapper");
+    
+    	if (!container.is(e.target) && container.has(e.target).length === 0) {
+			$('.my_popup').removeClass('opened')
+			$('.dark_bg').removeClass('opened')
+	    }
 	})
 	 $('#archiveFormYear, #archiveFormMonths').change(function(e) {
         link = $('#digest a.y' + $('#archiveFormYear').val() + '.m' + $('#archiveFormMonths').val());
