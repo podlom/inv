@@ -5,7 +5,7 @@ define( 'SKYNAR_TIMING', true);
 return 0;
 
 require_once realpath(realpath(__DIR__).'/../cms/actual/global.php');
-$app = new Skynar\Application('inventure', realpath(__DIR__.'/../'), __DIR__);
+$app = new Skynar\Application('inventure#beta', realpath(__DIR__.'/../'), __DIR__);
 set_time_limit(300);
 try{
 	$app->init();

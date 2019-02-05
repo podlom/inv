@@ -6723,6 +6723,107 @@ nav a.active {
     right: 7px;
   }
 }
+.price-table {
+  margin-bottom: 30px;
+  z-index: 1;
+  position: relative;
+  background: white;
+  padding-top: 20px;
+  box-shadow: 0px 10px 13px -6px rgba(0, 0, 0, 0.08), 0px 20px 31px 3px rgba(0, 0, 0, 0.09), 0px 8px 20px 7px rgba(0, 0, 0, 0.02);
+  border-radius: 10px;
+}
+
+.price {
+  padding: 0 20px;
+  padding-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+}
+.price:not(:last-of-type) {
+  border-right: 1px solid rgba(155, 204, 232, 0.5);
+}
+@media screen and (max-width: 63.9375em) {
+  .price:not(:last-of-type) {
+    margin-bottom: 20px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid #ccc;
+  }
+}
+.price__title {
+  font-size: 16px;
+  font-weight: bold;
+}
+.price__advantages {
+  padding: 0;
+  margin: 20px 0;
+  text-align: left;
+}
+.price__advantages li:not(:last-of-type) {
+  margin-bottom: 10px;
+}
+.price__advantages li {
+  display: flex;
+  align-items: flex-start;
+  font-weight: 600;
+}
+.price__advantages span {
+  color: rgba(0, 0, 0, 0.8);
+  font-weight: normal;
+  display: inline;
+}
+.price__advantages .fa {
+  color: #4587bb;
+  font-size: 20px;
+  margin-right: 10px;
+}
+.price__button-wrapper {
+  margin-top: auto;
+}
+.price__header {
+  padding: 10px 0;
+  position: relative;
+}
+.price__header:after {
+  content: "";
+  background: linear-gradient(270deg, #F8F8F8 0%, #D4D3D3 47.76%, #F8F8F8 99.29%);
+  display: block;
+  height: 1px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+.price__wrapper {
+  padding: 0 10px;
+}
+
+.add-inv-prop .viewbox-cnt-body::after {
+  content: "";
+  background: #4587bb;
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#60a9ff", endColorstr="#4394f4",GradientType=0 );
+  height: 350px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 0;
+}
+.add-inv-prop__heading {
+  color: white;
+  position: relative;
+  z-index: 1;
+  font-size: 16px;
+  margin-bottom: 30px;
+  margin: 0 0 30px;
+}
+@media screen and (max-width: 39.9375em) {
+  .add-inv-prop__heading {
+    font-size: 14px;
+    line-height: 1.4;
+    margin-top: 10px;
+  }
+}
+
 .text-left {
   text-align: left;
 }

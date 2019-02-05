@@ -3,11 +3,11 @@ db:
     host: 127.0.0.1
     user: inventure
     password: 6Qq2fnX51zShHhDO
-    dbname: inventure_prod
+    dbname: inventure_beta
     charset: utf8
 site:
-    name: Inventure
-    host: inventure.com.ua
+    name: FRONT Inventure
+    host: f.inventure.com.ua
 mail:
   from:
     'no-reply@inventure.ua': 'InVenture Investment Portal'

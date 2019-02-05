@@ -15,20 +15,11 @@ require_once realpath(realpath(__DIR__).'/../cms/actual/global.php');
 //error_reporting(E_ALL);
 
 
-$app = new Skynar\Application('inventure', realpath(__DIR__.'/../'), __DIR__);
+$app = new Skynar\Application('inventure#beta', realpath(__DIR__.'/../'), __DIR__);
 try{
 	$app->init();
 	$log = $app->getService('module')->install(['Core', 'Auth', 'Page', 'React', 'Blog', 'Attribute', 'Analytics', 'Metadata', 'Locale', 'Sphinx', 'Redirect', 'Sitemap', 'Blacklist', 'Digest', 'EventSort', 'Widget', 'Poll', 'Rating', 'Map', 'Payment', 'Liqpay', 'Mail', 'BulletinBoard', 'Banner']);
-	$u = [];
-	$em = $app->getService('doctrine')->getEntityManager();
-	$u[] = $em->getReference(\Auth\User::class, 1);
-	$u[] = $em->getReference(\Auth\User::class, 2);
-	$r = $em->getReference(\Auth\Access\Role::class, 'admin');
-	foreach($u as $i){
-		$i->addRole($r);
-		$i->save();
-	}
-	$i->save(1);
+	
 	//$app->getService('module')->getModule('React')->build(['React', 'Mail'], true);
 	/*$u = User::getRepository()->findOneBy(['email'=>'dev@feelgoodlabs.com']);
 	//$u->setEmail('dev@feelgoodlabs.com');
