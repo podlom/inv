@@ -505,12 +505,18 @@ button {
     font-weight: 700;
 }
 
+@media screen and (max-width: 1024px) {
+    .investment{
+        margin-top: 40px;
+    }
+}
+
 .investment_proposals {
     margin-bottom: 50px;
 }
 
 .investment_proposals_en {
-    margin-bottom: -70px;
+    /*margin-bottom: -70px;*/
 }
 
 .investment .title h2 {
@@ -539,11 +545,23 @@ button {
     display: flex;
     justify-content: space-between;
     font-size: 13px;
+    flex-wrap: wrap;
 }
 
 .investment nav a, .news nav a {
     color: #0e618a;
     font-weight: 700;
+        
+}
+@media screen and (max-width: 1200px) {
+    .investment nav, .news nav {
+        margin: 0 0 34px -15px;
+        justify-content: flex-start;
+
+    }
+    .investment nav a, .news nav a {
+        margin: 0 15px;
+    }
 }
 
 
@@ -652,6 +670,7 @@ button {
 
 .investment article .title-news h4 {
     padding-left: 12px;
+    padding-right: 12px;
     color: #1c2e36;
     font-weight: 700;
     font-family: Montserrat;
@@ -664,6 +683,7 @@ button {
 
 .investment article .title-news p {
     padding-left: 12px;
+    padding-right: 12px;
     color: #4a4a4a;
     font-weight: 500;
     margin-bottom: 22px;
@@ -674,10 +694,12 @@ button {
     bottom: 16px;
     background: #fff;
     z-index: 10;
+    width: 100%;
 }
 
 .investment article .title-news .place {
     padding-left: 12px;
+    padding-right: 12px;
     color: #9b9b9b;
     font-weight: 500;
     margin-bottom: 16px;
@@ -718,6 +740,11 @@ button {
 .investment article .tabs {
     background-color: #fafafa;
     border: 0;
+}
+@media screen and (max-width: 639px) {
+    .investment article .tabs {
+        margin-top: 40px;
+    }
 }
 
 .investment article .tabs .tabs__caption {
@@ -823,6 +850,7 @@ button {
     display: flex;
     color: #9b9b9b;
     font-weight: 500;
+    flex-wrap: wrap;
 }
 
 .investment article .tabs .tabs__content .item .content .statistic div img {
@@ -836,7 +864,8 @@ button {
 aside .invest_btn {
     display: block;
     height: 42px;
-    width: 270px;
+    max-width: 270px;
+    width: 100%;
     -webkit-border-radius: 2px;
     border-radius: 2px;
     font-size: 16px;
@@ -863,7 +892,8 @@ aside .invest_btn1 {
 
 .all_read aside .advertising,.all_news_en aside .advertising {
     position: absolute;
-    width: 270px;
+    max-width: 270px;
+    width: 100%;
 }
 
 aside .advertising .box-shadow {
@@ -880,16 +910,40 @@ aside .advertising .box-shadow {
 
 .investment_proposals aside .board {
     height: 596px;
-    width: 270px;
+    max-width: 270px;
+    width: 100%;
     position: relative;
     background: #fff;
+}
+@media screen and (max-width: 600px) {
+    .aside .form form .row{
+        width: 100%!important;
+    }
+}
+@media screen and (max-width: 639px) {
+    .investment_proposals aside .board{
+        max-width: 100%;
+    }
+}
+@media screen and (min-width: 640px) and (max-width: 1023px) {
+        
+    .investment_proposals aside .board {
+        max-width: 100%;
+        height: auto!important;
+    }
+    .investment_proposals aside .board .board1{
+        flex-direction: column;
+            padding-bottom: 45px!important;
+            height: auto!important;
+    }
 }
 
 .investment_proposals aside .board .box-shadow {
     height: calc(100% - 9px);
     position: absolute;
-    width: 256px;
-    left: calc(50% - 128px);
+    width: calc(100% - 10px);
+    transform: translateX(-50%);
+    left: 50%;
     top: 9px;
     box-shadow: 0 2px 16px 0 rgba(0,0,0,0.25);
     -webkit-box-shadow: 0 2px 16px 0 rgba(0,0,0,0.25);
@@ -1018,14 +1072,22 @@ aside .archive form a:hover,
     padding: 0;
 }
 
+.bg-white{
+    background: white;
+}
 
+.news article.grid-container .cell{
+    margin-bottom: 20px;
+}
 .news article.grid-container .cell{
     position: relative;
 }
-
+.news article.grid-container .cell:first-of-type{
+    /*background: white;*/
+}
 .news article .title-news {
     width: 100%;
-    height: 618px;
+    /*height: 618px;*/
     background-color: #fff;
 }
 
@@ -1111,7 +1173,11 @@ aside .archive form a:hover,
 .news article .title-news .social a:hover {
     color: #ef767a;
 }
-
+@media screen and (max-width: 1023px) {
+    .news article .tabs {
+        margin-top: 40px;
+    }
+}
 .news article .tabs {
     border: 0;
     background: 0;
@@ -1221,18 +1287,29 @@ aside .box-shadow_form {
 }
 
 aside .box-shadow_form .box-shadow {
-    width: 256px;
+    
+    width: calc(100% - 10px);
+    height: 176px;
+    background: #fff;
+    position: absolute;
+    transform: translateX(-50%);
+    left: 50%;
     height: calc(100% - 10px);
     position: absolute;
     bottom: 0;
-    left: calc(50% - 128px);
     background-color: #fff;
     box-shadow: 0 2px 16px 0 rgba(0,0,0,0.25);
     z-index: -1;
 }
-
+/*@media screen and (min-width: 1024px){
+    aside .box-shadow_form .box-shadow {
+        max-width: 256px;
+    }
+}*/
 .all_news_en .large-3 {
     margin-top: 70px;
+    position: relative;
+    
 }
 
 aside .form {
@@ -1250,6 +1327,9 @@ aside .form .title {
 
 aside .form .title i {
     margin-right: 10px;
+    @media screen and (min-width: 1024px) and (max-width: 1200px) {
+        display: none;
+    }
 }
 
 aside .form .title a {
@@ -1257,7 +1337,7 @@ aside .form .title a {
 }
 
 aside .form .img {
-    width: 270px;
+    width: 100%;
     height: 102px;
     margin-bottom: 25px;
 }
@@ -1271,19 +1351,30 @@ aside .form .img img {
 
 aside .form form {
     text-align: center;
+    width: 100%;
 }
 
 aside .form form input {
-    width: 254px!important;
+    max-width: 254px!important;
+    width: calc(100% - 20px);
     height: 32px!important;
     font-size: 14px!important;
     margin: 0 auto 8px auto;
+    @media screen and (max-width: 1024px) {
+        max-width: 100%!important;
+    }
+}
+@media screen and (max-width: 600px) {
+    aside .form form .row {
+        width: 100%;
+    }
 }
 
 aside .form form label {
     text-align: left;
     padding-left: 10px;
     color: #1c2e36;
+    line-height: 1;
 }
 
 aside .form form label input {
@@ -1296,6 +1387,8 @@ aside .form form label input {
 aside .form form button {
     height: 36px;
     width: 125px;
+        margin-left: auto!important;
+
     -webkit-border-radius: 2px;
     border-radius: 2px;
     background-color: #ef767a;
@@ -1324,11 +1417,12 @@ aside .box-shadow_archive {
 }
 
 aside .box-shadow_archive .box-shadow {
-    width: 256px;
+    width: calc(100% - 10px);
     height: 176px;
     background: #fff;
     position: absolute;
-    left: calc(50% - 128px);
+    transform: translateX(-50%);
+    left: 50%;
     bottom: 0;
     z-index: -1;
     box-shadow: 0 2px 16px 0 rgba(0,0,0,0.25);
@@ -1363,7 +1457,8 @@ aside .archive .option {
 }
 
 aside .archive .option .select1 {
-    width: 255px;
+    width: 100%;
+
     height: 32px;
     color: #1c2e36;
     padding-top: 0;
@@ -1378,7 +1473,8 @@ aside .archive .option .select1 {
 }
 
 aside .archive .option .select2 {
-    width: 255px;
+
+    width: 100%;
     height: 32px;
     color: #1c2e36;
     padding-bottom: 0;
@@ -1389,6 +1485,11 @@ aside .archive .option .select2 {
     border-radius: 2px;
     background: url(../i/chevron_down.png) no-repeat;
     background-position: 95%;
+}
+@media screen and (min-width: 640px) {
+    aside .archive .option .select2, aside .archive .option .select1 {
+        max-width: 255px;
+    }
 }
 
 aside .archive form a {
@@ -1412,7 +1513,7 @@ aside .archive form a {
 
 .all_read .read_news {
     padding-bottom: 25px;
-    height: 534px;
+    /*height: 534px;*/
     overflow: hidden;
     background-color: #fff;
 }
@@ -1505,22 +1606,24 @@ aside .archive form a {
 }
 
 .all_read .more {
-    margin-left: 16px;
-    margin-right: 16px;
+ /*   margin-left: 16px;
+    margin-right: 16px;*/
+    max-width: 100%;
 }
 
 .video_block {
     margin-top: 50px;
 }
 
-.video_block .small-4 {
+.video_block .large-4 {
     position: relative;
+    background: white;
 }
 
 .video_block .video {
     padding-bottom: 25px;
     margin-bottom: 10px;
-    height: 360px;
+    /*height: 360px;*/
     width: 100%;
     overflow: hidden;
     background-color: #fff;
@@ -1532,7 +1635,7 @@ aside .archive form a {
     background-color: #fff;
     box-shadow: 0 2px 16px 0 rgba(0,0,0,0.25);
     position: absolute;
-    bottom: 10px;
+    bottom: 0px;
     left: 6px;
     z-index: -1;
 }
@@ -1600,7 +1703,7 @@ aside .archive form a {
 }
 
 .events .event .content {
-    flex: 0 0 auto;
+    /*flex: 0 0 auto;*/
 }
 
 .events .event .content h5 {
@@ -3686,8 +3789,9 @@ table tr td {
     color: #fff;
     font-size: 12px;
     position: absolute;
-    top: 11px;
-    right: 10px;
+    top: 0;
+    right: 0;
+    padding: 13px;
 }
 
 .mobile_category ul {
@@ -4625,7 +4729,6 @@ a:hover img {
 .video-iframe-index {
     display: block;
     width: 100%;
-    max-width: 380px;
     min-height: 220px;
     margin: 0 auto;
     border: 0;
@@ -5564,7 +5667,6 @@ aside.poll .answer progress::progress-value {
     aside .box-shadow_form .box-shadow {
         width: calc(100% - 20px);
         height: 193px;
-        left: 10px
     }
 
     aside .archive {
@@ -5870,7 +5972,6 @@ aside.poll .answer progress::progress-value {
 
     aside .box-shadow_archive .box-shadow {
         width: calc(100% - 20px);
-        left: 10px!important
     }
 
     aside .box-shadow_form .form,aside .box-shadow_archive .archive {
@@ -5903,7 +6004,7 @@ aside.poll .answer progress::progress-value {
     }
 
     aside .form form button {
-        margin: 16px auto!important
+        margin: 16px auto!important;
     }
 
     .investment_proposals aside .board {
@@ -6040,7 +6141,8 @@ aside.poll .answer progress::progress-value {
 
     .invest_btn,.invest_btn1 {
         display: block!important;
-        width: 100%!important
+        width: 100%!important;
+        max-width: 100%!important
     }
 
     .investment .title h2,.all_news .title h2,.all_read .title h2,.events .title h2,.video_block .title h2 {

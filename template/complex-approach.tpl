@@ -2,9 +2,11 @@
 {block 'content.text'}
 <div class="dark_bg"></div>
 <div class="my_popup">
-<h5>Заполните пожалуйста Ваши контактные данные и мы направим условия сотрудничества</h5>
-<i class="fa fa-close"></i>
-{form 'approach'}
+    <div class="my_popup__wrapper">
+        <h5>Заполните пожалуйста Ваши контактные данные и мы направим условия сотрудничества</h5>
+        <i class="fa fa-close"></i>
+        {form 'approach'}
+    </div>
 </div>
 <img src="i/add-inv-prop-img.png" itemscope itemtype="http://schema.org/ImageObject">
 <table class="add-inv-prop-table complex-approach-table">

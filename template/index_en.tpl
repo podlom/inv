@@ -25,7 +25,7 @@
           </div>
             <article class="grid-container">
                     <div class="grid-x grid-margin-x">
-                      <div class="cell small-5">
+                      <div class="cell small-12 medium-5 large-5">
                         {lent_load '/en/investments' 6 var="posts" analytics=1}
                         {$bigpost=array_shift($posts)}
                       <div style="position: relative;">
@@ -91,7 +91,7 @@
                         </div>
                       </div>
                       </div>
-                      <div class="cell small-7">
+                      <div class="cell small-12 medium-7 large-7">
                         <div class="tabs">
                           <ul class="tabs__caption">
                             <li class="active">Latest</li>
@@ -313,7 +313,7 @@
           </div>
             <article class="grid-container">
               <div class="grid-x grid-margin-x">
-                <div class="cell small-5">
+                <div class="cell  bg-white  small-12 madium-5 large-5">
                     {lent_load '/en/news' 6 var="news_all" analytics=1}
                     {$bignews=array_shift($news_all)}
                 <div style="position: relative;">
@@ -342,7 +342,7 @@
                   </div>
                 </div>
                 </div>
-                <div class="cell small-7">
+                <div class="cell small-12 medium-12 large-7">
                   <div class="tabs">
                           <ul class="tabs__caption">
                             <li class="active">Latest</li>
@@ -480,7 +480,7 @@
                 {$invest=[]}
                 {lent '/en/analytics' 3 var='analytics' analytics=1}
                 {$invest[] = $analytics}
-                <div class="cell small-4">
+                <div class="cell  bg-white  small-12 medium-4 large-4">
                   <div class="box-shadow"></div>
                   <div class="read_news">
                     <div class="img">
@@ -507,7 +507,7 @@
                 </div>
                 </div>
                 {/lent}
-                <a href="/en/analytics" class="more">View all</a>
+                <a href="/en/analytics" class="cell small-12 more">View all</a>
               </div>
             </article>
           </section>
@@ -567,7 +567,7 @@
                 {$video=[]}
                 {lent '/en/tools/video' 3 var='news'}
                 {$video[] = $news}
-                <div class="cell small-4">
+                <div class="cell small-12 medium-4 large-4">
                   <div class="box-shadow"></div>
                   <div class="video">
                     <div class="this_video">
