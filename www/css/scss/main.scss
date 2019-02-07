@@ -3,6 +3,7 @@
 
 @import 'partials/pricing-table';
 @import 'partials/my-popup';
+@import 'partials/investor-form';
 
 
 .text-left{
@@ -167,4 +168,11 @@
 		padding: .25rem .5rem;
 	}
 }
+.investor-form .the_post_content{
+	display: none;
+}
+
+
+
+
 

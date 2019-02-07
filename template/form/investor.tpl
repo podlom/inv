@@ -1,3 +1,23 @@
+
+
+<div class="investor-form__header">
+    <div class="investor-form__heading">Уважаемые Господа!
+        <br>
+    Предлагаем Вам пройти короткую регистрацию инвестора и получить следующие преимущества:</div>
+    <ol class="grid-x" start="1">
+        <li class="cell medium-4 small-12"><img src="/images/hosting.svg" alt="">Доступ к крупнейшей базе инвестиционных проектов и готового бизнеса</li>
+        <li class="cell medium-4 small-12"><img src="/images/hosting.svg" alt="">Оповещение о поступлении инвестиционных предложений согласно Вашим критериям инвестирования</li>
+        <li class="cell medium-4 small-12"><img src="/images/hosting.svg" alt="">Бесплатную подписку на получение ежемесячного инвестиционного дайджеста InVenture</li>
+        <li class="cell medium-4 small-12"><img src="/images/hosting.svg" alt="">Статус члена закрытого инвестиционного клуба Investment Mosaic</li>
+        <li class="cell medium-4 small-12"><img src="/images/hosting.svg" alt="">Возможность разместить запрос о поиске инвестиционных активов</li>
+        <li class="cell medium-4 small-12"><img src="/images/hosting.svg" alt="">Скидку на инвестиционно-консалтинговые услуги InVenture Investment Group</li>
+    </ol>
+    
+    
+</div>
+
+
+
 {$form->open()}
 {foreach $form->getErrors(true) as $error}
    <div class="alert-box error error">{$error}</div>

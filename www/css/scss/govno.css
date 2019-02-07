@@ -1816,16 +1816,33 @@ footer .copyright {
     color: #fff;
 }
 
-
-.the_post h2,.the_post h2 a {
+.the_post h2,.the_post h2 a , .investor-form h2{
     padding: 0;
     color: #5287b0;
     font-size: 24px;
     text-transform: uppercase;
     font-weight: 700;
 }
-
-
+.investor-form .viewbox-cnt-body{
+    position: relative;
+}
+.investor-form .viewbox-cnt-body .the_post_content{
+    z-index: 1;
+    position: relative;
+}
+/*
+.investor-form .viewbox-cnt-body::after {
+    content: "";
+    background: #4587bb;
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#60a9ff", endColorstr="#4394f4",GradientType=0 );
+    height: 350px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 0;
+}
+*/
 .the_post .border-bottom {
     margin-bottom: 24px;
 }
@@ -6248,7 +6265,7 @@ aside.poll .answer progress::progress-value {
     }
 
     .investor-form .viewbox-cnt-body .form-default form fieldset input[type="text"] {
-        width: 300px!important
+        width: 100%!important
     }
 
     .share-btn li {

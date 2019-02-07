@@ -14,10 +14,13 @@
 {if !$page}{$page = $rubric}{/if}
 {if !$page}{$page = $blog}{/if}
 {block 'config'}{/block}
+
+{assign "isFullView" value=($request->getPathInfo() == '/add-inv-prop' || $request->getPathInfo() == '/investor')}
+
 <div itemscope itemtype="http://schema.org/WebPage" class="{block 'page.class'}grid-container {if $request->getPathInfo() == '/investor'||$request->getPathInfo() == '/en/investor'}investor-form{else}the_post{/if}{/block}">
 
     <div class="grid-x grid-margin-x">
-        <div class="{if $request->getPathInfo() == '/add-inv-prop'}large-12{else}large-9{/if} medium-12 cell">
+        <div class="{if $isFullView}large-12{else}large-9{/if} medium-12 cell">
             {block 'page.title'}
             <div class="clearfix border-bottom">
                 {content $editable part="title" tag="h2" attrs=['itemprop'=>'headline']}
@@ -44,7 +47,7 @@
             </div>
             {/block}
         </div>
-        {if $request->getPathInfo() != '/add-inv-prop'}
+        {if !$isFullView}
             <div class="cell large-3 medium-12">
                 {block 'aside.top'}
                 <aside class="sidebar">

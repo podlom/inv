@@ -1818,7 +1818,7 @@ footer .copyright {
   color: #fff;
 }
 
-.the_post h2, .the_post h2 a {
+.the_post h2, .the_post h2 a, .investor-form h2 {
   padding: 0;
   color: #5287b0;
   font-size: 24px;
@@ -1826,6 +1826,28 @@ footer .copyright {
   font-weight: 700;
 }
 
+.investor-form .viewbox-cnt-body {
+  position: relative;
+}
+
+.investor-form .viewbox-cnt-body .the_post_content {
+  z-index: 1;
+  position: relative;
+}
+
+/*
+.investor-form .viewbox-cnt-body::after {
+    content: "";
+    background: #4587bb;
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#60a9ff", endColorstr="#4394f4",GradientType=0 );
+    height: 350px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 0;
+}
+*/
 .the_post .border-bottom {
   margin-bottom: 24px;
 }
@@ -6212,7 +6234,7 @@ aside.poll .answer progress::progress-value {
   }
 
   .investor-form .viewbox-cnt-body .form-default form fieldset input[type=text] {
-    width: 300px !important;
+    width: 100% !important;
   }
 
   .share-btn li {
@@ -7039,6 +7061,155 @@ nav a.active {
   visibility: visible;
 }
 
+.investor-form ol {
+  text-align: center;
+  margin: 0 !important;
+}
+.investor-form ol li {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 40px !important;
+  padding: 0 15px;
+}
+@media screen and (max-width: 40em) {
+  .investor-form ol li {
+    padding: 0;
+  }
+}
+.investor-form ol img {
+  height: 60px;
+  margin-bottom: 10px;
+}
+.investor-form__header {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 30px;
+  background: white;
+  padding-top: 20px;
+  box-shadow: 0px 10px 13px -6px rgba(0, 0, 0, 0.08), 0px 20px 31px 3px rgba(0, 0, 0, 0.09), 0px 8px 20px 7px rgba(0, 0, 0, 0.02);
+  border-radius: 10px;
+  padding: 40px 20px 0 20px;
+}
+.investor-form__heading {
+  text-align: center;
+  font-size: 16px !important;
+  font-weight: bold;
+  max-width: 640px;
+  width: 100%;
+  margin-bottom: 60px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.investor-form .viewbox-cnt-body::after {
+  content: "";
+  background: #4587bb;
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#60a9ff", endColorstr="#4394f4",GradientType=0 );
+  height: 350px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 0;
+}
+.investor-form .the_post_content {
+  display: none !important;
+}
+.investor-form form {
+  margin-top: 50px;
+}
+.investor-form input, .investor-form label {
+  font-size: 16px !important;
+}
+@media screen and (max-width: 64em) {
+  .investor-form input, .investor-form label {
+    font-size: 14px !important;
+  }
+}
+.investor-form .row {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.investor-form .row input {
+  width: calc(50% - 20px) !important;
+  margin-right: 0 !important;
+  height: 42px !important;
+  padding: 0 15px;
+  box-shadow: none;
+}
+@media screen and (max-width: 40em) {
+  .investor-form .row input {
+    width: 100% !important;
+  }
+}
+.investor-form h3, .investor-form .h3 {
+  margin-top: 20px;
+  font-size: 18px;
+}
+.investor-form .checkbox .check-row label {
+  cursor: pointer;
+  user-select: none;
+}
+.investor-form .checkbox textarea {
+  width: 100%;
+  height: 160px !important;
+}
+.investor-form .info label {
+  width: 100%;
+  margin-top: 40px;
+}
+.investor-form input[type=checkbox] {
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: 0;
+  background: white;
+  height: 24px;
+  width: 24px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  top: 0px;
+}
+@media screen and (max-width: 64em) {
+  .investor-form input[type=checkbox] {
+    width: 20px;
+    height: 20px;
+  }
+}
+.investor-form input[type=checkbox]:checked {
+  background: #4587bb;
+}
+.investor-form input[type=checkbox]:hover {
+  filter: brightness(97%);
+}
+.investor-form input[type=checkbox]:after {
+  content: "";
+  position: relative;
+  left: 36%;
+  top: 10%;
+  width: 34%;
+  height: 60%;
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  display: none;
+}
+.investor-form input[type=checkbox]:checked:after {
+  display: block;
+}
+.investor-form input[type=checkbox]:disabled:after {
+  border-color: #7b7b7b;
+}
+.investor-form .check-row label {
+  padding-left: 34px;
+}
+@media screen and (max-width: 64em) {
+  .investor-form .check-row label {
+    padding-left: 28px;
+  }
+}
+
 .text-left {
   text-align: left;
 }
@@ -7186,6 +7357,10 @@ nav a.active {
 
 #inv_cb input[type=text], #inv_cb input[type=email], #inv_cb input[type=tel] {
   padding: 0.25rem 0.5rem;
+}
+
+.investor-form .the_post_content {
+  display: none;
 }
 
 /*# sourceMappingURL=main.css.map */
