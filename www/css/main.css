@@ -7090,6 +7090,12 @@ nav a.active {
   border-radius: 10px;
   padding: 40px 20px 0 20px;
 }
+.investor-form__subtext {
+  margin-top: 20px;
+}
+.investor-form__subtext p {
+  margin-bottom: 10px;
+}
 .investor-form__heading {
   text-align: center;
   font-size: 16px !important;

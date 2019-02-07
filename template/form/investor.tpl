@@ -6,11 +6,11 @@
     Предлагаем Вам пройти короткую регистрацию инвестора и получить следующие преимущества:</div>
     <ol class="grid-x" start="1">
         <li class="cell medium-4 small-12"><img src="/images/hosting.svg" alt="">Доступ к крупнейшей базе инвестиционных проектов и готового бизнеса</li>
-        <li class="cell medium-4 small-12"><img src="/images/hosting.svg" alt="">Оповещение о поступлении инвестиционных предложений согласно Вашим критериям инвестирования</li>
-        <li class="cell medium-4 small-12"><img src="/images/hosting.svg" alt="">Бесплатную подписку на получение ежемесячного инвестиционного дайджеста InVenture</li>
-        <li class="cell medium-4 small-12"><img src="/images/hosting.svg" alt="">Статус члена закрытого инвестиционного клуба Investment Mosaic</li>
-        <li class="cell medium-4 small-12"><img src="/images/hosting.svg" alt="">Возможность разместить запрос о поиске инвестиционных активов</li>
-        <li class="cell medium-4 small-12"><img src="/images/hosting.svg" alt="">Скидку на инвестиционно-консалтинговые услуги InVenture Investment Group</li>
+        <li class="cell medium-4 small-12"><img src="/images/cloud-computing.svg" alt="">Оповещение о поступлении инвестиционных предложений согласно Вашим критериям инвестирования</li>
+        <li class="cell medium-4 small-12"><img src="/images/stadistics.svg" alt="">Бесплатную подписку на получение ежемесячного инвестиционного дайджеста InVenture</li>
+        <li class="cell medium-4 small-12"><img src="/images/id-card.svg" alt="">Статус члена закрытого инвестиционного клуба Investment Mosaic</li>
+        <li class="cell medium-4 small-12"><img src="/images/search.svg" alt="">Возможность разместить запрос о поиске инвестиционных активов</li>
+        <li class="cell medium-4 small-12"><img src="/images/coupon.svg" alt="">Скидку на инвестиционно-консалтинговые услуги InVenture Investment Group</li>
     </ol>
     
     
@@ -49,11 +49,23 @@
         <div class="large-6 medium-6 cell check-row">{foreach $arr2 as $f}{$f}{/foreach}</div>
     </div>
     {/foreach}
+
     <div class="info">
         <div>{$form->getField('info')}</div>
+
+
         <center>
         	{$form->getSubmit()->addClass('my_but')}
     	</center>
+
+        <div class="investor-form__subtext">
+        <p>
+            Заполнение представленной ниже онлайн формы, позволит нам идентифицировать Ваши предпочтения и инвестиционные критерии. При этом мы гарантируем соблюдение полной конфиденциальности предоставленной Вами информации и контактных данных.
+        </p>
+        <p>
+            При отборе инвестиционных предложений для Вас мы будем руководствоваться предоставленными данными и информировать Вас о наиболее подходящих предложениях.
+        </p>
+    </div>
     </div>
 </div>
 {$form->protection()}
