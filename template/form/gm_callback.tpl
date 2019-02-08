@@ -1,7 +1,7 @@
 {$form->open()}
     <div class="gm_row">
         {$form->getField('tel')->getInput()
-        	->setAttr('placeholder', '+380677136571')
+        	->setAttr('placeholder', '+380')
         	->setAttr('required', true)
         	->setAttr('type', 'tel')
         	->setAttr('pattern', '^\+?[0-9]{9,15}$')
