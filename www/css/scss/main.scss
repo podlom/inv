@@ -49,8 +49,8 @@
 	    margin-top: auto;
 	}
 	.the_shorttext{
-	    font-weight: 500;
 	    color: #4a4a4a;
+	    font-weight: normal;
 	}
 }
 
@@ -61,8 +61,6 @@
 [type=color], [type=date], [type=datetime-local], [type=datetime], [type=email], [type=month], [type=number], [type=password], [type=search], [type=tel], [type=text], [type=time], [type=url], [type=week], textarea, select{
 	font-size: 14px;
 }
-
-
 .the_post_content{
 	&, p, div, pre, blockquote, li, h1, h2, h3, h4, h5, h6{
 	    font-size: 14px;
@@ -174,5 +172,212 @@
 
 
 
+.mobile_menu {
+	width: 100%;
+	text-align: center;
+}
 
+
+.header .menu_icons i{
+	line-height: 64px;
+	height: 64px;
+}
+
+aside .form .title {
+	
+}
+.all_read aside, .all_news_en aside{
+	position: relative;
+}
+.the_preview .the_description_wrap{
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+.the_post .read_also .news_inv .content{
+	flex: unset;
+	display: flex;
+    align-items: center;
+}
+.the_preview .the_description .share-btn{
+	margin-top: 20px;
+}
+@media screen and (min-width: 1024px) and (max-width: 1200px) {
+    aside .form .title {
+        padding-left: 0;
+        text-align: center;
+    }
+}
+
+
+.the_post .read_also .news_inv{
+    box-shadow: 0 3px 10px rgba(0,0,0,.15);
+    background: white;
+}
+
+// .investment article .tabs .tabs__content .item{
+// 	background: white;
+//     display: flex;
+//     align-items: center;
+//     padding-right: 20px;
+
+
+// }
+   .investment article .tabs .tabs__content .item .img{
+   	margin-right: 15px;
+   }
+.the_post .read_also .news_inv{
+	flex-direction: row;
+	align-items: initial;
+}
+
+.the_post .read_also .news_inv .content h5{
+	width: 100%!important;
+	padding-right: 10px;
+}
+.the_post .read_also .news_inv .img{
+	height: auto;
+	min-height: 120px;
+}
+
+
+.news article .tabs .tabs__content .item .img{
+	margin-right: 15px;
+}
+
+
+.the_post .contacts .contacts1 img{
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+}
+
+.board_page .accordion .toggle_btn{
+	width: 58.33333%;
+    padding-left: 16px;
+	top: -46px;
+	padding-top: 0;
+	height: 46px;
+    line-height: 46px;
+    background: #f3f3f3;
+	transition: all .25s ease;
+	@media screen and (max-width: 640px) {
+		width: 100%;
+	}
+
+    &:after {
+	    content: '\02795';
+	    font-size: 13px;
+	    color: white;
+	    float: right;
+	    margin-left: 5px;
+	    width: 40px;
+    	text-align: center;
+	}
+	&.opened:after {
+	  content: "\2796";
+	}
+	&.opened{
+		background: #ebebeb;
+	}
+	&:hover{
+    	color: #1c2e36;
+		background: #ebebeb;
+	}
+	&:hover:after{
+    	color:#5287b0!important;
+    }
+}
+
+
+.board_page .price{
+	padding-left: 0;
+}
+
+.board_page .accordion .block .contacts{
+	padding-left: 0;
+	padding-right: 0;
+	padding-top: 0;
+}
+
+.the_post .viewbox-cnt-body .share-btn{
+	margin-left: 0;
+}
+
+.the_post .list_attr{
+	font-weight: normal;
+}
+.mobile_menu{
+	.investments, .news{
+		border-bottom: 1px solid rgba(255,255,255,.3);
+	}
+
+	.investments, .news, .analytics{
+		text-align: left;
+		i{
+			   //  right: 20px;
+		    // top: 50%;
+		    // transform: translateY(-50%);
+		    height: 51px;
+		    line-height: 51px;
+		    width: 51px;
+		    right: 0;
+		    text-align: center;
+		}
+	}
+}
+.mobile_menu{
+	bottom: 0px; 
+	padding: 40px 60px 20px;
+    border-top: 1px solid #ccc;
+	box-shadow: 0 10px 20px rgba(0,0,0,.15);
+	overflow: auto;
+	@media screen and (max-width: 640px) {
+		padding: 40px 14px 20px;
+	}
+}
+.mobile_menu > div > a{
+	width: 100%;
+	padding: 15px 25px;
+	padding-right: 40px;
+	@media screen and (max-width: 640px) {
+	    text-transform: none;
+	}
+}
+.mobile_menu > div.social a{
+	margin-left: 0;
+}
+.mobile_menu > div i{
+	// height: 51px;
+ //    line-height: 51px;
+ //    width: 51px;
+    right: 0;
+    top:0;
+    // text-align: center;
+    // background:rgba(0,0,0,.2);
+    // &:before{
+    // 	    top: 50%;
+	   //  position: absolute;
+	   //  transform: translate(-50%, -50%);
+	   //  left: 50%;
+    // }
+}
+.header .menu_icons{
+    margin-left: -14px;
+    padding-left: 14px;
+    margin-right: 0!important;
+    padding-right: 24px;
+}
+.mobile_menu  .fa-minus{
+	display: none;
+}
+.mobile_menu > div form i.fa-search{
+	    height: 39px;
+    line-height: 39px;
+    width: 39px;
+    background: none;
+}
+
+.header .menu_icons i{
+	width: 20px;
+}
 

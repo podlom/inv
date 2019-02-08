@@ -200,7 +200,7 @@
         {/if}
         </div>
         <div class="investments">
-            <a href="/investments">Инвестиционные предложения </a><i class="fa fa-chevron-right"></i><i class="fa fa-chevron-down"></i>
+            <a href="/investments">Инвестиционные предложения </a><i class="fa fa-plus"></i><i class="fa fa-minus"></i>
             <ul class="ul1">
                 <li><a href="/investments/projects">Инвестиционные проекты и стартапы</a></li>
                 <li><a href="/investments/business">Продажа бизнеса</a></li>
@@ -214,7 +214,7 @@
             </ul>
         </div>
         <div class="news">
-            <a href="/news">Новости</a><i class="fa fa-chevron-right"></i><i class="fa fa-chevron-down"></i>
+            <a href="/news">Новости</a><i class="fa fa-plus"></i><i class="fa fa-minus"></i>
             <ul class="ul1">
                 <li><a href="/news/investments">Прямые инвестиции и M&A</a></li>
                 <li><a href="/news/startup">Стартапы</a></li>
@@ -229,7 +229,7 @@
             </ul>
         </div>
         <div class="analytics">
-            <a href="/analytics">Аналитика</a><i class="fa fa-chevron-right"></i><i class="fa fa-chevron-down"></i>
+            <a href="/analytics">Аналитика</a><i class="fa fa-plus"></i><i class="fa fa-minus"></i>
             <ul class="ul1">
                 <li><a href="/analytics/investments">Исследования</a></li>
                 <li><a href="/analytics/articles">Статьи</a></li>

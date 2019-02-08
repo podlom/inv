@@ -143,10 +143,13 @@ $(document).ready(function() {
 		$('html,body').animate({
 	        scrollTop: c.parents('.the_preview').offset().top - 80
 	    }, 50);
+	    
+	    $('.board_page .accordion'+location.hash+' .toggle_btn').addClass('opened');
 	}
 
 
 	function togg() {
+		$(this).toggleClass('opened');
 		$('.board_page .accordion .block').not($(this).next()).slideUp(400);
 		$(this).next().slideToggle(400);
 		$(this).children().toggle();
@@ -232,38 +235,39 @@ $(document).ready(function() {
 
 	$('.menu_icons .fa-bars').click(function() {
 		$('.mobile_menu').slideToggle();
+		$(this).toggleClass('fa-bars').toggleClass('fa-close');
 	})
 
-	$('.mobile_menu .investments .fa-chevron-right').click(function() {
+	$('.mobile_menu .investments .fa-plus').click(function() {
 		$(this).hide();
-		$('.mobile_menu .investments .fa-chevron-down').show();
+		$('.mobile_menu .investments .fa-minus').show();
 		$('.mobile_menu .investments ul').show()
 	})
-	$('.mobile_menu .investments .fa-chevron-down').click(function() {
+	$('.mobile_menu .investments .fa-minus').click(function() {
 		$(this).hide();
-		$('.mobile_menu .investments .fa-chevron-right').show();
+		$('.mobile_menu .investments .fa-plus').show();
 		$('.mobile_menu .investments ul').hide();
 	})
 
-	$('.mobile_menu .news .fa-chevron-right').click(function() {
+	$('.mobile_menu .news .fa-plus').click(function() {
 		$(this).hide();
-		$('.mobile_menu .news .fa-chevron-down').show();
+		$('.mobile_menu .news .fa-minus').show();
 		$('.mobile_menu .news ul').show()
 	})
-	$('.mobile_menu .news .fa-chevron-down').click(function() {
+	$('.mobile_menu .news .fa-minus').click(function() {
 		$(this).hide();
-		$('.mobile_menu .news .fa-chevron-right').show();
+		$('.mobile_menu .news .fa-plus').show();
 		$('.mobile_menu .news ul').hide();
 	})
 
-	$('.mobile_menu .analytics .fa-chevron-right').click(function() {
+	$('.mobile_menu .analytics .fa-plus').click(function() {
 		$(this).hide();
-		$('.mobile_menu .analytics .fa-chevron-down').show();
+		$('.mobile_menu .analytics .fa-minus').show();
 		$('.mobile_menu .analytics ul').show()
 	})
-	$('.mobile_menu .analytics .fa-chevron-down').click(function() {
+	$('.mobile_menu .analytics .fa-minus').click(function() {
 		$(this).hide();
-		$('.mobile_menu .analytics .fa-chevron-right').show();
+		$('.mobile_menu .analytics .fa-plus').show();
 		$('.mobile_menu .analytics ul').hide();
 	})
 

@@ -115,10 +115,12 @@
             <div class="contacts">
             <div class="box-shadow box-shadow1"></div>
                 <h2>Контакты</h2>
-                <div class="contacts1">
+                <div class="contacts1"> 
                     {#mod Attribute}{if $post->getAttr(5) && $post->getAttr(4) && $post->getAttr(3)}
 
-                        <div class="avatar"><img src="/i/no-photo.png" alt=""></div>
+                        <div class="avatar">
+                            <img src="/i/no-photo.png" alt="">
+                        </div>
                         <div class="data_contacts">
                         <p><b>{if $lang=='en'}Name{else}Имя{/if}:</b> {$post->getAttr(5)}</p>
                         <p><b>E-Mail:</b> <a href="mailto:{$post->getAttr(5)}">{$post->getAttr(4)}</a></p>
@@ -127,7 +129,7 @@
 
                     {else}{#/mod}
 
-                        <div class="avatar"><img src="/i/no-photo.png" alt=""></div>
+                        <div class="avatar"><img src="/images/alex-photo.jpg" alt=""></div>
                         <div class="data_contacts">
                             <p><b>{if $lang=='en'}Name{else}Имя{/if}:</b> {if $lang=='en'}Alex{else}Алексей{/if}</p>
                             <p><b>E-Mail:</b> <a href="mailto:info@inventure.ua">info@inventure.ua</a></p>
