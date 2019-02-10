@@ -240,17 +240,14 @@
           <aside class="sidebar">
             <a href="/en/investor" class="invest_btn">Invest</a>
             <a href="/en/add-inv-prop" class="invest_btn invest_btn1">Find an investor</a>
-                          <div class="box-shadow_form">
-                <div class="box-shadow"></div>
-                <div class="form">
-                    <div class="title">
-                       <a href="/en/analytics/digest"> <i class="fa fa-rss"></i>
-                        Sign up for Digest</a>
-                      </div>
-                      <div class="img"><img src="/i/digest_img.jpg"></div>
-                    {subscribe}
-                </div>
-              </div>
+                          <div class="newsletter-side">
+                          <div class="box-shadow"></div>
+                          <img src="/images/newsletter-icon.svg" alt="" class="newsletter-side__img">
+                          <div class="newsletter-side__heading">
+                            Subscribe to our Newsletter
+                        </div>
+                          <button class="newsletter-side__button open_popup">Subscribe</button>
+                        </div>
                           <div class="box-shadow_archive">
                     <div class="box-shadow"></div>
                     <div class="archive">

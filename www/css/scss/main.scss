@@ -521,6 +521,11 @@ aside .invest_btn:hover {
 	    margin-top: 24px;
 	    display: flex;
     	justify-content: center;
+    	flex-direction: column;
+
+	}
+	aside .box-shadow_archive{
+		margin: 0 auto;
 	}
     .investment_proposals aside .board .board1{
     	padding-bottom: 0!important;
@@ -532,4 +537,8 @@ aside .invest_btn:hover {
     	padding-bottom: 4px;
     }
 
+}
+
+aside .box-shadow_archive{
+	background: white;
 }

@@ -7410,6 +7410,13 @@ nav a.active {
   }
 }
 
+.investment_proposals aside .board .board1 a {
+  transition: all 0.25s ease;
+}
+.investment_proposals aside .board .board1 a:hover {
+  color: #5D86AC;
+}
+
 .investment_proposals aside .board .board1 .published {
   display: block;
   color: rgba(0, 0, 0, 0.55);
@@ -7459,6 +7466,10 @@ nav a.active {
   height: 100%;
   left: 0;
   background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0) 75%, rgba(255, 255, 255, 0.6) 90%, white 100%);
+}
+
+.investment_proposals aside .board .buttons a:last-child {
+  transition: all 0.25s ease;
 }
 
 .text-left {
@@ -7943,6 +7954,11 @@ aside .invest_btn:hover {
     margin-top: 24px;
     display: flex;
     justify-content: center;
+    flex-direction: column;
+  }
+
+  aside .box-shadow_archive {
+    margin: 0 auto;
   }
 
   .investment_proposals aside .board .board1 {
@@ -7956,6 +7972,9 @@ aside .invest_btn:hover {
   .investment_proposals aside .board {
     padding-bottom: 4px;
   }
+}
+aside .box-shadow_archive {
+  background: white;
 }
 
 /*# sourceMappingURL=main.css.map */

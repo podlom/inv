@@ -63,12 +63,26 @@
                 {/if}
                 {/block}
                 {block 'aside.subscribe'}
-                    <div class="newsletter-side">
-                      <div class="box-shadow"></div>
-                      <img src="/images/newsletter-icon.svg" alt="" class="newsletter-side__img">
-                      <div class="newsletter-side__heading">Хотите получать нашу ежемесячную рассылку?</div>
-                      <button class="newsletter-side__button open_popup">Подписаться</button>
-                    </div>
+                    
+                    {if $lang == 'en'}
+                        <div class="newsletter-side">
+                          <div class="box-shadow"></div>
+                          <img src="/images/newsletter-icon.svg" alt="" class="newsletter-side__img">
+                          <div class="newsletter-side__heading">
+                            Subscribe to our Newsletter
+                        </div>
+                          <button class="newsletter-side__button open_popup">Subscribe</button>
+                        </div>
+
+                    {else}
+                        <div class="newsletter-side">
+                          <div class="box-shadow"></div>
+                          <img src="/images/newsletter-icon.svg" alt="" class="newsletter-side__img">
+                          <div class="newsletter-side__heading">Хотите получать нашу ежемесячную рассылку?</div>
+                          <button class="newsletter-side__button open_popup">Подписаться</button>
+                        </div>
+                    {/if}
+
                 {/block}
                 {block 'aside.banner'}
                     <div class="advertising" id="advertising">
@@ -91,8 +105,14 @@
     <div class="dark_bg"></div>
     <div class="my_popup ">
       {#mod Mail}
+            
           <div class="my_popup__wrapper">
-              <h5>Заполните, пожалуйста, ваши контактные данные, чтобы получать ежемесячную рассылку!</h5>
+            {if $lang == 'en'}
+                <h5>Fill in your contact details to receive the monthly newsletter!</h5>
+            {else}
+                <h5>Заполните, пожалуйста, ваши контактные данные, чтобы получать ежемесячную рассылку!</h5>
+            {/if}
+              
               <i class="fa fa-close"></i>
               {subscribe}
           </div>
