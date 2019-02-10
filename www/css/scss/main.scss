@@ -5,6 +5,7 @@
 @import 'partials/my-popup';
 @import 'partials/investor-form';
 @import 'partials/newsletter';
+@import 'partials/board';
 
 
 .text-left{
@@ -503,4 +504,32 @@ aside .invest_btn:hover {
 .mobile_menu .search input{
 	font-size: 16px;
 }
+.investment {
+	margin-top: 0;
+}
+@media screen and (max-width: 1023px) {
+	.invest_btn, .invest_btn1 {
+	    display: none !important;
+	}
+	.investment {
+	    margin-top: 20px;
+	}
+	.tablet_buttons {
+	    display: block;
+	}
+	aside{
+	    margin-top: 24px;
+	    display: flex;
+    	justify-content: center;
+	}
+    .investment_proposals aside .board .board1{
+    	padding-bottom: 0!important;
+    }
+    .investment_proposals aside .board .buttons{
+    	position: relative;
+    }
+    .investment_proposals aside .board{
+    	padding-bottom: 4px;
+    }
 
+}

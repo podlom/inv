@@ -7390,6 +7390,77 @@ nav a.active {
   font-size: 16px;
 }
 
+.investment_proposals aside .board h3 a {
+  font-size: 16px;
+  color: #5D86AC;
+}
+
+.investment_proposals aside .board h3 {
+  background: none;
+  padding: 20px 20px 4px;
+}
+
+.investment_proposals aside .board .board1 {
+  padding: 12px 20px;
+}
+@media screen and (max-width: 1020px) {
+  .investment_proposals aside .board .board1 {
+    flex-direction: column;
+    height: auto !important;
+  }
+}
+
+.investment_proposals aside .board .board1 .published {
+  display: block;
+  color: rgba(0, 0, 0, 0.55);
+  line-height: 1.2;
+}
+
+.investment_proposals aside .board .buttons .a1 {
+  text-align: left;
+  padding-left: 20px;
+  padding-right: 20px;
+  background: #F3F3F3;
+  transition: all 0.25s ease;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #4a4a4a !important;
+  margin-top: 0;
+}
+.investment_proposals aside .board .buttons .a1:hover {
+  background: #ebebeb;
+}
+
+@media screen and (max-width: 1020px) {
+  .investment_proposals aside .board {
+    padding-bottom: 14px;
+  }
+}
+
+.investment_proposals aside .board .buttons a:last-child {
+  margin: 14px auto 0;
+}
+
+.investment_proposals aside .board .buttons {
+  bottom: 14px;
+  background: white;
+}
+
+.investment_proposals aside .board .board1 {
+  position: relative;
+}
+.investment_proposals aside .board .board1:after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  width: 100%;
+  pointer-events: none;
+  height: 100%;
+  left: 0;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0) 75%, rgba(255, 255, 255, 0.6) 90%, white 100%);
+}
+
 .text-left {
   text-align: left;
 }
@@ -7849,6 +7920,42 @@ aside .invest_btn:hover {
 
 .mobile_menu .search input {
   font-size: 16px;
+}
+
+.investment {
+  margin-top: 0;
+}
+
+@media screen and (max-width: 1023px) {
+  .invest_btn, .invest_btn1 {
+    display: none !important;
+  }
+
+  .investment {
+    margin-top: 20px;
+  }
+
+  .tablet_buttons {
+    display: block;
+  }
+
+  aside {
+    margin-top: 24px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .investment_proposals aside .board .board1 {
+    padding-bottom: 0 !important;
+  }
+
+  .investment_proposals aside .board .buttons {
+    position: relative;
+  }
+
+  .investment_proposals aside .board {
+    padding-bottom: 4px;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */

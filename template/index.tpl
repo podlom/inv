@@ -215,7 +215,7 @@
             <a href="/add-inv-prop" class="invest_btn invest_btn1">Найти инвестора</a>
             <div class="board">
               <div class="box-shadow"></div>
-            	<h3><a href="/board"><img src="i/board_ico.png">Доска объявлений</a> <a href="/bulletin/add">+ Добавить объявление</a></h3>
+            	<h3><a href="/board">Доска объявлений</a> <a href="/bulletin/add">+ Добавить объявление</a></h3>
             	<div class="board1">
 	            	{lent '/board' 7 var='post'  analytics=1}
 	            	<div>
@@ -225,7 +225,7 @@
 	            	{/lent}
 	            </div>
 	            <div class="buttons">
-	            	<a href="/board" class="a1">Показать все</a>
+	            	<a href="/board" class="a1">Показать все <i class="fa fa-chevron-right"></i></a>
 	            	<a href="/bulletin/add" class="a2">Добавить объявление</a>
 	            </div>
 	        </div>
