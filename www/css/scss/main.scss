@@ -6,6 +6,7 @@
 @import 'partials/investor-form';
 @import 'partials/newsletter';
 @import 'partials/board';
+@import 'partials/digest';
 
 
 .text-left{
@@ -492,7 +493,9 @@ aside .invest_btn:hover {
   }
 }
 
-
+.my_popup{
+	z-index: 999;
+}
 .my_popup form{
 	width: 100%;
 }
@@ -506,6 +509,13 @@ aside .invest_btn:hover {
 }
 .investment {
 	margin-top: 0;
+}
+
+.my_popup i{
+	@media screen and (max-width: 375px) {
+		right: 10px;
+    	top: 10px;
+	}
 }
 
 @media screen and (max-width: 1023px) {
@@ -561,4 +571,19 @@ aside .box-shadow_archive{
 	    overflow: hidden;
     -ms-touch-action: none;
     touch-action: none;
+}
+
+@media screen and (max-width: 480px) {
+  .the_post.digest .viewbox-cnt-body .reviews div {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      text-align: left;
+      margin-left: 0!important;
+      flex: none!important;
+  }
+  .the_post.digest .viewbox-cnt-body .content {
+    padding: 25px 15px;
+  }
+  
 }

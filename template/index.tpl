@@ -225,7 +225,7 @@
 	            	{/lent}
 	            </div>
 	            <div class="buttons">
-	            	<a href="/board" class="a1">Показать все <i class="fa fa-chevron-right"></i></a>
+	            	<a href="/board" class="a1">Другие объявления <i class="fa fa-chevron-right"></i></a>
 	            	<a href="/bulletin/add" class="a2">Добавить объявление</a>
 	            </div>
 	        </div>
@@ -237,11 +237,17 @@
     <div class="newsletter">
       <div class="container grid-container">
         <div class="newsletter__title">Хотите получать нашу ежемесячную рассылку?</div>
-        <p class="newsletter__text">Инвестиционный дайджест InVenture - все самое важное в сфере инвестиций за месяц, на 10 страницах, всего за 5 минут!</p>
+        <p class="newsletter__text">Инвестиционный дайджест InVenture - все самое важное в сфере инвестиций за месяц, на 10 страницах, всего за 5 минут! <br><a target="_blank" id='last-news-link' href="/" class="newsletter__link">Скачать последний выпуск журнала</a></p>
         <div class="newsletter__buttons">
           <button class="newsletter__button newsletter__button--white open_popup">Подписаться</button>
-          <button class="newsletter__button newsletter__button--darken">Смотреть архив</button>
+          <a href="/analytics/digest" class="newsletter__button newsletter__button--darken">Смотреть архив</a>
         </div>
+      </div>
+      <div id="newsletter__archive" hidden>
+        {load_digests}
+        {foreach $digests as $digest}
+            <a class="m{$digest->getPubDate()->format('n')} y{$digest->getPubDate()->format('Y')}" href="{$digest->getUrl()}"></a>
+        {/foreach}
       </div>
     </div>
 
