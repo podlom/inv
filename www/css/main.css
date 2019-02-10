@@ -7449,8 +7449,9 @@ a.newsletter__button--darken {
 
 .investment_proposals aside .board .board1 .published {
   display: block;
-  color: rgba(0, 0, 0, 0.55);
+  color: #9b9b9b;
   line-height: 1.2;
+  font-weight: 500;
 }
 
 .investment_proposals aside .board .buttons .a1 {
