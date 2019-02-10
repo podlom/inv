@@ -108,7 +108,7 @@
             
           <div class="my_popup__wrapper">
             {if $lang == 'en'}
-                <h5>Fill in your contact details to receive the monthly newsletter!</h5>
+                <h5>Fill in the contact details to receive the monthly newsletter!</h5>
             {else}
                 <h5>Заполните, пожалуйста, ваши контактные данные, чтобы получать ежемесячную рассылку!</h5>
             {/if}

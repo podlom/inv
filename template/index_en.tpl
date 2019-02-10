@@ -582,3 +582,18 @@
         </div>
       </div>
     </div>
+
+
+
+
+    
+<div class="dark_bg"></div>
+<div class="my_popup ">
+  {#mod Mail}
+      <div class="my_popup__wrapper">
+          <h5>Fill in the contact details to receive the monthly newsletter!</h5>
+          <i class="fa fa-close"></i>
+          {subscribe}
+      </div>
+  {#/mod}
+</div>

@@ -507,6 +507,7 @@ aside .invest_btn:hover {
 .investment {
 	margin-top: 0;
 }
+
 @media screen and (max-width: 1023px) {
 	.invest_btn, .invest_btn1 {
 	    display: none !important;
@@ -538,7 +539,26 @@ aside .invest_btn:hover {
     }
 
 }
-
+@media screen and (max-width: 475px) {
+	.tablet_buttons{
+		padding-left: 0;
+		padding-right: 0;
+		.grid-margin-x{
+			margin-left: 0;
+			margin-right: 0;
+		}
+	}
+}
 aside .box-shadow_archive{
 	background: white;
+}
+
+#gm_callback .gm_close{
+	color: white;
+}
+
+.page-locked{
+	    overflow: hidden;
+    -ms-touch-action: none;
+    touch-action: none;
 }

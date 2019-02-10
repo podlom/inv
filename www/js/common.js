@@ -95,10 +95,14 @@ $(document).ready(function() {
 	$('.open_popup').click(function() {
 		$('.my_popup').addClass('opened')
 		$('.dark_bg').addClass('opened')
+		$('html').addClass('page-locked');
+
 	})
 	$('.my_popup i, .close__popup, .dark_bg').click(function() {
 		$('.my_popup').removeClass('opened')
 		$('.dark_bg').removeClass('opened')
+		$('html').removeClass('page-locked');
+
 	})
 	$(".my_popup").click(function(e){
 		var container = $(".my_popup__wrapper");
@@ -235,6 +239,8 @@ $(document).ready(function() {
 
 	$('.menu_icons .fa-bars').click(function() {
 		$('.mobile_menu').slideToggle();
+		
+		$('html').toggleClass('page-locked');
 		$(this).toggleClass('fa-bars').toggleClass('fa-close');
 	})
 

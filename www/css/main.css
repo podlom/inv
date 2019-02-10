@@ -7973,8 +7973,28 @@ aside .invest_btn:hover {
     padding-bottom: 4px;
   }
 }
+@media screen and (max-width: 475px) {
+  .tablet_buttons {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .tablet_buttons .grid-margin-x {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
 aside .box-shadow_archive {
   background: white;
+}
+
+#gm_callback .gm_close {
+  color: white;
+}
+
+.page-locked {
+  overflow: hidden;
+  -ms-touch-action: none;
+  touch-action: none;
 }
 
 /*# sourceMappingURL=main.css.map */
