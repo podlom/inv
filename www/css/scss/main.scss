@@ -4,6 +4,7 @@
 @import 'partials/pricing-table';
 @import 'partials/my-popup';
 @import 'partials/investor-form';
+@import 'partials/newsletter';
 
 
 .text-left{
@@ -342,7 +343,7 @@ aside .form .title {
 	@media screen and (max-width: 640px) {
 	    text-transform: none;
 	}
-	
+
 }
 .mobile_menu > div.social a{
 	margin-left: 0;
@@ -380,5 +381,126 @@ aside .form .title {
 
 .header .menu_icons i{
 	width: 20px;
+}
+
+aside .invest_btn {
+    display: block;
+    max-width: 270px;
+    line-height: 60px;
+    color: white !important;
+    background: #5287b0;
+    border: 1px solid #5287b0;
+    padding: 0;
+    height: 60px;
+    transition: all .25s ease;
+	margin-bottom: 15px;
+	&:hover{
+		background:#498abc !important;
+		border-color: #498abc !important;
+	}
+}
+
+.tablet_buttons .tablet_button1, .tablet_buttons .tablet_button2{
+	color: #fff;
+	&:hover{
+    	box-shadow: 0 2px 10px 0 rgba(0,0,0,0.3);
+	}
+	
+}
+.tablet_buttons .tablet_button1{
+	background: #5287b0;
+    border: 1px solid #5287b0;
+}
+.tablet_buttons .tablet_button2{
+	background:#ef767a !important;
+	border-color: #ef767a !important;
+	
+}
+aside .invest_btn1{
+	background:#ef767a !important;
+	border-color: #ef767a !important;
+	&:hover{
+		background:#ff666b !important;
+		border-color: #ff666b !important;
+	}
+}
+aside .invest_btn:hover {
+    color: #fff;
+    box-shadow: 0 2px 10px 0 rgba(0,0,0,0.3);
+}
+
+.investment article .title-news{
+	display: block;
+}
+.the_post .hint{
+	// display: block;
+	    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.the_post .hint .category{
+	margin-left: 0;
+}
+.the_post .hint [qtype=Rating]{
+	margin: 0!important;
+
+}
+.the_post .hint .number{
+    margin-right: 15px;
+    margin-left: 5px;
+}
+
+.advertising-cell{
+  aside{
+  	position: relative;
+
+  }
+  #advertising{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+
+  @media screen and (max-width: 1024px){
+  	aside{
+  		margin-top: 0;
+  	}
+  	#advertising{
+  		position: relative;
+  		display: flex;
+  		aside{
+	  		margin-top: 20px;
+	  		margin-bottom: 0;
+	  	}
+
+		aside:not(:last-of-type){
+			margin-right: 20px;
+		}
+  	}
+  }
+
+  @media screen and (max-width: 1024px){
+
+  	#advertising{
+		aside:not(:last-of-type){
+			margin-right: 10px;
+		}
+  	}
+
+  }
+}
+
+
+.my_popup form{
+	width: 100%;
+}
+
+
+.my_popup fieldset label{
+	cursor: pointer;
+}
+.mobile_menu .search input{
+	font-size: 16px;
 }
 

@@ -111,7 +111,7 @@
 {block 'footer_menu'}
 <div class="grid-x grid-margin-x">
   <div class="cell small-6 medium-3">
-    <h6><a href="http://inventure.ua/">InVenture <span>Media Group</span></a></h6>
+    <h6><a href="http://inventure.ua/">InVenture <span>Investment Group</span></a></h6>
     <p><a href="/en/about">About</a></p>
     <p><a href="/en/about/advertising">Adversiting</a></p>
     <p><a href="/en/add-inv-prop">Services for Raising Capital</a></p>

@@ -287,7 +287,7 @@
         {block 'footer_menu'}
         <div class="grid-x grid-margin-x">
           <div class="cell small-6 medium-3">
-            <h6 itemprop="name"><a href="http://inventure.ua/" itemprop="url">InVenture <span>Media Group</span></a></h6>
+            <h6 itemprop="name"><a href="http://inventure.ua/" itemprop="url">InVenture <span>Investment Group</span></a></h6>
             <p><a href="/about">О проекте</a></p>
             <p><a href="/about/advertising">Реклама</a></p>
             <p><a href="/board">Доска объявлений</a></p>

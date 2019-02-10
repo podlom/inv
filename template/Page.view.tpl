@@ -63,69 +63,11 @@
                 {/if}
                 {/block}
                 {block 'aside.subscribe'}
-                    <div class="box-shadow_form">
-                        <div class="box-shadow"></div>
-                        {#mod Mail}
-                        <div class="form">
-                            <div class="title">
-                                {if $lang == 'en'}<a href="/en/analytics/digest"> <i class="fa fa-rss"></i>Sign up for Digest</a>
-                            {else}
-                                <a href="/analytics/digest"> <i class="fa fa-rss"></i>Инвестиционный дайджест</a>
-                            {/if}
-                              </div>
-                              <div class="img"><img src="/i/digest_img.jpg"></div>
-                            {subscribe}
-                        </div>
-                        {#/mod}
-                    </div>
-                {/block}
-                {block 'aside.digest'}
-                    <div class="box-shadow_archive">
-                        <div class="box-shadow"></div>
-                        <div class="archive">
-                            <div class="title">
-                            {if $lang == 'en'}
-                                <a href="/en/analytics/digest"> <img src="/i/download_icon.png" alt="Загрузить" title="Загрузить">Archive</a>
-                            {else}
-                                <a href="/analytics/digest"> <img src="/i/download_icon.png" alt="Загрузить" title="Загрузить">Архив выпусков</a>
-                            {/if}
-                            </div>
-                            {#mod Digest}
-                            <form name="archiveForm" method="post" action="#">
-                                <div class="d_n" id="digest">
-                                    {load_digests}
-                                    {foreach $digests as $digest}
-                                        <a class="m{$digest->getPubDate()->format('n')} y{$digest->getPubDate()->format('Y')}" href="{$digest->getUrl()}"></a>
-                                    {/foreach}
-                                </div>
-                                <div class="option">
-                                    <select name="archiveFormYear" id="archiveFormYear" class="select1">
-                                        {$now = date_create()}
-                                        {for $year=2012 to $now->format('Y')}
-                                            <option value="{$year}" label="{$year}"{if $digest->getPubDate()->format('Y')==$year} selected{/if}>{$year}</option>
-                                        {/for}
-                                    </select>
-                                    <select name="archiveFormMonths" id="archiveFormMonths" class="select2">
-                                      {if $lang == 'en'}
-                                         {foreach ["January","February", "March","April", "May", "June", "July", "August", "September", "October", "November", "December"] as $id => $name}
-                                            <option value="{$id+1}"{if $digest->getPubDate()->format('n')==$id+1} selected{/if} label="{$name}">{$name}</option>
-                                        {/foreach}
-                                      {else}
-                                          {foreach ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'] as $id => $name}
-                                            <option value="{$id+1}"{if $digest->getPubDate()->format('n')==$id+1} selected{/if} label="{$name}">{$name}</option>
-                                        {/foreach}
-                                      {/if}
-
-                                    </select>
-                                </div>
-                                <a class="blue_but cell-but"  target="_blank" id="archiveFormButton" href="#" disabled="disabled">{if $lang == 'en'}
-                                Download
-                            {else}
-                                Скачать
-                            {/if}</a>
-                            </form>
-                            {#/mod}
-                        </div>
+                    <div class="newsletter-side">
+                      <div class="box-shadow"></div>
+                      <img src="/images/newsletter-icon.svg" alt="" class="newsletter-side__img">
+                      <div class="newsletter-side__heading">Хотите получать нашу ежемесячную рассылку?</div>
+                      <button class="newsletter-side__button open_popup">Подписаться</button>
                     </div>
                 {/block}
                 {block 'aside.banner'}
@@ -144,3 +86,16 @@
     </div>
 </div>
 
+
+{if !$isFullView}
+    <div class="dark_bg"></div>
+    <div class="my_popup ">
+      {#mod Mail}
+          <div class="my_popup__wrapper">
+              <h5>Заполните, пожалуйста, ваши контактные данные, чтобы получать ежемесячную рассылку!</h5>
+              <i class="fa fa-close"></i>
+              {subscribe}
+          </div>
+      {#/mod}
+    </div>
+{/if}

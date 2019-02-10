@@ -436,16 +436,7 @@
             </article>
           </section>
         </div>
-        <!-- <div class="cell medium-12 large-3">
-          <aside>
-           <div class="advertising" id="advertising">
-                <div class="box-shadow"></div>
-                {widget_slot 'main (370x450)' size=[370,450]}
-                {widget_slot 'post_2 (370x450)' size=[370,450]}
-                {widget_slot 'post_6 (270x350)' size=[270,350]}
-              </div>
-          </aside>
-        </div> -->
+        
       </div>
     </div>
     <div class="grid-container all_read" id="all_read">

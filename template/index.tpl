@@ -233,6 +233,18 @@
         </div>
       </div>
     </div>
+
+    <div class="newsletter">
+      <div class="container grid-container">
+        <div class="newsletter__title">Хотите получать нашу ежемесячную рассылку?</div>
+        <p class="newsletter__text">Инвестиционный дайджест InVenture - все самое важное в сфере инвестиций за месяц, на 10 страницах, всего за 5 минут!</p>
+        <div class="newsletter__buttons">
+          <button class="newsletter__button newsletter__button--white open_popup">Подписаться</button>
+          <button class="newsletter__button newsletter__button--darken">Смотреть архив</button>
+        </div>
+      </div>
+    </div>
+
     <div class="grid-container all_news" id="all_news">
       <div class="grid-x grid-margin-x">
         <div class="cell medium-12 large-9">
@@ -392,54 +404,14 @@
             </article>
           </section>
         </div>
-        <div class="cell large-3 medium-12">
+        <div class="cell medium-12 large-3 advertising-cell">
           <aside>
-              {#mod Mail}
-              <div class="box-shadow_form">
+              <div class="advertising" id="advertising">
                 <div class="box-shadow"></div>
-                <div class="form">
-                	<div class="title">
-		               <a href="/analytics/digest"> <i class="fa fa-rss"></i>
-		                Инвестиционный дайджест </a>
-		              </div>
-		              <div class="img"><img src="/i/digest_img.jpg"></div>
-                    {subscribe}
-                </div>
-                {#/mod}
+                {widget_slot 'main (370x450)' size=[370,450]}
+                {widget_slot 'post_2 (370x450)' size=[370,450]}
+                {widget_slot 'post_6 (270x350)' size=[270,350]}
               </div>
-              {#mod Digest}
-                  <div class="box-shadow_archive">
-                    <div class="box-shadow"></div>
-                    <div class="archive">
-                        <div class="title">
-			                <a href="/analytics/digest"><img src="/i/download_icon.png" alt="Загрузить" title="Загрузить">
-			                Архив выпусков</a>
-			              </div>
-                        <form name="archiveForm" method="post" action="#">
-                            <div class="d_n" id="digest">
-                                {load_digests}
-                                {foreach $digests as $digest}
-                                    <a class="m{$digest->getPubDate()->format('n')} y{$digest->getPubDate()->format('Y')}" href="{$digest->getUrl()}"></a>
-                                {/foreach}
-                            </div>
-                            <div class="option">
-                                <select name="archiveFormYear" id="archiveFormYear" class="select1">
-                                    {$now = date_create()}
-                                    {for $year=2012 to $now->format('Y')}
-                                        <option value="{$year}" label="{$year}"{if $digest->getPubDate()->format('Y')==$year} selected{/if}>{$year}</option>
-                                    {/for}
-                                </select>
-                                <select name="archiveFormMonths" id="archiveFormMonths" class="select2">
-                                    {foreach ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'] as $id => $name}
-                                        <option value="{$id+1}"{if $digest->getPubDate()->format('n')==$id+1} selected{/if} label="{$name}">{$name}</option>
-                                    {/foreach}
-                                </select>
-                            </div>
-                                <a class="blue_but cell-but"  target="_blank" id="archiveFormButton" href="#" disabled="disabled">Скачать</a>
-                        </form>
-                    </div>
-                  </div>
-                  {#/mod}
           </aside>
         </div>
       </div>
@@ -511,16 +483,7 @@
             </article>
           </section>
         </div>
-        <div class="cell medium-12 large-3">
-        	<aside>
-	            <div class="advertising" id="advertising">
-                <div class="box-shadow"></div>
-                {widget_slot 'main (370x450)' size=[370,450]}
-                {widget_slot 'post_2 (370x450)' size=[370,450]}
-                {widget_slot 'post_6 (270x350)' size=[270,350]}
-              </div>
-        	</aside>
-        </div>
+        
       </div>
     </div>
     <div class="grid-container events">
@@ -604,3 +567,15 @@
         </div>
       </div>
     </div>
+
+
+<div class="dark_bg"></div>
+<div class="my_popup ">
+  {#mod Mail}
+      <div class="my_popup__wrapper">
+          <h5>Заполните, пожалуйста, ваши контактные данные, чтобы получать ежемесячную рассылку!</h5>
+          <i class="fa fa-close"></i>
+          {subscribe}
+      </div>
+  {#/mod}
+</div>
