@@ -1,0 +1,4 @@
+config/app.yml
+config/modules.yml
+www/upload
+www/*.php
