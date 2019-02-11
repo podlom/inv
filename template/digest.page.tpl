@@ -10,7 +10,8 @@
             <div class="digest">
               <div class="digest__header">
                 <ul class="digest__years">
-                  <li class='active'>2018</li>
+                  <li class='active'>2019</li>
+                  <li>2018</li>
                   <li>2017</li>
                   <li>2016</li>
                   <li>2015</li>
@@ -21,7 +22,10 @@
               </div>
               <div class="digest__wrapper">
                 <div class="digest__months">
-                  <ul class="digest__month active" id="digest__month-2018">
+                    <ul class="digest__month active" id="digest__month-2019">
+                    <li><a target="_blank" href=''><img src="http://f.inventure.com.ua/images/newsletters/2019-1.png" alt="">Январь</a></li>
+                  </ul>
+                  <ul class="digest__month" id="digest__month-2018">
                     <li><a target="_blank" href=''><img src="http://f.inventure.com.ua/images/newsletters/2018-1.png" alt="">Январь</a></li>
                     <li><a target="_blank" href=''><img src="http://f.inventure.com.ua/images/newsletters/2018-2.png" alt="">Февраль</a></li>
                     <li><a target="_blank" href=''><img src="http://f.inventure.com.ua/images/newsletters/2018-3.png" alt="">Март</a></li>
