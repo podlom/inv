@@ -1,0 +1,75 @@
+.investment_proposals aside .board h3 a{
+        font-size: 16px;
+	color:#5D86AC;
+}
+.investment_proposals aside .board h3{
+	background: none;
+    padding: 20px 20px 4px;
+}
+.investment_proposals aside .board .board1{
+    padding: 12px 20px;
+	@media screen and (max-width: 1020px) {
+		flex-direction: column;
+		height: auto !important;
+	}
+
+
+}
+
+.investment_proposals aside .board .board1 a{
+	transition: all .25s ease;
+	&:hover{
+		color: #5D86AC;
+	}
+}
+.investment_proposals aside .board .board1 .published{
+	display: block;
+	color: #9b9b9b;
+    line-height: 1.2;
+    font-weight: 500;
+}
+
+.investment_proposals aside .board .buttons .a1{
+	text-align: left;
+    padding-left: 20px;
+    padding-right: 20px;
+	background:#F3F3F3;
+	transition: all .25s ease;
+	display: flex;
+    justify-content: space-between;
+    align-items: center;
+	color:#4a4a4a!important;
+	margin-top: 0;
+	&:hover{
+		background:#ebebeb;
+	}
+}
+.investment_proposals aside .board{
+	@media screen and (max-width: 1020px) {
+		padding-bottom: 14px;
+	}
+}
+.investment_proposals aside .board .buttons a:last-child{
+	    margin: 14px auto 0;
+}
+.investment_proposals aside .board .buttons{
+	    bottom: 14px;
+	    background:white;
+}
+.investment_proposals aside .board .board1{
+	position: relative;
+	&:after{
+		content: '';
+		position: absolute;
+		bottom: -8px;
+		width: 100%;
+		pointer-events: none;
+		height: 100%;
+    	left: 0;
+		background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0) 75%, rgba(255,255,255,.6) 90%, rgba(255,255,255,1) 100%);
+	}
+}
+
+.investment_proposals aside .board .buttons a:last-child{
+	transition: all .25s ease;
+}
