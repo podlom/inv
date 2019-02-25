@@ -111,7 +111,9 @@
                         <div class="img">
                           <a href="{$post->getPath()}" >
                            {if $post->getImage()}
-                              {$post->getImage()->thumbup(120,90)}
+                              <!-- {$post->getImage()->thumbup(120,90)} -->
+                              <img class="lazyimg" data-src="{$post->getImage()->thumbup(120,90)->getUrl()}" alt='{$post->getTitle()}'>
+                              
                             {else}
                               <img class="the_img" src="/img/thumbup.120.90/images/noThumb.jpg" alt="{$post->getH1()}"/>
                             {/if}
@@ -144,7 +146,9 @@
                         <div class="img">
                           <a href="{$news->getPath()}" >
                             {if $news->getImage()}
-                              {$news->getImage()->thumbup(120,90)}
+                              <!-- {$news->getImage()->thumbup(120,90)} -->
+                              <img class="lazyimg" data-src="{$news->getImage()->thumbup(120,90)->getUrl()}" alt='{$news->getTitle()}'>
+
                             {else}
                               <img class="the_img" src="/img/thumbup.120.90/images/noThumb.jpg" alt="{$news->getH1()}"/>
                             {/if}
@@ -177,7 +181,8 @@
                         <div class="img">
                           <a href="{$news->getPath()}" >
                             {if $news->getImage()}
-                              {$news->getImage()->thumbup(120,90)}
+                              <!-- {$news->getImage()->thumbup(120,90)} -->
+                              <img class="lazyimg" data-src="{$news->getImage()->thumbup(120,90)->getUrl()}" alt='{$news->getTitle()}'>
                             {else}
                               <img class="the_img" src="/img/thumbup.120.90/images/noThumb.jpg" alt="{$news->getH1()}"/>
                             {/if}
@@ -245,9 +250,9 @@
       </div>
       <div id="newsletter__archive" hidden>
         {load_digests}
-        {foreach $digests as $digest}
-            <a class="m{$digest->getPubDate()->format('n')} y{$digest->getPubDate()->format('Y')}" href="{$digest->getUrl()}"></a>
-        {/foreach}
+        
+        {assign var=digest value=$digests|@end} 
+        <a class="m{$digest->getPubDate()->format('n')} y{$digest->getPubDate()->format('Y')}" href="{$digest->getUrl()}"></a>
       </div>
     </div>
 
@@ -287,7 +292,8 @@
                     <div class="img">
                       <a href="{$bignews->getPath()}">
                         {if $bignews->getImage()}
-                          {$bignews->getImage()->thumbup(350,254)}
+                          <!-- {$bignews->getImage()->thumbup(350,254)} -->
+                          <img class="lazyimg" data-src="{$bignews->getImage()->thumbup(350,254)->getUrl()}" alt='{$bignews->getTitle()}'>
                         {else}
                           <img class="the_img" src="/img/thumbup.350.254/images/noThumb.jpg" alt="{$bignews->getH1()}"/>
                         {/if}
@@ -324,7 +330,8 @@
                         <div class="img">
                             <a href="{$news->getPath()}" >
                             {if $news->getImage()}
-                              {$news->getImage()->thumbup(120,90)}
+                              <!-- {$news->getImage()->thumbup(120,90)} -->
+                              <img class="lazyimg" data-src="{$news->getImage()->thumbup(120,90)->getUrl()}" alt='{$news->getTitle()}'>
                             {else}
                               <img class="the_img" src="/img/thumbup.120.90/images/noThumb.jpg" alt="{$news->getH1()}"/>
                             {/if}
@@ -353,7 +360,8 @@
                         <div class="img">
                             <a href="{$news->getPath()}" >
                             {if $news->getImage()}
-                              {$news->getImage()->thumbup(120,90)}
+                              <!-- {$news->getImage()->thumbup(120,90)} -->
+                              <img class="lazyimg" data-src="{$news->getImage()->thumbup(120,90)->getUrl()}" alt='{$news->getTitle()}'>
                             {else}
                               <img class="the_img" src="/img/thumbup.120.90/images/noThumb.jpg" alt="{$news->getH1()}"/>
                             {/if}
@@ -382,7 +390,9 @@
                         <div class="img">
                             <a href="{$news->getPath()}" >
                             {if $news->getImage()}
-                              {$news->getImage()->thumbup(120,90)}
+                              <!-- {$news->getImage()->thumbup(120,90)} -->
+                              <img class="lazyimg" data-src="{$news->getImage()->thumbup(120,90)->getUrl()}" alt='{$news->getTitle()}'>
+
                             {else}
                               <img class="the_img" src="/img/thumbup.120.90/images/noThumb.jpg" alt="{$news->getH1()}"/>
                             {/if}
@@ -460,7 +470,10 @@
                     <div class="img">
                       <a href="{$analytics->getPath()}">
                         {if $analytics->getImage()}
-                          {$analytics->getImage()->thumbup(270,202)}
+                        <!-- ->getUrl() -->
+                        
+                        <img class="lazyimg" data-src="{$analytics->getImage()->thumbup(270,202)->getUrl()}" alt='{$analytics->getTitle()}'>
+                          <!-- {$analytics->getImage()->thumbup(270,202)} -->
                         {else}
                           <img class="the_img" src="/img/thumbup.270.202/images/noThumb.jpg" alt="{$analytics->getH1()}"/>
                         {/if}
@@ -509,7 +522,8 @@
                     <div class="img">
                       <a href="{$events->getPath()}">
                         {if $events->getImage()}
-                          {$events->getImage()->thumbup(120,90)}
+                          <!-- {$events->getImage()->thumbup(120,90)} -->
+                          <img class="lazyimg" data-src="{$events->getImage()->thumbup(120,90)->getUrl()}" alt='{$events->getTitle()}'>
                         {else}
                           <img class="the_img" src="/img/thumbup.120.90/images/noThumb.jpg" alt="{$events->getH1()}"/>
                         {/if}
@@ -550,7 +564,10 @@
                   <div class="box-shadow"></div>
                   <div class="video">
                     <div class="this_video">
-                      <iframe class="video-iframe-index" src="//www.youtube.com/embed/{$news->printAttr("55")}" allowfullscreen></iframe>
+                      <!-- <iframe class="video-iframe-index" src="//www.youtube.com/embed/{$news->printAttr("55")}" allowfullscreen></iframe> -->
+                      <div class="youtube" data-embed="{$news->printAttr("55")}">
+                          <div class="play-button"></div>
+                      </div>
                     </div>
                     <div class="info">
                       <div class="statistic">
@@ -574,7 +591,9 @@
       </div>
     </div>
 
-
+<script>
+  
+</script>
 <div class="dark_bg"></div>
 <div class="my_popup ">
   {#mod Mail}
@@ -585,3 +604,4 @@
       </div>
   {#/mod}
 </div>
+

@@ -46,11 +46,12 @@
     {style '//fonts.googleapis.com/css?family=Open+Sans:400italic,400,500,600' async=true}
     {style '//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' async=true}
     {style '//fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&amp;subset=cyrillic,cyrillic-ext,latin-ext' async=true}
-
+    
     {head}
     {script 'jquery'}
     {script "foundation2"}
     {script src="/js/libs.min.js" require="jquery" name="libs" }
+
     {script src="/js/common.js" require="libs" }
     {script src="/js/jquery.lazyload.min.js" require="jquery" name="lazyload" }
     {script src="/js/autosize.min.js" require="jquery" name="autosize" }
@@ -164,7 +165,7 @@
         <div class="grid-x grid-margin-x">
           <div class="cell small-3">
             <div class="logo">
-              <img src="/i/logo_footer.png">
+              <img class="lazyimg" data-src="/i/logo_footer.png">
             </div>
           </div>
           <div class="cell small-9">
@@ -282,7 +283,7 @@
       </div>
       <div class="grid-container">
         <div class="logo">
-          <img src="/i/logo_footer.png" itemprop="logo">
+          <img class="lazyimg" data-src="/i/logo_footer.png" itemprop="logo">
         </div>
         {block 'footer_menu'}
         <div class="grid-x grid-margin-x">
@@ -378,6 +379,7 @@
     <a href="{if $page}/admin/page/edit/{$page->getId()}{else}{if $post}/admin/blog/{$blog->getId()}/edit/{$post->getId()}{else}/admin/blog/{$blog->getId()}{/if}{/if}" title="edit" class="icon-edit">Редактировать</a>
 </div>
 {/if}
+
 <div id="gm_callback">
     <div class="gm_call"></div>
     <div class="gm_form">
@@ -388,5 +390,59 @@
     <div class="gm_result">Спасибо! Мы с вами свяжемся. <div class="gm_close"></div>
     </div>
 </div>
+
+<script>
+    
+  
+document.addEventListener("DOMContentLoaded", function() {
+  var lazyloadImages;    
+
+  if ("IntersectionObserver" in window) {
+    lazyloadImages = document.querySelectorAll(".lazyimg");
+    var imageObserver = new IntersectionObserver(function(entries, observer) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          var image = entry.target;
+          image.src = image.dataset.src;
+          image.classList.remove("lazyimg");
+          imageObserver.unobserve(image);
+        }
+      });
+    });
+
+    lazyloadImages.forEach(function(image) {
+      imageObserver.observe(image);
+    });
+  } else {  
+    var lazyloadThrottleTimeout;
+    lazyloadImages = document.querySelectorAll(".lazyimg");
+    
+    function lazyload () {
+      if(lazyloadThrottleTimeout) {
+        clearTimeout(lazyloadThrottleTimeout);
+      }    
+
+      lazyloadThrottleTimeout = setTimeout(function() {
+        var scrollTop = window.pageYOffset;
+        lazyloadImages.forEach(function(img) {
+            if(img.offsetTop < (window.innerHeight + scrollTop)) {
+              img.src = img.dataset.src;
+              img.classList.remove('lazyimg');
+            }
+        });
+        if(lazyloadImages.length == 0) { 
+          document.removeEventListener("scroll", lazyload);
+          window.removeEventListener("resize", lazyload);
+          window.removeEventListener("orientationChange", lazyload);
+        }
+      }, 20);
+    }
+
+    document.addEventListener("scroll", lazyload);
+    window.addEventListener("resize", lazyload);
+    window.addEventListener("orientationChange", lazyload);
+  }
+});
+</script>
 </body>
 </html>

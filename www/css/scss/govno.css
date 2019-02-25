@@ -1630,7 +1630,7 @@ aside .archive form a {
 }
 
 .video_block .box-shadow {
-    height: 354px;
+    height: 100%;
     width: calc(100% - 12px);
     background-color: #fff;
     box-shadow: 0 2px 16px 0 rgba(0,0,0,0.25);

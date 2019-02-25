@@ -2,3 +2,10 @@ config/app.yml
 config/modules.yml
 www/upload
 www/*.php
+www/img
+www/import
+www/robots.txt
+www/skynar
+cache
+cms
+log
