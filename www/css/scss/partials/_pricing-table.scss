@@ -111,6 +111,11 @@
 	}
 }
 
-html:lang(en) .add-inv-prop .viewbox-cnt-body::after{
+html:lang(en) .add-inv-prop .viewbox-cnt-body::after,html:lang(en) .investor-form .viewbox-cnt-body::after{
 	display: none;
+}
+
+html:lang(en) .investor-form .viewbox-cnt-body .form-default,html:lang(en) .investor-form form{
+	padding-top: 0;
+	margin-top:0;
 }
