@@ -33,7 +33,7 @@
                         <div class="title-news">
                           <div class="img">
                             <a href="{$bigpost->getPath()}">
-                              {$bigpost->getImage()->thumbup(350,254)}
+                              <img class="lazyimg" data-src="{$bigpost->getImage()->thumbup(350,254)->getUrl()}" alt='{$bigpost->getTitle()}'>
                             </a>
                           </div>
                           <div class="info">
@@ -104,7 +104,7 @@
                             <div class="item">
                               <div class="img">
                                 <a href="{$post->getPath()}" >
-                                  <img src="/img/thumbup.236.170{$post->getImage()->getUrl()}" alt='{$post->getTitle()}' />
+                                  <img class="lazyimg" data-src="/img/thumbup.236.170{$post->getImage()->getUrl()}" alt='{$post->getTitle()}' />
                                 </a>
                               </div>
                               <div class="content">
@@ -148,7 +148,7 @@
                             <div class="item">
                               <div class="img">
                                 <a href="{$news->getPath()}" >
-                                  <img src="/img/thumbup.236.170{$news->getImage()->getUrl()}" alt='{$news->getTitle()}' />
+                                  <img class="lazyimg" data-src="/img/thumbup.236.170{$news->getImage()->getUrl()}" alt='{$news->getTitle()}' />
                                 </a>
                               </div>
                               <div class="content">
@@ -192,7 +192,7 @@
                             <div class="item">
                               <div class="img">
                                 <a href="{$news->getPath()}" >
-                                  <img src="/img/thumbup.236.170{$news->getImage()->getUrl()}" alt='{$news->getTitle()}' />
+                                  <img class="lazyimg" data-src="/img/thumbup.236.170{$news->getImage()->getUrl()}" alt='{$news->getTitle()}' />
                                 </a>
                               </div>
                               <div class="content">
@@ -318,8 +318,8 @@
                   <div class="title-news">
                     <div class="img">
                       <a href="{$bignews->getPath()}">
-                                {$bignews->getImage()->thumbup(350,254)}
-                            </a>
+                        <img class="lazyimg" data-src="{$bignews->getImage()->thumbup(350,254)->getUrl()}" alt='{$bignews->getTitle()}'>
+                      </a>
                     </div>
                     <div class="info">
                       <div class="statistic">
@@ -352,7 +352,7 @@
                       <div class="item">
                         <div class="img">
                             <a href="{$news->getPath()}" >
-                            <img src="/img/thumbup.236.170{$news->getImage()->getUrl()}" alt='{$news->getTitle()}' />
+                            <img class="lazyimg" data-src="/img/thumbup.236.170{$news->getImage()->getUrl()}" alt='{$news->getTitle()}' />
                         </a>
                         </div>
                         <div class="content">
@@ -379,7 +379,7 @@
                       <div class="item">
                         <div class="img">
                             <a href="{$news->getPath()}" >
-                            <img src="/img/thumbup.236.170{$news->getImage()->getUrl()}" alt='{$news->getTitle()}' />
+                            <img class="lazyimg" data-src="/img/thumbup.236.170{$news->getImage()->getUrl()}" alt='{$news->getTitle()}' />
                         </a>
                         </div>
                         <div class="content">
@@ -406,7 +406,7 @@
                       <div class="item">
                         <div class="img">
                             <a href="{$news->getPath()}" >
-                            <img src="/img/thumbup.236.170{$news->getImage()->getUrl()}" alt='{$news->getTitle()}' />
+                            <img class="lazyimg" data-src="/img/thumbup.236.170{$news->getImage()->getUrl()}" alt='{$news->getTitle()}' />
                         </a>
                         </div>
                         <div class="content">
@@ -473,7 +473,8 @@
                   <div class="read_news">
                     <div class="img">
                       <a href="{$analytics->getPath()}">
-                        {$analytics->getImage()->thumbup(320,230)}
+
+                        <img class="lazyimg" data-src="{$analytics->getImage()->thumbup(320,230)->getUrl()}" alt='{$analytics->getTitle()}'>
                       </a>
                     </div>
                     <div class="info">
@@ -522,7 +523,9 @@
                 <div class="cell small-6">
                   <div class="event">
                     <div class="img">
-                      <a href="{$events->getPath()}">{$events->getImage()->thumbup(320,230)}</a>
+                      <a href="{$events->getPath()}">
+                        <img class="lazyimg" data-src="{$events->getImage()->thumbup(320,230)->getUrl()}" alt='{$events->getTitle()}'>
+                      </a>
                     </div>
                     <div class="content">
                       <h5><a href="{$events->getPath()}" >{$events->getTitle()}</h5>
@@ -559,7 +562,10 @@
                   <div class="box-shadow"></div>
                   <div class="video">
                     <div class="this_video">
-                      <iframe class="video-iframe-index" src="//www.youtube.com/embed/{$news->printAttr("55")}" allowfullscreen></iframe>
+                      <!-- <iframe class="video-iframe-index" src="//www.youtube.com/embed/{$news->printAttr("55")}" allowfullscreen></iframe> -->
+                      <div class="youtube" data-embed="{$news->printAttr("55")}">
+                          <div class="play-button"></div>
+                      </div>
                     </div>
                     <div class="info">
                       <div class="statistic">

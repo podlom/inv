@@ -110,3 +110,7 @@
     	
 	}
 }
+
+html:lang(en) .add-inv-prop .viewbox-cnt-body::after{
+	display: none;
+}

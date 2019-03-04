@@ -3,7 +3,7 @@
 <div class="wrapper">
     <div class="the_video" itemscope itemtype="http://schema.org/articleBody">
         <div class="box-shadow"></div>
-        <iframe class="video-iframe video-content" itemscope itemtype="http://schema.org/ImageObject" src="//www.youtube.com/embed/{$post->printAttr("55")}" frameborder="0" allowfullscreen></iframe>
+            <iframe class="video-iframe video-content" itemscope itemtype="http://schema.org/ImageObject" src="//www.youtube.com/embed/{$post->printAttr("55")}" frameborder="0" allowfullscreen></iframe>
        </div>
 </div>
 {/block}

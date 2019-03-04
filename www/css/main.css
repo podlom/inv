@@ -6856,8 +6856,18 @@ nav a.active {
 }
 
 @media only screen and (max-width: 940px) {
+  #gm_callback > .gm_call {
+    width: 40px;
+    height: 40px;
+  }
+
+  #gm_callback > .gm_call:before {
+    font-size: 26px;
+    line-height: 42px;
+  }
+
   #gm_callback {
-    top: 7px;
+    top: 12px;
     right: 7px;
   }
 }
@@ -6960,6 +6970,10 @@ nav a.active {
     line-height: 1.4;
     margin-top: 10px;
   }
+}
+
+html:lang(en) .add-inv-prop .viewbox-cnt-body::after {
+  display: none;
 }
 
 .my_popup {

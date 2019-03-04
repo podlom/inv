@@ -42,7 +42,7 @@
                 {if $post->getImage()}
                 <div class="img">
                     <a href="{$post->getPath()}" class="{$image_class}">
-                        {$post->getImage()->thumbup(350,254)}
+                        <img class="lazyimg" data-src="{$post->getImage()->thumbup(350,254)->getUrl()}" alt='{$post->getTitle()}'>
                     </a>
                 </div>
                 {else}
