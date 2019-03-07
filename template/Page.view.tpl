@@ -15,7 +15,7 @@
 {if !$page}{$page = $blog}{/if}
 {block 'config'}{/block}
 
-{assign "isFullView" value=($request->getPathInfo() == '/add-inv-prop' || $request->getPathInfo() == '/investor')}
+{assign "isFullView" value=($request->getPathInfo() == '/add-inv-prop' || $request->getPathInfo() == '/en/add-inv-prop' || $request->getPathInfo() == '/investor' || $request->getPathInfo() == '/en/investor')}
 
 <div itemscope itemtype="http://schema.org/WebPage" class="{block 'page.class'}grid-container {if $request->getPathInfo() == '/investor'||$request->getPathInfo() == '/en/investor'}investor-form{else}the_post{/if}{/block}">
 

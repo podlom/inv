@@ -172,7 +172,7 @@
             <div class="search_input">
                <form action="/search" method="get" class="search_frm">
                     <button><i class="fa fa-search" aria-hidden="true"></i></button>
-                    <input name="q" type="search" value="{$query}" placeholder="Поиск среди  20 000 материалов в области инвестиций" />
+                    <input name="q" type="search" value="{$query}" placeholder="Поиск среди  30 000 материалов в области инвестиций" />
                     <i class="fa fa-close" aria-hidden="true" id="close"></i>
 
                 </form>
@@ -332,7 +332,6 @@
         {/block}
        <div class="social">
           <a itemprop="sameAs" href="https://www.facebook.com/inventure.com.ua" target="_blank"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>
-            <a itemprop="sameAs" href="http://goo.gl/3WiX8K" target="_blank"><i class="fa fa-google-plus-square" aria-hidden="true"></i></a>
             <a itemprop="sameAs" href="http://www.linkedin.com/groups/Investments-Ventures-in-Ukraine-4386794" target="_blank"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a>
             <a itemprop="sameAs" href="https://twitter.com/inventure_ua" target="_blank"><i class="fa fa-twitter-square" aria-hidden="true"></i></a>
             <a itemprop="sameAs" href="https://t.me/inventure" target="_blank"><i class="fa fa-telegram" aria-hidden="true"></i></a>
@@ -444,5 +443,6 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 });
 </script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8" defer async></script>
 </body>
 </html>

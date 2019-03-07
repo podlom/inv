@@ -1849,7 +1849,12 @@ footer .copyright {
 }
 */
 .the_post .border-bottom {
-  margin-bottom: 24px;
+  margin-bottom: 0;
+  padding-bottom: 10px !important;
+}
+
+.the_post .border-bottom h2 {
+  margin: 0;
 }
 
 .the_post nav {
@@ -6725,7 +6730,7 @@ nav a.active {
 
 #gm_callback {
   position: fixed;
-  top: 16px;
+  top: 20px;
   right: 16px;
   display: block;
   z-index: 150;
@@ -6855,17 +6860,17 @@ nav a.active {
   cursor: pointer;
 }
 
+#gm_callback > .gm_call {
+  width: 40px;
+  height: 40px;
+}
+
+#gm_callback > .gm_call:before {
+  font-size: 26px;
+  line-height: 42px;
+}
+
 @media only screen and (max-width: 940px) {
-  #gm_callback > .gm_call {
-    width: 40px;
-    height: 40px;
-  }
-
-  #gm_callback > .gm_call:before {
-    font-size: 26px;
-    line-height: 42px;
-  }
-
   #gm_callback {
     top: 12px;
     right: 7px;
@@ -6972,8 +6977,14 @@ nav a.active {
   }
 }
 
-html:lang(en) .add-inv-prop .viewbox-cnt-body::after, html:lang(en) .investor-form .viewbox-cnt-body::after {
+html:lang(en) .investor-form .viewbox-cnt-body::after {
   display: none;
+}
+
+html:lang(en) .investor-form .viewbox-cnt-body.m_b-20 {
+  display: table;
+  padding-top: 20px;
+  width: 100%;
 }
 
 html:lang(en) .investor-form .viewbox-cnt-body .form-default, html:lang(en) .investor-form form {
@@ -8236,6 +8247,9 @@ aside .box-shadow_archive {
   .the_post.digest .viewbox-cnt-body .content {
     padding: 25px 15px;
   }
+}
+.subscribe #subscribeButton {
+  margin-bottom: 10px;
 }
 
 /*# sourceMappingURL=main.css.map */

@@ -27,7 +27,7 @@
 
 #gm_callback{
 	position: fixed;
-	top: 16px;
+	top: 20px;
 	right: 16px;
 	display: block;
 	z-index: 150;
@@ -175,7 +175,6 @@
 	}
 }
 
-@media only screen and (max-width: 940px){
 	#gm_callback > .gm_call{
 		width: 40px;
 		height: 40px;
@@ -184,6 +183,8 @@
 		font-size: 26px;
 		line-height: 42px;
 	}
+	
+@media only screen and (max-width: 940px){
 	#gm_callback{
 		top: 12px;
 		right: 7px;

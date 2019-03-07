@@ -240,49 +240,84 @@
           <aside class="sidebar">
             <a href="/en/investor" class="invest_btn">Invest</a>
             <a href="/en/add-inv-prop" class="invest_btn invest_btn1">Find an investor</a>
-                          <div class="newsletter-side">
-                          <div class="box-shadow"></div>
-                          <img src="/images/newsletter-icon.svg" alt="" class="newsletter-side__img">
-                          <div class="newsletter-side__heading">
-                            Subscribe to our Newsletter
-                        </div>
-                          <button class="newsletter-side__button open_popup">Subscribe</button>
-                        </div>
-                          <div class="box-shadow_archive">
-                    <div class="box-shadow"></div>
-                    <div class="archive">
-                        <div class="title">
-                           <a href="/en/analytics/digest"> <img src="/i/download_icon.png" alt="Загрузить" title="Загрузить">
-                            Archive</a>
-                          </div>
-                        <form name="archiveForm" method="post" action="#">
-                            <div class="d_n" id="digest">
-                                {load_digests}
-                                {foreach $digests as $digest}
-                                    <a class="m{$digest->getPubDate()->format('n')} y{$digest->getPubDate()->format('Y')}" href="{$digest->getUrl()}"></a>
-                                {/foreach}
-                            </div>
-                            <div class="option">
-                                <select name="archiveFormYear" id="archiveFormYear" class="select1">
-                                    {$now = date_create()}
-                                    {for $year=2012 to $now->format('Y')}
-                                        <option value="{$year}" label="{$year}"{if $digest->getPubDate()->format('Y')==$year} selected{/if}>{$year}</option>
-                                    {/for}
-                                </select>
-                                <select name="archiveFormMonths" id="archiveFormMonths" class="select2">
-                                    {foreach ["January","February", "March","April", "May", "June", "July", "August", "September", "October", "November", "December"] as $id => $name}
-                                        <option value="{$id+1}"{if $digest->getPubDate()->format('n')==$id+1} selected{/if} label="{$name}">{$name}</option>
-                                    {/foreach}
-                                </select>
-                            </div>
-                                <a class="blue_but cell-but"  target="_blank" id="archiveFormButton" href="#" disabled="disabled">Download</a>
-                        </form>
-                    </div>
+            <div class="newsletter-side">
+              <div class="box-shadow"></div>
+              <img src="/images/newsletter-icon.svg" alt="" class="newsletter-side__img">
+              <div class="newsletter-side__heading">
+                Subscribe to our Newsletter
+            </div>
+              <button class="newsletter-side__button open_popup">Subscribe</button>
+            </div>
+            <!-- <div class="board">
+                <div class="box-shadow"></div>
+                <h3><a href="/board">Доска объявлений</a> <a href="/bulletin/add">+ Добавить объявление</a></h3>
+                <div class="board1">
+                  {lent '/en/board' 7 var='post'  analytics=1}
+                  <div>
+                    <span class="published">{$post->getPublished()->format('d.m.y')}</span>
+                    <a href="/board#adv-{$post->getId()}">{$post->getH1()|truncate:100:"  ..."}</a>
                   </div>
+                  {/lent}
+                </div>
+                <div class="buttons">
+                  <a href="/board" class="a1">Другие объявления <i class="fa fa-chevron-right"></i></a>
+                  <a href="/bulletin/add" class="a2">Добавить объявление</a>
+                </div>
+            </div> -->
+              <!-- <div class="box-shadow_archive">
+                <div class="box-shadow"></div>
+                <div class="archive">
+                    <div class="title">
+                       <a href="/en/analytics/digest"> <img src="/i/download_icon.png" alt="Загрузить" title="Загрузить">
+                        Archive</a>
+                      </div>
+                    <form name="archiveForm" method="post" action="#">
+                        <div class="d_n" id="digest">
+                            {load_digests}
+                            {foreach $digests as $digest}
+                                <a class="m{$digest->getPubDate()->format('n')} y{$digest->getPubDate()->format('Y')}" href="{$digest->getUrl()}"></a>
+                            {/foreach}
+                        </div>
+                        <div class="option">
+                            <select name="archiveFormYear" id="archiveFormYear" class="select1">
+                                {$now = date_create()}
+                                {for $year=2012 to $now->format('Y')}
+                                    <option value="{$year}" label="{$year}"{if $digest->getPubDate()->format('Y')==$year} selected{/if}>{$year}</option>
+                                {/for}
+                            </select>
+                            <select name="archiveFormMonths" id="archiveFormMonths" class="select2">
+                                {foreach ["January","February", "March","April", "May", "June", "July", "August", "September", "October", "November", "December"] as $id => $name}
+                                    <option value="{$id+1}"{if $digest->getPubDate()->format('n')==$id+1} selected{/if} label="{$name}">{$name}</option>
+                                {/foreach}
+                            </select>
+                        </div>
+                            <a class="blue_but cell-but"  target="_blank" id="archiveFormButton" href="#" disabled="disabled">Download</a>
+                    </form>
+                </div>
+              </div> -->
           </aside>
         </div>
       </div>
     </div>
+
+
+    <div class="newsletter">
+      <div class="container grid-container">
+        <div class="newsletter__title">Do you want to receive monthly newsletters?</div>
+        <p class="newsletter__text">InVenture Investment Digest - an electronic professional journal that provides monthly overview in sphere of direct investment and venture capital. <br><a target="_blank" id='last-news-link' href="/" class="newsletter__link">Download last edition of the newsletter</a></p>
+        <div class="newsletter__buttons">
+          <button class="newsletter__button newsletter__button--white open_popup">Subscribe</button>
+          <a href="en/analytics/digest" class="newsletter__button newsletter__button--darken">Open archive</a>
+        </div>
+      </div>
+      <div id="newsletter__archive" hidden>
+        {load_digests}
+        
+        {assign var=digest value=$digests|@end} 
+        <a class="m{$digest->getPubDate()->format('n')} y{$digest->getPubDate()->format('Y')}" href="{$digest->getUrl()}"></a>
+      </div>
+    </div>
+
     <div class="grid-container all_news all_news_en" id="all_news">
       <div class="grid-x grid-margin-x">
         <div class="cell medium-12 large-9">

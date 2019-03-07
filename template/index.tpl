@@ -219,21 +219,21 @@
             <a href="/investor" class="invest_btn">инвестировать</a>
             <a href="/add-inv-prop" class="invest_btn invest_btn1">Найти инвестора</a>
             <div class="board">
-              <div class="box-shadow"></div>
-            	<h3><a href="/board">Доска объявлений</a> <a href="/bulletin/add">+ Добавить объявление</a></h3>
-            	<div class="board1">
-	            	{lent '/board' 7 var='post'  analytics=1}
-	            	<div>
-	            		<span class="published">{$post->getPublished()->format('d.m.y')}</span>
-	            		<a href="/board#adv-{$post->getId()}">{$post->getH1()|truncate:100:"  ..."}</a>
-	            	</div>
-	            	{/lent}
-	            </div>
-	            <div class="buttons">
-	            	<a href="/board" class="a1">Другие объявления <i class="fa fa-chevron-right"></i></a>
-	            	<a href="/bulletin/add" class="a2">Добавить объявление</a>
-	            </div>
-	        </div>
+                <div class="box-shadow"></div>
+              	<h3><a href="/board">Доска объявлений</a> <a href="/bulletin/add">+ Добавить объявление</a></h3>
+              	<div class="board1">
+  	            	{lent '/board' 7 var='post'  analytics=1}
+  	            	<div>
+  	            		<span class="published">{$post->getPublished()->format('d.m.y')}</span>
+  	            		<a href="/board#adv-{$post->getId()}">{$post->getH1()|truncate:100:"  ..."}</a>
+  	            	</div>
+  	            	{/lent}
+  	            </div>
+  	            <div class="buttons">
+  	            	<a href="/board" class="a1">Другие объявления <i class="fa fa-chevron-right"></i></a>
+  	            	<a href="/bulletin/add" class="a2">Добавить объявление</a>
+  	            </div>
+  	        </div>
           </aside>
         </div>
       </div>

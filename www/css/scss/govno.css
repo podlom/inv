@@ -1844,9 +1844,12 @@ footer .copyright {
 }
 */
 .the_post .border-bottom {
-    margin-bottom: 24px;
+    margin-bottom: 0;
+    padding-bottom: 10px !important;
 }
-
+.the_post .border-bottom h2 {
+    margin: 0;
+}
 .the_post nav {
     color: #0e618a;
     margin-bottom: 24px;

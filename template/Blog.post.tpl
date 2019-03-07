@@ -54,7 +54,6 @@
                 <li><span class='st_facebook_hcount' displayText='Facebook'></span></li>
                 <li><span class='st_twitter_hcount' displayText='Tweet'></span></li>
                 <li><span class='st_linkedin_hcount' displayText='LinkedIn'></span></li>
-                <li><span class='st_googleplus_hcount' displayText='Google +'></span></li>
             </ul>
         </div>
     </div>

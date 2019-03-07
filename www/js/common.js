@@ -2,8 +2,88 @@ $(document).foundation();
 
 
 
+
+
+function redirectPost(location, args)
+{
+    var form = '';
+    for (let arg of args){
+    	form += '<input type="hidden" name="'+arg['name']+'" value="'+arg['value']+'">';
+    }
+    $('<form action="' + location + '" method="POST">' + form + '</form>').appendTo($(document.body)).submit();
+}
+
+$('form.subscribe').submit(function(e) {
+	e.preventDefault();
+	var serialize = $(this).serializeArray();
+	var action = $(this).attr('action');
+	var form = $(this);
+	$.post(action , $(this).serialize(), function() {
+	  	console.log( "success" );
+	})
+	.done(function( data ) {
+	    console.log( "Data Loaded: " + data );
+	    if(data.indexOf('tpl: index') === -1){
+	    	var redirect = action;
+			redirectPost(window.location.origin + '/!Mail', serialize);
+	    }else{
+	    	form.trigger('reset')
+	    	$('.my_popup').removeClass('opened')
+			$('.dark_bg').removeClass('opened')
+			$('html').removeClass('page-locked');
+			if(document.documentElement.lang == 'ru'){
+				Swal.fire({
+				  	title:'Спасибо!',
+				  	text:'Теперь вы подписаны на нашу рассылку',
+				  	type:'success',
+			  		confirmButtonText: 'Закрыть'
+				})
+			}else{
+				Swal.fire({
+				  	title:'Thank you!',
+				  	text:'You have successfully subscribed',
+				  	type:'success',
+			  		confirmButtonText: 'Close'
+				})
+			}
+
+	    }
+	 })
+})
     
+
+$('form[action="/form/approach"], form[action="/form/investor"]').submit(function(e) {
+	e.preventDefault();
+	var serialize = $(this).serializeArray();
+	var action = $(this).attr('action');
+	var form = $(this);
+	$.post(action , $(this).serialize(), function() {
+		form.trigger('reset')
+    	$('.my_popup').removeClass('opened')
+		$('.dark_bg').removeClass('opened')
+		$('html').removeClass('page-locked');
+		if(document.documentElement.lang == 'ru'){
+
+			Swal.fire({
+			  title:'Спасибо за заявку!',
+			  text:'',
+			  type:'success',
+			  confirmButtonText: 'Закрыть'
+			})
+		}else{
+			
+			Swal.fire({
+			  title:'Thank you for your apply!',
+			  text:'',
+			  type:'success',
+			  confirmButtonText: 'Close'
+			})
+		}
+	})
+	
+})
     
+
 
 $(document.body).ready(function(){
 	// Youtube lazy loading
@@ -75,11 +155,6 @@ $(document.body).ready(function(){
 		var tel = $('#gm_callback input[type=tel]').val();
 		if(tel.length < 7)
 			return;
-		$.post('/form/callback.json', {
-			'sf_callback[_token]': $('#gm_callback input[name="sf_callback[_token]"]').val(),
-			'sf_callback[tel]': tel
-		});
-		is_sent = true;
 		if(storage)storage.setItem('callback_send', true);
 		r.removeClass('gm_open').addClass('gm_done');
 		e.preventDefault();
