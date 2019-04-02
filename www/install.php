@@ -8,14 +8,11 @@ use Auth\User;
 define( 'SKYNAR_DEBUG', true);
 define( 'SKYNAR_TIMING', true);
 
-//phpinfo();exit;
-//загружаем  хелпер
-require_once realpath(realpath(__DIR__).'/../cms/actual/global.php');
-//загружаем приложение и запускаем
-//error_reporting(E_ALL);
+require_once realpath(__DIR__.'/../bootstrap.php');
 
+$app_name = trim(file_get_contents(__DIR__.'/../app_id'));
 
-$app = new Skynar\Application('inventure#beta', realpath(__DIR__.'/../'), __DIR__);
+$app = new Skynar\Application($app_name, realpath(__DIR__.'/../'), __DIR__);
 try{
 	$app->init();
 	$log = $app->getService('module')->install(['Core', 'Auth', 'Page', 'React', 'Blog', 'Attribute', 'Analytics', 'Metadata', 'Locale', 'Sphinx', 'Redirect', 'Sitemap', 'Blacklist', 'Digest', 'EventSort', 'Widget', 'Poll', 'Rating', 'Map', 'Payment', 'Liqpay', 'Mail', 'BulletinBoard', 'Banner']);
@@ -30,7 +27,9 @@ try{
 	//*/
 	$log->dump();
 } catch (Throwable $e){
-  	echo $app->getService('template')->renderException($e);
+	debug($e, false);
+	debug($e->getTraceAsString());
+  	//echo $app->getService('template')->renderException($e);
 }
 //$b = new tool\Bcrypt();
 
