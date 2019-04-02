@@ -1,0 +1,75 @@
+[submodule "cms"]
+	path = cms
+	url = git@el.skynar.co:/backup/git/skynar/cms
+[submodule "mod/Analytics"]
+	path = mod/Analytics
+	url = git@el.skynar.co:/backup/git/skynar/module/Analytics
+[submodule "mod/Attribute"]
+	path = mod/Attribute
+	url = git@el.skynar.co:/backup/git/skynar/module/Attribute
+[submodule "mod/Auth"]
+	path = mod/Auth
+	url = git@el.skynar.co:/backup/git/skynar/module/Auth
+[submodule "mod/Banner"]
+	path = mod/Banner
+	url = git@el.skynar.co:/backup/git/skynar/module/Banner
+[submodule "mod/Blacklist"]
+	path = mod/Blacklist
+	url = git@el.skynar.co:/backup/git/skynar/module/Blacklist
+[submodule "mod/Blog"]
+	path = mod/Blog
+	url = git@el.skynar.co:/backup/git/skynar/module/Blog
+[submodule "mod/BulletinBoard"]
+	path = mod/BulletinBoard
+	url = git@el.skynar.co:/backup/git/skynar/module/BulletinBoard
+[submodule "mod/Core"]
+	path = mod/Core
+	url = git@el.skynar.co:/backup/git/skynar/module/Core
+[submodule "mod/Digest"]
+	path = mod/Digest
+	url = git@el.skynar.co:/backup/git/skynar/module/Digest
+[submodule "mod/EventSort"]
+	path = mod/EventSort
+	url = git@el.skynar.co:/backup/git/skynar/module/EventSort
+[submodule "mod/Liqpay"]
+	path = mod/Liqpay
+	url = git@el.skynar.co:/backup/git/skynar/module/Liqpay
+[submodule "mod/Locale"]
+	path = mod/Locale
+	url = git@el.skynar.co:/backup/git/skynar/module/Locale
+[submodule "mod/Mail"]
+	path = mod/Mail
+	url = git@el.skynar.co:/backup/git/skynar/module/Mail
+[submodule "mod/Map"]
+	path = mod/Map
+	url = git@el.skynar.co:/backup/git/skynar/module/Map
+[submodule "mod/Metadata"]
+	path = mod/Metadata
+	url = git@el.skynar.co:/backup/git/skynar/module/Metadata
+[submodule "mod/Page"]
+	path = mod/Page
+	url = git@el.skynar.co:/backup/git/skynar/module/Page
+[submodule "mod/Payment"]
+	path = mod/Payment
+	url = git@el.skynar.co:/backup/git/skynar/module/Payment
+[submodule "mod/Poll"]
+	path = mod/Poll
+	url = git@el.skynar.co:/backup/git/skynar/module/Poll
+[submodule "mod/Rating"]
+	path = mod/Rating
+	url = git@el.skynar.co:/backup/git/skynar/module/Rating
+[submodule "mod/React"]
+	path = mod/React
+	url = git@el.skynar.co:/backup/git/skynar/module/React
+[submodule "mod/Redirect"]
+	path = mod/Redirect
+	url = git@el.skynar.co:/backup/git/skynar/module/Redirect
+[submodule "mod/Sitemap"]
+	path = mod/Sitemap
+	url = git@el.skynar.co:/backup/git/skynar/module/Sitemap
+[submodule "mod/Sphinx"]
+	path = mod/Sphinx
+	url = git@el.skynar.co:/backup/git/skynar/module/Sphinx
+[submodule "mod/Widget"]
+	path = mod/Widget
+	url = git@el.skynar.co:/backup/git/skynar/module/Widget

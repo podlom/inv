@@ -169,12 +169,12 @@
                     <td>{if $page->getUser()}{$page->getUser()->getName()}{else}Аноним{/if}</td>
                     {if $blog && $blog->getId() == 14976}
                     <td>
-                        {if $page->getAttr(61) != 1}
+                        {if $page->getStatus() == 1}
+                            Опубликовано
+                        {elseif $page->getAttr(61) != 1}
                             Не оплачено
                         {elseif $page->getStatus() == 0}
                             На модерации
-                        {elseif $page->getStatus() == 1}
-                            Опубликовано
                         {/if}
                     </td>
                 {/if}

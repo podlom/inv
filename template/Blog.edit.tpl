@@ -56,11 +56,11 @@
                     <h3>Анонс</h3>
                     <label>
                         Название:
-                        {$form->getField('announce')->getField('h1')->getInput()->setAttr('placeholder','Название')->setAttr('data-group', 'title')}
+                        {$form->getField('announce')->getField('h1')->getInput()->setAttr('placeholder','Название')->setAttr('data-group', 'title')->setAttr('data-source', true)}
                     </label>
                     <label>
                         Описание:
-                        {$form->getField('announce')->getField('short_text')->getInput()->setAttr('placeholder','Описание')->setAttr('data-group', 'text')}
+                        {$form->getField('announce')->getField('short_text')->getInput()->setAttr('placeholder','Описание')->setAttr('data-group', 'text')->setAttr('data-source', true)}
                     </label>
                 </div>
                 <div class="img-load">
@@ -147,10 +147,14 @@
     </div>
 </div>
 {script_code requre="jquery"}
-$('[data-group]').change(function(e){
+$('[data-source]').focus(function(e){
+    $(e.target).data('val', e.target.value);
+}).change(function(e){
     var g = $(e.target).attr('data-group');
+    var v = $(e.target).data('val') || null;
+    console.log(v);
     $('[data-group="'+g+'"]').each(function(k,i){
-        if(!i.value){
+        if(!i.value || i.value === v){
             i.value = e.target.value;
         }
     });

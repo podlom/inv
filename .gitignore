@@ -7,5 +7,5 @@ www/import
 www/robots.txt
 www/skynar
 cache
-cms
 log
+app_id
