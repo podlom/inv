@@ -146,7 +146,7 @@
         {$form->close()}
     </div>
 </div>
-{script_code requre="jquery"}
+{script_code require=["jquery"] name="blogtitles"}
 $('[data-source]').focus(function(e){
     $(e.target).data('val', e.target.value);
 }).change(function(e){
