@@ -22,6 +22,11 @@
         </div>
         {/if}
         {content $post}
+        {foreach $form->getErrors() as $err}
+            <div class="callout alert">
+                {$err.1}
+            </div>
+        {/foreach}
 		{$form->open()}
             <h4>Персональные данные</h4>
             <div class="personal_data grid-x grid-margin-x">
@@ -38,6 +43,7 @@
                 <div>{$form->getField('attr')->getField('attr_10')->getInput()}</div>
                 <div>{$form->getField('announce')->getField('h1')->getInput()->setAttr('placeholder','Название (не более 100 символов)')}</div>
                 <div>{$form->getField('announce')->getField('short_text')->getInput()->setAttr('placeholder','Краткое описание (не более 200 символов)')}</div>
+                <div>{$form->getField('meta')->getField('keywords')->getInput()->setAttr('placeholder','Введите через запятую 7 ключевых слов объявления')}</div>
             <h4>Полное описание</h4>
                 <div>{$form->getField('content')->getField('text')->getInput()->setAttr('placeholder','Полное описание (не более 3000 символов)')}</div>
             </div>

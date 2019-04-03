@@ -17,7 +17,7 @@
         {/foreach}
 	{$s = $form->getSubmit()->setAttr('value', 'Регистрация')}
 	{$form->open()}
-		{$form->getField('name')->getInput()->setAttr('placeholder','Имя')}
+		{$form->getField('name_name')->getInput()->setAttr('placeholder','Имя')}
 		{$form->getField('email')->getInput()->setAttr('placeholder','E-mail')}
 		{$form->getField('password')->getInput()->setAttr('placeholder','Пароль')}
 		{$form->getField('confirm')->getInput()->setAttr('placeholder','Подтвердите пароль')}

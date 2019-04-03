@@ -1,9 +1,9 @@
 <div class="login_page clearfix">
     <div class="user_login">
             <div class="social_login">
-                <div><i class="fa fa-facebook-f"></i> Войти через Facebook</div>
-                <div><i class="fa fa-twitter"></i> Войти через Twitter</div>
-                <div><i class="fa fa-google-plus"></i> Войти через Google+</div>
+                <div><a href="/user/login/facebook"><i class="fa fa-facebook-f"></i> Войти через Facebook</a></div>
+                <div><a href="#" disabled><i class="fa fa-twitter"></i> Войти через Twitter</a></div>
+                <div><a href="#" disabled><i class="fa fa-google-plus"></i> Войти через Google+</a></div>
             </div>
             <div class="or">
                 <div></div>

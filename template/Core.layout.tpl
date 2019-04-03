@@ -52,12 +52,12 @@
     {script "foundation2"}
     {script src="/js/libs.min.js" require="jquery" name="libs" }
 
-    {script src="/js/common.js" require="libs" }
+    {script src="/js/common.js" require="libs" name="common"}
     {script src="/js/jquery.lazyload.min.js" require="jquery" name="lazyload" }
     {script src="/js/autosize.min.js" require="jquery" name="autosize" }
 
     {script src="/js/jquery.hoverIntent.minified.js" name="hoverIntent" require="jquery" }
-    {script src="/js/script.js" require="jquery,hoverIntent,autosize" }
+    {script src="/js/script.js" require="jquery,hoverIntent,autosize" name="script"}
     {script src="/js/owl.carousel.min.js" require="jquery" }
     {script_code require=['foundation2', 'jquery']}$(document).foundation();{/script_code}
 </head>

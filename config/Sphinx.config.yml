@@ -21,6 +21,7 @@ fields:
     - published
     - short_text
     - attr
+    - text
     - route
     - parent
     - views
