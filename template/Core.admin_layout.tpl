@@ -236,14 +236,9 @@
             {$content}
         </div>
     </section>
-    <script
-  src="https://code.jquery.com/jquery-3.3.1.min.js"
-  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-  crossorigin="anonymous"></script>
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
-  <script src="/skynar/js/main.js"></script>
-  <script>
+
+{script name='daterangepicker' src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js" require="jquery"}
+{script_code 'datarangeinit' require=['jquery', 'moment', 'daterangepicker']}
 $(function() {
   $('input[name="datetimes"]').daterangepicker({
     timePicker: true,
@@ -254,8 +249,6 @@ $(function() {
     }
   });
 });
-</script>
-<script>
 $(function() {
   $('input[name="birthday"]').daterangepicker({
     singleDatePicker: true,
@@ -266,6 +259,6 @@ $(function() {
     var years = moment().diff(start, 'years');
   });
 });
-</script>
+{/script_code}
     </body>
 </html>
