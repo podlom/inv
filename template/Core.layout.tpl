@@ -18,6 +18,15 @@
     <link rel="apple-touch-icon" sizes="120x120" href="/images/theme/favicon/touch-icon-iphone-retina.png" />
     <link rel="apple-touch-icon" sizes="152x152" href="/images/theme/favicon/touch-icon-ipad-retina.png" />
     <link rel="shortcut icon" href="/images/theme/favicon/favicon.ico" type="image/x-icon" />
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-T3V7BCL');</script>
+<!-- End Google Tag Manager -->
+
     {if $post}
         {meta 'og.1' property='og:title'  content=html_entity_decode($post->getH1()) raw=1}
         {meta 'og.2' property='og:description'  content=html_entity_decode($post->getShortText()) raw=1}
@@ -62,7 +71,10 @@
     {script_code require=['foundation2', 'jquery']}$(document).foundation();{/script_code}
 </head>
 <body>
-    <div class="hover_bg"></div>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T3V7BCL" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<div class="hover_bg"></div>
 <div class="header_container">
     <header class="header">
       <div class="grid-container">
