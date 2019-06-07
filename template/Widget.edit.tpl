@@ -8,7 +8,7 @@
         	<div>
         	<div>
         		{foreach $form->toHtml()->getChilds() as $ch}
-        			{if $ch@last}{else}{$ch}{/if}
+        			{if $ch@last}{else}{$ch->toHtml()}{/if}
         		{/foreach}
         	</div>
         	{$form->getSubmit()->addClass('button green')->setAttr('value', "Сохранить")}
