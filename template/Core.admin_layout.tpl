@@ -6,14 +6,26 @@
         <!--<link rel="stylesheet" type="text/css"  href="/skynar/css/foundation.css" />
         <link rel="stylesheet" type="text/css"  href="/skynar/css/admin.css" />-->
         <link rel="stylesheet" type="text/css"  href="/css/admin.css" />
+        <link rel="stylesheet" type="text/css"  href="/css/admin_dashboard.css" />
         <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
         <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
         <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,600,600i,700,700i,900,900i&amp;subset=cyrillic" rel="stylesheet">
          {head}
+
+        {css "https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"}
+        {style '/css/admin_app.css'}
+
         <!--[if lt IE 9]><script src="js/html5shiv.js"></script><![endif]-->
         <!--[if lt IE 9]><link href="css/ie.css" rel="stylesheet" type="text/css" /><![endif]-->
+
+        {script name='popper' src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js' integrity='sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1' require='jquery' crossorigin='anonymous'}
+
+        {script name='bootstrapcdn' src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js' integrity='sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM' require='popper' crossorigin='anonymous'}
+
+        {script require=['bootstrapcdn'] name='app' src='/js/admin_app.js' }
+
     </head>
-    <body>
+    <body {if mb_substr($request->getPathInfo(),0,16) == '/admin/dashboard'}class="dashboard"{/if} >
 
         <aside>
         <div>
@@ -24,9 +36,27 @@
         </div>
         <div>
             <div class="admin">
-                <div><img src="/skynar/images/oleynikov.jpg"></div>
+                {if !$user && $sm}
+                    {$user = $sm->getUser()}
+                {/if}
+                {if !empty($user) && !is_null($user->getImage())}
+                    {assign var=img_avatar value=$user->getImage()->getUrl()}
+                {else}
+                    {assign var=img_avatar value="/skynar/images/oleynikov.jpg"}
+                {/if}
+                <div><img src="{$img_avatar}"></div>
                 <div>
-                    <span class="text-hide"><h6>Oleksiy Oleynikov</h6>
+                    <span class="text-hide">
+                        <h6>
+                            {if !$user && $sm}
+                                {$user = $sm->getUser()}
+                                {$user->getName()}
+                            {elseif !empty($user)}
+                                {$user->getName()}
+                            {else}
+                                Oleksiy Oleynikov
+                            {/if}
+                        </h6>
                     <p>Online</p></span>
                 </div>
             </div>
@@ -46,17 +76,33 @@
         </div>
         <ul>
             <li>
+                <a href="/admin/dashboard" class="{if mb_substr($request->getPathInfo(),0,16) == '/admin/dashboard'}active{/if}"><i class="fa fa-tachometer"></i><span class="text-hide">Dashboard</span></a>
+            </li>
+
+            <li>
                 <a href="/admin" class="{if $request->getPathInfo() == '/admin'}active{/if}"><i class="fa fa-home"></i><span class="text-hide">Главная</span></a>
             </li>
-            <li>
-                <a href="/admin/page" class="{if mb_substr($request->getPathInfo(),0,11) == '/admin/page'}active{/if}"><i class="fa fa-file"></i><span class="text-hide">Страницы</span></a>
-            </li>
-            <li>
-                <a href="/admin/blog" class="{if mb_substr($request->getPathInfo(),0,11) == '/admin/blog'}active{/if}"><i class="fa fa-folder-open"></i><span class="text-hide">Каталог</span></a>
-            </li>
-            <li>
-                <a href="/admin/user" class="{if mb_substr($request->getPathInfo(),0,11) == '/admin/user'}active{/if}"><i class="fa fa-user"></i><span class="text-hide">Пользователи</span></a>
-            </li>
+
+            {if $user->canAccess('Page.moderate')}
+                <li>
+                    <a href="/admin/page" class="{if mb_substr($request->getPathInfo(),0,11) == '/admin/page'}active{/if}"><i class="fa fa-file"></i><span class="text-hide">Страницы</span></a>
+                </li>
+
+                <li>
+                    <a href="/admin/blog" class="{if mb_substr($request->getPathInfo(),0,11) == '/admin/blog'}active{/if}"><i class="fa fa-folder-open"></i><span class="text-hide">Каталог</span></a>
+                </li>
+            {/if}
+
+            {if $user->canAccess('Auth.users') && $user->canAccess('Auth.permission')}
+                <li>
+                    <a href="/admin/user" class="{if mb_substr($request->getPathInfo(),0,11) == '/admin/user'}active{/if}"><i class="fa fa-user"></i><span class="text-hide">Пользователи</span></a>
+                </li>
+            {else}
+                <li>
+                    <a href="/admin/user/edit/{$user->getId()}" class="{if mb_substr($request->getPathInfo(),0,11) == '/admin/user'}active{/if}"><i class="fa fa-user"></i><span class="text-hide">Редактировать профиль</span></a>
+                </li>
+            {/if}
+
             <li>
                 <a href="/admin/attribute" class="{if mb_substr($request->getPathInfo(),0,16) == '/admin/attribute'}active{/if}"><i class="fa fa-wrench"></i><span class="text-hide">Атрибуты</span></a>
             </li>
@@ -69,12 +115,26 @@
             <li>
                 <a href="/admin/mail?sort=!created" class="{if mb_substr($request->getPathInfo(),0,11) == '/admin/mail'}active{/if}"><i class="fa fa-envelope"></i><span class="text-hide">Почта</span></a>
             </li>
+
+            {if $user->canAccess('Payment.view')}
+                <li>
+                    <a href="/admin/payment" class="{if mb_substr($request->getPathInfo(),0,14) == '/admin/payment'}active{/if}"><i class="fa fa-credit-card"></i><span class="text-hide">Invoices</span></a>
+                </li>
+            {/if}
+
             <li>
-                <a href="/admin/payment" class="{if mb_substr($request->getPathInfo(),0,14) == '/admin/payment'}active{/if}"><i class="fa fa-credit-card"></i><span class="text-hide">Invoices</span></a>
+                <a href="/admin/widget" class="{if mb_substr($request->getPathInfo(),0,13) == '/admin/widget'}active{/if}"><i class="fa fa-puzzle-piece"></i><span class="text-hide">Widgets</span></a>
             </li>
-            <li>
-                <a href="/admin/widget" class="{if mb_substr($request->getPathInfo(),0,14) == '/admin/widget'}active{/if}"><i class="fa fa-puzzle-piece"></i><span class="text-hide">Widgets</span></a>
-            </li>
+
+            {if $user->canAccess('Page.moderate')}
+                <li>
+                    <a href="/admin/review" class="{if mb_substr($request->getPathInfo(),0,13) == '/admin/review'}active{/if}"><i class="fa fa-star"></i><span class="text-hide">Отзывы</span></a>
+                </li>
+
+                <li>
+                    <a href="/admin/seotext" class="{if mb_substr($request->getPathInfo(),0,14) == '/admin/seotext'}active{/if}"><i class="fa fa-book"></i><span class="text-hide">SEO тексты</span></a>
+                </li>
+            {/if}
         </ul>
     </aside>
 
@@ -211,13 +271,32 @@
                     </div>
                 </li>
                 <li class="admin">
-                    <a><div><img src="/skynar/images/oleynikov.jpg"></div>
-                    <h6>Oleksiy Oleynikov</h6></a>
+                    {if !$user && $sm}
+                        {$user = $sm->getUser()}
+                    {/if}
+                    {if !empty($user) && !is_null($user->getImage())}
+                        {assign var=img_avatar value=$user->getImage()->getUrl()}
+                    {else}
+                        {assign var=img_avatar value="/skynar/images/oleynikov.jpg"}
+                    {/if}
+                    <a><div><img src="{$img_avatar}"></div>
+                    <h6>{if !$user && $sm}
+                            {$user = $sm->getUser()}
+                            {$user->getName()}
+                        {elseif !empty($user)}
+                            {$user->getName()}
+                        {else}
+                            Oleksiy Oleynikov
+                        {/if}</h6></a>
                     <div class="dropdown">
                         <div>
-                            <img src="/skynar/images/oleynikov.jpg">
-                            <h5>Oleksiy Oleynikov - Managing partner</h5>
-                            <p>Member since Now.2014</p>
+							{if !empty($user) && !is_null($user->getImage())}
+							{assign var=img_avatar value=$user->getImage()->getUrl()}
+							{else}
+							{assign var=img_avatar value="/skynar/images/oleynikov.jpg"}
+							{/if}
+                            <img src="{$img_avatar}">
+                            <h5>{$user->getName()} {$user->get('job')}</h5>
                         </div>
                         <div>
                             <a href="">Followers</a>
@@ -225,8 +304,8 @@
                             <a href="">Friends</a>
                         </div>
                         <div>
-                            <a href="">Profile</a>
-                            <a href="">Sing out</a>
+                            <a href="/admin/user/edit/{$user->getId()}">Profile</a>
+                            <a href="/user/logout">Sing out</a>
                         </div>
                     </div>
                 </li>

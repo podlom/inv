@@ -12,12 +12,13 @@
 ]}
 {else}
 {$links = [
+  '/analytics/investments'=>'Исследования',
   '/analytics/articles'=>'Статьи',
-    '/analytics/formula'=>'Интервью',
-    '/analytics/we-invest-in-ukraine'=>'Инвестируем в Украину',
-    '/tools/database'=>'Рейтинги',
-    '/tools/library'=>'Библиотека',
-    '/tools/investors'=>'Инвесторы'
+  '/analytics/formula'=>'Интервью',
+  '/analytics/we-invest-in-ukraine'=>'Инвестируем в Украину',
+  '/tools/database'=>'Рейтинги',
+  '/tools/library'=>'Библиотека',
+  '/tools/investors'=>'Инвесторы'
 ]}
 {/if}
 {/block}

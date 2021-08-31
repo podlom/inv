@@ -1,0 +1,122 @@
+.contacts {
+	padding-bottom: 20px;
+	&__wrapper {
+		background-color: #ffffff;
+		border-radius: 4px;
+		box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1);
+	}
+	&__title {
+		font-weight: bold;
+		font-size: 18px;
+		line-height: 120%;
+		margin-bottom: 20px;
+	}
+	&__info {
+		padding: 5px;
+		display: flex;
+		align-items: center;
+		border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+	}
+	&__img {
+		height: 64px;
+		margin-right: 12px;
+		border-radius: 4px;
+	}
+	&__text {
+		display: flex;
+		flex-direction: column;
+	}
+	&__text-name {
+		font-weight: bold;
+		font-size: 16px;
+		line-height: 25px;
+
+		color: #000000;
+	}
+	&__text-link {
+		font-size: 16px;
+		line-height: 120%;
+	}
+	&__btn {
+		display: flex;
+		min-height: 54px;
+		justify-content: center;
+		align-items: center;
+		border: 0;
+		background: transparent;
+	}
+	&__icon {
+		margin-right: 10px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+}
+.invest-project-page {
+	@media (min-width: 1024px) {
+		.contacts {
+			display: none;
+		}
+		.invest-project-text {
+			padding: 40px 0;
+		}
+	}
+}
+
+.contacts {
+	&__header {
+		text-align: center;
+		margin-bottom: 20px;
+		.section__title {
+			padding-bottom: 0;
+		}
+		p {
+			opacity: 0.5;
+		}
+	}
+	&__links {
+		display: grid;
+		gap: 20px;
+		@media screen and (min-width: 460px) {
+			grid-template-columns: 1fr 1fr;
+		}
+		@media screen and (min-width: 1024px) {
+			grid-template-columns: 1fr 1fr 1fr 1fr;
+		}
+	}
+	.link {
+		padding: 24px 16px;
+		flex-direction: column;
+		display: flex;
+		width: 100%;
+
+		box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1);
+		border-radius: 4px;
+		&--center {
+			align-items: center;
+			text-align: center;
+		}
+		.btn {
+			margin-top: auto;
+			max-width: 200px;
+		}
+		svg {
+			margin-bottom: 8px;
+		}
+		&--double {
+			width: calc(50% - 10px);
+		}
+		&__title {
+			font-weight: 500;
+		}
+		&__description {
+			opacity: 0.5;
+			margin-bottom: 1em;
+		}
+		&__accent {
+			margin-top: auto;
+			color: #5487b7;
+			font-size: 1em;
+		}
+	}
+}

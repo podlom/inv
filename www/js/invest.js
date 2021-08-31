@@ -1,0 +1,162 @@
+console.log('invest.js +1');
+
+function debounce(func, wait, immediate) {
+  var timeout;
+  return function() {
+    var context = this,
+      args = arguments;
+    var later = function() {
+      timeout = null;
+      if (!immediate) func.apply(context, args);
+    };
+    var callNow = immediate && !timeout;
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+    if (callNow) func.apply(context, args);
+  };
+}
+
+function checkWinLocHref() {
+  console.log(
+    '+4 checking window.location.pathname: ' + window.location.pathname,
+  );
+  if (window.location.pathname == '/investments/projects') {
+    return false;
+  } else if (window.location.pathname == '/investments/business') {
+    return false;
+  } else if (window.location.pathname == '/investments/realestate') {
+    return false;
+  } else if (window.location.pathname == '/investments/land') {
+    return false;
+  } else if (window.location.pathname == '/investments/franchising') {
+    return false;
+  } else if (window.location.pathname == '/investments/offer') {
+    return false;
+  }
+
+  return true;
+}
+
+function loadInvestProjects() {
+  if (checkWinLocHref()) {
+    $.post(
+      '/invest.php',
+      { action: 'get', href: window.location.href },
+      function() {
+        console.log('+25 ajax status: success');
+      },
+    ).done(function(d1) {
+      console.log('+27 got data: ' + d1);
+      $('.inventure-list-container').empty();
+      $('.inventure-list-container').html(d1);
+    });
+  } else {
+    console.log('+32 window location check was not passed.');
+  }
+}
+
+function loadRegionData() {
+  var rId = $('#region');
+  if (rId.length) {
+    console.log('+39 region input has found');
+
+    $('#region').keyup(
+      debounce(function() {
+        var lat, lng, loc;
+        var rVal = $('#region').val();
+        console.log('+43 region changed to: ' + rVal);
+
+        /*
+        $.post('/geocoding.php', { addr: rVal }, function() {
+          console.log('+46 ajax status: success');
+        }).done(function(d2) {
+          console.log('Got data: ' + d2);
+          $('#region_val').val(d2);
+        });
+        */
+        
+        var geocoder = new google.maps.Geocoder();
+        if (rVal.length > 3) {
+          geocoder.geocode({ 'address': rVal }, function (results, status) {
+            if (results != null) {
+              lat = results[0].geometry.location.lat();
+              console.log('Lat: ' + lat);
+              lng = results[0].geometry.location.lng();
+              console.log('Lng: ' + lng);
+              loc = results[0].formatted_address;
+              console.log('Loc: ' + loc);
+              var address = {};
+              $.each(results[0].address_components, function (k, v) {
+                $.each(v.types, function (t, type) {
+                  address[type] = v.long_name;
+                });
+              });
+              console.log('+94 address: ');
+              console.dir(address);
+              $('#region_val').val(loc);
+              $('#region').val(loc);
+            }
+          });
+        }
+      }, 500),
+    );
+  }
+}
+
+var ilc = $('.inventure-list-container');
+if (ilc.length) {
+  /* console.log('+50 .inventure-list-container exists.'); */
+
+  loadInvestProjects();
+} else {
+  /* console.log('+54 .inventure-list-container was not found.'); */
+
+  loadRegionData();
+}
+
+var tRm = $('h2.section__title');
+if (tRm.length) {
+  var cards = $('article.cards').find('a.cards__item');
+  if (cards.length == 0) { $('h2.section__title').hide(); }
+}
+
+$('.add-inv-prop-btn').click(function(ev19) {
+  var dealName = $(ev19.target).data('deal-name');
+  $('#dealName').val(dealName);
+});
+
+var iUrl = $('input[name="sf_investment_callback\[url\]"]');
+if (iUrl.length) {
+  $('input[name="sf_investment_callback\[url\]"]').val(window.location.href);
+}
+
+function checkPagerHref() {
+  console.log('+134 checking window.location.pathname: ' + window.location.pathname);
+  if (window.location.pathname == '/investments/projects') {
+    return true;
+  } else if (window.location.pathname == '/en/analytics/investments') {
+    return true;
+  } else if (window.location.pathname == '/analytics/investments') {
+    return true;
+  } else if (window.location.pathname == '/en/investments/projects') {
+    return true;
+  } else if (window.location.pathname == '/investments/franchising') {
+    return true;
+  } else if (window.location.pathname == '/investments/offer') {
+    return true;
+  }
+  return false;
+}
+
+setTimeout(function() {
+  var nCa = 24;
+  var nPr = $('#cards__list a');
+  if (nPr.length == 0) {
+      console.log('+154 skip pager');
+      return;
+  }
+  if (nPr.length < nCa) {
+    console.log('+134 number of projects: ' + nPr.length + ' < ' + nCa);
+    $('ul.pagination.mb-10').hide();
+  }
+}, 2573);

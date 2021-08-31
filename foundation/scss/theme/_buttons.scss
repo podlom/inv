@@ -1,0 +1,113 @@
+button {
+	cursor: pointer;
+	outline: none;
+}
+
+
+button, a {
+	&.button {
+	    outline: none;
+	    margin: 0;
+	    font-family: Montserrat;
+	    font-weight: bold;
+	    text-transform: uppercase;
+	    line-height: 1;
+	    font-size: 14px;
+	    padding: 10px 1.3rem;
+	    &.s2 {
+	    	padding-top: 13px;
+	    	padding-bottom: 13px;
+	    }
+	    &.s4 {
+	    	padding-top: 21px;
+	    	padding-bottom: 19px;
+	    	padding: 21px 2rem 19px;
+	    	font-size: 18px;
+	    	@include breakpoint(medium down) {
+	    		font-size: 13px;
+	    		line-height: 16px;
+	    		padding: 12px 2rem;
+	    	}
+	    }
+	    &.rounded {
+	    	border-radius: 100px;
+	    	font-family: "Open Sans";
+	    }
+	    i.fi {
+	    	vertical-align: bottom;
+	    	margin-right: 4px;
+	    	font-size: 18px;
+	    	line-height: 14px;
+	    }
+	    &.facebook-login {
+			font-size: 12px;
+			@include button-color(#3B5998, #fff);
+			span {
+				+ span {
+					display: none;
+				}
+			}
+			@include breakpoint(small only) {
+				span {
+					display: none;
+					+ span {
+						display: inline;
+					} 
+				}
+			}
+	    }
+
+	    &.instagram-login {
+			font-size: 12px;
+			@include button-color(#4A90E2, #fff);
+			span {
+				+ span {
+					display: none;
+				}
+			}
+			@include breakpoint(small only) {
+				span {
+					display: none;
+					+ span {
+						display: inline;
+					} 
+				}
+			}
+	    }
+
+
+	    &.link {
+	    	background-color: transparent;
+	    	text-decoration: underline;
+	    	text-transform: initial;
+	    	padding-left: 0;
+	    	padding-right: 0;
+	    	color: $color-darkgreen;
+	    	&:hover {
+	    		text-decoration: none;
+	    	}
+	    }
+
+	    @include breakpoint(small only) {
+	    	&.small-only-expanded {
+	    		display: block;
+	    		width: 100%;
+	    	}
+	    }
+	  	
+		&.red {
+			@include button-color($color-red, $color-white);
+		}
+	    &.orange {
+	    	@include button-color($color-orange, $color-white);
+	    }
+
+	    &.darkgreen {
+	    	@include button-color($color-darkgreen, $color-white);
+	    }
+
+	    &.light-gray {
+	    	@include button-color($color-lightgray, $color-darkgray);
+	    }
+	}
+}

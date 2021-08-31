@@ -15,92 +15,113 @@
 {if !$page}{$page = $blog}{/if}
 {block 'config'}{/block}
 
-{assign "isFullView" value=($request->getPathInfo() == '/add-inv-prop' || $request->getPathInfo() == '/en/add-inv-prop' || $request->getPathInfo() == '/investor' || $request->getPathInfo() == '/en/investor')}
+{assign "isFullView" value=(
+    $request->getPathInfo() == '/en/analytics/digest' || 
+    $request->getPathInfo() == '/analytics/digest' || 
+    $request->getPathInfo() === '/about/contacts' || 
+    $request->getPathInfo() === '/en/about/contacts' || 
+    $request->getPathInfo() === '/add-inv-prop' || 
+    $request->getPathInfo() === '/en/add-inv-prop' || 
+    $request->getPathInfo() === '/investor' || 
+    $request->getPathInfo() ==='/en/investor' || 
+    $request->getPathInfo()|strpos:'/digest-social' !== false || 
+    $request->getPathInfo()|strpos:'/analytics/digest' || 
+    $request->getPathInfo()|strpos:'/about' !== false
+)}
 
-<div itemscope itemtype="http://schema.org/WebPage" class="{block 'page.class'}grid-container {if $request->getPathInfo() == '/investor'||$request->getPathInfo() == '/en/investor'}investor-form{else}the_post{/if}{/block}">
+{* || $request->getPathInfo() == '/about/contacts' *}
+{assign "isInvestmentsPage" value=($request->getPathInfo() == '/investments' || $request->getPathInfo() == '/en/investments')}
+{assign "isCustomTitle" value=($request->getPathInfo() === '/add-inv-prop' || $request->getPathInfo() === '/en/add-inv-prop' || $request->getPathInfo() === '/about/contacts' || $request->getPathInfo() === '/en/about/contacts')}
+{assign "isDigest" value=($request->getPathInfo()|strpos:'/analytics/digest')}
+{assign "isInvestmentsPost" value=(($request->getPathInfo()|strpos:'/investments' || $request->getPathInfo()|strpos:'/investments/' === 0 || $request->getPathInfo()|strpos:'/en/investments' || $request->getPathInfo()|strpos:'/en/investments/' === 0) && $request->getPathInfo()|strpos:'analytics/investments/' === false)}
 
-    <div class="grid-x grid-margin-x">
-        <div class="{if $isFullView}large-12{else}large-9{/if} medium-12 cell">
-            {block 'page.title'}
-            <div class="clearfix border-bottom">
-                {content $editable part="title" tag="h2" attrs=['itemprop'=>'headline']}
-            </div>
+{assign "isPost" value=($page|strpos:'Post') }
+{assign "isPlainText" value=(
+    $request->getPathInfo() == '/about' || 
+    $request->getPathInfo() == '/en/about' || 
+    $request->getPathInfo() == '/about/advertising' || 
+    $request->getPathInfo() == '/en/about/advertising' || 
+    $request->getPathInfo() == '/about/faq' || 
+    $request->getPathInfo() == '/en/about/faq' || 
+    $request->getPathInfo() == '/usloviya-ispolzovaniya' || 
+    $request->getPathInfo() == '/en/usloviya-ispolzovaniya' || 
+    $request->getPathInfo() == '/politika-konfidencialnosti' ||
+    $request->getPathInfo() == '/en/politika-konfidencialnosti'
+)}
+
+
+{if $isInvestmentsPost && $isPost}
+    {include 'components/previews/invest-project'}
+    <div class="bg-white pb-6 pt-6">
+{/if}
+
+    <div itemscope itemtype="http://schema.org/WebPage"  
+        class="
+            {block 'page.class'}container container--main
+                {if ($request->getPathInfo() == '/investor' || $request->getPathInfo() == '/en/investor'  )}investor-form{else}container--post the_post z-0 relative{/if}
+                {if $isFullView}container--full{/if}
             {/block}
-            {block 'breadcrumbs'}
-            <div class="clearfix">
-                <ul class="breadcrumbs-box">
-                    <li><a href="/">{site_name()}</a></li>
-                    <li class="current">{$page->getH1()|truncate:75:" ..."|trim}</li>
-                </ul>
-            </div>
-            {/block}
-            {block 'menu'}{/block}
-            {block 'filter'}{/block}
-            {block 'content'}
-            <div class="wrapper" itemprop="mainEntity" {block 'page.scope'}itemtype="http://schema.org/CreativeWork"{/block} itemscope>
-                <div class="box-shadow"></div>
-                <div class="viewbox-cnt-body m_b-20">
-                    {block 'content.text'}
-                    {content $editable attr=['class'=>'the_post_content', 'itemprop'=>'text']}
-                    {/block}
+        ">
+        {if $isPlainText}
+            <div class="container container--main container--post the_post the_post flex  {if !$isFullView}pl-0 pr-0{/if}">
+                <div class="post__wrapper post__wrapper--shadow">
+                    <div class="post__preview">
+                        {include 'components/previews/plain-text'}
+                    </div>
+                    <div class="post__container">
+                        <div class="line mb-6 mt-6 s"></div>
+                        {block 'content'}
+                            <div class="wrapper" itemprop="mainEntity" {block 'page.scope'}itemtype="http://schema.org/CreativeWork"{/block} itemscope>
+                                <div class="post__content content pb-6">
+                                    {block 'content.text'}
+                                        {content $editable attr=['class'=>'the_post_content', 'itemprop'=>'text']}
+                                    {/block}
+                                </div>
+                            </div>
+                        {/block}
+                    </div>
                 </div>
             </div>
-            {/block}
-        </div>
-        {if !$isFullView}
-            <div class="cell large-3 medium-12">
-                {block 'aside.top'}
-                <aside class="sidebar">
-                {if $lang == 'en'}
-                    <a href="/en/investor" class="invest_btn">invest</a>
-                {else}
-                    <a href="/investor" class="invest_btn">инвестировать</a>
-                {/if}
-                {if $lang == 'en'}
-                    <a href="/en/add-inv-prop" class="invest_btn invest_btn1">find an investor</a>
-                {else}
-                    <a href="/add-inv-prop" class="invest_btn invest_btn1">найти инвестора</a>
-                {/if}
-                {/block}
-                {block 'aside.subscribe'}
-                    
-                    {if $lang == 'en'}
-                        <div class="newsletter-side">
-                          <div class="box-shadow"></div>
-                          <img src="/images/newsletter-icon.svg" alt="" class="newsletter-side__img">
-                          <div class="newsletter-side__heading">
-                            Subscribe to our Newsletter
-                        </div>
-                          <button class="newsletter-side__button open_popup">Subscribe</button>
-                        </div>
-
-                    {else}
-                        <div class="newsletter-side">
-                          <div class="box-shadow"></div>
-                          <img src="/images/newsletter-icon.svg" alt="" class="newsletter-side__img">
-                          <div class="newsletter-side__heading">Хотите получать нашу ежемесячную рассылку?</div>
-                          <button class="newsletter-side__button open_popup">Подписаться</button>
+        {else}
+            <main class="main {if $isFullView}w-full{else}large-9{/if} {if $isDigest}container{/if}">
+                {block 'page.title'}
+                    {if !$isCustomTitle}
+                        <div class="{if $isFullView}section__title{else}clearfix border-bottom{/if}">
+                            {content $editable part="title" tag="h1" attrs=['itemprop'=>'headline']}
                         </div>
                     {/if}
-
                 {/block}
-                {block 'aside.banner'}
-                    <div class="advertising" id="advertising">
-                        <div class="box-shadow"></div>
-                        {#mod Widget}
-                        {widget_slot 'main (370x450)' size=[370,450]}
-                        {widget_slot 'post_2 (370x450)' size=[370,450]}
-                        {widget_slot 'post_6 (270x350)' size=[370,450]}
-                        {#/mod}
+                {block 'breadcrumbs'}
+                    <div class="clearfix">
+                        <ul class="breadcrumbs-box">
+                            <li><a href="/">{site_name()}</a></li>
+                            <li class="current">{$page->getH1()|truncate:75:" ..."|trim}</li>
+                        </ul>
                     </div>
                 {/block}
-                </aside>
-            </div>
+                {block 'menu'}{/block}
+                {block 'filter'}{/block}
+                {block 'content'}
+                    <div class="wrapper" itemprop="mainEntity" {block 'page.scope'}itemtype="http://schema.org/CreativeWork"{/block} itemscope>
+                        <div class="viewbox-cnt-body m_b-20">
+                            {block 'content.text'}
+                                {content $editable attr=['class'=>'the_post_content', 'itemprop'=>'text']}
+                            {/block}
+                        </div>
+                    </div>
+                {/block}
+                {block 'main'}{/block}
+            </main>
         {/if}
+
+        {if !$isFullView}
+            {include 'components/sidebar'}
+        {/if}
+
     </div>
-</div>
+{if $isInvestmentsPost}</div>{/if}
 
-
+{* 
 {if !$isFullView}
     <div class="dark_bg"></div>
     <div class="my_popup ">
@@ -118,4 +139,6 @@
           </div>
       {#/mod}
     </div>
-{/if}
+{/if} *}
+
+{include 'components/subscribe-modal'}

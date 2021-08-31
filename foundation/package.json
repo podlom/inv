@@ -1,0 +1,48 @@
+{
+	"name": "foundation-sites-template",
+	"version": "1.0.0",
+	"description": "Basic template for a new Foundation for Sites project.",
+	"main": "gulpfile.js",
+	"scripts": {
+		"start": "gulp",
+		"build": "gulp sass"
+	},
+	"author": "ZURB <foundation@zurb.com>",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/zurb/foundation-sites/issues",
+		"email": "foundation@zurb.com"
+	},
+	"dependencies": {
+		"bootstrap": "^4.3.1",
+		"foundation-sites": "^6.5.1",
+		"gulp-babel": "^8.0.0",
+		"gulp-cli": "^2.2.0",
+		"gulp-include": "^2.3.1",
+		"gulp-js-import": "^1.0.6",
+		"gulp-sourcemaps": "^2.6.5",
+		"gulp-uglify": "^3.0.2",
+		"jquery": "^3.4.1",
+		"motion-ui": "~2.0.0",
+		"what-input": "^5.1.2",
+		"whatwg-fetch": "^3.0.0"
+	},
+	"devDependencies": {
+		"autoprefixer": "^9.1.5",
+		"babel-core": "^6.26.3",
+		"babel-preset-env": "^1.7.0",
+		"browser-sync": "^2.26.7",
+		"gulp": "^4.0.0",
+		"gulp-load-plugins": "^1.1.0",
+		"gulp-minify": "^3.1.0",
+		"gulp-postcss": "^8.0.0",
+		"gulp-rigger": "^0.5.8",
+		"gulp-sass": "^4.1.0",
+		"sweetalert2": "^9.17.1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/zurb/foundation-sites-template.git"
+	},
+	"private": true
+}

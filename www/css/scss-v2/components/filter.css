@@ -1,0 +1,346 @@
+.filter .ms-parent {
+  width: 100% !important;
+}
+
+.filter__label {
+  font-size: 12px !important;
+  font-weight: bold;
+  margin-bottom: 4px !important;
+  display: block;
+}
+
+.filter__heading-filter {
+  display: none;
+}
+
+@media screen and (max-width: 1024px) {
+  .filter__heading-filter {
+    display: block;
+  }
+}
+
+.filter__heading-filter .fa-close {
+  font-size: 20px;
+}
+
+.filter__input {
+  background: #f7f7f7;
+  border: 1px solid #ccc;
+  padding: 0 10px;
+  height: 46px;
+  border-radius: 4px;
+  border-radius: 4px;
+  color: #1c2e36 !important;
+  border-color: #ebebeb;
+  background: #f7f7f7;
+  width: 100%;
+  font-size: 14px;
+}
+
+.filter__heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 0;
+  position: relative;
+}
+
+@media screen and (max-width: 540px) {
+  .filter__heading {
+    flex-direction: column;
+    text-align: center;
+  }
+  .filter__heading a {
+    text-align: center;
+  }
+}
+
+.filter__button-open {
+  font-size: 14px;
+  background: #5286b0;
+  color: white;
+  padding: 10px 16px;
+  font-weight: 600;
+  cursor: pointer;
+  letter-spacing: 0.2px;
+  border-radius: 2px;
+  min-width: 160px;
+  text-align: center;
+  margin-left: 40px;
+}
+
+@media screen and (max-width: 540px) {
+  .filter__button-open {
+    margin-left: 0;
+    margin-top: 10px;
+  }
+}
+
+.filter__selector {
+  width: 100%;
+}
+
+.filter__selector:not(.filter__selector--price) {
+  max-height: 72px;
+}
+
+.filter__selector--price {
+  display: flex;
+  flex-direction: column;
+}
+
+.filter__selector--price .filter__row {
+  width: 100%;
+}
+
+.filter__selectors {
+  display: flex;
+  flex-direction: column;
+  padding: 0 20px;
+}
+
+.filter__selectors::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 0;
+  height: 0;
+}
+
+@media screen and (max-width: 540px) {
+  .filter__selectors {
+    overflow: auto;
+  }
+}
+
+.filter__row .ms-parent {
+  width: 100% !important;
+}
+
+.filter__row .multiple-select {
+  width: 100%;
+  -webkit-appearance: none;
+  line-height: 36px;
+  font-size: 14px;
+}
+
+.filter__row select {
+  max-width: 100%;
+  height: 46px;
+  line-height: 46px;
+  border-radius: 4px;
+  color: #1c2e36 !important;
+  border-color: #ebebeb;
+  background: #f7f7f7;
+  border: 1px solid #ebebeb;
+  padding: 0 3px;
+  overflow: hidden !important;
+}
+
+.filter__row select option {
+  font-size: 14px;
+  line-height: 14px;
+  display: flex;
+  margin: 0;
+  line-height: 32px !important;
+  height: 38px;
+  align-items: center;
+  color: transparent !important;
+}
+
+.filter__title {
+  font-weight: bold;
+  font-weight: 600;
+  font-size: 16px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+@media screen and (min-width: 1024px) {
+  .filter__title {
+    justify-content: center;
+    border-bottom: 1px solid #d4d3d3;
+    margin: 0 -20px -5px;
+    padding: 16px 10px;
+    font-weight: 600;
+  }
+}
+
+.filter__wrapper {
+  bottom: 0;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background: white;
+  top: 100%;
+  z-index: 1;
+  padding: 0;
+  margin-bottom: 20px;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.25s ease;
+  border-radius: 4px;
+  transition: all 0.25s ease;
+  width: 100%;
+}
+
+.filter__wrapper.mobile {
+  max-height: calc(100vh - 60px);
+}
+
+.filter__wrapper.mobile .filter__title {
+  margin-top: 20px;
+}
+
+@media screen and (min-width: 1024px) {
+  .filter__wrapper.mobile {
+    display: none !important;
+  }
+}
+
+.filter__wrapper.mobile .btn {
+  margin-left: -20px !important;
+  width: calc(100% + 40px) !important;
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+
+@media screen and (max-width: 1023px) {
+  .filter__wrapper.active {
+    transform: translateY(60px);
+  }
+}
+
+@media screen and (max-width: 1023px) {
+  .filter__wrapper {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    transform: translateY(-100%);
+    max-height: calc(100vh - 100px);
+    overflow: auto;
+  }
+}
+
+@media screen and (max-height: 580px) and (max-width: 1023px) {
+  .filter__wrapper {
+    max-height: calc(100vh - 140px);
+  }
+}
+
+@media screen and (max-width: 1023px) {
+  .filter__wrapper.shown {
+    transform: translateY(-100%);
+  }
+}
+
+.filter__wrapper label span {
+  text-transform: initial;
+}
+
+.filter__wrapper button {
+  width: 100%;
+}
+
+.filter__wrapper .newsletter__button {
+  width: 100% !important;
+  margin-top: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  min-height: 40px;
+}
+
+.filter__wrapper.opened {
+  pointer-events: auto;
+  transform: translateY(0);
+  transition: all 0.25s ease-out;
+  opacity: 1;
+}
+
+.filter__wrapper label span {
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+.ms-choice {
+  height: 46px;
+  line-height: 46px;
+  border-radius: 4px;
+  color: #1c2e36 !important;
+  border-color: #ebebeb;
+  background: #f7f7f7;
+}
+
+.ms-drop {
+  max-width: 250px;
+}
+
+.ms-drop ul > li label {
+  display: flex;
+  white-space: initial;
+  margin-bottom: 5px;
+  line-height: 1;
+  align-items: center;
+}
+
+.ms-drop label span {
+  width: 100%;
+  display: inline-block;
+  margin-bottom: 0;
+  font-size: 14px;
+  line-height: 1.3;
+}
+
+.ms-drop {
+  border: none;
+  padding: 10px 0;
+}
+
+.ms-drop ul > li:hover {
+  background: #fafafa;
+}
+
+.ms-drop ul > li {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.ms-drop ul > li label {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.ms-drop ul > li span {
+  padding: 0.6rem 8px 0.5rem !important;
+}
+
+.ms-drop ul > li.hide-radio.selected {
+  color: #fff;
+  background-color: #244c6a;
+}
+
+.ms-drop ul > li.hide-radio.selected label {
+  color: white;
+}
+
+.ms-drop input[type='radio'],
+.ms-drop input[type='checkbox'] {
+  margin-top: 1rem;
+  display: none;
+}
+
+.ms-drop ul > li label {
+  padding-left: 0;
+}
+
+.ms-drop {
+  margin-top: 0px;
+}
+
+.ms-drop ul > li.selected {
+  background: #5287b0 !important;
+}
+
+.ms-drop ul > li.selected label span {
+  color: white !important;
+}

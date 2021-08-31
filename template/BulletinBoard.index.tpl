@@ -3,8 +3,15 @@
 {$posts = $items}
 {/block}
 {block 'post.meta'}
-    <span>ID: {$post->getId()}</span>
+
     {block 'post.publish'}<time class="time">{$post->getPublished()->format('d.m.y')}</time>{/block}
+
+    {block 'post.id-num'}
+        <span class="id-number"><strong style="margin: 0 5px 0 0">ID:</strong> {$post->getId()}</span>
+    {/block}
+
+    <!-- @ts bulletin board wtf ?!! -->
+
 {if $post->getParent()->getId() == 15088}
     <a href="{$post->getParent()->getPath()}"><img src="/i/projects.png" alt="" class="category"/>{$post->getParent()->getH1()}</a>
 {elseif $post->getParent()->getId() == 15089}

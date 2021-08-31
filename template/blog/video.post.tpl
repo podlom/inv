@@ -1,14 +1,39 @@
 {extends 'Blog.post'}
-{block 'main' prepend}
+
+{* {block 'main' prepend}
 <div class="wrapper">
     <div class="the_video" itemscope itemtype="http://schema.org/articleBody">
         <div class="box-shadow"></div>
             <iframe class="video-iframe video-content" itemscope itemtype="http://schema.org/ImageObject" src="//www.youtube.com/embed/{$post->printAttr("55")}" frameborder="0" allowfullscreen></iframe>
        </div>
 </div>
-{/block}
+{/block} *}
+{block 'contacts'}{/block}
 {block 'post.preview'}
-<div style="position: relative;">
+
+<div class="row post post__video" data-id="{$post->getId()}">
+{* post--card *}
+  <div class="post__wrapper">
+    
+    <div class="post__preview">
+      {include 'components/previews/video'}
+    </div>
+    
+    <div class="post__container mobile-mt-4">
+        {* {if $post.content|strlen > 0} *}
+            <div id="hide-if-text-empty" class="line mb-6 mt-6 "></div>
+        {* {/if} *}
+        <div class="post__content content pb-6  mobile-pl-3 mobile-pr-3">
+            {block 'post.content'}
+                {content $post attr=['class'=>'the_post_content','itemprop'=>'articleBody']}
+            {/block}
+        </div>
+    </div>
+  </div>
+</div>
+{/block}
+
+{* <div style="position: relative;">
     <div class="box-shadow"></div>
     <div class="m_b-20 auto-height">
         <div class="viewbox-cnt attr-in">
@@ -76,5 +101,4 @@
             {/block}
         </div>
     </div>
-</div>
-{/block}
+</div> *}

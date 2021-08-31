@@ -1,0 +1,191 @@
+/* Making the label break the flow */
+.floating-label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  user-select: none;
+  z-index: 1500;
+}
+
+/* Hide the browser-specific focus styles */
+.floating-label-field {
+  color: rgba(0, 0, 0, 0.75);
+  border-width: 0;
+  z-index: 2000;
+}
+.floating-label-field:focus {
+  outline: 0;
+  box-shadow: 0;
+}
+.floating-label-field::placeholder {
+  color: rgba(44, 62, 80, 0.5);
+}
+
+/* Make the label and field look identical on every browser */
+.floating-label,
+.floating-label-field {
+  font: inherit;
+  line-height: 1;
+
+  display: block;
+
+  width: 100%;
+}
+
+.floating-label-field,
+.floating-label-wrap {
+  position: relative;
+}
+
+/* Input Style #1 */
+.floating-label-field--s1 {
+  transition: border-color 0.25s ease-in-out;
+
+  color: rgba(255, 255, 255, 0.75);
+  border-bottom: 3px solid rgba(255, 255, 255, 0.05);
+  background-color: transparent;
+}
+.floating-label-field--s1 + .floating-label {
+  transition: transform 0.25s, opacity 0.25s ease-in-out;
+  transform-origin: 0 0;
+
+  opacity: 0.5;
+}
+.floating-label-field--s1:focus,
+.floating-label-field--s1:not(:placeholder-shown) {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+.floating-label-field--s1:focus + .floating-label,
+.floating-label-field--s1:not(:placeholder-shown) + .floating-label {
+  transform: translate(0.25em, -30%) scale(0.8);
+  opacity: 0.25;
+}
+.floating-label-field--s1:valid:not(:placeholder-shown) {
+  border-color: rgba(46, 213, 115, 0.3);
+}
+.floating-label-field--s1:invalid {
+  border-color: rgba(255, 71, 87, 0.3);
+}
+
+/* Input Style #2 */
+.floating-label-field--s2,
+.floating-label-field--s2 {
+  transition: background-color 0.25s ease-in-out;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: #f5f5f5;
+  border-radius: 4px;
+}
+.floating-label-field--s2 + .floating-label {
+  visibility: hidden;
+  transition: transform 0.25s, visibility 0.5s, opacity 0.5s ease-in-out;
+  opacity: 0;
+  color: #4587bb;
+}
+@media screen and (max-width: 480px) {
+  .floating-label-field--s2 + .floating-label {
+    visibility: visible;
+    transform: translateY(-80%) !important;
+    opacity: 1;
+    color: #000;
+  }
+}
+.floating-label-field--s2:focus + .floating-label,
+.floating-label-field--s2:not(:placeholder-shown) + .floating-label {
+  visibility: visible;
+  transform: translateY(-80%);
+  opacity: 1;
+  color: #4587bb;
+}
+
+.floating-label-field--s2:focus,
+.floating-label-field--s2:valid:not(:placeholder-shown) {
+  border-color: #4587bb;
+  background-color: #fff;
+}
+.floating-label-field--s2:invalid:not(:empty) {
+  border-color: #ffe0e3;
+  // background-color: #ffe0e3;
+}
+
+.floating-label-field--s3 {
+  padding: 1.5em;
+
+  transition: border-color 0.25s ease-in-out;
+
+  color: rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  background-color: transparent;
+}
+.floating-label-field--s3 + .floating-label {
+  position: absolute;
+  top: 0.75em;
+  left: 0.75em;
+
+  display: inline-block;
+
+  width: auto;
+  margin: 0;
+  padding: 0.75em;
+
+  transition: transform 0.25s, opacity 0.25s, padding 0.25s ease-in-out;
+  transform-origin: 0 0;
+
+  color: rgba(255, 255, 255, 0.5);
+}
+.floating-label-field--s3:focus,
+.floating-label-field--s3:not(:placeholder-shown) {
+  border-color: rgba(255, 255, 255, 0.1);
+  background: white;
+}
+.floating-label-field--s3:focus + .floating-label,
+.floating-label-field--s3:not(:placeholder-shown) + .floating-label {
+  z-index: 2500;
+
+  padding: 0.75em;
+
+  transform: translate(0, -2em) scale(0.9);
+
+  color: rgba(255, 255, 255, 0.25);
+  background-color: #2c3e50;
+}
+// @media screen and (max-width: 480px) {
+//   .floating-label-field--s3 + .floating-label,
+//   .floating-label-field--s3 + .floating-label {
+//     z-index: 2500;
+
+//     padding: 0.75em;
+
+//     transform: translate(0, -2em) scale(0.9);
+
+//     color: rgba(255, 255, 255, 0.25);
+//     background-color: #2c3e50;
+//   }
+// }
+
+/* Common Styles */
+/* Identical inputs on all browsers */
+.floating-label-field--s1:not(textarea),
+.floating-label-field--s2:not(textarea),
+.floating-label-field--s3:not(textarea) {
+  max-height: 4em;
+}
+
+.floating-label-field--s1,
+.floating-label-field--s1 + .floating-label,
+.floating-label-field--s2 {
+  padding: 1em 1em;
+}
+.floating-label-field--s2 + .floating-label {
+  padding: 1em 0em;
+}
+
+.floating-label-field--s1 + .floating-label,
+.floating-label-field--s2 + .floating-label {
+  z-index: 1500;
+}
+
+.floating-label-field--s1::placeholder,
+.floating-label-field--s3::placeholder {
+  color: transparent;
+}

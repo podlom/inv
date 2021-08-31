@@ -1,0 +1,6 @@
+version: 0.5
+model: ['Review']
+smarty:
+  rlent:
+    type: 'block'
+  rlent_load: []

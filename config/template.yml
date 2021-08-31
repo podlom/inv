@@ -35,6 +35,15 @@ add-adv:
    urls:
      - '/add-adv'
    template: 'add-adv'
+digest-social:
+  urls:
+    - '/digest-social'
+  template: 'digest-social'
+digest-social-en:
+  urls:
+    - '/en/digest-social'
+  template: 'digest-social_en'
+  layout: 'Core.layout_en'
 add-inv-prop:
    urls:
      - '/add-inv-prop'
@@ -149,7 +158,9 @@ investments:
     - '/investments/business'
     - '/investments/realestate'
     - '/investments/land'
+    - '/investments/franchising'
     - '/investments/offer'
+    - '/investments/search-results'
   template: 'blog/inventure.list'
 investment_posts:
   urls:
@@ -249,9 +260,14 @@ faq_en:
   urls:
     - '/en/about/faq'
   layout: Core.layout_en
+contacts:
+  urls:
+    - '/about/contacts'
+  template: 'contacts'
 contacts_en:
   urls:
     - '/en/about/contacts'
+  template: 'contacts'
   layout: Core.layout_en
 services_en:
   urls:
@@ -295,3 +311,7 @@ en_404:
    code: 451
    template: 451
    layout: Core.layout
+msb:
+  urls:
+    - '/msb'
+  template: 'msb'

@@ -2,7 +2,7 @@
 {block 'breadcrumbs'}{/block}
 {block 'content'}
 <div class="m_b-20">
-    <h2><a href="/tools/investors">Инвесторы</a></h2>
+    <h2><a href="/tools/investors">Инвесторы</a></h2>   
     <div class="viewbox grid-x grid-margin-x ">
         {$atlas=[]}
         {lent '/tools/investors' 4 var='atlases'}

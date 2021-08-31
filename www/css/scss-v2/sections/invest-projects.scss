@@ -1,0 +1,30 @@
+.invest-projects {
+  &__sort {
+    padding-left: 10px;
+    padding-right: 10px;
+    max-height: 32px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-right: 8px;
+  }
+  &__filtration {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__grid {
+    grid-template-columns: 1fr;
+    @media screen and (min-width: 1024px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  &__list {
+    .cards__item:not(:last-of-type) {
+      margin-bottom: 1em;
+      @media screen and (min-width: 1024px) {
+        margin-bottom: 0.5em;
+      }
+    }
+  }
+}

@@ -1,0 +1,106 @@
+.invest-ad {
+  display: flex;
+  align-items: center;
+  padding: 10px 16px;
+  background: #ffffff;
+  border: 1px solid #e5e5e5;
+  box-sizing: border-box;
+  border-radius: 8px;
+}
+
+.invest-ad__btn {
+  min-height: 48px;
+  max-width: 220px;
+  font-weight: normal;
+}
+
+.invest-ad__title-wrapper {
+  display: flex;
+  align-items: center;
+  margin-right: auto;
+}
+
+.invest-ad__wrapper {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  justify-content: flex-end;
+}
+
+.invest-ad__title {
+  font-size: 14px;
+  margin-left: 12px;
+  max-width: 340px;
+  line-height: 1.4;
+  font-weight: 600;
+}
+
+.invest-ad__link-wrapper {
+  text-decoration: none;
+  margin-right: 20px;
+}
+
+.invest-ad__link {
+  color: #6587af;
+  font-weight: bold;
+  margin-bottom: 2px;
+  font-size: 14px;
+}
+
+.invest-ad__caption {
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 12px;
+  line-height: 1.2;
+  text-decoration: none;
+}
+
+@media screen and (max-width: 1339px) {
+  .invest-ad .invest-ad__link-wrapper--tel {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 1199px) {
+  .invest-ad .invest-ad__link-wrapper--mail {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 1023px) {
+  .invest-ad {
+    flex-wrap: wrap;
+  }
+  .invest-ad svg {
+    width: 100%;
+    margin-bottom: 16px;
+  }
+  .invest-ad .invest-ad__title-wrapper {
+    margin: 10px auto;
+    text-align: center;
+    flex-wrap: wrap;
+  }
+  .invest-ad .invest-ad__title {
+    font-size: 16px;
+    max-width: initial;
+  }
+  .invest-ad .invest-ad__wrapper {
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .invest-ad .invest-ad__link-wrapper--tel,
+.invest-ad .invest-ad__link-wrapper--mail {
+    display: block;
+  }
+  .invest-ad .invest-ad__link-wrapper {
+    margin: 0 10px;
+    text-align: center;
+    flex-wrap: wrap;
+  }
+  .invest-ad .invest-ad__btn {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 15px;
+    font-weight: bold;
+  }
+}

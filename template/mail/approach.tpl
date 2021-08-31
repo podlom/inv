@@ -1,8 +1,9 @@
 <html>
 <body>
-	<h2>Комплексный подход</h2>
+	<h2>{$latel_deal_name}</h2>
 	
-	Имя: <b>{$name}</b><br>
+	Имя: <b>{$firstname}</b><br>
+	Фамилия: <b>{$lastname}</b><br>
 	Почта: <b>{$email}</b><br>
 	Телефон: <b>{$tel}</b><br>
 	Текст: <b>{$text}</b><br>

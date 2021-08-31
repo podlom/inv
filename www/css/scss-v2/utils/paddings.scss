@@ -1,0 +1,49 @@
+@for $i from 0 through 24 {
+  .pb-#{$i} {
+    padding-bottom: $i * 0.25em !important;
+  }
+}
+
+@for $i from 0 through 24 {
+  .pt-#{$i} {
+    padding-top: $i * 0.25em !important;
+  }
+}
+
+@for $i from 0 through 24 {
+  .pl-#{$i} {
+    padding-left: $i * 0.25em !important;
+  }
+}
+
+@for $i from 0 through 24 {
+  .pr-#{$i} {
+    padding-right: $i * 0.25em !important;
+  }
+}
+
+@media screen and (max-width: 1023px) {
+  @for $i from 0 through 24 {
+    .mobile-pb-#{$i} {
+      padding-bottom: $i * 0.25em !important;
+    }
+  }
+
+  @for $i from 0 through 24 {
+    .mobile-pt-#{$i} {
+      padding-top: $i * 0.25em !important;
+    }
+  }
+
+  @for $i from 0 through 24 {
+    .mobile-pl-#{$i} {
+      padding-left: $i * 0.25em !important;
+    }
+  }
+
+  @for $i from 0 through 24 {
+    .mobile-pr-#{$i} {
+      padding-right: $i * 0.25em !important;
+    }
+  }
+}

@@ -1,0 +1,5 @@
+.dashboard section, .dashboard .container, .dashboard .dashboard-wrap {height: 100%;}
+.dashboard section {height: calc(100vh - 50px)}
+.dashboard .container {padding: 0 !important;}
+.dashboard .dashboard-wrap {position:relative; min-width: 1200px; box-sizing: border-box; padding-bottom: 1rem}
+.dashboard .dashboard-frame {position:absolute;top:0;left:0;width:100%;height:100%;}

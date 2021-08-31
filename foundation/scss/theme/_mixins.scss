@@ -1,0 +1,32 @@
+@mixin button-color($bg: #ccc, $color: #666) {
+	background: $bg;
+	color: $color;
+
+	&:hover {
+		background: lighten($bg, 5%);
+	}
+	&:active {
+		background: darken($bg, 5%);
+	}
+
+	&.hollow {
+		background-color: transparent;
+		border-color: $bg;
+		color: $bg;
+		&:hover {
+			border-color: $bg;
+			color: $color;
+			background-color: $bg;
+		}
+	}
+}
+
+@mixin noSelect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}

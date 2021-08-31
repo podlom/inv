@@ -1,0 +1,88 @@
+.footer {
+	padding: 40px 0;
+	background-color: #23262f;
+	&__btn {
+		background-color: var(--main-accent-color);
+		padding: 8px;
+		margin: 0;
+		display: flex !important;
+		border-radius: 6px;
+		margin-right: 6px;
+		width: max-content !important;
+		margin-left: auto;
+		margin-right: auto;
+		@media screen and (min-width: 1024px) {
+			margin-left: initial;
+			margin-right: 6px;
+		}
+		svg {
+			fill: white;
+			margin-right: 6px;
+			padding: 2px;
+		}
+	}
+	&__wrapper {
+		display: grid;
+		gap: 20px;
+		margin-top: 2em;
+		font-size: 14px;
+
+		grid-template-columns: repeat(1, 1fr);
+		text-align: center;
+		@media screen and (min-width: 1024px) {
+			grid-template-columns: repeat(4, 1fr);
+			text-align: left;
+		}
+
+		h6 {
+			margin-bottom: 1em;
+		}
+		a {
+			color: white;
+			margin-bottom: 0.6em;
+			line-height: 1.4em;
+			display: block;
+			opacity: 0.8;
+			transition: all 0.25s ease;
+			&:hover {
+				opacity: 1;
+			}
+		}
+	}
+	&__socials {
+		color: white;
+		display: flex;
+		justify-content: center;
+		@media screen and (min-width: 1024px) {
+			justify-content: flex-start;
+		}
+		a {
+			margin: 1em 0.4em;
+			font-size: 32px;
+			color: white;
+			opacity: 0.8;
+			transition: all 0.25s ease;
+			@media screen and (min-width: 1024px) {
+				margin: 0.4em 0.8em 0.4em 0;
+			}
+			&:hover {
+				opacity: 1;
+			}
+		}
+	}
+	&__copyright {
+		text-align: center;
+		color: white;
+		font-size: 14px;
+		margin: 0 auto;
+		@media screen and (min-width: 1024px) {
+			text-align: left;
+		}
+	}
+	&__logo {
+		text-align: center;
+		@media screen and (min-width: 1024px) {
+			text-align: left;
+		}
+	}
+}

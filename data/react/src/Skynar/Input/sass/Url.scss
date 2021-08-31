@@ -1,0 +1,34 @@
+.svr-url{
+	font-weight: normal;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	color: #333;
+	position: relative;
+	.svr-path{
+		flex: 1 0;
+	}
+	.svr-slug{
+		flex: 0 0;
+	}
+	.svr-part{
+		&:after{
+			content: '/';
+			font-weight: bold;
+			color: #999;
+		}
+		&.svr-value:after{
+			content: none;
+		}
+		&.svr-prefix,&.svr-domain{
+			color: #999;
+		}
+		&.svr-value{
+			outline: none;
+		}
+	}
+
+	&.svr-invalid .svr-value{
+		border-bottom: 2px solid red;
+	}
+}

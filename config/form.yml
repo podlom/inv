@@ -3,13 +3,21 @@ approach:
     - type: sendMail
       to:
         - info@inventure.ua: Inventure
+      # bcc:
+       # - ts@doagency.net: Inventure
   fields:
-    name:
+    firstname:
       type: String
       label: ''
       attributes:
         required: true
         placeholder: 'Имя'
+    lastname:
+      type: String
+      label: ''
+      attributes:
+        required: true
+        placeholder: 'Фамилия'
     email:
       type: String
       label: ''
@@ -22,24 +30,55 @@ approach:
       attributes:
         required: true
         placeholder: 'Телефон'
+    querytype:
+      type: Select
+      label: 'С чем связан ваш запрос'
+      attributes:
+        required: true
+      params:
+        values: ['Продажа бизнеса', 'Инвестиции в действующий бизнес', 'Инвестиции в стартап', 'Продажа коммерческой недвижимости', 'Реклама франшизы', 'Другое']
+    price:
+      type: String
+      label: ''
+      attributes:
+        required: true
+        placeholder: 'Требуемые инвестиции / Цена'
+    region:
+      type: String
+      label: ''
+      attributes:
+        required: true
+        placeholder: 'Регион'
     text:
       type: Text
       label: ''
       attributes:
-        placeholder: 'Краткое описание инвестиционного предложения (до 200 символов)'
+        required: true
+        placeholder: 'Краткое описание инвестиционного предложения (до 300 символов)'
+    latel_deal_name:
+      type: Hidden
+      label: ''
 investment_callback:
   actions:
     - type: sendMail
       to:
         #- themastir@gmail.com: Inventure
         - info@inventure.ua: Inventure
+      # bcc:
+        #- ts@doagency.net: Inventure
   fields:
-    name:
+    firstname:
       type: String
       label: ''
       attributes:
         required: true
-        placeholder: 'ФИО'
+        placeholder: 'Имя'
+    lastname:
+      type: String
+      label: ''
+      attributes:
+        required: true
+        placeholder: 'Фамилия'
     email:
       type: String
       label: ''
@@ -53,8 +92,11 @@ investment_callback:
       attributes:
         required: true
         type: 'tel'
-        placeholder: 'Телефон'
+        # placeholder: 'Телефон'
     url:
+      type: Hidden
+      label: ''
+    ga_utm:
       type: Hidden
       label: ''
 callback:
@@ -64,12 +106,31 @@ callback:
       #   - themastir@gmail.com: test
         - info@inventure.ua: Inventure
       #  - info@feelgoodlabs.com: manager
-      #bcc:
+      # bcc:
+      #  - ts@doagency.net: Inventure
       #  - info@inventure.ua: Inventure
       subject: 'Перезвоните мне'
   fields:
+    firstname:
+      type: String
+      label: ''
+      attributes:
+        required: true
+        placeholder: 'Имя'
+    lastname:
+      type: String
+      label: ''
+      attributes:
+        required: true
+        placeholder: 'Фамилия'
     tel:
       type: String
+      label: ''
+      attributes:
+        required: true
+        placeholder: 'Телефон'
+    ga_utm:
+      type: Hidden
       label: ''
   success: 'Cпасибо мы свяжемся с вами в ближайшее время.'
   error: 'Сожалеем, но возникла ошибка. Попробуйте позже.'
@@ -80,13 +141,19 @@ investor:
         - info@inventure.ua: Inventure
 #        - inventure@skynar.co: Inventure
       bcc:
+        # - ts@doagency.net: Inventure
         - investor@feelgoodlabs.co: Inventure
   fields:
-    name:
+    firstname:
       type: String
       label: ''
       attributes:
-        placeholder: 'Ф.И.О.'
+        placeholder: 'Имя'
+    lastname:
+      type: String
+      label: ''
+      attributes:
+        placeholder: 'Фамилия'
     company:
       type: String
       label: ''
@@ -103,6 +170,12 @@ investor:
       attributes:
         required: true
         placeholder: 'Email'
+    manager:
+      type: Select
+      label: '* Выбирая эту функцию, Вы заказываете звонок от менеджера компании, кото-рый сможет предоставить дополнительную консультацию по интересующим Вас вопросам и ускорить процесс подбора подходящего предложения.'
+      attributes:
+        values:
+          - 'Заказать звонок от менеджера'
     City:
       type: String
       label: 'Город проживания'
@@ -110,12 +183,8 @@ investor:
       type: String
       label: ''
       attributes:
+        required: true
         placeholder: 'Телефон'
-    skype:
-      type: String
-      label: ''
-      attributes:
-        placeholder: 'Skype'
     stage:
       type: Select
       label: 'Стадии инвестирования'
@@ -127,9 +196,21 @@ investor:
           - 'Поздние стадии (Later Stage / Exit)'
           - 'Стадия роста и расширения (Growth / Expansion)'
           - 'Проблемные активы (Distressed Assets)'
+    profit:
+      type: Select
+      label: 'Планируемая доходность'
+      params:
+        multiple: true
+        venilla: true
+        values:
+          - '10-15%'
+          - '15-20%'
+          - '20-25%'
+          - '25-30%'
+          - 'Свыше 30%'
     types:
       type: Select
-      label: 'Направления инвестирования'
+      label: 'Приоритетные направления инвестирования'
       params:
         multiple: true
         venilla: true
@@ -159,7 +240,6 @@ investor:
            - 'Потребительские услуги'
            - 'Образование'
            - 'Организации и ассоциации'
-           - 'Инновации и высокие технологии'
     type_other:
       type: String
       label: 'Ваш вариант'
@@ -205,6 +285,15 @@ investor:
            - 'Контрольный пакет (более 50% доли в бизнесе)'
            - 'Сотрудничество'
            - 'Миноритарный пакет (менее 50% доли в бизнесе)'
+    involvement:
+      type: Select
+      label: 'Участие в проекте'
+      params:
+        venilla: true
+        multiple: true
+        values:
+           - 'Активное'
+           - 'Пассивное'
     type:
       type: Select
       label: 'Участие в капитале'
@@ -247,12 +336,22 @@ investor:
         multiple: true
         venilla: true
         values: ["Финансы", "Управление", "Связи", "Технологии", "Недвижимость"]
+    capacity:
+      type: Select
+      label: 'Объемы инвестирования'
+      params:
+        multiple: true
+        venilla: true
+        values: ["До $10 тыс.", "От $10 тыс. до $50 тыс.", "От $50 тыс. до $100 тыс.", "От $100 тыс. до $250 тыс.", "От $250 тыс. до $500 тыс.", "От $500 тыс. до $1 млн.", "От $1 млн. до $5 млн.", "От $5 млн. до $10 млн."]
     strong_other:
       type: String
       label: 'Ваш вариант'
     info:
       type: Text
       label: 'Дополнительные критерии'
+    ga_utm:
+      type: Hidden
+      label: ''
   validators: []
   success: 'Данные отправленны'
   error: 'При отправке данных возникла ошибка, обратитесь к администрации.'
@@ -266,12 +365,18 @@ investor_en:
 #        - inventure@skynar.co: Inventure
       bcc:
         - investor@feelgoodlabs.co: Inventure
+        # - ts@doagency.net: Inventure
   fields:
-    name:
+    firstname:
       type: String
       label: ''
       attributes:
-        placeholder: 'Name'
+        placeholder: 'Firstname'
+    lastname:
+      type: String
+      label: ''
+      attributes:
+        placeholder: 'Lastname'
     company:
       type: String
       label: ''
@@ -451,6 +556,7 @@ project:
         - info@inventure.ua: Inventure
       bcc:
          - startup@feelgoodlabs.co: Inventure
+         # - ts@doagency.net: Inventure
   fields:
     name:
       type: String

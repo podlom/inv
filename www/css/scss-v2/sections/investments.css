@@ -1,0 +1,21 @@
+.investments__title {
+  max-width: 640px;
+}
+
+.investments__title-link {
+  font-size: 12px;
+  color: var(--main-accent-color);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+@media screen and (min-width: 1024px) {
+  .investments__nav .section__categories {
+    width: 100%;
+    position: relative;
+    overflow-y: scroll;
+    max-width: calc(100vw - 630px) !important;
+    margin: 0;
+    padding: 0;
+  }
+}

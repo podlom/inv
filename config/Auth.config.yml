@@ -2,9 +2,19 @@ password:
     rules: [letter]
     min: 6
     max: 32
+username:
+    format: '{$name}'
+    parts: { name: { label: Name, attr: null, attributes: { required: true } } }
 confirm:
     success: /
     code_length: 6
 provider:
     token: { class: Token, options: {  } }
     facebook: { class: Auth\Provider\FacebookSdk, options: {  } }
+    instagram: { class: Auth\Provider\InstagramProvider, options: {  } }
+facebook:
+    app_id: '606137020207488'
+    app_secret: e8bf4aa6a03e6b4a2daab57b09bef60f
+instagram:
+    id: 3fda5027da3f414bbe9988471835a20d
+    secret: 96413f7f0cf54561802071e4936edc2c

@@ -1,0 +1,134 @@
+import * as React from 'react';
+import VirtualizedSelect from 'react-virtualized-select';
+
+import 'react-select/dist/react-select.css'
+import 'react-virtualized/styles.css'
+import 'react-virtualized-select/styles.css'
+
+export interface ESItemData{
+    eid: string;
+    title: string;
+    icon?: string;
+    image?: string; //!T
+    tags?: string[]; //!T
+    text?: string; //!T
+}
+
+interface ESState {
+   value: any;
+};
+
+ interface ESProps{
+    name: string;
+    url: string;
+    multiple: boolean;
+    value: string | string[];
+    count?: number;
+    onChange?: (a:string | string[])=>void;
+    placeholder?: string;
+ };
+
+/**
+ * !T add infinite list support
+ */
+export default class EntitySelect extends React.Component<ESProps, ESState>{
+
+    constructor(props){
+        super(props);
+        this.loadOptions = this.loadOptions.bind(this);
+        let value = (props.multiple ?
+            (
+                props.value instanceof Array ?
+                    props.value : []
+            ) : (
+                typeof(props.value) == 'string' || typeof(props.value) == 'number' ?
+                    props.value : ''
+            ));
+        this.state = {value};
+    }
+
+    static defaultProps = {
+        multiple: false,
+        value: ''
+
+    };
+
+    loadOptions(input, cb){
+        return fetch(this.props.url+'.mjson?count='+(this.props.count || 100)+'&q='+input, {credentials: 'include'}).then((r)=>{
+            return r.json()
+        }).then((json)=>{
+            return {options:json.items, complete:json.total <= json.count}
+        })
+    }
+
+    onSelect(value){
+        let v = value != null ? (Array.isArray(value) ? value.map(v=>v.eid) :  value.eid) : '';
+        this.setState({value:v});
+        if(typeof(this.props.onChange)=='function'){
+            this.props.onChange(v);
+        }
+    }
+
+    none(){
+
+    }
+
+    renderOption({ focusedOption, focusOption, key, labelKey, option, selectValue, style, valueArray }){
+    const className = ['es_option']
+    if (option === focusedOption) {
+        className.push('es_focus')
+    }
+    if (option.disabled) {
+        className.push('es_disabled')
+    }
+    if (valueArray && valueArray.indexOf(option) >= 0) {
+        className.push('es_selected')
+    }
+    if (option.className) {
+        className.push(option.className)
+    }
+    const events = option.disabled
+        ? {}
+        : {
+            onClick: () => selectValue(option),
+            onMouseEnter: () => focusOption(option)
+        }
+    let thumb:any = false;
+    if(typeof(option.image)=='string'){
+        thumb = option.image;
+        className.push('es_has_img');
+        if(option.image.substr(0,1)=='/' && option.image.substr(1,1)!='/'){
+            thumb = '/img/thumb.64'+option.image;
+        }
+    }
+    return <div className={className.join(' ')} key={key} style={style} title={option.title} {...events}>
+        <div className="es_wrap">
+            {thumb && <img src={thumb} className="es_img" key='img'/>}
+            <div className="es_title" key='ttl'>{option.title}</div>
+            <div className="es_description" key='dsc'>{option.description}</div>
+        </div>
+    </div>;
+    }
+
+    render(){
+        let value = this.state.value instanceof Array ? JSON.stringify(this.state.value) : this.state.value
+        return <div className="sri-node">
+            <VirtualizedSelect
+                async={true}
+                loadOptions={this.loadOptions}
+                onChange={this.onSelect.bind(this)}
+                labelKey="title"
+                valueKey="eid"
+                value={this.state.value}
+                multi={this.props.multiple}
+                optionRenderer={this.renderOption}
+                optionHeight={({option})=>typeof(option.description) == 'string' || typeof(option.image) == 'string' ? 64 : 35}
+                palceholder={this.props.placeholder}
+            />
+            <input type="hidden" key="input"
+                name={this.props.name}
+                onChange={this.none}
+                value={value} />
+        </div>
+    }
+}

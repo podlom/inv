@@ -1,0 +1,118 @@
+.video-page {
+  padding: 30px 0;
+  &__card {
+    background: #ffffff;
+    box-shadow: 0px 1px 7px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    width: 100%;
+    &--padding {
+      padding: 10px;
+      @media (min-width: 1024px) {
+        padding: 15px 40px;
+      }
+    }
+  }
+  &__video {
+    width: 100%;
+    border-radius: 4px 4px 0 0;
+    iframe {
+      border-radius: 4px 4px 0 0;
+    }
+    @media (min-width: 1024px) {
+      iframe {
+        height: 500px;
+      }
+    }
+  }
+  &__card-title {
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 120%;
+    color: #000000;
+    padding: 10px 0;
+    @media (min-width: 1024px) {
+      font-size: 28px;
+    }
+  }
+  &__card-info {
+    @media (min-width: 1024px) {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+  &__info {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 8px;
+    @media (min-width: 1024px) {
+      flex-direction: row;
+      margin-bottom: 0px;
+      .cards__views {
+        display: none;
+      }
+    }
+  }
+  &__date-info {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__date {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 25px;
+    color: #000000;
+  }
+  &__tag {
+    font-size: 14px;
+    line-height: 25px;
+    color: #000000;
+    @media (min-width: 1024px) {
+      margin-left: 10px;
+    }
+  }
+  &__social-nets {
+    padding: 0;
+    max-width: 340px;
+  }
+  &__views {
+    display: none;
+    @media (min-width: 1024px) {
+      display: flex;
+    }
+  }
+  &__card-description {
+  }
+  &__card-text {
+    font-size: 14px;
+    line-height: 160%;
+    margin-bottom: 15px;
+    /* or 26px */
+
+    color: #000000;
+    @media (min-width: 1024px) {
+      font-size: 16px;
+    }
+  }
+  &__more {
+    margin: 40px 0 20px;
+  }
+  &__subtitle {
+    @media (min-width: 1024px) {
+      font-size: 24px;
+    }
+    font-size: 18px;
+    line-height: 100%;
+    /* identical to box height, or 24px */
+
+    color: #000000;
+  }
+  .content {
+    p {
+      &:first-of-type {
+        margin-top: 25px;
+      }
+    }
+  }
+}

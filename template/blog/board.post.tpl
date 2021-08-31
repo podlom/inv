@@ -7,6 +7,9 @@
 <div class="place">
     <img src="/i/ukraine.png">{if $post->hasAttr("10")} {$post->printAttr("10")}{/if}
 </div>
+
+    <!-- @ts blog board.post.tpl -->
+
 <div class="price">
 {if $post->getParent()->getId() == 15089 || $post->getParent()->getId() == 15090 || $post->getParent()->getId() == 15091}
   <p><span style="font-weight: 700;">ЦЕНА</span> -

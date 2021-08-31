@@ -1,0 +1,9 @@
+.search-form{
+  &__input {
+    box-sizing: border-box!important;
+    max-height: 40px;
+    @media (min-width: 1024px) {
+      max-height: 46px;
+    }
+  }
+}

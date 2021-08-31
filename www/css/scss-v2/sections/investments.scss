@@ -1,0 +1,23 @@
+.investments {
+	&__title {
+		max-width: 640px;
+	}
+	&__title-link {
+		font-size: 12px;
+		color: var(--main-accent-color);
+		cursor: pointer;
+		white-space: nowrap;
+	}
+	&__nav {
+		.section__categories {
+			@media screen and (min-width: 1024px) {
+				width: 100%;
+				position: relative;
+				/* overflow-y: scroll; */ 
+				max-width: calc(100vw - 630px) !important;
+				margin: 0;
+				padding: 0;
+			}
+		}
+	}
+}

@@ -1,0 +1,27 @@
+.sort {
+  display: flex;
+  background: white;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1);
+  font-size: 14px;
+  &__item {
+    border-radius: 4px;
+    border: 1px solid white;
+
+    a {
+      padding: 0.6em 1.2em;
+      color: rgba(0, 0, 0, 0.4);
+      display: block;
+      transition: all 0.25s ease;
+    }
+    &:hover a {
+      color: var(--main-accent-color);
+    }
+    &--active {
+      border-color: var(--main-accent-color);
+      pointer-events: none;
+      a {
+        color: var(--main-accent-color);
+      }
+    }
+  }
+}
