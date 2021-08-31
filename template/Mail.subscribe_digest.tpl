@@ -6,7 +6,12 @@
         {$form->getField('email')->getInput()->attr('id', 'subscribeMail')->attr('placeholder', 'E-mail')}
         {$form->getField('phone')->getInput()->attr('id', 'subscribeTel')->attr('placeholder', 'Phone')}
         <input type="checkbox" name="subscribe[lang][]" value="en" checked="checked" style="display: none;">
-        <button class="blue_but cell-but" type="submit" id="subscribeButton">Subscribe</button>
+    
+        <input type="hidden" name="subscribe[ga_utm]" value="">
+
+        <input type="hidden" name="ga_utm" value="">
+
+        <button class="blue_but cell-but w-full" type="submit" id="subscribeButton">Subscribe</button>
         {$form->protection()}
     {$form->close()}
 {else}
@@ -36,7 +41,12 @@
                 </div>
             </div>
         </div>
-        <button class="blue_but cell-but" type="submit" id="subscribeButton">Подписаться</button>
+
+        <input type="hidden" name="subscribe[ga_utm]" value="">
+
+        <input type="hidden" name="ga_utm" value="">
+
+        <button class="blue_but cell-but w-full" type="submit" id="subscribeButton">Подписаться</button>
         {$form->protection()}
     {$form->close()}
 {/if}

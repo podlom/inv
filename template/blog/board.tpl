@@ -1,24 +1,33 @@
 {extends 'Blog.blog'}
 {block 'post.share'}{/block}
+
 {block 'config'}
 {$links = [
-    concat($blog->getPath(),'/projects')=>'Инвестиционные проекты и стартапы',
-    concat($blog->getPath(),'/business')=>'Продажа бизнеса',
-    concat($blog->getPath(),'/realestate')=>'Недвижимость',
-    concat($blog->getPath(),'/land')=>'Земельные участки',
-    concat($blog->getPath(),'/offer')=>'Инвесторы'
+    concat($blog->getPath(),'/projects-15088')=>'Инвестиционные проекты и стартапы',
+    concat($blog->getPath(),'/business-15089')=>'Продажа бизнеса',
+    concat($blog->getPath(),'/realestate-15090')=>'Недвижимость',
+    concat($blog->getPath(),'/land-15091')=>'Земельные участки',
+    concat($blog->getPath(),'/offer-15092')=>'Инвесторы'
 ]}
 {/block}
 {block 'breadcrumbs'}{/block}
-{block 'page.title'}
+{* {block 'page.title'}
 <div class="clearfix border-bottom">
     <h2>{$blog->getTitle()}</h2>
     <a class="add_board" href="/bulletin/add">Добавить объявление</a>
-</div>
-{/block}
+</div> 
+{/block} *}
 {block 'page.class' append} board_page{/block}
+
+{block 'post.id-num'}
+    <span class="id-number"><strong style="margin: 0 5px 0 0">ID:</strong> {$post->getId()}</span>
+{/block}
+
+<!-- @ts bulletin board list -->
+
 {block 'post.description' append}
-    {if $post->hasAttr("10")}{* !T invalid flag *}
+    {* !T invalid flag *}
+    {* {if $post->hasAttr("10")}
         <div class="place">
             <img src="/i/ukraine.png"> {$post->printAttr("10")}
         </div>
@@ -34,10 +43,10 @@
           <p><span style="font-weight: 700;">ИНВЕСТИЦИИ</span> -
           {if $post->hasAttr("15")} ${$post->printAttr("15")|number_format:0:'.':' '}{/if}</p>
         {/if}
-    </div>
+    </div> *}
 {/block}
 {block 'post.extras'}
-<div class="accordion" id="adv-{$post->getId()}">
+{* <div class="accordion" id="adv-{$post->getId()}">
   <p class="toggle_btn">
     <span>Показать текст обьявления</span>
     <span style="display: none;">Скрыть текст обьявления</span>
@@ -70,5 +79,5 @@
           </div>
       </div>
   </article>
-</div>
+</div> *}
 {/block}

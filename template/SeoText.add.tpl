@@ -1,0 +1,1 @@
+{extends 'Seotext.edit'}

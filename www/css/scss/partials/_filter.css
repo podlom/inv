@@ -1,0 +1,259 @@
+.filter__label {
+  font-size: 13px !important;
+  font-weight: bold;
+  margin-bottom: 4px !important;
+  display: block;
+}
+
+.filter__heading-filter {
+  display: none;
+}
+
+@media screen and (max-width: 1024px) {
+  .filter__heading-filter {
+    display: block;
+  }
+}
+
+.filter__heading-filter .fa-close {
+  font-size: 20px;
+}
+
+.filter__heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 0;
+  position: relative;
+}
+
+@media screen and (max-width: 540px) {
+  .filter__heading {
+    flex-direction: column;
+    text-align: center;
+  }
+  .filter__heading a {
+    text-align: center;
+  }
+}
+
+.filter__button-open {
+  font-size: 14px;
+  background: #5286b0;
+  color: white;
+  padding: 10px 16px;
+  font-weight: 600;
+  cursor: pointer;
+  letter-spacing: 0.2px;
+  border-radius: 2px;
+  min-width: 160px;
+  text-align: center;
+  margin-left: 40px;
+}
+
+@media screen and (max-width: 540px) {
+  .filter__button-open {
+    margin-left: 0;
+    margin-top: 10px;
+  }
+}
+
+.filter__selector {
+  width: 100%;
+}
+
+.filter__selector--price {
+  display: flex;
+  flex-direction: column;
+}
+
+.filter__selector--price .filter__row {
+  width: 100%;
+}
+
+.filter__selectors {
+  display: flex;
+  flex-direction: column;
+  padding: 0 25px;
+}
+
+.filter__selectors::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 0;
+  height: 0;
+}
+
+@media screen and (max-width: 540px) {
+  .filter__selectors {
+    overflow: auto;
+  }
+}
+
+.filter__row {
+  margin-bottom: 8px;
+}
+
+.filter__title {
+  font-weight: bold;
+  font-size: 16px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.filter__wrapper {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background: white;
+  top: 100%;
+  z-index: 1;
+  padding: 20px 0 0px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.25s ease;
+  border-radius: 4px;
+  width: 100%;
+}
+
+@media screen and (min-width: 1025px) {
+  .filter__wrapper.mobile {
+    display: none !important;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .filter__wrapper {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 60px;
+    transform: translateY(-100%);
+    max-height: calc(100vh - 100px);
+    overflow: auto;
+  }
+}
+
+@media screen and (max-height: 580px) and (max-width: 1024px) {
+  .filter__wrapper {
+    max-height: calc(100vh - 140px);
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .filter__wrapper.shown {
+    transform: translateY(-100%);
+  }
+}
+
+.filter__wrapper label span {
+  text-transform: initial;
+}
+
+.filter__wrapper button {
+  width: 100%;
+}
+
+.filter__wrapper .newsletter__button {
+  width: 100% !important;
+  margin-top: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  min-height: 40px;
+}
+
+.filter__wrapper.opened {
+  pointer-events: auto;
+  transform: translateY(0);
+  transition: all 0.25s ease-out;
+  opacity: 1;
+}
+
+.filter__wrapper label span {
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+.ms-choice {
+  height: 36px;
+  line-height: 36px;
+  border-radius: 4px;
+  color: #1c2e36 !important;
+  border-color: #d4d3d3 !important;
+}
+
+.ms-drop {
+  max-width: 250px;
+}
+
+.ms-drop ul > li label {
+  display: flex;
+  white-space: initial;
+  margin-bottom: 5px;
+  line-height: 1;
+  align-items: center;
+}
+
+.ms-drop label span {
+  width: 100%;
+  display: inline-block;
+  margin-bottom: 0;
+  font-size: 13px;
+  line-height: 1.3;
+}
+
+.ms-drop {
+  border: none;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 10px 0;
+}
+
+.ms-drop ul > li:hover {
+  background: #fafafa;
+}
+
+.ms-drop ul > li {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.ms-drop ul > li label {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.ms-drop ul > li span {
+  padding: 0.6rem 8px 0.5rem !important;
+}
+
+.ms-drop ul > li.hide-radio.selected {
+  color: #fff;
+  background-color: #244c6a;
+}
+
+.ms-drop ul > li.hide-radio.selected label {
+  color: white;
+}
+
+.ms-drop input[type='radio'],
+.ms-drop input[type='checkbox'] {
+  margin-top: 1rem;
+  display: none;
+}
+
+.ms-drop ul > li label {
+  padding-left: 0;
+}
+
+.ms-drop {
+  margin-top: 0px;
+}
+
+.ms-drop ul > li.selected {
+  background: #5287b0 !important;
+}
+
+.ms-drop ul > li.selected label span {
+  color: white !important;
+}

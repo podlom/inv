@@ -6,6 +6,23 @@
 {$image_class = ''}
 {/if}
 {/block}
+
+{block 'post.preview'}
+
+<div class="row post ">
+{* post--card *}
+  <div class="post__wrapper post__wrapper--big-shadow mb-4">
+    <div class="post__container  mobile-mt-0">
+        <div class="post__content content pb-6 pt-6 mobile-pt-0 mobile-pb-0">
+            {block 'post.content'}
+                {content $post attr=['class'=>'the_post_content','itemprop'=>'articleBody']}
+            {/block}
+        </div>
+    </div>
+  </div>
+</div>
+{/block}
+
 {block 'post.image'}
     <div id="newsThumb">
         <a href="#" data-reveal-id="thumbBig">
@@ -19,25 +36,31 @@
     </div>
 {/block}
 {block 'main' prepend}
-<div style="position: relative; margin-bottom: 24px;">
+{* <div style="position: relative; margin-bottom: 24px;">
     <div class="box-shadow"></div>
     <div class="tabs">
       <ul class="tabs__caption">
-        <li class="active">Характеристика</li>
-        {if count($post->getImages())>1}<a href="#photosContent">Галерея</a>{/if}
-        <a href="#eventMapBlock">Расположение</a>
-        <a href="#contacts">Контакты</a>
+        <li class="active">{if $lang === 'ru'}Характеристика{else}Characteristic{/if}</li>
+        <a href="#eventMapBlock">{if $lang === 'ru'}Расположение{else}Location{/if}</a>
+        <a href="#contactsBlock">{if $lang === 'ru'}Контакты{else}Contacts{/if}</a>
       </ul>
 
       <div class="tabs__content  active" id="panel1">
-        {include concat('inc/investments/',$post->getParent()->getSubpath())}
+        
       </div>
     </div>
-</div>
+</div> *}
 {/block}
-{block 'post.views' append}
-<div class="reviews">{widget 6 target=$post->getId()}</div> <span class="number">{$post->getRating()|number_format:1}</span>
+
+{block 'post.reviews' append}
+    <div class="rating">
+        <img src="/i/rating.png">
+        {$post->getAttr(13)|number_format}
+    </div> <!-- span class="number">{$post->getRating()|number_format:1}</span -->
 {/block}
+
+<!-- @ts template/blog/inventure.post.tpl +46 -->
+
 {block 'contacts.inner'}
 <div class="grid-x grid-margin-x">
     <div class="cell small-12 medium-6">
@@ -49,6 +72,16 @@
                 <h2>Связаться со мной</h2>
                 {form 'investment_callback'}
             </div>
+    </div>
+</div>
+
+<div class="grid-x grid-margin-x">
+    <div class="cell small-12 medium-12">
+        <div class="post-subscribe">
+            <div class="post-subscribe__title">Хотите быть в курсе новых инвестиционных предложений?</div>
+            <div class="post-subscribe__subtitle">Подпишитесь на ежемесячный дайджест!</div>
+            <a href="/digest-social" class="subscription__button post-subscribe__btn"> Подписаться </a>
+        </div>
     </div>
 </div>
 {/block}

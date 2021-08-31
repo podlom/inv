@@ -1,0 +1,31 @@
+.sort {
+  display: flex;
+  background: white;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1);
+  font-size: 14px;
+}
+
+.sort__item {
+  border-radius: 4px;
+  border: 1px solid white;
+}
+
+.sort__item a {
+  padding: 0.6em 1.2em;
+  color: rgba(0, 0, 0, 0.4);
+  display: block;
+  transition: all 0.25s ease;
+}
+
+.sort__item:hover a {
+  color: var(--main-accent-color);
+}
+
+.sort__item--active {
+  border-color: var(--main-accent-color);
+  pointer-events: none;
+}
+
+.sort__item--active a {
+  color: var(--main-accent-color);
+}

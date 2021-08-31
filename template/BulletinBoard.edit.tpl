@@ -16,9 +16,11 @@
         {else}
         <h3>Добавить объявление</h3>
         <div class="rules">
-            <div>Цена размещения объявления – <b>99 грн</b></div>
-            <div>Срок размещения объявления – <b>3 месяца</b></div>
-            <div>Ознакомиться с <a href="/rules">правилами размещения объявлений</a></div>
+            <div>Цена размещения объявления – <b>499 грн</b></div>
+            <div>Срок размещения объявления – <b>6 месяцев</b></div>
+            <div>+ Публикация <a target="_blank" href="https://www.facebook.com/inventure.com.ua">в сообществе инвесторов Facebook</a> (15 000+ подписчиков)</div>
+            <div>+ Публикация <a target="_blank" href="https://t.me/inventure">в сообществе инвесторов Telegram</a> (3 000+ подписчиков)</div>
+            <div style="font-style:italic;">Ознакомиться с <a href="/rules">правилами размещения объявлений</a></div>
         </div>
         {/if}
         {content $post}
@@ -54,6 +56,10 @@
                 <div></div>
                 <p>Картинка не должна превышать размер<br> <b>2 Mb</b> и иметь <b>соотношение ширины/высоты 4:3</b> и следующие форматы <b>JPG, JPEG, PNG, TIFF</b> </p>
             </div>
+
+            <input type="hidden" name="latel_deal_name" value="Доска объявлений">
+            <input type="hidden" name="ga_utm" value="">
+
             <input type="submit" name="" value="Отправить">
         {$form->close()}
     </div>
@@ -64,7 +70,7 @@
     {if $lang == 'en'}
                 <a href="/en/investor" class="invest_btn">invest</a>
             {else}
-                <a href="/investor" class="invest_btn">инвестировать</a>
+                <a href="/investor" class="invest_btn">Инвестировать</a>
             {/if}
     {if $lang == 'en'}
                 <a href="/en/add-inv-prop" class="invest_btn invest_btn1">find an investor</a>

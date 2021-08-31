@@ -1,0 +1,43 @@
+@import 'reset.scss';
+@import 'vars.scss';
+@import 'fonts.scss';
+@import 'utils/margins.scss';
+@import 'utils/glide.scss';
+
+@import './reset.scss';
+@import 'vars.scss';
+@import 'fonts.scss';
+
+@import 'basic.scss';
+@import 'components/select.scss';
+@import 'components/section.scss';
+@import 'components/show-more.scss';
+@import 'components/cards.scss';
+@import 'components/floating-label.scss';
+@import 'components/checkbox.scss';
+@import 'components/line.scss';
+@import 'components/news-page-title.scss';
+@import 'components/buttons.scss';
+@import 'components/content.scss';
+@import 'components/map.scss';
+@import 'components/footer.scss';
+@import 'components/img-overlay.scss';
+@import 'components/header.scss';
+@import 'components/invest-ad.scss';
+
+@import 'sections/promo-links.scss';
+@import 'sections/newsletter.scss';
+@import 'sections/preview.scss';
+@import 'sections/investor-proposals.scss';
+@import 'sections/investor.scss';
+@import 'sections/news-content.scss';
+@import 'sections/contacts.scss';
+@import 'sections/invest-projects.scss';
+@import 'sections/ukrainian-investors.scss';
+@import 'sections/video-page.scss';
+@import 'sections/plain-text.scss';
+@import 'sections/contact-form.scss';
+@import 'sections/subscription';
+@import 'sections/investments.scss';
+
+@import 'utils/display.scss';

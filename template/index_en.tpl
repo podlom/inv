@@ -1,640 +1,144 @@
-{$month=[1=>"January","February", "March","April", "May", "June", "July", "August", "September", "October", "November", "December"]}
-    
-    <div class="grid-container investment_proposals investment_proposals_en" id="investment">
-      <div class="grid-x grid-margin-x">
-        <div class="cell medium-12 large-9">
-          <section class="investment">
-            <div class="title">
-              <h2><a href="/en/investments">Investment Proposals</a></h2>
-            </div>
-            <nav>
-                <a href="/en/investments/projects">Investment Projects and Startups</a> |
-                <a href="/en/investments/business">Business for Sale</a> |
-                <a href="/en/investments/realestate">Commercial Property</a> |
-                <a href="/en/investments/land">Land</a> |
-                <a href="/en/investments/offer">Investor Offers</a>
-            </nav>
-            <div class="mobile_category">
-              <a href="/en/investments">Investment Proposals</a><i class="fa fa-chevron-right"></i><i class="fa fa-chevron-down"></i>
-              <ul>
-                  <li><a href="/en/investments/business">Business for sale</a></li>
-                  <li><a href="/en/investments/realestate">Commercial property</a></li>
-                  <li><a href="/en/investments/land">Lands</a></li>
-                  <li><a href="/en/investments/offer">Investor offers</a></li>
-              </ul>
+{* prefilter=off *}
+{* height: calc(100% - 80px); *}
+
+<div class="index-page">
+  <div class="container container--main container--post the_post inventure_list z-0 relative">
+    <main class="main large-9">
+      {include 'components/invest-list'}
+    </main>
+    <aside class="sidebar sidebar--index desktop-only">
+      {include 'components/promo-links'}
+      {include 'components/invest-filter'}
+    </aside>
+  </div>
+  <div class="container">
+    <div class="show-more show-more--big">
+      <a href="/en/investments" class="show-more__btn font-medium ">Show all</a>
+    </div>
+  </div>
+
+  {include 'components/newsletter-full'}
+
+  <div class="container container--main container--post the_post inventure_list mt-6 z-0 relative">
+    <main class="main large-9">
+      <section>
+        {* news *}
+
+        <div class="section__title-categories pt-0 mb-2 pb-0 flex flex-row justify-between items-center mt-4">
+          <a href="/en/news"><h2  class="section__title-categories pr-4">News</h2></a>
+          <ul class="sort desktop-only text-xs">
+            <li class="sort__item"><a href="/en/news">All</a></li>
+            <li class="sort__item"><a href="/en/news/ukraine">Ukraine</a></li>
+            <li class="sort__item"><a href="/en/news/world">World</a></li>
+          </ul>
+        </div>
+        <div class="relative z-0">
+          <div class="section__categories-overlay"></div>
+          <nav class="section__categories">
+              <a class="section__category" href="/en/news/investments">{if $lang === 'ru'}Прямые инвестиции и M&A{else}Private Equity & M&amp;A{/if}</a>
+              <a class="section__category" href="/en/news/startup">{if $lang === 'ru'}Стартапы{else}Venture Capital &amp; Startups{/if}</a>
+              <a class="section__category" href="/en/news/government">{if $lang === 'ru'}Макроинвестиции{else}Macroeconomics{/if}</a>
+              <a class="section__category" href="/en/news/banking">{if $lang === 'ru'}Кредитование{else}Banking{/if}</a>
+              <a class="section__category" href="/en/news/stock">{if $lang === 'ru'}Фондовый рынок{else}Stock Market &amp; IPO{/if}</a>
+              <a class="section__category" href="/en/news/realestate">{if $lang === 'ru'}Недвижимость{else}Commercial Property{/if}</a>
+          </nav>
+        </div>
+
+        {lent_load '/en/news' 6 var="news_all" analytics=1}
+        <div class="cards">
+          {foreach $news_all as $post}
+            {include 'components/card-post-without-desc'}
+          {/foreach}
+        </div>
+        <div class="show-more">
+          <a href="/en/news" class="show-more__btn font-medium ">Show all</a>
+        </div>
+      </section>
+      
+      <section>
+        <h2 class="section__title-categories mt-4"><a href="/en/analytics">Analytics</a></h2>
+        <div class="relative z-0">
+          <div class="section__categories-overlay"></div>
+          <nav class="section__categories">
+            <a class="section__category" href="/en/analytics/investments">{if $lang === 'ru'}Исследования{else}Research{/if}</a>
+            <a class="section__category" href="/en/analytics/articles">{if $lang === 'ru'}Статьи{else}Articles{/if}</a>
+            <a class="section__category" href="/en/analytics/formula">{if $lang === 'ru'}Интервью{else}Investment interview{/if}</a>
+            <a class="section__category" href="/en/analytics/we-invest-in-ukraine">{if $lang === 'ru'}Инвестируем в Украину{else}We invest in Ukraine{/if}</a>
+            <a class="section__category" href="/en/tools/database">{if $lang === 'ru'}Рейтинги{else}Ratings{/if}</a>
+            <a class="section__category" href="/en/tools/library">{if $lang === 'ru'}Библиотека{else}Library{/if}</a>
+            <a class="section__category" href="/en/tools/investors">{if $lang === 'ru'}Инвесторы{else}Investors{/if}</a>
+          </nav>
+        </div>
+        {$invest=[]}
+        {lent_load '/en/analytics' 6 var='analytics' analytics=1}
+          <div class="cards">
+            {foreach $analytics as $post}
+              {include 'components/card-post-without-desc'}
+            {/foreach}
           </div>
-            <article class="grid-container">
-                    <div class="grid-x grid-margin-x">
-                      <div class="cell small-12 medium-5 large-5">
-                        {lent_load '/en/investments' 6 var="posts" analytics=1}
-                        {$bigpost=array_shift($posts)}
-                      <div style="position: relative;">
-                        <div class="box-shadow"></div>  
-                        <div class="title-news">
-                          <div class="img">
-                            <a href="{$bigpost->getPath()}">
-                              <img class="lazyimg" data-src="{$bigpost->getImage()->thumbup(350,254)->getUrl()}" alt='{$bigpost->getTitle()}'>
-                            </a>
-                          </div>
-                          <div class="info">
-                            <div class="statistic">
-                              <div class="date">
-                                {$bigpost->getPublished()->format('d.m.y')}
-                              </div>
-                              <div class="views">
-                                <img src="/i/views.png">
-                                {$bigpost->getViews()}
-                              </div>
-                              <div class="rating">
-                                <img src="/i/rating.png">
-                                {$bigpost->getRating()|number_format:1}
-                              </div>
-                            </div>
-                            <div class="category">
-                            {if $bigpost->getParent()->getId() == 9778}
-                                <a href="{$bigpost->getParent()->getPath()}"><img src="/i/projects.png" alt="" />{$bigpost->getParent()->getH1()}</a>
-                            {elseif $bigpost->getParent()->getId() == 9779}
-                                <a href="{$bigpost->getParent()->getPath()}"><img src="/i/business.png" alt="" />{$bigpost->getParent()->getH1()}</a>
-                            {elseif $bigpost->getParent()->getId() == 9780}
-                                <a href="{$bigpost->getParent()->getPath()}"><img src="/i/realestate.png" alt="" />{$bigpost->getParent()->getH1()}</a>
-                            {elseif $bigpost->getParent()->getId() == 9781}
-                                <a href="{$bigpost->getParent()->getPath()}"><img src="/i/land.png" alt="" />{$bigpost->getParent()->getH1()}</a>
-                            {elseif $bigpost->getParent()->getId() == 9782}
-                                <a href="{$bigpost->getParent()->getPath()}"><img src="/i/offer.png" alt="" />{$bigpost->getParent()->getH1()}</a>
-                            {else}
-                                <span></span>
-                            {/if}
-                          </div>
-                            <h4><a href="{$bigpost->getPath()}">{$bigpost->getTitle()}</a></h4>
-                            <p>{$bigpost->getShortText()|truncate:150:"  ..."}</p>
-                            <div class="position">
-                          <div class="place">
-                            <img src="/i/ukraine.png">{if $bigpost->hasAttr("10")} {$bigpost->printAttr("10")}{/if}
-                          </div>
-                          <hr>
-                            <div class="footer">
-                            <div>
-                            {if $bigpost->getParent()->getId() == 9779 || $bigpost->getParent()->getId() == 9780 ||$bigpost->getParent()->getId() == 9781}
-                              <p><span style="font-weight: 700;">PRICE</span> - 
-                              {if $bigpost->getAttr("15")!=''} ${$bigpost->printAttr("15")|number_format:0:'.':' '}{else}Negotiable{/if}</p>
-                            {elseif $bigpost->getParent()->getId() == 9778}
-                              <p><span style="font-weight: 700;">INVESTMENTS</span> - 
-                              {if $bigpost->hasAttr("34")} ${$bigpost->printAttr("34")|number_format:0:'.':' '}{/if}</p>
-                            {elseif $bigpost->getParent()->getId() == 9782}
-                              <p><span style="font-weight: 700;">INVESTMENTS</span> - 
-                              {if $bigpost->hasAttr("31")} ${$bigpost->printAttr("31")|number_format:0:'.':' '}{/if}</p>
-                              {/if} 
-                            </div>
-                          </div>
-                        </div>
-                          </div>
-                        </div>
-                      </div>
-                      </div>
-                      <div class="cell small-12 medium-7 large-7">
-                        <div class="tabs">
-                          <ul class="tabs__caption">
-                            <li class="active">Latest</li>
-                            <li>Popular</li>
-                            <li>Featured</li>
-                          </ul>
 
-                          <div class="tabs__content  active">
-                                                   {foreach $posts as $post}
-                            <div class="item">
-                              <div class="img">
-                                <a href="{$post->getPath()}" >
-                                  <img class="lazyimg" data-src="/img/thumbup.236.170{$post->getImage()->getUrl()}" alt='{$post->getTitle()}' />
-                                </a>
-                              </div>
-                              <div class="content">
-                                  <h4><a href="{$post->getPath()}">{$post->getTitle()}</a></h4>
-                                  <div class="category">
-                            {if $post->getParent()->getId() == 9778}
-                                <a href="{$post->getParent()->getPath()}"><img src="/i/projects.png" alt="" />{$post->getParent()->getH1()}</a>
-                            {elseif $post->getParent()->getId() == 9779}
-                                <a href="{$post->getParent()->getPath()}"><img src="/i/business.png" alt="" />{$post->getParent()->getH1()}</a>
-                            {elseif $post->getParent()->getId() == 9780}
-                                <a href="{$post->getParent()->getPath()}"><img src="/i/realestate.png" alt="" />{$post->getParent()->getH1()}</a>
-                            {elseif $post->getParent()->getId() == 9781}
-                                <a href="{$post->getParent()->getPath()}"><img src="/i/land.png" alt="" />{$post->getParent()->getH1()}</a>
-                            {elseif $post->getParent()->getId() == 9782}
-                                <a href="{$post->getParent()->getPath()}"><img src="/i/offer.png" alt="" />{$post->getParent()->getH1()}</a>
-                            {else}
-                                <span></span>
-                            {/if}
-                          </div>
-                                <div class="statistic">
-                                  <div class="date">
-                                    {$post->getPublished()->format('d.m.y')}
-                                  </div>
-                                  <div class="views">
-                                    <img src="/i/views.png">
-                                    {$post->getViews()}
-                                  </div>
-                                  <div class="rating">
-                                    <img src="/i/rating.png">
-                                    {$post->getRating()|number_format:1}
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            {/foreach}
-                            <a href="/en/investments" class="more">View all</a>
-                          </div>
-
-                          <div class="tabs__content">
-                            {lent '/en/investments' 5 order_by="a.views DESC" var='news' analytics=1}
-                            <div class="item">
-                              <div class="img">
-                                <a href="{$news->getPath()}" >
-                                  <img class="lazyimg" data-src="/img/thumbup.236.170{$news->getImage()->getUrl()}" alt='{$news->getTitle()}' />
-                                </a>
-                              </div>
-                              <div class="content">
-                                  <h4><a href="{$news->getPath()}">{$news->getTitle()}</a></h4>
-                                  <div class="category">
-                            {if $post->getParent()->getId() == 9778}
-                                <a href="{$post->getParent()->getPath()}"><img src="/i/projects.png" alt="" />{$post->getParent()->getH1()}</a>
-                            {elseif $post->getParent()->getId() == 9779}
-                                <a href="{$post->getParent()->getPath()}"><img src="/i/business.png" alt="" />{$post->getParent()->getH1()}</a>
-                            {elseif $post->getParent()->getId() == 9780}
-                                <a href="{$post->getParent()->getPath()}"><img src="/i/realestate.png" alt="" />{$post->getParent()->getH1()}</a>
-                            {elseif $post->getParent()->getId() == 9781}
-                                <a href="{$post->getParent()->getPath()}"><img src="/i/land.png" alt="" />{$post->getParent()->getH1()}</a>
-                            {elseif $post->getParent()->getId() == 9782}
-                                <a href="{$post->getParent()->getPath()}"><img src="/i/offer.png" alt="" />{$post->getParent()->getH1()}</a>
-                            {else}
-                                <span></span>
-                            {/if}
-                          </div>
-                                <div class="statistic">
-                                  <div class="date">
-                                    {$news->getPublished()->format('d.m.y')}
-                                  </div>
-                                  <div class="views">
-                                    <img src="/i/views.png">
-                                    {$news->getViews()}
-                                  </div>
-                                  <div class="rating">
-                                    <img src="/i/rating.png">
-                                    {$news->getRating()|number_format:1}
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            {/lent}
-                            <a href="/en/investments" class="more">View all</a>
-                          </div>
-
-                          <div class="tabs__content">
-                            {lent '/en/investments' 5 order_by="a.rating DESC" var='news' analytics=1}
-                            <div class="item">
-                              <div class="img">
-                                <a href="{$news->getPath()}" >
-                                  <img class="lazyimg" data-src="/img/thumbup.236.170{$news->getImage()->getUrl()}" alt='{$news->getTitle()}' />
-                                </a>
-                              </div>
-                              <div class="content">
-                                  <h4><a href="{$news->getPath()}">{$news->getTitle()}</a></h4>
-                                  <div class="category">
-                            {if $post->getParent()->getId() == 9778}
-                                <a href="{$post->getParent()->getPath()}"><img src="/i/projects.png" alt="" />{$post->getParent()->getH1()}</a>
-                            {elseif $post->getParent()->getId() == 9779}
-                                <a href="{$post->getParent()->getPath()}"><img src="/i/business.png" alt="" />{$post->getParent()->getH1()}</a>
-                            {elseif $post->getParent()->getId() == 9780}
-                                <a href="{$post->getParent()->getPath()}"><img src="/i/realestate.png" alt="" />{$post->getParent()->getH1()}</a>
-                            {elseif $post->getParent()->getId() == 9781}
-                                <a href="{$post->getParent()->getPath()}"><img src="/i/land.png" alt="" />{$post->getParent()->getH1()}</a>
-                            {elseif $post->getParent()->getId() == 9782}
-                                <a href="{$post->getParent()->getPath()}"><img src="/i/offer.png" alt="" />{$post->getParent()->getH1()}</a>
-                            {else}
-                                <span></span>
-                            {/if}
-                          </div>
-                                <div class="statistic">
-                                  <div class="date">
-                                    {$news->getPublished()->format('d.m.y')}
-                                  </div>
-                                  <div class="views">
-                                    <img src="/i/views.png">
-                                    {$news->getViews()}
-                                  </div>
-                                  <div class="rating">
-                                    <img src="/i/rating.png">
-                                    {$news->getRating()|number_format:1}
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            {/lent}
-                            <a href="/en/investments" class="more">View all</a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </article>
-          </section>
+        <div class="show-more">
+          <a href="/en/analytics" class="show-more__btn font-medium ">Show all</a>
         </div>
-        <div class="cell medium-12 large-3">
-          <aside class="sidebar">
-            <a href="/en/investor" class="invest_btn">Invest</a>
-            <a href="/en/add-inv-prop" class="invest_btn invest_btn1">Find an investor</a>
-            <div class="newsletter-side">
-              <div class="box-shadow"></div>
-              <img src="/images/newsletter-icon.svg" alt="" class="newsletter-side__img">
-              <div class="newsletter-side__heading">
-                Subscribe to our Newsletter
-            </div>
-              <button class="newsletter-side__button open_popup">Subscribe</button>
-            </div>
-            <!-- <div class="board">
-                <div class="box-shadow"></div>
-                <h3><a href="/board">Доска объявлений</a> <a href="/bulletin/add">+ Добавить объявление</a></h3>
-                <div class="board1">
-                  {lent '/en/board' 7 var='post'  analytics=1}
-                  <div>
-                    <span class="published">{$post->getPublished()->format('d.m.y')}</span>
-                    <a href="/board#adv-{$post->getId()}">{$post->getH1()|truncate:100:"  ..."}</a>
-                  </div>
-                  {/lent}
-                </div>
-                <div class="buttons">
-                  <a href="/board" class="a1">Другие объявления <i class="fa fa-chevron-right"></i></a>
-                  <a href="/bulletin/add" class="a2">Добавить объявление</a>
-                </div>
-            </div> -->
-              <!-- <div class="box-shadow_archive">
-                <div class="box-shadow"></div>
-                <div class="archive">
-                    <div class="title">
-                       <a href="/en/analytics/digest"> <img src="/i/download_icon.png" alt="Загрузить" title="Загрузить">
-                        Archive</a>
-                      </div>
-                    <form name="archiveForm" method="post" action="#">
-                        <div class="d_n" id="digest">
-                            {load_digests}
-                            {foreach $digests as $digest}
-                                <a class="m{$digest->getPubDate()->format('n')} y{$digest->getPubDate()->format('Y')}" href="{$digest->getUrl()}"></a>
-                            {/foreach}
-                        </div>
-                        <div class="option">
-                            <select name="archiveFormYear" id="archiveFormYear" class="select1">
-                                {$now = date_create()}
-                                {for $year=2012 to $now->format('Y')}
-                                    <option value="{$year}" label="{$year}"{if $digest->getPubDate()->format('Y')==$year} selected{/if}>{$year}</option>
-                                {/for}
-                            </select>
-                            <select name="archiveFormMonths" id="archiveFormMonths" class="select2">
-                                {foreach ["January","February", "March","April", "May", "June", "July", "August", "September", "October", "November", "December"] as $id => $name}
-                                    <option value="{$id+1}"{if $digest->getPubDate()->format('n')==$id+1} selected{/if} label="{$name}">{$name}</option>
-                                {/foreach}
-                            </select>
-                        </div>
-                            <a class="blue_but cell-but"  target="_blank" id="archiveFormButton" href="#" disabled="disabled">Download</a>
-                    </form>
-                </div>
-              </div> -->
-          </aside>
+      </section>
+      
+      {* <section id="events">
+        <h2 class="section__title-categories mt-4"><a href="/en/tools/events">Events</a></h2>
+        {$event=[]}
+        <div class="cards cards--event">
         </div>
-      </div>
-    </div>
-
-
-    <div class="newsletter">
-      <div class="container grid-container">
-        <div class="newsletter__title">Do you want to receive monthly newsletters?</div>
-        <p class="newsletter__text">InVenture Investment Digest - an electronic professional journal that provides monthly overview in sphere of direct investment and venture capital. <br><a target="_blank" id='last-news-link' href="/" class="newsletter__link">Download last edition of the newsletter</a></p>
-        <div class="newsletter__buttons">
-          <button class="newsletter__button newsletter__button--white open_popup">Subscribe</button>
-          <a href="en/analytics/digest" class="newsletter__button newsletter__button--darken">Open archive</a>
+        <div class="show-more">
+          <a href="/en/tools/events" class="show-more__btn font-medium ">Show all</a>
         </div>
-      </div>
-      <div id="newsletter__archive" hidden>
-        {load_digests}
-        
-        {assign var=digest value=$digests|@end} 
-        <a class="m{$digest->getPubDate()->format('n')} y{$digest->getPubDate()->format('Y')}" href="{$digest->getUrl()}"></a>
-      </div>
-    </div>
+      </section> *}
 
-    <div class="grid-container all_news all_news_en" id="all_news">
-      <div class="grid-x grid-margin-x">
-        <div class="cell medium-12 large-9">
-          <section class="news news_en">
-            <div class="title">
-              <h2><a href="/en/news">News</a></h2>
-            </div>
-            <nav>
-                <a href="/en/news/investments">Private Equity &amp; M&amp;A</a> |
-                <a href="/en/news/startup">Venture Capital &amp; Startups</a> |
-                <a href="/en/news/government">Macroeconomics</a> |
-                <a href="/en/news/banking">Banking</a> |
-                <a href="/en/news/stock">Stock Market &amp; IPO</a> |
-                <a href="/en/news/realestate">Commercial Property</a> 
-            </nav>
-            <div class="mobile_category">
-              <a href="/en/news/investments">Private Equity &amp; M&amp;A</a><i class="fa fa-chevron-right"></i><i class="fa fa-chevron-down"></i>
-              <ul>
-                  <li><a href="/en/news/startup">Venture Capital &amp; startups</a></li>
-                  <li><a href="/en/news/government">Macroeconomics</a></li>
-                  <li><a href="/en/news/banking">Banking</a></li>
-                  <li><a href="/en/news/stock">Stock Market &amp; IPO</a></li>
-                  <li><a href="/en/news/realestate">Commercial Property</a> </li>
-              </ul>
-          </div>
-            <article class="grid-container">
-              <div class="grid-x grid-margin-x">
-                <div class="cell  bg-white  small-12 madium-5 large-5">
-                    {lent_load '/en/news' 6 var="news_all" analytics=1}
-                    {$bignews=array_shift($news_all)}
-                <div style="position: relative;">
-                  <div class="box-shadow"></div>
-                  <div class="title-news">
-                    <div class="img">
-                      <a href="{$bignews->getPath()}">
-                        <img class="lazyimg" data-src="{$bignews->getImage()->thumbup(350,254)->getUrl()}" alt='{$bignews->getTitle()}'>
-                      </a>
+      {* <section class="news">
+        <h2 class="section__title-categories mt-4"><a href="/en/tools/video">Video</a></h2>
+
+        <div class="cards cards--video">
+          {$video=[]}
+          {lent '/en/tools/video' 4 var='news'}
+          {$video[] = $news}
+            <div class="cards__item video">
+              <div class="cards__img-wrapper">
+                <div class="youtube cards__img" data-embed="{$news->printAttr("55")}">
+                    <div class="play-button">
+                      <svg width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="35" cy="35" r="35" fill="#5E87B3"/>
+                        <path d="M47.7961 32.577L47.7962 32.5771C48.7587 33.2356 49.1662 34.0294 49.166 34.7782V34.7785C49.166 35.525 48.7543 36.3204 47.7893 36.9816L29.6607 49.3816L29.66 49.382C28.921 49.8884 28.287 50.0852 27.8549 50.0852C27.4772 50.0852 27.2307 49.9489 27.0501 49.711C26.8452 49.4409 26.666 48.9532 26.666 48.1828V21.3812C26.666 20.6098 26.8454 20.121 27.051 19.8502C27.2322 19.6115 27.4798 19.4746 27.8592 19.4746C28.2936 19.4746 28.9416 19.6738 29.675 20.1761L29.6753 20.1763L47.7961 32.577Z" stroke="white" stroke-width="2"/>
+                      </svg>
                     </div>
-                    <div class="info">
-                      <div class="statistic">
-                        <div class="date">
-                         {$bignews->getPublished()->format('d.m.y')}
-                        </div>
-                        <div class="views">
-                          <img src="/i/views.png">
-                          {$bignews->getViews()}
-                        </div>
-                      </div>
-                      {$r=$bignews->getRubrics()}
-                        {if $r.0}<div class="hint m_t-5 category"><a href="#"><img src="/i/folded-newspaper.png" alt="" />{$r.0->getH1()}</a></div>{/if}
-                      <h4><a href="{$bignews->getPath()}">{$bignews->getTitle()}</a></h4>
-                      <p>{$bignews->getShortText()|truncate:300:"  ..."}</p>
-                    </div>
-                  </div>
-                </div>
-                </div>
-                <div class="cell small-12 medium-12 large-7">
-                  <div class="tabs">
-                          <ul class="tabs__caption">
-                            <li class="active">Latest</li>
-                            <li>Ukraine</li>
-                            <li>World</li>
-                          </ul>
-
-                          <div class="tabs__content  active">
-                              {foreach $news_all as $news}
-                      <div class="item">
-                        <div class="img">
-                            <a href="{$news->getPath()}" >
-                            <img class="lazyimg" data-src="/img/thumbup.236.170{$news->getImage()->getUrl()}" alt='{$news->getTitle()}' />
-                        </a>
-                        </div>
-                        <div class="content">
-                            <h4><a href="{$news->getPath()}">{$news->getTitle()}</a></h4>
-                            {$r=$news->getRubrics()}
-                          {if $r.0}<div class="hint m_t-5 category"><a href="#"><img src="/i/folded-newspaper.png" alt="" />{$r.0->getH1()}</a></div>{/if}
-                          <div class="statistic">
-                            <div class="date">
-                             {$news->getPublished()->format('d.m.y')}
-                            </div>
-                            <div class="views">
-                              <img src="/i/views.png">
-                              {$news->getViews()}
-                            </div>
-                         </div>
-                        </div>
-                      </div>
-                      {/foreach}
-                      <a href="/en/news" class="more">View all</a>
-                      </div>
-
-                          <div class="tabs__content">
-                            {lent '/en/news' 5 category='9752' var='news' alaytics=1}
-                      <div class="item">
-                        <div class="img">
-                            <a href="{$news->getPath()}" >
-                            <img class="lazyimg" data-src="/img/thumbup.236.170{$news->getImage()->getUrl()}" alt='{$news->getTitle()}' />
-                        </a>
-                        </div>
-                        <div class="content">
-                            <h4><a href="{$news->getPath()}">{$news->getTitle()}</a></h4>
-                            {$r=$news->getRubrics()}
-                          {if $r.0}<div class="hint m_t-5 category"><a href="#"><img src="/i/folded-newspaper.png" alt="" />{$r.0->getH1()}</a></div>{/if}
-                            <div class="statistic">
-                            <div class="date">
-                             {$news->getPublished()->format('d.m.y')}
-                            </div>
-                            <div class="views">
-                              <img src="/i/views.png">
-                              {$news->getViews()}
-                            </div>
-                         </div>
-                        </div>
-                      </div>
-                      {/lent}
-                            <a href="/en/news/ukraine" class="more">View all</a>
-                          </div>
-
-                          <div class="tabs__content">
-                            {lent '/en/news' 5 category="9750" var='news' alaytics=1}
-                      <div class="item">
-                        <div class="img">
-                            <a href="{$news->getPath()}" >
-                            <img class="lazyimg" data-src="/img/thumbup.236.170{$news->getImage()->getUrl()}" alt='{$news->getTitle()}' />
-                        </a>
-                        </div>
-                        <div class="content">
-                            <h4><a href="{$news->getPath()}">{$news->getTitle()}</a></h4>
-                            {$r=$news->getRubrics()}
-                          {if $r.0}<div class="hint m_t-5 category"><a href="#"><img src="/i/folded-newspaper.png" alt="" />{$r.0->getH1()}</a></div>{/if}
-                            <div class="statistic">
-                            <div class="date">
-                             {$news->getPublished()->format('d.m.y')}
-                            </div>
-                            <div class="views">
-                              <img src="/i/views.png">
-                              {$news->getViews()}
-                            </div>
-                         </div>
-                        </div>
-                      </div>
-                      {/lent}
-                            <a href="/en/news/world" class="more">View all</a>
-                          </div>
-                        </div>
                 </div>
               </div>
-            </article>
-          </section>
-        </div>
-        
-      </div>
-    </div>
-    <div class="grid-container all_read" id="all_read">
-      <div class="grid-x grid-margin-x">
-        <div class="cell medium-12 large-9">
-          <section class="news">
-            <div class="title">
-              <h2><a href="/en/analytics">Analytics</a></h2>
+              <a href="{$news->getPath()}"> <h2 class="mt-2 line-clamp line-clamp--2 font-semibold">{$news->getTitle()}</h2></a>
             </div>
-            <nav>
-                <a href="/en/analytics/investments">Research</a> |
-                <a href="/en/analytics/articles">Articles</a> |
-                <a href="/en/analytics/formula">Investment interview</a> |
-                <a href="/en/analytics/we-invest-in-ukraine">We invest in Ukraine</a> |
-                <a href="/en/tools/database">Ratings</a> |
-                <a href="/en/tools/library">Library</a> |
-                <a href="/en/tools/investors">Investors</a>
-            </nav>
-            <div class="mobile_category">
-              <a href="/en/analytics/investments">Research</a><i class="fa fa-chevron-right"></i><i class="fa fa-chevron-down"></i>
-              <ul>
-                  <li><a href="/en/analytics/articles">Articles</a></li>
-                <li><a href="/en/analytics/formula">Investment interview</a></li>
-                <li><a href="/en/analytics/we-invest-in-ukraine">We invest in Ukraine</a></li>
-                <li><a href="/en/tools/database">Ratings</a></li>
-                <li><a href="/en/tools/library">Library</a></li>
-                <li><a href="/en/tools/investors">Investors</a></li>
-              </ul>
-          </div>
-            <article class="grid-container">
-              <div class="grid-x grid-margin-x">
-                {$invest=[]}
-                {lent '/en/analytics' 3 var='analytics' analytics=1}
-                {$invest[] = $analytics}
-                <div class="cell  bg-white  small-12 medium-4 large-4">
-                  <div class="box-shadow"></div>
-                  <div class="read_news">
-                    <div class="img">
-                      <a href="{$analytics->getPath()}">
-
-                        <img class="lazyimg" data-src="{$analytics->getImage()->thumbup(320,230)->getUrl()}" alt='{$analytics->getTitle()}'>
-                      </a>
-                    </div>
-                    <div class="info">
-                      <div class="statistic">
-                        <div class="date">
-                          {$analytics->getPublished()->format('d.m.y')}
-                        </div>
-                        <div class="views">
-                         <img src="/i/views.png">
-                          {$analytics->getViews()}
-                        </div>
-                      </div>
-                      <div class="category"> 
-                        <img src="/i/pers.png" alt="" />{$analytics->getAttr(1)}
-                      </div>
-                      <h4><a href="{$analytics->getPath()}">{$analytics->getTitle()}</a></h4>
-                      <p>{$analytics->getShortText()|truncate:181:"  ..."}</p>
-                  </div>
-                </div>
-                </div>
-                {/lent}
-                <a href="/en/analytics" class="cell small-12 more">View all</a>
-              </div>
-            </article>
-          </section>
+          {/lent}
         </div>
-        <div class="cell medium-12 large-3">
-            <aside>
-              
-            </aside>
+        <div class="show-more">
+          <a href="/en/tools/video" class="show-more__btn font-medium ">Show all</a>
         </div>
-      </div>
-    </div>
-    <div class="grid-container events">
-      <div class="grid-x grid-margin-x">
-        <div class="cell medium-12 large-9">
-          <section class="news">
-            <div class="title">
-              <h2><a href="/en/tools/events">Events</a></h2>
-            </div>
-            <article class="grid-container">
-              <div class="grid-x grid-margin-x">
-                {$event=[]}
-                {lent '/en/tools/events' 4 var='events' analytics=1}
-                {$event[]=$events}
-                <div class="cell small-6">
-                  <div class="event">
-                    <div class="img">
-                      <a href="{$events->getPath()}">
-                        <img class="lazyimg" data-src="{$events->getImage()->thumbup(320,230)->getUrl()}" alt='{$events->getTitle()}'>
-                      </a>
-                    </div>
-                    <div class="content">
-                      <h5><a href="{$events->getPath()}" >{$events->getTitle()}</h5>
-                      <div class="date">
-                        <span><img src="/i/calendar.png"> {$events->getAttr(7)->format('d.m.Y')}</span>
-                        <span><img src="/i/clock.png"> {$events->getAttr(7)->format('H:i')} - {$events->getAttr(8)->format('H:i')}</span>
-                      </div>
-                      <div class="category">
-                        <img src="/i/pers.png" alt="" />{$events->getAttr(9)}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                {/lent}
-              </div>
-            </article>
-          </section>
+      </section>
+       *}
+    </main>
+    <aside class="sidebar without-promo-links desktop-only ">
+      {include 'components/sidebar'}
+    </aside>
+  </div>
+
+  {include 'components/subscribe-modal'}
+{* 
+  <div class="dark_bg"></div>
+  <div class="my_popup ">
+    {#mod Mail}
+        <div class="my_popup__wrapper">
+            <h5>Заполните, пожалуйста, ваши контактные данные, чтобы получать ежемесячную рассылку!</h5>
+            <i class="fa fa-close"></i>
+            {subscribe}
         </div>
-      </div>
-    </div>
-    <div class="grid-container video_block">
-      <div class="grid-x grid-margin-x">
-        <div class="cell medium-12 large-9">
-          <section class="news">
-            <div class="title">
-              <h2><a href="/en/tools/video">Video</a></h2>
-            </div>
-            <article class="grid-container">
-              <div class="grid-x grid-margin-x">
-                {$video=[]}
-                {lent '/en/tools/video' 3 var='news'}
-                {$video[] = $news}
-                <div class="cell small-12 medium-4 large-4">
-                  <div class="box-shadow"></div>
-                  <div class="video">
-                    <div class="this_video">
-                      <!-- <iframe class="video-iframe-index" src="//www.youtube.com/embed/{$news->printAttr("55")}" allowfullscreen></iframe> -->
-                      <div class="youtube" data-embed="{$news->printAttr("55")}">
-                          <div class="play-button"></div>
-                      </div>
-                    </div>
-                    <div class="info">
-                      <div class="statistic">
-                        <div class="date">
-                          {$news->getPublished()->format('d.m.y')}
-                        </div>
-                        <div class="views">
-                          <img src="/i/views.png">
-                          {$news->getViews()}
-                        </div>
-                      </div>
-                      <h4><a href="{$news->getPath()}">{$news->getTitle()}</a></h4>
-                    </div>
-                  </div>
-                </div>
-                {/lent}
-              </div>
-            </article>
-          </section>
-        </div>
-      </div>
-    </div>
+    {#/mod}
+  </div> *}
 
+  {* <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> *}
 
-
-
-    
-<div class="dark_bg"></div>
-<div class="my_popup ">
-  {#mod Mail}
-      <div class="my_popup__wrapper">
-          <h5>Fill in the contact details to receive the monthly newsletter!</h5>
-          <i class="fa fa-close"></i>
-          {subscribe}
-      </div>
-  {#/mod}
+  {* <script src="/js/filter.js"></script> *}
 </div>

@@ -1,0 +1,10 @@
+User-agent: *
+Disallow: /admin/*
+Disallow: /skynar/*
+Disallow: /tools/experts/*
+Sitemap: https://inventure.com.ua/sitemap.xml
+User-agent: Yandex
+Disallow: /admin/*
+Disallow: /skynar/*
+Disallow: /tools/experts/*
+Host: https://inventure.com.ua

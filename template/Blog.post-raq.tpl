@@ -69,8 +69,17 @@
                 <div class="viewbox-cnt attr-in">
                     <div class="hint m_b-10">
                     {block 'post.meta'}
-                        <span>ID: {$post->getId()}</span>
-                        {block 'post.publish'}<time class="time">{$post->getPublished()->format('d.m.y')}</time>{/block}
+
+                        {block 'post.publish'}
+                            <span class="id-number"><strong style="margin: 0 5px 0 0">ID:</strong> {$post->getId()}</span>
+                        {/block}
+
+                        {block 'post.id-num'}
+                            <span class="id-number"><strong>ID:</strong> {$post->getId()}</span>
+                        {/block}
+
+                        <!-- @ts Blog.post-raq.tpl -->
+
                     {if $post->getParent()}
                         {if $post->getParent()->getId() == 15088}
                             <a href="{$post->getParent()->getPath()}"><img src="/i/projects.png" alt="" class="category"/>{$post->getParent()->getH1()}</a>
@@ -111,11 +120,33 @@
                     </div>
                     <div class="row">
                         <div class="columns">
-                            <ul class="inline-list share-btn">
+                            <ul class="inline-list share-btn blog-post-raq">
                                 <li><span class='st_facebook_hcount' st_url="https://inventure.com.ua{$post->getPath()}" displayText='Facebook'></span></li>
                                 <li><span class='st_twitter_hcount' st_url="https://inventure.com.ua{$post->getPath()}" displayText='Tweet'></span></li>
                                 <li><span class='st_linkedin_hcount' st_url="https://inventure.com.ua{$post->getPath()}" displayText='LinkedIn'></span></li>
                                 <li><span class='st_googleplus_hcount' st_url="https://inventure.com.ua{$post->getPath()}" displayText='Google +'></span></li>
+
+                                {if !$user && $sm}
+                                    {$user = $sm->getUser()}
+                                {/if}
+
+                                {if $user && $user->canAccess('Page.publish')}
+                                    <li><span class="st_get_utm_url" displayText="Генератор UTM"></span>
+                                        <select name="utm-list" class="copySelect">
+                                            <option value=""> -- Оберіть канал трафіку -- </option>
+                                            <option value="https://inventure.com.ua{if $page}{$page->getPath()}{else}{if $post}{$blog->getPath()}{$post->getPath()}{else}{$blog->getPath()}{/if}{/if}?utm_source=facebook&utm_medium=cpc">Facebook Ads</option>
+                                            <option value="https://inventure.com.ua{if $page}{$page->getPath()}{else}{if $post}{$blog->getPath()}{$post->getPath()}{else}{$blog->getPath()}{/if}{/if}?utm_source=investor&utm_medium=email">Email</option>
+                                            <option value="https://inventure.com.ua{if $page}{$page->getPath()}{else}{if $post}{$blog->getPath()}{$post->getPath()}{else}{$blog->getPath()}{/if}{/if}?utm_source=digest&utm_medium=pdf">Digest</option>
+                                            <option value="https://inventure.com.ua{if $page}{$page->getPath()}{else}{if $post}{$blog->getPath()}{$post->getPath()}{else}{$blog->getPath()}{/if}{/if}?utm_source=telegram&utm_medium=channel">Telegram</option>
+                                            <option value="https://inventure.com.ua{if $page}{$page->getPath()}{else}{if $post}{$blog->getPath()}{$post->getPath()}{else}{$blog->getPath()}{/if}{/if}?utm_source=google&utm_medium=cpc">Google Ads</option>
+                                            <option value="https://inventure.com.ua{if $page}{$page->getPath()}{else}{if $post}{$blog->getPath()}{$post->getPath()}{else}{$blog->getPath()}{/if}{/if}?utm_source=instagram&utm_medium=cpc">Instagram Ads</option>
+                                            <option value="https://inventure.com.ua{if $page}{$page->getPath()}{else}{if $post}{$blog->getPath()}{$post->getPath()}{else}{$blog->getPath()}{/if}{/if}?utm_source=linkedin&utm_medium=cpc">LinkedIn Ads</option>
+                                            <option value="https://inventure.com.ua{if $page}{$page->getPath()}{else}{if $post}{$blog->getPath()}{$post->getPath()}{else}{$blog->getPath()}{/if}{/if}?utm_source=linkedin&utm_medium=referral">LinkedIn</option>
+                                            <option value="https://inventure.com.ua{if $page}{$page->getPath()}{else}{if $post}{$blog->getPath()}{$post->getPath()}{else}{$blog->getPath()}{/if}{/if}?utm_source=instagram&utm_medium=referral">Instagram</option>
+                                        </select>
+                                    </li>
+                                {/if}
+
                             </ul>
                         </div>
                     </div>

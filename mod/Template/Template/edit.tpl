@@ -1,0 +1,1 @@
+{react 'Template.TplEdit' props=['config'=>$config, 'text'=>file_get_contents($tplfile),'result'=>$result, 'template'=>$tplname, 'from'=>$from, 'url'=>'/admin/mail/mailing/server']}

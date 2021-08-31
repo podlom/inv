@@ -1,0 +1,213 @@
+// table {
+//   border-collapse: collapse;
+//   width: 100%;
+//   margin-bottom: 1rem;
+//   -webkit-border-radius: 0;
+//   border-radius: 0;
+// }
+// table tbody,
+// table tfoot,
+// table thead {
+//   border: 1px solid #f1f1f1;
+//   background-color: #f7f7f7;
+// }
+// table caption {
+//   padding: 0.5rem 0.625rem 0.625rem;
+//   font-weight: 700;
+// }
+// table thead {
+//   background: #f8f8f8;
+//   color: #0a0a0a;
+// }
+// table tfoot {
+//   background: #f1f1f1;
+//   color: #0a0a0a;
+// }
+// table tfoot tr,
+// table thead tr {
+//   background: 0;
+// }
+// table tfoot td,
+// table tfoot th,
+// table thead td,
+// table thead th {
+//   padding: 0.5rem 0.625rem 0.625rem;
+//   font-weight: 700;
+//   text-align: left;
+// }
+// table tbody td,
+// table tbody th {
+//   padding: 0.5rem 0.625rem 0.625rem;
+// }
+// table tbody tr:nth-child(even) {
+//   border-bottom: 0;
+// }
+// table.unstriped tbody {
+//   background-color: #fefefe;
+// }
+// table.unstriped tbody tr {
+//   border-bottom: 0;
+//   border-bottom: 1px solid #f1f1f1;
+//   background-color: #fefefe;
+// }
+// @media screen and (max-width: 63.9375em) {
+//   table.stack thead {
+//     display: none;
+//   }
+//   table.stack tfoot {
+//     display: none;
+//   }
+//   table.stack td,
+//   table.stack th,
+//   table.stack tr {
+//     display: block;
+//   }
+//   table.stack td {
+//     border-top: 0;
+//   }
+// }
+// table.scroll {
+//   display: block;
+//   width: 100%;
+//   overflow-x: auto;
+// }
+// table.hover thead tr:hover {
+//   background-color: #f3f3f3;
+// }
+// table.hover tfoot tr:hover {
+//   background-color: #ececec;
+// }
+// table.hover tbody tr:hover {
+//   background-color: #f9f9f9;
+// }
+// table.hover:not(.unstriped) tr:nth-of-type(even):hover {
+//   background-color: #ececec;
+// }
+// .table-scroll {
+//   overflow-x: auto;
+// }
+// .table-scroll table {
+//   width: auto;
+// }
+
+.table {
+  font-size: 14px;
+  line-height: 140%;
+  table {
+    border: 1px solid #ccc;
+    border-collapse: collapse;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    table-layout: fixed;
+  }
+
+  table tr {
+    background-color: #fff;
+    border: 1px solid #f2f2f2;
+    padding: 0.35em;
+    cursor: pointer !important;
+    transition: all 0.25s ease;
+    &:hover {
+      background-color: var(--main-bg-color);
+    }
+  }
+  thead th {
+    background-color: var(--main-bg-color);
+  }
+
+  table th {
+    font-size: 0.85em;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  table thead {
+    background: #f7f7f7;
+    text-align: left;
+  }
+
+  @media screen and (max-width: 600px) {
+    table {
+      border: 0;
+    }
+
+    table caption {
+      font-size: 1.3em;
+    }
+
+    table thead {
+      border: none;
+      clip: rect(0 0 0 0);
+      height: 1px;
+      margin: -1px;
+      overflow: hidden;
+      padding: 0;
+      position: absolute;
+      width: 1px;
+    }
+
+    table tr {
+      border-bottom: 3px solid #f2f2f2;
+      display: block;
+      margin-bottom: 0.625em;
+    }
+
+    table td {
+      border-bottom: 1px solid #f2f2f2;
+      display: block;
+      font-size: 0.8em;
+      text-align: right;
+    }
+
+    table td::before {
+      /*
+      * aria-label has no advantage, it won't be read inside a table
+      content: attr(aria-label);
+      */
+      content: attr(data-label);
+      float: left;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    table td:last-child {
+      border-bottom: 0;
+    }
+  }
+  @media screen and (max-width: 1023px) {
+    table td {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+
+      span {
+        font-size: 14px !important;
+      }
+    }
+  }
+  table th,
+  table td {
+    padding: 8px 16px;
+  }
+
+  @media screen and (min-width: 1024px) {
+    table td:nth-of-type(1) {
+      font-weight: bold;
+    }
+    table th:nth-of-type(2),
+    table td:nth-of-type(2),
+    table th:nth-of-type(4),
+    table td:nth-of-type(4) {
+      width: 60px;
+    }
+    table th:nth-of-type(3) {
+      width: 160px;
+    }
+
+    table th,
+    table td {
+      padding: 16px 20px;
+    }
+  }
+}

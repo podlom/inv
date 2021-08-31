@@ -4,7 +4,7 @@
 {capture assign='filters'}
     <div class="filter m_b-15" >
         {filter fields=[60,16,53,46]} {*investments,kved,stage,type *}
-        <form name="atlas-form" method="get" action="">
+        {* <form name="atlas-form" method="get" action="">
             <h3><i class="fa fa-search"></i>Поиск инвестора</h3>
             <div class="p8">
                 <div>
@@ -36,7 +36,7 @@
                     <center><button class="blue_but" type="submit" aria-label="submit form">Искать</button></center>
                 </div>
             </div>
-        </form>
+        </form> *}
     </div>
 {/capture}
 {/block}
@@ -47,10 +47,12 @@
 </div>
 {/block}
 {block 'aside.top' append}
-<div style="position: relative;" class="atlas_filter">
-    <div class="box-shadow1"></div>
-    {$filters}
-</div>
+    {if $request->getPathInfo() == '/' }
+        <div style="position: relative;" class="atlas_filter">
+            <div class="box-shadow1"></div>
+            {$filters}
+        </div>
+    {/if}
 {/block}
 {block 'post.description'}
 <ul class="list_attr">

@@ -601,7 +601,7 @@ section .container .admin-pages .menu-blocks {
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
-    position: sticky;
+    /* position: sticky; */ /* @ts 09.01.2020 fix top right admin drop down menu */
     background-color: #ECF0F5;
     padding-bottom: 30px;
     top: 50px;
@@ -1417,4 +1417,32 @@ section .invoice .table {
     section .container .admin-pages .breadcrumbs h3 {
         margin-bottom: 15px;
     }
+}
+
+/* #mceu_39 {
+    min-height:260px;
+}
+#mceu_17 {
+    min-height:400px;
+} */
+
+.sci-node {
+    overflow: hidden;
+}
+
+.save-inline-edits {
+	cursor: pointer;
+    height: 40px;
+    position: fixed;
+    margin-top: 20px;
+    color: white;
+    border-radius: 6px;
+    background: rgba(28,29,31,0.6);
+    box-shadow: 0 5px #999;
+}
+
+.save-inline-edits:active {
+	background: rgba(28,29,31,0.6);
+	box-shadow: 0 5px #666;
+	transform: translateY(4px);
 }

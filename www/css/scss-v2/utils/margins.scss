@@ -1,0 +1,91 @@
+@for $i from 0 through 24 {
+  .mb-#{$i} {
+    margin-bottom: $i * 0.25em !important;
+  }
+}
+
+@for $i from 0 through 24 {
+  .mt-#{$i} {
+    margin-top: $i * 0.25em !important;
+  }
+}
+
+@for $i from -2 through 24 {
+  .ml-#{$i} {
+    margin-left: $i * 0.25em !important;
+  }
+}
+
+@for $i from -2 through 24 {
+  .mr-#{$i} {
+    margin-right: $i * 0.25em !important;
+  }
+}
+
+.mt-auto {
+  margin-top: auto !important;
+}
+
+.mb-auto {
+  margin-bottom: auto !important;
+}
+
+.ml-auto {
+  margin-left: auto !important;
+}
+
+.mr-auto {
+  margin-right: auto !important;
+}
+
+@media screen and (min-width: 1024px) {
+  @for $i from 0 through 24 {
+    .desktop-mb-#{$i} {
+      margin-bottom: $i * 0.25em !important;
+    }
+  }
+
+  @for $i from 0 through 24 {
+    .desktop-mt-#{$i} {
+      margin-top: $i * 0.25em !important;
+    }
+  }
+
+  @for $i from 0 through 24 {
+    .desktop-ml-#{$i} {
+      margin-left: $i * 0.25em !important;
+    }
+  }
+
+  @for $i from 0 through 24 {
+    .desktop-mr-#{$i} {
+      margin-right: $i * 0.25em !important;
+    }
+  }
+}
+
+@media screen and (max-width: 1023px) {
+  @for $i from 0 through 24 {
+    .mobile-mb-#{$i} {
+      margin-bottom: $i * 0.25em !important;
+    }
+  }
+
+  @for $i from 0 through 24 {
+    .mobile-mt-#{$i} {
+      margin-top: $i * 0.25em !important;
+    }
+  }
+
+  @for $i from 0 through 24 {
+    .mobile-ml-#{$i} {
+      margin-left: $i * 0.25em !important;
+    }
+  }
+
+  @for $i from 0 through 24 {
+    .mobile-mr-#{$i} {
+      margin-right: $i * 0.25em !important;
+    }
+  }
+}

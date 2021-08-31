@@ -1,0 +1,14 @@
+.plain-text__card--without-img {
+  padding-top: 1em !important;
+}
+
+.plain-text__card--without-img .preview__info-wrapper {
+  padding-top: 1.6em !important;
+}
+
+@media screen and (min-width: 1024px) {
+  .plain-text__card--without-img .preview__info-wrapper {
+    margin-top: 1.2em !important;
+    border-top: 1px solid #e1e1e1 !important;
+  }
+}

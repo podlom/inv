@@ -28,7 +28,11 @@ gmap:
     position: top
     require: [jquery, gmap3]
 google_maps_api:
-    file: '//maps.google.com/maps/api/js?sensor=false&libraries=places&callback=google_loaded&key=AIzaSyCdEPd54e6zNaTrkm--VOW1EsC3yYH1HGg'
+    file: '//maps.google.com/maps/api/js?sensor=false&libraries=places&callback=google_loaded&key=AIzaSyAPN3Neq0YC-My56mfPKTtpzD-Q1U2OcVE'
+    position: top
+    require: {  }
+google_maps_api_en:
+    file: '//maps.google.com/maps/api/js?sensor=false&language=en&libraries=places&callback=google_loaded&key=AIzaSyAPN3Neq0YC-My56mfPKTtpzD-Q1U2OcVE'
     position: top
     require: {  }
 easySlider:

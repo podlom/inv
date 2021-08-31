@@ -1,4 +1,8 @@
 .investor-form{
+	&__submit{
+		margin-top: 20px;
+		cursor: pointer;
+	}
 	ol{
 		// display: flex;
 		text-align: center;
@@ -20,6 +24,7 @@
 			margin-bottom: 10px;
 		}
 	}
+
 	&__header{
 		position: relative;
 		z-index: 1;

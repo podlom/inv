@@ -1,0 +1,164 @@
+$fi-FB: "\ea01";
+$fi-Facebook-footer: "\ea02";
+$fi-Google-footer: "\ea03";
+$fi-Instagram-footer: "\ea04";
+$fi-Youtube-footer: "\ea05";
+$fi-angle-left-solid: "\ea06";
+$fi-bars-solid: "\ea07";
+$fi-bookmark-regular: "\ea08";
+$fi-bookmark-solid: "\ea09";
+$fi-facebook: "\ea0a";
+$fi-facebook-f-brands: "\ea0b";
+$fi-google-plus-g-brands: "\ea0c";
+$fi-instagram: "\ea0d";
+$fi-instagram-brands: "\ea0e";
+$fi-like: "\ea0f";
+$fi-scale-balance: "\ea10";
+$fi-search-solid: "\ea11";
+$fi-thumbs-up-solid: "\ea12";
+$fi-times-solid: "\ea13";
+$fi-up: "\ea14";
+$fi-user: "\ea15";
+$fi-user-circle-regular: "\ea16";
+$fi-youtube-brands: "\ea17";
+
+@font-face {
+    font-family: webfont;
+    src: url("/webfont/webfont.eot");
+    src: url("/webfont/webfont.eot?#iefix") format("embedded-opentype"), url("/webfont/webfont.woff2") format("woff2"), url("/webfont/webfont.woff") format("woff"), url("/webfont/webfont.ttf") format("truetype"), url("/webfont/webfont.svg#webfont") format("svg");
+    font-style: normal;
+    font-weight: 400;
+}
+
+%fi {
+    display: inline-block;
+    transform: translate(0, 0);
+    text-rendering: auto;
+    font: normal normal 400 14px/1 webfont;
+    font-size: inherit;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+}
+
+.fi {
+    @extend %fi;
+}
+
+.fi-lg {
+    vertical-align: -15%;
+    line-height: 0.75em;
+    font-size: 1.33333333em;
+}
+
+.fi-2x {
+    font-size: 2em;
+}
+
+.fi-3x {
+    font-size: 3em;
+}
+
+.fi-4x {
+    font-size: 4em;
+}
+
+.fi-5x {
+    font-size: 5em;
+}
+
+.fi-fw {
+    width: 1.28571429em;
+    text-align: center;
+}
+
+.fi-FB::before {
+    content: "\ea01";
+}
+
+.fi-Facebook-footer::before {
+    content: "\ea02";
+}
+
+.fi-Google-footer::before {
+    content: "\ea03";
+}
+
+.fi-Instagram-footer::before {
+    content: "\ea04";
+}
+
+.fi-Youtube-footer::before {
+    content: "\ea05";
+}
+
+.fi-angle-left-solid::before {
+    content: "\ea06";
+}
+
+.fi-bars-solid::before {
+    content: "\ea07";
+}
+
+.fi-bookmark-regular::before {
+    content: "\ea08";
+}
+
+.fi-bookmark-solid::before {
+    content: "\ea09";
+}
+
+.fi-facebook::before {
+    content: "\ea0a";
+}
+
+.fi-facebook-f-brands::before {
+    content: "\ea0b";
+}
+
+.fi-google-plus-g-brands::before {
+    content: "\ea0c";
+}
+
+.fi-instagram::before {
+    content: "\ea0d";
+}
+
+.fi-instagram-brands::before {
+    content: "\ea0e";
+}
+
+.fi-like::before {
+    content: "\ea0f";
+}
+
+.fi-scale-balance::before {
+    content: "\ea10";
+}
+
+.fi-search-solid::before {
+    content: "\ea11";
+}
+
+.fi-thumbs-up-solid::before {
+    content: "\ea12";
+}
+
+.fi-times-solid::before {
+    content: "\ea13";
+}
+
+.fi-up::before {
+    content: "\ea14";
+}
+
+.fi-user::before {
+    content: "\ea15";
+}
+
+.fi-user-circle-regular::before {
+    content: "\ea16";
+}
+
+.fi-youtube-brands::before {
+    content: "\ea17";
+}

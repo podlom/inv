@@ -2,5 +2,5 @@ TopMenuItems:
     - { icon: /skynar/images/blog.png, title: 'Инвестиционные новости', url: /admin/blog/11, id: 11 }
     - { icon: /skynar/images/blog.png, title: 'Инвестиционные предложения', url: /admin/blog/7859, id: 7859 }
     - { icon: /skynar/images/blog.png, title: 'Предстоящие события', url: /admin/blog/34, id: 34 }
-    - { icon: /skynar/images/blog.png, title: ' Доска обьявлений', url: /admin/blog/14976, id: 14976 }
+    - { icon: /skynar/images/blog.png, title: 'Доска обьявлений', url: /admin/blog/14976, id: 14976 }
     - { icon: /skynar/images/blog.png, title: 'Investment news', url: /admin/blog/9723, id: 9723 }

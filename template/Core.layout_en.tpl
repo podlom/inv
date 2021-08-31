@@ -1,5 +1,5 @@
 {extends 'Core.layout'}
-{block 'menu'}
+{* {block 'menu'}
 <nav id="nav">
   <li class="menu-item1">
     <span><a href="/en/investments">Investment proposals</a></span>
@@ -155,3 +155,5 @@
 {block 'copyright'}
 © 2010-2018 InVenture™  All Rights Reserved
 {/block}
+
+ *}

@@ -1,0 +1,5 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[10],{"./src/Skynar/Portal.tsx":
+/*!*******************************!*\
+  !*** ./src/Skynar/Portal.tsx ***!
+  \*******************************/
+/*! exports provided: default */function(t,o,e){"use strict";e.r(o);var n=e(/*! tslib */"./node_modules/tslib/tslib.es6.js"),r=e(/*! react */"react"),i=e(/*! react-dom */"react-dom"),s=function(t){function o(o){var e=t.call(this,o)||this;return e.el=document.createElement(o.tag),e}return n.__extends(o,t),o.prototype.componentDidMount=function(){this.props.root.appendChild(this.el)},o.prototype.componentWillUnmount=function(){this.props.root.removeChild(this.el)},o.prototype.render=function(){return i.createPortal(this.props.children,this.el)},o.defaultProps={tag:"div"},o}(r.Component);o.default=s}}]);

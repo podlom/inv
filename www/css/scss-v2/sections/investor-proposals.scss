@@ -1,0 +1,345 @@
+.investor-proposals {
+	padding: 20px 0 30px;
+	@media (min-width: 1024px) {
+		padding: 50px 0 50px;
+	}
+	&__header {
+		div {
+			max-width: 700px;
+		}
+		position: relative;
+		@media (min-width: 1024px) {
+			&:after {
+				position: absolute;
+				// content: url("../img/rocket.svg");
+				z-index: -1;
+				top: -20px;
+				right: 30px;
+				max-width: 515px;
+			}
+		}
+	}
+	&__title {
+		font-family: Montserrat;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 18px;
+		line-height: 120%;
+		/* or 34px */
+		margin-bottom: 10px;
+
+		color: #000000;
+		@media (min-width: 1024px) {
+			font-size: 28px;
+			margin-bottom: 16px;
+		}
+	}
+	&__description {
+		font-family: Montserrat;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 14px;
+		line-height: 160%;
+		margin-bottom: 15px;
+		/* or 26px */
+
+		color: #000000;
+		@media (min-width: 1024px) {
+			font-size: 16px;
+			margin-bottom: 32px;
+		}
+	}
+	&__form {
+		display: flex;
+		flex-direction: column;
+		background: #ffffff;
+		box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1);
+		border-radius: 4px;
+
+		@media (min-width: 1024px) {
+			flex-direction: row;
+		}
+		.proposal--blue {
+			background: #5d87ad;
+			border-radius: 0px 0px 4px 4px;
+			color: white;
+			height: auto;
+			display: flex;
+			flex-direction: column;
+			@media (min-width: 1024px) {
+				border-radius: 0px 4px 4px 0px;
+			}
+			.proposal__features-list {
+				li {
+					&:before {
+						content: url('/images/icons/white-check.svg');
+						position: absolute;
+						left: -30px;
+						top: 2px;
+					}
+				}
+			}
+		}
+	}
+	&__proposal {
+		padding: 15px;
+		@media (min-width: 1024px) {
+			height: 100%;
+			padding: 40px;
+			width: 50%;
+		}
+
+		.btn {
+			margin: auto 0 0 0;
+		}
+	}
+	.proposal__title {
+		font-family: Montserrat;
+		font-style: normal;
+		font-weight: 600;
+		font-size: 16px;
+		line-height: 160%;
+		@media (min-width: 1024px) {
+			font-size: 24px;
+		}
+	}
+	.proposal__description {
+		font-family: Montserrat;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 14px;
+		line-height: 160%;
+		@media (min-width: 1024px) {
+			font-size: 16px;
+		}
+	}
+	.proposal__features-title {
+		font-family: Montserrat;
+		font-style: normal;
+		font-weight: 600;
+		font-size: 14px;
+		line-height: 160%;
+		margin-top: 8px;
+		margin-bottom: 8px;
+		@media (min-width: 1024px) {
+			font-size: 16px;
+			margin-top: 15px;
+		}
+	}
+
+	.proposal__features-list {
+		font-family: Montserrat;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 14px;
+		line-height: 160%;
+		margin-bottom: 16px;
+		li {
+			margin-left: 30px;
+			margin-bottom: 10px;
+			position: relative;
+			&:before {
+				content: url('/images/icons/grey-check.svg');
+				position: absolute;
+				left: -30px;
+				top: 2px;
+			}
+		}
+		@media (min-width: 1024px) {
+			font-size: 16px;
+		}
+	}
+	.proposal__features-list--light li:before {
+		content: url('/images/icons/light-check.svg');
+	}
+	&__statistics {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		padding: 20px 0;
+		border-bottom: 1px solid #e1e1e1;
+
+		@media (min-width: 1024px) {
+			flex-direction: row;
+			justify-content: space-between;
+			padding: 40px 0;
+		}
+	}
+	.statistics__block {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+		padding: 0 5px;
+		margin: 10px 0;
+		@media (min-width: 1024px) {
+			margin: 0;
+		}
+	}
+	.statistics__number {
+		font-family: Montserrat;
+		font-weight: bold;
+		font-size: 22px;
+		line-height: 160%;
+		color: #5d87ad;
+		@media (min-width: 1200px) {
+			font-size: 32px;
+		}
+	}
+	.statistics__caption {
+		font-family: Montserrat;
+		font-weight: 600;
+		font-size: 16px;
+		line-height: 160%;
+
+		color: #000000;
+
+		opacity: 0.8;
+		@media (min-width: 1024px) {
+			font-size: 14px;
+		}
+		@media (min-width: 1200px) {
+			font-size: 16px;
+		}
+	}
+
+	.statistics {
+		&__button {
+		}
+	}
+}
+.reviews {
+	z-index: 1;
+	position: relative;
+
+	padding: 0 0 30px;
+	@media (min-width: 1024px) {
+		padding: 10px 0 80px;
+	}
+	&__title {
+		font-family: Montserrat;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 18px;
+		line-height: 120%;
+		/* identical to box height, or 34px */
+
+		text-align: center;
+
+		color: #000000;
+		@media (min-width: 1024px) {
+			font-size: 28px;
+		}
+	}
+	&__header {
+		display: flex;
+		// flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+	}
+	&__slide {
+		background: #ffffff;
+		box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1);
+		border-radius: 4px;
+		padding: 15px 20px;
+		width: 100%;
+
+		@media (min-width: 1024px) {
+			padding: 25px 70px;
+		}
+	}
+	.swiper-container {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+	&__slider {
+		max-width: 780px;
+		@media (min-width: 1024px) {
+			margin: 8px auto 0;
+		}
+	}
+	&__text {
+		font-family: Montserrat;
+		font-size: 14px;
+		line-height: 24px;
+		white-space: break-spaces;
+		color: #000000;
+		@media (min-width: 1024px) {
+			font-size: 16px;
+			line-height: 26px;
+			text-align: center;
+		}
+	}
+	&__footer {
+		@media (min-width: 1024px) {
+			margin-top: 30px;
+		}
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+	}
+	&__avatar {
+		height: 100px;
+		width: 100px;
+		border-radius: 50px;
+		object-fit: cover;
+	}
+	&__name {
+		font-family: Montserrat;
+		font-weight: bold;
+		font-size: 14px;
+		line-height: 120%;
+		text-align: center;
+		color: #000000;
+		margin-top: 8px;
+		margin-bottom: 4px;
+		@media (min-width: 1024px) {
+			font-size: 16px;
+		}
+	}
+	&__position {
+		font-family: Montserrat;
+		font-style: italic;
+		font-weight: normal;
+		font-size: 14px;
+		line-height: 120%;
+		text-align: center;
+		color: #000000;
+		@media (min-width: 1024px) {
+			font-size: 14px;
+		}
+	}
+	&__qoute {
+		height: 30px;
+		@media (min-width: 1024px) {
+			height: auto;
+		}
+	}
+	&__socials {
+		margin-top: 10px;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
+	}
+	&__socials-link {
+		margin: 0 8px;
+	}
+	.swiper-button {
+		background: #ffffff;
+		box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1);
+		height: 70px;
+		width: 70px;
+		border-radius: 35px;
+		display: none;
+		justify-content: center;
+		align-items: center;
+		@media (min-width: 1024px) {
+			display: flex;
+		}
+	}
+}

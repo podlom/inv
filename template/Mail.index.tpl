@@ -2,11 +2,11 @@
     <div class="menu-blocks">
         <div>
             <div>
-                <p>Новости</p>
-                <i class="fa fa-newspaper-o"></i>
+                <p>Рассылки</p>
+                <i class="fa fa-mail-reply"></i>
             </div>
             <div>
-                <a href="/admin/blog/11">Больше информации <i class="fa fa-arrow-circle-right"></i></a>
+                <a href="/admin/mail/mailing">К списку рассылки <i class="fa fa-arrow-circle-right"></i></a>
             </div>
         </div>
         <div>
@@ -39,6 +39,9 @@
     </div>
 <div class="breadcrumbs">
     <h3>Почта</h3>
+    <div>
+        <a href="/admin/mail/mailing"><strong>Рассылки</strong></a>
+    </div>
     <div>
         <a href="/admin"><i class="fa fa-home"></i>Главная</a> <span>></span> Почта
     </div>

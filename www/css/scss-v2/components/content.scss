@@ -1,0 +1,130 @@
+.content {
+	&.seo-text {
+		border: 1px solid #e1e1e1;
+		margin: 20px 0;
+		margin-bottom: 20px;
+		padding: 0.5em 1em;
+		background: rgb(255, 255, 255);
+	}
+	line-height: 140%;
+	font-size: 1em;
+	.text-justify {
+		text-align: justify !important;
+	}
+	@media (min-width: 1024px) {
+		line-height: 160%;
+	}
+	iframe {
+		max-width: 100%;
+	}
+	table {
+		width: 100%;
+		background: white;
+		td,
+		tr {
+			padding: 5px;
+			border: 1px solid rgba(0, 0, 0, 0.1);
+		}
+		tr:nth-of-type(even) {
+			background: var(--main-bg-color);
+		}
+		@media screen and (max-width: 1023px) {
+			white-space: nowrap;
+			overflow: auto;
+			max-width: 100%;
+			display: block;
+		}
+	}
+	p {
+		font-family: Montserrat, sans-serif;
+		font-style: normal;
+		font-weight: normal;
+		color: #000000;
+		padding-bottom: 0.5em;
+		padding-top: 0.5em;
+	}
+	b,
+	strong {
+		font-weight: 600;
+	}
+	i {
+		font-style: italic;
+	}
+	h2 {
+		// margin-top: 16px;
+		font-weight: bold;
+		font-size: 18px;
+		// line-height: 140%;
+		color: #000000;
+		margin-bottom: 0.5em;
+	}
+	h3,
+	h4,
+	h5,
+	h6 {
+		// margin-top: 16px;
+		font-weight: bold;
+		font-size: 16px;
+		// line-height: 140%;
+		color: #000000;
+		margin-bottom: 8px;
+	}
+	ol {
+		list-style: decimal !important;
+		padding-left: 20px;
+		margin-top: 0.5em;
+		li {
+			margin-top: 0.5em;
+			margin-bottom: 0.5em;
+		}
+	}
+	ul li {
+		margin-top: 0.5em;
+		margin-bottom: 0.5em;
+		padding-left: 40px;
+		position: relative;
+		&:before {
+			position: absolute;
+			content: url('/images/icons/content-line.svg');
+			left: 0px;
+			top: -4px;
+		}
+	}
+	a {
+		text-decoration: underline;
+	}
+	img {
+		width: calc(100% + 20px);
+		height: auto;
+		margin: 0 -10px 10px;
+		@media (min-width: 1024px) {
+			margin: 10px -40px;
+			width: calc(100% + 80px);
+		}
+	}
+	blockquote {
+		width: calc(100% + 20px);
+		height: auto;
+		margin: 0 -10px 10px;
+		padding: 45px 10px 20px;
+		background: #f7f7f7;
+		// border-bottom: 4px solid var(--main-accent-color);
+		position: relative;
+		&:before {
+			content: url('/images/icons/quote3.svg');
+			position: absolute;
+			top: 10px;
+			z-index: 2;
+			@media (min-width: 1024px) {
+				left: 20px;
+				top: 2em;
+			}
+		}
+
+		@media (min-width: 1024px) {
+			margin: 10px 0;
+			padding: 20px 30px 20px 60px;
+			width: 100%;
+		}
+	}
+}

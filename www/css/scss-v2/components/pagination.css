@@ -1,0 +1,78 @@
+.pagination {
+  display: flex;
+  margin: 10px -5px;
+  justify-content: center;
+}
+
+@media screen and (min-width: 1024px) {
+  .pagination {
+    justify-content: flex-start;
+  }
+}
+
+.pagination li {
+  margin: 5px;
+  background: white;
+  border-radius: 4px;
+  display: block;
+  text-align: center;
+  border: 1px solid #00000021;
+  transition: all 0.25s ease;
+}
+
+.pagination li.current {
+  background: var(--main-accent-color);
+  pointer-events: none;
+}
+
+.pagination li.current a {
+  color: white;
+  opacity: 1;
+}
+
+.pagination li a {
+  min-width: 32px;
+  padding: 5px;
+  display: block;
+  transition: all 0.25s ease;
+  opacity: 0.8;
+}
+
+.pagination li:hover {
+  border: 1px solid var(--main-accent-color) !important;
+}
+
+.pagination li:hover path {
+  stroke: var(--main-accent-color) !important;
+}
+
+.pagination li:hover a {
+  color: var(--main-accent-color) !important;
+  opacity: 1;
+}
+
+.pagination li:first-of-type:not(.first) path,
+.pagination li:last-of-type:not(.last) path {
+  transition: all 0.25s ease;
+}
+
+.pagination li:first-of-type:not(.first):hover path,
+.pagination li:last-of-type:not(.last):hover path {
+  opacity: 1;
+  stroke: white;
+}
+
+@media screen and (max-width: 1023px) {
+  .pagination li {
+    display: none;
+  }
+  .pagination li:first-of-type:not(.first),
+.pagination li:last-of-type:not(.last),
+.pagination li.last,
+.pagination li.spacer,
+.pagination li.last + li,
+.pagination li.current,
+.pagination li.current + li {
+    display: flex;
+  }
+}

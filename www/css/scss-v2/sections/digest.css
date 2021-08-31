@@ -1,0 +1,143 @@
+.digest__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 80px;
+  padding: 0 30px;
+  background: #5d86ac;
+}
+
+@media screen and (max-width: 768px) {
+  .digest__header {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+  }
+}
+
+.digest__reviews {
+  padding-top: 60px;
+  background: #fafafa;
+}
+
+.digest__reviews .subscription__subtitle {
+  margin-bottom: 40px;
+  font-size: 24px !important;
+  margin-top: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .digest__reviews .subscription__subtitle {
+    text-align: center;
+  }
+}
+
+.digest__years {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  color: white;
+}
+
+@media screen and (max-width: 768px) {
+  .digest__years {
+    margin-bottom: 10px;
+  }
+}
+
+.digest__years li {
+  margin-right: 20px;
+  font-size: 14px;
+  opacity: 0.6;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 768px) {
+  .digest__years li {
+    margin: 0 10px;
+  }
+}
+
+.digest__years li.active {
+  color: var(--main-accent-color);
+}
+
+.digest__years li.active, .digest__years li:hover {
+  opacity: 1;
+}
+
+.digest__subscription {
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 480px) {
+  .digest__subscription {
+    width: 100%;
+    padding: 0;
+  }
+}
+
+.digest__wrapper {
+  padding: 40px 30px 20px;
+}
+
+.digest__month {
+  margin: 0;
+  padding: 0;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  list-style: none;
+  display: none;
+}
+
+.digest__month.active {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+@media screen and (max-width: 640px) {
+  .digest__month.active {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .digest__month.active {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 374px) {
+  .digest__month.active {
+    grid-template-columns: 1fr;
+  }
+}
+
+.digest__month a {
+  text-decoration: none;
+  color: black;
+  display: flex;
+  flex-direction: column;
+}
+
+.digest__month img {
+  max-width: 100%;
+  box-shadow: none !important;
+  margin-bottom: 10px;
+  object-fit: contain;
+}
+
+.digest__month li {
+  width: 100%;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 14px;
+}

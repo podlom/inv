@@ -39,7 +39,7 @@
                             </div>
                         {/if}
                     </div>
-                    {if $controller->getPath()=='/investments'}<div class="reviews">Голосовать: {widget 6 target=$post->getId()}</div>{else}{/if}
+                    {if $controller->getPath()=='/investments'}<!-- div class="reviews">Голосовать: {widget 6 target=$post->getId()}</div -->{else}{/if}
                 </div>
             {/if}
             <div class="{if substr($post->getPath(),0,12) != '/tools/video'}{if substr($post->getPath(),0,14) == '/tools/experts'}large-10 medium-10{else}large-8 medium-8{/if}{/if} columns">
@@ -111,8 +111,8 @@
                                 {if $post->getAttr(15) != 0}<li><b>Стоимость проекта:</b> {$post->getAttr(15)|number_format:0:'.':' '} USD</li>{/if}
                                 {if $post->getAttr(34) != 0}<li><b>Требуемые инвестиции:</b> {$post->getAttr(34)|number_format:0:'.':' '} USD</li>{/if}
                                 {if $post->hasAttr(33)}<li><b>Тип инвестиций:</b> {$post->printAttr(33)}</li>{/if}
-                                {if $post->getAttr(35) != 0}<li><b>Предполагаемая доля инвестора:</b> {$post->getAttr(35)}%</li>{/if}
-                                {if $post->getAttr(36) != 0}<li><b>Окупаемость инвестиций:</b> <span>{$post->getAttr(36)} г.</li>{/if}
+                                {if $post->getAttr(35) != 0}<li><b>Предложение инвестору:</b> {$post->getAttr(35)}%</li>{/if}
+                                {if $post->getAttr(36) != 0}<li><b>Окупаемость инвестиций, лет:</b> <span>{$post->getAttr(36)}</li>{/if}
                                 {if $post->getAttr(37) != 0}<li><b>IRR:</b> {$post->getAttr(37)}%</li>{/if}
                                 {if $post->getAttr(38) != 0}<li><b>NPV:</b> {$post->getAttr(38)|number_format:0:'.':' '} USD</li>{/if}
                             </ul>
@@ -125,14 +125,14 @@
                                     <li><b>Отрасль:</b> {$t.0->getChilds()|array_pop}</li>
                                     {if $t.1}<li><b>Вид деятельности:</b> {$t.1->getChilds()|array_pop}</li>{/if}
                                 {/if}
-                                {if $post->getAttr(15) != 0}<li><b>Стоимость продажи бизнеса:</b> {$post->getAttr(15)|number_format:0:'.':' '} USD</li>{/if}
-                                {if $post->getAttr(17) != 0}<li><b>Предлагаемая к продаже доля бизнеса:</b> {$post->getAttr(17)}%</li>{/if}
-                                {if $post->getAttr(18) != 0}<li><b>Срок существования бизнеса:</b> {$post->getAttr(18)} г.</li>{/if}
+                                {if $post->getAttr(15) != 0}<li><b>Цена:</b> {$post->getAttr(15)|number_format:0:'.':' '} USD</li>{/if}
+                                {if $post->getAttr(17) != 0}<li><b>Продажа доли бизнеса:</b> {$post->getAttr(17)}%</li>{/if}
+                                {if $post->getAttr(18) != 0}<li><b>Срок существования, лет:</b> {$post->getAttr(18)}</li>{/if}
                                 {if $post->getAttr(19) != 0}<li><b>Количество сотрудников:</b> {$post->getAttr(19)} чел.</li>{/if}
-                                {if $post->getAttr(20) != 0}<li><b>Окупаемость бизнеса:</b> {$post->getAttr(20)} г.</li>{/if}
-                                {if $post->getAttr(21) != 0}<li><b>Оборот (за последний год):</b> {$post->getAttr(21)|number_format:0:'.':' '} USD</li>{/if}
-                                {if $post->getAttr(22) != 0}<li><b>EBITDA (за последний год):</b> {$post->getAttr(22)|number_format:0:'.':' '} USD</li>{/if}
-                                {if $post->getAttr(23) != 0}<li><b>Чистая прибыль (за последний год):</b> {$post->getAttr(23)|number_format:0:'.':' '} USD</li>{/if}
+                                {if $post->getAttr(20) != 0}<li><b>Окупаемость бизнеса, лет:</b> {$post->getAttr(20)}</li>{/if}
+                                {if $post->getAttr(21) != 0}<li><b>Оборот, за последний год:</b> {$post->getAttr(21)|number_format:0:'.':' '} USD</li>{/if}
+                                {if $post->getAttr(22) != 0}<li><b>EBITDA, за последний год:</b> {$post->getAttr(22)|number_format:0:'.':' '} USD</li>{/if}
+                                {if $post->getAttr(23) != 0}<li><b>Чистая прибыль, за последний год:</b> {$post->getAttr(23)|number_format:0:'.':' '} USD</li>{/if}
                             </ul>
                         {/if}
                         {* Realestate *}
@@ -140,7 +140,7 @@
                             <ul class="list_attr">
                                 <li><b>Тип недвижимости:</b> {$post->printAttr(39)}</li>
                                 {if $post->getAttr(41) != 0}<li><b>Общая площадь недвижимости:</b> {$post->getAttr(41)} кв.м.</li>{/if}
-                                {if $post->getAttr(15) != 0}<li><b>Стоимость продажи недвижимости:</b> {$post->getAttr(15)|number_format:0:'.':' '} USD</li>{/if}
+                                {if $post->getAttr(15) != 0}<li><b>Цена:</b> {$post->getAttr(15)|number_format:0:'.':' '} USD</li>{/if}
                                 {if $post->getAttr(42) != 0}<li><b>Площадь земельного участка:</b> {$post->getAttr(42)} га</li>{/if}
                                 {if $post->getAttr(43) != 0}<li><b>Валовый доход недвижимости за последний год:</b> {$post->getAttr(43)|number_format:0:'.':' '} USD</li>{/if}
                                 {if $post->getAttr(40) != 0}<li><b>Форма собственности земельного участка:</b> {$post->getAttr(40)}</li>{/if}
@@ -229,8 +229,8 @@
                 {/if}
                 {$loc = $post->getAttr(10)}
                 {if $loc.lat && $loc.lng}
-                <div class="viewbox-cnt-body m_b-20" id="eventMapBlock">
-                    <h2>Карта</h2>
+                <div class="viewbox-cnt-body mt-6 m_b-20" id="eventMapBlock">
+                    <h2>Расположение</h2>
                     <div id="google_map"></div>
                 </div>
                 {script_code require="jquery,google_maps_api"}
