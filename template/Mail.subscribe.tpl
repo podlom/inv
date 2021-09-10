@@ -8,7 +8,7 @@
     </div>
 {/if}
 {if $lang == 'en'}
-    <div class="d-none lang-en">
+    <div class="d-none lang-en" style="display:none;">
         {$form->getField('name')->getInput()->attr('id', 'subscribeName')->attr('placeholder', 'First Name & Surname')}
         {$form->getField('company')->getInput()->attr('id', 'subscribeCompany')->attr('placeholder', 'Company')}
         {$form->getField('job')->getInput()->attr('id', 'subscribeJob')->attr('placeholder', 'Position')}
@@ -36,7 +36,7 @@
         <div class='grid-x'><button type='button' class="blue_but cell-but  small-12 close__popup">Close</button></div>
     </div>
 {else}
-    <div class="d-none lang-ru">
+    <div class="d-none lang-ru" style="display:none;">
         {if isset($smarty.get.id) && isset($smarty.get.email)}
             <p>Вы успешно отписаны от рассылки</p>
         {else}
