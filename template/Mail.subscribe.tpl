@@ -2,7 +2,7 @@
 {assign var="reqUri" value=($request->getPathInfo())}
 <!-- @ts:reqUri: [{$reqUri}] -->
 
-{if reqUri != '/analytics/digest'}
+{if $reqUri != '/analytics/digest'}
     {assign var="hideForm" value=(true)}
 {else}
     {assign var="hideForm" value=(false)}
