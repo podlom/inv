@@ -123,6 +123,13 @@ if (tRm.length) {
 $('.add-inv-prop-btn').click(function(ev19) {
   var dealName = $(ev19.target).data('deal-name');
   $('#dealName').val(dealName);
+
+  var dealId = $(ev19.target).data('deal-id');
+  console.log('+127 dealId: ', dealId);
+  if (dealId == 'ind') {
+    console.log('+130 fix presentation link');
+    $('#openNowLink').attr("href", "https://drive.google.com/file/d/1VZdIpPBiaWrLwobZbKjPzMIiSKzmz-hz/view?usp=sharing");
+  }
 });
 
 var iUrl = $('input[name="sf_investment_callback\[url\]"]');
@@ -160,3 +167,65 @@ setTimeout(function() {
     $('ul.pagination.mb-10').hide();
   }
 }, 2573);
+
+function checkCroudinvesting()
+{
+  console.log('+173 checking window.location.pathname: ' + window.location.pathname);
+  if (window.location.pathname == '/investments/investicii-v-rasshirenie-kompanii-po-utilizacii-opasnyh-othodov') {
+    return true;
+  } else if (window.location.pathname == '/investments/investicii-v-rasshirenie-onlajn-biznesa-po-torgovle-shinami') {
+    return true;
+  }
+  return false;
+}
+
+if (checkCroudinvesting()) {
+  var postId = $('span.postId1').text();
+  console.log('+184 postId: ', postId);
+  $.get(
+      '/croudinvest.php',
+      { action: 'form1', href: window.location.href, post_id: postId },
+      function() {
+        console.log('+187 ajax status: success');
+      },
+  ).done(function(d1) {
+    // console.log('+190 got data: ' + d1);
+    $('#croud_form1').html(d1);
+  });
+}
+
+$('section.croudinvest').on("submit", '#croudinvest1', {}, croudSubmit);
+
+function croudSubmit()
+{
+  var formData = $('#croudinvest1').serialize();
+  console.log('+201 croudSubmit() formData: ', formData);
+
+  $.post(
+      '/croudinvest.php',
+      { action: 'form1submit', data: formData },
+      function() {
+        console.log('+208 ajax status: success');
+      },
+  ).done(function(d1) {
+    // console.log('+207 got data: ' + d1);
+    $('#croud_form1').empty();
+    $('#croud_form1').html(d1);
+  });
+}
+
+function showCroudInvestStatus()
+{
+  var postId = $('span.postId1').text();
+  console.log('+220 postId: ', postId);
+  $.get(
+      '/croudinvest.php',
+      { action: 'showInvestStatus', href: window.location.href, post_id: postId },
+      function() {
+        console.log('+225 ajax status: success');
+      },
+  ).done(function(d2) {
+    $('#croud_stat1').html(d2);
+  });
+}
+showCroudInvestStatus();

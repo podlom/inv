@@ -203,6 +203,14 @@
     </section>
         
     {/block}
+    {block 'croudinvest'}
+        <section class="croudinvest">
+            <!-- @ts:croudinvest -->
+            <div id="croud_stat1"></div>
+            <div id="croud_form1"></div>
+        </section>
+
+    {/block}
     {* block 'comment'}
     <div id="newsComments">
         <h2>Комментарии</h2>
