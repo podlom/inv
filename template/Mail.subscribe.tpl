@@ -3,10 +3,10 @@
 
 {$form->attr('class', 'subscribe')->open()}
 {if $form->getErrors()}
-    {assign var="hideForm" value="true"}
     <div class="callout alert">
         <h3>Вы успешно подписаны на рассылку</h3>
         {foreach $form->getErrors() as $err}
+            {assign var="hideForm" value="true"}
             <!-- div>{$err.1}</div -->
         {/foreach}
     </div>
@@ -40,7 +40,7 @@
         <div class='grid-x'><button type='button' class="blue_but cell-but  small-12 close__popup">Close</button></div>
     </div>
 {else}
-    <div class="digest-subscribe-msg lang-ru" {if hideForm}style="display:none;"{/if}>
+    <div class="digest-subscribe-msg lang-ru {if hideForm}d-none{/if}">
         {if isset($smarty.get.id) && isset($smarty.get.email)}
             <p>Вы успешно отписаны от рассылки</p>
         {else}
