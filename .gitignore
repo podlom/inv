@@ -5,6 +5,8 @@ www/upload
 www/img
 www/import
 www/skynar
+www/error
+www/*.log
 cache
 log
 # /template/Mail.mailing_*
@@ -23,3 +25,5 @@ config/mailing_category.yml
 #
 ._*
 .DS_Store
+*.txt
+*.tar.bz2
