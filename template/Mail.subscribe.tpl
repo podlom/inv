@@ -2,18 +2,24 @@
 {assign var="reqUri" value=($request->getPathInfo())}
 <!-- @ts:reqUri: [{$reqUri}] -->
 
+{if reqUri != '/analytics/digest'}
+    {assign var="hideForm" value=(true)}
+{else}
+    {assign var="hideForm" value=(false)}
+{/if}
+
 {$form->attr('class', 'subscribe')->open()}
 {if $form->getErrors()}
     <div class="callout alert">
         <h3>Вы успешно подписаны на рассылку</h3>
-        
+
         {foreach $form->getErrors() as $err}
             <!-- div>{$err.1}</div -->
         {/foreach}
     </div>
 {/if}
 {if $lang == 'en'}
-    <div class="digest-subscribe-msg lang-en">
+    <div class="digest-subscribe-msg lang-en" {if $hideForm}style="display:none;"{/if}>
         {$form->getField('name')->getInput()->attr('id', 'subscribeName')->attr('placeholder', 'First Name & Surname')}
         {$form->getField('company')->getInput()->attr('id', 'subscribeCompany')->attr('placeholder', 'Company')}
         {$form->getField('job')->getInput()->attr('id', 'subscribeJob')->attr('placeholder', 'Position')}
@@ -41,7 +47,7 @@
         <div class='grid-x'><button type='button' class="blue_but cell-but  small-12 close__popup">Close</button></div>
     </div>
 {else}
-    <div class="digest-subscribe-msg lang-ru">
+    <div class="digest-subscribe-msg lang-ru" {if $hideForm}style="display:none;"{/if}>
         {if isset($smarty.get.id) && isset($smarty.get.email)}
             <p>Вы успешно отписаны от рассылки</p>
         {else}
