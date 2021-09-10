@@ -11,7 +11,7 @@
 {$form->attr('class', 'subscribe')->open()}
 {if $form->getErrors()}
     <div class="callout alert">
-        <h3>Вы успешно подписаны на рассылку</h3>
+        <h3 class="section__title text-center">Вы успешно подписаны на рассылку</h3>
 
         {foreach $form->getErrors() as $err}
             <!-- div>{$err.1}</div -->
