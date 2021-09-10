@@ -75,22 +75,9 @@ function redirectPost(location, args) {
 }
 
 $('form.subscribe').submit(function(e) {
+
+	console.log('+79 form.subscribe submit handler');
 	e.preventDefault();
-	// @sr 2020-01-22 do not send form with wrong phone inputmask value
-	if (!$('#error-msg').hasClass('hide')) {
-		console.log('+98 prevent wrong phone inputmask value submit');
-		$('#phone').focus();
-		return;
-	}
-	if (
-		$('#phone2').length &&
-		$('#error-msg2').length &&
-		!$('#error-msg2').hasClass('hide')
-	) {
-		console.log('+98 prevent wrong phone inputmask value submit');
-		$('#phone2').focus();
-		return;
-	}
 
 	var serialize = $(this).serializeArray();
 	var action = $(this).attr('action');
