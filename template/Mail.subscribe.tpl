@@ -6,7 +6,7 @@
     <div class="callout alert">
         <h3>Вы успешно подписаны на рассылку</h3>
 
-        <!-- @ts:reqUri: [{reqUri}] -->
+        <!-- @ts:reqUri: [{$reqUri}] -->
 
         {foreach $form->getErrors() as $err}
             <!-- div>{$err.1}</div -->
