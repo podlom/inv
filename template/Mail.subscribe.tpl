@@ -32,7 +32,7 @@
     <input type="hidden" name="subscribe[ga_utm]" value="">
 
     <div class='grid-x'><button class="blue_but cell-but small-12 w-full" type="submit" id="subscribeButton">Subscribe</button></div>
-    <!-- div class='grid-x'><button type='button' class="blue_but cell-but  small-12 close__popup">Close</button></div -->
+    <div class='grid-x'><button type='button' class="blue_but cell-but  small-12 close__popup">Close</button></div>
 
 {else}
     {if isset($smarty.get.id) && isset($smarty.get.email)}
@@ -50,7 +50,7 @@
         <div class='grid-x'>
             <button class="blue_but cell-but small-12 w-full" type="submit" id="subscribeButton">Подписаться</button>
         </div>
-        <!-- div class='grid-x'><button type='button' class="blue_but cell-but  small-12 close__popup">Закрыть</button></div -->
+        <div class='grid-x'><button type='button' class="blue_but cell-but  small-12 close__popup">Закрыть</button></div>
     {/if}
 
 {/if}
