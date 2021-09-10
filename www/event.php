@@ -60,7 +60,15 @@ $resHmtl = '';
 if (!empty($_REQUEST)) {
 	require_once app()->getPath() . '/cli/lib/db.class.php';
 	$cfg = app()->getService('config')->get('app')->db;
-
+    //
+    if ($_SERVER['SERVER_NAME'] != 'inventure.com.ua') {
+        // adjust db settings for dev environment
+        $cfg['host'] = '127.0.0.1';
+        $cfg['dbname'] = 'inventure_dev';
+        $cfg['user'] = 'inventure_dev';
+        $cfg['password'] = '[[)sq5J0mXKZ5x2E';
+    }
+    //
 	try {
 		$db = new \DB($cfg['host'], $cfg['user'], $cfg['password'], $cfg['dbname']);
 		$query = "SET collation_connection = utf8_unicode_ci";
@@ -198,7 +206,7 @@ if (!empty($_REQUEST)) {
 								'Jun' => 'Июнь',
 								'Jul' => 'Июль',
 								'Aug' => 'Август',
-								'Sep' => 'Сенябрь',
+								'Sep' => 'Сентябрь',
 								'Oct' => 'Октябрь',
 								'Nov' => 'Ноябрь',
 								'Dec' => 'Декабрь',
@@ -352,7 +360,7 @@ if (!empty($_REQUEST)) {
 								'Jun' => 'Июнь',
 								'Jul' => 'Июль',
 								'Aug' => 'Август',
-								'Sep' => 'Сенябрь',
+								'Sep' => 'Сентябрь',
 								'Oct' => 'Октябрь',
 								'Nov' => 'Ноябрь',
 								'Dec' => 'Декабрь',

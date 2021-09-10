@@ -177,6 +177,11 @@ home_en:
       - '/en'
    template: index_en
    layout: Core.layout_en
+home_uk:
+  urls:
+    - '/uk'
+  template: index_uk
+  layout: Core.layout_uk
 investor_en:
   urls:
      - '/en/investor'

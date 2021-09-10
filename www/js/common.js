@@ -157,19 +157,30 @@ $(
 		$('html').removeClass('page-locked');
 
 		/* import swal from 'sweetalert2'; */
+
 		window.Swal = swal;
 
 		if (document.documentElement.lang == 'ru') {
+			console.log('+163 before Swal.fire()');
 			Swal.fire({
-				title: 'Спасибо за заявку!',
-				text: '',
+				title: 'Благодарим за Ваш запрос!',
+				html: '<p><!-- +167 common.js -->\n' +
+					'\t\t\tМы отправили Вам на почту презентацию с описанием условий сотрудничества.\n' +
+					'\t\t</p>\n' +
+					'\t\t<p> \n' +
+					'\t\t\tНаш менеджер свяжется с Вами в течение одного рабочего дня.\n' +
+					'\t\t</p>\n' +
+					'\t\t<br><p> \n' +
+					'\t\t<a style="text-decoration:underline;" id="openNowLink" target="_blank" href="https://drive.google.com/file/d/1qiYiahSH65a88GP7VU2CMb3ZTKu3LGIn/view?usp=sharing" class="w-full blue_but cell-but small-12" type="submit">Открыть сейчас</a>\n' +
+					'\t\t</p>\n' +
+					'\t\t',
 				type: 'success',
 				confirmButtonText: 'Закрыть',
 			});
 		} else {
 			Swal.fire({
 				title: 'Thank you for your apply!',
-				text: '',
+				html: '',
 				type: 'success',
 				confirmButtonText: 'Close',
 			});
