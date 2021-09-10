@@ -6,7 +6,6 @@
     <div class="callout alert">
         <h3>Вы успешно подписаны на рассылку</h3>
         {foreach $form->getErrors() as $err}
-            {assign var="hideForm" value="true"}
             <!-- div>{$err.1}</div -->
         {/foreach}
     </div>
