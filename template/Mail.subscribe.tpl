@@ -1,4 +1,5 @@
-{assign "hideForm" value=(false)}
+{* prefilter=off *}
+{assign "hideForm" "false"}
 
 {$form->attr('class', 'subscribe')->open()}
 {if $form->getErrors()}
