@@ -1,5 +1,5 @@
 {$form->attr('class', 'subscribe')->open()}
-{assign "hideForm" value=(false)}
+{assign "hideForm" value=false}
 {if $form->getErrors()}
     <div class="callout alert">
         <h3>Вы успешно подписаны на рассылку</h3>
