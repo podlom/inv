@@ -1,5 +1,7 @@
 {$form->attr('class', 'subscribe')->open()}
+{assign "hideForm" value=(false)}
 {if $form->getErrors()}
+    {assign "hideForm" value=(true)}
     <div class="callout alert">
         <h3>Вы успешно подписаны на рассылку</h3>
         {foreach $form->getErrors() as $err}
@@ -8,7 +10,7 @@
     </div>
 {/if}
 {if $lang == 'en'}
-    <div class="d-none lang-en" style="display:none;">
+    <div class="digest-subscribe-msg lang-en {if hideForm}d-none{/if}" {if hideForm}style="display:none;"{/if}>
         {$form->getField('name')->getInput()->attr('id', 'subscribeName')->attr('placeholder', 'First Name & Surname')}
         {$form->getField('company')->getInput()->attr('id', 'subscribeCompany')->attr('placeholder', 'Company')}
         {$form->getField('job')->getInput()->attr('id', 'subscribeJob')->attr('placeholder', 'Position')}
@@ -36,7 +38,7 @@
         <div class='grid-x'><button type='button' class="blue_but cell-but  small-12 close__popup">Close</button></div>
     </div>
 {else}
-    <div class="d-none lang-ru" style="display:none;">
+    <div class="digest-subscribe-msg {if hideForm}d-none{/if} lang-ru" {if hideForm}style="display:none;"{/if}>
         {if isset($smarty.get.id) && isset($smarty.get.email)}
             <p>Вы успешно отписаны от рассылки</p>
         {else}
