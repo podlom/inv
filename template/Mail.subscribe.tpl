@@ -1,13 +1,12 @@
 {* prefilter=off *}
 {assign var="reqUri" value=($request->getPathInfo())}
+<!-- @ts:reqUri: [{$reqUri}] -->
 
 {$form->attr('class', 'subscribe')->open()}
 {if $form->getErrors()}
     <div class="callout alert">
         <h3>Вы успешно подписаны на рассылку</h3>
-
-        <!-- @ts:reqUri: [{$reqUri}] -->
-
+        
         {foreach $form->getErrors() as $err}
             <!-- div>{$err.1}</div -->
         {/foreach}
