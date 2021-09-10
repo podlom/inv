@@ -73,7 +73,7 @@
             <li>{if $lang === 'ru'}Рассылка по крупнейшей базе инвесторов{else}Placing an advertising banner on the Investment portal InVenture   <span> (150,000+ target audience hits per month) </span> {/if}</li>
         </ul>
 
-        <button data-deal-name="Рекламное продвижение" data-remodal-target="approach" class="btn btn--blue btn--blue-text w-full add-inv-prop-btn">
+        <button data-deal-id="adv" data-deal-name="Рекламное продвижение" data-remodal-target="approach" class="btn btn--blue btn--blue-text w-full add-inv-prop-btn">
             {if $lang === 'ru'}
                 Получить условия
             {else}
@@ -102,7 +102,7 @@
 						{if $lang === 'ru'}<li>Медиация в переговорных процессах</li>{/if}
         </ul>
 
-        <button data-deal-name="Индивидуальный подход" data-remodal-target="approach" class="btn btn--white btn--blue-text w-full add-inv-prop-btn">
+        <button data-deal-id="ind" data-deal-name="Индивидуальный подход" data-remodal-target="approach" class="btn btn--white btn--blue-text w-full add-inv-prop-btn">
             {if $lang === 'ru'}
                 Получить условия
             {else}
@@ -189,7 +189,7 @@
 		<p> 
 			Наш менеджер свяжется с Вами в течение одного рабочего дня.
 		</p>
-		<a target="_blank" href="/" class="w-full blue_but cell-but small-12" type="submit">Открыть сейчас</a>
+		<a id="openNowLink" target="_blank" href="https://drive.google.com/file/d/1qiYiahSH65a88GP7VU2CMb3ZTKu3LGIn/view?usp=sharing" class="w-full blue_but cell-but small-12" type="submit">Открыть сейчас</a>
 		<button data-remodal-action="close" type='button' class="w-full blue_but cell-but  small-12 close__popup">Закрыть</button>
 	</div>
 </div>
