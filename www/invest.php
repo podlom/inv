@@ -28,6 +28,11 @@ function l_m($msg)
         touch($logFileName);
         chmod($logFileName, 0666);
     }
+    // Do not log on prod by default
+    if ($_SERVER['SERVER_NAME'] === 'inventure.com.ua') {
+        // error_log(__FILE__ . ' +' . __LINE__ . ' ' . __FUNCTION__ . ' log to file is disabled for production env: ' . $_SERVER['SERVER_NAME']);
+        return false;
+    }
     // Do not log if client IP does not match list below
     if (($_SERVER['REMOTE_ADDR'] !== '185.11.28.184') // @ts 2021-01-18 ISP Best, Grand Villas, home
         && ($_SERVER['REMOTE_ADDR'] !== '178.214.193.98') // InVenture, Kyiv, office
@@ -358,6 +363,76 @@ function sendMailForm($data, $recipient = 'info@inventure.ua', $subject = 'InVen
     }
 }
 
+function sendAddInvPropMail($data, $recipient = 'info@inventure.ua', $subject = 'InVenture form submission', $formType = 1)
+{
+    l_m(__FUNCTION__ . ' +' . __LINE__ . ' sending email with data: ' . var_export($data, true) . PHP_EOL);
+    $appConfig = Yaml::parseFile( dirname(__FILE__) . '/../config/app.yml');
+    if (!isset($appConfig['mail']) || !is_array($appConfig['mail']) || empty($appConfig['mail'])) {
+        l_m(__FUNCTION__ . ' +' . __LINE__ . ' error in mail config!' . PHP_EOL);
+        return false;
+    }
+
+    $mail = new PHPMailer(true);
+    try {
+        $mail->isSMTP();
+        $mail->Host       = $appConfig['mail']['host'];
+        $mail->SMTPAuth   = true;
+        $mail->Username   = $appConfig['mail']['user'];
+        $mail->Password   = $appConfig['mail']['passwd'];
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+        $mail->Port       = $appConfig['mail']['port'];
+        //
+        $mail->CharSet    = 'UTF-8';
+        $mail->Encoding   = 'base64';
+        //
+        if (is_array($appConfig['mail']['from']) && !empty($appConfig['mail']['from'])) {
+            foreach ($appConfig['mail']['from'] as $mailAddr => $mailName) {
+                $mail->setFrom($mailAddr, $mailName);
+            }
+        }
+        $mail->addAddress($recipient, 'Inventure');
+        // $mail->addBCC('podlom@gmail.com'); // debug
+        //
+        $mail->isHTML(true); // Set email format to HTML
+        //
+        if (empty($subject)) {
+            $subject = 'InVenture form submission';
+        }
+        $mail->Subject = $subject;
+        //
+        // Для Полного сопровождения
+        $linkHref = 'https://drive.google.com/file/d/1VZdIpPBiaWrLwobZbKjPzMIiSKzmz-hz/view';
+        if ($formType == 1) { // Для Рекламного подхода
+            $linkHref = 'https://drive.google.com/file/d/1qiYiahSH65a88GP7VU2CMb3ZTKu3LGIn/view';
+        }
+        $textBody = 'Добрый день!
+Благодарим Вас за обращение в InVenture.
+В ответ на Ваш запрос, отправляем презентацию ' . $linkHref . ' с описанием услуг нашей компании.
+
+Для заказа и уточнения информации, свяжитесь с менеджером:
+Tel.: +38 097 772 72 92 (Viber, WhatsApp, Telegram)
+E-mail: info@inventure.ua
+';
+        $htmlBody = '<p>Добрый день!</p>
+<p>Благодарим Вас за обращение в InVenture.</p>
+<p>В ответ на Ваш запрос, отправляем <a href="' . $linkHref . '">презентацию с описанием услуг</a> нашей компании.</p>
+<br>
+<p>Для заказа и уточнения информации, свяжитесь с менеджером:</p>
+<p>Tel.: <a href="tel:+380977727292">+38 097 772 72 92</a> (Viber, WhatsApp, Telegram)</p>
+<p>E-mail: <a href="mailto:info@inventure.ua">info@inventure.ua</a></p>
+';
+        //
+        $mail->Body    = $htmlBody;
+        $mail->AltBody = $textBody;
+        $mail->send();
+        l_m(__FUNCTION__ . ' +' . __LINE__ . ' Email has been sent');
+        return true;
+    } catch (Exception $e) {
+        l_m(__FUNCTION__ . ' +' . __LINE__ . " Email could not be sent. Mailer Error: {$mail->ErrorInfo}");
+        return false;
+    }
+}
+
 require_once realpath(__DIR__ . '/../bootstrap.php');
 
 
@@ -432,6 +507,21 @@ if (!empty($_REQUEST)) {
         $rs9 = _sendFormRequest($formData, false);
         if ($rs9 !== false) {
             sendMailForm($_POST['sf_approach'], 'info@inventure.ua', 'InVenture form submission');
+            //
+            if (isset($_POST['sf_approach']['latel_deal_name']) && !empty($_POST['sf_approach']['latel_deal_name'])) {
+                $formName = $_POST['sf_approach']['latel_deal_name'];
+                if ($formName != 'Рекламное продвижение') {
+                    $formType = 2;
+                } else {
+                    $formType = 1;
+                }
+            } else {
+                $formName = 'Рекламное продвижение';
+                $formType = 1;
+            }
+            if (isset($_POST['sf_approach']['email']) && !empty($_POST['sf_approach']['email'])) {
+                sendAddInvPropMail($_POST['sf_approach'], $_POST['sf_approach']['email'], 'InVenture заполнена форма ' . $formName, $formType);
+            }
         }
     }
     //
