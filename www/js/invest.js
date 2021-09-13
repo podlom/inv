@@ -122,11 +122,13 @@ if (tRm.length) {
 
 $('.add-inv-prop-btn').click(function(ev19) {
   var dealName = $(ev19.target).data('deal-name');
+  console.log('+125 dealName: ', dealName);
   $('#dealName').val(dealName);
 
   var dealId = $(ev19.target).data('deal-id');
+  console.log('+129 dealId: ', dealId);
   if (dealId == 'ind') {
-    console.log('+129 fix presentation link for dealId: ', dealId);
+    console.log('+130 fix presentation link for dealId: ', dealId);
     $('#openNowLink').attr("href", "https://drive.google.com/open?id=19Ax-vqbQ9fPFEfTloQ_9UzNAZBKIPPcu");
   }
 });
