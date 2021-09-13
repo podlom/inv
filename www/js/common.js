@@ -151,14 +151,14 @@ $(
 			console.log('+163 before Swal.fire()');
 			Swal.fire({
 				title: 'Благодарим за Ваш запрос!',
-				html: '<p><!-- +167 common.js -->\n' +
+				html: '<p><!-- +154 common.js -->\n' +
 					'\t\t\tМы отправили Вам на почту презентацию с описанием условий сотрудничества.\n' +
 					'\t\t</p>\n' +
 					'\t\t<p> \n' +
 					'\t\t\tНаш менеджер свяжется с Вами в течение одного рабочего дня.\n' +
 					'\t\t</p>\n' +
 					'\t\t<br><p> \n' +
-					'\t\t<a style="text-decoration:underline;" id="openNowLink" target="_blank" href="https://drive.google.com/file/d/1qiYiahSH65a88GP7VU2CMb3ZTKu3LGIn/view?usp=sharing" class="w-full blue_but cell-but small-12" type="submit">Открыть сейчас</a>\n' +
+					'\t\t<a style="text-decoration:underline;" id="openNowLink" target="_blank" href="https://drive.google.com/open?id=1sFGhi5u4wVwNH8-pJat4EX8ufHSBIXVS" class="w-full blue_but cell-but small-12" type="submit">Открыть сейчас</a>\n' +
 					'\t\t</p>\n' +
 					'\t\t',
 				type: 'success',

@@ -401,9 +401,9 @@ function sendAddInvPropMail($data, $recipient = 'info@inventure.ua', $subject = 
         $mail->Subject = $subject;
         //
         // Для Полного сопровождения
-        $linkHref = 'https://drive.google.com/file/d/1VZdIpPBiaWrLwobZbKjPzMIiSKzmz-hz/view';
+        $linkHref = 'https://drive.google.com/open?id=19Ax-vqbQ9fPFEfTloQ_9UzNAZBKIPPcu';
         if ($formType == 1) { // Для Рекламного подхода
-            $linkHref = 'https://drive.google.com/file/d/1qiYiahSH65a88GP7VU2CMb3ZTKu3LGIn/view';
+            $linkHref = 'https://drive.google.com/open?id=1sFGhi5u4wVwNH8-pJat4EX8ufHSBIXVS';
         }
         $textBody = 'Добрый день!
 Благодарим Вас за обращение в InVenture.
