@@ -51,7 +51,7 @@
 			<h3>{$form->getField('querytype')->getLabel()}</h3>
 			{$form->getField('querytype')->getInput()}
 		</div>
-		<div>{$form->getField('price')->getInput()->setAttr('placeholder', 'Требуемые инвестиции / Цена')}</div>
+		<div>{$form->getField('price')->getInput()->setAttr('placeholder', 'Требуемые инвестиции / Цена $')}</div>
 		<div>{$form->getField('region')->getInput()->setAttr('placeholder', 'Регион')}</div>
 	    <div>{$form->getField('text')->getInput()}</div>
 	    <div class='grid-x'><input class="blue_but cell-but small-12" type="submit" name="" value="Отправить"></div>

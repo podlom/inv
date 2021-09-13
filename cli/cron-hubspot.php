@@ -1132,7 +1132,7 @@ function sfApproach($formData)
                 $noteText .= ' С чем связан ваш запрос: ' . $qType . '<br />' . PHP_EOL;
             }
             if (!empty($formData['price'])) {
-                $noteText .= ' Требуемые инвестиции / Цена: ' . $formData['price'] . '<br />' . PHP_EOL;
+                $noteText .= ' Требуемые инвестиции / Цена $: ' . $formData['price'] . '<br />' . PHP_EOL;
             }
             if (!empty($formData['region'])) {
                 $noteText .= ' Регион: ' . $formData['region'] . '<br />' . PHP_EOL;

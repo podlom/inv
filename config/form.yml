@@ -42,7 +42,7 @@ approach:
       label: ''
       attributes:
         required: true
-        placeholder: 'Требуемые инвестиции / Цена'
+        placeholder: 'Требуемые инвестиции / Цена $'
     region:
       type: String
       label: ''

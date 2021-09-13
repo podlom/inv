@@ -31,6 +31,7 @@ function l_m($msg)
     // Do not log if client IP does not match list below
     if (($_SERVER['REMOTE_ADDR'] !== '185.11.28.184') // @ts 2021-01-18 ISP Best, Grand Villas, home
         && ($_SERVER['REMOTE_ADDR'] !== '178.214.193.98') // InVenture, Kyiv, office
+        && ($_SERVER['REMOTE_ADDR'] !== '81.20.118.43') // Unit.City, Kyiv, office
         && ($_SERVER['REMOTE_ADDR'] !== '188.163.56.214') // 2020-09-08 ISP Kyivstar, Mariupol, home
     ) {
         // error_log(__FILE__ . ' +' . __LINE__ . ' ' . __FUNCTION__ . ' log to file is disabled for client IP: ' . $_SERVER['REMOTE_ADDR']);
@@ -99,7 +100,7 @@ function sendMailForm($data, $recipient = 'info@inventure.ua', $subject = 'InVen
         'phone' => 'Номер телефона',
         'tel' => 'Номер телефона',
         'name' => 'Имя',
-        'price' => 'Требуемые инвестиции / Цена',
+        'price' => 'Требуемые инвестиции / Цена $',
         'region' => 'Регион',
         'text' => 'Текст',
     ];
@@ -398,7 +399,15 @@ if (!empty($_SERVER['HTTP_REFERER'])) {
 if (!empty($_REQUEST)) {
     require_once app()->getPath() . '/cli/lib/db.class.php';
     $cfg = app()->getService('config')->get('app')->db;
-
+    //
+    if ($_SERVER['SERVER_NAME'] != 'inventure.com.ua') {
+        // adjust db settings for dev environment
+        $cfg['host'] = '127.0.0.1';
+        $cfg['dbname'] = 'inventure_dev';
+        $cfg['user'] = 'inventure_dev';
+        $cfg['password'] = '[[)sq5J0mXKZ5x2E';
+    }
+    //
     try {
         $db = new \DB($cfg['host'], $cfg['user'], $cfg['password'], $cfg['dbname']);
         $query = "SET collation_connection = utf8_unicode_ci";
