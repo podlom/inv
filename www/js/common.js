@@ -74,7 +74,7 @@ function redirectPost(location, args) {
 		.submit();
 }
 
-$('form.subscribe').submit(function(e) {
+/* $('form.subscribe').submit(function(e) {
 
 	console.log('+79 form.subscribe submit handler');
 	e.preventDefault();
@@ -111,10 +111,10 @@ $('form.subscribe').submit(function(e) {
 			}
 		}
 	});
-});
+}); */
 
 $(
-	'form[action="/form/approach"], form[action="/form/investor"], form[action="/form/investor_en"], form[action="/form/investment_callback"]',
+	'form[action="/form/approach"], form[action="/form/investor"], form[action="/form/investor_en"], form[action="/form/investment_callback"], form[action="/!Mail"]',
 ).submit(function(e) {
 	e.preventDefault();
 	// @ts 2020-01-17 do not send form with wrong phone inputmask value

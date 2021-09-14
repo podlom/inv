@@ -433,6 +433,26 @@ E-mail: info@inventure.ua
     }
 }
 
+function addMailSubscriber($data, $db)
+{
+    l_m(__FUNCTION__ . ' +' . __LINE__ . ' POST data: ' . var_export($data, true));
+
+    if (isset($data['subscribe'], $data['subscribe']['email']) && !empty($data['subscribe']['email'])) {
+        $email = $db->escape($data['subscribe']['email']);
+        $query = "SELECT * FROM `Mail_Subscriber` WHERE `email` = '{$email}'";
+        $res70 = $db->query($query);
+
+        $msg = __FILE__ . ' +' . __LINE__ . ' SQL: ' . $query . PHP_EOL;
+        l_m( $msg );
+
+        $res69 = $db->query($query);
+
+        $msg = __FILE__ . ' +' . __LINE__ . ' Select db result: ' . var_export($res69, true) . PHP_EOL;
+        l_m( $msg );
+    }
+
+}
+
 require_once realpath(__DIR__ . '/../bootstrap.php');
 
 
@@ -500,6 +520,11 @@ if (!empty($_REQUEST)) {
     //
     $msg = __FILE__ . ' +' . __LINE__ . ' $_SERVER: ' . var_export($_SERVER, true) . ' $_GET: ' . var_export($_GET, true) . '; $_POST: ' . var_export($_POST, true) . '; $_REQUEST: ' . var_export($_REQUEST, true);
     l_m($msg);
+    //
+    //
+    if (isset($_POST, $_POST['subscribe']) && is_array($_POST['subscribe']) && !empty($_POST['subscribe'])) { // Mail subscribe form handler
+        addMailSubscriber($_POST, $db);
+    }
     //
     if (isset($_POST, $_POST['sf_approach']) && is_array($_POST['sf_approach']) && !empty($_POST['sf_approach'])) { // Add investment proposal
         $sFormData = serialize($_POST['sf_approach']);
