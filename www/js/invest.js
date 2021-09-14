@@ -125,11 +125,13 @@ $('.add-inv-prop-btn').click(function(ev19) {
   console.log('+125 dealName: ', dealName);
   $('#dealName').val(dealName);
 
+  window.isInd = false;
   var dealId = $(ev19.target).data('deal-id');
-  console.log('+129 dealId: ', dealId);
+  console.log('+130 dealId: ', dealId);
   if (dealId == 'ind') {
-    console.log('+130 fix presentation link for dealId: ', dealId);
-    $('#openNowLink').attr("href", "https://drive.google.com/open?id=19Ax-vqbQ9fPFEfTloQ_9UzNAZBKIPPcu");
+    window.isInd = true;
+    console.log('+133 need to fix presentation link for dealId: ', dealId);
+    // $('#openNowLink').attr("href", "https://drive.google.com/open?id=19Ax-vqbQ9fPFEfTloQ_9UzNAZBKIPPcu");
   }
 });
 

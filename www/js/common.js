@@ -164,6 +164,18 @@ $(
 				type: 'success',
 				confirmButtonText: 'Закрыть',
 			});
+
+			if (typeof window.isInd !== 'undefined') {
+				if (window.isInd) {
+					var newHref = 'https://drive.google.com/open?id=19Ax-vqbQ9fPFEfTloQ_9UzNAZBKIPPcu';
+					console.log('+171 fix #openNowLink link new href: ', newHref);
+					$('#openNowLink').attr("href", newHref);
+				} else {
+					console.log('+175 window.isInd is true: ', window.isInd);
+				}
+			} else {
+				console.log('+175 window.isInd is not defined.');
+			}
 		} else {
 			Swal.fire({
 				title: 'Thank you for your apply!',
