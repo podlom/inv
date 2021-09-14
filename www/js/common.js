@@ -117,9 +117,12 @@ $(
 	'form[action="/form/approach"], form[action="/form/investor"], form[action="/form/investor_en"], form[action="/form/investment_callback"], form[action="/!Mail"]',
 ).submit(function(e) {
 	e.preventDefault();
-	// @ts 2020-01-17 do not send form with wrong phone inputmask value
-	if (!$('#error-msg').hasClass('hide')) {
-		console.log('+98 prevent wrong phone inputmask value submit');
+	// @ts 2021-09-14 do not send form with wrong phone inputmask value
+	if (
+		$('#error-msg').length &&
+		!$('#error-msg').hasClass('hide')
+	) {
+		console.log('+125 prevent wrong phone inputmask value submit');
 		$('#phone').focus();
 		return;
 	}
@@ -128,7 +131,7 @@ $(
 		$('#error-msg2').length &&
 		!$('#error-msg2').hasClass('hide')
 	) {
-		console.log('+98 prevent wrong phone inputmask value submit');
+		console.log('+134 prevent wrong phone inputmask value submit');
 		$('#phone2').focus();
 		return;
 	}
