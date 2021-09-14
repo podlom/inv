@@ -148,26 +148,11 @@ $(
 		window.Swal = swal;
 
 		if (document.documentElement.lang == 'ru') {
-			console.log('+163 before Swal.fire()');
-			Swal.fire({
-				title: 'Благодарим за Ваш запрос!',
-				html: '<p><!-- +154 common.js -->\n' +
-					'\t\t\tМы отправили Вам на почту презентацию с описанием условий сотрудничества.\n' +
-					'\t\t</p>\n' +
-					'\t\t<p> \n' +
-					'\t\t\tНаш менеджер свяжется с Вами в течение одного рабочего дня.\n' +
-					'\t\t</p>\n' +
-					'\t\t<br><p> \n' +
-					'\t\t<a style="text-decoration:underline;" id="openNowLink" target="_blank" href="https://drive.google.com/open?id=1sFGhi5u4wVwNH8-pJat4EX8ufHSBIXVS" class="w-full blue_but cell-but small-12" type="submit">Открыть сейчас</a>\n' +
-					'\t\t</p>\n' +
-					'\t\t',
-				type: 'success',
-				confirmButtonText: 'Закрыть',
-			});
 
+			var newHref = 'https://drive.google.com/open?id=1sFGhi5u4wVwNH8-pJat4EX8ufHSBIXVS';
 			if (typeof window.isInd !== 'undefined') {
 				if (window.isInd) {
-					var newHref = 'https://drive.google.com/open?id=19Ax-vqbQ9fPFEfTloQ_9UzNAZBKIPPcu';
+					newHref = 'https://drive.google.com/open?id=19Ax-vqbQ9fPFEfTloQ_9UzNAZBKIPPcu';
 					console.log('+171 fix #openNowLink link new href: ', newHref);
 					$('#openNowLink').attr("href", newHref);
 					document.getElementById('openNowLink').setAttribute('href', newHref);
@@ -178,6 +163,24 @@ $(
 			} else {
 				console.log('+175 window.isInd is not defined.');
 			}
+
+			console.log('+163 before Swal.fire()');
+			Swal.fire({
+				title: 'Благодарим за Ваш запрос!',
+				html: '<p><!-- +154 common.js -->\n' +
+					'\t\t\tМы отправили Вам на почту презентацию с описанием условий сотрудничества.\n' +
+					'\t\t</p>\n' +
+					'\t\t<p> \n' +
+					'\t\t\tНаш менеджер свяжется с Вами в течение одного рабочего дня.\n' +
+					'\t\t</p>\n' +
+					'\t\t<br><p> \n' +
+					'\t\t<a style="text-decoration:underline;" id="openNowLink" target="_blank" href="' + newHref + '" class="w-full blue_but cell-but small-12" type="submit">Открыть сейчас</a>\n' +
+					'\t\t</p>\n' +
+					'\t\t',
+				type: 'success',
+				confirmButtonText: 'Закрыть',
+			});
+
 		} else {
 			Swal.fire({
 				title: 'Thank you for your apply!',
