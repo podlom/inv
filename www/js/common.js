@@ -170,6 +170,8 @@ $(
 					var newHref = 'https://drive.google.com/open?id=19Ax-vqbQ9fPFEfTloQ_9UzNAZBKIPPcu';
 					console.log('+171 fix #openNowLink link new href: ', newHref);
 					$('#openNowLink').attr("href", newHref);
+					document.getElementById('openNowLink').setAttribute('href', newHref);
+
 				} else {
 					console.log('+175 window.isInd is true: ', window.isInd);
 				}
