@@ -112,20 +112,20 @@ function redirectPost(location, args) {
 		}
 	});
 }); */
-
 $(
-	'form[action="/form/approach"], form[action="/form/investor"], form[action="/form/investor_en"], form[action="/form/investment_callback"], form[action="/!Mail"]',
+	'form[action="/!Mail"]',
 ).submit(function(e) {
 	e.preventDefault();
-	// @ts 2021-09-14 do not send form with wrong phone inputmask value
+
 	if (
 		$('#error-msg').length &&
 		!$('#error-msg').hasClass('hide')
 	) {
-		console.log('+125 prevent wrong phone inputmask value submit');
+		console.log('+124 prevent wrong phone inputmask value submit');
 		$('#phone').focus();
 		return;
 	}
+
 	if (
 		$('#phone2').length &&
 		$('#error-msg2').length &&
@@ -140,37 +140,99 @@ $(
 	var action = '/invest.php';
 	var form = $(this);
 
+	$.post(action, $(this).serialize(), function(rData) {
+		console.log('+144 result data: ', rData);
+
+		form.trigger('reset');
+		$('.my_popup').removeClass('opened');
+		$('.dark_bg').removeClass('opened');
+		$('html').removeClass('page-locked');
+
+		window.Swal = swal;
+
+		if (document.documentElement.lang == 'ru') {
+
+			console.log('+155 before Swal.fire()');
+			Swal.fire({
+				title: 'Благодарим за Ваш запрос!',
+				html: '<div><!-- +158 common.js -->\n' +
+					'\t\t\t' + rData + '.\n' +
+					'\t\t</div>\n' +
+					'\t\t',
+				type: 'success',
+				confirmButtonText: 'Закрыть',
+			});
+
+		} else {
+			Swal.fire({
+				title: 'Thank you for your apply!',
+				html: '<div><!-- +169 common.js -->\n' +
+					'\t\t\t' + rData + '.\n' +
+					'\t\t</div>\n' +
+					'\t\t',
+				type: 'success',
+				confirmButtonText: 'Close',
+			});
+		}
+	});
+});
+
+$(
+	'form[action="/form/approach"], form[action="/form/investor"], form[action="/form/investor_en"], form[action="/form/investment_callback"]',
+).submit(function(e) {
+	e.preventDefault();
+
+	if (
+		$('#error-msg').length &&
+		!$('#error-msg').hasClass('hide')
+	) {
+		console.log('+189 prevent wrong phone inputmask value submit');
+		$('#phone').focus();
+		return;
+	}
+
+	if (
+		$('#phone2').length &&
+		$('#error-msg2').length &&
+		!$('#error-msg2').hasClass('hide')
+	) {
+		console.log('+199 prevent wrong phone inputmask value submit');
+		$('#phone2').focus();
+		return;
+	}
+
+	var serialize = $(this).serializeArray();
+	var action = '/invest.php';
+	var form = $(this);
+
 	$.post(action, $(this).serialize(), function() {
 		form.trigger('reset');
 		$('.my_popup').removeClass('opened');
 		$('.dark_bg').removeClass('opened');
 		$('html').removeClass('page-locked');
 
-		/* import swal from 'sweetalert2'; */
-
 		window.Swal = swal;
 
 		if (document.documentElement.lang == 'ru') {
-
 			var newHref = 'https://drive.google.com/open?id=1sFGhi5u4wVwNH8-pJat4EX8ufHSBIXVS';
 			if (typeof window.isInd !== 'undefined') {
 				if (window.isInd) {
 					newHref = 'https://drive.google.com/open?id=19Ax-vqbQ9fPFEfTloQ_9UzNAZBKIPPcu';
-					console.log('+171 fix #openNowLink link new href: ', newHref);
+					console.log('+221 fix #openNowLink link new href: ', newHref);
 					$('#openNowLink').attr("href", newHref);
 					document.getElementById('openNowLink').setAttribute('href', newHref);
 
 				} else {
-					console.log('+175 window.isInd is true: ', window.isInd);
+					console.log('+226 window.isInd is true: ', window.isInd);
 				}
 			} else {
-				console.log('+175 window.isInd is not defined.');
+				console.log('+229 window.isInd is not defined.');
 			}
 
-			console.log('+163 before Swal.fire()');
+			console.log('+232 before Swal.fire()');
 			Swal.fire({
 				title: 'Благодарим за Ваш запрос!',
-				html: '<p><!-- +154 common.js -->\n' +
+				html: '<p><!-- +235 common.js -->\n' +
 					'\t\t\tМы отправили Вам на почту презентацию с описанием условий сотрудничества.\n' +
 					'\t\t</p>\n' +
 					'\t\t<p> \n' +
