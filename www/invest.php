@@ -31,7 +31,7 @@ function l_m($msg)
     // Do not log on prod by default
     if ($_SERVER['SERVER_NAME'] === 'inventure.com.ua') {
         // error_log(__FILE__ . ' +' . __LINE__ . ' ' . __FUNCTION__ . ' log to file is disabled for production env: ' . $_SERVER['SERVER_NAME']);
-        // return false;
+        return false;
     }
     // Do not log if client IP does not match list below
     if (($_SERVER['REMOTE_ADDR'] !== '185.11.28.184') // @ts 2021-01-18 ISP Best, Grand Villas, home
@@ -436,29 +436,26 @@ E-mail: info@inventure.ua
 function addMailSubscriber($data, $db)
 {
     $retMsg = '';
-
-    l_m(__FUNCTION__ . ' +' . __LINE__ . ' POST data: ' . var_export($data, true));
-
+    // l_m(__FUNCTION__ . ' +' . __LINE__ . ' POST data: ' . var_export($data, true));
     if (isset($data['subscribe'], $data['subscribe']['email']) && !empty($data['subscribe']['email'])) {
         $email = $db->escape($data['subscribe']['email']);
         $query = "SELECT * FROM `Mail_Subscriber` WHERE `email` = '{$email}'";
         $res70 = $db->query($query);
 
-        $msg = __FILE__ . ' +' . __LINE__ . ' SQL: ' . $query . PHP_EOL;
-        l_m( $msg );
+        // $msg = __FILE__ . ' +' . __LINE__ . ' SQL: ' . $query . PHP_EOL;
+        // l_m( $msg );
 
         $res69 = $db->query($query);
 
-        $msg = __FILE__ . ' +' . __LINE__ . ' Select db result: ' . var_export($res69, true) . PHP_EOL;
-        l_m( $msg );
+        // $msg = __FILE__ . ' +' . __LINE__ . ' Select db result: ' . var_export($res69, true) . PHP_EOL;
+        // l_m( $msg );
 
         if (isset($res69[0]) && is_array($res69[0]) && !empty($res69[0])) {
-            $attrData = json_decode($res69[0]['attr']);
+            // $attrData = json_decode($res69[0]['attr']);
+            // $msg = __FILE__ . ' +' . __LINE__ . ' JSON decoded attr data: ' . var_export($attrData, true) . PHP_EOL;
+            // l_m( $msg );
 
-            $msg = __FILE__ . ' +' . __LINE__ . ' JSON decoded attr data: ' . var_export($attrData, true) . PHP_EOL;
-            l_m( $msg );
-
-            $retMsg = 'Спасибо. Ваш email уже был подписан на рассылку.';
+            $retMsg = 'Спасибо. Ваш email уже был подписан на рассылку';
         } else {
             $attrData = $data['subscribe'];
             if (isset($attrData['email'])) {
@@ -477,7 +474,7 @@ function addMailSubscriber($data, $db)
             l_m( $msg );
 
             if ($res80) {
-                $retMsg = 'Спасибо. Вы успешно подписаны на рассылку.';
+                $retMsg = 'Спасибо. Вы успешно подписаны на рассылку';
             }
         }
 
