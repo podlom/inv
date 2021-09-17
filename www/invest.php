@@ -31,7 +31,7 @@ function l_m($msg)
     // Do not log on prod by default
     if ($_SERVER['SERVER_NAME'] === 'inventure.com.ua') {
         // error_log(__FILE__ . ' +' . __LINE__ . ' ' . __FUNCTION__ . ' log to file is disabled for production env: ' . $_SERVER['SERVER_NAME']);
-        return false;
+        // return false;
     }
     // Do not log if client IP does not match list below
     if (($_SERVER['REMOTE_ADDR'] !== '185.11.28.184') // @ts 2021-01-18 ISP Best, Grand Villas, home
@@ -435,6 +435,8 @@ E-mail: info@inventure.ua
 
 function addMailSubscriber($data, $db)
 {
+    $retMsg = '';
+
     l_m(__FUNCTION__ . ' +' . __LINE__ . ' POST data: ' . var_export($data, true));
 
     if (isset($data['subscribe'], $data['subscribe']['email']) && !empty($data['subscribe']['email'])) {
@@ -449,8 +451,11 @@ function addMailSubscriber($data, $db)
 
         $msg = __FILE__ . ' +' . __LINE__ . ' Select db result: ' . var_export($res69, true) . PHP_EOL;
         l_m( $msg );
+
+        $retMsg = 'Спасибо. Вы успешно подписаны на рассылку.';
     }
 
+    return $retMsg;
 }
 
 require_once realpath(__DIR__ . '/../bootstrap.php');
@@ -523,7 +528,7 @@ if (!empty($_REQUEST)) {
     //
     //
     if (isset($_POST, $_POST['subscribe']) && is_array($_POST['subscribe']) && !empty($_POST['subscribe'])) { // Mail subscribe form handler
-        addMailSubscriber($_POST, $db);
+        return addMailSubscriber($_POST, $db);
     }
     //
     if (isset($_POST, $_POST['sf_approach']) && is_array($_POST['sf_approach']) && !empty($_POST['sf_approach'])) { // Add investment proposal
