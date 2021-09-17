@@ -452,7 +452,7 @@ function addMailSubscriber($data, $db)
         $msg = __FILE__ . ' +' . __LINE__ . ' Select db result: ' . var_export($res69, true) . PHP_EOL;
         l_m( $msg );
 
-        if (isset($res69[0]) && is_array(isset($res69[0])) && !empty($res69[0])) {
+        if (isset($res69[0]) && is_array($res69[0]) && !empty($res69[0])) {
             $attrData = json_decode($res69[0]['attr']);
 
             $msg = __FILE__ . ' +' . __LINE__ . ' JSON decoded attr data: ' . var_export($attrData, true) . PHP_EOL;
