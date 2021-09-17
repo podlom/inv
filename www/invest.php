@@ -557,7 +557,12 @@ if (!empty($_REQUEST)) {
     //
     //
     if (isset($_POST, $_POST['subscribe']) && is_array($_POST['subscribe']) && !empty($_POST['subscribe'])) { // Mail subscribe form handler
-        return addMailSubscriber($_POST, $db);
+        $resHmtl = addMailSubscriber($_POST, $db);
+        if (!headers_sent()) {
+            header('Access-Control-Allow-Origin: *');
+            header('Content-Type: text/html; charset=utf-8');
+        }
+        die($resHmtl);
     }
     //
     if (isset($_POST, $_POST['sf_approach']) && is_array($_POST['sf_approach']) && !empty($_POST['sf_approach'])) { // Add investment proposal
