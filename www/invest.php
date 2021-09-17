@@ -460,7 +460,15 @@ function addMailSubscriber($data, $db)
 
             $retMsg = 'Спасибо. Ваш email уже был подписан на рассылку.';
         } else {
-            $attrData = $db->escape(json_encode($data));
+            $attrData = $data['subscribe'];
+            if (isset($attrData['email'])) {
+                unset($attrData['email']);
+            }
+
+            $msg = __FILE__ . ' +' . __LINE__ . ' $attrData: ' . var_export($attrData, true) . PHP_EOL;
+            l_m( $msg );
+
+            $attrData = $db->escape(json_encode($attrData));
             $crDate = $db->escape(date("Y-m-d H:i:s"));
             $query = "INSERT INTO `Mail_Subscriber` SET `email` = '{$email}', `status` = '1', `attr` = '{$attrData}', `created` = '{$crDate}', `updated` = '{$crDate}'";
             $res80 = $db->query($query);
