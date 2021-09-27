@@ -49,7 +49,7 @@
         <div class='grid-x'><button type='button' class="blue_but cell-but  small-12 close__popup">Close</button></div>
     </div>
 {else}
-    <div class="digest-subscribe-msg lang-ru" {if $hideForm}style="display:none;"{/if}>
+    <div class="digest-subscribe-msg lang-ru">
         {if isset($smarty.get.id) && isset($smarty.get.email)}
             <p>Вы успешно отписаны от рассылки</p>
         {else}
