@@ -461,6 +461,10 @@ function addMailSubscriber($data, $db)
             if (isset($attrData['email'])) {
                 unset($attrData['email']);
             }
+            $name = $db->escape(trim($attrData['firstname'] . ' ' . $attrData['lastname']));
+            if (!empty($name)) {
+                $attrData['name'] = $name;
+            }
 
             $msg = __FILE__ . ' +' . __LINE__ . ' $attrData: ' . var_export($attrData, true) . PHP_EOL;
             l_m( $msg );

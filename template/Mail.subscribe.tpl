@@ -4,6 +4,8 @@
 
 {if $reqUri != '/analytics/digest'}
     {assign var="hideForm" value=(true)}
+{elseif $reqUri == '/'}
+    {assign var="hideForm" value=(false)}
 {else}
     {assign var="hideForm" value=(false)}
 {/if}
