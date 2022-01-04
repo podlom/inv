@@ -214,7 +214,7 @@ $(
 		window.Swal = swal;
 
 		if (document.documentElement.lang == 'ru') {
-			var newHref = 'https://drive.google.com/open?id=1sFGhi5u4wVwNH8-pJat4EX8ufHSBIXVS';
+			var newHref = 'https://drive.google.com/file/d/11uxZNhMDjBNRu93jmb913zqokNHGzIbU/view?usp=sharing';
 			if (typeof window.isInd !== 'undefined') {
 				if (window.isInd) {
 					newHref = 'https://drive.google.com/open?id=19Ax-vqbQ9fPFEfTloQ_9UzNAZBKIPPcu';

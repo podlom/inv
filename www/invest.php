@@ -403,7 +403,7 @@ function sendAddInvPropMail($data, $recipient = 'info@inventure.ua', $subject = 
         // Для Полного сопровождения
         $linkHref = 'https://drive.google.com/open?id=19Ax-vqbQ9fPFEfTloQ_9UzNAZBKIPPcu';
         if ($formType == 1) { // Для Рекламного подхода
-            $linkHref = 'https://drive.google.com/open?id=1sFGhi5u4wVwNH8-pJat4EX8ufHSBIXVS';
+            $linkHref = 'https://drive.google.com/file/d/11uxZNhMDjBNRu93jmb913zqokNHGzIbU/view?usp=sharing';
         }
         $textBody = 'Добрый день!
 Благодарим Вас за обращение в InVenture.
