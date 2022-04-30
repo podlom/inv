@@ -2,7 +2,9 @@
 
 namespace Locale;
 
+
 use Doctrine\ORM\Mapping as ORM;
+
 
 /**
  * Group
@@ -51,6 +53,15 @@ class Group extends \Locale\BaseGroup
      */
     protected $pl;
 
+    /**
+     * @var \Core\Page
+     *
+     * @ORM\ManyToOne(targetEntity="Core\Page")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="uk", referencedColumnName="id", unique=true, nullable=true, onDelete="SET NULL")
+     * })
+     */
+    protected $uk;
 
     /**
      * Get id.
@@ -132,5 +143,29 @@ class Group extends \Locale\BaseGroup
     public function getPl()
     {
         return $this->pl;
+    }
+
+    /**
+     * Set uk.
+     *
+     * @param \Core\Page|null $uk
+     *
+     * @return Group
+     */
+    public function setUk(\Core\Page $uk = null)
+    {
+        $this->uk = $uk;
+
+        return $this;
+    }
+
+    /**
+     * Get uk.
+     *
+     * @return \Core\Page|null
+     */
+    public function getUk()
+    {
+        return $this->uk;
     }
 }
