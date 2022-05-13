@@ -3,6 +3,10 @@
 {block 'page.class' append} add-inv-prop{/block}
 {block 'content.text'}
 <style>
+#openNowLink {
+    font-size: 20px;
+    font-weight: bold;
+}
 .tablet_buttons {
     display: none;
 }
@@ -179,9 +183,6 @@
 
 <div class="remodal callback" data-remodal-id="successModal">
   <button data-remodal-action="close" class="remodal-close"></button>
-  <div class="remodal__title">
-      Благодарим за Ваш запрос!
-  </div>
 	<div class="text-left callback__form">
 		<p>
 			Мы отправили Вам на почту презентацию с описанием условий сотрудничества.
@@ -189,7 +190,7 @@
 		<p> 
 			Наш менеджер свяжется с Вами в течение одного рабочего дня.
 		</p>
-		<a id="openNowLink" target="_blank" href="https://drive.google.com/file/d/11uxZNhMDjBNRu93jmb913zqokNHGzIbU/view?usp=sharing" class="w-full blue_but cell-but small-12" type="submit">Открыть сейчас</a>
+		<a id="openNowLink" target="_blank" href="https://drive.google.com/open?id=1sFGhi5u4wVwNH8-pJat4EX8ufHSBIXVS" class="w-full blue_but cell-but small-12" type="submit">Открыть призентацию</a>
 		<button data-remodal-action="close" type='button' class="w-full blue_but cell-but  small-12 close__popup">Закрыть</button>
 	</div>
 </div>

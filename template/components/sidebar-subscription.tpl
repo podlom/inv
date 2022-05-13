@@ -92,7 +92,7 @@
         </div>
     </div>
     <input name="subscribe[ga_utm]" hidden type="hidden">
-    <button type="submit" class="subscription__button">
+    <button type="submit" class="subscription__button g-recaptcha components-sidebar-subscription" data-sitekey="6Le8bI8fAAAAAFT1lTrt6gL31hrhm8mFfc4nKmbX" data-callback="submitDigest">
             {if $lang === 'ru'}Подписаться{else}Subscribe{/if}
     </button>
 </form>

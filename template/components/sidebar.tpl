@@ -1,6 +1,6 @@
 
-		{assign "isInvestmentsPost" value=(($request->getPathInfo()|strpos:'/investments' || $request->getPathInfo()|strpos:'/investments/' === 0 || $request->getPathInfo()|strpos:'/en/investments' || $request->getPathInfo()|strpos:'/en/investments/' === 0) && $request->getPathInfo()|strpos:'analytics/investments/' === false)}
-    {assign "isInvestments" value=(($request->getPathInfo() === '/investments' || $request->getPathInfo() === '/en/investments' || $request->getPathInfo()|strpos:'/investments' || $request->getPathInfo()|strpos:'/investments/' === 0 || $request->getPathInfo()|strpos:'/en/investments' || $request->getPathInfo()|strpos:'/en/investments/' === 0) && $request->getPathInfo()|strpos:'analytics/investments/' === false)}
+{assign "isInvestmentsPost" value=(($request->getPathInfo()|strpos:'/investments' || $request->getPathInfo()|strpos:'/investments/' === 0 || $request->getPathInfo()|strpos:'/en/investments' || $request->getPathInfo()|strpos:'/en/investments/' === 0) && $request->getPathInfo()|strpos:'analytics/investments/' === false)}
+{assign "isInvestments" value=(($request->getPathInfo() === '/investments' || $request->getPathInfo() === '/en/investments' || $request->getPathInfo()|strpos:'/investments' || $request->getPathInfo()|strpos:'/investments/' === 0 || $request->getPathInfo()|strpos:'/en/investments' || $request->getPathInfo()|strpos:'/en/investments/' === 0) && $request->getPathInfo()|strpos:'analytics/investments/' === false)}
 <aside class="sidebar desktop-only" data-test="{$request->getPathInfo()}" data-result="{$isInvestments}">
 
 
@@ -50,10 +50,12 @@
         {/if}
     {/block}
     {block 'aside.subscribe'}
-        {include 'components/sidebar-subscription'}
+        {if $lang !== 'uk'}
+            {include 'components/sidebar-subscription'}
+        {/if}
     {/block}
     {block 'aside.banner'}
-        {if $lang !== 'en'}
+        {if $lang == 'ru'}
         <div class="advertising lang-{$lang}" id="advertising">
             {#mod Widget}
             {widget_slot 'main (370x450)' size=[370,450]}

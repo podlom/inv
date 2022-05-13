@@ -544,7 +544,7 @@ $( "select[name='page[category][parent]']" ).change(function(e1) {
             console.log('Found project_stage input with name = "page[attr][attr_32]"');
         } else {
             console.log('Not Found project_stage input with name = "page[attr][attr_32]"');
-            $( 'div.attributes fieldset' ).append( '<div class="row"><label>project_stage: <select name="page[attr][attr_32]"><option value="0" label="Стартап (Startup / Seed)">Стартап (Startup / Seed)</option><option value="1" label="Ранние стадии ">Ранние стадии </option><option value="2" selected="" label="Стадия роста и расширения ">Стадия роста и расширения </option><option value="3" label="Поздние стадии (Later Stage / Exit)">Поздние стадии (Later Stage / Exit)</option><option value="4" label="Проблемные активы (Distressed Assets)">Проблемные активы (Distressed Assets)</option><option value="" label="Значение не указано"></option></select></label></div>' );
+            $( 'div.attributes fieldset' ).append( '<div class="row"><label>project_stage: <select name="page[attr][attr_32]"><option value="0" label="Стартап">Стартап</option><option value="1" label="Ранняя стадия">Ранняя стадия</option><option value="2" selected="" label="Стадия роста и расширения">Стадия роста и расширения</option><option value="3" label="Поздние стадии">Поздние стадии</option><option value="4" label="Проблемный актив">Проблемный актив</option><option value="" label="Значение не указано"></option></select></label></div>' );
 
 {literal}
 

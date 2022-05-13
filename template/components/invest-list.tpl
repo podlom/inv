@@ -1,49 +1,51 @@
 
-
 {if $lang === 'en'}
-{lent_load '/en/investments' 6 var="posts" analytics=1}
+    {lent_load '/en/investments' 6 var="posts" analytics=1}
+{elseif $lang === 'uk'}
+    {lent_load '/uk/investments' 6 var="posts" analytics=1}
 {else}
-{lent_load '/investments' 6 var="posts" analytics=1}
+    {lent_load '/investments' 6 var="posts" analytics=1}
 {/if}
 
 {$bigpost=array_shift($posts)}
+{if !is_null($bigpost)}
 
 <div class="invest-projects">
     <div class="section__title-categories pt-0 mb-2 pb-0 flex flex-row justify-between items-center">
-      <a href="{if $lang === 'en'}/en{/if}/investments"><h1 class="pr-4">{if $lang === 'ru'}Инвестиционные предложения{else}Investment proposals{/if}</h1></a>
+      <a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/investments"><h1 class="pr-4">{if $lang === 'ru'}Инвестиционные предложения{elseif $lang === 'uk'}Інвестиційні пропозиції{else}Investment proposals{/if}</h1></a>
 			<div class="flex items-center">
 				<ul class="sort desktop-only text-xs">
-					<li class="sort__item sort__item--active"><a href="">{if $lang === 'ru'}Новые{else}Latest{/if}</a></li>
-					<li class="sort__item"><a href="{if $lang === 'en'}/en{/if}/investments?filter[sort]=views">{if $lang === 'ru'}Популярные{else}Popular{/if}</a></li>
-					<li class="sort__item"><a href="{if $lang === 'en'}/en{/if}/investments?filter[sort]=rating">{if $lang === 'ru'}Лучшие{else}Featured{/if}</a></li>
+					<li class="sort__item sort__item--active"><a href="">{if $lang === 'ru'}Новые{elseif $lang === 'uk'}Нові{else}Latest{/if}</a></li>
+					<li class="sort__item"><a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/investments?filter[sort]=views">{if $lang === 'ru'}Популярные{elseif $lang === 'uk'}Популярні{else}Popular{/if}</a></li>
+					<li class="sort__item"><a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/investments?filter[sort]=rating">{if $lang === 'ru'}Лучшие{elseif $lang === 'uk'}Кращі{else}Featured{/if}</a></li>
 				</ul>
-				<a href="{if $lang === 'en'}/en{/if}/add-inv-prop" class="investments__title-link desktop-only ml-4" >{if $lang == 'en'}How to advertise?{else}Как сюда попасть?{/if}</a>
+				<a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/add-inv-prop" class="investments__title-link desktop-only ml-4" >{if $lang == 'en'}How to advertise?{elseif $lang === 'uk'}Як сюди потрапити?{else}Как сюда попасть?{/if}</a>
 			</div>
     </div>
 
    <div class="relative z-0">
     <nav class="section__categories">
-        <a class="section__category" href="{if $lang === 'en'}/en{/if}/investments/projects">
-        {if $lang === 'ru'}Инвестиционные проекты и стартапы{else}Investment Projects and Startups{/if}</a>
-        <a class="section__category"  href="{if $lang === 'en'}/en{/if}/investments/business">
-        {if $lang === 'ru'}Продажа бизнеса{else}Business for Sale{/if}</a>
-        <a class="section__category" href="{if $lang === 'en'}/en{/if}/investments/realestate">
-        {if $lang === 'ru'}Недвижимость{else}Commercial Property{/if}</a>
-        <a class="section__category" href="{if $lang === 'en'}/en{/if}/investments/land">
-        {if $lang === 'ru'}Земля{else}Land{/if}</a>
-        <a class="section__category" href="{if $lang === 'en'}/en{/if}/investments/{if $lang === 'en'}/en_{/if}franchising">
-        {if $lang === 'ru'}Франчайзинг{else}Franchising{/if}</a>
-        <a class="section__category" href="{if $lang === 'en'}/en{/if}/investments/offer">
-        {if $lang === 'ru'}Инвесторы{else}Investor Offers{/if}</a>
+        <a class="section__category" href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/investments/projects">
+        {if $lang === 'ru'}Инвестиционные проекты и стартапы{elseif $lang === 'uk'}Інвестиційні проекти та стартапи{else}Investment Projects and Startups{/if}</a>
+        <a class="section__category"  href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/investments/business">
+        {if $lang === 'ru'}Продажа бизнеса{elseif $lang === 'uk'}Продаж бізнесу{else}Business for Sale{/if}</a>
+        <a class="section__category" href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/investments/realestate">
+        {if $lang === 'ru'}Недвижимость{elseif $lang === 'uk'}Нерухомість{else}Commercial Property{/if}</a>
+        <a class="section__category" href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/investments/land">
+        {if $lang === 'ru'}Земля{elseif $lang === 'uk'}Земля{else}Land{/if}</a>
+        <a class="section__category" href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/investments/{if $lang === 'en'}/en_{elseif $lang === 'uk'}/uk_{/if}franchising">
+        {if $lang === 'ru'}Франчайзинг{elseif $lang === 'uk'}Франчайзинг{else}Franchising{/if}</a>
+        <a class="section__category" href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/investments/offer">
+        {if $lang === 'ru'}Инвесторы{elseif $lang === 'uk'}Інвестори{else}Investor Offers{/if}</a>
     </nav>
     <div class="section__categories-overlay"></div>
    </div>
        
    <div class="section__controls flex flex-row mobile-only ">
 		<select id="invest-sort" class="mobile-sort mr-2">
-			<option value="">{if $lang === 'ru'}Новые{else}Latest{/if}</option>
-			<option value="{if $lang === 'en'}/en{/if}/investments?filter[sort]=views">{if $lang === 'ru'}Популярные{else}Popular{/if}</option>
-			<option value="{if $lang === 'en'}/en{/if}/investments?filter[sort]=rating">{if $lang === 'ru'}Лучшие{else}Featured{/if}</option>
+			<option value="">{if $lang === 'ru'}Новые{elseif $lang === 'uk'}Нові{else}Latest{/if}</option>
+			<option value="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/investments?filter[sort]=views">{if $lang === 'ru'}Популярные{elseif $lang === 'uk'}Популярні{else}Popular{/if}</option>
+			<option value="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/investments?filter[sort]=rating">{if $lang === 'ru'}Лучшие{elseif $lang === 'uk'}Кращі{else}Featured{/if}</option>
 		</select>
 		<button aria-label="Filter" id="open-mobile-filter" class="section__controls-btn flex items-center justify-center toggle-filter">
 			<svg style="max-width:1em; pl-2 pr-2" width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -66,7 +68,7 @@
          <p class="cards__description">{$bigpost->getShortText()|truncate:150:"  ..."}</p>
           {if $bigpost->hasAttr("10")}
             <div class="mt-2">
-              <p class="font-semibold inline">{if $lang === 'ru'}Расположение:{else}Location:{/if}</p>
+              <p class="font-semibold inline">{if $lang === 'ru'}Расположение:{elseif $lang === 'uk'}Розміщення:{else}Location:{/if}</p>
               <p class="inline"> {$bigpost->printAttr("10")}</p>
             </div>
           {/if}
@@ -81,7 +83,7 @@
             <div class="flex items-center ml-auto">
               {if $bigpost->getAttr(13)}
               <div class="flex items-center mr-4">
-								<img data-src="/images/icons/star.svg" alt="Rating icon" class="lazyload">
+                  <img data-src="/images/icons/star.svg" alt="Rating icon" class="lazyload">
                 <p class="ml-2 font-semibold text-sm">{$bigpost->getAttr(13)|number_format}</p>
               </div>
               {/if}
@@ -119,7 +121,7 @@
                 <div class="flex items-center ml-auto">
                   {if $post->getAttr(13)}
                   <div class="flex items-center mr-4">
-										<img data-src="/images/icons/star.svg" alt="Rating icon" class="lazyload">
+                      <img data-src="/images/icons/star.svg" alt="Rating icon" class="lazyload">
                     <p class="ml-2 font-semibold text-sm">{$post->getAttr(13)|number_format}</p>
                   </div>
                   {/if}
@@ -136,3 +138,4 @@
    </div>
 </div>
 
+{/if}

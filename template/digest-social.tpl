@@ -107,7 +107,7 @@
                     </div>
                 </div>
                 <input name="subscribe[ga_utm]" hidden type="hidden">
-                <button type="submit" class="subscription__button">
+                <button type="submit" class="subscription__button g-recaptcha digest-social" data-sitekey="6Le8bI8fAAAAAFT1lTrt6gL31hrhm8mFfc4nKmbX" data-callback="submitDigest">
                         Подписаться
                 </button>
             </form>

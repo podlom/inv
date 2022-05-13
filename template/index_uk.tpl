@@ -12,7 +12,7 @@
     <main class="main large-9">
       {include 'components/invest-list'}
     </main>
-    <aside class="sidebar sidebar--index">
+    <aside class="sidebar sidebar--index sidebar-uk">
 			<div class="desktop-only">
 				{include 'components/promo-links'}
 			</div>

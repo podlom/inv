@@ -2,7 +2,7 @@
 <div class="promo-links mb-4 pt-0">
   <div class="promo-links__wrapper">
     
-    <a class="promo-links__btn promo-links__btn--red" href="{if $lang == 'en'}/en/add-inv-prop{else}/add-inv-prop{/if}">
+    <a class="promo-links__btn promo-links__btn--red" href="{if $lang == 'en'}/en/add-inv-prop{elseif $lang == 'uk'}/uk/add-inv-prop{else}/add-inv-prop{/if}">
       <svg
         width="34"
         height="33"
@@ -15,10 +15,10 @@
           fill="white"
         />
       </svg>
-      <div class="promo-links__btn-title">{if $lang == 'en'}Find an investor{else}Найти инвестора{/if}</div>
-			<div class="promo-links__btn-desc">{if $lang == 'en'}Sell business or <br>property{else}Продать бизнес или <br>недвижимость{/if}</div>
+      <div class="promo-links__btn-title">{if $lang == 'en'}Find an investor{elseif $lang == 'uk'}Знайти інвестора{else}Найти инвестора{/if}</div>
+			<div class="promo-links__btn-desc">{if $lang == 'en'}Sell business or <br>property{elseif $lang == 'uk'}Продати бізнес або <br>нерухомість{else}Продать бизнес или <br>недвижимость{/if}</div>
     </a>
-		<a class="promo-links__btn promo-links__btn--blue" href="{if $lang == 'en'}/en/investor{else}/investor{/if}">
+		<a class="promo-links__btn promo-links__btn--blue" href="{if $lang == 'en'}/en/investor{elseif $lang == 'uk'}/uk/investor{else}/investor{/if}">
       <svg
         width="25"
         height="34"
@@ -33,13 +33,11 @@
           fill="white"
         />
       </svg>
-      <div class="promo-links__btn-title">{if $lang == 'en'}Invest{else}Инвестировать{/if}</div>
-      <div class="promo-links__btn-desc">{if $lang == 'en'}Buy business or <br>property{else}Купить бизнес или <br>недвижимость{/if}</div>
+      <div class="promo-links__btn-title">{if $lang == 'en'}Invest{elseif $lang == 'uk'}Інвестувати{else}Инвестировать{/if}</div>
+      <div class="promo-links__btn-desc">{if $lang == 'en'}Buy business or <br>property{elseif $lang == 'uk'}Купити бізнес або <br>нерухомість{else}Купить бизнес или <br>недвижимость{/if}</div>
     </a>
   </div>
 </div>
-
-
 
 {* 
 {if $lang == 'en'}
