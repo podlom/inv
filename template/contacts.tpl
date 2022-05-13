@@ -7,7 +7,7 @@
 	<div class="container">
 		<div class="contacts__header">
 			<h1 class="section__title">
-				{if $lang === 'en'}Contact information{else}Контактная информация{/if}
+				{if $lang === 'en'}Contact information{elseif $lang == 'uk'}Контактна інформація{else}Контактная информация{/if}
 			</h1>
 			{* <p>Расскажите нам о своих предложениях, комментариях или жалобах</p> *}
 		</div>
@@ -17,7 +17,9 @@
 				<a href="mailto:pr@inventure.ua">
 					<h2 class="link__title">
 						{if $lang === 'en'}
-						Advertising of investment proposals
+							Advertising of investment proposals
+						{elseif $lang == 'uk'}
+							По питанням розміщення інвестиційних пропозицій
 						{else}
 							По вопросам размещения инвестиционных предложений
 						{/if}
@@ -25,6 +27,8 @@
 					<p class="link__description">
 						{if $lang === 'en'}
 							Sale of business and commercial real estate, investment projects and startups, franchises and other assets.
+						{elseif $lang == 'uk'}
+							Продаж бізнесу та комерційної нерухомості, інвестиційні проекти та стартапи, франшизи та інші активи.
 						{else}
 							Продажа бизнеса и коммерческой недвижимости, инвестиционные проекты и стартапы, франшизы и другие активы.
 						{/if}
