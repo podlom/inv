@@ -2,7 +2,7 @@
   <div class="header__wrapper">
     <button aria-label="Menu" id="open-mobile-menu" class="header__btn header__btn--burger"></button>
 
-    <a class="header__logo items-center flex ml-2" href="{if $lang === 'en'}/en{/if}/">
+    <a class="header__logo items-center flex ml-2" href="{if $lang == 'en'}/en{elseif $lang == 'uk'}/uk{/if}/">
       <img src="/images/logo.svg" alt="Inventure logo" />
 			{* <svg class="header__logo-rectangle" xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35" fill="none">
 				<path d="M10.9201 0.050293C10.9201 11.4123 10.9201 22.7748 10.9201 34.1383C7.2982 34.1383 3.67527 34.1383 0.0498047 34.1383C0.0498047 22.7748 0.0498047 11.4123 0.0498047 0.050293C3.67527 0.050293 7.2982 0.050293 10.9201 0.050293Z" fill="#D91920"/>
@@ -22,7 +22,7 @@
 				</a>
 				
 			</div>
-			<a href="{if $lang === 'en'}/en/{else}/{/if}about/contacts" aria-label="Callback" class="header__btn header__btn--blue">
+			<a href="{if $lang === 'en'}/en/{elseif $lang == 'uk'}/uk/{else}/{/if}about/contacts" aria-label="Callback" class="header__btn header__btn--blue">
 				<svg
 					width="18"
 					height="18"
@@ -49,7 +49,7 @@
 <nav id="mobile-nav" class="mobile-nav">
 
 	<form action="/search" method="get" class="search_frm flex relative mobile-nav__search search">
-			<input name="q" class="w-full search__input" type="search" value="{$query}" placeholder="{if $lang === 'ru'}Поиск среди 30 000 материалов в области инвестиций{else}Search among 30,000 materials about investments{/if}"/>
+			<input name="q" class="w-full search__input" type="search" value="{$query}" placeholder="{if $lang === 'ru'}Поиск среди 30 000 материалов в области инвестиций{elseif $lang == 'uk'}Пошук серед 30 000 метеріалів в галузі інвестицій{else}Search among 30,000 materials about investments{/if}"/>
 			<button aria-label="Search" class="search__button"><i class="fa fa-search" aria-hidden="true"></i></button>
 	</form>
 
@@ -75,8 +75,8 @@
         <li><a href="{if $lang === 'en'}/en{/if}/investments/land">
         {if $lang === 'ru'}Земля{else}Land{/if}
         </a></li>
-        <li><a href="{if $lang === 'en'}/en{/if}/investments/{if $lang === 'en'}/en_{/if}franchising">
-        {if $lang === 'ru'}Франчайзинг{else}Franchising{/if}
+        <li><a href="{if $lang == 'en'}/en{elseif $lang == 'uk'}/uk{/if}/investments/{if $lang == 'en'}/en_{/if}franchising">
+        {if $lang === 'ru'}Франчайзинг{elseif $lang == 'uk'}Франчайзинг{else}Franchising{/if}
         </a></li>
         <li><a href="{if $lang === 'en'}/en{/if}/investments/offer">
         {if $lang === 'ru'}Предложения инвесторов{else}Investor Offers{/if}

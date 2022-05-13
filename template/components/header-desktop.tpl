@@ -132,7 +132,7 @@
                         {if $lang === 'ru'}Продажа бизнеса{elseif $lang === 'uk'}Продаж бізнесу{else}Business for Sale{/if}
                       </li>
                     </a>
-                    <a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/investments/{if $lang === 'en'}/en_{elseif $lang === 'uk'}/uk_{/if}franchising">
+                    <a href="{if $lang == 'en'}/en{elseif $lang == 'uk'}/uk{/if}/investments/{if $lang == 'en'}/en_{/if}franchising">
                       <li>
                         <svg
                           class="franchising-svg"
