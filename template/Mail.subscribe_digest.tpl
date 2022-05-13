@@ -11,7 +11,7 @@
 
         <input type="hidden" name="ga_utm" value="">
 
-        <button class="blue_but cell-but w-full" type="submit" id="subscribeButton">Subscribe</button>
+        <button class="blue_but cell-but w-full g-recaptcha" data-sitekey="6Le8bI8fAAAAAFT1lTrt6gL31hrhm8mFfc4nKmbX" type="submit" id="subscribeButton" data-callback="submitDigest">Subscribe</button>
         {$form->protection()}
     {$form->close()}
 {else}
@@ -46,7 +46,7 @@
 
         <input type="hidden" name="ga_utm" value="">
 
-        <button class="blue_but cell-but w-full" type="submit" id="subscribeButton">Подписаться</button>
+        <button class="blue_but cell-but w-full g-recaptcha" data-sitekey="6Le8bI8fAAAAAFT1lTrt6gL31hrhm8mFfc4nKmbX" type="submit" id="subscribeButton" data-callback="submitDigest">Подписаться</button>
         {$form->protection()}
     {$form->close()}
 {/if}

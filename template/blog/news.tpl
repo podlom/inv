@@ -13,7 +13,7 @@
 {/block} *}
 
 {block 'content' append}
-    <h2 class="section__title mt-4">{if $lang=='en'}Related posts{else}Читайте также{/if}</h2>
+    <h2 class="section__title mt-4">{if $lang=='en'}Related posts{elseif $lang=='uk'}Читайте також{else}Читайте также{/if}</h2>
     <article class="cards">
         {similar_posts $post 3}
             <a href="{$lent->getPath()}" class="cards__item">

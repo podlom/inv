@@ -1,60 +1,60 @@
-<form action="{if $lang === 'en'}/en{/if}/investments" id="invest-filter" class="filter__wrapper">
+<form action="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/investments" id="invest-filter" class="filter__wrapper">
     <div class="filter__selectors {if $smarty.server.REQUEST_URI !== '/'}mb-4{/if}">
-        <div class="filter__title"><span>{if $lang === 'ru'}Поиск{else}Search{/if}</span>  
+        <div class="filter__title"><span>{if $lang === 'ru'}Поиск{elseif $lang === 'uk'}Пошук{else}Search{/if}</span>
             <div class="filter__heading-filter toggle-filter">
                 <i class="fa fa-close" aria-hidden="true"></i>
             </div>
         </div>
         <div class="filter__selector mt-4 mb-4">
         <label class="filter__row" for="">
-            <span class="filter__label">{if $lang === 'ru'}Тип{else}Category{/if}</span>
+            <span class="filter__label">{if $lang === 'ru'}Тип{elseif $lang === 'uk'}Тип{else}Category{/if}</span>
             <select class="" id="filter__type" name="filter[category][parent]" multiple="multiple">
-                <option value="projects">{if $lang === 'ru'}Инвестиционные проекты и стартапы{else}Investment Projects and Startups{/if}</option>
-                <option value="business">{if $lang === 'ru'}Продажа бизнеса{else}Business for Sale{/if} </option>
-                <option value="realestate">{if $lang === 'ru'}Недвижимость{else}Commercial Property{/if}</option>
-                <option value="land">{if $lang === 'ru'}Земля{else}Land{/if}</option>
-                <option value="franchising">{if $lang === 'ru'}Франчайзинг{else}Franchising{/if}</option>
-                <option value="offer">{if $lang === 'ru'}Предложения инвесторов{else}Investor Offers{/if}</option>
+                <option value="projects">{if $lang === 'ru'}Инвестиционные проекты и стартапы{elseif $lang === 'uk'}Інвестиційні проекти та стартапи{else}Investment Projects and Startups{/if}</option>
+                <option value="business">{if $lang === 'ru'}Продажа бизнеса{elseif $lang === 'uk'}Продаж бізнесу{else}Business for Sale{/if} </option>
+                <option value="realestate">{if $lang === 'ru'}Недвижимость{elseif $lang === 'uk'}Нерухомість{else}Commercial Property{/if}</option>
+                <option value="land">{if $lang === 'ru'}Земля{elseif $lang === 'uk'}Земля{else}Land{/if}</option>
+                <option value="franchising">{if $lang === 'ru'}Франчайзинг{elseif $lang === 'uk'}Франчайзинг{else}Franchising{/if}</option>
+                <option value="offer">{if $lang === 'ru'}Предложения инвесторов{elseif $lang === 'uk'}Інвестиційні пропозиції{else}Investor Offers{/if}</option>
             </select>
         </label>
         </div>
         
         <div class="filter__selector mb-4">
         <label class="filter__row" for="">
-            <span class="filter__label">{if $lang === 'ru'}Отрасль{else}Industry{/if}</span>
+            <span class="filter__label">{if $lang === 'ru'}Отрасль{elseif $lang === 'uk'}Галузь{else}Industry{/if}</span>
             <select class="" id="branch" name="filter[attr_16][0]" multiple="multiple">
-                <option value="0">{if $lang === 'ru'}Сельское хозяйство{else}Agriculture{/if}</option>
-                <option value="16">{if $lang === 'ru'}Пищевая промышленность{else}Food processing{/if}</option>
-                <option value="1">{if $lang === 'ru'}Добывающая промышленность{else}Mining{/if}</option>
-                <option value="12">{if $lang === 'ru'}Металлургия{else}Metallurgy{/if}</option>
-                <option value="11">{if $lang === 'ru'}Машиностроение{else}Machinery{/if}</option>
-                <option value="23">{if $lang === 'ru'}Химическая промышленность{else}Сhemical{/if}</option>
-                <option value="8">{if $lang === 'ru'}Деревообработка{else}Wood processing{/if}</option>
-                <option value="20">{if $lang === 'ru'}Текстильная промышленность{else}Textile{/if}</option>
-                <option value="4">{if $lang === 'ru'}Строительство и недвижимость{else}Construction and real estate{/if}</option>
-                <option value="22">{if $lang === 'ru'}Финансовая деятельность{else}Finance{/if}</option>
-                <option value="6">{if $lang === 'ru'}Бизнес услуги{else}Business services{/if}</option>
-                <option value="21">{if $lang === 'ru'}Транспорт и логистика{else}Transport and logistic{/if}</option>
-                <option value="19">{if $lang === 'ru'}ИТ и телекоммуникации{else}IT and telecommunications{/if}</option>
-                <option value="18">{if $lang === 'ru'}Розничная торговля{else}Retail{/if}</option>
-                <option value="14">{if $lang === 'ru'}Оптовая торговля{else}Wholesale{/if}</option>
-                <option value="10">{if $lang === 'ru'}Искусство, развлечения, спорт и отдых{else}Arts, entertainment, sports and recreation{/if}</option>
-                <option value="2">{if $lang === 'ru'}Энергетика{else}Energy{/if}</option>
-                <option value="3">{if $lang === 'ru'}Водообеспечение и переработка отходов{else}Water supply and waste treatment{/if}</option>
-                <option value="24">{if $lang === 'ru'}Инновации и высокие технологии{else}Innovation and high technology{/if}</option>
-                <option value="7">{if $lang === 'ru'}Государственное управление{else}Public administration{/if}</option>
-                <option value="17">{if $lang === 'ru'}Гостиницы и рестораны{else}Hotels and restaurants{/if}</option>
-                <option value="9">{if $lang === 'ru'}Здравоохранение и социальная помощь{else}Health care and social assistance{/if}</option>
-                <option value="5">{if $lang === 'ru'}Потребительские услуги{else}Consumer services{/if}</option>
-                <option value="13">{if $lang === 'ru'}Образование{else}Education{/if}</option>
-                <option value="15">{if $lang === 'ru'}Организации и ассоциации{else}Organizations and associations{/if}</option>
+                <option value="0">{if $lang === 'ru'}Сельское хозяйство{elseif $lang === 'uk'}Сільське господарство{else}Agriculture{/if}</option>
+                <option value="16">{if $lang === 'ru'}Пищевая промышленность{elseif $lang === 'uk'}Харчова промисловість{else}Food processing{/if}</option>
+                <option value="1">{if $lang === 'ru'}Добывающая промышленность{elseif $lang === 'uk'}Видобувна промисловість{else}Mining{/if}</option>
+                <option value="12">{if $lang === 'ru'}Металлургия{elseif $lang === 'uk'}Металургія{else}Metallurgy{/if}</option>
+                <option value="11">{if $lang === 'ru'}Машиностроение{elseif $lang === 'uk'}Машинобудування{else}Machinery{/if}</option>
+                <option value="23">{if $lang === 'ru'}Химическая промышленность{elseif $lang === 'uk'}Хімічна промисловість{else}Сhemical{/if}</option>
+                <option value="8">{if $lang === 'ru'}Деревообработка{elseif $lang === 'uk'}Деревообробка{else}Wood processing{/if}</option>
+                <option value="20">{if $lang === 'ru'}Текстильная промышленность{elseif $lang === 'uk'}Текстильна промисловість{else}Textile{/if}</option>
+                <option value="4">{if $lang === 'ru'}Строительство и недвижимость{elseif $lang === 'uk'}Будівництво та нерухомість{else}Construction and real estate{/if}</option>
+                <option value="22">{if $lang === 'ru'}Финансовая деятельность{elseif $lang === 'uk'}Фінансова діяльність{else}Finance{/if}</option>
+                <option value="6">{if $lang === 'ru'}Бизнес услуги{elseif $lang === 'uk'}Бізнес послуги{else}Business services{/if}</option>
+                <option value="21">{if $lang === 'ru'}Транспорт и логистика{elseif $lang === 'uk'}Транспорт та логістика{else}Transport and logistic{/if}</option>
+                <option value="19">{if $lang === 'ru'}ИТ и телекоммуникации{elseif $lang === 'uk'}ІТ та телекомунікації{else}IT and telecommunications{/if}</option>
+                <option value="18">{if $lang === 'ru'}Розничная торговля{elseif $lang === 'uk'}Роздрібна торгівля{else}Retail{/if}</option>
+                <option value="14">{if $lang === 'ru'}Оптовая торговля{elseif $lang === 'uk'}Оптова торгівля{else}Wholesale{/if}</option>
+                <option value="10">{if $lang === 'ru'}Искусство, развлечения, спорт и отдых{elseif $lang === 'uk'}Мистецтво, розваги, спорт та відпочинок{else}Arts, entertainment, sports and recreation{/if}</option>
+                <option value="2">{if $lang === 'ru'}Энергетика{elseif $lang === 'uk'}Енергетика{else}Energy{/if}</option>
+                <option value="3">{if $lang === 'ru'}Водообеспечение и переработка отходов{elseif $lang === 'uk'}Водозабезпечення та переробка сміття{else}Water supply and waste treatment{/if}</option>
+                <option value="24">{if $lang === 'ru'}Инновации и высокие технологии{elseif $lang === 'uk'}Іновації та високі технології{else}Innovation and high technology{/if}</option>
+                <option value="7">{if $lang === 'ru'}Государственное управление{elseif $lang === 'uk'}Державне управління{else}Public administration{/if}</option>
+                <option value="17">{if $lang === 'ru'}Гостиницы и рестораны{elseif $lang === 'uk'}Готелі та ресторани{else}Hotels and restaurants{/if}</option>
+                <option value="9">{if $lang === 'ru'}Здравоохранение и социальная помощь{elseif $lang === 'uk'}Охорона здоров'я та соціальна допомога{else}Health care and social assistance{/if}</option>
+                <option value="5">{if $lang === 'ru'}Потребительские услуги{elseif $lang === 'uk'}Споживчі послуги{else}Consumer services{/if}</option>
+                <option value="13">{if $lang === 'ru'}Образование{elseif $lang === 'uk'}Освіта{else}Education{/if}</option>
+                <option value="15">{if $lang === 'ru'}Организации и ассоциации{elseif $lang === 'uk'}Організації та асоціаціі{else}Organizations and associations{/if}</option>
             </select>
         </label>
         </div>
         
         <div class="filter__selector mb-4">
             <label  class="filter__row" for="">
-                <span class="filter__label">{if $lang === 'ru'}Регион{else}Region{/if}</span>
+                <span class="filter__label">{if $lang === 'ru'}Регион{elseif $lang === 'uk'}Регіон{else}Region{/if}</span>
                 <input class="filter__input" type="text" name="region" id="region" value="">
                 <i qtype="IconFind"></i>
             </label>
@@ -63,7 +63,7 @@
             
         <div class="filter__selector filter__selector--price">
             <label  class="filter__row  mb-4" for="">
-                <span class="filter__label">{if $lang === 'ru'}Цена от{else}Price from{/if}</span>
+                <span class="filter__label">{if $lang === 'ru'}Цена от{elseif $lang === 'uk'}Цена від{else}Price from{/if}</span>
                 <select name="price1" class="multiple-select" data-single="true">
                     <option selected value="">$ 0</option>
                     <option value="10000">$ 10 000</option>
@@ -77,7 +77,7 @@
                 </select>
             </label>
             <label  class="filter__row" for="">
-                <span class="filter__label">{if $lang === 'ru'}До{else}To{/if}</span>
+                <span class="filter__label">{if $lang === 'ru'}До{elseif $lang === 'uk'}До{else}To{/if}</span>
                 <select name="price2" class="multiple-select" data-single="true">
                     <option value="10000">$ 10 000</option>
                     <option value="50000">$ 50 000</option>
@@ -90,7 +90,7 @@
                 </select>
             </label>
         </div>
-        <button type="submit" class="btn btn--blue mt-6 btn--normal">{if $lang === 'ru'}Искать{else}Search{/if}</button>
+        <button type="submit" class="btn btn--blue mt-6 btn--normal">{if $lang === 'ru'}Искать{elseif $lang === 'uk'}Пошук{else}Search{/if}</button>
     </div>
 </form>
 

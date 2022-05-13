@@ -1,9 +1,17 @@
+{if $request->getPathInfo() == '/uk'}
+    {$lang='uk'}
+{/if}
+
 <!DOCTYPE html>
 <!--[if lt IE 7]><html class="lt-ie9 lt-ie8 lt-ie7" prefix="og: https://ogp.me/ns#" /> <![endif]-->
 <!--[if IE 7]><html class="lt-ie9 lt-ie8" prefix="og: https://ogp.me/ns#" /> <![endif]-->
 <!--[if IE 8]><html class="lt-ie9" prefix="og: https://ogp.me/ns#" /> <![endif]-->
 <!--[if gt IE 8]><!--><html lang="{$lang|default:'ru'}" prefix="og: https://ogp.me/ns#" ><!--<![endif]-->
 <head>
+
+<!-- @ts:$request->getPathInfo(): '{$request->getPathInfo()}' -->
+<!-- @ts:$lang: '{$lang}' -->
+
 {if $sm}
 {$user = $sm->getUser()}
 {/if}
@@ -103,6 +111,8 @@
    
     {head}
 
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
     <script src="/js/intlTelInput-min.js"></script>
     
     {script class="iti-load-utils" async="" src="/js/utils.js"}
@@ -139,9 +149,6 @@
     {/if}
 
 
-    
-    
-
     {* {script_code require=['foundation2', 'jquery']}$(document).foundation();{/script_code} *}
 
 </head>
@@ -153,6 +160,9 @@
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 {/literal}
+
+<!-- @ts:$isNewStylesAvaible: '{$isNewStylesAvaible}' -->
+<!-- @ts:$lang+166: '{$lang}' -->
 
   {if $isNewStylesAvaible}
       {include 'components/header-desktop'}
@@ -169,14 +179,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="grid-container tablet_buttons">
         <div class="grid-x grid-margin-x">
           {block 'side_buttons'}
-            <a href="/investor" class="tablet_button1">инвестировать</a>
-            <a href="/add-inv-prop" class="tablet_button2">Найти инвестора</a>
+            <a href="{if $lang=='en'}/en{elseif $lang=='uk'}/uk{/if}/investor" class="tablet_button1">{if $lang=='en'}invest{elseif $lang=='uk'}інвестувати{else}инвестировать{/if}</a>
+            <a href="{if $lang=='en'}/en{elseif $lang=='uk'}/uk{/if}/add-inv-prop" class="tablet_button2">{if $lang=='en'}Find an investor{elseif $lang=='uk'}Знайти інвестора{else}Найти инвестора{/if}</a>
           {/block}
         </div>
       </div>
   {/if}
-
-  
     
     <div class="off-canvas-wrap" data-offcanvas="">
         <div class="inner-wrap {if $request->getPathInfo() == '/add-inv-prop' || $request->getPathInfo() == '/investor' }pt-0{/if}">
@@ -206,7 +214,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
     <div class="up" style="display: none;">
-        <img src="/images/up.svg" alt="Вверх" title="Вверх">
+        <img src="/images/up.svg" alt="{if lang=='en'}Go up{else}Вверх{/if}" title="{if lang=='en'}Go up{else}Вверх{/if}">
         {* <img src="/i/up.png" alt="Вверх" title="Вверх"> *}
     </div>
 

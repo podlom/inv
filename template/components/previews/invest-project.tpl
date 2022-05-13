@@ -117,7 +117,7 @@
                 
                 <div class="desktop-only mt-auto pt-4 flex">
 
-                    <p class="flex items-center opacity-75 text-sm  mr-4 font-semibold text--grey">ID: <span class="postId1">{$post->getId()}</span></p>
+                      <p class="flex items-center opacity-75 text-sm  mr-4 font-semibold text--grey">ID: <span class="postId1">{$post->getId()}</span></p>
                       <p class="flex items-center opacity-75 text-sm  mr-4 font-semibold text--grey">{$post->getPublished()->format('d.m.y')}</p>
 
                       {include 'components/share-btn'}

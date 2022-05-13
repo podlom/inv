@@ -2,21 +2,21 @@
 <header data-lang="{$lang}" class="header header--desktop desktop-only">
   <div class="header__wrapper">
     <div class="container header__container">
-      <a class="header__logo" href="{if $lang === 'en'}/en{else}/{/if}">
+      <a class="header__logo" href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{else}/{/if}">
         <img src="/images/logo.svg" alt="Inventure logo" />
       </a>
       <div class="menu">
       {block 'menu'}
         <nav class="header__nav" id="nav">
-          <li class="header__nav-item"><span><a href="https://inventure.ua/" target="_blank">{if $lang === 'ru'}О компании{else}About us{/if}</a></span></li>
+          <li class="header__nav-item"><span><a href="https://inventure.ua/" target="_blank">{if $lang === 'ru'}О компании{elseif $lang === 'uk'}Про компанію{else}About us{/if}</a></span></li>
           <li class="menu-item1 header__nav-item">
             <span>
-            <a href="{if $lang === 'en'}/en{/if}/investments">{if $lang === 'ru'}Инвестиционные предложения{else}Investment proposals{/if}</a></span>
+            <a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/investments">{if $lang === 'ru'}Инвестиционные предложения{elseif $lang === 'uk'}Інвестиційні пропозиції{else}Investment proposals{/if}</a></span>
             <div class="menu-item">
               <div class="grid-container container">
                 <div class="menu-item__left">
                   <ul class="menu-item__left-top">
-                    <a href="{if $lang === 'en'}/en{/if}/investments/projects">
+                    <a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/investments/projects">
                       <li>
                         <svg
                           width="23"
@@ -47,10 +47,10 @@
                             stroke-linejoin="round"
                           ></path>
                         </svg>
-                        {if $lang === 'ru'}Инвестиционные проекты и стартапы{else}Investment Projects and Startups{/if}
+                        {if $lang === 'ru'}Инвестиционные проекты и стартапы{elseif $lang === 'uk'}Інвестиційні проекти та стартапи{else}Investment Projects and Startups{/if}
                       </li>
                     </a>
-                    <a href="{if $lang === 'en'}/en{/if}/investments/land">
+                    <a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/investments/land">
                       <li>
                         <svg
                           class="investments-land"
@@ -67,10 +67,10 @@
                             stroke-width="0.1"
                           ></path>
                         </svg>
-                        {if $lang === 'ru'}Земля{else}Land{/if}
+                        {if $lang === 'ru'}Земля{elseif $lang === 'uk'}Земля{else}Land{/if}
                       </li>
                     </a>
-                    <a href="{if $lang === 'en'}/en{/if}/investments/business">
+                    <a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/investments/business">
                       <li>
                         <svg
                           width="23"
@@ -129,10 +129,10 @@
                             stroke-linejoin="round"
                           ></path>
                         </svg>
-                        {if $lang === 'ru'}Продажа бизнеса{else}Business for Sale{/if}
+                        {if $lang === 'ru'}Продажа бизнеса{elseif $lang === 'uk'}Продаж бізнесу{else}Business for Sale{/if}
                       </li>
                     </a>
-                    <a href="{if $lang === 'en'}/en{/if}/investments/{if $lang === 'en'}/en_{/if}franchising">
+                    <a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/investments/{if $lang === 'en'}/en_{elseif $lang === 'uk'}/uk_{/if}franchising">
                       <li>
                         <svg
                           class="franchising-svg"
@@ -251,10 +251,10 @@
                             fill="#1F2E35"
                           ></path>
                         </svg>
-                        {if $lang === 'ru'}Франчайзинг{else}Franchising{/if}
+                        {if $lang === 'ru'}Франчайзинг{elseif $lang === 'uk'}Франчайзинг{else}Franchising{/if}
                       </li>
                     </a>
-                    <a href="{if $lang === 'en'}/en{/if}/investments/offer">
+                    <a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/investments/offer">
                       <li>
                         <svg
                           width="23"
@@ -362,10 +362,10 @@
                             stroke-linejoin="round"
                           ></path>
                         </svg>
-                        {if $lang === 'ru'}Инвесторы{else}Investor Offers{/if}
+                        {if $lang === 'ru'}Инвесторы{elseif $lang === 'uk'}Інвестори{else}Investor Offers{/if}
                       </li>
                     </a>
-                    <a href="{if $lang === 'en'}/en{/if}/investments/realestate">
+                    <a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/investments/realestate">
                       <li>
                         <svg
                           class="fill-svg"
@@ -384,12 +384,12 @@
                             stroke-width="0.3"
                           ></path>
                         </svg>
-                        {if $lang === 'ru'}Недвижимость{else}Commercial Property{/if}
+                        {if $lang === 'ru'}Недвижимость{elseif $lang === 'uk'}Нерухомість{else}Commercial Property{/if}
                       </li>
                     </a>
                   </ul>
                   <ul class="menu-item__left-bottom">
-                    <a class="font-weight-bold" href="{if $lang === 'en'}/en{/if}/add-inv-prop">
+                    <a class="font-weight-bold" href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/add-inv-prop">
                       <li>
                         <svg
                           width="23"
@@ -483,10 +483,10 @@
                             stroke-linejoin="round"
                           ></path>
                         </svg>
-                        {if $lang === 'ru'}Найти инвестора или продать бизнес{else}Services for Raising Capital & Sell a Business<{/if}
+                        {if $lang === 'ru'}Найти инвестора или продать бизнес{elseif $lang === 'uk'}Знайти інвестора або продати бізнес{else}Services for Raising Capital & Sell a Business<{/if}
                       </li>
                     </a>
-                    <a class="font-weight-bold" href="{if $lang === 'en'}/en{/if}/investor">
+                    <a class="font-weight-bold" href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/investor">
                       <li>
                         <svg
                           class="fill-svg"
@@ -515,23 +515,25 @@
                             stroke-width="0.2"
                           ></path>
                         </svg>
-                        {if $lang === 'ru'}Сервисы для инвестора{else}Services for Investors{/if}
+                        {if $lang === 'ru'}Сервисы для инвестора{elseif $lang === 'uk'}Сервіси для інвестора{else}Services for Investors{/if}
                       </li>
                     </a>
                   </ul>
                 </div>
-                <a href="{if $lang === 'en'}/en{/if}/add-inv-prop" class="menu-item__right menu--add-inv-prop" style="padding: 20px 40px !important;">
+                <a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/add-inv-prop" class="menu-item__right menu--add-inv-prop" style="padding: 20px 40px !important;">
                   <div class="menu-item__info">
                     <p class="menu-item__info-text">
                       {* {if $lang === 'ru'}Узнай вероятность привлечения инвестиций в свой бизнес прямо сейчас{else}Find out the probability of raising investment for your business right now.{/if} *}
-											{if $lang === 'ru'}
-													Привлечение инвестиций, продажа бизнеса и коммерческой недвижимости в Украине
-											{else}
-													Services for Raising Capital & Sell a Business
-											{/if}
+                        {if $lang === 'ru'}
+                                Привлечение инвестиций, продажа бизнеса и коммерческой недвижимости в Украине
+                        {elseif $lang === 'uk'}
+                                Залучення інвестицій, продаж бізнесу та комерційної нерухомості в Україні
+                        {else}
+                                Services for Raising Capital & Sell a Business
+                        {/if}
                     </p>
                     <span class="menu-item__info-btn">
-                      {if $lang === 'ru'}Узнать подробности{else}Get more information{/if}
+                      {if $lang === 'ru'}Узнать подробности{elseif $lang === 'uk'}Дізнатися більше{else}Get more information{/if}
                     </span>
                   </div>
                   {* <a
@@ -546,12 +548,12 @@
             </div>
           </li>
           <li class="menu-item2  header__nav-item">
-            <span><a href="{if $lang === 'en'}/en{/if}/news">{if $lang === 'ru'}Новости{else}News{/if}</a></span>
+            <span><a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/news">{if $lang === 'ru'}Новости{elseif $lang === 'uk'}Новини{else}News{/if}</a></span>
             <div class="menu-item">
               <div class="grid-container container">
                 <div class="menu-item__list-wrapper">
                   <ul class="menu-item__list {if $lang === 'en'}mr-24{/if}">
-                    <a href="{if $lang === 'en'}/en{/if}/news/investments">
+                    <a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/news/investments">
                       <li>
                         <svg
                           width="23"
@@ -610,10 +612,10 @@
                             stroke-linejoin="round"
                           ></path>
                         </svg>
-                        {if $lang === 'ru'}Прямые инвестиции и M&amp;A{else}Private Equity & M&amp;A{/if}
+                        {if $lang === 'ru'}Прямые инвестиции и M&amp;A{elseif $lang === 'uk'}Прямі інвестиції та M&amp;A{else}Private Equity & M&amp;A{/if}
                       </li>
                     </a>
-                    <a href="{if $lang === 'en'}/en{/if}/news/startup">
+                    <a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/news/startup">
                       <li>
                         <svg
                           width="23"
@@ -651,10 +653,10 @@
                             stroke-linejoin="round"
                           ></path>
                         </svg>
-                        {if $lang === 'ru'}Стартапы{else}Venture Capital &amp; Startups{/if}
+                        {if $lang === 'ru'}Стартапы{elseif $lang === 'uk'}Стартапи{else}Venture Capital &amp; Startups{/if}
                       </li>
                     </a>
-                    <a href="{if $lang === 'en'}/en{/if}/news/government">
+                    <a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/news/government">
                       <li>
                         <svg
                           width="23"
@@ -762,10 +764,10 @@
                             stroke-linejoin="round"
                           ></path>
                         </svg>
-                        {if $lang === 'ru'}Макроинвестиции{else}Macroeconomics{/if}
+                        {if $lang === 'ru'}Макроинвестиции{elseif $lang === 'uk'}Макроінветиції{else}Macroeconomics{/if}
                       </li>
                     </a>
-                    <a href="{if $lang === 'en'}/en{/if}/news/banking">
+                    <a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/news/banking">
                       <li>
                         <svg
                           class="fill-svg franchising-svg"
@@ -795,7 +797,7 @@
                         {if $lang === 'ru'}Кредитование{else}Banking{/if}
                       </li>
                     </a>
-                    <a href="{if $lang === 'en'}/en{/if}/news/stock">
+                    <a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/news/stock">
                       <li>
                         <svg
                           class="fill-svg"
@@ -818,10 +820,10 @@
                             stroke-width="0.1"
                           ></path>
                         </svg>
-                        {if $lang === 'ru'}Фондовый рынок{else}Stock Market &amp; IPO{/if}
+                        {if $lang === 'ru'}Фондовый рынок{elseif $lang === 'uk'}Фондовий ринок{else}Stock Market &amp; IPO{/if}
                       </li>
                     </a>
-                    <a href="{if $lang === 'en'}/en{/if}/news/realestate">
+                    <a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/news/realestate">
                       <li>
                         <svg
                           class="fill-svg"
@@ -840,12 +842,12 @@
                             stroke-width="0.3"
                           ></path>
                         </svg>
-                        {if $lang === 'ru'}Недвижимость{else}Commercial Property{/if}
+                        {if $lang === 'ru'}Недвижимость{elseif $lang === 'uk'}Нерухомість{else}Commercial Property{/if}
                       </li>
                     </a>
                   </ul>
                   <ul class="menu-item__list menu-item__list--world">
-                    <a href="{if $lang === 'en'}/en{/if}/news/ukraine">
+                    <a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/news/ukraine">
                       <li>
                         <svg
                           class="nochange"
@@ -864,10 +866,10 @@
                             fill="#338AF3"
                           ></path>
                         </svg>
-                        {if $lang === 'ru'}Украина{else}Ukraine{/if}
+                        {if $lang === 'ru'}Украина{elseif $lang === 'uk'}Україна{else}Ukraine{/if}
                       </li>
                     </a>
-                    <a href="{if $lang === 'en'}/en{/if}/news/world">
+                    <a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/news/world">
                       <li>
                         <svg
                           width="22"
@@ -906,7 +908,7 @@
                             fill="#BEE86E"
                           ></path>
                         </svg>
-                        {if $lang === 'ru'}Мир{else}World{/if}
+                        {if $lang === 'ru'}Мир{elseif $lang === 'uk'}Світ{else}World{/if}
                       </li>
                     </a>
                   </ul>
@@ -915,12 +917,12 @@
             </div>
           </li>
           <li class="menu-item3  header__nav-item">
-            <span><a href="{if $lang === 'en'}/en{/if}/analytics">{if $lang === 'ru'}Аналитика{else}Analytics{/if}</a></span>
+            <span><a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/analytics">{if $lang === 'ru'}Аналитика{elseif $lang === 'uk'}Аналітика{else}Analytics{/if}</a></span>
             <div class="menu-item">
               <div class="grid-container container">
                 <div class="menu-item__left">
                   <ul class="menu-item__left-top">
-                    <a href="{if $lang === 'en'}/en{/if}/analytics/investments">
+                    <a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/analytics/investments">
                       <li>
                         <svg
                           class="fill-svg"
@@ -1009,10 +1011,10 @@
                             stroke-width="0.3"
                           ></path>
                         </svg>
-                        {if $lang === 'ru'}Исследования{else}Research{/if}
+                        {if $lang === 'ru'}Исследования{elseif $lang === 'uk'}Дослідження{else}Research{/if}
                       </li>
                     </a>
-                    <a href="{if $lang === 'en'}/en{/if}/analytics/we-invest-in-ukraine">
+                    <a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/analytics/we-invest-in-ukraine">
                       <li>
                         <svg
                           class="invest-ukraine"
@@ -1067,10 +1069,10 @@
                             fill="black"
                           ></path>
                         </svg>
-                        {if $lang === 'ru'}Инвестируем в Украину{else}We invest in Ukraine{/if}
+                        {if $lang === 'ru'}Инвестируем в Украину{elseif $lang === 'uk'}Інвестуємо в Україну{else}We invest in Ukraine{/if}
                       </li>
                     </a>
-                    <a href="{if $lang === 'en'}/en{/if}/analytics/articles">
+                    <a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/analytics/articles">
                       <li>
                         <svg
                           width="24"
@@ -1086,10 +1088,10 @@
                             stroke-width="0.5"
                           ></path>
                         </svg>
-                        {if $lang === 'ru'}Статьи{else}Articles{/if}
+                        {if $lang === 'ru'}Статьи{elseif $lang === 'uk'}Статті{else}Articles{/if}
                       </li>
                     </a>
-                    <a href="{if $lang === 'en'}/en{/if}/tools/database">
+                    <a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/tools/database">
                       <li>
                         <svg
                           class="fill-svg"
@@ -1142,10 +1144,10 @@
                             stroke-width="0.3"
                           ></path>
                         </svg>
-                        {if $lang === 'ru'}Рейтинги{else}Ratings{/if}
+                        {if $lang === 'ru'}Рейтинги{elseif $lang === 'uk'}Рейтинги{else}Ratings{/if}
                       </li>
                     </a>
-                    <a href="{if $lang === 'en'}/en{/if}/analytics/formula">
+                    <a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/analytics/formula">
                       <li>
                         <svg
                           class="fill-svg"
@@ -1180,10 +1182,10 @@
                             stroke-width="0.3"
                           ></path>
                         </svg>
-                        {if $lang === 'ru'}Интервью{else}Investment interview{/if}
+                        {if $lang === 'ru'}Интервью{elseif $lang === 'uk'}Інтерв`ю{else}Investment interview{/if}
                       </li>
                     </a>
-                    <a href="{if $lang === 'en'}/en{/if}/tools/library">
+                    <a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/tools/library">
                       <li>
                         <svg
                           class="fill-svg"
@@ -1236,10 +1238,10 @@
                             stroke-width="0.3"
                           ></path>
                         </svg>
-                        {if $lang === 'ru'}Библиотека{else}Library{/if}
+                        {if $lang === 'ru'}Библиотека{elseif $lang === 'uk'}Бібліотека{else}Library{/if}
                       </li>
                     </a>
-                    <a href="{if $lang === 'en'}/en{/if}/tools/investors">
+                    <a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/tools/investors">
                       <li>
                         <svg
                           width="22"
@@ -1347,7 +1349,7 @@
                             stroke-linejoin="round"
                           ></path>
                         </svg>
-                        {if $lang === 'ru'}Инвесторы{else}Investors{/if}
+                        {if $lang === 'ru'}Инвесторы{elseif $lang === 'uk'}Інвестори{else}Investors{/if}
                       </li>
                     </a>
                   </ul>
@@ -1358,19 +1360,19 @@
                       {if $lang === 'ru'}Получайте ежемесячный инвестиционный журнал в сфере прямых
                       инвестиций и венчурного капитала.{else} Get a monthly investment magazine in private equity and venture capital.{/if}
                     </p>
-                    <a href="{if $lang === 'en'}/en{/if}/digest-social" class="menu-item__info-link"
+                    <a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/digest-social" class="menu-item__info-link"
                       >
-                      {if $lang === 'ru'}Подписаться{else}Subscribe{/if}
+                      {if $lang === 'ru'}Подписаться{elseif $lang === 'uk'}Підписатися{else}Subscribe{/if}
                       </a>
                   </div>
-                  <a href="{if $lang === 'en'}/en{/if}/analytics/digest" class="menu-item__advert">
+                  <a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/analytics/digest" class="menu-item__advert">
                     <img class="lazyload" data-src="/images/newsletter-advert.jpg" alt="Новостная рассылка" />
                   </a>
                 </div>
               </div>
             </div>
           </li>
-          <li class="header__nav-item"><span><a href="/analytics/digest">{if $lang === 'ru'}Дайджест{else}Digest{/if}</a></span></li>
+          <li class="header__nav-item"><span><a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/analytics/digest">{if $lang === 'ru'}Дайджест{elseif $lang === 'uk'}Дайджест{else}Digest{/if}</a></span></li>
         </nav>
         {/block}
       </div>
@@ -1394,7 +1396,7 @@
         </div>
         <div>
           {if !$user || !$user->getId()}
-            <a class="header__right-item header__right-item--social" href="{if $lang === 'en'}/en{/if}/user/login" style="height:24px;">
+            <a class="header__right-item header__right-item--social" href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/user/login" style="height:24px;">
               <svg
                 width="24"
                 height="24"
@@ -1411,7 +1413,7 @@
               </svg>
             </a>
           {else}
-            <a class="header__right-item header__right-item--fill"  href="{if $lang === 'en'}/en{/if}/user/logout" style="height:24px;">
+            <a class="header__right-item header__right-item--fill"  href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/user/logout" style="height:24px;">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M10.2501 11.25H0.75C0.335999 11.25 0 10.914 0 10.5C0 10.086 0.335999 9.75 0.75 9.75H10.2501C10.6641 9.75 11.0001 10.086 11.0001 10.5C11.0001 10.914 10.6641 11.25 10.2501 11.25Z" fill="#8EABC9"/>
                 <path d="M6.49982 15C6.30774 15 6.11584 14.9269 5.96973 14.7801C5.67676 14.4869 5.67676 14.012 5.96973 13.719L9.18982 10.4991L5.96973 7.28009C5.67676 6.98694 5.67676 6.51196 5.96973 6.21899C6.2627 5.92603 6.73767 5.92603 7.03082 6.21899L10.7808 9.96899C11.0738 10.262 11.0738 10.7369 10.7808 11.0301L7.03082 14.7801C6.88379 14.9269 6.69171 15 6.49982 15V15Z" fill="#8EABC9"/>
@@ -1431,7 +1433,7 @@
                     {assign var=emptyDataCounter value=$emptyDataCounter+1}
                     {continue}
                   {/if}
-                  {if $lang == 'ru' &&  $langArr=='en' || $lang == 'en' &&  $langArr=='ru'}
+                  {if ($lang == 'ru' && $langArr != 'ru') || ($lang == 'uk' && $langArr != 'uk') || ($lang == 'en' &&  $langArr != 'en')}
                   <div class="header__right-item header__right-item--lang">
                     <a
                         href="{$data.url|default:'#'}" {if $data} title="{$data['title']}"{/if}
@@ -1453,8 +1455,10 @@
                       <span>
                         {if $langArr=='ru'}
                             Рус
+                        {elseif $langArr=='uk'}
+                          Укр
                         {elseif $langArr=='en'}
-                            En
+                          En
                         {/if}
                     </span>
                   </a>
