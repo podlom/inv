@@ -19,7 +19,7 @@
 						{if $lang === 'en'}
 							Advertising of investment proposals
 						{elseif $lang == 'uk'}
-							По питанням розміщення інвестиційних пропозицій
+							З питань розміщення інвестиційних пропозицій
 						{else}
 							По вопросам размещения инвестиционных предложений
 						{/if}
@@ -41,6 +41,8 @@
 				<h2 class="link__title">
 					{if $lang === 'en'}
 						Media advertising
+					{elseif $lang == 'uk'}
+						З питань розміщення реклами
 					{else}
 						По вопросам рекламы
 					{/if}
@@ -48,6 +50,8 @@
 				<p class="link__description">
 					{if $lang === 'en'}
 						Publication of PR materials, native advertising, banner advertising, advertising on social networks and messengers, placement of links to third-party sites, etc.
+					{elseif $lang == 'uk'}
+						Розміщення PR матеріалів, нативної реклами, банерної реклами, реклами в соціальних мережах та месенджерах, розміщення посилань на сторонні сайти та інше.
 					{else}
 						Размещение PR материалов, нативной рекламы, баннерной рекламы, рекламы в социальных сетях и мессенджерах, размещение ссылок на сторонние сайты и др.
 					{/if}
@@ -58,6 +62,8 @@
 				<h2 class="link__title">
 					{if $lang === 'en'}
 						Media cooperation
+					{elseif $lang == 'uk'}
+						З питань медіа співробітництва
 					{else}
 						По вопросам медиа сотрудничества
 					{/if}
@@ -65,6 +71,8 @@
 				<p class="link__description">
 					{if $lang === 'en'}
 						We publish high quality investment news and press releases on a free base, as well as author's columns on investment topics; we also cooperate with business events.
+					{elseif $lang == 'uk'}
+						Ми безкоштовно публікуємо новини інвестиційної тематики на основі якісних прес-релізів, а також авторські колонки на тему інвестицій; співробітництво по бізнес заходам.
 					{else}
 						Мы бесплатно публикуем новости инвестиционной тематики на основе качественных пресс-релизов, а также авторские колонки на тему инвестиций; сотрудничаем по бизнес мероприятиям.
 					{/if}
@@ -75,6 +83,8 @@
 				<h2 class="link__title">
 					{if $lang === 'en'}
 						Found a mistake, have any comments or suggestions?
+					{elseif $lang == 'uk'}
+						Знайшли помилку, є зауваження та пропозиції?
 					{else}
 						Нашли ошибку, есть замечания или предложения?
 					{/if}
@@ -82,6 +92,8 @@
 				<p class="link__description">
 					{if $lang === 'en'}
 						We are not Gods and sometimes we are wrong. We are always grateful for your comments, suggestions and ideas for development and improvement.
+					{elseif $lang == 'uk'}
+						Ми не боги і, буває, помиляємось. Ми завжди вдячні Вашим зауваженням, пропрозиціям та ідеям щодо розвитку та підвищення якості.
 					{else}
 						Мы не боги и, бывает, ошибаемся. Мы всегда признательны Вашим замечаниям, предложениям и идеям по развитию и повышению качества.
 					{/if}
@@ -102,6 +114,8 @@
 				<h2 class="link__title">
 					{if $lang === 'en'}
 						Corporate website of the investment company InVenture
+					{elseif $lang == 'uk'}
+						Корпоративний сайт інвестиційної компанії InVenture
 					{else}
 						Корпоративный сайт инвестиционной компании InVenture
 					{/if}
@@ -121,6 +135,8 @@
 				<h2 class="link__title">
 					{if $lang === 'en'}
 						InVenture Investment Portal
+					{elseif $lang == 'uk'}
+						Інвестиційний портал InVenture
 					{else}
 						Инвестиционный портал InVenture
 					{/if}
@@ -138,6 +154,8 @@
 				<h2 class="link__title">
 					{if $lang === 'en'}
 						Mobile phone
+					{elseif $lang == 'uk'}
+						Номер мобільного
 					{else}
 						Мобильный телефон
 					{/if}
@@ -153,6 +171,8 @@
 				<h2 class="link__title">
 					{if $lang === 'en'}
 						Office phone
+					{elseif $lang == 'uk'}
+						Номер телефону в офісі
 					{else}
 						Офисный телефон
 					{/if}
@@ -165,11 +185,13 @@
 	<div class="container mt-16">
 		<div class="contacts__header">
 			<h2 class="section__title block">
-				{if $lang === 'en'}Address{else}Наш адрес{/if}
+				{if $lang === 'en'}Address{elseif $lang == 'uk'}Наша адреса{else}Наш адрес{/if}
 			</h2>
 			<p>
 			{if $lang === 'en'}
 				24 Starovokzalnaya St (3 floor, office InVenture)., Kiev, 03150, Ukraine
+			{elseif $lang == 'uk'}
+				01032, Україна, м. Київ, вул. Старовокзальна 24, 3-й поверх, офіс InVenture
 			{else}
 				01032, Украина, г. Киев, ул. Старовокзальная 24, 3 этаж, офис InVenture
 			{/if}
