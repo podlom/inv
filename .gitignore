@@ -12,6 +12,7 @@ log
 # /template/Mail.mailing_*
 template/Mail.mailing*
 #
+data/gen_lib/Locale/Group.php
 data/react/node_modules/
 foundation/node_modules/
 node_modules/
