@@ -274,6 +274,11 @@ contacts_en:
     - '/en/about/contacts'
   template: 'contacts'
   layout: Core.layout_en
+contacts_uk:
+  urls:
+    - '/uk/about/contacts'
+  template: 'contacts'
+  layout: Core.layout_uk
 services_en:
   urls:
     - '/en/services'
