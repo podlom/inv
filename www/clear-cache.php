@@ -14,6 +14,7 @@ $app_name = trim(file_get_contents(__DIR__.'/../app_id'));
 $app = new Skynar\Application($app_name, realpath(__DIR__.'/../'), __DIR__);
 try {
 	$app->init();
+    $app->getService('cache')->flushAll();
     if ($app->getService('cache')->deleteAll()) {
         debug('ok');
     }
