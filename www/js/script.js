@@ -1,14 +1,75 @@
+function submitDigest() {
+    console.log('+2 submitDigest()');
+
+    let form = $('.subscription__form');
+    let formData = {};
+    let fData = $('.subscription__form').serializeArray();
+    $(fData).each(function(index, obj) {
+        formData[obj.name] = obj.value;
+    });
+
+    if ($('#phone2').length && $('#error-msg2').length && !$('#error-msg2').hasClass('hide')) {
+        console.log('+8 prevent wrong phone inputmask value submit');
+        $('#phone2').focus();
+        return;
+    }
+
+    $.post('/email-subscribe.php', formData).done((data) => {
+        console.log('+17 got data: ', data);
+
+        if (data.status) {
+            form.trigger('reset');
+            $('.my_popup').removeClass('opened');
+            $('.dark_bg').removeClass('opened');
+            $('html').removeClass('page-locked');
+
+            if (document.documentElement.lang == 'ru') {
+                Swal.fire({
+                    title:'Спасибо!',
+                    text:'Теперь вы подписаны на нашу рассылку',
+                    type:'success',
+                    confirmButtonText: 'Закрыть'
+                });
+            } else {
+                Swal.fire({
+                    title:'Thank you!',
+                    text:'You have successfully subscribed',
+                    type:'success',
+                    confirmButtonText: 'Close'
+                });
+            }
+        } else {
+            if (document.documentElement.lang == 'ru') {
+                Swal.fire({
+                    title:'Что-то пошло не так...',
+                    text:data.errors.join(', '),
+                    type:'error',
+                    confirmButtonText: 'Попробовать еще раз'
+                });
+            } else {
+                Swal.fire({
+                    title:'Something went wrong!',
+                    text:'You have not been subscribed',
+                    type:'error',
+                    confirmButtonText: 'Try again'
+                });
+            }
+        }
+    });
+}
+
 $(document).ready(function() {
+    console.log('+11 $(document).ready()');
 
     $('.subscription__form').submit(function (e){
+        console.log('+14 .subscription__form.submit()');
         e.preventDefault();
-        // @rs 2020-01-21 do not send form with wrong phone inputmask value
         if ($('#phone2').length && $('#error-msg2').length && !$('#error-msg2').hasClass('hide')) {
-            console.log('+12 prevent wrong phone inputmask value submit');
+            console.log('+18 prevent wrong phone inputmask value submit');
             $('#phone2').focus();
             return;
         }
-        //
+
         var form = $(this);
         var formdata = $(this).serializeArray();
         var data = {};
@@ -17,53 +78,48 @@ $(document).ready(function() {
         });
 
         $.post('/email-subscribe.php', data).done((data) => {
-            console.log(data);
-            
+            console.log('+31 got data: ', data);
 
-            if(data.status){
-                form.trigger('reset')
-                $('.my_popup').removeClass('opened')
-                $('.dark_bg').removeClass('opened')
+            if (data.status) {
+                form.trigger('reset');
+                $('.my_popup').removeClass('opened');
+                $('.dark_bg').removeClass('opened');
                 $('html').removeClass('page-locked');
 
-                if(document.documentElement.lang == 'ru'){
+                if (document.documentElement.lang == 'ru') {
                     Swal.fire({
                         title:'Спасибо!',
                         text:'Теперь вы подписаны на нашу рассылку',
                         type:'success',
                         confirmButtonText: 'Закрыть'
-                    })
-                }else{
+                    });
+                } else {
                     Swal.fire({
                         title:'Thank you!',
                         text:'You have successfully subscribed',
                         type:'success',
                         confirmButtonText: 'Close'
-                    })
+                    });
                 }
-            }else{
-                if(document.documentElement.lang == 'ru'){
+            } else {
+                if (document.documentElement.lang == 'ru') {
                     Swal.fire({
                           title:'Что-то пошло не так...',
                           text:data.errors.join(', '),
                           type:'error',
                           confirmButtonText: 'Попробовать еще раз'
-                    })
-                }else{
+                    });
+                } else {
                     Swal.fire({
                           title:'Something went wrong!',
                           text:'You have not been subscribed',
                           type:'error',
                           confirmButtonText: 'Try again'
-                    })
+                    });
                 }
             }
-            
-        })
-
-        
+        });
     });
-
 
     $("img.lazy").lazyload({effect : "fadeIn", skip_invisible:false, failure_limit : 5, threshold : 10});
 
