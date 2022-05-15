@@ -67,6 +67,14 @@ analytics_en:
    template: 'blog/analytics.post'
    default_template: 'Blog.post'
    layout: 'Core.layout_en'
+analytics_uk:
+   urls:
+      - '/uk/analytics/*'
+      - '/uk/tools/database/*'
+      - '/uk/tools/investors/*'
+   template: 'blog/analytics.post'
+   default_template: 'Blog.post'
+   layout: 'Core.layout_uk'
 analytics_list:
    urls:
      - '/analytics'
@@ -84,6 +92,15 @@ analytics_list_en:
      - '/en/analytics/we-invest-in-ukraine'
    template: 'blog/analytics.list'
    layout: 'Core.layout_en'
+analytics_list_uk:
+   urls:
+     - '/uk/analytics'
+     - '/uk/analytics/investments'
+     - '/uk/analytics/articles'
+     - '/uk/analytics/formula'
+     - '/uk/analytics/we-invest-in-ukraine'
+   template: 'blog/analytics.list'
+   layout: 'Core.layout_uk'
 didgest:
    urls:
       - '/analytics/digest'
@@ -316,12 +333,22 @@ en:
    urls:
       - '/en/*'
    layout: Core.layout_en
+uk:
+   urls:
+      - '/uk/*'
+   layout: Core.layout_uk
 en_404:
    urls:
       - '/en/*'
    code: 404
    template: 404
    layout: Core.layout_en
+uk_404:
+   urls:
+      - '/uk/*'
+   code: 404
+   template: 404
+   layout: Core.layout_uk
 404:
    urls:
       - '/*'
