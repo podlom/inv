@@ -182,6 +182,19 @@ home_uk:
     - '/uk'
   template: index_uk
   layout: Core.layout_uk
+news_list_uk:
+   urls:
+      - '/uk/news'
+      - '/uk/news/+'
+      - '/uk/news/+/+'
+   template: 'blog/news.list'
+   default_template: 'Blog.blog'
+   layout: Core.layout_uk
+news_uk:
+   urls:
+      - '/uk/news/*'
+   template: 'blog/news'
+   layout: Core.layout_uk
 investor_en:
   urls:
      - '/en/investor'
