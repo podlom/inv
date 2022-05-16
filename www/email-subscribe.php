@@ -29,7 +29,9 @@ error_log($msg);
 function _sendFormRequest($data)
 {
     // error_log(__METHOD__ . ' +' . __LINE__);
-    $uri = 'https://nh.leadbox.com.ua/hubspot/074bmom3utuln3yym6joh12dnl6ow6lltiark1ar';
+    // $uri = 'https://nh.leadbox.com.ua/hubspot/074bmom3utuln3yym6joh12dnl6ow6lltiark1ar';
+    // $uri = 'https://dev.inventure.com.ua/hubspot.php?key=074bmom3utuln3yym6joh12dnl6ow6lltiark1ar';
+    $uri = 'https://inventure.com.ua/hubspot.php?key=074bmom3utuln3yym6joh12dnl6ow6lltiark1ar';
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $uri);
     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false); // On dev server only!
@@ -39,13 +41,13 @@ function _sendFormRequest($data)
     curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
     $resCode = curl_errno($ch);
     $result = curl_exec($ch);
-    error_log(__FUNCTION__ . ' +' . __LINE__ . ' Request result: ' . var_export($result, true));
+    error_log(__FUNCTION__ . ' +' . __LINE__ . ' CURL Request result: ' . var_export($result, true));
     if ($result === false) {
         if (curl_error($ch)) {
-            error_log(__FUNCTION__ . ' +' . __LINE__ . ' Curl error: ' . var_export(curl_error($ch), true));
+            error_log(__FUNCTION__ . ' +' . __LINE__ . ' CURL error: ' . var_export(curl_error($ch), true));
         }
         if ($resCode !== 0) {
-            error_log(__FUNCTION__ . ' +' . __LINE__ . ' HTTP error code: ' . var_export($resCode, 1));
+            error_log(__FUNCTION__ . ' +' . __LINE__ . ' CURL HTTP error code: ' . var_export($resCode, 1));
         }
     }
     return [
@@ -96,19 +98,47 @@ function validateEmail($email)
 
 $validRequest = true;
 $result = ['status' => $validRequest, 'errors' => []];
+
+//
+// @see: https://developers.google.com/recaptcha/docs/verify
+$postData = http_build_query(
+    [
+        'secret' => '6Le8bI8fAAAAAD9qs7jAslFEQMdO-IdX1s7fgEzF',
+        'response' => $_POST['g-recaptcha-response'],
+        // 'remoteip' => 'Optional. The user's IP address.',
+    ]
+);
+$opts = [
+    'http' =>
+        [
+            'method' => 'POST',
+            'header' => 'Content-type: application/x-www-form-urlencoded',
+            'content' => $postData,
+        ],
+];
+$context = stream_context_create($opts);
+$resReCaptcha = file_get_contents('https://www.google.com/recaptcha/api/siteverify', false, $context);
+//
+
 if (!isset($_POST['subscribe'], $_POST['subscribe']['lang'])
     || empty($_POST['subscribe'])
     || empty($_POST['subscribe']['email'])
     || empty($_POST['subscribe']['firstname'])
     || empty($_POST['subscribe']['lang'])
-    || empty($_POST['subscribe']['ga_utm'])
 ) {
     $result['errors'][] = 'Ошибка в обязательных параметрах запроса';
     $result['status'] = $validRequest = false;
 } elseif (validateEmail($_POST['subscribe']['email']) === false) {
     $result['errors'][] = 'Неправильный Email';
     $result['status'] = $validRequest = false;
+} elseif (!isset($_POST['g-recaptcha-response']) || empty($_POST['g-recaptcha-response'])) {
+    $result['errors'][] = 'Invalid reCaptcha';
+    $result['status'] = $validRequest = false;
+} elseif (!$resReCaptcha) {
+    $result['errors'][] = 'Google reCaptcha check has failed';
+    $result['status'] = $validRequest = false;
 } else {
+
     $lastName = '';
     if (isset($_POST['subscribe']['lastname']) && !empty($_POST['subscribe']['lastname'])) {
         $lastName = $_POST['subscribe']['lastname'];
@@ -128,6 +158,10 @@ if (!isset($_POST['subscribe'], $_POST['subscribe']['lang'])
     if (isset($_POST['subscribe']['phone']) && !empty($_POST['subscribe']['phone'])) {
         $phone = $_POST['subscribe']['phone'];
     }
+    $gaUtm = '';
+    if (isset($_POST['subscribe']['ga_utm']) && !empty($_POST['subscribe']['ga_utm'])) {
+        $gaUtm = $_POST['subscribe']['ga_utm'];
+    }
     $sFormData = serialize(array_merge([
         'email' => $_POST['subscribe']['email'],
         'firstname' => $_POST['subscribe']['firstname'],
@@ -136,7 +170,7 @@ if (!isset($_POST['subscribe'], $_POST['subscribe']['lang'])
         'jobtitle' => $jobTitle,
         'phone' => $phone,
         'lang' => $_POST['subscribe']['lang'],
-        'ga_utm' => $_POST['subscribe']['ga_utm'],
+        'ga_utm' => $gaUtm,
     ], [
         'REMOTE_ADDR' => $_SERVER['REMOTE_ADDR'],
         'HTTP_REFERER' => $_SERVER['HTTP_REFERER'],
@@ -144,9 +178,9 @@ if (!isset($_POST['subscribe'], $_POST['subscribe']['lang'])
     ]));
     $formData = array_merge(['formData' => $sFormData], ['formName' => 'subscribe', 'formUri' => $_SERVER['REQUEST_URI']]);
     $res = _sendFormRequest($formData);
-    //
+
     $result['status'] = $validRequest = true;
-    //
+
     require_once realpath(__DIR__ . '/../cli/lib/db.class.php');
     $cfg = app()->getService('config')->get('app')->db;
     error_log( __METHOD__ . ' +' . __LINE__ . ' $cfg: ' . print_r($cfg, true) );
@@ -160,9 +194,7 @@ if (!isset($_POST['subscribe'], $_POST['subscribe']['lang'])
         $res2 = $db->query($query);
         $query = "set @@collation_server = utf8_unicode_ci";
         $res3 = $db->query($query);
-
         $email = $db->escape($_POST['subscribe']['email']);
-        // {"name":"Lisa","company":"Smith","job":"4saleid@gmail.com","phone":"4saleid@gmail.com","lang":["en"],"_token":"5c6e55f7c7235"}
         $session = app()->getService('session')->getSession();
         if (!($key = $session->get('form_key', false))) {
             $key = uniqid();
@@ -190,7 +222,6 @@ if (!isset($_POST['subscribe'], $_POST['subscribe']['lang'])
         $msg = date('r') . ' ' . __FILE__ . ' +' . __LINE__ . ' DB error: ' . $e->getMessage() . PHP_EOL;
         error_log($msg);
     }
-    //
 }
 if (!headers_sent()) {
     header("Content-type: application/json; charset=utf-8");
