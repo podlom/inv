@@ -1,6 +1,14 @@
 function submitDigest() {
     console.log('+2 submitDigest()');
 
+    let sForm = $('form.subscribe');
+    if (sForm.length) {
+        if (!$('form.subscribe').hasClass('subscription__form')) {
+            console.log('+7 fixed form.subscribe classes');
+            $('form.subscribe').addClass('subscription__form');
+        }
+    }
+
     let form = $('.subscription__form');
     let formData = {};
     let fData = $('.subscription__form').serializeArray();
