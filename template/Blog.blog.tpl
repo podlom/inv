@@ -36,15 +36,15 @@
 	{if $isInvestments}
 			<div class="section__title-categories pt-0 mb-2 pb-0 flex flex-row justify-between items-center">
 					<h1 class="pr-4 investments__title">{$blog->getTitle('content')}</h1>
-					<a href="{if $lang === 'en'}/en{/if}/add-inv-prop" class="investments__title-link desktop-only" >{if $lang == 'en'}How to advertise?{else}Как сюда попасть?{/if}</a>
+					<a href="{if $lang === 'en'}/en{/if}/add-inv-prop" class="investments__title-link desktop-only" >{if $lang == 'en'}How to advertise?{elseif $lang == 'uk'}Як сюди потрапити?{else}Как сюда попасть?{/if}</a>
 			</div>
     {elseif $request->getPathInfo()|strpos:'/news' >= 0 && $request->getPathInfo()|strpos:'/news' !== false}
         <div class="section__title-categories pt-0 mb-2 pb-0 flex flex-row justify-between items-center">
             <a href="/news"><h1 data-link="news" class="section__title-categories pr-4">{$blog->getTitle('content')}</h1></a>
             <ul class="sort desktop-only text-xs">
-                <li class="sort__item {if !$category}sort__item--active{/if}"><a href="{$blog->getPath()}{if $rubric}/{$rubric->getSubpath()}{/if}">{if $lang=='en'}Latest{else}Все{/if}</a><li>
-                <li class="sort__item {if $category && $category->getSubpath() =='ukraine'}sort__item--active{/if}"><a href="{$blog->getPath()}/ukraine{if $rubric}/{$rubric->getSubpath()}{/if}">{if $lang=='en'}Ukraine{else}Украина{/if}</a><li>
-                <li class="sort__item {if $category && $category->getSubpath() =='world'}sort__item--active{/if}"><a href="{$blog->getPath()}/world{if $rubric}/{$rubric->getSubpath()}{/if}">{if $lang=='en'}World{else}Мир{/if}</a><li>
+                <li class="sort__item {if !$category}sort__item--active{/if}"><a href="{$blog->getPath()}{if $rubric}/{$rubric->getSubpath()}{/if}">{if $lang=='en'}Latest{elseif $lang == 'uk'}Усі{else}Все{/if}</a><li>
+                <li class="sort__item {if $category && $category->getSubpath() =='ukraine'}sort__item--active{/if}"><a href="{$blog->getPath()}/ukraine{if $rubric}/{$rubric->getSubpath()}{/if}">{if $lang=='en'}Ukraine{elseif $lang == 'uk'}Україна{else}Украина{/if}</a><li>
+                <li class="sort__item {if $category && $category->getSubpath() =='world'}sort__item--active{/if}"><a href="{$blog->getPath()}/world{if $rubric}/{$rubric->getSubpath()}{/if}">{if $lang=='en'}World{elseif $lang == 'uk'}Світ{else}Мир{/if}</a><li>
             </ul>
         </div>
     {elseif $request->getPathInfo()|strpos:'/events' >= 0 && $request->getPathInfo()|strpos:'/events' !== false}
@@ -53,8 +53,8 @@
                 <h1 class="section__title-categories pr-4">{$blog->getTitle('content')}</h1>
             </a>
             <ul class="sort desktop-only text-xs">
-                <li class="sort__item {if $request->query->get('past',0) == 0}sort__item--active{/if}"><a href="/tools/events">{if $lang=='en'}Upcoming{else}Предстоящие{/if}</a><li>
-                <li class="sort__item {if $request->query->get('past',0) == 1}sort__item--active{/if}"><a href="/tools/events?past=1">{if $lang=='en'}Past{else}Прошедшие{/if}</a><li>
+                <li class="sort__item {if $request->query->get('past',0) == 0}sort__item--active{/if}"><a href="/tools/events">{if $lang=='en'}Upcoming{elseif $lang == 'uk'}Майбутні{else}Предстоящие{/if}</a><li>
+                <li class="sort__item {if $request->query->get('past',0) == 1}sort__item--active{/if}"><a href="/tools/events?past=1">{if $lang=='en'}Past{elseif $lang == 'uk'}Минулі{else}Прошедшие{/if}</a><li>
 {* {if}sort__item--active{/if} *}
             </ul>
         </div>
