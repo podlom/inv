@@ -120,6 +120,14 @@ $context = stream_context_create($opts);
 $resReCaptcha = file_get_contents('https://www.google.com/recaptcha/api/siteverify', false, $context);
 //
 
+// fix for name column
+if (isset($_POST['subscribe']['name']) 
+    && !empty($_POST['subscribe']['name'])
+    && (!isset($_POST['subscribe']['firstname']) || empty($_POST['subscribe']['firstname']))
+) {
+    $_POST['subscribe']['firstname'] = $_POST['subscribe']['name'];
+}
+
 if (!isset($_POST['subscribe'], $_POST['subscribe']['lang'])
     || empty($_POST['subscribe'])
     || empty($_POST['subscribe']['email'])
