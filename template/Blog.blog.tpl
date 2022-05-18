@@ -10,6 +10,17 @@
     '/investments/offer'=>'Инвесторы'
 ]}
 
+{if $lang == 'uk'}
+{$links = [
+    '/uk/investments/projects' => 'Інвестиційні проекти і стартапи',
+    '/uk/investments/business' => 'Продаж бізнесу',
+    '/uk/investments/realestate' => 'Нерухомість',
+    '/uk/investments/land' => 'Земля',
+    '/uk/investments/franchising' => 'Франчайзинг',
+    '/uk/investments/offer' => 'Інвестори'
+]}
+{/if}
+
 {assign "isNewStylesAvaible" value=(true)}
 {assign "isInvestments" value=($request->getPathInfo()|strpos:'/investments' >= 0 && $request->getPathInfo()|strpos:'/investments' !== false)}
     {* $request->getPathInfo() == '/add-inv-prop' 
@@ -104,6 +115,7 @@
         </ul>
     </div>
 {/block} *}
+
 {block 'content'}
     {block 'nav'}
     {if ($request->getPathInfo()|strpos:'/search')}
@@ -111,15 +123,14 @@
         <div class="relative z-0 flex flex-row justify-between items-center {if $isInvestments}investments__nav{/if}">
             
             {if $links}
-							<div class="relative w-full">
-									<nav class="section__categories">
-											{foreach $links as $url=>$name}
-													<a  class="section__category {if $request->getPathInfo()===$url}section__category--active{/if}" href="{$url}">{$name}</a>
-											{/foreach}
-											
-									</nav>
-									<div class="section__categories-overlay"></div>
-							</div>
+                <div class="relative w-full">
+                    <nav class="section__categories">
+                        {foreach $links as $url=>$name}
+                            <a class="section__category {if $request->getPathInfo()===$url}section__category--active{/if}" href="{$url}">{$name}</a>
+                        {/foreach}	
+                    </nav>
+                    <div class="section__categories-overlay"></div>
+                </div>
             {/if}
 
 						{if $isInvestments}
