@@ -1,13 +1,7 @@
-function submitDigest() {
-    console.log('+2 submitDigest()');
 
-    let sForm = $('form.subscribe');
-    if (sForm.length) {
-        if (!$('form.subscribe').hasClass('subscription__form')) {
-            console.log('+7 fixed form.subscribe classes');
-            $('form.subscribe').addClass('subscription__form');
-        }
-    }
+function submitDigest()
+{
+    console.log('+4 submitDigest()');
 
     let form = $('.subscription__form');
     let formData = {};
@@ -17,13 +11,13 @@ function submitDigest() {
     });
 
     if ($('#phone2').length && $('#error-msg2').length && !$('#error-msg2').hasClass('hide')) {
-        console.log('+8 prevent wrong phone inputmask value submit');
+        console.log('+14 prevent wrong phone inputmask value submit');
         $('#phone2').focus();
         return;
     }
 
     $.post('/email-subscribe.php', formData).done((data) => {
-        console.log('+17 got data: ', data);
+        console.log('+20 got data: ', data);
 
         if (data.status) {
             form.trigger('reset');
@@ -67,13 +61,24 @@ function submitDigest() {
 }
 
 $(document).ready(function() {
-    console.log('+11 $(document).ready()');
+    console.log('+64 $(document).ready()');
+
+    let sForm = $('form.subscribe');
+    if (sForm.length) {
+        console.log('+68 found form.subscribe');
+        if (!$('form.subscribe').hasClass('subscription__form')) {
+            console.log('+70 fixed form.subscribe classes');
+            $('form.subscribe').addClass('subscription__form');
+        }
+    } else {
+        console.log('+74 form.subscribe was not found.');
+    }
 
     $('.subscription__form').submit(function (e){
-        console.log('+14 .subscription__form.submit()');
+        console.log('+78 .subscription__form.submit()');
         e.preventDefault();
         if ($('#phone2').length && $('#error-msg2').length && !$('#error-msg2').hasClass('hide')) {
-            console.log('+18 prevent wrong phone inputmask value submit');
+            console.log('+81 prevent wrong phone inputmask value submit');
             $('#phone2').focus();
             return;
         }
@@ -86,7 +91,7 @@ $(document).ready(function() {
         });
 
         $.post('/email-subscribe.php', data).done((data) => {
-            console.log('+31 got data: ', data);
+            console.log('+94 got data: ', data);
 
             if (data.status) {
                 form.trigger('reset');
