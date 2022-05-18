@@ -9,15 +9,16 @@ function submitDigest()
     $(fData).each(function(index, obj) {
         formData[obj.name] = obj.value;
     });
+    console.log('+12 formData: ', formData);
 
     if ($('#phone2').length && $('#error-msg2').length && !$('#error-msg2').hasClass('hide')) {
-        console.log('+14 prevent wrong phone inputmask value submit');
+        console.log('+15 prevent wrong phone inputmask value submit');
         $('#phone2').focus();
         return;
     }
 
     $.post('/email-subscribe.php', formData).done((data) => {
-        console.log('+20 got data: ', data);
+        console.log('+21 got data: ', data);
 
         if (data.status) {
             form.trigger('reset');
