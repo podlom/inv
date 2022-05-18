@@ -17,7 +17,7 @@
     <a>
     <div class="subscription__tablet">
             <a href="/analytics/digest" class="subscription__title">
-                {if $lang === 'ru'}Инвестиционный дайджест InVenture{else}Investment Digest InVenture{/if}
+                {if $lang == 'ru'}Инвестиционный дайджест InVenture{elseif $lang == 'uk'}Інвестиційний дайджест InVenture{else}Investment Digest InVenture{/if}
             </a>
         </div>
     <div class="subscription__row">
