@@ -120,12 +120,17 @@ $context = stream_context_create($opts);
 $resReCaptcha = file_get_contents('https://www.google.com/recaptcha/api/siteverify', false, $context);
 //
 
-// fix for name column
+// fix for firstname column
 if (isset($_POST['subscribe']['name']) 
     && !empty($_POST['subscribe']['name'])
     && (!isset($_POST['subscribe']['firstname']) || empty($_POST['subscribe']['firstname']))
 ) {
     $_POST['subscribe']['firstname'] = $_POST['subscribe']['name'];
+}
+
+// set default language
+if (!isset($_POST['subscribe']['lang']) || empty($_POST['subscribe']['lang'])) {
+    $_POST['subscribe']['lang'][0] = 'ru';
 }
 
 if (!isset($_POST['subscribe'], $_POST['subscribe']['lang'])

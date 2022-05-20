@@ -8,6 +8,12 @@ function submitDigest()
     let fData = $('.subscription__form').serializeArray();
     $(fData).each(function(index, obj) {
         formData[obj.name] = obj.value;
+        if (obj.name == 'email') {
+            if (obj.value.length == 0) {
+                console.log('+13 error: email can`t be empty');
+                return;
+            }
+        }
     });
     console.log('+12 formData: ', formData);
 
