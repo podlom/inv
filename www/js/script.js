@@ -70,6 +70,7 @@ function submitDigest(token)
 $(document).ready(function() {
     console.log('+64 $(document).ready()');
 
+    /*
     let sForm = $('form.subscribe');
     if (sForm.length) {
         console.log('+68 found form.subscribe');
@@ -80,14 +81,15 @@ $(document).ready(function() {
     } else {
         console.log('+74 form.subscribe was not found.');
     }
+    */
 
     $('.subscription__form').submit(function (e){
-        console.log('+85 .subscription__form.submit()');
+        console.log('+87 .subscription__form.submit()');
         e.preventDefault();
         if ($('#phone2').length && $('#error-msg2').length && !$('#error-msg2').hasClass('hide')) {
-            console.log('+88 prevent wrong phone inputmask value submit');
+            console.log('+90 prevent wrong phone inputmask value submit');
             $('#phone2').focus();
-            return;
+            return false;
         }
 
         var form = $(this);
@@ -96,15 +98,16 @@ $(document).ready(function() {
         $(formdata ).each(function(index, obj){
             data[obj.name] = obj.value;
             if (obj.name == 'email') {
+                console.log('+101 email value: ', obj.value);
                 if (obj.value.length == 0) {
-                    console.log('+100 error: email can`t be empty');
+                    console.log('+103 error: email can`t be empty');
                     return false;
                 }
             }
         });
 
         $.post('/email-subscribe.php', data).done((data) => {
-            console.log('+107 got data: ', data);
+            console.log('+110 got data: ', data);
 
             if (data.status) {
                 form.trigger('reset');
