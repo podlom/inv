@@ -68,26 +68,24 @@ function submitDigest(token)
 }
 
 $(document).ready(function() {
-    console.log('+64 $(document).ready()');
+    console.log('+71 $(document).ready()');
 
-    /*
     let sForm = $('form.subscribe');
     if (sForm.length) {
-        console.log('+68 found form.subscribe');
+        console.log('+75 found form.subscribe');
         if (!$('form.subscribe').hasClass('subscription__form')) {
-            console.log('+70 fixed form.subscribe classes');
+            console.log('+77 fixed form.subscribe classes');
             $('form.subscribe').addClass('subscription__form');
         }
     } else {
-        console.log('+74 form.subscribe was not found.');
+        console.log('+81 form.subscribe was not found.');
     }
-    */
 
     $('.subscription__form').submit(function (e){
-        console.log('+87 .subscription__form.submit()');
+        console.log('+85 .subscription__form.submit()');
         e.preventDefault();
         if ($('#phone2').length && $('#error-msg2').length && !$('#error-msg2').hasClass('hide')) {
-            console.log('+90 prevent wrong phone inputmask value submit');
+            console.log('+88 prevent wrong phone inputmask value submit');
             $('#phone2').focus();
             return false;
         }
