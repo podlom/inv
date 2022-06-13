@@ -47,7 +47,7 @@
 	{if $isInvestments}
 			<div class="section__title-categories pt-0 mb-2 pb-0 flex flex-row justify-between items-center">
 					<h1 class="pr-4 investments__title">{$blog->getTitle('content')}</h1>
-					<a href="{if $lang === 'en'}/en{/if}/add-inv-prop" class="investments__title-link desktop-only" >{if $lang == 'en'}How to advertise?{elseif $lang == 'uk'}Як сюди потрапити?{else}Как сюда попасть?{/if}</a>
+					<a href="{if $lang == 'en'}/en{elseif $lang == 'uk'}/uk{/if}/add-inv-prop" class="investments__title-link desktop-only" >{if $lang == 'en'}How to advertise?{elseif $lang == 'uk'}Як сюди потрапити?{else}Как сюда попасть?{/if}</a>
 			</div>
     {elseif $request->getPathInfo()|strpos:'/news' >= 0 && $request->getPathInfo()|strpos:'/news' !== false}
         <div class="section__title-categories pt-0 mb-2 pb-0 flex flex-row justify-between items-center">

@@ -1,10 +1,10 @@
 <a href="{$post->getPath()}" class="cards__item">
     <div class="cards__labels flex">
         {if $post->getAttr(64) == 1}
-            <div data-tippy-content="{if $lang=='en'}{else}На правах рекламы{/if}" class="preview__post-type preview__post-type--red mr-2">Р</div>
+            <div data-tippy-content="{if $lang=='en'}{elseif $lang == 'uk'}На правах реклами{else}На правах рекламы{/if}" class="preview__post-type preview__post-type--red mr-2">Р</div>
         {/if}
         {if $post->getAttr(65)}
-            <div data-tippy-content="{if $lang=='en'}{else}Эксклюзивный материал InVenture{/if}" class="preview__post-type mr-2">Э</div>
+            <div data-tippy-content="{if $lang=='en'}{elseif $lang == 'uk'}Ексклюзивний матеріал InVenture{else}Эксклюзивный материал InVenture{/if}" class="preview__post-type mr-2">Э</div>
         {/if}
     </div>
 		
