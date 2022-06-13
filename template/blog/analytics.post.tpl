@@ -25,16 +25,16 @@
         {/similar_posts}
         </div>
     </article> *}
-    <h2 class="section__title mt-4">{if $lang=='en'}Related posts{else}Читайте также{/if}</h2>
+    <h2 class="section__title mt-4">{if $lang=='en'}Related posts{elseif $lang == 'uk'}Читайте також{else}Читайте также{/if}</h2>
         <article class="cards mb-12">
             {similar_posts $post 3}
                 <a href="{$lent->getPath()}" class="cards__item">
                     <div class="cards__labels flex">
                         {if $lent->getAttr(64) == 1}
-                            <div data-tippy-content="{if $lang=='en'}{else}На правах рекламы{/if}" class="preview__post-type preview__post-type--red mr-2">Р</div>
+                            <div data-tippy-content="{if $lang=='en'}{elseif $lang == 'uk'}На правах реклами{else}На правах рекламы{/if}" class="preview__post-type preview__post-type--red mr-2">Р</div>
                         {/if}
                         {if $lent->getAttr(65)}
-                            <div data-tippy-content="{if $lang=='en'}{else}Эксклюзивный материал InVenture{/if}" class="preview__post-type mr-2">Э</div>
+                            <div data-tippy-content="{if $lang=='en'}{elseif $lang == 'uk'}Ексклюзивний матеріал InVenture{else}Эксклюзивный материал InVenture{/if}" class="preview__post-type mr-2">Э</div>
                         {/if}
                     </div>
                     <div class="cards__img-wrapper">
