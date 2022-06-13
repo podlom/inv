@@ -55,37 +55,37 @@
 
   <ul class="cd-navigation mb-0">
     <li class="item-has-children">
-      <a class="mobile-nav__header font-semibold " href="#0"><span>{if $lang === 'ru'}Инвестиционные предложения{else}Investment proposals{/if}</span> <svg width="13" height="7" viewBox="0 0 13 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <a class="mobile-nav__header font-semibold " href="#0"><span>{if $lang == 'ru'}Инвестиционные предложения{elseif $lang == 'uk'}Інвестиційні пропозиції{else}Investment proposals{/if}</span> <svg width="13" height="7" viewBox="0 0 13 7" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path opacity="0.3" d="M12 1L6.5 6.5L1 1" stroke="black" stroke-linecap="round" stroke-linejoin="round" />
         </svg>
       </a>{if $lang === 'en'}{else}{/if}
       <ul class="sub-menu" style="display:none;">
-        <li><a href="{if $lang === 'en'}/en{/if}/investments">
-        {if $lang === 'ru'}Посмотреть все{else}Show all{/if}
+        <li><a href="{if $lang === 'en'}/en{elseif $lang == 'uk'}/uk{/if}/investments">
+        {if $lang === 'ru'}Посмотреть все{elseif $lang == 'uk'}Показати всі{else}Show all{/if}
         </a></li>
-        <li><a href="{if $lang === 'en'}/en{/if}/investments/projects">
-        {if $lang === 'ru'}Инвестиционные проекты и стартапы{else}Investment Projects and Startups{/if}
+        <li><a href="{if $lang === 'en'}/en{elseif $lang == 'uk'}/uk{/if}/investments/projects">
+        {if $lang === 'ru'}Инвестиционные проекты и стартапы{elseif $lang == 'uk'}Інвестиційні проекти та стартапи{else}Investment Projects and Startups{/if}
         </a></li>
-        <li><a href="{if $lang === 'en'}/en{/if}/investments/business">
-        {if $lang === 'ru'}Продажа бизнеса{else}Business for Sale{/if}
+        <li><a href="{if $lang === 'en'}/en{elseif $lang == 'uk'}/uk{/if}/investments/business">
+        {if $lang === 'ru'}Продажа бизнеса{elseif $lang == 'uk'}Продаж бізнесу{else}Business for Sale{/if}
         </a></li>
-        <li><a href="{if $lang === 'en'}/en{/if}/investments/realestate">
-        {if $lang === 'ru'}Недвижимость{else}Commercial Property{/if}
+        <li><a href="{if $lang === 'en'}/en{elseif $lang == 'uk'}/uk{/if}/investments/realestate">
+        {if $lang === 'ru'}Недвижимость{elseif $lang == 'uk'}Нерухомість{else}Commercial Property{/if}
         </a></li>
-        <li><a href="{if $lang === 'en'}/en{/if}/investments/land">
-        {if $lang === 'ru'}Земля{else}Land{/if}
+        <li><a href="{if $lang === 'en'}/en{elseif $lang == 'uk'}/uk{/if}/investments/land">
+        {if $lang === 'ru'}Земля{elseif $lang == 'uk'}Земля{else}Land{/if}
         </a></li>
         <li><a href="{if $lang == 'en'}/en{elseif $lang == 'uk'}/uk{/if}/investments/{if $lang == 'en'}/en_{/if}franchising">
         {if $lang === 'ru'}Франчайзинг{elseif $lang == 'uk'}Франчайзинг{else}Franchising{/if}
         </a></li>
-        <li><a href="{if $lang === 'en'}/en{/if}/investments/offer">
-        {if $lang === 'ru'}Предложения инвесторов{else}Investor Offers{/if}
+        <li><a href="{if $lang === 'en'}/en{elseif $lang == 'uk'}/uk{/if}/investments/offer">
+        {if $lang === 'ru'}Предложения инвесторов{elseif $lang == 'uk'}Інвестиційні пропозиції{else}Investor Offers{/if}
         </a></li>
-        <li><a href="{if $lang === 'en'}/en{/if}/add-inv-prop">
-        {if $lang === 'ru'}Привлечение инвестиций / продажа бизнеса{else}Services for Raising Capital & Sell a Business{/if}
+        <li><a href="{if $lang === 'en'}/en{elseif $lang == 'uk'}/uk{/if}/add-inv-prop">
+        {if $lang === 'ru'}Привлечение инвестиций / продажа бизнеса{elseif $lang == 'uk'}Залучення інвестицій / продаж бізнесу{else}Services for Raising Capital & Sell a Business{/if}
         </a></li>
-        <li><a href="{if $lang === 'en'}/en{/if}/project">
-        {if $lang === 'ru'}Сервисы для инвестора {else}Services for Investors{/if}
+        <li><a href="{if $lang === 'en'}/en{elseif $lang == 'uk'}/uk{/if}/project">
+        {if $lang === 'ru'}Сервисы для инвестора{elseif $lang == 'uk'}Сервіси для інвесторів{else}Services for Investors{/if}
         </a></li>
       </ul>
     </li> <!-- item-has-children -->
@@ -93,70 +93,70 @@
     
 
     <li class="item-has-children">
-      <a class="mobile-nav__header font-semibold" href="#0"><span>{if $lang === 'ru'}Новости{else}News{/if}</span> <svg width="13" height="7" viewBox="0 0 13 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <a class="mobile-nav__header font-semibold" href="#0"><span>{if $lang === 'ru'}Новости{elseif $lang == 'uk'}Новини{else}News{/if}</span> <svg width="13" height="7" viewBox="0 0 13 7" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path opacity="0.3" d="M12 1L6.5 6.5L1 1" stroke="black" stroke-linecap="round" stroke-linejoin="round" />
         </svg>
         </a>
       <ul class="sub-menu" style="display:none;">
-        <li><a href="{if $lang === 'en'}/en{/if}/news">
-        {if $lang === 'ru'}Посмотреть все{else}Show all{/if}
+        <li><a href="{if $lang === 'en'}/en{elseif $lang == 'uk'}/uk{/if}/news">
+        {if $lang === 'ru'}Посмотреть все{elseif $lang == 'uk'}Подивитись всі{else}Show all{/if}
         </a></li>
-        <li><a href="{if $lang === 'en'}/en{/if}/news/investments">
-        {if $lang === 'ru'}Прямые инвестиции и M&A{else}Private Equity & M&amp;A{/if}
+        <li><a href="{if $lang === 'en'}/en{elseif $lang == 'uk'}/uk{/if}/news/investments">
+        {if $lang === 'ru'}Прямые инвестиции и M&A{elseif $lang == 'uk'}Прямі інвестиції та M&A{else}Private Equity & M&amp;A{/if}
         </a></li>
-        <li><a href="{if $lang === 'en'}/en{/if}/news/startup">
-        {if $lang === 'ru'}Стартапы{else}Venture Capital &amp; Startups{/if}
+        <li><a href="{if $lang === 'en'}/en{elseif $lang == 'uk'}/uk{/if}/news/startup">
+        {if $lang === 'ru'}Стартапы{elseif $lang == 'uk'}Стартапи{else}Venture Capital &amp; Startups{/if}
         </a></li>
-        <li><a href="{if $lang === 'en'}/en{/if}/news/government">
-        {if $lang === 'ru'}Макроинвестиции{else}Macroeconomics{/if}
+        <li><a href="{if $lang === 'en'}/en{elseif $lang == 'uk'}/uk{/if}/news/government">
+        {if $lang === 'ru'}Макроинвестиции{elseif $lang == 'uk'}Макроінвестиції{else}Macroeconomics{/if}
         </a></li>
-        <li><a href="{if $lang === 'en'}/en{/if}/news/banking">
-        {if $lang === 'ru'}Кредитование{else}Banking{/if}
+        <li><a href="{if $lang === 'en'}/en{elseif $lang == 'uk'}/uk{/if}/news/banking">
+        {if $lang === 'ru'}Кредитование{elseif $lang == 'uk'}Кредитування{else}Banking{/if}
         </a></li>
-        <li><a href="{if $lang === 'en'}/en{/if}/news/stock">
-        {if $lang === 'ru'}Фондовый рынок{else}Stock Market &amp; IPO{/if}
+        <li><a href="{if $lang === 'en'}/en{elseif $lang == 'uk'}/uk{/if}/news/stock">
+        {if $lang === 'ru'}Фондовый рынок{elseif $lang == 'uk'}Фондовий ринок{else}Stock Market &amp; IPO{/if}
         </a></li>
-        <li><a href="{if $lang === 'en'}/en{/if}/news/realestate">
-        {if $lang === 'ru'}Недвижимость{else}Commercial Property{/if}
+        <li><a href="{if $lang === 'en'}/en{elseif $lang == 'uk'}/uk{/if}/news/realestate">
+        {if $lang === 'ru'}Недвижимость{elseif $lang == 'uk'}Нерухомість{else}Commercial Property{/if}
         </a></li>
-        <li><a href="{if $lang === 'en'}/en{/if}/news/ukraine">
-        {if $lang === 'ru'}Украина{else}Ukraine{/if}
+        <li><a href="{if $lang === 'en'}/en{elseif $lang == 'uk'}/uk{/if}/news/ukraine">
+        {if $lang === 'ru'}Украина{elseif $lang == 'uk'}Україна{else}Ukraine{/if}
         </a></li>
-        <li><a href="{if $lang === 'en'}/en{/if}/news/world">
-        {if $lang === 'ru'}Мир{else}World{/if}
+        <li><a href="{if $lang === 'en'}/en{elseif $lang == 'uk'}/uk{/if}/news/world">
+        {if $lang === 'ru'}Мир{elseif $lang == 'uk'}Світ{else}World{/if}
         </a></li>
       </ul>
     </li> <!-- item-has-children -->
 
     <li class="item-has-children">
-      <a class="mobile-nav__header font-semibold" href="#0"><span>{if $lang === 'ru'}Аналитика{else}Analytics{/if}</span>
+      <a class="mobile-nav__header font-semibold" href="#0"><span>{if $lang === 'ru'}Аналитика{elseif $lang == 'uk'}Аналітика{else}Analytics{/if}</span>
         <svg width="13" height="7" viewBox="0 0 13 7" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path opacity="0.3" d="M12 1L6.5 6.5L1 1" stroke="black" stroke-linecap="round" stroke-linejoin="round" />
         </svg></a>
       <ul class="sub-menu" style="display:none;">
-        <li><a href="{if $lang === 'en'}/en{/if}/analytics">
-        {if $lang === 'ru'}Посмотреть все{else}Show all{/if}
+        <li><a href="{if $lang === 'en'}/en{elseif $lang == 'uk'}/uk{/if}/analytics">
+        {if $lang === 'ru'}Посмотреть все{elseif $lang == 'uk'}Переглянути всі{else}Show all{/if}
         </a></li>
-        <li><a href="{if $lang === 'en'}/en{/if}/analytics/investments">
-        {if $lang === 'ru'}Исследования{else}Research{/if}
+        <li><a href="{if $lang === 'en'}/en{elseif $lang == 'uk'}/uk{/if}/analytics/investments">
+        {if $lang === 'ru'}Исследования{elseif $lang == 'uk'}Дослідження{else}Research{/if}
         </a></li>
-        <li><a href="{if $lang === 'en'}/en{/if}/analytics/articles">
-        {if $lang === 'ru'}Статьи{else}Articles{/if}
+        <li><a href="{if $lang === 'en'}/en{elseif $lang == 'uk'}/uk{/if}/analytics/articles">
+        {if $lang === 'ru'}Статьи{elseif $lang == 'uk'}Статті{else}Articles{/if}
         </a></li>
-        <li><a href="{if $lang === 'en'}/en{/if}/analytics/formula">
-        {if $lang === 'ru'}Интервью{else}Investment interview{/if}
+        <li><a href="{if $lang === 'en'}/en{elseif $lang == 'uk'}/uk{/if}/analytics/formula">
+        {if $lang === 'ru'}Интервью{elseif $lang == 'uk'}Інтервʼю{else}Investment interview{/if}
         </a></li>
-        <li><a href="{if $lang === 'en'}/en{/if}/analytics/we-invest-in-ukraine">
-        {if $lang === 'ru'}Инвестируем в Украину{else}We invest in Ukraine{/if}
+        <li><a href="{if $lang === 'en'}/en{elseif $lang == 'uk'}/uk{/if}/analytics/we-invest-in-ukraine">
+        {if $lang === 'ru'}Инвестируем в Украину{elseif $lang == 'uk'}Інвестуймо в Україну{else}We invest in Ukraine{/if}
         </a></li>
-        <li><a href="{if $lang === 'en'}/en{/if}/tools/database">
-        {if $lang === 'ru'}Рейтинги{else}Ratings{/if}
+        <li><a href="{if $lang === 'en'}/en{elseif $lang == 'uk'}/uk{/if}/tools/database">
+        {if $lang === 'ru'}Рейтинги{elseif $lang == 'uk'}Рейтинги{else}Ratings{/if}
         </a></li>
-        <li><a href="{if $lang === 'en'}/en{/if}/tools/library">
-        {if $lang === 'ru'}Библиотека{else}Library{/if}
+        <li><a href="{if $lang === 'en'}/en{elseif $lang == 'uk'}/uk{/if}/tools/library">
+        {if $lang === 'ru'}Библиотека{elseif $lang == 'uk'}Бібліотека{else}Library{/if}
         </a></li>
-        <li><a href="{if $lang === 'en'}/en{/if}/tools/investors">
-        {if $lang === 'ru'}Инвесторы{else}Investors{/if}
+        <li><a href="{if $lang === 'en'}/en{elseif $lang == 'uk'}/uk{/if}/tools/investors">
+        {if $lang === 'ru'}Инвесторы{elseif $lang == 'uk'}Інвестори{else}Investors{/if}
         </a></li>
       </ul>
     </li> <!-- item-has-children -->
@@ -172,7 +172,7 @@
             {assign var=emptyDataCounter value=$emptyDataCounter+1}
             {continue}
           {/if}
-          {if $lang == 'ru' &&  $langArr=='en' || $lang == 'en' &&  $langArr=='ru'}
+          {if $lang == 'ru' && $langArr == 'en' || $lang == 'en' && $langArr == 'ru' || $lang == 'uk' && $langArr == 'ru' || $lang == 'uk' && $langArr == 'en'}
           <div class="header__right-item header__right-item--lang">
             <a
                 href="{$data.url|default:'#'}" {if $data} title="{$data['title']}"{/if}
@@ -192,9 +192,11 @@
                 />
               </svg>
               <span>
-                {if $langArr=='ru'}
+                {if $langArr == 'ru'}
                     Рус
-                {elseif $langArr=='en'}
+                {elseif $langArr == 'uk'}
+                    Укр
+                {elseif $langArr == 'en'}
                     En
                 {/if}
             </span>
@@ -208,28 +210,28 @@
   <ul class="cd-single-item-wrapper ">
     {if !$user || !$user->getId()}
       <li>
-        <a href="{if $lang === 'en'}/en{/if}/user/login">
-        {if $lang === 'ru'}Вход{else}Login{/if}
+        <a href="{if $lang === 'en'}/en{elseif $lang == 'uk'}/uk{/if}/user/login">
+        {if $lang === 'ru'}Вход{elseif $lang == 'uk'}Вхід{else}Login{/if}
         </a>
       </li>
     {else}
       <li>
-        <a href="{if $lang === 'en'}/en{/if}/user/logout">
-        {if $lang === 'ru'}Выход{else}Logout{/if}
+        <a href="{if $lang === 'en'}/en{elseif $lang == 'uk'}/uk{/if}/user/logout">
+        {if $lang === 'ru'}Выход{elseif $lang == 'uk'}Вихід{else}Logout{/if}
         </a>
       </li>
     {/if}
-    <li><a href="{if $lang === 'en'}/en{/if}/digest-social">
-    {if $lang === 'ru'}Ежемесячная рассылка{else}Monthly newsletter{/if}
+    <li><a href="{if $lang === 'en'}/en{elseif $lang == 'uk'}/uk{/if}/digest-social">
+    {if $lang === 'ru'}Ежемесячная рассылка{elseif $lang == 'uk'}Щомісячна розсилка{else}Monthly newsletter{/if}
     </a></li>
-    <li><a href="{if $lang === 'en'}/en{/if}/about/contacts">
-    {if $lang === 'ru'}Контакты{else}Contacts{/if}
+    <li><a href="{if $lang === 'en'}/en{elseif $lang == 'uk'}/uk{/if}/about/contacts">
+    {if $lang === 'ru'}Контакты{elseif $lang == 'uk'}Контакти{else}Contacts{/if}
     </a></li>
-    <li><a href="{if $lang === 'en'}/en{/if}/tools/events">
-    {if $lang === 'ru'}Мероприятия{else}Events{/if}
+    <li><a href="{if $lang === 'en'}/en{elseif $lang == 'uk'}/uk{/if}/tools/events">
+    {if $lang === 'ru'}Мероприятия{elseif $lang == 'uk'}Події{else}Events{/if}
     </a></li>
     <li><a href="https://setup.inventure.com.ua/" target="_blank">
-    {if $lang === 'ru'}Экспресс-оценка бизнеса{else}Get express assessment for you business{/if}
+    {if $lang === 'ru'}Экспресс-оценка бизнеса{elseif $lang == 'uk'}Експрес оцінка бізнесу{else}Get express assessment for you business{/if}
     </a></li>
   </ul>
 
