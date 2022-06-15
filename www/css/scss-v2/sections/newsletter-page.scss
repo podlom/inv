@@ -98,7 +98,7 @@
 			margin-top: -190px;
 		}
 	}
-	div:not(.remodal) &__form {
+	&__form {
 		width: 380px;
 		padding: 0 20px 20px;
 		background: #fff;
@@ -113,6 +113,14 @@
 		}
 		@media (max-width: 425px) {
 			padding: 0 20px 20px;
+		}
+
+		.remodal & {
+			width: auto;
+			margin: 0;
+			transform: none;
+			padding: 0;
+			box-shadow: none;
 		}
 
 		&.sidebar {
