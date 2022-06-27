@@ -1,11 +1,20 @@
+function getFilledSubscriptionForm() {
+	const subscriptionForms = [...$('.subscription__form')];
+	return subscriptionForms.find(formElement => {
+			const firstName = $(formElement).find('input[name="subscribe[firstname]"]')
+			const firstNameValue = firstName?.[0]?.value;
+			const email = $(formElement).find('input[name="subscribe[email]"]')
+			const emailValue = email?.[0]?.value;
+			return firstNameValue && emailValue;
+	})
+};
 
-function submitDigest(token)
-{
+function submitDigest(token) {
     console.log('+4 submitDigest() token: ', token);
-
-    let form = $('.subscription__form');
+		const filledFormElement = getFilledSubscriptionForm();
+    let form = $(filledFormElement);
     let formData = {};
-    let fData = $('.subscription__form').serializeArray();
+    let fData = $(filledFormElement).serializeArray();
     $(fData).each(function(index, obj) {
         formData[obj.name] = obj.value;
         if (obj.name == 'email') {
@@ -15,6 +24,12 @@ function submitDigest(token)
             }
         }
     });
+
+		// Substitute token if input with name g-recaptcha-response is empty
+		if(!formData['g-recaptcha-response']){
+			formData['g-recaptcha-response'] = token;
+		}
+
     console.log('+18 formData: ', formData);
 
     if ($('#phone2').length && $('#error-msg2').length && !$('#error-msg2').hasClass('hide')) {
