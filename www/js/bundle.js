@@ -138,9 +138,15 @@ $(
 		return;
 	}
 
-	var serialize = $(this).serializeArray();
-	var action = '/invest.php';
-	var form = $(this);
+	let link = 'https://drive.google.com/file/d/11uxZNhMDjBNRu93jmb913zqokNHGzIbU/view?usp=sharing';
+	$.get('/page-attr-data.php', {'action': 'get_setting', 'name': 'link_adv'}, function(data99) {
+		link = data99;
+		console.log('+144 got link from admin settings: ' + link);
+	});
+
+	let serialize = $(this).serializeArray();
+	let action = '/invest.php';
+	let form = $(this);
 	$.post(action, $(this).serialize(), function() {
 		form.trigger('reset');
 		$('.my_popup').removeClass('opened');
@@ -159,7 +165,7 @@ $(
 					'\t\t<p> \n' +
 					'\t\t\tНаш менеджер свяжется с Вами в течение одного рабочего дня.\n' +
 					'\t\t</p>\n' +
-					'\t\t<a id="openNowLink" target="_blank" href="https://drive.google.com/file/d/1qiYiahSH65a88GP7VU2CMb3ZTKu3LGIn/view?usp=sharing" class="w-full blue_but cell-but small-12" type="submit">Открыть сейчас</a>\n' +
+					'\t\t<a id="openNowLink" target="_blank" href="' + link + '" class="w-full blue_but cell-but small-12" type="submit">Открыть сейчас</a>\n' +
 					'\t\t<button data-remodal-action="close" type=\'button\' class="w-full blue_but cell-but  small-12 close__popup">Закрыть</button>',
 				type: 'success',
 				confirmButtonText: 'Закрыть',
