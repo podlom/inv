@@ -214,25 +214,39 @@ $(
 		window.Swal = swal;
 
 		if (document.documentElement.lang == 'ru') {
-			var newHref = 'https://drive.google.com/open?id=1sFGhi5u4wVwNH8-pJat4EX8ufHSBIXVS';
+
+			// это для рекламного подхода - link_adv
+			// let newHref = 'https://drive.google.com/open?id=1sFGhi5u4wVwNH8-pJat4EX8ufHSBIXVS';
+			let newHref = 'https://drive.google.com/open?id=1sFGhi5u4wVwNH8-pJat4EX8ufHSBIXVS';
+			$.get('/page-attr-data.php', {'action': 'get_setting', 'name': 'link_adv'}, function(dat98) {
+				newHref = dat98;
+				console.log('+223 got link from admin settings: ' + newHref);
+			});
+
 			if (typeof window.isInd !== 'undefined') {
-				if (window.isInd) {
-					newHref = 'https://drive.google.com/open?id=19Ax-vqbQ9fPFEfTloQ_9UzNAZBKIPPcu';
-					console.log('+221 fix #openNowLink link new href: ', newHref);
+				if (window.isInd) { // это для полного сопровождения - link_ind
+					// newHref = 'https://drive.google.com/open?id=19Ax-vqbQ9fPFEfTloQ_9UzNAZBKIPPcu';
+					newHref = 'https://drive.google.com/file/d/1O8kFTEPX1kiOn0cXV-WCLTxHunkiTThj/view?usp=sharing';
+					$.get('/page-attr-data.php', {'action': 'get_setting', 'name': 'link_ind'}, function(dat99) {
+						newHref = dat99;
+						console.log('+232 got link from admin settings: ' + newHref);
+					});
+					
+					console.log('+235 fix #openNowLink link new href: ', newHref);
 					$('#openNowLink').attr("href", newHref);
 					document.getElementById('openNowLink').setAttribute('href', newHref);
 
 				} else {
-					console.log('+226 window.isInd is true: ', window.isInd);
+					console.log('+240 window.isInd is true: ', window.isInd);
 				}
 			} else {
-				console.log('+229 window.isInd is not defined.');
+				console.log('+243 window.isInd is not defined.');
 			}
 
-			console.log('+232 before Swal.fire()');
+			console.log('+246 before Swal.fire()');
 			Swal.fire({
 				title: 'Благодарим за Ваш запрос!',
-				html: '<p><!-- +235 common.js -->\n' +
+				html: '<p><!-- +249 common.js -->\n' +
 					'\t\t\tМы отправили Вам на почту презентацию с описанием условий сотрудничества.\n' +
 					'\t\t</p>\n' +
 					'\t\t<p> \n' +

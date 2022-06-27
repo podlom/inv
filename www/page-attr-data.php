@@ -179,6 +179,27 @@ if (!empty($_REQUEST)) {
         }
         echo $resData;
 
+    } elseif (isset($_REQUEST['action']) && ($_REQUEST['action'] == 'get_setting')) { // Get settings attr data
+        $settingName = $_REQUEST['name'];
+
+        $resData = '';
+        $query = "SELECT * FROM `Core_Attribute_Type` WHERE `name` = '{$settingName}'";
+        $res94 = $db->query($query);
+        //
+        if (is_array($res94) && !empty($res94)) {
+            if (isset($res94, $res94[0], $res94[0]['comment'])) {
+                $resData = $res94[0]['comment'];
+            }
+            //
+            $msg = __FILE__ . ' +' . __LINE__ . ' Res data: ' . var_export($resData, true) . PHP_EOL;
+            l_m( $msg );
+            //
+            if (!headers_sent()) {
+                header('Content-Type: text/plain; charset=utf-8');
+            }
+            echo $resData;
+        }
+
     } elseif (isset($_REQUEST['action']) && ($_REQUEST['action'] == 'get')) { // Get attr data
         $resData = '';
         $query = "SELECT * FROM `Page` WHERE `id` = '{$pageId}'";

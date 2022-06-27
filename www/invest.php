@@ -66,7 +66,8 @@ function _sendFormRequest($data, $useExternalConnector = true)
     //
     $uri = 'https://nh.leadbox.com.ua/hubspot/074bmom3utuln3yym6joh12dnl6ow6lltiark1ar';
     if ($useExternalConnector !== true) {
-        $uri = 'https://dev.inventure.com.ua/hubspot.php?key=074bmom3utuln3yym6joh12dnl6ow6lltiark1ar';
+        // $uri = 'https://dev.inventure.com.ua/hubspot.php?key=074bmom3utuln3yym6joh12dnl6ow6lltiark1ar';
+        $uri = 'https://inventure.com.ua/hubspot.php?key=074bmom3utuln3yym6joh12dnl6ow6lltiark1ar';
     }
     l_m(__FUNCTION__ . ' +' . __LINE__ . ' Sending request to: ' . var_export($uri, 1));
     //
@@ -400,9 +401,15 @@ function sendAddInvPropMail($data, $recipient = 'info@inventure.ua', $subject = 
         }
         $mail->Subject = $subject;
         //
+        // TODO: get setting from admin
+        // '/page-attr-data.php', {'action': 'get_setting', 'name': 'link_ind'} - Для Полного сопровождения
+        // '/page-attr-data.php', {'action': 'get_setting', 'name': 'link_adv'} - Для Рекламного подхода
+        //
         // Для Полного сопровождения
-        $linkHref = 'https://drive.google.com/open?id=19Ax-vqbQ9fPFEfTloQ_9UzNAZBKIPPcu';
+        // $linkHref = 'https://drive.google.com/open?id=19Ax-vqbQ9fPFEfTloQ_9UzNAZBKIPPcu';
+        $linkHref = 'https://drive.google.com/file/d/1O8kFTEPX1kiOn0cXV-WCLTxHunkiTThj/view?usp=sharing';
         if ($formType == 1) { // Для Рекламного подхода
+            // $linkHref = 'https://drive.google.com/file/d/11uxZNhMDjBNRu93jmb913zqokNHGzIbU/view?usp=sharing';
             $linkHref = 'https://drive.google.com/file/d/11uxZNhMDjBNRu93jmb913zqokNHGzIbU/view?usp=sharing';
         }
         $textBody = 'Добрый день!
