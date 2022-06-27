@@ -24,6 +24,12 @@ function submitDigest(token) {
             }
         }
     });
+
+		// Substitute token if input with name g-recaptcha-response is empty
+		if(!formData['g-recaptcha-response']){
+			formData['g-recaptcha-response'] = token;
+		}
+
     console.log('+18 formData: ', formData);
 
     if ($('#phone2').length && $('#error-msg2').length && !$('#error-msg2').hasClass('hide')) {
