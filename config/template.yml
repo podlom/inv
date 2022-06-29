@@ -39,7 +39,7 @@ digest-social:
     urls:
         - '/digest-social'
     template: 'digest-social'
-digest-social-en:
+digest-social_en:
     urls:
         - '/en/digest-social'
     template: 'digest-social_en'
