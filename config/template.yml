@@ -291,6 +291,11 @@ library_en:
         - '/en/tools/library'
     template: 'blog/library.list_en'
     layout: Core.layout_en
+library_uk:
+    urls:
+        - '/en/tools/library'
+    template: 'blog/library.list_uk'
+    layout: Core.layout_uk
 tools_list_en:
     urls:
         - '/en/tools/+'
