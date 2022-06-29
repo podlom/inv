@@ -247,6 +247,13 @@ investments_en:
     template: 'blog/inventure.list_en'
     default_template: 'Blog.blog'
     layout: Core.layout_en
+investments_uk:
+    urls:
+        - '/uk/investments'
+        - '/uk/investments/+'
+    template: 'blog/inventure.list_uk'
+    default_template: 'Blog.blog'
+    layout: Core.layout_uk
 investment_posts_en:
     urls:
         - '/en/investments/*'
