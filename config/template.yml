@@ -44,6 +44,11 @@ digest-social_en:
         - '/en/digest-social'
     template: 'digest-social_en'
     layout: 'Core.layout_en'
+digest-social_uk:
+    urls:
+        - '/uk/digest-social'
+    template: 'digest-social_uk'
+    layout: 'Core.layout_uk'
 add-inv-prop:
     urls:
         - '/add-inv-prop'
