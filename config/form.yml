@@ -356,6 +356,228 @@ investor:
   success: 'Данные отправленны'
   error: 'При отправке данных возникла ошибка, обратитесь к администрации.'
   invalid: 'Вы допустили ошибку при заполнении формы.'
+investor_uk:
+  actions:
+    - type: sendMail
+      to:
+        - info@inventure.ua: Inventure
+#        - inventure@skynar.co: Inventure
+      bcc:
+        # - ts@doagency.net: Inventure
+        - investor@feelgoodlabs.co: Inventure
+  fields:
+    firstname:
+      type: String
+      label: ''
+      attributes:
+        placeholder: 'Имя'
+    lastname:
+      type: String
+      label: ''
+      attributes:
+        placeholder: 'Фамилия'
+    company:
+      type: String
+      label: ''
+      attributes:
+        placeholder: 'Компания'
+    job:
+      type: String
+      label: ''
+      attributes:
+        placeholder: 'Должность'
+    email:
+      type: String
+      label: ''
+      attributes:
+        required: true
+        placeholder: 'Email'
+    manager:
+      type: Select
+      label: '* Выбирая эту функцию, Вы заказываете звонок от менеджера компании, кото-рый сможет предоставить дополнительную консультацию по интересующим Вас вопросам и ускорить процесс подбора подходящего предложения.'
+      attributes:
+        values:
+          - 'Заказать звонок от менеджера'
+    City:
+      type: String
+      label: 'Город проживания'
+    phone:
+      type: String
+      label: ''
+      attributes:
+        required: true
+        placeholder: 'Телефон'
+    stage:
+      type: Select
+      label: 'Стадии инвестирования'
+      params:
+        multiple: true
+        venilla: true
+        values:
+          - 'Стартап (Startup / Seed)'
+          - 'Поздние стадии (Later Stage / Exit)'
+          - 'Стадия роста и расширения (Growth / Expansion)'
+          - 'Проблемные активы (Distressed Assets)'
+    profit:
+      type: Select
+      label: 'Планируемая доходность'
+      params:
+        multiple: true
+        venilla: true
+        values:
+          - '10-15%'
+          - '15-20%'
+          - '20-25%'
+          - '25-30%'
+          - 'Свыше 30%'
+    types:
+      type: Select
+      label: 'Приоритетные направления инвестирования'
+      params:
+        multiple: true
+        venilla: true
+        values:
+           - 'Сельское хозяйство'
+           - 'Пищевая промышленность'
+           - 'Добывающая промышленность'
+           - 'Металлургия и металлообработка'
+           - 'Машиностроение и производство электрооборудования'
+           - 'Нефтехимическая промышленность'
+           - 'Фармацевтическая промышленность'
+           - 'Деревообработка и целлюлозно-бумажная промышленность'
+           - 'Текстильная промышленность'
+           - 'Строительство и недвижимость'
+           - 'Финансовая деятельность'
+           - 'Оптовая и розничная торговля'
+           - 'Бизнес услуги'
+           - 'Транспорт и складское хозяйство'
+           - 'Телекоммуникации и связь'
+           - 'Искусство, развлечения, спорт и отдых'
+           - 'Электроэнергетика и топливная промышленность'
+           - 'Водообеспечение и переработка отходов'
+           - 'Информационные технологии и интернет проекты'
+           - 'Инновации и высокие технологии'
+           - 'Гостиницы и общественное питание'
+           - 'Здравоохранение и социальная помощь'
+           - 'Потребительские услуги'
+           - 'Образование'
+           - 'Организации и ассоциации'
+    type_other:
+      type: String
+      label: 'Ваш вариант'
+      attributes:
+         placeholder: 'Ваш вариант'
+    location:
+      type: Select
+      label: 'Регион '
+      params:
+        multiple: true
+        venilla: true
+        values:
+            - 'Украина'
+            - 'СНГ'
+            - 'Центральная и Восточная Европа'
+            - 'Западная Европа'
+            - 'США'
+            - 'Азия'
+    location_other:
+      type: String
+      label: 'Ваш вариант'
+    size:
+      type: Select
+      label: 'Объемы инвестирования'
+      params:
+        multiple: true
+        venilla: true
+        values:
+          - 'до $100 тыс.'
+          - 'от $100 тыс. до $500 тыс.'
+          - 'от 500 тыс. до $1 млн.'
+          - 'от $1 млн. до $5 млн.'
+          - 'от $5 млн. до $10 млн.'
+          - 'более $10 млн.'
+    inv:
+      type: Select
+      label: 'Форма инвестирования'
+      params:
+        multiple: true
+        venilla: true
+        values:
+           - 'Кредитование'
+           - 'Контрольный пакет (более 50% доли в бизнесе)'
+           - 'Сотрудничество'
+           - 'Миноритарный пакет (менее 50% доли в бизнесе)'
+    involvement:
+      type: Select
+      label: 'Участие в проекте'
+      params:
+        venilla: true
+        multiple: true
+        values:
+           - 'Активное'
+           - 'Пассивное'
+    type:
+      type: Select
+      label: 'Участие в капитале'
+      params:
+        multiple: true
+        venilla: true
+        values:
+           - '100%'
+           - 'Контрольный пакет (более 50% доли в бизнесе)'
+           - 'Миноритарный пакет (менее 50% доли в бизнесе)'
+    type2:
+      type: Select
+      label: 'Тип инвестирования'
+      params:
+        multiple: true
+        venilla: true
+        values:
+           - 'Инвестиции в новые проекты (greenfield investment)'
+           - 'Инвестиции в готовый бизнес (brownfield investment)'
+    term:
+      type: Select
+      label: 'Предполагаемые сроки инвестиционных вложений'
+      params:
+        multiple: true
+        venilla: true
+        values:
+           - 'до 1 года'
+           - 'от 1 до 3 лет'
+           - 'от 3 до 5 лет'
+           - 'более 5 лет'
+    rdy:
+      type: Select
+      label: 'Готовность принимать участие в управлении'
+      params:
+        values: ["Да", "Нет"]
+    strong:
+      type: Select
+      label: 'Сильные стороны'
+      params:
+        multiple: true
+        venilla: true
+        values: ["Финансы", "Управление", "Связи", "Технологии", "Недвижимость"]
+    capacity:
+      type: Select
+      label: 'Объемы инвестирования'
+      params:
+        multiple: true
+        venilla: true
+        values: ["До $10 тыс.", "От $10 тыс. до $50 тыс.", "От $50 тыс. до $100 тыс.", "От $100 тыс. до $250 тыс.", "От $250 тыс. до $500 тыс.", "От $500 тыс. до $1 млн.", "От $1 млн. до $5 млн.", "От $5 млн. до $10 млн."]
+    strong_other:
+      type: String
+      label: 'Ваш вариант'
+    info:
+      type: Text
+      label: 'Дополнительные критерии'
+    ga_utm:
+      type: Hidden
+      label: ''
+  validators: []
+  success: 'Данные отправленны'
+  error: 'При отправке данных возникла ошибка, обратитесь к администрации.'
+  invalid: 'Вы допустили ошибку при заполнении формы.'
 investor_en:
   template: 'investor'
   actions:
