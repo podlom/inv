@@ -77,7 +77,7 @@ servicePopup: true
 
 	<div itemscope itemtype="http://schema.org/WebPage" class="
 			{block 'page.class'}container container--main
-				{if ($request->getPathInfo() == '/investor' || $request->getPathInfo() == '/en/investor'  )}
+				{if ($request->getPathInfo() == '/investor' || $request->getPathInfo() == '/en/investor' || $request->getPathInfo() == '/uk/investor'  )}
 					investor-form
 				{else}
 					container--post the_post z-0 relative
