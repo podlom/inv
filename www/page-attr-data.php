@@ -16,8 +16,14 @@ function l_m($msg)
         touch($logFileName);
         chmod($logFileName, 0666);
     }
+    // Do not log on prod by default
+    if ($_SERVER['SERVER_NAME'] === 'inventure.com.ua') {
+        // error_log(__FILE__ . ' +' . __LINE__ . ' ' . __FUNCTION__ . ' log to file is disabled for production env: ' . $_SERVER['SERVER_NAME']);
+        // return false;
+    }
     // Do not log if client IP does not match list below
     if (($_SERVER['REMOTE_ADDR'] !== '95.158.38.79') // Grand Villas
+        && ($_SERVER['REMOTE_ADDR'] !== '178.214.193.122') // 2022-06-29 Unit.City, Kyiv, office
         && ($_SERVER['REMOTE_ADDR'] !== '178.214.193.98') // InVenture office
     ) {
         // error_log(__FILE__ . ' +' . __LINE__ . ' ' . __FUNCTION__ . ' log to file is disabled for client IP: ' . $_SERVER['REMOTE_ADDR']);
