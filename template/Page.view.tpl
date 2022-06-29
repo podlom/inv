@@ -69,7 +69,7 @@ servicePopup: true
     $request->getPathInfo() == '/uk/politika-konfidencialnosti'
 )}
 
-
+<div data-is-post="{$isPost}" data-is-investments-post="{$isInvestmentsPost}" data-path-info="{$request->getPathInfo()}" data-is-full-view="{$isFullView}" ></div>
 {if $isInvestmentsPost && $isPost}
 	{include 'components/previews/invest-project'}
 	<div class="bg-white pb-6 pt-6">
