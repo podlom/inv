@@ -322,12 +322,12 @@ services_post_en:
 add-inv-prop_en:
     urls:
         - '/en/add-inv-prop'
-    template: 'add-inv-prop.en'
+    template: 'add-inv-prop_en'
     layout: Core.layout_en
 add-inv-prop_uk:
     urls:
         - '/uk/add-inv-prop'
-    template: 'add-inv-prop.uk'
+    template: 'add-inv-prop_uk'
     layout: Core.layout_uk
 complex-approach_en:
     urls:
