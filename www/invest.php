@@ -31,12 +31,12 @@ function l_m($msg)
     // Do not log on prod by default
     if ($_SERVER['SERVER_NAME'] === 'inventure.com.ua') {
         // error_log(__FILE__ . ' +' . __LINE__ . ' ' . __FUNCTION__ . ' log to file is disabled for production env: ' . $_SERVER['SERVER_NAME']);
-        return false;
+        // return false;
     }
     // Do not log if client IP does not match list below
     if (($_SERVER['REMOTE_ADDR'] !== '185.11.28.184') // @ts 2021-01-18 ISP Best, Grand Villas, home
         && ($_SERVER['REMOTE_ADDR'] !== '178.214.193.98') // InVenture, Kyiv, office
-        && ($_SERVER['REMOTE_ADDR'] !== '81.20.118.43') // Unit.City, Kyiv, office
+        && ($_SERVER['REMOTE_ADDR'] !== '178.214.193.122') // 2022-06-29 Unit.City, Kyiv, office
         && ($_SERVER['REMOTE_ADDR'] !== '188.163.56.214') // 2020-09-08 ISP Kyivstar, Mariupol, home
     ) {
         // error_log(__FILE__ . ' +' . __LINE__ . ' ' . __FUNCTION__ . ' log to file is disabled for client IP: ' . $_SERVER['REMOTE_ADDR']);
@@ -408,26 +408,35 @@ function sendAddInvPropMail($data, $recipient = 'info@inventure.ua', $subject = 
         // Для Полного сопровождения
         // $linkHref = 'https://drive.google.com/open?id=19Ax-vqbQ9fPFEfTloQ_9UzNAZBKIPPcu';
         $linkHref = 'https://drive.google.com/file/d/1O8kFTEPX1kiOn0cXV-WCLTxHunkiTThj/view?usp=sharing';
+        if (($linkHref = getLink('link_ind')) == false) {
+            $linkHref = 'https://drive.google.com/file/d/1O8kFTEPX1kiOn0cXV-WCLTxHunkiTThj/view?usp=sharing';
+        }
         if ($formType == 1) { // Для Рекламного подхода
             // $linkHref = 'https://drive.google.com/file/d/11uxZNhMDjBNRu93jmb913zqokNHGzIbU/view?usp=sharing';
-            $linkHref = 'https://drive.google.com/file/d/11uxZNhMDjBNRu93jmb913zqokNHGzIbU/view?usp=sharing';
+            $linkHref = 'https://drive.google.com/file/d/1_6DUg9KUdUFQ6-RDT0o0buJ3XrX2YVre/view?usp=sharing';
+            if (($linkHref = getLink('link_adv')) == false) {
+                $linkHref = 'https://drive.google.com/file/d/1_6DUg9KUdUFQ6-RDT0o0buJ3XrX2YVre/view?usp=sharing';
+            }
         }
-        $textBody = 'Добрый день!
-Благодарим Вас за обращение в InVenture.
-В ответ на Ваш запрос, отправляем презентацию ' . $linkHref . ' с описанием услуг нашей компании.
+        l_m(__FUNCTION__ . ' +' . __LINE__ . ' $linkHref: ' . var_export($linkHref, true));
+        $textBody = 'Добрий день!
+Дякуємо Вам за звернення до InVenture.
+У відповідь на Ваш запит надсилаємо презентацію ' . $linkHref . ' з описом послуг нашої компанії.
 
-Для заказа и уточнения информации, свяжитесь с менеджером:
+Для замовлення послуг або уточнення інформації, зв\'яжіться будь-ласка з нашим менеджером:
 Tel.: +38 097 772 72 92 (Viber, WhatsApp, Telegram)
 E-mail: info@inventure.ua
 ';
-        $htmlBody = '<p>Добрый день!</p>
-<p>Благодарим Вас за обращение в InVenture.</p>
-<p>В ответ на Ваш запрос, отправляем <a href="' . $linkHref . '">презентацию с описанием услуг</a> нашей компании.</p>
+        l_m(__FUNCTION__ . ' +' . __LINE__ . ' $textBody: ' . var_export($textBody, true));
+        $htmlBody = '<p>Добрий день!</p>
+<p>Дякуємо Вам за звернення до InVenture.</p>
+<p>У відповідь на Ваш запит надсилаємо <a href="' . $linkHref . '">презентацію з описом послуг</a> нашої компанії.</p>
 <br>
-<p>Для заказа и уточнения информации, свяжитесь с менеджером:</p>
+<p>Для замовлення послуг або уточнення інформації, зв\'яжіться будь-ласка з нашим менеджером:</p>
 <p>Tel.: <a href="tel:+380977727292">+38 097 772 72 92</a> (Viber, WhatsApp, Telegram)</p>
 <p>E-mail: <a href="mailto:info@inventure.ua">info@inventure.ua</a></p>
 ';
+        l_m(__FUNCTION__ . ' +' . __LINE__ . ' $htmlBody: ' . var_export($htmlBody, true));
         //
         $mail->Body    = $htmlBody;
         $mail->AltBody = $textBody;
@@ -495,6 +504,31 @@ function addMailSubscriber($data, $db)
 
     l_m( $retMsg );
     return $retMsg;
+}
+
+function getLink($name = '')
+{
+    if (empty($name)) {
+        return false;
+    }
+    $postData = http_build_query(
+        [
+            'action' => 'get_setting',
+            'name' => $name,
+        ]
+    );
+    $opts = [
+        'http' =>
+            [
+                'method' => 'POST',
+                'header' => 'Content-type: application/x-www-form-urlencoded',
+                'content' => $postData,
+            ],
+    ];
+    $context = stream_context_create($opts);
+    $resLink = file_get_contents('/page-attr-data.php', false, $context);
+    l_m(__METHOD__ . ' +' . __LINE__ . ' $resLink: ' . var_export($resLink, true));
+    return $resLink;
 }
 
 require_once realpath(__DIR__ . '/../bootstrap.php');
