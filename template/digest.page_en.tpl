@@ -14,7 +14,7 @@
                   <li>2018</li>
                   <li>2017</li>
                 </ul>
-                <button class="newsletter__button newsletter__button--white open_popup digest__subscription">Подписаться на рассылку</button>
+                <button class="newsletter__button newsletter__button--white open_popup digest__subscription">Subscribe to the newsletter</button>
               </div>
               <div class="digest__wrapper">
                 <div class="digest__months">
