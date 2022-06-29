@@ -17,13 +17,17 @@
 
 {assign "isFullView" value=(
     $request->getPathInfo() == '/en/analytics/digest' || 
+    $request->getPathInfo() == '/uk/analytics/digest' || 
     $request->getPathInfo() == '/analytics/digest' || 
     $request->getPathInfo() === '/about/contacts' || 
     $request->getPathInfo() === '/en/about/contacts' || 
+    $request->getPathInfo() === '/uk/about/contacts' || 
     $request->getPathInfo() === '/add-inv-prop' || 
     $request->getPathInfo() === '/en/add-inv-prop' || 
+    $request->getPathInfo() === '/uk/add-inv-prop' || 
     $request->getPathInfo() === '/investor' || 
     $request->getPathInfo() ==='/en/investor' || 
+    $request->getPathInfo() ==='/uk/investor' || 
     $request->getPathInfo()|strpos:'/digest-social' !== false || 
     $request->getPathInfo()|strpos:'/analytics/digest' || 
     $request->getPathInfo()|strpos:'/about' !== false
