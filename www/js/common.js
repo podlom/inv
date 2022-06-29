@@ -217,7 +217,7 @@ $(
 
 			// это для рекламного подхода - link_adv
 			// let newHref = 'https://drive.google.com/open?id=1sFGhi5u4wVwNH8-pJat4EX8ufHSBIXVS';
-			let newHref = 'https://drive.google.com/open?id=1sFGhi5u4wVwNH8-pJat4EX8ufHSBIXVS';
+			let newHref = 'https://drive.google.com/file/d/1_6DUg9KUdUFQ6-RDT0o0buJ3XrX2YVre/view?usp=sharing';
 			$.get('/page-attr-data.php', {'action': 'get_setting', 'name': 'link_adv'}, function(dat98) {
 				newHref = dat98;
 				console.log('+223 got link from admin settings: ' + newHref);
