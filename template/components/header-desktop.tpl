@@ -1357,8 +1357,14 @@
                 <div class="menu-item__right">
                   <div class="menu-item__info">
                     <p class="menu-item__info-text">
-                      {if $lang === 'ru'}Получайте ежемесячный инвестиционный журнал в сфере прямых
-                      инвестиций и венчурного капитала.{else} Get a monthly investment magazine in private equity and venture capital.{/if}
+                      {if $lang === 'ru'}
+												Получайте ежемесячный инвестиционный журнал в сфере прямых
+                      инвестиций и венчурного капитала.
+											{else if $lang === 'en'} 
+												Get a monthly investment magazine in private equity and venture capital.
+											{else} 
+												Отримайте щомісячний інвестиційний журнал у галузі прямих інвестицій та венчурного капіталу.
+											{/if}
                     </p>
                     <a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/digest-social" class="menu-item__info-link"
                       >
