@@ -2,7 +2,15 @@
 	<div class="investor__header mobile-pt-4 mobile-pb-4">
 		<div class="container">
 			<div class="investor__header-text">
-				<h1 class="investor__title mb-1">{if $lang === 'ru'}Регистрация инвестора{else}Investor Registration{/if}</h1>
+				<h1 class="investor__title mb-1">
+				{if $lang === 'ru'}
+					Регистрация инвестора
+				{else if $lang === 'en'}
+					Investor Registration
+				{else}
+					Реєстрація інвестора
+				{/if}
+					</h1>
 				<div class="investor__description">
 					{if $lang === 'ru'}
 						Заполните пожалуйста форму, это поможет нам определить ваши предпочтения и инвестиционные критерии для подбора
@@ -604,7 +612,7 @@
 			name: 'sf_investor[profit][]',
 			title: 'Планована прибутковість',
 			type: 'checkbox',
-			fields: ['10% – 15%', '15% – 20%', '20% – 25%', '25% – 30%', 'Свыше 30%'],
+			fields: ['10% – 15%', '15% – 20%', '20% – 25%', '25% – 30%', 'більше 30%'],
 		},
 		{
 			name: 'sf_investor[location][]',
