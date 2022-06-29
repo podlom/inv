@@ -1,12 +1,12 @@
 <?php
 
-require_once 'config' . DIRECTORY_SEPARATOR . 'settings.php';
-require_once 'lib' . DIRECTORY_SEPARATOR . 'functions.php';
-require_once 'lib' . DIRECTORY_SEPARATOR . 'db.class.php';
+require_once '../cli/config' . DIRECTORY_SEPARATOR . 'settings.php';
+require_once '../cli/lib' . DIRECTORY_SEPARATOR . 'functions.php';
+require_once '../cli/lib' . DIRECTORY_SEPARATOR . 'db.class.php';
 
 
 $logParams = ['echoLogMsg' => false, 'storeLog' => true];
-$errorLogFile = dirname(__FILE__) . '/logs/hubspot_' . date('Y-m-d') . '.log';
+$errorLogFile = realpath(dirname(__FILE__) . '/../logs') . '/hubspot_' . date('Y-m-d') . '.log';
 $msg = date('r') . ' Got request data $_SERVER: ' . var_export($_SERVER, 1) . '; $_GET: ' . var_export($_GET, 1) . '; $_POST: ' . var_export($_POST, 1) . '; $_REQUEST: ' . var_export($_REQUEST, 1) . '; $_COOKIE: ' . var_export($_COOKIE, 1) . PHP_EOL;
 logMsg($msg, $errorLogFile, $logParams);
 
