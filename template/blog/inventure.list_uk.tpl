@@ -3,12 +3,12 @@
 {block 'page.class' append} inventure_list{/block}
 {block 'config'}
 	{$links = [
-	    '/investments/projects'=>'Інвестиційні проекти та стартапи',
-	    '/investments/business'=>'Продаж бізнесу',
-	    '/investments/realestate'=>'Нерухомість',
-	    '/investments/land'=>'Земля',
-	    '/investments/franchising'=>'Франчайзинг',
-	    '/investments/offer'=>'Інвестори'
+	    '/uk/investments/projects'=>'Інвестиційні проекти та стартапи',
+	    '/uk/investments/business'=>'Продаж бізнесу',
+	    '/uk/investments/realestate'=>'Нерухомість',
+	    '/uk/investments/land'=>'Земля',
+	    '/uk/investments/franchising'=>'Франчайзинг',
+	    '/uk/investments/offer'=>'Інвестори'
 	]}
 
 	{$sorts = [
