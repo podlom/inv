@@ -227,6 +227,11 @@ investor_en:
         - '/en/investor'
     template: 'investor'
     layout: Core.layout_en
+investor_uk:
+    urls:
+        - '/uk/investor'
+    template: 'investor'
+    layout: Core.layout_uk
 news_list_en:
     urls:
         - '/en/news'
