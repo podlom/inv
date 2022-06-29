@@ -65,7 +65,7 @@ servicePopup: true
     $request->getPathInfo() == '/en/usloviya-ispolzovaniya' || 
     $request->getPathInfo() == '/uk/usloviya-ispolzovaniya' || 
     $request->getPathInfo() == '/politika-konfidencialnosti' ||
-    $request->getPathInfo() == '/en/politika-konfidencialnosti'
+    $request->getPathInfo() == '/en/politika-konfidencialnosti' ||
     $request->getPathInfo() == '/uk/politika-konfidencialnosti'
 )}
 
