@@ -143,6 +143,11 @@ atlas_post_en:
         - '/en/tools/investors/+'
     template: 'blog/atlas.post_en'
     layout: Core.layout_en
+atlas_post_uk:
+    urls:
+        - '/uk/tools/investors/+'
+    template: 'blog/atlas.post_uk'
+    layout: Core.layout_uk
 votes:
     urls:
         - '/votes'
