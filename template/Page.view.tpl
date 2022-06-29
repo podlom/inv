@@ -77,10 +77,16 @@ servicePopup: true
 
 	<div itemscope itemtype="http://schema.org/WebPage" class="
 			{block 'page.class'}container container--main
-				{if ($request->getPathInfo() == '/investor' || $request->getPathInfo() == '/en/investor'  )}investor-form
-				{else}container--post the_post z-0 relative{/if}{if $isFullView}container--full{/if}
+				{if ($request->getPathInfo() == '/investor' || $request->getPathInfo() == '/en/investor'  )}
+					investor-form
+				{else}
+					container--post the_post z-0 relative
+				{/if}
+				{if $isFullView}
+					container--full
+				{/if}
 			{/block}
-							        ">
+			">
 			{if $isPlainText}
 				<div class="container container--main container--post the_post the_post flex  {if !$isFullView}pl-0 pr-0{/if}">
 					<div class="post__wrapper post__wrapper--shadow">
