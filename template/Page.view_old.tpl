@@ -18,7 +18,7 @@
 {assign "isFullView" value=($request->getPathInfo() == '/add-inv-prop' || $request->getPathInfo() == '/digest-social' || $request->getPathInfo() == '/en/add-inv-prop' || $request->getPathInfo() == '/investor' || $request->getPathInfo() == '/en/investor')}
 {assign "isInvestmentsPage" value=($request->getPathInfo() == '/investments')}
 
-<div itemscope itemtype="http://schema.org/WebPage" class="{block 'page.class'}grid-container {if $request->getPathInfo() == '/investor'||$request->getPathInfo() == '/en/investor'}investor-form{else}the_post{/if}{/block}">
+<div itemscope itemtype="http://schema.org/WebPage" class="{block 'page.class'}grid-container {if $request->getPathInfo() == '/investor' || $request->getPathInfo() == '/en/investor' || $request->getPathInfo() == '/uk/investor'}investor-form{else}the_post{/if}{/block}">
 
     <div class="grid-x grid-margin-x">
         <div class="{if $isFullView}large-12{else}large-9{/if} medium-12 cell">
