@@ -526,7 +526,7 @@ function getLink($name = '')
             ],
     ];
     $context = stream_context_create($opts);
-    $resLink = file_get_contents('/page-attr-data.php', false, $context);
+    $resLink = file_get_contents('https://inventure.com.ua/page-attr-data.php', false, $context);
     l_m(__METHOD__ . ' +' . __LINE__ . ' $resLink: ' . var_export($resLink, true));
     return $resLink;
 }
