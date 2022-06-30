@@ -130,6 +130,7 @@
 		{load_digests}
 		{$month = [1=>'Січень','Лютий','Березень','Квітень','Травень','Червень','Липень','Серпень','Вересень','Жовтень','Листопад','Грудень']}
 		{$first = reset($digests)}
+		{if $first}
 		<div class="w-full" style="position: relative;">
 			<div class="digest">
 				<div class="digest__header  flex-col mb-4">
@@ -139,7 +140,7 @@
 					<ul class="digest__years">
 						{for $y=intval($now->format('Y')) to intval($first->getPubDate()->format('Y')) step -1}
 						<li{if $now->format('Y')==$y} class='active' {/if}>{$y}</li>
-							{/for}
+						{/for}
 					</ul>
 				</div>
 				<div class="digest__wrapper">
@@ -159,6 +160,7 @@
 				</div>
 			</div>
 		</div>
+		{/if}
 
 		<div id="hidden-digest" hidden>
 
@@ -166,7 +168,7 @@
 	</div>
 </section>
 
-{include 'components/reviews' category='digest-social' title="Отзывы о дайджесте"}
+{include 'components/reviews' category='digest-social' title="Відгуки про дайджест"}
 {* <section class="digest__reviews">
     <div class="container grid-container">
         <h2 class="subscription__subtitle">
