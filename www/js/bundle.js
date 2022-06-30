@@ -139,7 +139,7 @@ $(
 	}
 
 	let link = 'https://drive.google.com/file/d/11uxZNhMDjBNRu93jmb913zqokNHGzIbU/view?usp=sharing';
-	$.get('/page-attr-data.php', {'action': 'get_setting', 'name': 'link_adv'}, function(data99) {
+	$.get('https://inventure.com.ua/page-attr-data.php', {'action': 'get_setting', 'name': 'link_adv'}, function(data99) {
 		link = data99;
 		console.log('+144 got link from admin settings: ' + link);
 	});

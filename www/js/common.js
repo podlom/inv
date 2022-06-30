@@ -218,7 +218,7 @@ $(
 			// это для рекламного подхода - link_adv
 			// let newHref = 'https://drive.google.com/open?id=1sFGhi5u4wVwNH8-pJat4EX8ufHSBIXVS';
 			let newHref = 'https://drive.google.com/file/d/1_6DUg9KUdUFQ6-RDT0o0buJ3XrX2YVre/view?usp=sharing';
-			$.get('/page-attr-data.php', {'action': 'get_setting', 'name': 'link_adv'}, function(dat98) {
+			$.get('https://inventure.com.ua/page-attr-data.php', {'action': 'get_setting', 'name': 'link_adv'}, function(dat98) {
 				newHref = dat98;
 				console.log('+223 got link from admin settings: ' + newHref);
 			});
@@ -227,7 +227,7 @@ $(
 				if (window.isInd) { // это для полного сопровождения - link_ind
 					// newHref = 'https://drive.google.com/open?id=19Ax-vqbQ9fPFEfTloQ_9UzNAZBKIPPcu';
 					newHref = 'https://drive.google.com/file/d/1O8kFTEPX1kiOn0cXV-WCLTxHunkiTThj/view?usp=sharing';
-					$.get('/page-attr-data.php', {'action': 'get_setting', 'name': 'link_ind'}, function(dat99) {
+					$.get('https://inventure.com.ua/page-attr-data.php', {'action': 'get_setting', 'name': 'link_ind'}, function(dat99) {
 						newHref = dat99;
 						console.log('+232 got link from admin settings: ' + newHref);
 					});
