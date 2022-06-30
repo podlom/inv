@@ -221,6 +221,9 @@ $(
 			$.get('https://inventure.com.ua/page-attr-data.php', {'action': 'get_setting', 'name': 'link_adv'}, function(dat98) {
 				newHref = dat98;
 				console.log('+223 got link from admin settings: ' + newHref);
+
+				$('#openNowLink').attr("href", newHref);
+				document.getElementById('openNowLink').setAttribute('href', newHref);
 			});
 
 			if (typeof window.isInd !== 'undefined') {
@@ -230,6 +233,9 @@ $(
 					$.get('https://inventure.com.ua/page-attr-data.php', {'action': 'get_setting', 'name': 'link_ind'}, function(dat99) {
 						newHref = dat99;
 						console.log('+232 got link from admin settings: ' + newHref);
+
+						$('#openNowLink').attr("href", newHref);
+						document.getElementById('openNowLink').setAttribute('href', newHref);
 					});
 					
 					console.log('+235 fix #openNowLink link new href: ', newHref);
