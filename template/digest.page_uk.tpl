@@ -14,13 +14,16 @@
 			{load_digests}
 			{$month = [1=>'Січень','Лютий','Березень','Квітень','Травень','Червень','Липень','Серпень','Вересень','Жовтень','Листопад','Грудень']}
 			{$first = reset($digests)}
-			{if $first}
-				<div class="w-full" style="position: relative;">
-					<h1 class="section__title text-center">Інвестиційний дайджест InVenture</h1>
-					<p style="max-width: 640px;text-align: center;margin: 0 auto 20px;">Інвестиційний дайджест InVenture -
-						найважливіше в галузі інвестицій за місяць, на 10 сторінках, всього за 5 хвилин!</p>
-					<button data-remodal-target="subscribe"
-						class="btn btn--normal btn--blue pl-6 pr-6 mobile-mb-2 ml-auto mr-auto">{if $lang === 'ru'}Подписаться{else}Subscribe{/if}</button>
+
+			<div class="w-full" style="position: relative;">
+				<h1 class="section__title text-center">Інвестиційний дайджест InVenture</h1>
+				<p style="max-width: 640px;text-align: center;margin: 0 auto 20px;">Інвестиційний дайджест InVenture -
+					найважливіше в галузі інвестицій за місяць, на 10 сторінках, всього за 5 хвилин!</p>
+				<button data-remodal-target="subscribe"
+					class="btn btn--normal btn--blue pl-6 pr-6 mobile-mb-2 ml-auto mr-auto">{if $lang === 'ru'}Подписаться{else}Subscribe{/if}</button>
+
+				{if $first}
+
 					<div class="digest__header mt-8 mb-4 ml-auto mr-auto block">
 						<ul class="digest__years">
 							{for $y=intval($now->format('Y')) to intval($first->getPubDate()->format('Y')) step -1}
@@ -46,22 +49,14 @@
 							</div>
 						</div>
 					</div>
-				</div>
-			{/if}
+
+				{/if}
+			</div>
 		</div>
 	</section>
 
 	<div id="hidden-digest" hidden>
 
 	</div>
-
-
-	{include 'components/reviews' category='digest-social'  title="Отзывы о дайджесте"}
-
-
-	<div class="mt-4 mb-8 container">
-		{block 'content.text'}
-			{content $editable attr=['class'=>'the_post_content', 'itemprop'=>'text']}
-		{/block}
-	</div>
+	{include 'components/reviews' category='digest-social' title="Відгуки про дайджест"}
 {/block}
