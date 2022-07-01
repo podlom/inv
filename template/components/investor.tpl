@@ -45,7 +45,13 @@
 					<div class="form__fields form__fields--inputs">
 						<div class="form__label-wrap floating-label-wrap">
 							<input type="text" name="sf_investor[firstname]" class="floating-label-field floating-label-field--s2"
-								placeholder="{if $lang === 'ru'}Ваше имя{else}First name{/if}" required />
+								placeholder="{if $lang === 'ru'}
+									Ваше имя
+								{else if $lang === 'en'}
+									First name
+								{else}
+									Ваше ім'я
+								{/if}" required />
 							<label class="floating-label">
 								{if $lang === 'ru'}
 									Ваше имя
@@ -58,7 +64,13 @@
 						</div>
 						<div class="form__label-wrap floating-label-wrap">
 							<input type="text" name="sf_investor[lastname]" class="floating-label-field floating-label-field--s2"
-								placeholder="{if $lang === 'ru'}Фамилия{else}Last name{/if}" required />
+								placeholder="{if $lang === 'ru'}
+									Фамилия
+									{else if $lang === 'en'}
+									Last name
+									{else}
+									Прізвище
+									{/if}" required />
 							<label class="floating-label">
 								{if $lang === 'ru'}
 								Фамилия
