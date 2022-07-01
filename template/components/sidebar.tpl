@@ -3,7 +3,7 @@
 	$request->getPathInfo()|strpos:'/investments/' === 0 || 
 	$request->getPathInfo()|strpos:'/en/investments' || 
 	$request->getPathInfo()|strpos:'/uk/investments' || 
-	$request->getPathInfo()|strpos:'/en/investments/' === 0) && 
+	$request->getPathInfo()|strpos:'/en/investments/' === 0 ||
 	$request->getPathInfo()|strpos:'/uk/investments/' === 0) && 
 	$request->getPathInfo()|strpos:'analytics/investments/' === false)}
 {assign "isInvestments" value=(
@@ -15,7 +15,7 @@
 	 $request->getPathInfo()|strpos:'/investments/' === 0 || 
 	 $request->getPathInfo()|strpos:'/en/investments' || 
 	 $request->getPathInfo()|strpos:'/uk/investments' || 
-	 $request->getPathInfo()|strpos:'/en/investments/' === 0
+	 $request->getPathInfo()|strpos:'/en/investments/' === 0 ||
 	 $request->getPathInfo()|strpos:'/uk/investments/' === 0
 	)
 	&& $request->getPathInfo()|strpos:'analytics/investments/' === false
