@@ -10,7 +10,7 @@
 
 {assign var=digest value=$digests|@end}
 
-<form action="/!Mail" class="subscription__form sidebar mb-4">
+<form action="/!Mail" class="subscription__form sidebar {if $digest}mb-4{else}pt-6 mt-0{/if}">
 	{if $digest}
 		<a href="{$digest->getUrl()}">
 			<img
