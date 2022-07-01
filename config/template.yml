@@ -291,11 +291,11 @@ didgest_en:
         - '/en/analytics/digest'
     template: digest.page_en
     layout: Core.layout_en
-# didgest_uk:
-#     urls:
-#         - '/uk/analytics/digest'
-#     template: digest.page_uk
-#     layout: Core.layout_uk
+didgest_uk:
+    urls:
+        - '/uk/analytics/digest'
+    template: digest.page_uk
+    layout: Core.layout_uk
 library_en:
     urls:
         - '/en/tools/library'
