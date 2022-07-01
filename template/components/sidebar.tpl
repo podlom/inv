@@ -1,10 +1,30 @@
-
-{assign "isInvestmentsPost" value=(($request->getPathInfo()|strpos:'/investments' || $request->getPathInfo()|strpos:'/investments/' === 0 || $request->getPathInfo()|strpos:'/en/investments' || $request->getPathInfo()|strpos:'/en/investments/' === 0) && $request->getPathInfo()|strpos:'analytics/investments/' === false)}
-{assign "isInvestments" value=(($request->getPathInfo() === '/investments' || $request->getPathInfo() === '/en/investments' || $request->getPathInfo()|strpos:'/investments' || $request->getPathInfo()|strpos:'/investments/' === 0 || $request->getPathInfo()|strpos:'/en/investments' || $request->getPathInfo()|strpos:'/en/investments/' === 0) && $request->getPathInfo()|strpos:'analytics/investments/' === false)}
+{assign "isInvestmentsPost" value=((
+	$request->getPathInfo()|strpos:'/investments' || 
+	$request->getPathInfo()|strpos:'/investments/' === 0 || 
+	$request->getPathInfo()|strpos:'/en/investments' || 
+	$request->getPathInfo()|strpos:'/uk/investments' || 
+	$request->getPathInfo()|strpos:'/en/investments/' === 0) && 
+	$request->getPathInfo()|strpos:'/uk/investments/' === 0) && 
+	$request->getPathInfo()|strpos:'analytics/investments/' === false)}
+{assign "isInvestments" value=(
+	(
+	 $request->getPathInfo() === '/investments' ||
+	 $request->getPathInfo() === '/en/investments' || 
+	 $request->getPathInfo() === '/uk/investments' || 
+	 $request->getPathInfo()|strpos:'/investments' ||
+	 $request->getPathInfo()|strpos:'/investments/' === 0 || 
+	 $request->getPathInfo()|strpos:'/en/investments' || 
+	 $request->getPathInfo()|strpos:'/uk/investments' || 
+	 $request->getPathInfo()|strpos:'/en/investments/' === 0
+	 $request->getPathInfo()|strpos:'/uk/investments/' === 0
+	)
+	&& $request->getPathInfo()|strpos:'analytics/investments/' === false
+	)
+}
 <aside class="sidebar desktop-only" data-test="{$request->getPathInfo()}" data-result="{$isInvestments}">
 
 
-    {* {if $isInvestments}
+	{* {if $isInvestments}
         <div class=" mb-6">
             <h2 class="section__title contact-form__title mb-0">
                 Контакты
@@ -40,33 +60,31 @@
         </div>
     {/if} *}
 
-    {block 'aside.top'}
+	{block 'aside.top'}
 
-        <div class="desktop-only">
-            {include 'components/promo-links'}
-        </div>
-        {if $isInvestments}
-            {include 'components/invest-filter'}
-        {/if}
-    {/block}
-    {block 'aside.subscribe'}
-        {if $lang !== 'uk'}
-            {include 'components/sidebar-subscription'}
-        {/if}
-    {/block}
-    {block 'aside.banner'}
-        {if $lang == 'ru'}
-        <div class="advertising lang-{$lang}" id="advertising">
-            {#mod Widget}
-            {widget_slot 'main (370x450)' size=[370,450]}
-            {widget_slot 'post_2 (370x450)' size=[370,450]}
-            {widget_slot 'post_6 (370x450)' size=[370,450]}
-            {widget_slot 'post_7 (370x450)' size=[370,450]}
-            {widget_slot 'post_8 (370x450)' size=[370,450]}
-            {#/mod}
-        </div>
-        {/if}
-    {/block}
+		<div class="desktop-only">
+			{include 'components/promo-links'}
+		</div>
+		{if $isInvestments}
+			{include 'components/invest-filter'}
+		{/if}
+	{/block}
+	{block 'aside.subscribe'}
+		{if $lang !== 'uk'}
+			{include 'components/sidebar-subscription'}
+		{/if}
+	{/block}
+	{block 'aside.banner'}
+		{if $lang == 'ru'}
+			<div class="advertising lang-{$lang}" id="advertising">
+				{#mod Widget}
+				{widget_slot 'main (370x450)' size=[370,450]}
+				{widget_slot 'post_2 (370x450)' size=[370,450]}
+				{widget_slot 'post_6 (370x450)' size=[370,450]}
+				{widget_slot 'post_7 (370x450)' size=[370,450]}
+				{widget_slot 'post_8 (370x450)' size=[370,450]}
+				{#/mod}
+			</div>
+		{/if}
+	{/block}
 </aside>
-
-
