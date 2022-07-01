@@ -303,7 +303,7 @@ library_en:
     layout: Core.layout_en
 library_uk:
     urls:
-        - '/en/tools/library'
+        - '/uk/tools/library'
     template: 'blog/library.list_uk'
     layout: Core.layout_uk
 tools_list_en:
