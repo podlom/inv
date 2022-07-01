@@ -20,7 +20,7 @@
 				<p style="max-width: 640px;text-align: center;margin: 0 auto 20px;">Інвестиційний дайджест InVenture -
 					найважливіше в галузі інвестицій за місяць, на 10 сторінках, всього за 5 хвилин!</p>
 				<button data-remodal-target="subscribe"
-					class="btn btn--normal btn--blue pl-6 pr-6 mobile-mb-2 ml-auto mr-auto">{if $lang === 'ru'}Подписаться{else}Subscribe{/if}</button>
+					class="btn btn--normal btn--blue pl-6 pr-6 mobile-mb-2 ml-auto mr-auto">Підписатись</button>
 
 				{if $first}
 
