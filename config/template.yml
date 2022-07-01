@@ -211,9 +211,9 @@ home_uk:
     layout: Core.layout_uk
 news_list_uk:
     urls:
-        - '/uk/news'
         - '/uk/news/+'
         - '/uk/news/+/+'
+        - '/uk/news'
     template: 'blog/news.list'
     default_template: 'Blog.blog'
     layout: Core.layout_uk
