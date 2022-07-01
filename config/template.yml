@@ -311,6 +311,11 @@ tools_list_en:
         - '/en/tools/+'
     template: 'blog/tools.list'
     layout: Core.layout_en
+tools_list_uk:
+    urls:
+        - '/uk/tools/+'
+    template: 'blog/tools.list'
+    layout: Core.layout_uk
 about_en:
     urls:
         - '/en/about'
