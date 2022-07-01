@@ -70,12 +70,10 @@
 		{/if}
 	{/block}
 	{block 'aside.subscribe'}
-		{if $lang !== 'uk'}
-			{include 'components/sidebar-subscription'}
-		{/if}
+		{include 'components/sidebar-subscription'}
 	{/block}
 	{block 'aside.banner'}
-		{if $lang == 'ru'}
+		{if $lang !== 'en'}
 			<div class="advertising lang-{$lang}" id="advertising">
 				{#mod Widget}
 				{widget_slot 'main (370x450)' size=[370,450]}
