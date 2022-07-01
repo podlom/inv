@@ -118,12 +118,12 @@ servicePopup: true
 						{/if}
 					{/block}
 					{block 'breadcrumbs'}
-						<div class="clearfix">
-							<ul class="breadcrumbs-box">
-								<li><a href="/">{site_name()}</a></li>
-								<li class="current">{$page->getH1()|truncate:75:" ..."|trim}</li>
-							</ul>
-						</div>
+							{* <div class="clearfix">
+								<ul class="breadcrumbs-box">
+									<li><a href="/">{site_name()}</a></li>
+									<li class="current">{$page->getH1()|truncate:75:" ..."|trim}</li>
+								</ul>
+							</div> *}
 					{/block}
 					{block 'menu'}{/block}
 					{block 'filter'}{/block}
