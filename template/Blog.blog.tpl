@@ -22,7 +22,10 @@
 {/if}
 
 {assign "isNewStylesAvaible" value=(true)}
-{assign "isInvestments" value=($request->getPathInfo()|strpos:'/investments' >= 0 && $request->getPathInfo()|strpos:'/investments' !== false)}
+{assign "isInvestments" value=(
+	$request->getPathInfo()|strpos:'/investments' >= 0 &&
+	$request->getPathInfo()|strpos:'/investments' !== false
+)}
     {* $request->getPathInfo() == '/add-inv-prop' 
     || $request->getPathInfo() == '/' 
     || $request->getPathInfo() == '/investor' 
