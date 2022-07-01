@@ -242,9 +242,11 @@
 {block 'main' append}
 
 {block seo}
-<div class="content mb-8 opacity-75 seo-text">
-    {SeoText::getText($request->getPathInfo())}
-</div>
+	{if (SeoText::getText($request->getPathInfo()))}
+		<div class="content mb-8 opacity-75 seo-text">
+				{SeoText::getText($request->getPathInfo())}
+		</div>
+	{/if}
 {/block} 
 
 {/block}
