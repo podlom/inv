@@ -3,14 +3,14 @@
 		<div class="container">
 			<div class="investor__header-text">
 				<h1 class="investor__title mb-1">
-				{if $lang === 'ru'}
-					Регистрация инвестора
-				{else if $lang === 'en'}
-					Investor Registration
-				{else}
-					Реєстрація інвестора
-				{/if}
-					</h1>
+					{if $lang === 'ru'}
+						Регистрация инвестора
+					{else if $lang === 'en'}
+						Investor Registration
+					{else}
+						Реєстрація інвестора
+					{/if}
+				</h1>
 				<div class="investor__description">
 					{if $lang === 'ru'}
 						Заполните пожалуйста форму, это поможет нам определить ваши предпочтения и инвестиционные критерии для подбора
@@ -79,10 +79,13 @@
 								Компанія
 							{/if}" required />
 							<label class="floating-label">
-								{if $lang === 'ru'}Компания{else if $lang === 'en'}
+								{if $lang === 'ru'}
+								Компания
+								{else if $lang === 'en'}
 								Company
 								{else}
-								Компанія{/if}
+								Компанія
+								{/if}
 							</label>
 						</div>
 						<div class="form__label-wrap floating-label-wrap">
