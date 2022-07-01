@@ -21,6 +21,17 @@
 ]}
 {/if}
 
+{if $lang == 'en'}
+{$links = [
+    '/en/investments/projects'=>'Investment Projects and Startups',
+    '/en/investments/business'=>'Business for Sale',
+    '/en/investments/realestate'=>'Commercial Property',
+    '/en/investments/land'=>'Land',
+    '/en/investments/en_franchising'=>'Franchising',
+    '/en/investments/offer'=>'Investor Offers'
+]}
+{/if}
+
 {assign "isNewStylesAvaible" value=(true)}
 {assign "isInvestments" value=(
 	$request->getPathInfo()|strpos:'/investments' >= 0 &&
