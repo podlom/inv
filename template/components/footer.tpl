@@ -78,11 +78,11 @@
             {if $lang === 'ru'}
               Публикация материалов InVenture разрешается только при условии размещения активной ссылки - https://inventure.com.ua
             {elseif $lang === 'uk'}
-                Публікація матеріалів InVenture дозволяється тільки за умови розміщення активного посилання - https://inventure.com.ua
+                Публікація матеріалів InVenture дозволяється тільки за умови розміщення активного посилання - https://inventure.com.ua/uk
             {else}
-              Reproduction or distribution of InVenture's content is allowed by inserting link - https://inventure.com.ua
+              Reproduction or distribution of InVenture's content is allowed by inserting link - https://inventure.com.ua/en
             {/if}
-              <br>© 2010-2021 InVenture™ All Rights Reserved
+              <br>© 2010-{$smarty->assign('currentDate', $date("Y"))} InVenture™ All Rights Reserved
             {/block}
         </div>
       </div>
