@@ -14,14 +14,14 @@
         {block 'footer_menu'}
         <div class="footer__wrapper">
           <div class="cell">
-            <p class="font-bold mb-4"><a href="https://inventure.ua/" target="_blank" itemprop="url">InVenture <span>Investment Group</span></a></p>
+            <p class="font-bold mb-4"><a href="https://inventure.ua{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{else}/{/if}" target="_blank" itemprop="url">InVenture <span>Investment Group</span></a></p>
             <p><a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/about">{if $lang === 'ru'}О проекте{elseif $lang === 'uk'}Про проект{else}About project{/if}</a></p>
             <p><a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/about/advertising">{if $lang === 'ru'}Реклама{elseif $lang === 'uk'}Реклама{else}Advertising{/if}</a></p>
             
             <p><a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/investor">{if $lang === 'ru'}Сервисы для инвестора{elseif $lang === 'uk'}Сервіси для інвестора{else}Services for Investors{/if}</a></p>
             <p><a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/tools/events">{if $lang === 'ru'}Мероприятия{elseif $lang === 'uk'}Заходи{else}Events{/if}</a></p>
             <p><a href="https://www.inventure.ua{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{else}/ru{/if}/management" target="_blank">{if $lang === 'ru'}Команда{elseif $lang === 'uk'}Команда{else}Team{/if}</a></p>
-            <p><a href="https://inventure.ua/vacancies/" target="_blank">{if $lang === 'ru'}Вакансии{elseif $lang === 'uk'}Вакансії{else}Vacancies{/if}</a></p>
+            <p><a href="https://inventure.ua{if $lang === 'en'}/en/{elseif $lang === 'uk'}/uk/{else}/{/if}vacancies/" target="_blank">{if $lang === 'ru'}Вакансии{elseif $lang === 'uk'}Вакансії{else}Vacancies{/if}</a></p>
             <p><a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/board">{if $lang === 'ru'}Доска объявлений{elseif $lang === 'uk'}Дошка оголошень{else}Board{/if}</a></p>
             <p><a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/about/faq">{if $lang === 'ru'}Часто задаваемые вопросы{elseif $lang === 'uk'}Часті запитання{else}FAQ{/if}</a></p>
               <p><a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/usloviya-ispolzovaniya">{if $lang === 'ru'}Условия использования{elseif $lang === 'uk'}Умови використання{else}Terms{/if}</a></p>
