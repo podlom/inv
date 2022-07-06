@@ -82,7 +82,7 @@
             {else}
               Reproduction or distribution of InVenture's content is allowed by inserting link - https://inventure.com.ua/en
             {/if}
-              <br>© 2010-2022 InVenture™ All Rights Reserved
+              <br>© 2010-{$yesterday|date_format:"%Y"} InVenture™ All Rights Reserved
             {/block}
         </div>
       </div>
