@@ -794,7 +794,7 @@
                             fill="#1F2E35"
                           ></path>
                         </svg>
-											{if $lang === 'ru'}Кредитование{elseif $lang == 'uk'}Кредитування{else}Banking{/if}Banking{/if}
+											{if $lang === 'ru'}Кредитование{elseif $lang == 'uk'}Кредитування{else}Banking{/if}
                       </li>
                     </a>
                     <a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/news/stock">
