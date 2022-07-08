@@ -8,8 +8,23 @@
     </div>
 {/if}
 {if $lang == 'en'}
-    {$form->getField('firstname')->getInput()->attr('id', 'subscribeFirstname')->attr('placeholder', 'First Name')}
-    {$form->getField('lastname')->getInput()->attr('id', 'subscribeLastname')->attr('placeholder', 'Surname')}
+		{if ($form->getField('firstname') && $form->getField('lastname'))}
+			{$form->getField('firstname')->getInput()->attr('id', 'subscribeFirstname')->attr('placeholder', 'First Name')}
+			{$form->getField('lastname')->getInput()->attr('id', 'subscribeLastname')->attr('placeholder', 'Surname')}
+		{else}
+			<div class="subscription__row">
+				<label>
+					First Name
+				</label>
+				<input name="subscribe[firstname]" type="text" class="subscription__input" required>
+			</div>
+			<div class="subscription__row">
+					<label>
+					Surname
+					</label>
+					<input name="subscribe[lastname]" type="text" class="subscription__input" required>
+			</div>
+		{/if}
     {$form->getField('company')->getInput()->attr('id', 'subscribeCompany')->attr('placeholder', 'Company')}
     {$form->getField('job')->getInput()->attr('id', 'subscribeJob')->attr('placeholder', 'Position')}
     {$form->getField('email')->getInput()->attr('id', 'subscribeMail')->attr('placeholder', 'E-mail')}
@@ -58,8 +73,23 @@
     <!-- div class='grid-x'><button type='button' class="blue_but cell-but  small-12 close__popup">Close</button></div -->
 
 {elseif $lang == 'uk'}
-		{$form->getField('firstname')->getInput()->attr('id', 'subscribeFirstname')->attr('placeholder', 'Імʼя')}
-		{$form->getField('lastname')->getInput()->attr('id', 'subscribeLastname')->attr('placeholder', 'Прізвище')}
+		{if ($form->getField('firstname') && $form->getField('lastname'))}
+			{$form->getField('firstname')->getInput()->attr('id', 'subscribeFirstname')->attr('placeholder', 'Імʼя')}
+			{$form->getField('lastname')->getInput()->attr('id', 'subscribeLastname')->attr('placeholder', 'Прізвище')}
+		{else}
+			<div class="subscription__row">
+				<label>
+						Імʼя
+				</label>
+				<input name="subscribe[firstname]" type="text" class="subscription__input" required>
+			</div>
+			<div class="subscription__row">
+					<label>
+							Прізвище
+					</label>
+					<input name="subscribe[lastname]" type="text" class="subscription__input" required>
+			</div>
+		{/if}
     {$form->getField('company')->getInput()->attr('id', 'subscribeCompany')->attr('placeholder', 'Компанія')}
     {$form->getField('job')->getInput()->attr('id', 'subscribeJob')->attr('placeholder', 'Посада')}
     {$form->getField('email')->getInput()->attr('id', 'subscribeMail')->attr('placeholder', 'E-mail')}
@@ -109,8 +139,23 @@
     {if isset($smarty.get.id) && isset($smarty.get.email)}
         <p>Вы успешно отписаны от рассылки</p>
     {else}
-				{$form->getField('firstname')->getInput()->attr('id', 'subscribeFirstname')->attr('placeholder', $form->getField('firstname')->getLabel())}
-				{$form->getField('lastname')->getInput()->attr('id', 'subscribeLastname')->attr('placeholder', $form->getField('lastname')->getLabel())}
+				{if ($form->getField('firstname') && $form->getField('lastname'))}
+					{$form->getField('firstname')->getInput()->attr('id', 'subscribeFirstname')->attr('placeholder', $form->getField('firstname')->getLabel())}
+					{$form->getField('lastname')->getInput()->attr('id', 'subscribeLastname')->attr('placeholder', $form->getField('lastname')->getLabel())}
+				{else}
+					<div class="subscription__row">
+							<label>
+									Имя
+							</label>
+							<input name="subscribe[firstname]" type="text" class="subscription__input" required>
+					</div>
+					<div class="subscription__row">
+							<label>
+									Фамилия
+							</label>
+							<input name="subscribe[lastname]" type="text" class="subscription__input" required>
+					</div>
+				{/if}
         {$form->getField('company')->getInput()->attr('id', 'subscribeCompany')->attr('placeholder', $form->getField('company')->getLabel())}
         {$form->getField('job')->getInput()->attr('id', 'subscribeJob')->attr('placeholder', $form->getField('job')->getLabel())}
         {$form->getField('email')->getInput()->attr('id', 'subscribeMail')->attr('placeholder', $form->getField('email')->getLabel())}
