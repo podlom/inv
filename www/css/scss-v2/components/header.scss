@@ -110,7 +110,7 @@
 }
 
 .header .header__right-item, .mobile-nav, .header__right-item {
-	&--lang {
+	&--lang, &--lang a {
 		font-weight: 500;
 		color: var(--main-accent-color);
 	}
