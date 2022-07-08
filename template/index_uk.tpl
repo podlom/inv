@@ -182,7 +182,7 @@
       
     </main>
     <aside class="sidebar sidebar-uk without-promo-links desktop-only ">
-      {* include 'components/sidebar' *}
+      {include 'components/sidebar'}
     </aside>
   </div>
 
