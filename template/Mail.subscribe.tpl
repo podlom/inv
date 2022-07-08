@@ -12,18 +12,8 @@
 			{$form->getField('firstname')->getInput()->attr('id', 'subscribeFirstname')->attr('placeholder', 'First Name')}
 			{$form->getField('lastname')->getInput()->attr('id', 'subscribeLastname')->attr('placeholder', 'Surname')}
 		{else}
-			<div class="subscription__row">
-				<label>
-					First Name
-				</label>
-				<input name="subscribe[firstname]" type="text" class="subscription__input" required>
-			</div>
-			<div class="subscription__row">
-					<label>
-					Surname
-					</label>
-					<input name="subscribe[lastname]" type="text" class="subscription__input" required>
-			</div>
+				<input name="subscribe[firstname]" type="text" class="subscription__input" placeholder="First Name" required>
+				<input name="subscribe[lastname]" type="text" class="subscription__input" placeholder="Surname" required>
 		{/if}
     {$form->getField('company')->getInput()->attr('id', 'subscribeCompany')->attr('placeholder', 'Company')}
     {$form->getField('job')->getInput()->attr('id', 'subscribeJob')->attr('placeholder', 'Position')}
@@ -77,18 +67,8 @@
 			{$form->getField('firstname')->getInput()->attr('id', 'subscribeFirstname')->attr('placeholder', 'Імʼя')}
 			{$form->getField('lastname')->getInput()->attr('id', 'subscribeLastname')->attr('placeholder', 'Прізвище')}
 		{else}
-			<div class="subscription__row">
-				<label>
-						Імʼя
-				</label>
-				<input name="subscribe[firstname]" type="text" class="subscription__input" required>
-			</div>
-			<div class="subscription__row">
-					<label>
-							Прізвище
-					</label>
-					<input name="subscribe[lastname]" type="text" class="subscription__input" required>
-			</div>
+			<input name="subscribe[firstname]" type="text" class="subscription__input" placeholder="Імʼя" required>
+			<input name="subscribe[lastname]" type="text" class="subscription__input" placeholder="Прізвище" required>
 		{/if}
     {$form->getField('company')->getInput()->attr('id', 'subscribeCompany')->attr('placeholder', 'Компанія')}
     {$form->getField('job')->getInput()->attr('id', 'subscribeJob')->attr('placeholder', 'Посада')}
@@ -143,18 +123,8 @@
 					{$form->getField('firstname')->getInput()->attr('id', 'subscribeFirstname')->attr('placeholder', $form->getField('firstname')->getLabel())}
 					{$form->getField('lastname')->getInput()->attr('id', 'subscribeLastname')->attr('placeholder', $form->getField('lastname')->getLabel())}
 				{else}
-					<div class="subscription__row">
-							<label>
-									Имя
-							</label>
-							<input name="subscribe[firstname]" type="text" class="subscription__input" required>
-					</div>
-					<div class="subscription__row">
-							<label>
-									Фамилия
-							</label>
-							<input name="subscribe[lastname]" type="text" class="subscription__input" required>
-					</div>
+					<input name="subscribe[firstname]" type="text" class="subscription__input" placeholder="Имя" required>
+					<input name="subscribe[lastname]" type="text" class="subscription__input" placeholder="Фамилия" required>
 				{/if}
         {$form->getField('company')->getInput()->attr('id', 'subscribeCompany')->attr('placeholder', $form->getField('company')->getLabel())}
         {$form->getField('job')->getInput()->attr('id', 'subscribeJob')->attr('placeholder', $form->getField('job')->getLabel())}
