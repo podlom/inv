@@ -1460,7 +1460,7 @@
                       </svg>
                       <span>
                         {if $langArr=='ru'}
-                            Рус
+                          Рус
                         {elseif $langArr=='uk'}
                           Укр
                         {elseif $langArr=='en'}
