@@ -109,6 +109,12 @@
 	}
 }
 
+.header .header__right-item, .mobile-nav, .header__right-item {
+	&--lang {
+		font-weight: 500;
+		color: var(--main-accent-color);
+	}
+}
 .header .header__right {
 	@media screen and (max-width: 1340px) {
 		margin__right: 20px;
@@ -170,10 +176,6 @@
 			}
 		}
 
-		&--lang {
-			font-weight: 500;
-			color: var(--main-accent-color);
-		}
 		opacity: 0.8;
 		&:hover {
 			opacity: 1 !important;
