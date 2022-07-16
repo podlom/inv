@@ -14,8 +14,8 @@
 {$links = [
     '/uk/analytics/investments'=>'Дослідження',
     '/uk/analytics/articles'=>'Статті',
-    '/uk/analytics/formula'=>'Інтервью',
-    '/uk/analytics/we-invest-in-ukraine'=>'Інвестуймо в Україну',
+    '/uk/analytics/formula'=>'Інтерв’ю',
+    '/uk/analytics/we-invest-in-ukraine'=>'Інвестуємо в Україну',
     '/uk/tools/database'=>'Рейтинги',
     '/uk/tools/library'=>'Бібліотека',
     '/uk/tools/investors'=>'Інвестори'
