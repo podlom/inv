@@ -178,7 +178,7 @@
           {if ($lang == 'ru' && $langArr != 'ru') || ($lang == 'uk' && $langArr != 'uk') || ($lang == 'en' &&  $langArr != 'en')}
           <div class="header__right-item header__right-item--lang">
             <a
-              href="{if $langArr=='ru'}/?lang=ru{else}{$data.url|default:'#'}{/if}" {if $data} title="{$data['title']}"{/if}
+              href="{if $langArr=='ru' and $data.url|count_characters == 0 }/?lang=ru{else}{$data.url|default:'#'}{/if}" {if $data} title="{$data['title']}"{/if}
               class="flex items-center"
             >
               <svg
