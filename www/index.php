@@ -71,6 +71,8 @@ function ipInfo($ip = NULL, $purpose = "location", $deep_detect = TRUE) {
   return $output;
 }
 
+/*
+
 if ($_SERVER['REQUEST_URI'] == '/') {
   $country = ipInfo($_SERVER['REMOTE_ADDR'], 'country');
   if ($country == 'Ukraine') {
@@ -78,6 +80,7 @@ if ($_SERVER['REQUEST_URI'] == '/') {
   }
 }
 
+*/
 
 require_once realpath(__DIR__.'/../bootstrap.php');
 
