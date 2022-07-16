@@ -2,7 +2,7 @@
   <div class="header__wrapper">
     <button aria-label="Menu" id="open-mobile-menu" class="header__btn header__btn--burger"></button>
 
-    <a class="header__logo items-center flex ml-2" href="{if $lang == 'en'}/en{elseif $lang == 'uk'}/uk{elseif $lang == 'ru'}/?lang=ru{/if}/">
+    <a class="header__logo items-center flex ml-2" href="{if $lang == 'en'}/en{elseif $lang == 'uk'}/uk{else}/?lang=ru{/if}/">
       <img src="/images/logo.svg" alt="Inventure logo" />
 			{* <svg class="header__logo-rectangle" xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35" fill="none">
 				<path d="M10.9201 0.050293C10.9201 11.4123 10.9201 22.7748 10.9201 34.1383C7.2982 34.1383 3.67527 34.1383 0.0498047 34.1383C0.0498047 22.7748 0.0498047 11.4123 0.0498047 0.050293C3.67527 0.050293 7.2982 0.050293 10.9201 0.050293Z" fill="#D91920"/>
