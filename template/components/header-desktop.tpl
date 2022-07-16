@@ -2,7 +2,7 @@
 <header data-lang="{$lang}" class="header header--desktop desktop-only">
   <div class="header__wrapper">
     <div class="container header__container">
-      <a class="header__logo" href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{else}/{/if}">
+      <a class="header__logo" href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{else}/?lang=ru{/if}">
         <img src="/images/logo.svg" alt="Inventure logo" />
       </a>
       <div class="menu">
@@ -1442,7 +1442,7 @@
                   {if ($lang == 'ru' && $langArr != 'ru') || ($lang == 'uk' && $langArr != 'uk') || ($lang == 'en' &&  $langArr != 'en')}
                   <div class="header__right-item header__right-item--lang">
                     <a
-                        href="{$data.url|default:'#'}" {if $data} title="{$data['title']}"{/if}
+                        href="{if $langArr=='ru'}?lang=ru{else}{$data.url|default:'#'}{/if}" {if $data} title="{$data['title']}"{/if}
                       class="flex items-center"
                     >
                       <svg
