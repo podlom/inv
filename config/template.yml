@@ -265,6 +265,12 @@ investment_posts_en:
     template: 'blog/inventure.post_en'
     default_template: 'Blog.post'
     layout: Core.layout_en
+investment_posts_uk:
+    urls:
+        - '/uk/investments/*'
+    template: 'blog/inventure.post_uk'
+    default_template: 'Blog.post'
+    layout: Core.layout_uk
 events_en:
     urls:
         - '/en/tools/events'

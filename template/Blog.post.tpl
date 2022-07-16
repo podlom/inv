@@ -157,19 +157,19 @@
         {#mod Attribute}{/if}{#/mod}
             <div class="contact-form__block">
                 <h3 class="contact-form__subtitle">
-                    {if $lang === 'ru'}Свяжитесь со мной!{else}Connect with us!{/if}
+                    {if $lang === 'ru'}Свяжитесь со мной!{elseif $lang === 'uk'} Зв'яжіться зі мною! {else}Connect with us!{/if}
                 </h3>
                 <div class="contact-form__inputs">
                     <div class="contact-form__item">
                         <label class="contact-form__label">
-                            {if $lang === 'ru'}Имя{else}First name{/if}
+                            {if $lang === 'ru'}Имя{elseif $lang === 'uk'} Імʼя {else}First name{/if}
                         </label>
                         <input required type="text" name="sf_investment_callback[firstname]" class="contact-form__input">
                     </div>
                     <div class="contact-form__item">
                         <label class="contact-form__label">
                             
-                            {if $lang === 'ru'}Фамилия{else}Last name{/if}
+                            {if $lang === 'ru'}Фамилия{elseif $lang === 'uk'} Прізвище {else}Last name{/if}
                         </label>
                         <input required type="text" name="sf_investment_callback[lastname]" class="contact-form__input">
                     </div>
@@ -181,14 +181,14 @@
                     </div>
                     <div class="contact-form__item">
                         <label class="contact-form__label">
-                            {if $lang === 'ru'}Телефон{else}Mobile phone{/if}
+                            {if $lang === 'ru'}Телефон{elseif $lang === 'uk'} Телефон {else}Mobile phone{/if}
                         </label>
                         <input required id="phone" name="sf_investment_callback[tel]" type="text" placeholder="+380" class="contact-form__input">
                         <span id="error-msg" class="hide"></span>
                     </div>
                 </div>
                 <button type="submit" class="contact-form__btn btn w-full btn--blue">
-                    {if $lang === 'ru'}Отправить{else}Submit{/if}
+                    {if $lang === 'ru'}Отправить{elseif $lang === 'uk'} Відправити {else}Submit{/if}
                 </button>
             </div>
         </form>
