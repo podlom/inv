@@ -52,7 +52,7 @@
           </nav>
         </div>
 
-        {lent_load '/news' 6 var="news_all" analytics=1 lang='uk'}
+        {lent_load '/uk/news' 6 var="news_all" analytics=1}
         <div class="cards">
           {foreach $news_all as $post}
             {include 'components/card-post-without-desc'}
@@ -78,7 +78,7 @@
           </nav>
         </div>
         {$invest=[]}
-        {lent_load '/analytics' 6 var='analytics' analytics=1 lang='uk'}
+        {lent_load '/uk/analytics' 6 var='analytics' analytics=1}
           <div class="cards">
             {foreach $analytics as $post}
               {include 'components/card-post-without-desc'}
@@ -155,7 +155,7 @@
 
         <div class="cards cards--video">
           {$video=[]}
-          {lent '/tools/video' 4 var='news' lang='uk'}
+          {lent '/uk/tools/video' 4 var='news'}
           {$video[] = $news}
             <div class="cards__item video">
               <div class="cards__img-wrapper">
