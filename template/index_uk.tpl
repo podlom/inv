@@ -52,7 +52,7 @@
           </nav>
         </div>
 
-        {lent_load '/uk/news' 6 var="news_all" analytics=1}
+        {lent_load '/news' 6 var="news_all" analytics=1}
         <div class="cards">
           {foreach $news_all as $post}
             {include 'components/card-post-without-desc'}
