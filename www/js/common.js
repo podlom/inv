@@ -250,6 +250,7 @@ $(
 			}
 
 			console.log('+246 before Swal.fire()');
+			console.log('action', $(this).attr('action'));
 			if($(this).attr('action') === '/form/investment_callback'){
 				Swal.fire({
 					title: 'Спасибо за заявку!',
