@@ -205,7 +205,7 @@ $(
 	var action = '/invest.php';
 	var form = $(this);
 
-	$.post(action, $(this).serialize(), function() {
+	$.post(action, $(this).serialize(), () => {
 		form.trigger('reset');
 		$('.my_popup').removeClass('opened');
 		$('.dark_bg').removeClass('opened');
