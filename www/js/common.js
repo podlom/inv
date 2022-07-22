@@ -255,7 +255,7 @@ $(
 					title: 'Спасибо за заявку!',
 					html: '',
 					type: 'success',
-					confirmButtonText: 'Close',
+					confirmButtonText: 'Закрыть',
 				});
 			}else{
 				Swal.fire({
