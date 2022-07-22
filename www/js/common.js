@@ -250,22 +250,37 @@ $(
 			}
 
 			console.log('+246 before Swal.fire()');
+			if($(this).attr('action') === '/form/investment_callback'){
+				Swal.fire({
+					title: 'Спасибо за заявку!',
+					html: '',
+					type: 'success',
+					confirmButtonText: 'Close',
+				});
+			}else{
+				Swal.fire({
+					title: 'Благодарим за Ваш запрос!',
+					html: '<p><!-- +249 common.js -->\n' +
+						'\t\t\tМы отправили Вам на почту презентацию с описанием условий сотрудничества.\n' +
+						'\t\t</p>\n' +
+						'\t\t<p> \n' +
+						'\t\t\tНаш менеджер свяжется с Вами в течение одного рабочего дня.\n' +
+						'\t\t</p>\n' +
+						'\t\t<br><p> \n' +
+						'\t\t<a style="text-decoration:underline;" id="openNowLink" target="_blank" href="' + newHref + '" class="w-full blue_but cell-but small-12" type="submit">Открыть сейчас</a>\n' +
+						'\t\t</p>\n' +
+						'\t\t',
+					type: 'success',
+					confirmButtonText: 'Закрыть',
+				});
+			}
+		}else if (document.documentElement.lang == 'uk') {
 			Swal.fire({
-				title: 'Благодарим за Ваш запрос!',
-				html: '<p><!-- +249 common.js -->\n' +
-					'\t\t\tМы отправили Вам на почту презентацию с описанием условий сотрудничества.\n' +
-					'\t\t</p>\n' +
-					'\t\t<p> \n' +
-					'\t\t\tНаш менеджер свяжется с Вами в течение одного рабочего дня.\n' +
-					'\t\t</p>\n' +
-					'\t\t<br><p> \n' +
-					'\t\t<a style="text-decoration:underline;" id="openNowLink" target="_blank" href="' + newHref + '" class="w-full blue_but cell-but small-12" type="submit">Открыть сейчас</a>\n' +
-					'\t\t</p>\n' +
-					'\t\t',
+				title: 'Дякуємо за подання заявки!',
+				html: '',
 				type: 'success',
-				confirmButtonText: 'Закрыть',
+				confirmButtonText: 'Закрити',
 			});
-
 		} else {
 			Swal.fire({
 				title: 'Thank you for your apply!',
