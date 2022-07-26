@@ -1357,18 +1357,18 @@
                 <div class="menu-item__right">
                   <div class="menu-item__info">
                     <p class="menu-item__info-text">
-                      {if $lang === 'ru'}
+                      {if $lang == 'ru'}
 												Получайте ежемесячный инвестиционный журнал в сфере прямых
                       инвестиций и венчурного капитала.
-											{else if $lang === 'en'} 
+											{else if $lang == 'en'} 
 												Get a monthly investment magazine in private equity and venture capital.
 											{else} 
 												Отримайте щомісячний інвестиційний журнал у галузі прямих інвестицій та венчурного капіталу.
 											{/if}
                     </p>
-                    <a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/digest-social" class="menu-item__info-link"
+                    <a href="{if $lang == 'en'}/en{elseif $lang == 'uk'}/uk{/if}/digest-social" class="menu-item__info-link"
                       >
-                      {if $lang === 'ru'}Подписаться{elseif $lang === 'uk'}Підписатися{else}Subscribe{/if}
+                      {if $lang == 'ru'}Подписаться{elseif $lang == 'uk'}Підписатися{else}Subscribe{/if}
                       </a>
                   </div>
                   <a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/analytics/digest" class="menu-item__advert">
@@ -1378,7 +1378,7 @@
               </div>
             </div>
           </li>
-          <li class="header__nav-item"><span><a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/analytics/digest">{if $lang === 'ru'}Дайджест{elseif $lang === 'uk'}Дайджест{else}Digest{/if}</a></span></li>
+          <li class="header__nav-item"><span><a href="{if $lang == 'en'}/en{/if}/analytics/digest">{if $lang == 'ru'}Дайджест{elseif $lang == 'uk'}Дайджест{else}Digest{/if}</a></span></li>
         </nav>
         {/block}
       </div>
