@@ -47,7 +47,7 @@
               <a class="section__category" href="/uk/news/startup">Стартапи</a>
               <a class="section__category" href="/uk/news/government">Макроінвестиції</a>
               <a class="section__category" href="/uk/news/banking">Кредитування</a>
-              <a class="section__category" href="/uk/news/stock">Фондовый ринок</a>
+              <a class="section__category" href="/uk/news/stock">Фондовий ринок</a>
               <a class="section__category" href="/uk/news/realestate">Нерухомість</a>
           </nav>
         </div>
