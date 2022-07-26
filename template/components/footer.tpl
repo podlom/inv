@@ -37,11 +37,11 @@
             <div class="cell">
               <p class="font-bold mb-4"><a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/investments">{if $lang === 'ru'}Инвестиционные предложения{elseif $lang === 'uk'}Інвестиційні пропозиції{else}Investment proposals{/if}</a></p>
               <p><a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/investments?filter[category][parent]=7860">{if $lang === 'ru'}Инвестиционные проекты и стартапы{elseif $lang === 'uk'}Інвестиційні проекти та стартапи{else}Investment Projects and Startups{/if}</a></p>
-              <p><a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/investments?filter[category][parent]=7861"> {if $lang === 'ru'}Продажа бизнеса{elseif $lang === 'uk'}Продаж бізесу{else}Business for Sale{/if} </a></p>
+              <p><a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/investments?filter[category][parent]=7861"> {if $lang === 'ru'}Продажа бизнеса{elseif $lang === 'uk'}Продаж бізнесу{else}Business for Sale{/if} </a></p>
               <p><a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/investments?filter[category][parent]=7862">{if $lang === 'ru'}Недвижимость{elseif $lang === 'uk'}Нерухомість{else}Commercial Property{/if}</a></p>
               <p><a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/investments?filter[category][parent]=7863">{if $lang === 'ru'}Земля{elseif $lang === 'uk'}Земля{else}Land{/if}</a></p>
               <p><a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/investments?filter[category][parent]=19303">{if $lang === 'ru'}Франчайзинг{elseif $lang === 'uk'}Франчайзинг{else}Franchising{/if}</a></p>
-              <p><a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/investments?filter[category][parent]=7864">{if $lang === 'ru'}Предложения инвесторов{elseif $lang === 'uk'}Інвестиційні пропозиції{else}Investor Offers{/if}</a></p>
+              <p><a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/investments?filter[category][parent]=7864">{if $lang === 'ru'}Предложения инвесторов{elseif $lang === 'uk'}Пропозиції інвесторів{else}Investor Offers{/if}</a></p>
               <p><a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/add-inv-prop">{if $lang === 'ru'}Привлечение инвестиций / продажа бизнеса{elseif $lang === 'uk'}Залучення інвестицій / продаж бізнесу{else}Services for Raising Capital & Sell a Business{/if}</a></p>
               <p><a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/project">{if $lang === 'ru'}Сервисы для инвестора{elseif $lang === 'uk'}Сервіси для інвестора{else}Services for Investors{/if}</a></p>
           </div>
