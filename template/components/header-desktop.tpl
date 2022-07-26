@@ -767,7 +767,7 @@
                         {if $lang === 'ru'}Макроинвестиции{elseif $lang === 'uk'}Макроінветиції{else}Macroeconomics{/if}
                       </li>
                     </a>
-                    <a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/news/banking">
+                    <a href="{if $lang == 'en'}/en{elseif $lang == 'uk'}/uk{/if}/news/banking">
                       <li>
                         <svg
                           class="fill-svg franchising-svg"
@@ -794,10 +794,10 @@
                             fill="#1F2E35"
                           ></path>
                         </svg>
-											{if $lang === 'ru'}Кредитование{elseif $lang == 'uk'}Кредитування{else}Banking{/if}
+											{if $lang == 'ru'}Кредитование{elseif $lang == 'uk'}Кредитування{else}Banking{/if}
                       </li>
                     </a>
-                    <a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/news/stock">
+                    <a href="{if $lang == 'en'}/en{elseif $lang == 'uk'}/uk{/if}/news/stock">
                       <li>
                         <svg
                           class="fill-svg"
