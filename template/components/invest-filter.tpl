@@ -63,7 +63,7 @@
             
         <div class="filter__selector filter__selector--price">
             <label  class="filter__row  mb-4" for="">
-                <span class="filter__label">{if $lang === 'ru'}Цена от{elseif $lang === 'uk'}Цена від{else}Price from{/if}</span>
+                <span class="filter__label">{if $lang === 'ru'}Цена от{elseif $lang === 'uk'}Ціна від{else}Price from{/if}</span>
                 <select name="price1" class="multiple-select" data-single="true">
                     <option selected value="">$ 0</option>
                     <option value="10000">$ 10 000</option>
