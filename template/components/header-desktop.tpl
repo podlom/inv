@@ -525,11 +525,11 @@
                     <p class="menu-item__info-text">
                       {* {if $lang === 'ru'}Узнай вероятность привлечения инвестиций в свой бизнес прямо сейчас{else}Find out the probability of raising investment for your business right now.{/if} *}
                         {if $lang === 'ru'}
-                                Привлечение инвестиций, продажа бизнеса и коммерческой недвижимости в Украине
+													Привлечение инвестиций, продажа бизнеса и коммерческой недвижимости в Украине
                         {elseif $lang === 'uk'}
-                                Залучення інвестицій, продаж бізнесу та комерційної нерухомості в Україні
+													Залучення інвестицій, продаж бізнесу та комерційної нерухомості в Україні
                         {else}
-                                Services for Raising Capital & Sell a Business
+													Services for Raising Capital & Sell a Business
                         {/if}
                     </p>
                     <span class="menu-item__info-btn">

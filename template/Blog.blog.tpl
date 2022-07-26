@@ -234,19 +234,27 @@
 								</defs>
 							</svg>
 
-							<h2 class="invest-ad__title">{if $lang == 'en'}Raising capital, sale of business and commercial real estate in Ukraine{else}Привлечение инвестиций, продажа бизнеса и коммерческой недвижимости в Украине{/if}</h2>
+							<h2 class="invest-ad__title">
+								{if $lang === 'ru'}
+									Привлечение инвестиций, продажа бизнеса и коммерческой недвижимости в Украине
+								{elseif $lang === 'uk'}
+									Залучення інвестицій, продаж бізнесу та комерційної нерухомості в Україні
+								{else}
+									Services for Raising Capital & Sell a Business
+								{/if}
+							</h2>
 						</div>
 						<div class="invest-ad__wrapper">
 							<a href="tel:+380977727292" class="invest-ad__link-wrapper invest-ad__link-wrapper--tel">
 								<div  class="invest-ad__link">+38 097 772 72 92</div>
-								<div class="invest-ad__caption">{if $lang == 'en'}From 9:00 to 18:00{else}С 9:00 до 18:00{/if}</div>
+								<div class="invest-ad__caption">{if $lang == 'en'}From 9:00 to 18:00{elseif $lang == 'uk'}З 9:00 до 18:00{else}С 9:00 до 18:00{/if}</div>
 							</a>
 							<a href="mailto:info@inventure.ua" class="invest-ad__link-wrapper invest-ad__link-wrapper--mail">
 								<div  class="invest-ad__link">info@inventure.ua</div>
-								<div class="invest-ad__caption">{if $lang == 'en'}Advertising placement{else}По вопросам размещения{/if}</div>
+								<div class="invest-ad__caption">{if $lang == 'en'}Advertising placement{elseif $lang == 'uk'}З питань розміщення{else}По вопросам размещения{/if}</div>
 							</a>
 							<a href="/add-inv-prop" class="btn w-full btn--blue invest-ad__btn">
-                                {if $lang == 'en'}Learn more{else}Узнать подробности{/if}
+								{if $lang === 'ru'}Узнать подробности{elseif $lang === 'uk'}Дізнатися більше{else}Learn more{/if}
 							</a>
 						</div>
 					</div>

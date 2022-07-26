@@ -30,10 +30,13 @@
 			<div class="investor-proposals__header">
 				<div>
 					<h1 class="investor-proposals__title">
-
-						Привлечение инвестиций, продажа бизнеса и коммерческой недвижимости в Украине
-
-
+						{if $lang === 'ru'}
+							Привлечение инвестиций, продажа бизнеса и коммерческой недвижимости в Украине
+						{elseif $lang === 'uk'}
+							Залучення інвестицій, продаж бізнесу та комерційної нерухомості в Україні
+						{else}
+							Services for Raising Capital & Sell a Business
+						{/if}
 					</h1>
 					<div class="investor-proposals__description">
 
