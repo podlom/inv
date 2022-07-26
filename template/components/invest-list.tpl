@@ -68,7 +68,7 @@
          <p class="cards__description">{$bigpost->getShortText()|truncate:150:"  ..."}</p>
           {if $bigpost->hasAttr("10")}
             <div class="mt-2">
-              <p class="font-semibold inline">{if $lang === 'ru'}Расположение:{elseif $lang === 'uk'}Розміщення:{else}Location:{/if}</p>
+              <p class="font-semibold inline">{if $lang === 'ru'}Расположение:{elseif $lang === 'uk'}Розташування:{else}Location:{/if}</p>
               <p class="inline"> {$bigpost->printAttr("10")}</p>
             </div>
           {/if}
