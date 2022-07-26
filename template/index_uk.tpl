@@ -73,7 +73,7 @@
             <a class="section__category" href="/uk/analytics/formula">Інтерв`ю</a>
             <a class="section__category" href="/uk/analytics/we-invest-in-ukraine">Інвестуємо в Україну</a>
             <a class="section__category" href="/uk/tools/database">Рейтинги</a>
-            <a class="section__category" href="/uk/tools/library">Бібіиотека</a>
+            <a class="section__category" href="/uk/tools/library">Бібліотека</a>
             <a class="section__category" href="/uk/tools/investors">Інвестори</a>
           </nav>
         </div>
