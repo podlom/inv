@@ -612,7 +612,7 @@
                             stroke-linejoin="round"
                           ></path>
                         </svg>
-                        {if $lang === 'ru'}Прямые инвестиции и M&amp;A{elseif $lang === 'uk'}Прямі інвестиції та M&amp;A{else}Private Equity & M&amp;A{/if}
+                        {if $lang === 'ru'}Прямые инвестиции и M&amp;A{elseif $lang === 'uk'}Прямі інвестиції та M&Amp;A{else}Private Equity & M&amp;A{/if}
                       </li>
                     </a>
                     <a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/news/startup">
