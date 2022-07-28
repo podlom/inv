@@ -143,7 +143,7 @@
                   {include 'components/share-btn'}
                 </div>
                 <div class="mb-4">
-                  <p class="font-semibold ">{if $lang === 'ru'}Расположение:{else}Location:{/if}</p>
+                  <p class="font-semibold ">{if $lang === 'ru'}Расположение:{elseif $lang === 'uk'}Розташування:{else}Location:{/if}</p>
                   <p class="inline"> {$post->printAttr("10")}</p>
                 </div>
                 <div class="preview__characteristics content pb-0">
