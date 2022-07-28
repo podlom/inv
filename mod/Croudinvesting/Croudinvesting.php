@@ -309,10 +309,10 @@ class Croudinvesting extends \Skynar\BaseModel
     }
 
     /**
-     * @return DateTime
+     * @return \DateTime
      * @throws \Exception
      */
-    public function getCreated(): DateTime
+    public function getCreated(): \DateTime
     {
         if (!isset($this->published) || empty($this->published)) {
             return new DateTime('now');
@@ -336,10 +336,10 @@ class Croudinvesting extends \Skynar\BaseModel
     }
 
     /**
-     * @return DateTime
+     * @return \DateTime
      * @throws \Exception
      */
-    public function getUpdated(): DateTime
+    public function getUpdated(): \DateTime
     {
         if (!isset($this->updated) || empty($this->updated)) {
             return new DateTime('now');
