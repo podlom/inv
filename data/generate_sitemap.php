@@ -5,6 +5,7 @@ define( 'SKYNAR_DEBUG', true);
 require '../cms/actual/global.php';
 require_once '../cms/actual/lib/Skynar/Event/iEventListner.php';
 require_once '../cms/actual/lib/Skynar/Module/AbstractModule.php';
+require_once '../cms/actual/lib/Skynar/Routing/Route.php';
 require_once '../cms/actual/lib/vendor/Symfony/Component/EventDispatcher/Event.php';
 require_once '../cms/actual/lib/Skynar/Event/Event.php';
 // for prod - /home/inventure/data/web/inventure.com.ua/mod/Auth/Module.php
