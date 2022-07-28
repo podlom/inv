@@ -1,7 +1,10 @@
 <?php
+
 define( 'SKYNAR_DEBUG', true);
+
 require '../cms/actual/global.php';
-// /home/inventure/data/web/inventure.com.ua/mod/Auth/Module.php 
+require_once '../cms/actual/lib/Skynar/Module/AbstractModule.php';
+// for prod - /home/inventure/data/web/inventure.com.ua/mod/Auth/Module.php
 require_once '../mod/Auth/Module.php';
 
 
