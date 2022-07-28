@@ -24,7 +24,7 @@ use Skynar\BaseModel;
 class Croudinvesting extends BaseModel
 {
     use \Skynar\Model\Timestamps;
-    
+
     /**
      * @var integer
      *
@@ -260,9 +260,9 @@ class Croudinvesting extends BaseModel
     /**
      * Getter get additional info
      *
-     * @return boolean
+     * @return string
      */
-    public function getAdditionalInfo(): boolean
+    public function getAdditionalInfo(): string
     {
         if (!isset($this->additional_info) || empty($this->additional_info)) {
             return false;
