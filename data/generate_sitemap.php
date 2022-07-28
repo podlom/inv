@@ -10,6 +10,7 @@ require_once '../mod/Auth/Module.php';
 require_once '../mod/Analytics/Module.php';
 require_once '../mod/Analytics/Engine.php';
 require_once '../mod/Sphinx/Module.php';
+require_once '../mod/Sphinx/Service.php';
 
 
 $app = new Skynar\Application('inventure', '/home/inventure/data/web/inventure.com.ua', '/home/inventure/data/web/inventure.com.ua/www');
