@@ -1,6 +1,8 @@
 <?php
 define( 'SKYNAR_DEBUG', true);
 require '../cms/actual/global.php';
+// /home/inventure/data/web/inventure.com.ua/mod/Auth/Module.php 
+require_once '../mod/Auth/Module.php';
 
 
 $app = new Skynar\Application('inventure', '/home/inventure/data/web/inventure.com.ua', '/home/inventure/data/web/inventure.com.ua/www');
