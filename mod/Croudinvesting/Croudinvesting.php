@@ -273,13 +273,13 @@ class Croudinvesting extends BaseModel
     /**
      * Setter get additional info
      *
-     * @param boolean $additional_info
+     * @param string $additional_info
      *
      * @return Croudinvesting
      */
-    public function setAdditionalInfo(boolean $additional_info): Croudinvesting
+    public function setAdditionalInfo(string $additional_info): Croudinvesting
     {
-        $this->additional_info = $additional_info;
+        $this->additional_info = boolval($additional_info);
 
         return $this;
     }
