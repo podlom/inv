@@ -282,10 +282,10 @@ class Croudinvesting extends \Skynar\BaseModel
     }
 
     /**
-     * @return DateTime
+     * @return \DateTime
      * @throws \Exception
      */
-    public function getPublished(): DateTime
+    public function getPublished(): \DateTime
     {
         if (!isset($this->published) || empty($this->published)) {
             return new DateTime('now');
