@@ -13,6 +13,7 @@ namespace Croudinvesting;
 use Doctrine\ORM\Mapping as ORM;
 use Skynar\Annotation\Sync;
 use Skynar\Exception\InvalidArgument;
+use Skynar\BaseModel;
 
 
 /**
@@ -20,8 +21,10 @@ use Skynar\Exception\InvalidArgument;
  * @ORM\Entity
  * @ORM\Table(name="croudinvesting")
  */
-class Croudinvesting extends \Skynar\BaseModel
+class Croudinvesting extends BaseModel
 {
+    use \Skynar\Model\Timestamps;
+    
     /**
      * @var integer
      *
@@ -72,7 +75,7 @@ class Croudinvesting extends \Skynar\BaseModel
     protected $plan_to_invest = 0;
 
     /**
-     * @var boolean
+     * @var string
      *
      * @Sync\Input
      * @ORM\Column(type="boolean", options={"default":false} )
