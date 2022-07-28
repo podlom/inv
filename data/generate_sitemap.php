@@ -11,6 +11,7 @@ require_once '../mod/Analytics/Module.php';
 require_once '../mod/Analytics/Engine.php';
 require_once '../mod/Sphinx/Module.php';
 require_once '../mod/Sphinx/Service.php';
+require_once '../mod/Sitemap/Module.php';
 
 
 $app = new Skynar\Application('inventure', '/home/inventure/data/web/inventure.com.ua', '/home/inventure/data/web/inventure.com.ua/www');
