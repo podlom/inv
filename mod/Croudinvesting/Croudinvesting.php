@@ -72,10 +72,10 @@ class Croudinvesting extends \Skynar\BaseModel
     protected $plan_to_invest = 0;
 
     /**
-     * @var bool
+     * @var boolean
      *
      * @Sync\Input
-     * @ORM\Column(type="bool", options={"default":false} )
+     * @ORM\Column(type="boolean", options={"default":false} )
      */
     protected $additional_info = false;
 
@@ -257,9 +257,9 @@ class Croudinvesting extends \Skynar\BaseModel
     /**
      * Getter get additional info
      *
-     * @return bool
+     * @return boolean
      */
-    public function getAdditionalInfo(): bool
+    public function getAdditionalInfo(): boolean
     {
         if (!isset($this->additional_info) || empty($this->additional_info)) {
             return false;
@@ -270,11 +270,11 @@ class Croudinvesting extends \Skynar\BaseModel
     /**
      * Setter get additional info
      *
-     * @param bool $additional_info
+     * @param boolean $additional_info
      *
      * @return Croudinvesting
      */
-    public function setAdditionalInfo(bool $additional_info): Croudinvesting
+    public function setAdditionalInfo(boolean $additional_info): Croudinvesting
     {
         $this->additional_info = $additional_info;
 
