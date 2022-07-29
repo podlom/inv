@@ -88,6 +88,7 @@
     {script name="recaptcha" async="" src="https://www.google.com/recaptcha/api.js"}
     {script name="intlTelInput" async="" src="/js/intlTelInput-min.js"}
     {script name="iti-load-utils" async="" src="/js/utils.js"}
+		{script name="lbx_script" async="" src="/js/lbx_script.js"}
 		{script name="isValidNumber" require="intlTelInput,iti-load-utils" async="" src="/js/isValidNumber.js"}
     
     {script 'jquery'}
@@ -291,7 +292,6 @@ window.lazySizesConfig.customMedia = {
 };
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.2.2/lazysizes.min.js"></script>
-{* <script src="/js/isValidNumber.js"></script> *}
 <script src="/js/lbx_script.js"></script>
 </body>
 </html>

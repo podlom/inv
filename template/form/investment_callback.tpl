@@ -11,13 +11,6 @@
 	<div class="cell small-6">{$form->getField('tel')->getInput()->setAttr('id', 'phone')}
 	<span id="valid-msg" class="hide">✓ Valid</span>
     <span id="error-msg" class="hide"></span>
-    <script>
-    var input = document.querySelector("#phone");
-    window.intlTelInput(input, {
-    dropdownContainer: document.body,
-    utilsScript: "/js/utils.js",
-    });
-    </script>
 	</div>
 	<div class="cell small-6">{$form->getSubmit()->addClass('button alert expanded')->setAttr('value', 'Отправить')}</div>
 </div>

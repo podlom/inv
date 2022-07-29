@@ -30,16 +30,9 @@
             {* $form->getField('phone')->getInput()->setAttr('data-plugin-inputmask', 'inputmask_5de8d519')->setAttr('id', 'tel_1') *}
             {literal}
             <div class="input-investor">
-            <input style="width: 520px !important;" type="tel" id="phone" name="sf_investor[phone]" required>
-            <span id="valid-msg" class="hide">✓ Valid</span>
-            <span id="error-msg" class="hide"></span>
-            <script>
-            var input = document.querySelector("#phone");
-            window.intlTelInput(input, {
-            dropdownContainer: document.body,
-            utilsScript: "/js/utils.js",
-            });
-            </script>
+							<input style="width: 520px !important;" type="tel" id="phone" name="sf_investor[phone]" required>
+							<span id="valid-msg" class="hide">✓ Valid</span>
+							<span id="error-msg" class="hide"></span>
             </div> 
             {/literal}   
         </div>
