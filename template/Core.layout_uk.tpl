@@ -127,7 +127,7 @@
 	{script src="/js/ui.min.js" require="jquery,google_maps_api" name="ui_js" }
 
 	{script src="/js/jquery.hoverIntent.minified.js" name="hoverIntent" require="jquery" }
-	{script src="/js/script.js" require="jquery,hoverIntent,autosize,copyclipboard" name="script"}
+	{script src="/js/script-min.js" require="jquery,hoverIntent,autosize,copyclipboard" name="script"}
 	{script src="/js/invest.js" require="jquery" name="invest" }
 	{* {script_code require=['foundation2', 'jquery']}$(document).foundation();{/script_code} *}
 
