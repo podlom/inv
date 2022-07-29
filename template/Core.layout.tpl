@@ -83,45 +83,27 @@
    
     {head}
 
-    {* <script src="https://www.google.com/recaptcha/api.js" async defer></script> *}
-
-    <script src="/js/intlTelInput-min.js"></script>
+    {* <script src="/js/intlTelInput-min.js"></script> *}
     
-    {script class="iti-load-utils" async="" src="/js/utils.js"}
-    {script class="recaptcha" async="" src="https://www.google.com/recaptcha/api.js"}
+    {script name="recaptcha" async="" src="https://www.google.com/recaptcha/api.js"}
+    {script name="intlTelInput" async="" src="/js/intlTelInput-min.js"}
+    {script name="iti-load-utils" async="" src="/js/utils.js"}
+		{script name="isValidNumber" require="intlTelInput,iti-load-utils" async="" src="/js/isValidNumber.js"}
     
     {script 'jquery'}
-    {if $isNewStylesAvaible}
-      {script src="/js/libs.min.js" require="jquery" name="libs" }
-
-      {script src="/js/common-min.js" require="libs" name="common"}
-      {script src="/js/jquery.lazyload.min.js" require="jquery" name="lazyload" }
-      {script src="/js/autosize.min.js" require="jquery" name="autosize" }
-      {script src="/js/jquery.copy-to-clipboard.js" require="jquery" name="copyclipboard"}
-      {script src="/js/utm_widget1.js" require="copyclipboard" name="utm_widget1"}
-      {script src="/js/ui.min.js" require="jquery,google_maps_api" name="ui_js" }
-
-      {script src="/js/jquery.hoverIntent.minified.js" name="hoverIntent" require="jquery" }
-      {script src="/js/script.js" require="jquery,hoverIntent,autosize,copyclipboard" name="script"}
-      {script src="/js/invest.js" require="jquery" name="invest" }
-
-    {else}
-      {script "foundation2"}
-      {script src="/js/libs.min.js" require="jquery" name="libs" }
-
-      {script src="/js/common-min.js" require="libs" name="common"}
-      {script src="/js/jquery.lazyload.min.js" require="jquery" name="lazyload" }
-      {script src="/js/autosize.min.js" require="jquery" name="autosize" }
-      {script src="/js/jquery.copy-to-clipboard.js" require="jquery" name="copyclipboard"}
-      {script src="/js/utm_widget1.js" require="copyclipboard" name="utm_widget1"}
-      
-      {script src="/js/jquery.hoverIntent.minified.js" name="hoverIntent" require="jquery" }
-      {script src="/js/script.js" require="jquery,hoverIntent,autosize,copyclipboard" name="script"}
-      {* {script src="/js/owl.carousel.min.js" require="jquery" } *}
-      {script src="/js/invest.js" require="jquery" name="invest" }
-    {/if}
-
-
+		{script src="/js/libs.min.js" require="jquery" name="libs" }
+		
+		{script src="/js/common-min.js" require="libs" name="common"}
+		{script src="/js/jquery.lazyload.min.js" require="jquery" name="lazyload" }
+		{script src="/js/autosize.min.js" require="jquery" name="autosize" }
+		{script src="/js/jquery.copy-to-clipboard.js" require="jquery" name="copyclipboard"}
+		{script src="/js/utm_widget1.js" require="copyclipboard" name="utm_widget1"}
+		{script src="/js/ui.min.js" require="jquery,google_maps_api" name="ui_js" }
+		
+		{script src="/js/jquery.hoverIntent.minified.js" name="hoverIntent" require="jquery" }
+		{script src="/js/script.js" require="jquery,hoverIntent,autosize,copyclipboard" name="script"}
+		{script src="/js/invest.js" require="jquery" name="invest" }
+		
     {* {script_code require=['foundation2', 'jquery']}$(document).foundation();{/script_code} *}
 
 </head>
@@ -309,7 +291,7 @@ window.lazySizesConfig.customMedia = {
 };
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.2.2/lazysizes.min.js"></script>
-<script src="/js/isValidNumber.js"></script>
+{* <script src="/js/isValidNumber.js"></script> *}
 <script src="/js/lbx_script.js"></script>
 </body>
 </html>
