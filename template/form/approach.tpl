@@ -9,13 +9,6 @@
         <input type="tel" id="phone" name="sf_approach[tel]" required>
         <span id="valid-msg" class="hide">✓ Valid</span>
         <span id="error-msg" class="hide"></span>
-        <script>
-        var input = document.querySelector("#phone");
-        window.intlTelInput(input, {
-        dropdownContainer: document.body,
-        utilsScript: "/js/utils.js",
-        });
-        </script>
 		</div>
         {/literal}
 		<div>
@@ -38,13 +31,6 @@
         <input type="tel" id="phone" name="sf_approach[tel]" required>
         <span id="valid-msg" class="hide">✓ Valid</span>
         <span id="error-msg" class="hide"></span>
-        <script>
-        var input = document.querySelector("#phone");
-        window.intlTelInput(input, {
-        dropdownContainer: document.body,
-        utilsScript: "/js/utils.js",
-        });
-        </script>
 		</div>
     {/literal}
 		<div>

@@ -192,14 +192,6 @@
                 </button>
             </div>
         </form>
-        <script>
-            var input = document.querySelector("#phone");
-            window.intlTelInput(input, {
-            dropdownContainer: document.body,
-            utilsScript: "/js/utils.js",
-            });
-        </script>
-
     </section>
         
     {/block}

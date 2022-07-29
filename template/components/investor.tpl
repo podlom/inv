@@ -144,11 +144,6 @@
 							<span id="error-msg" class="hide"></span>
 							{literal}
 							<script>
-								var input = document.querySelector("#phone");
-								window.intlTelInput(input, {
-									dropdownContainer: document.body,
-									utilsScript: "/js/utils.js",
-								});
 								setTimeout(() => {
 									const label = `<label class="floating-label">${input.dataset.label}</label>`;
 									document.getElementById('phone').insertAdjacentHTML('afterend', label)

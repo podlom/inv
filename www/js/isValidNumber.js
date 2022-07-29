@@ -101,3 +101,18 @@ input2.addEventListener('change', reset2);
 input2.addEventListener('keyup', reset2);
 input3.addEventListener('change', reset3);
 input3.addEventListener('keyup', reset3);
+
+
+
+
+$(document).ready(function() {
+	function initTelInput(id){
+		const input = document.querySelector(id);
+		input && window.intlTelInput(input, {
+			dropdownContainer: document.body,
+			utilsScript: "/js/utils.js",
+		});
+	}
+	const ids = ['#phone', "#phone2", "#phone3"]
+	ids.forEach(initTelInput)
+});

@@ -24,13 +24,6 @@
         <input type="tel" id="phone" name="subscribe[phone]" required>
         <span id="valid-msg" class="hide">✓ Valid</span>
         <span id="error-msg" class="hide"></span>
-        <script>
-        var input = document.querySelector("#phone");
-        window.intlTelInput(input, {
-        dropdownContainer: document.body,
-        utilsScript: "/js/utils.js",
-        });
-        </script>
 		</div>
     {/literal}
     <div class="subscription__check-block">
@@ -79,13 +72,6 @@
 						<input type="tel" id="phone" name="subscribe[phone]" required>
 						<span id="valid-msg" class="hide">✓ Правильний</span>
 						<span id="error-msg" class="hide"></span>
-						<script>
-								var input = document.querySelector("#phone");
-								window.intlTelInput(input, {
-										dropdownContainer: document.body,
-										utilsScript: "/js/utils.js",
-								});
-						</script>
 				</div>
 		{/literal}
     <div class="subscription__check-block">
@@ -134,13 +120,6 @@
 							<input type="tel" id="phone" name="subscribe[phone]" required>
 							<span id="valid-msg" class="hide">✓ Правильний</span>
 							<span id="error-msg" class="hide"></span>
-							<script>
-									var input = document.querySelector("#phone");
-									window.intlTelInput(input, {
-											dropdownContainer: document.body,
-											utilsScript: "/js/utils.js",
-									});
-							</script>
 					</div>
 				{/literal}
         <div class="subscription__check-block">

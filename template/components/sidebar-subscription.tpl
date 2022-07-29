@@ -94,13 +94,6 @@
 						data-plugin-inputmask="inputmask_5de8d519" required>
 					<span id="valid-msg2" class="hide">✓ Valid</span>
 					<span id="error-msg2" class="hide"></span>
-					<script>
-						var input2 = document.querySelector("#phone2");
-						window.intlTelInput(input2, {
-							dropdownContainer: document.body,
-							utilsScript: "/js/utils.js",
-						});
-					</script>
 				</div>
 			</div>
 			<div class="subscription__check-block">

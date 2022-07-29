@@ -7,10 +7,6 @@
             <input name="sf_callback[tel]" type="text" class="subscription__input" id="phone3" required>
             <span id="valid-msg3" class="hide">✓ Valid</span>
             <span id="error-msg3" class="hide"></span>
-            <script>
-            var input3 = document.querySelector("#phone3");
-            window.intlTelInput(input3, {dropdownContainer: document.body, utilsScript: "/js/utils.js",});
-            </script>
         {/literal}
         <button>Заказать</button>
     </div>
