@@ -83,11 +83,12 @@
    
     {head}
 
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    {* <script src="https://www.google.com/recaptcha/api.js" async defer></script> *}
 
     <script src="/js/intlTelInput-min.js"></script>
     
     {script class="iti-load-utils" async="" src="/js/utils.js"}
+    {script class="recaptcha" async="" src="https://www.google.com/recaptcha/api.js"}
     
     {script 'jquery'}
     {if $isNewStylesAvaible}
