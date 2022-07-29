@@ -793,10 +793,6 @@ $(document).ready(function() {
 		$(this).addClass('active');
 	});
 
-	loadScript('https://cdn.jsdelivr.net/npm/sweetalert2@8');
-	loadScript(
-		'https://cdnjs.cloudflare.com/ajax/libs/remodal/1.1.1/remodal.min.js',
-	);
 	if ($('[data-tippy-content]').length) {
 		Promise.all([
 			loadScript(
