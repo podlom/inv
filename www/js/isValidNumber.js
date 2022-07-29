@@ -1,11 +1,30 @@
 $(document).ready(function () {
-	const errorMap = [
-		'Invalid number',
-		'Invalid country code',
-		'Too short',
-		'Too long',
-		'Invalid number',
-	];
+	const lang = document.documentElement.lang;
+	const isRu = lang === 'ru';
+	const isUk = lang === 'ru';
+	const errorMap = isRu
+		? [
+				'Неправильный номер',
+				'Неверный код страны',
+				'Слишком короткий номер',
+				'Слишком длинный номер',
+				'Неправильный номер',
+		  ]
+		: isUk
+		? [
+				'Недійсний номер',
+				'Недійсний код країни',
+				'Занадто короткий номер',
+				'Занадто довгий номер',
+				'Недійсний номер',
+		  ]
+		: [
+				'Invalid number',
+				'Invalid country code',
+				'Too short',
+				'Too long',
+				'Invalid number',
+		  ];
 
 	function initTelInput({ inputId, validId, errorId }) {
 		const input = document.querySelector(inputId);
