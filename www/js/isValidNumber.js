@@ -33,7 +33,7 @@ $(document).ready(function () {
 				} else {
 					input.classList.add('error');
 					const errorCode = iti.getValidationError();
-					errorMsg.innerHTML = errorMap[errorCode];
+					errorMsg.innerHTML = errorMap[errorCode] || errorMap[0];
 					errorMsg.classList.remove('hide');
 				}
 			}
