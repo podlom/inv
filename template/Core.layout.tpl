@@ -32,6 +32,17 @@
 
 	<link rel="preload" href="/css/font-awesome.min.css" as="style">
 	<link rel="dns-prefetch" href="https://fonts.gstatic.com/">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="preload" as="style"
+		href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,500,600,700&display=swap&subset=cyrillic,latin">
+	<link rel="stylesheet"
+		href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,500,600,700&display=swap&subset=cyrillic,latin"
+		media="print" onload="this.media='all'">
+	<noscript>
+		<link rel="stylesheet"
+			href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,500,600,700&display=swap&subset=cyrillic,latin">
+	</noscript>
+
 	<link rel="dns-prefetch" href="//netdna.bootstrapcdn.com">
 	<link rel="alternate" hreflang="x-default" href="https://inventure.com.ua/" />
 	<link rel="alternate" hreflang="en" href="https://yourwebsite.com/en/" />
@@ -82,7 +93,7 @@
 
 	{style '/css/style-v2.css' async=true}
 	{style '/css/font-awesome.min.css' async=true}
-	{style '//fonts.googleapis.com/css?family=Montserrat:400,400i,500,600,700,700i,800,900&display=swap&subset=cyrillic,latin' async=true}
+	{* {style '//fonts.googleapis.com/css?family=Montserrat:400,400i,500,600,700&display=swap&subset=cyrillic,latin' async=true} *}
 
 	{head}
 
