@@ -1,7 +1,9 @@
 <?php
 
 // @ts 2022-07-16 old debug IPs: 95.158.38.121
+// @ts 2022-08-03 Chernivtsi, Lva Tolstogo str.10, fl.5 static IP: 91.237.27.42
 if ($_SERVER['REMOTE_ADDR'] == '91.237.27.42') {
+  error_log(__FILE__ . ' +' . __LINE__);
   define('SKYNAR_DEBUG_SQL', true);
 }
 
