@@ -99,7 +99,7 @@
 
 	{* <script src="/js/intlTelInput-min.js"></script> *}
 
-	{script name="recaptcha" async="" src="https://www.google.com/recaptcha/api.js"}
+	{* {script name="recaptcha" async="" src="https://www.google.com/recaptcha/api.js"} *}
 	{script name="intlTelInput" async="" src="/js/intlTelInput-min.js"}
 	{script name="iti-load-utils" async="" src="/js/utils.js"}
 	{script name="lbx_script" async="" src="/js/lbx_script.js"}
@@ -110,7 +110,7 @@
 	{script 'jquery'}
 	{script src="/js/libs.min.js" require="jquery" name="libs" }
 
-	{script src="/js/common-min.js" require="libs" name="common"}
+	{script src="/js/common.js" require="libs" name="common"}
 	{script src="/js/jquery.lazyload.min.js" require="jquery" name="lazyload" }
 	{script src="/js/autosize.min.js" require="jquery" name="autosize" }
 	{script src="/js/jquery.copy-to-clipboard.js" require="jquery" name="copyclipboard"}
