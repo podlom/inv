@@ -473,6 +473,9 @@
 			transition: all 0.25s ease;
 			stroke: #1f2e35;
 		}
+		.investments-land use {
+			fill: #1f2e35;
+		}
 		&:hover {
 			color: var(--main-accent-color);
 			svg:not(.nochange) {
@@ -497,9 +500,7 @@
 			max-width: 22px;
 		}
 	}
-	.investments-land use {
-		fill: #1f2e35;
-	}
+
 	.invest-ukraine path,
 	.invest-ukraine use {
 		stroke: none !important;
