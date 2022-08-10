@@ -18,13 +18,7 @@
                   <ul class="menu-item__left-top">
                     <a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/investments/projects">
                       <li>
-                        <svg
-                          width="23"
-                          height="23"
-                          viewBox="0 0 23 23"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
+                        <svg width="23" height="23">
 													<use xlink:href="/images/header-icons-sprite.svg#projects" />
                         </svg>
                         {if $lang === 'ru'}Инвестиционные проекты и стартапы{elseif $lang === 'uk'}Інвестиційні проекти та стартапи{else}Investment Projects and Startups{/if}
