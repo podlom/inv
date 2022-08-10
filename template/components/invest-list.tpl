@@ -81,8 +81,8 @@
 			<a href="{$bigpost->getPath()}" class="cards__item card cards__item--big">
 				<div class="cards__img-wrapper mb-4">
 					{if $bigpost->getImage()}
-						<img data-src="{$bigpost->getImage()->thumbup(600,400)->getUrl()}" alt="{$bigpost->getH1()}"
-							class="lazyimg cards__img">
+						<img src="{$bigpost->getImage()->thumbup(600,400)->getUrl()}" alt="{$bigpost->getH1()}"
+							class="cards__img">
 					{else}
 						<img class="lazyimg cards__img" data-src="/img/resize.375.225/images/noThumb.jpg" alt="{$bigpost->getH1()}" />
 					{/if}
