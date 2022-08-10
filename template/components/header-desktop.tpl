@@ -1,880 +1,433 @@
-
 <header data-lang="{$lang}" class="header header--desktop desktop-only">
-  <div class="header__wrapper">
-    <div class="container header__container">
-      <a class="header__logo" href="{if $lang == 'en'}/en{elseif $lang == 'uk'}/uk{else}/?lang=ru{/if}">
-        <img src="/images/logo.svg" alt="Inventure logo" />
-      </a>
-      <div class="menu">
-      {block 'menu'}
-        <nav class="header__nav" id="nav">
-          <li class="header__nav-item"><span><a href="https://inventure.ua{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{else}/{/if}" target="_blank">{if $lang === 'ru'}О компании{elseif $lang === 'uk'}Про компанію{else}About us{/if}</a></span></li>
-          <li class="menu-item1 header__nav-item">
-            <span>
-            <a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/investments">{if $lang === 'ru'}Инвестиционные предложения{elseif $lang === 'uk'}Інвестиційні пропозиції{else}Investment proposals{/if}</a></span>
-            <div class="menu-item">
-              <div class="grid-container container">
-                <div class="menu-item__left">
-                  <ul class="menu-item__left-top">
-                    <a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/investments/projects">
-                      <li>
-                        <svg width="23" height="23" fill="none">
+	<div class="header__wrapper">
+		<div class="container header__container">
+			<a class="header__logo" href="{if $lang == 'en'}/en{elseif $lang == 'uk'}/uk{else}/?lang=ru{/if}">
+				<img src="/images/logo.svg" alt="Inventure logo" />
+			</a>
+			<div class="menu">
+				{block 'menu'}
+					<nav class="header__nav" id="nav">
+						<li class="header__nav-item"><span><a
+									href="https://inventure.ua{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{else}/{/if}"
+									target="_blank">{if $lang === 'ru'}О компании
+									{elseif $lang === 'uk'}Про компанію
+									{else}About
+									us{/if}</a></span></li>
+						<li class="menu-item1 header__nav-item">
+							<span>
+								<a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/investments">{if $lang === 'ru'}Инвестиционные
+								предложения{elseif $lang === 'uk'}Інвестиційні пропозиції
+								{else}Investment proposals
+								{/if}</a></span>
+						<div class="menu-item">
+							<div class="grid-container container">
+								<div class="menu-item__left">
+									<ul class="menu-item__left-top">
+										<a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/investments/projects">
+											<li>
+												<svg width="23" height="23" fill="none">
 													<use xlink:href="/images/header-icons-sprite.svg#projects" />
-                        </svg>
-                        {if $lang === 'ru'}Инвестиционные проекты и стартапы{elseif $lang === 'uk'}Інвестиційні проекти та стартапи{else}Investment Projects and Startups{/if}
-                      </li>
-                    </a>
-                    <a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/investments/land">
-                      <li>
-                        <svg
-                          class="investments-land"
-                          width="22"
-                          height="22"
-                          fill="none"
-                        >
+												</svg>
+												{if $lang === 'ru'}Инвестиционные проекты и стартапы
+												{elseif $lang === 'uk'}Інвестиційні проекти
+												та стартапи{else}Investment Projects and Startups
+												{/if}
+											</li>
+										</a>
+										<a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/investments/land">
+											<li>
+												<svg class="investments-land" width="22" height="22" fill="none">
 													<use xlink:href="/images/header-icons-sprite.svg#investments-land" />
-                        </svg>
-                        {if $lang === 'ru'}Земля{elseif $lang === 'uk'}Земля{else}Land{/if}
-                      </li>
-                    </a>
-                    <a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/investments/business">
-                      <li>
-                        <svg
-                          width="23"
-                          height="20"
-                          viewBox="0 0 23 20"
-                          fill="none"
-                        >
+												</svg>
+												{if $lang === 'ru'}Земля{elseif $lang === 'uk'}Земля{else}Land{/if}
+											</li>
+										</a>
+										<a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/investments/business">
+											<li>
+												<svg width="23" height="20" viewBox="0 0 23 20" fill="none">
 													<use xlink:href="/images/header-icons-sprite.svg#investments-business" />
-													
-                        </svg>
-                        {if $lang === 'ru'}Продажа бизнеса{elseif $lang === 'uk'}Продаж бізнесу{else}Business for Sale{/if}
-                      </li>
-                    </a>
-                    <a href="{if $lang == 'en'}/en{elseif $lang == 'uk'}/uk{/if}/investments/{if $lang == 'en'}/en_{/if}franchising">
-                      <li>
-                        <svg
-                          class="franchising-svg"
-                          width="22"
-                          height="22"
-                          viewBox="0 0 22 22"
-                          fill="none"
-                        >
+												</svg>
+												{if $lang === 'ru'}Продажа бизнеса
+												{elseif $lang === 'uk'}Продаж бізнесу
+												{else}Business for Sale
+												{/if}
+											</li>
+										</a>
+										<a
+											href="{if $lang == 'en'}/en{elseif $lang == 'uk'}/uk{/if}/investments/{if $lang == 'en'}/en_{/if}franchising">
+											<li>
+												<svg class="franchising-svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
 													<use xlink:href="/images/header-icons-sprite.svg#investments-franchising" />
-                        </svg>
-                        {if $lang === 'ru'}Франчайзинг{elseif $lang === 'uk'}Франчайзинг{else}Franchising{/if}
-                      </li>
-                    </a>
-                    <a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/investments/offer">
-                      <li>
-                        <svg
-                          width="23"
-                          height="26"
-                          viewBox="0 0 23 26"
-                          fill="none"
-                        >
+												</svg>
+												{if $lang === 'ru'}Франчайзинг{elseif $lang === 'uk'}Франчайзинг{else}Franchising{/if}
+											</li>
+										</a>
+										<a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/investments/offer">
+											<li>
+												<svg width="23" height="26" viewBox="0 0 23 26" fill="none">
 													<use xlink:href="/images/header-icons-sprite.svg#investments-offer" />
-                        </svg>
-                        {if $lang === 'ru'}Инвесторы{elseif $lang === 'uk'}Інвестори{else}Investor Offers{/if}
-                      </li>
-                    </a>
-                    <a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/investments/realestate">
-                      <li>
-                        <svg
-                          class="fill-svg"
-                          width="24"
-                          height="24"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                        >
+												</svg>
+												{if $lang === 'ru'}Инвесторы{elseif $lang === 'uk'}Інвестори{else}Investor Offers{/if}
+											</li>
+										</a>
+										<a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/investments/realestate">
+											<li>
+												<svg class="fill-svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
 													<use xlink:href="/images/header-icons-sprite.svg#investments-realestate" />
-													
-                        </svg>
-                        {if $lang === 'ru'}Недвижимость{elseif $lang === 'uk'}Нерухомість{else}Commercial Property{/if}
-                      </li>
-                    </a>
-                  </ul>
-                  <ul class="menu-item__left-bottom">
-                    <a class="font-weight-bold" href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/add-inv-prop">
-                      <li>
-                        <svg
-                          width="23"
-                          height="20"
-                          viewBox="0 0 23 20"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
+
+												</svg>
+												{if $lang === 'ru'}Недвижимость{elseif $lang === 'uk'}Нерухомість{else}Commercial Property{/if}
+											</li>
+										</a>
+									</ul>
+									<ul class="menu-item__left-bottom">
+										<a class="font-weight-bold"
+											href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/add-inv-prop">
+											<li>
+												<svg width="23" height="20" viewBox="0 0 23 20" fill="none" xmlns="http://www.w3.org/2000/svg">
 													<use xlink:href="/images/header-icons-sprite.svg#add-inv-prop" />
-                        </svg>
-                        {if $lang === 'ru'}Найти инвестора или продать бизнес{elseif $lang === 'uk'}Знайти інвестора або продати бізнес{else}Services for Raising Capital & Sell a Business<{/if}
-                      </li>
-                    </a>
-                    <a class="font-weight-bold" href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/investor">
-                      <li>
-                        <svg
-                          class="fill-svg"
-                          width="23"
-                          height="23"
-                          viewBox="0 0 23 23"
-                          fill="none"
-                        >
+												</svg>
+												{if $lang === 'ru'}Найти инвестора или продать бизнес
+												{elseif $lang === 'uk'}Знайти інвестора або
+												продати бізнес{else}Services for Raising Capital & Sell a Business< 
+												{/if} </li>
+										</a>
+										<a class="font-weight-bold" href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/investor">
+											<li>
+												<svg class="fill-svg" width="23" height="23" viewBox="0 0 23 23" fill="none">
 													<use xlink:href="/images/header-icons-sprite.svg#investor" />
-                        </svg>
-                        {if $lang === 'ru'}Сервисы для инвестора{elseif $lang === 'uk'}Сервіси для інвестора{else}Services for Investors{/if}
-                      </li>
-                    </a>
-                  </ul>
-                </div>
-                <a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/add-inv-prop" class="menu-item__right menu--add-inv-prop" style="padding: 20px 40px !important;">
-                  <div class="menu-item__info">
-                    <p class="menu-item__info-text">
-                      {* {if $lang === 'ru'}Узнай вероятность привлечения инвестиций в свой бизнес прямо сейчас{else}Find out the probability of raising investment for your business right now.{/if} *}
-                        {if $lang === 'ru'}
-													Привлечение инвестиций, продажа бизнеса и коммерческой недвижимости в Украине
-                        {elseif $lang === 'uk'}
-													Залучення інвестицій, продаж бізнесу та комерційної нерухомості в Україні
-                        {else}
-													Services for Raising Capital & Sell a Business
-                        {/if}
-                    </p>
-                    <span class="menu-item__info-btn">
-                      {if $lang === 'ru'}Узнать подробности{elseif $lang === 'uk'}Дізнатися більше{else}Get more information{/if}
-                    </span>
-                  </div>
-                  {* <a
+												</svg>
+												{if $lang === 'ru'}Сервисы для инвестора
+												{elseif $lang === 'uk'}Сервіси для
+												інвестора{else}Services for Investors
+												{/if}
+											</li>
+										</a>
+									</ul>
+								</div>
+								<a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/add-inv-prop"
+									class="menu-item__right menu--add-inv-prop" style="padding: 20px 40px !important;">
+									<div class="menu-item__info">
+										<p class="menu-item__info-text">
+											{* {if $lang === 'ru'}Узнай вероятность привлечения инвестиций в свой бизнес прямо сейчас{else}Find out the probability of raising investment for your business right now.{/if} *}
+											{if $lang === 'ru'}
+												Привлечение инвестиций, продажа бизнеса и коммерческой недвижимости в Украине
+											{elseif $lang === 'uk'}
+												Залучення інвестицій, продаж бізнесу та комерційної нерухомості в Україні
+											{else}
+												Services for Raising Capital & Sell a Business
+											{/if}
+										</p>
+										<span class="menu-item__info-btn">
+											{if $lang === 'ru'}Узнать подробности
+											{elseif $lang === 'uk'}Дізнатися більше
+											{else}Get more
+											information{/if}
+										</span>
+									</div>
+									{* <a
                     href="https://setup.inventure.com.ua"
                     target="_blank"
                     class="menu-item__advert"
                   >
                     <img class="lazyload" data-src="/images/header-advert.jpg" alt="{if $lang === 'ru'}Узнай вероятность привлечения инвестиций в свой бизнес прямо сейчас{else}Find out the probability of raising investment for your business right now.{/if}"/>
                   </a> *}
-                </a>
-              </div>
-            </div>
-          </li>
-          <li class="menu-item2  header__nav-item">
-            <span><a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/news">{if $lang === 'ru'}Новости{elseif $lang === 'uk'}Новини{else}News{/if}</a></span>
-            <div class="menu-item">
-              <div class="grid-container container">
-                <div class="menu-item__list-wrapper">
-                  <ul class="menu-item__list {if $lang === 'en'}mr-24{/if}">
-                    <a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/news/investments">
-                      <li>
-                        <svg
-                          width="23"
-                          height="20"
-                          viewBox="0 0 23 20"
-                          fill="none"
-                        >
+								</a>
+							</div>
+						</div>
+					</li>
+					<li class="menu-item2  header__nav-item">
+						<span><a
+								href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/news">{if $lang === 'ru'}Новости{elseif $lang === 'uk'}Новини{else}News{/if}</a></span>
+						<div class="menu-item">
+							<div class="grid-container container">
+								<div class="menu-item__list-wrapper">
+									<ul class="menu-item__list {if $lang === 'en'}mr-24{/if}">
+										<a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/news/investments">
+											<li>
+												<svg width="23" height="20" viewBox="0 0 23 20" fill="none">
 													<use xlink:href="/images/header-icons-sprite.svg#news-investments" />
-                        </svg>
-                        {if $lang === 'ru'}Прямые инвестиции и M&amp;A{elseif $lang === 'uk'}Прямі інвестиції та M&Amp;A{else}Private Equity & M&amp;A{/if}
-                      </li>
-                    </a>
-                    <a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/news/startup">
-                      <li>
-                        <svg
-                          width="23"
-                          height="23"
-                          viewBox="0 0 23 23"
-                          fill="none"
-                        >
+												</svg>
+												{if $lang === 'ru'}Прямые инвестиции и M&amp;A
+												{elseif $lang === 'uk'}Прямі інвестиції та
+												M&Amp;A{else}Private Equity & M&amp;A
+												{/if}
+											</li>
+										</a>
+										<a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/news/startup">
+											<li>
+												<svg width="23" height="23" viewBox="0 0 23 23" fill="none">
 													<use xlink:href="/images/header-icons-sprite.svg#news-startup" />
-                          
-                        </svg>
-                        {if $lang === 'ru'}Стартапы{elseif $lang === 'uk'}Стартапи{else}Venture Capital &amp; Startups{/if}
-                      </li>
-                    </a>
-                    <a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/news/government">
-                      <li>
-                        <svg
-                          width="23"
-                          height="26"
-                          viewBox="0 0 23 26"
-                          fill="none"
-                        >
+
+												</svg>
+												{if $lang === 'ru'}Стартапы
+												{elseif $lang === 'uk'}Стартапи
+												{else}Venture Capital &amp;
+												Startups{/if}
+											</li>
+										</a>
+										<a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/news/government">
+											<li>
+												<svg width="23" height="26" viewBox="0 0 23 26" fill="none">
 													<use xlink:href="/images/header-icons-sprite.svg#news-government" />
-                          
-                        </svg>
-                        {if $lang === 'ru'}Макроинвестиции{elseif $lang === 'uk'}Макроінветиції{else}Macroeconomics{/if}
-                      </li>
-                    </a>
-                    <a href="{if $lang == 'en'}/en{elseif $lang == 'uk'}/uk{/if}/news/banking">
-                      <li>
-                        <svg
-                          class="fill-svg franchising-svg"
-                          width="22"
-                          height="16"
-                          viewBox="0 0 22 16"
-                          fill="none"
-                        >
+
+												</svg>
+												{if $lang === 'ru'}Макроинвестиции{elseif $lang === 'uk'}Макроінветиції{else}Macroeconomics{/if}
+											</li>
+										</a>
+										<a href="{if $lang == 'en'}/en{elseif $lang == 'uk'}/uk{/if}/news/banking">
+											<li>
+												<svg class="fill-svg franchising-svg" width="22" height="16" viewBox="0 0 22 16" fill="none">
 													<use xlink:href="/images/header-icons-sprite.svg#news-banking" />
-                        </svg>
-											{if $lang == 'ru'}Кредитование{elseif $lang == 'uk'}Кредитування{else}Banking{/if}
-                      </li>
-                    </a>
-                    <a href="{if $lang == 'en'}/en{elseif $lang == 'uk'}/uk{/if}/news/stock">
-                      <li>
-                        <svg
-                          class="fill-svg"
-                          width="24"
-                          height="24"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                        >
+												</svg>
+												{if $lang == 'ru'}Кредитование{elseif $lang == 'uk'}Кредитування{else}Banking{/if}
+											</li>
+										</a>
+										<a href="{if $lang == 'en'}/en{elseif $lang == 'uk'}/uk{/if}/news/stock">
+											<li>
+												<svg class="fill-svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
 													<use xlink:href="/images/header-icons-sprite.svg#news-stock" />
-                          
-                        </svg>
-                        {if $lang === 'ru'}Фондовый рынок{elseif $lang === 'uk'}Фондовий ринок{else}Stock Market &amp; IPO{/if}
-                      </li>
-                    </a>
-                    <a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/news/realestate">
-                      <li>
-                        <svg
-                          class="fill-svg"
-                          width="24"
-                          height="24"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                        >
+
+												</svg>
+												{if $lang === 'ru'}Фондовый рынок
+												{elseif $lang === 'uk'}Фондовий ринок
+												{else}Stock Market &amp;
+												IPO{/if}
+											</li>
+										</a>
+										<a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/news/realestate">
+											<li>
+												<svg class="fill-svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
 													<use xlink:href="/images/header-icons-sprite.svg#news-realestate" />
-                        </svg>
-                        {if $lang === 'ru'}Недвижимость{elseif $lang === 'uk'}Нерухомість{else}Commercial Property{/if}
-                      </li>
-                    </a>
-                  </ul>
-                  <ul class="menu-item__list menu-item__list--world">
-                    <a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/news/ukraine">
-                      <li>
-                        <svg
-                          class="nochange"
-                          width="22"
-                          height="22"
-                          viewBox="0 0 22 22"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-													<use xlink:href="/images/header-icons-sprite.svg#news-ukraine" style="stroke: none;"/>
-                        </svg>
-                        {if $lang === 'ru'}Украина{elseif $lang === 'uk'}Україна{else}Ukraine{/if}
-                      </li>
-                    </a>
-                    <a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/news/world">
-                      <li>
-                        <svg
-                          width="22"
-                          class="nochange"
-                          height="22"
-                          viewBox="0 0 22 22"
-                          fill="none"
-                        >
-													<use xlink:href="/images/header-icons-sprite.svg#news-world" style="stroke: none;"/>
-                        </svg>
-                        {if $lang === 'ru'}Мир{elseif $lang === 'uk'}Світ{else}World{/if}
-                      </li>
-                    </a>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </li>
-          <li class="menu-item3  header__nav-item">
-            <span><a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/analytics">{if $lang === 'ru'}Аналитика{elseif $lang === 'uk'}Аналітика{else}Analytics{/if}</a></span>
-            <div class="menu-item">
-              <div class="grid-container container">
-                <div class="menu-item__left">
-                  <ul class="menu-item__left-top">
-                    <a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/analytics/investments">
-                      <li>
-                        <svg
-                          class="fill-svg"
-                          width="24"
-                          height="23"
-                          viewBox="0 0 24 23"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M22.6563 22.541H1.34375C1.16042 22.541 1 22.3806 1 22.1973C1 22.0139 1.16042 21.8535 1.34375 21.8535H22.6563C22.8396 21.8535 23 22.0139 23 22.1973C23 22.3806 22.8396 22.541 22.6563 22.541Z"
-                            fill="#1F2E35"
-                            stroke="#1F2E35"
-                            stroke-width="0.3"
-                          ></path>
-                          <path
-                            d="M1.34375 22.5417C1.16042 22.5417 1 22.3812 1 22.1979V1.34375C1 1.16042 1.16042 1 1.34375 1C1.52708 1 1.6875 1.16042 1.6875 1.34375V22.175C1.6875 22.3812 1.52708 22.5417 1.34375 22.5417Z"
-                            fill="#1F2E35"
-                            stroke="#1F2E35"
-                            stroke-width="0.3"
-                          ></path>
-                          <path
-                            d="M10.808 8.33385C9.84554 8.33385 9.04346 7.53177 9.04346 6.56927C9.04346 5.60677 9.84554 4.80469 10.808 4.80469C11.7705 4.80469 12.5726 5.60677 12.5726 6.56927C12.5726 7.53177 11.7935 8.33385 10.808 8.33385ZM10.808 5.49219C10.2122 5.49219 9.73096 5.97344 9.73096 6.56927C9.73096 7.1651 10.2122 7.64635 10.808 7.64635C11.4039 7.64635 11.8851 7.1651 11.8851 6.56927C11.8851 5.97344 11.4039 5.49219 10.808 5.49219Z"
-                            fill="#1F2E35"
-                            stroke="#1F2E35"
-                            stroke-width="0.3"
-                          ></path>
-                          <path
-                            d="M16.0331 12.1151C15.0706 12.1151 14.2686 11.313 14.2686 10.3505C14.2686 9.38802 15.0706 8.58594 16.0331 8.58594C16.9956 8.58594 17.7977 9.38802 17.7977 10.3505C17.7977 11.313 16.9956 12.1151 16.0331 12.1151ZM16.0331 9.27344C15.4373 9.27344 14.9561 9.75469 14.9561 10.3505C14.9561 10.9464 15.4373 11.4276 16.0331 11.4276C16.629 11.4276 17.1102 10.9464 17.1102 10.3505C17.1102 9.75469 16.629 9.27344 16.0331 9.27344Z"
-                            fill="#1F2E35"
-                            stroke="#1F2E35"
-                            stroke-width="0.3"
-                          ></path>
-                          <path
-                            d="M21.2353 5.01061C20.2728 5.01061 19.4707 4.20853 19.4707 3.24603C19.4707 2.28353 20.2728 1.48145 21.2353 1.48145C22.1978 1.48145 22.9999 2.28353 22.9999 3.24603C22.9999 4.20853 22.1978 5.01061 21.2353 5.01061ZM21.2353 2.16895C20.6395 2.16895 20.1582 2.6502 20.1582 3.24603C20.1582 3.84186 20.6395 4.32311 21.2353 4.32311C21.8311 4.32311 22.3124 3.84186 22.3124 3.24603C22.3124 2.6502 21.8311 2.16895 21.2353 2.16895Z"
-                            fill="#1F2E35"
-                            stroke="#1F2E35"
-                            stroke-width="0.3"
-                          ></path>
-                          <path
-                            d="M5.60589 13.536C4.64339 13.536 3.84131 12.7339 3.84131 11.7714C3.84131 10.8089 4.64339 10.0068 5.60589 10.0068C6.56839 10.0068 7.37048 10.8089 7.37048 11.7714C7.37048 12.7339 6.59131 13.536 5.60589 13.536ZM5.60589 10.6943C5.01006 10.6943 4.52881 11.1756 4.52881 11.7714C4.52881 12.3673 5.01006 12.8485 5.60589 12.8485C6.20173 12.8485 6.68298 12.3673 6.68298 11.7714C6.68298 11.1756 6.20173 10.6943 5.60589 10.6943Z"
-                            fill="#1F2E35"
-                            stroke="#1F2E35"
-                            stroke-width="0.3"
-                          ></path>
-                          <path
-                            d="M6.75169 10.9686C6.66003 10.9686 6.56836 10.9457 6.49961 10.877C6.36211 10.7395 6.36211 10.5332 6.49961 10.3957L9.52461 7.3707C9.66211 7.2332 9.86836 7.2332 10.0059 7.3707C10.1434 7.5082 10.1434 7.71445 10.0059 7.85195L7.00378 10.877C6.93503 10.9457 6.84336 10.9686 6.75169 10.9686Z"
-                            fill="#1F2E35"
-                            stroke="#1F2E35"
-                            stroke-width="0.3"
-                          ></path>
-                          <path
-                            d="M14.6119 9.6627C14.5432 9.6627 14.4744 9.63978 14.4057 9.59395L11.7932 7.64603C11.6328 7.53145 11.6099 7.3252 11.7244 7.16478C11.839 7.00436 12.0453 6.98145 12.2057 7.09603L14.8182 9.04395C14.9786 9.15853 15.0015 9.36478 14.8869 9.5252C14.8182 9.59395 14.7036 9.6627 14.6119 9.6627Z"
-                            fill="#1F2E35"
-                            stroke="#1F2E35"
-                            stroke-width="0.3"
-                          ></path>
-                          <path
-                            d="M17.0185 9.31862C16.9497 9.31862 16.881 9.2957 16.8122 9.24987C16.6518 9.13529 16.6289 8.92904 16.7435 8.76862L20.1122 4.18529C20.2268 4.02487 20.4331 4.00195 20.5935 4.11654C20.7539 4.23112 20.7768 4.43737 20.6622 4.59779L17.2935 9.18112C17.2247 9.27279 17.1331 9.31862 17.0185 9.31862Z"
-                            fill="#1F2E35"
-                            stroke="#1F2E35"
-                            stroke-width="0.3"
-                          ></path>
-                          <path
-                            d="M7.02673 22.5414H4.18506C4.00173 22.5414 3.84131 22.381 3.84131 22.1977V16.9727C3.84131 16.7893 4.00173 16.6289 4.18506 16.6289H7.02673C7.21006 16.6289 7.37048 16.7893 7.37048 16.9727V22.1747C7.37048 22.381 7.21006 22.5414 7.02673 22.5414ZM4.52881 21.8539H6.68298V17.3164H4.52881V21.8539Z"
-                            fill="#1F2E35"
-                            stroke="#1F2E35"
-                            stroke-width="0.3"
-                          ></path>
-                          <path
-                            d="M12.2289 22.5414H9.38721C9.20387 22.5414 9.04346 22.381 9.04346 22.1977V13.1914C9.04346 13.0081 9.20387 12.8477 9.38721 12.8477H12.2289C12.4122 12.8477 12.5726 13.0081 12.5726 13.1914V22.1977C12.5726 22.381 12.4351 22.5414 12.2289 22.5414ZM9.73096 21.8539H11.8851V13.5352H9.73096V21.8539Z"
-                            fill="#1F2E35"
-                            stroke="#1F2E35"
-                            stroke-width="0.3"
-                          ></path>
-                          <path
-                            d="M17.454 22.5413H14.6123C14.429 22.5413 14.2686 22.3809 14.2686 22.1976V15.5518C14.2686 15.3684 14.429 15.208 14.6123 15.208H17.454C17.6373 15.208 17.7977 15.3684 17.7977 15.5518V22.1747C17.7977 22.3809 17.6373 22.5413 17.454 22.5413ZM14.9561 21.8538H17.1102V15.8955H14.9561V21.8538Z"
-                            fill="#1F2E35"
-                            stroke="#1F2E35"
-                            stroke-width="0.3"
-                          ></path>
-                          <path
-                            d="M22.6561 22.5413H19.8145C19.6311 22.5413 19.4707 22.3809 19.4707 22.1975V10.3496C19.4707 10.1663 19.6311 10.0059 19.8145 10.0059H22.6561C22.8395 10.0059 22.9999 10.1663 22.9999 10.3496V22.1975C22.9999 22.3809 22.8395 22.5413 22.6561 22.5413ZM20.1582 21.8538H22.3124V10.6934H20.1582V21.8538Z"
-                            fill="#1F2E35"
-                            stroke="#1F2E35"
-                            stroke-width="0.3"
-                          ></path>
-                        </svg>
-                        {if $lang === 'ru'}Исследования{elseif $lang === 'uk'}Дослідження{else}Research{/if}
-                      </li>
-                    </a>
-                    <a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/analytics/we-invest-in-ukraine">
-                      <li>
-                        <svg
-                          class="invest-ukraine"
-                          width="22"
-                          height="25"
-                          viewBox="0 0 22 25"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M16.9999 11H4.99999C4.86738 11 4.74021 10.9473 4.64644 10.8535C4.55267 10.7597 4.49999 10.6326 4.49999 10.5C4.49999 10.2347 4.39464 9.9804 4.2071 9.79286C4.01957 9.60532 3.76521 9.49997 3.5 9.49997C3.36739 9.49997 3.24021 9.44729 3.14645 9.35352C3.05268 9.25975 3 9.13258 3 8.99997V3.99999C3 3.86738 3.05268 3.74021 3.14645 3.64644C3.24021 3.55267 3.36739 3.49999 3.5 3.49999C3.76521 3.49999 4.01957 3.39464 4.2071 3.2071C4.39464 3.01957 4.49999 2.76521 4.49999 2.5C4.49999 2.36739 4.55267 2.24021 4.64644 2.14645C4.74021 2.05268 4.86738 2 4.99999 2H16.9999C17.1325 2 17.2597 2.05268 17.3535 2.14645C17.4473 2.24021 17.4999 2.36739 17.4999 2.5C17.4999 2.76521 17.6053 3.01957 17.7928 3.2071C17.9804 3.39464 18.2347 3.49999 18.4999 3.49999C18.6325 3.49999 18.7597 3.55267 18.8535 3.64644C18.9473 3.74021 18.9999 3.86738 18.9999 3.99999V8.99997C18.9999 9.13258 18.9473 9.25975 18.8535 9.35352C18.7597 9.44729 18.6325 9.49997 18.4999 9.49997C18.2347 9.49997 17.9804 9.60532 17.7928 9.79286C17.6053 9.9804 17.4999 10.2347 17.4999 10.5C17.4999 10.6326 17.4473 10.7597 17.3535 10.8535C17.2597 10.9473 17.1325 11 16.9999 11ZM5.43499 9.99997H16.5649C16.6544 9.65451 16.8346 9.33927 17.0869 9.08694C17.3392 8.83462 17.6545 8.65439 17.9999 8.56497V4.43499C17.6545 4.34557 17.3392 4.16535 17.0869 3.91302C16.8346 3.66069 16.6544 3.34545 16.5649 3H5.43499C5.34557 3.34545 5.16535 3.66069 4.91302 3.91302C4.66069 4.16535 4.34545 4.34557 4 4.43499V8.56497C4.34545 8.65439 4.66069 8.83462 4.91302 9.08694C5.16535 9.33927 5.34557 9.65451 5.43499 9.99997Z"
-                            fill="black"
-                          ></path>
-                          <path
-                            d="M11 8.99998C10.5055 8.99998 10.0222 8.85336 9.61107 8.57866C9.19995 8.30395 8.87952 7.91351 8.6903 7.4567C8.50108 6.99988 8.45158 6.49722 8.54804 6.01227C8.6445 5.52732 8.8826 5.08186 9.23223 4.73223C9.58186 4.3826 10.0273 4.1445 10.5123 4.04804C10.9972 3.95158 11.4999 4.00108 11.9567 4.1903C12.4135 4.37952 12.804 4.69995 13.0787 5.11107C13.3534 5.52219 13.5 6.00554 13.5 6.49999C13.5 7.16303 13.2366 7.79891 12.7678 8.26775C12.2989 8.73659 11.663 8.99998 11 8.99998ZM11 5C10.7033 5 10.4133 5.08797 10.1666 5.25279C9.91997 5.41761 9.72771 5.65188 9.61418 5.92597C9.50065 6.20006 9.47094 6.50166 9.52882 6.79263C9.5867 7.0836 9.72956 7.35087 9.93933 7.56065C10.1491 7.77042 10.4164 7.91328 10.7074 7.97116C10.9983 8.02904 11.2999 7.99934 11.574 7.8858C11.8481 7.77227 12.0824 7.58001 12.2472 7.33334C12.412 7.08667 12.5 6.79666 12.5 6.49999C12.5 6.10217 12.3419 5.72064 12.0606 5.43933C11.7793 5.15803 11.3978 5 11 5Z"
-                            fill="black"
-                          ></path>
-                          <path
-                            d="M6.5 7.49999C6.30222 7.49999 6.10888 7.44134 5.94443 7.33146C5.77998 7.22158 5.65181 7.0654 5.57612 6.88268C5.50043 6.69995 5.48063 6.49889 5.51922 6.30491C5.5578 6.11093 5.65304 5.93274 5.79289 5.79289C5.93274 5.65304 6.11093 5.5578 6.30491 5.51922C6.49889 5.48063 6.69995 5.50043 6.88268 5.57612C7.0654 5.65181 7.22158 5.77998 7.33146 5.94443C7.44134 6.10888 7.49999 6.30222 7.49999 6.5C7.49999 6.76521 7.39464 7.01956 7.2071 7.2071C7.01956 7.39464 6.76521 7.49999 6.5 7.49999Z"
-                            fill="black"
-                          ></path>
-                          <path
-                            d="M15.5 7.49999C15.3022 7.49999 15.1089 7.44134 14.9444 7.33146C14.78 7.22158 14.6518 7.0654 14.5761 6.88268C14.5004 6.69995 14.4806 6.49889 14.5192 6.30491C14.5578 6.11093 14.653 5.93274 14.7929 5.79289C14.9327 5.65304 15.1109 5.5578 15.3049 5.51922C15.4989 5.48063 15.7 5.50043 15.8827 5.57612C16.0654 5.65181 16.2216 5.77998 16.3315 5.94443C16.4413 6.10888 16.5 6.30222 16.5 6.5C16.5 6.76521 16.3946 7.01956 16.2071 7.2071C16.0196 7.39464 15.7652 7.49999 15.5 7.49999Z"
-                            fill="black"
-                          ></path>
-                          <path
-                            d="M8.49996 20H5.49998C4.04129 20 2.64235 19.4205 1.61091 18.3891C0.57946 17.3576 0 15.9587 0 14.5C0 14.3674 0.0526783 14.2402 0.146446 14.1464C0.240214 14.0527 0.36739 14 0.499998 14H3.49999C4.95867 14 6.35761 14.5795 7.38906 15.6109C8.4205 16.6424 8.99996 18.0413 8.99996 19.5C8.99996 19.6326 8.94728 19.7598 8.85352 19.8535C8.75975 19.9473 8.63257 20 8.49996 20ZM1.03 15C1.15294 16.0997 1.67675 17.1155 2.50133 17.8534C3.32591 18.5913 4.39345 18.9995 5.49998 19H7.96997C7.84702 17.9003 7.32321 16.8845 6.49863 16.1466C5.67405 15.4087 4.60651 15.0005 3.49999 15H1.03Z"
-                            fill="black"
-                          ></path>
-                          <path
-                            d="M16.5 21H13.5C13.3674 21 13.2402 20.9473 13.1464 20.8535C13.0527 20.7598 13 20.6326 13 20.5C13 19.0413 13.5795 17.6424 14.6109 16.6109C15.6424 15.5795 17.0413 15 18.5 15H21.5C21.6326 15 21.7597 15.0527 21.8535 15.1464C21.9473 15.2402 22 15.3674 22 15.5C22 16.2223 21.8577 16.9375 21.5813 17.6047C21.3049 18.272 20.8998 18.8783 20.3891 19.3891C19.8783 19.8998 19.272 20.3049 18.6047 20.5813C17.9374 20.8577 17.2223 21 16.5 21ZM14.03 20H16.5C17.6065 19.9995 18.6741 19.5913 19.4986 18.8534C20.3232 18.1155 20.847 17.0997 20.97 16H18.5C17.3935 16.0005 16.3259 16.4087 15.5013 17.1466C14.6767 17.8845 14.1529 18.9003 14.03 20Z"
-                            fill="black"
-                          ></path>
-                          <path
-                            d="M11 14.4999C10.8673 14.4999 10.7402 14.4473 10.6464 14.3535C10.5526 14.2597 10.5 14.1325 10.5 13.9999C10.5 13.7347 10.3946 13.4804 10.2071 13.2928C10.0195 13.1053 9.76518 12.9999 9.49996 12.9999H3.49999C2.83695 12.9999 2.20107 12.7366 1.73223 12.2677C1.26339 11.7989 1 11.163 1 10.5V2.49999C1 1.83695 1.26339 1.20107 1.73223 0.73223C2.20107 0.263391 2.83695 0 3.49999 0H18.4999C19.163 0 19.7988 0.263391 20.2677 0.73223C20.7365 1.20107 20.9999 1.83695 20.9999 2.49999V10.5C20.9999 11.163 20.7365 11.7989 20.2677 12.2677C19.7988 12.7366 19.163 12.9999 18.4999 12.9999H12.5C12.2347 12.9999 11.9804 13.1053 11.7928 13.2928C11.6053 13.4804 11.5 13.7347 11.5 13.9999C11.5 14.1325 11.4473 14.2597 11.3535 14.3535C11.2597 14.4473 11.1326 14.4999 11 14.4999ZM3.49999 0.999996C3.10217 0.999996 2.72064 1.15803 2.43933 1.43933C2.15803 1.72064 2 2.10217 2 2.49999V10.5C2 10.8978 2.15803 11.2793 2.43933 11.5606C2.72064 11.8419 3.10217 11.9999 3.49999 11.9999H9.49996C9.76268 11.9997 10.0229 12.0513 10.2657 12.1517C10.5084 12.2521 10.7291 12.3993 10.915 12.5849L11 12.6799C11.1874 12.4666 11.4181 12.2956 11.6767 12.1784C11.9353 12.0611 12.216 12.0003 12.5 11.9999H18.4999C18.8977 11.9999 19.2793 11.8419 19.5606 11.5606C19.8419 11.2793 19.9999 10.8978 19.9999 10.5V2.49999C19.9999 2.10217 19.8419 1.72064 19.5606 1.43933C19.2793 1.15803 18.8977 0.999996 18.4999 0.999996H3.49999Z"
-                            fill="black"
-                          ></path>
-                          <path
-                            d="M11 23.655C10.8674 23.655 10.7402 23.6023 10.6464 23.5085C10.5527 23.4148 10.5 23.2876 10.5 23.155V22C10.5 21.4696 10.2893 20.9609 9.91421 20.5858C9.53913 20.2107 9.03043 20 8.5 20C8.36739 20 8.24021 19.9473 8.14645 19.8536C8.05268 19.7598 8 19.6326 8 19.5C8 19.3674 8.05268 19.2402 8.14645 19.1464C8.24021 19.0527 8.36739 19 8.5 19C9.29564 19 10.0587 19.3161 10.6213 19.8787C11.1839 20.4413 11.5 21.2043 11.5 22V23.155C11.5 23.2876 11.4473 23.4148 11.3535 23.5085C11.2598 23.6023 11.1326 23.655 11 23.655Z"
-                            fill="black"
-                          ></path>
-                          <path
-                            d="M11 23.5C10.8674 23.5 10.7402 23.4473 10.6464 23.3535C10.5527 23.2598 10.5 23.1326 10.5 23C10.5 22.2043 10.8161 21.4413 11.3787 20.8787C11.9413 20.3161 12.7043 20 13.5 20C13.6326 20 13.7598 20.0527 13.8535 20.1464C13.9473 20.2402 14 20.3674 14 20.5C14 20.6326 13.9473 20.7598 13.8535 20.8536C13.7598 20.9473 13.6326 21 13.5 21C12.9696 21 12.4609 21.2107 12.0858 21.5858C11.7107 21.9609 11.5 22.4696 11.5 23C11.5 23.1326 11.4473 23.2598 11.3536 23.3535C11.2598 23.4473 11.1326 23.5 11 23.5Z"
-                            fill="black"
-                          ></path>
-                          <path
-                            d="M11 23.5C10.8674 23.5 10.7402 23.4473 10.6464 23.3535C10.5527 23.2597 10.5 23.1326 10.5 23V14C10.5 13.8674 10.5527 13.7402 10.6464 13.6464C10.7402 13.5527 10.8674 13.5 11 13.5C11.1326 13.5 11.2598 13.5527 11.3536 13.6464C11.4473 13.7402 11.5 13.8674 11.5 14V23C11.5 23.1326 11.4473 23.2597 11.3536 23.3535C11.2598 23.4473 11.1326 23.5 11 23.5Z"
-                            fill="black"
-                          ></path>
-                          <path
-                            d="M16.5 25H12.5C12.216 24.9996 11.9354 24.9388 11.6767 24.8216C11.4181 24.7043 11.1874 24.5333 11 24.32C10.8126 24.5333 10.5819 24.7043 10.3232 24.8216C10.0646 24.9388 9.78395 24.9996 9.49998 25H5.5C5.36739 25 5.24021 24.9473 5.14645 24.8535C5.05268 24.7598 5 24.6326 5 24.5C5 24.3674 5.05268 24.2402 5.14645 24.1464C5.24021 24.0527 5.36739 24 5.5 24H9.49998C9.7652 24 10.0195 23.8946 10.2071 23.7071C10.3946 23.5196 10.5 23.2652 10.5 23C10.5 22.8674 10.5527 22.7402 10.6464 22.6464C10.7402 22.5527 10.8674 22.5 11 22.5C11.1326 22.5 11.2598 22.5527 11.3535 22.6464C11.4473 22.7402 11.5 22.8674 11.5 23C11.5 23.2652 11.6053 23.5196 11.7929 23.7071C11.9804 23.8946 12.2348 24 12.5 24H16.5C16.6326 24 16.7597 24.0527 16.8535 24.1464C16.9473 24.2402 16.9999 24.3674 16.9999 24.5C16.9999 24.6326 16.9473 24.7598 16.8535 24.8535C16.7597 24.9473 16.6326 25 16.5 25Z"
-                            fill="black"
-                          ></path>
-                        </svg>
-                        {if $lang === 'ru'}Инвестируем в Украину{elseif $lang === 'uk'}Інвестуємо в Україну{else}We invest in Ukraine{/if}
-                      </li>
-                    </a>
-                    <a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/analytics/articles">
-                      <li>
-                        <svg
-                          width="24"
-                          height="24"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M20.3393 6.96988C20.3393 7.09976 20.2341 7.20518 20.104 7.20518H7.94518C7.81506 7.20518 7.70988 7.09976 7.70988 6.96988C7.70988 6.83977 7.81506 6.73459 7.94518 6.73459H20.104C20.2341 6.73459 20.3393 6.83977 20.3393 6.96988ZM20.104 9.43647H7.94518C7.81506 9.43647 7.70988 9.54165 7.70988 9.67176C7.70988 9.80165 7.81506 9.90706 7.94518 9.90706H20.104C20.2341 9.90706 20.3393 9.80165 20.3393 9.67176C20.3393 9.54188 20.2341 9.43647 20.104 9.43647ZM20.104 12.1384H7.94518C7.81506 12.1384 7.70988 12.2435 7.70988 12.3736C7.70988 12.5035 7.81506 12.6089 7.94518 12.6089H20.104C20.2341 12.6089 20.3393 12.5035 20.3393 12.3736C20.3393 12.2435 20.2341 12.1384 20.104 12.1384ZM16.0511 14.8405H7.94518C7.81506 14.8405 7.70988 14.9456 7.70988 15.0758C7.70988 15.2056 7.81506 15.3111 7.94518 15.3111H16.0511C16.1812 15.3111 16.2864 15.2056 16.2864 15.0758C16.2864 14.9459 16.1812 14.8405 16.0511 14.8405ZM23.1445 2.41176V20.744C23.1445 21.988 22.1325 23 20.8887 23H3.25576C2.012 23 1 21.9802 1 20.7271V16.1148C1 15.9849 1.10518 15.8795 1.23529 15.8795H5.04L5.03812 2.41176C5.03788 2.036 5.18518 1.68165 5.45247 1.41459C5.71976 1.14706 6.07388 1 6.44965 1H21.7325C22.5111 1 23.1445 1.63318 23.1445 2.41176ZM3.25576 22.5294C4.24024 22.5294 5.04094 21.7207 5.04094 20.7271L5.04 16.3501H1.47059L1.47059 20.7271C1.47059 21.7207 2.27153 22.5294 3.25576 22.5294ZM22.6739 20.744V2.41176C22.6739 1.89271 22.2518 1.47059 21.7327 1.47059H6.44965C6.19976 1.47059 5.96377 1.56871 5.78518 1.74729C5.60682 1.92565 5.50871 2.16165 5.50871 2.41153L5.51059 16.1106L5.51153 16.1151L5.51059 16.1198L5.51153 20.7273C5.51153 21.4616 5.16259 22.1139 4.62447 22.5296H20.8887C21.8729 22.5294 22.6739 21.7285 22.6739 20.744Z"
-                            fill="#1F2E35"
-                            stroke="#1F2E35"
-                            stroke-width="0.5"
-                          ></path>
-                        </svg>
-                        {if $lang === 'ru'}Статьи{elseif $lang === 'uk'}Статті{else}Articles{/if}
-                      </li>
-                    </a>
-                    <a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/tools/database">
-                      <li>
-                        <svg
-                          class="fill-svg"
-                          width="24"
-                          height="22"
-                          viewBox="0 0 24 22"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M7.79711 12.2037L6.31783 11.9891L5.65593 10.6482C5.56827 10.4701 5.27611 10.4701 5.18811 10.6482L4.5269 11.9891L3.04692 12.2037C2.94884 12.2179 2.8671 12.2868 2.83649 12.3814C2.80588 12.476 2.83127 12.5793 2.90258 12.6489L3.97317 13.6923L3.71996 15.1654C3.70326 15.2631 3.74326 15.3619 3.82361 15.4203C3.86917 15.4537 3.92308 15.4704 3.977 15.4704C4.01873 15.4704 4.06012 15.4607 4.09838 15.4405L5.42149 14.7452L6.7446 15.4405C6.8326 15.4867 6.93904 15.4794 7.01938 15.4203C7.09973 15.3619 7.14008 15.2631 7.12303 15.1654L6.87017 13.6923L7.94076 12.6489C8.01206 12.5797 8.03745 12.476 8.00684 12.3814C7.97624 12.2868 7.89519 12.2179 7.79711 12.2037ZM6.40861 13.4144C6.34704 13.4743 6.31922 13.5609 6.33348 13.6454L6.51991 14.7327L5.54323 14.2193C5.50532 14.1991 5.46358 14.1894 5.42184 14.1894C5.3801 14.1894 5.33837 14.1991 5.30045 14.2193L4.32377 14.7327L4.51055 13.6454C4.52516 13.5609 4.49699 13.4743 4.43542 13.4144L3.64517 12.644L4.73698 12.4857C4.82185 12.4736 4.89559 12.4204 4.9335 12.3431L5.42149 11.3532L5.91018 12.3431C5.94809 12.4204 6.02148 12.4736 6.10635 12.4857L7.19816 12.644L6.40861 13.4144Z"
-                            fill="black"
-                            stroke="black"
-                            stroke-width="0.3"
-                          ></path>
-                          <path
-                            d="M14.3744 12.2038L12.8951 11.9892L12.2339 10.6483C12.1456 10.4699 11.8537 10.4703 11.7657 10.6483L11.1045 11.9892L9.62491 12.2038C9.52647 12.2181 9.44474 12.2869 9.41413 12.3815C9.38352 12.4761 9.40891 12.5794 9.48021 12.649L10.5512 13.6925L10.2976 15.1655C10.2809 15.2632 10.3209 15.362 10.4012 15.4204C10.4465 15.4535 10.5004 15.4705 10.5546 15.4705C10.596 15.4705 10.6378 15.4608 10.676 15.4406L12.0002 14.7453L13.3236 15.4406C13.4109 15.4869 13.5181 15.4792 13.5984 15.4204C13.6784 15.362 13.7188 15.2632 13.7021 15.1655L13.4488 13.6925L14.5194 12.649C14.5904 12.5798 14.6161 12.4761 14.5852 12.3815C14.5546 12.2869 14.4728 12.2181 14.3744 12.2038ZM12.9862 13.4146C12.9247 13.4747 12.8965 13.561 12.9111 13.6455L13.0979 14.7328L12.1212 14.2194C12.045 14.1794 11.9543 14.1794 11.8784 14.2194L10.9011 14.7328L11.0882 13.6455C11.1028 13.561 11.0746 13.4744 11.0131 13.4146L10.2228 12.6445L11.315 12.4859C11.4002 12.4737 11.4736 12.4205 11.5115 12.3433L11.9995 11.3534L12.4875 12.3433C12.5254 12.4205 12.5988 12.4737 12.684 12.4859L13.7758 12.6445L12.9862 13.4146Z"
-                            fill="black"
-                            stroke="black"
-                            stroke-width="0.3"
-                          ></path>
-                          <path
-                            d="M20.9527 12.2038L19.4734 11.9892L18.8122 10.6483C18.768 10.5593 18.6772 10.5029 18.5781 10.5029C18.479 10.5029 18.3882 10.5593 18.344 10.6483L17.6825 11.9892L16.2028 12.2038C16.1044 12.218 16.0227 12.2869 15.9924 12.3815C15.9615 12.4758 15.9872 12.5794 16.0582 12.649L17.1291 13.6924L16.8759 15.1655C16.8592 15.2632 16.8992 15.362 16.9795 15.4204C17.0251 15.4538 17.079 15.4705 17.1329 15.4705C17.1743 15.4705 17.216 15.4608 17.2543 15.4406L18.5781 14.7453L19.9016 15.4406C19.9889 15.4869 20.096 15.4792 20.1763 15.4204C20.2563 15.362 20.2967 15.2632 20.28 15.1655L20.0268 13.6924L21.0974 12.649C21.1683 12.5798 21.1941 12.4761 21.1631 12.3815C21.1329 12.2869 21.0511 12.218 20.9527 12.2038ZM19.5645 13.4145C19.503 13.4747 19.4748 13.561 19.4894 13.6455L19.6762 14.7328L18.6992 14.2194C18.623 14.1794 18.5325 14.1794 18.4567 14.2194L17.4793 14.7328L17.6661 13.6455C17.6807 13.561 17.6526 13.4744 17.591 13.4145L16.8007 12.6445L17.8929 12.4859C17.9778 12.4737 18.0515 12.4205 18.0894 12.3432L18.5778 11.3534L19.0658 12.3432C19.1037 12.4205 19.1771 12.4737 19.2623 12.4859L20.3541 12.6445L19.5645 13.4145Z"
-                            fill="black"
-                            stroke="black"
-                            stroke-width="0.3"
-                          ></path>
-                          <path
-                            d="M21.7002 1H2.30015C1.58295 1 1 1.5753 1 2.28241V20.159C1 20.8661 1.5833 21.4414 2.30015 21.4414H21.6998C22.4171 21.4414 23 20.8665 23 20.159V2.28241C23.0003 1.5753 22.4171 1 21.7002 1ZM2.30015 1.52173H21.6998C22.1291 1.52173 22.4783 1.86294 22.4783 2.28241V4.53247H1.52173V2.28241C1.52173 1.86294 1.87094 1.52173 2.30015 1.52173ZM21.7002 20.9197H2.30015C1.87094 20.9197 1.52173 20.5788 1.52173 20.159V5.0542H22.4786V20.159C22.4786 20.5785 22.1294 20.9197 21.7002 20.9197Z"
-                            fill="black"
-                            stroke="black"
-                            stroke-width="0.3"
-                          ></path>
-                          <path
-                            d="M20.0217 3.62452C20.3099 3.62452 20.5435 3.39093 20.5435 3.10279C20.5435 2.81464 20.3099 2.58105 20.0217 2.58105C19.7336 2.58105 19.5 2.81464 19.5 3.10279C19.5 3.39093 19.7336 3.62452 20.0217 3.62452Z"
-                            fill="black"
-                            stroke="black"
-                            stroke-width="0.3"
-                          ></path>
-                          <path
-                            d="M17.8767 3.62452C18.1649 3.62452 18.3984 3.39093 18.3984 3.10279C18.3984 2.81464 18.1649 2.58105 17.8767 2.58105C17.5886 2.58105 17.355 2.81464 17.355 3.10279C17.355 3.39093 17.5886 3.62452 17.8767 3.62452Z"
-                            fill="black"
-                            stroke="black"
-                            stroke-width="0.3"
-                          ></path>
-                          <path
-                            d="M15.7312 3.62452C16.0193 3.62452 16.2529 3.39093 16.2529 3.10279C16.2529 2.81464 16.0193 2.58105 15.7312 2.58105C15.4431 2.58105 15.2095 2.81464 15.2095 3.10279C15.2095 3.39093 15.4431 3.62452 15.7312 3.62452Z"
-                            fill="black"
-                            stroke="black"
-                            stroke-width="0.3"
-                          ></path>
-                        </svg>
-                        {if $lang === 'ru'}Рейтинги{elseif $lang === 'uk'}Рейтинги{else}Ratings{/if}
-                      </li>
-                    </a>
-                    <a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/analytics/formula">
-                      <li>
-                        <svg
-                          class="fill-svg"
-                          width="24"
-                          height="19"
-                          viewBox="0 0 24 19"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M16.6608 10.3623H10.6246C10.5445 10.3623 10.4678 10.3941 10.4112 10.4507C10.3546 10.5073 10.3228 10.5841 10.3228 10.6641C10.3228 10.7442 10.3546 10.8209 10.4112 10.8775C10.4678 10.9341 10.5445 10.9659 10.6246 10.9659H16.6608C16.7408 10.9659 16.8176 10.9341 16.8742 10.8775C16.9308 10.8209 16.9626 10.7442 16.9626 10.6641C16.9626 10.5841 16.9308 10.5073 16.8742 10.4507C16.8176 10.3941 16.7408 10.3623 16.6608 10.3623Z"
-                            fill="black"
-                            stroke="black"
-                            stroke-width="0.3"
-                          ></path>
-                          <path
-                            d="M22.9598 15.0432L20.7566 11.0744C21.3002 9.54632 21.337 7.88377 20.8615 6.33317C20.386 4.78257 19.4235 3.42645 18.1167 2.46584C16.81 1.50523 15.2284 0.991258 13.6066 1.00011C11.9847 1.00897 10.4089 1.54018 9.11269 2.515H8.93462C7.60789 2.51584 6.3058 2.87347 5.16478 3.55043C4.02375 4.2274 3.08579 5.19877 2.44917 6.36278C1.81254 7.52679 1.50068 8.84059 1.54626 10.1665C1.59185 11.4925 1.99319 12.7818 2.70825 13.8993L1 17.8621L5.04125 16.1961C6.2439 16.9412 7.6352 17.3254 9.04978 17.3029C10.4644 17.2804 11.8428 16.8523 13.0211 16.0693C13.2264 16.0874 13.4346 16.0965 13.6429 16.0965C15.4508 16.0966 17.1987 15.4476 18.5684 14.2675L22.6127 15.4748C22.67 15.4917 22.7311 15.4912 22.7882 15.4734C22.8452 15.4556 22.8957 15.4212 22.9332 15.3747C22.9707 15.3281 22.9936 15.2715 22.9988 15.2119C23.0041 15.1523 22.9916 15.0926 22.9628 15.0402L22.9598 15.0432ZM8.93462 16.7001C7.61814 16.7022 6.32944 16.3216 5.22536 15.6045L5.09256 15.517L2.13179 16.7243L3.38129 13.8208L3.28773 13.685C2.62514 12.7016 2.23163 11.5618 2.14633 10.3791C2.06104 9.19632 2.28695 8.01186 2.80158 6.94354C3.3162 5.87521 4.10161 4.96027 5.07965 4.28975C6.05768 3.61923 7.19425 3.2165 8.37627 3.12164C7.39105 4.07416 6.68384 5.277 6.33056 6.60107C5.97728 7.92513 5.99126 9.3204 6.37101 10.6371C6.75076 11.9538 7.48194 13.1423 8.48605 14.0748C9.49016 15.0074 10.7293 15.6489 12.0704 15.9305C11.1028 16.437 10.0268 16.7011 8.93462 16.7001ZM18.5926 13.6398C18.541 13.6226 18.4857 13.6197 18.4325 13.6314C18.3794 13.6431 18.3304 13.6689 18.2908 13.7062C17.03 14.8432 15.3963 15.4788 13.6987 15.4928C12.001 15.5067 10.357 14.898 9.0778 13.7819C7.79857 12.6657 6.97272 11.1194 6.75649 9.43549C6.54025 7.75158 6.94862 6.04681 7.90434 4.64363C8.86006 3.24045 10.2969 2.23617 11.943 1.82073C13.5891 1.4053 15.3304 1.60752 16.8375 2.38915C18.3446 3.17077 19.513 4.47761 20.1217 6.06247C20.7305 7.64733 20.7373 9.40032 20.1409 10.9899C20.1253 11.0309 20.1188 11.0748 20.1219 11.1186C20.1251 11.1624 20.1377 11.205 20.159 11.2434L22.0725 14.687L18.5926 13.6398Z"
-                            fill="black"
-                            stroke="black"
-                            stroke-width="0.3"
-                          ></path>
-                          <path
-                            d="M16.6608 6.13672H10.6246C10.5445 6.13672 10.4678 6.16852 10.4112 6.22512C10.3546 6.28172 10.3228 6.35848 10.3228 6.43853C10.3228 6.51858 10.3546 6.59534 10.4112 6.65194C10.4678 6.70854 10.5445 6.74034 10.6246 6.74034H16.6608C16.7408 6.74034 16.8176 6.70854 16.8742 6.65194C16.9308 6.59534 16.9626 6.51858 16.9626 6.43853C16.9626 6.35848 16.9308 6.28172 16.8742 6.22512C16.8176 6.16852 16.7408 6.13672 16.6608 6.13672Z"
-                            fill="black"
-                            stroke="black"
-                            stroke-width="0.3"
-                          ></path>
-                          <path
-                            d="M16.6608 8.24902H10.6246C10.5445 8.24902 10.4678 8.28082 10.4112 8.33742C10.3546 8.39402 10.3228 8.47079 10.3228 8.55083C10.3228 8.63088 10.3546 8.70765 10.4112 8.76425C10.4678 8.82085 10.5445 8.85265 10.6246 8.85265H16.6608C16.7408 8.85265 16.8176 8.82085 16.8742 8.76425C16.9308 8.70765 16.9626 8.63088 16.9626 8.55083C16.9626 8.47079 16.9308 8.39402 16.8742 8.33742C16.8176 8.28082 16.7408 8.24902 16.6608 8.24902Z"
-                            fill="black"
-                            stroke="black"
-                            stroke-width="0.3"
-                          ></path>
-                        </svg>
-                        {if $lang === 'ru'}Интервью{elseif $lang === 'uk'}Інтерв`ю{else}Investment interview{/if}
-                      </li>
-                    </a>
-                    <a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/tools/library">
-                      <li>
-                        <svg
-                          class="fill-svg"
-                          width="24"
-                          height="24"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M10.5633 5.83887H8.17393C8.02192 5.83887 7.89893 5.96187 7.89893 6.11387C7.89893 6.26587 8.02192 6.38887 8.17393 6.38887H10.5633C10.7153 6.38887 10.8383 6.26587 10.8383 6.11387C10.8383 5.96187 10.7153 5.83887 10.5633 5.83887Z"
-                            fill="black"
-                            stroke="black"
-                            stroke-width="0.3"
-                          ></path>
-                          <path
-                            d="M10.5633 4.04102H8.17393C8.02192 4.04102 7.89893 4.16401 7.89893 4.31602C7.89893 4.46802 8.02192 4.59102 8.17393 4.59102H10.5633C10.7153 4.59102 10.8383 4.46802 10.8383 4.31602C10.8383 4.16401 10.7153 4.04102 10.5633 4.04102Z"
-                            fill="black"
-                            stroke="black"
-                            stroke-width="0.3"
-                          ></path>
-                          <path
-                            d="M4.00674 10.1186C4.88545 10.1186 5.57376 9.17861 5.57376 7.97871C5.57376 6.77881 4.88545 5.83887 4.00674 5.83887C3.12776 5.83887 2.43945 6.77881 2.43945 7.97871C2.43945 9.17861 3.12776 10.1186 4.00674 10.1186ZM4.00674 6.38887C4.55808 6.38887 5.02375 7.11692 5.02375 7.97871C5.02375 8.8405 4.55808 9.56855 4.00674 9.56855C3.4554 9.56855 2.98945 8.8405 2.98945 7.97871C2.98945 7.11692 3.4554 6.38887 4.00674 6.38887Z"
-                            fill="black"
-                            stroke="black"
-                            stroke-width="0.3"
-                          ></path>
-                          <path
-                            d="M18.8995 6.38887H21.2888C21.4408 6.38887 21.5638 6.26587 21.5638 6.11387C21.5638 5.96187 21.4408 5.83887 21.2888 5.83887H18.8995C18.7475 5.83887 18.6245 5.96187 18.6245 6.11387C18.6245 6.26587 18.7475 6.38887 18.8995 6.38887Z"
-                            fill="black"
-                            stroke="black"
-                            stroke-width="0.3"
-                          ></path>
-                          <path
-                            d="M18.8995 4.59102H21.2888C21.4408 4.59102 21.5638 4.46802 21.5638 4.31602C21.5638 4.16401 21.4408 4.04102 21.2888 4.04102H18.8995C18.7475 4.04102 18.6245 4.16401 18.6245 4.31602C18.6245 4.46802 18.7475 4.59102 18.8995 4.59102Z"
-                            fill="black"
-                            stroke="black"
-                            stroke-width="0.3"
-                          ></path>
-                          <path
-                            d="M22.725 1H17.4627C17.3107 1 17.1877 1.123 17.1877 1.275V2.35916H12.275V1.275C12.275 1.123 12.152 1 12 1H6.73767C6.58567 1 6.46267 1.123 6.46267 1.275V2.35916H1.275C1.123 2.35916 1 2.48215 1 2.63416V22.725C1 22.877 1.123 23 1.275 23H6.73767H12H17.4627H22.725C22.877 23 23 22.877 23 22.725V1.275C23 1.123 22.877 1 22.725 1ZM12.275 17.4981H17.1877V19.7228H12.275V17.4981ZM17.1877 2.90916V16.9481H12.275V2.90916H17.1877ZM1.55 17.4981H6.46267V19.7228H1.55V17.4981ZM6.46267 2.90916V16.9481H1.55V2.90916H6.46267ZM1.55 20.2728H6.46267V22.45H1.55V20.2728ZM7.01267 2.63416V1.55H11.725V2.63416V22.45H7.01267V2.63416ZM12.275 20.2728H17.1877V22.45H12.275V20.2728ZM22.45 22.45H17.7377V2.63416V1.55H22.45V22.45Z"
-                            fill="black"
-                            stroke="black"
-                            stroke-width="0.3"
-                          ></path>
-                          <path
-                            d="M14.7318 10.1186C15.6105 10.1186 16.2989 9.17861 16.2989 7.97871C16.2989 6.77881 15.6105 5.83887 14.7318 5.83887C13.8529 5.83887 13.1646 6.77881 13.1646 7.97871C13.1646 9.17861 13.8529 10.1186 14.7318 10.1186ZM14.7318 6.38887C15.2832 6.38887 15.7489 7.11692 15.7489 7.97871C15.7489 8.8405 15.2832 9.56855 14.7318 9.56855C14.1805 9.56855 13.7146 8.8405 13.7146 7.97871C13.7146 7.11692 14.1805 6.38887 14.7318 6.38887Z"
-                            fill="black"
-                            stroke="black"
-                            stroke-width="0.3"
-                          ></path>
-                        </svg>
-                        {if $lang === 'ru'}Библиотека{elseif $lang === 'uk'}Бібліотека{else}Library{/if}
-                      </li>
-                    </a>
-                    <a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/tools/investors">
-                      <li>
-                        <svg
-                          width="22"
-                          height="26"
-                          viewBox="0 0 22 26"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M6.26574 9.7168H3.58496V16.3878H6.26574V9.7168Z"
-                            stroke="#1F2E35"
-                            stroke-miterlimit="10"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                          ></path>
-                          <path
-                            d="M12.3404 7.54785H9.65967V16.3884H12.3404V7.54785Z"
-                            stroke="#1F2E35"
-                            stroke-miterlimit="10"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                          ></path>
-                          <path
-                            d="M18.4147 5.10742H15.7339V16.3887H18.4147V5.10742Z"
-                            stroke="#1F2E35"
-                            stroke-miterlimit="10"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                          ></path>
-                          <path
-                            d="M20.2345 16.3884H1.76549C1.06658 16.3884 0.5 15.8218 0.5 15.1229V2.26549C0.5 1.56658 1.06658 1 1.76549 1H20.2345C20.9334 1 21.5 1.56658 21.5 2.26549V15.1229C21.5 15.8218 20.9334 16.3884 20.2345 16.3884Z"
-                            stroke="#1F2E35"
-                            stroke-miterlimit="10"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                          ></path>
-                          <path
-                            d="M17.7531 24.7026L13.3428 16.3896"
-                            stroke="#1F2E35"
-                            stroke-miterlimit="10"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                          ></path>
-                          <path
-                            d="M8.65686 16.3896L4.24658 24.7026"
-                            stroke="#1F2E35"
-                            stroke-miterlimit="10"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                          ></path>
-                          <path
-                            d="M11.001 16.3887V24.7029"
-                            stroke="#1F2E35"
-                            stroke-miterlimit="10"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                          ></path>
-                          <path
-                            d="M6.26574 9.7168H3.58496V16.3878H6.26574V9.7168Z"
-                            stroke="#1F2E35"
-                            stroke-miterlimit="10"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                          ></path>
-                          <path
-                            d="M12.3404 7.54785H9.65967V16.3884H12.3404V7.54785Z"
-                            stroke="#1F2E35"
-                            stroke-miterlimit="10"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                          ></path>
-                          <path
-                            d="M18.4147 5.10742H15.7339V16.3887H18.4147V5.10742Z"
-                            stroke="#1F2E35"
-                            stroke-miterlimit="10"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                          ></path>
-                          <path
-                            d="M20.2345 16.3884H1.76549C1.06658 16.3884 0.5 15.8218 0.5 15.1229V2.26549C0.5 1.56658 1.06658 1 1.76549 1H20.2345C20.9334 1 21.5 1.56658 21.5 2.26549V15.1229C21.5 15.8218 20.9334 16.3884 20.2345 16.3884Z"
-                            stroke="#1F2E35"
-                            stroke-miterlimit="10"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                          ></path>
-                          <path
-                            d="M17.7531 24.7026L13.3428 16.3896"
-                            stroke="#1F2E35"
-                            stroke-miterlimit="10"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                          ></path>
-                          <path
-                            d="M8.65784 16.3896L4.24756 24.7026"
-                            stroke="#1F2E35"
-                            stroke-miterlimit="10"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                          ></path>
-                          <path
-                            d="M11.001 16.3887V24.7029"
-                            stroke="#1F2E35"
-                            stroke-miterlimit="10"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                          ></path>
-                        </svg>
-                        {if $lang === 'ru'}Инвесторы{elseif $lang === 'uk'}Інвестори{else}Investors{/if}
-                      </li>
-                    </a>
-                  </ul>
-                </div>
-                <div class="menu-item__right">
-                  <div class="menu-item__info">
-                    <p class="menu-item__info-text">
-                      {if $lang == 'ru'}
+												</svg>
+												{if $lang === 'ru'}Недвижимость{elseif $lang === 'uk'}Нерухомість{else}Commercial Property{/if}
+											</li>
+										</a>
+									</ul>
+									<ul class="menu-item__list menu-item__list--world">
+										<a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/news/ukraine">
+											<li>
+												<svg class="nochange" width="22" height="22" viewBox="0 0 22 22" fill="none"
+													xmlns="http://www.w3.org/2000/svg">
+													<use xlink:href="/images/header-icons-sprite.svg#news-ukraine" style="stroke: none;" />
+												</svg>
+												{if $lang === 'ru'}Украина{elseif $lang === 'uk'}Україна{else}Ukraine{/if}
+											</li>
+										</a>
+										<a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/news/world">
+											<li>
+												<svg width="22" class="nochange" height="22" viewBox="0 0 22 22" fill="none">
+													<use xlink:href="/images/header-icons-sprite.svg#news-world" style="stroke: none;" />
+												</svg>
+												{if $lang === 'ru'}Мир{elseif $lang === 'uk'}Світ{else}World{/if}
+											</li>
+										</a>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li class="menu-item3  header__nav-item">
+						<span><a
+								href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/analytics">{if $lang === 'ru'}Аналитика{elseif $lang === 'uk'}Аналітика{else}Analytics{/if}</a></span>
+						<div class="menu-item">
+							<div class="grid-container container">
+								<div class="menu-item__left">
+									<ul class="menu-item__left-top">
+										<a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/analytics/investments">
+											<li>
+												<svg class="fill-svg" width="24" height="23" viewBox="0 0 24 23" fill="none"
+													xmlns="http://www.w3.org/2000/svg">
+													<use xlink:href="/images/header-icons-sprite.svg#analytics-investments" />
+												</svg>
+												{if $lang === 'ru'}Исследования{elseif $lang === 'uk'}Дослідження{else}Research{/if}
+											</li>
+										</a>
+										<a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/analytics/we-invest-in-ukraine">
+											<li>
+												<svg class="invest-ukraine" width="22" height="25" viewBox="0 0 22 25" fill="none">
+													<use xlink:href="/images/header-icons-sprite.svg#analytics-ukraine" />
+												</svg>
+												{if $lang === 'ru'}Инвестируем в Украину
+												{elseif $lang === 'uk'}Інвестуємо в Україну
+												{else}We
+												invest in Ukraine{/if}
+											</li>
+										</a>
+										<a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/analytics/articles">
+											<li>
+												<svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+													<use xlink:href="/images/header-icons-sprite.svg#analytics-articles" />
+												</svg>
+												{if $lang === 'ru'}Статьи{elseif $lang === 'uk'}Статті{else}Articles{/if}
+											</li>
+										</a>
+										<a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/tools/database">
+											<li>
+												<svg class="fill-svg" width="24" height="22" viewBox="0 0 24 22" fill="none">
+													<use xlink:href="/images/header-icons-sprite.svg#tools-database" />
+												</svg>
+												{if $lang === 'ru'}Рейтинги{elseif $lang === 'uk'}Рейтинги{else}Ratings{/if}
+											</li>
+										</a>
+										<a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/analytics/formula">
+											<li>
+												<svg class="fill-svg" width="24" height="19" viewBox="0 0 24 19" fill="none">
+													<use xlink:href="/images/header-icons-sprite.svg#analytics-formula" />
+												</svg>
+												{if $lang === 'ru'}Интервью{elseif $lang === 'uk'}Інтерв`ю{else}Investment interview{/if}
+											</li>
+										</a>
+										<a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/tools/library">
+											<li>
+												<svg class="fill-svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+													xmlns="http://www.w3.org/2000/svg">
+													<use xlink:href="/images/header-icons-sprite.svg#tools-library" />
+												</svg>
+												{if $lang === 'ru'}Библиотека{elseif $lang === 'uk'}Бібліотека{else}Library{/if}
+											</li>
+										</a>
+										<a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/tools/investors">
+											<li>
+												<svg width="22" height="26" viewBox="0 0 22 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+													<use xlink:href="/images/header-icons-sprite.svg#tools-investors" />
+												</svg>
+												{if $lang === 'ru'}Инвесторы{elseif $lang === 'uk'}Інвестори{else}Investors{/if}
+											</li>
+										</a>
+									</ul>
+								</div>
+								<div class="menu-item__right">
+									<div class="menu-item__info">
+										<p class="menu-item__info-text">
+											{if $lang == 'ru'}
 												Получайте ежемесячный инвестиционный журнал в сфере прямых
-                      инвестиций и венчурного капитала.
-											{else if $lang == 'en'} 
+												инвестиций и венчурного капитала.
+											{else if $lang == 'en'}
 												Get a monthly investment magazine in private equity and venture capital.
-											{else} 
+											{else}
 												Отримайте щомісячний інвестиційний журнал у галузі прямих інвестицій та венчурного капіталу.
 											{/if}
-                    </p>
-                    <a href="{if $lang == 'en'}/en{elseif $lang == 'uk'}/uk{/if}/digest-social" class="menu-item__info-link"
-                      >
-                      {if $lang == 'ru'}Подписаться{elseif $lang == 'uk'}Підписатися{else}Subscribe{/if}
-                      </a>
-                  </div>
-                  <a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/analytics/digest" class="menu-item__advert">
-                    <img class="lazyload" data-src="/images/newsletter-advert.jpg" alt="Новостная рассылка" />
-                  </a>
-                </div>
-              </div>
-            </div>
-          </li>
-          <li class="header__nav-item"><span><a href="{if $lang == 'en'}/en{/if}/analytics/digest">{if $lang == 'ru'}Дайджест{elseif $lang == 'uk'}Дайджест{else}Digest{/if}</a></span></li>
-        </nav>
-        {/block}
-      </div>
-      <div class="header__right">
-        <!-- <a href="{if $lang === 'en'}/en{/if}/digest-social" class="header__subscribe header__right-item">
+										</p>
+										<a href="{if $lang == 'en'}/en{elseif $lang == 'uk'}/uk{/if}/digest-social"
+											class="menu-item__info-link">
+											{if $lang == 'ru'}Подписаться{elseif $lang == 'uk'}Підписатися{else}Subscribe{/if}
+										</a>
+									</div>
+									<a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/analytics/digest"
+										class="menu-item__advert">
+										<img class="lazyload" data-src="/images/newsletter-advert.jpg" alt="Новостная рассылка" />
+									</a>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li class="header__nav-item"><span><a
+								href="{if $lang == 'en'}/en{/if}/analytics/digest">{if $lang == 'ru'}Дайджест{elseif $lang == 'uk'}Дайджест{else}Digest{/if}</a></span>
+					</li>
+				</nav>
+				{/block}
+			</div>
+			<div class="header__right">
+				<!-- <a href="{if $lang === 'en'}/en{/if}/digest-social" class="header__subscribe header__right-item">
           <i class="fa fa-envelope" aria-hidden="true"></i> Подписка
         </a> -->
-        <div class="search font-weight-bold header__right-item">
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M23.8535 22.4395L16.8817 15.4677C18.204 13.8351 19 11.7597 19 9.50004C19 4.26175 14.7383 0 9.49999 0C4.2617 0 0 4.26175 0 9.50004C0 14.7383 4.26175 19.0001 9.50004 19.0001C11.7597 19.0001 13.8351 18.204 15.4677 16.8817L22.4395 23.8536C22.6348 24.0488 22.9513 24.0488 23.1467 23.8536L23.8536 23.1466C24.0488 22.9513 24.0488 22.6347 23.8535 22.4395ZM9.50004 17.0001C5.3643 17.0001 2.00002 13.6358 2.00002 9.50004C2.00002 5.36429 5.3643 2.00002 9.50004 2.00002C13.6358 2.00002 17.0001 5.36429 17.0001 9.50004C17.0001 13.6358 13.6358 17.0001 9.50004 17.0001Z"
-              fill="black"
-            />
-          </svg>
-        </div>
-        <div>
-          {if !$user || !$user->getId()}
-            <a class="header__right-item header__right-item--social" href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/user/login" style="height:24px;">
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 26 26"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M25 13C25 6.38342 19.6166 1 13 1C6.38342 1 1 6.38342 1 13C1 16.4948 2.50284 19.6449 4.89498 21.8399L4.88364 21.8499L5.27287 22.178C5.29818 22.1994 5.32567 22.2169 5.35098 22.2378C5.55782 22.4093 5.77207 22.5721 5.99025 22.7296C6.06095 22.7807 6.13164 22.8317 6.20364 22.8815C6.43665 23.042 6.67578 23.1943 6.92015 23.3388C6.97338 23.3702 7.02705 23.4007 7.08073 23.4313C7.34822 23.5836 7.62138 23.7271 7.90109 23.8589C7.9216 23.8685 7.94255 23.8772 7.96305 23.8868C8.87462 24.3105 9.84771 24.6217 10.8653 24.8054C10.8919 24.8102 10.9185 24.815 10.9456 24.8198C11.2615 24.8743 11.5809 24.918 11.9043 24.9472C11.9436 24.9507 11.9828 24.9529 12.0225 24.9564C12.3446 24.983 12.6701 25 13 25C13.3268 25 13.6493 24.983 13.9696 24.9572C14.0102 24.9537 14.0508 24.9516 14.0913 24.9481C14.4121 24.9188 14.7289 24.8765 15.0417 24.8228C15.0688 24.818 15.0963 24.8132 15.1233 24.808C16.1257 24.6282 17.0848 24.3241 17.9846 23.9113C18.0177 23.896 18.0513 23.8816 18.0845 23.8659C18.3537 23.7393 18.6169 23.6028 18.8748 23.4575C18.9389 23.4212 19.0026 23.3846 19.0663 23.3471C19.3011 23.2087 19.5319 23.0643 19.7562 22.9107C19.8369 22.8557 19.9159 22.7977 19.9958 22.7401C20.1873 22.6022 20.3754 22.4599 20.5583 22.3111C20.5988 22.2784 20.6425 22.25 20.6822 22.2164L21.0815 21.8831L21.0697 21.873C23.4828 19.6772 25 16.5127 25 13ZM1.87273 13C1.87273 6.86429 6.86429 1.87273 13 1.87273C19.1357 1.87273 24.1273 6.86429 24.1273 13C24.1273 16.3063 22.6764 19.2788 20.3793 21.3184C20.2511 21.2298 20.1219 21.1504 19.9897 21.0841L16.295 19.2369C15.9633 19.0711 15.7574 18.7377 15.7574 18.3673V17.0769C15.8429 16.9713 15.9332 16.8518 16.0266 16.7204C16.5049 16.0449 16.8884 15.2935 17.1681 14.4849C17.721 14.2223 18.078 13.6716 18.078 13.0497V11.5028C18.078 11.1245 17.9392 10.7575 17.6909 10.4691V8.43258C17.7136 8.20611 17.7939 6.928 16.8692 5.87375C16.065 4.95564 14.7633 4.49091 13 4.49091C11.2367 4.49091 9.93498 4.95564 9.13076 5.87331C8.20611 6.92756 8.2864 8.20567 8.30909 8.43215V10.4687C8.06124 10.7571 7.92204 11.1241 7.92204 11.5024V13.0493C7.92204 13.5297 8.1376 13.9779 8.50676 14.2803C8.86022 15.6649 9.58764 16.713 9.85644 17.0682V18.3311C9.85644 18.6871 9.66226 19.0144 9.34938 19.1855L5.89905 21.0675C5.78909 21.1273 5.68 21.1971 5.57091 21.2752C3.30225 19.2365 1.87273 16.2823 1.87273 13ZM19.5276 22.0031C19.3748 22.1139 19.2195 22.2212 19.062 22.3238C18.9895 22.3709 18.9175 22.418 18.8438 22.4639C18.6378 22.5913 18.4284 22.7126 18.2145 22.826C18.1674 22.8509 18.1199 22.8745 18.0723 22.8989C17.5809 23.1507 17.0726 23.3671 16.5503 23.543C16.5319 23.5491 16.5136 23.5556 16.4948 23.5617C16.2212 23.6525 15.9441 23.7332 15.664 23.8026C15.6631 23.8026 15.6623 23.8031 15.6614 23.8031C15.3786 23.8729 15.0924 23.9309 14.8044 23.9785C14.7965 23.9798 14.7887 23.9815 14.7808 23.9828C14.5098 24.0269 14.2367 24.0588 13.9626 24.0828C13.9142 24.0871 13.8657 24.0902 13.8169 24.0937C13.5459 24.1142 13.2736 24.1273 13 24.1273C12.7233 24.1273 12.4476 24.1137 12.1731 24.0932C12.1255 24.0897 12.078 24.0867 12.0308 24.0823C11.7542 24.0579 11.4788 24.0252 11.2061 23.9807C11.1939 23.9785 11.1817 23.9763 11.1695 23.9741C10.5926 23.8777 10.0249 23.7359 9.472 23.5504C9.45498 23.5447 9.43753 23.5386 9.42051 23.5329C9.14604 23.4396 8.87462 23.3361 8.608 23.2218C8.60625 23.2209 8.60407 23.2201 8.60233 23.2192C8.35011 23.1105 8.10269 22.9901 7.85833 22.8631C7.82647 22.8465 7.79418 22.8308 7.76276 22.8138C7.53978 22.6947 7.3216 22.566 7.10647 22.4316C7.04276 22.3914 6.97949 22.3508 6.91665 22.3098C6.71855 22.1802 6.52305 22.0454 6.3328 21.9027C6.31316 21.8879 6.2944 21.8721 6.27476 21.8573C6.28873 21.8495 6.30269 21.8416 6.31665 21.8337L9.76698 19.9517C10.3604 19.6279 10.7292 19.007 10.7292 18.3311L10.7287 16.7593L10.6284 16.638C10.6188 16.6271 9.67535 15.4794 9.31884 13.9255L9.27913 13.7527L9.13033 13.6563C8.92044 13.5206 8.79476 13.2937 8.79476 13.0489V11.502C8.79476 11.2991 8.88073 11.1101 9.03782 10.9683L9.18182 10.8383V8.40771L9.17789 8.35055C9.17658 8.34007 9.04785 7.29062 9.78705 6.448C10.418 5.72887 11.4993 5.36364 13 5.36364C14.495 5.36364 15.5728 5.72582 16.2055 6.43971C16.9439 7.2736 16.823 8.34269 16.8221 8.35142L16.8182 10.8391L16.9622 10.9692C17.1188 11.1105 17.2052 11.2999 17.2052 11.5028V13.0497C17.2052 13.3609 16.9936 13.6432 16.6899 13.737L16.473 13.8038L16.4032 14.0198C16.1457 14.8196 15.7792 15.5584 15.314 16.2156C15.1997 16.377 15.0884 16.5201 14.9929 16.6297L14.8847 16.7532V18.3673C14.8847 19.0707 15.2756 19.7034 15.9049 20.0176L19.5996 21.8647C19.6231 21.8765 19.6463 21.8887 19.6694 21.9009C19.6227 21.9363 19.5747 21.969 19.5276 22.0031Z"
-                  fill="black"
-                  stroke="black"
-                  stroke-width="0.9"
-                />
-              </svg>
-            </a>
-          {else}
-            <a class="header__right-item header__right-item--fill"  href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/user/logout" style="height:24px;">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M10.2501 11.25H0.75C0.335999 11.25 0 10.914 0 10.5C0 10.086 0.335999 9.75 0.75 9.75H10.2501C10.6641 9.75 11.0001 10.086 11.0001 10.5C11.0001 10.914 10.6641 11.25 10.2501 11.25Z" fill="#8EABC9"/>
-                <path d="M6.49982 15C6.30774 15 6.11584 14.9269 5.96973 14.7801C5.67676 14.4869 5.67676 14.012 5.96973 13.719L9.18982 10.4991L5.96973 7.28009C5.67676 6.98694 5.67676 6.51196 5.96973 6.21899C6.2627 5.92603 6.73767 5.92603 7.03082 6.21899L10.7808 9.96899C11.0738 10.262 11.0738 10.7369 10.7808 11.0301L7.03082 14.7801C6.88379 14.9269 6.69171 15 6.49982 15V15Z" fill="#8EABC9"/>
-                <path d="M15.9999 24C14.8969 24 14 23.103 14 22V3.99996C14 3.14504 14.544 2.38204 15.3539 2.10097L21.3619 0.0979831C22.7059 -0.314004 23.9999 0.683005 23.9999 2.00008V20.0001C23.9999 20.8541 23.4559 21.616 22.647 21.898L16.6369 23.9021C16.4179 23.97 16.215 24 15.9999 24V24ZM21.9999 1.50002C21.9349 1.50002 21.8799 1.50808 21.821 1.52602L15.838 3.52096C15.6419 3.58907 15.5 3.78701 15.5 3.99996V22C15.5 22.3411 15.8699 22.5711 16.179 22.474L22.1619 20.4791C22.3569 20.411 22.4999 20.213 22.4999 20.0001V2.00008C22.4999 1.72506 22.276 1.50002 21.9999 1.50002V1.50002Z" fill="#8EABC9"/>
-                <path d="M8.75 5.00006C8.336 5.00006 8 4.66406 8 4.25006V2.75006C8 1.23303 9.23285 0 10.7499 0H21.9999C22.4139 0 22.7499 0.335999 22.7499 0.75C22.7499 1.164 22.4139 1.5 21.9999 1.5H10.7499C10.0609 1.5 9.5 2.06104 9.5 2.75006V4.25006C9.5 4.66406 9.164 5.00006 8.75 5.00006V5.00006Z" fill="#8EABC9"/>
-                <path d="M14.75 21.0001H10.7499C9.23285 21.0001 8 19.767 8 18.25V16.75C8 16.336 8.336 16 8.75 16C9.164 16 9.5 16.336 9.5 16.75V18.25C9.5 18.939 10.0609 19.5001 10.7499 19.5001H14.75C15.164 19.5001 15.5 19.8361 15.5 20.2501C15.5 20.6641 15.164 21.0001 14.75 21.0001Z" fill="#8EABC9"/>
-              </svg>
-            </a>
-          {/if}
-        </div>
-        
-        {assign var=emptyDataCounter value=0}
-        {#mod 'Locale'}
-              {locale_data}
-              {foreach $locale_data as $langArr=>$data}
-                  {if !$data}
-                    {assign var=emptyDataCounter value=$emptyDataCounter+1}
-                    {continue}
-                  {/if}
-                  {if ($lang == 'ru' && $langArr != 'ru') || ($lang == 'uk' && $langArr != 'uk') || ($lang == 'en' &&  $langArr != 'en')}
-                  <div class="header__right-item header__right-item--lang">
-                    <a
-                        href="{if $langArr=='ru' and $data.url|count_characters == 0 }/?lang=ru{else}{$data.url|default:'#'}{/if}" {if $data} title="{$data['title']}"{/if}
-                      class="flex items-center"
-                    >
-                      <svg
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                        style="margin-right: 5px"
-                      >
-                        <path
-                          d="M21.7811 5.07298C21.7807 5.06525 21.7799 5.05751 21.7786 5.04983C21.7486 5.00697 21.7117 4.9701 21.6808 4.9281C21.4567 4.62286 21.2195 4.32907 20.9692 4.04668C20.9006 3.96952 20.832 3.89321 20.7617 3.81775C20.5039 3.54169 20.2336 3.27845 19.9506 3.02811C19.8983 2.9818 19.8494 2.93382 19.7971 2.88835C19.0998 2.29098 18.3363 1.77544 17.5216 1.35194C17.489 1.33481 17.4548 1.32024 17.4213 1.30306C17.0585 1.11868 16.6865 0.952951 16.3067 0.806609C16.2209 0.775763 16.1429 0.746575 16.0615 0.720853C15.7237 0.599128 15.3807 0.492524 15.0326 0.401041C14.9297 0.373611 14.8268 0.345328 14.7222 0.321314C14.3793 0.241587 14.0364 0.180699 13.6856 0.130964C13.5793 0.115541 13.4747 0.0949435 13.3675 0.0820827C12.4643 -0.0276864 11.5512 -0.0276864 10.6479 0.0820827C10.5407 0.0949435 10.4361 0.115541 10.3298 0.130964C9.97912 0.180699 9.63273 0.241587 9.29317 0.321314C9.18858 0.345328 9.08569 0.373611 8.98281 0.401041C8.6324 0.492473 8.28948 0.599078 7.95394 0.720853C7.86819 0.749991 7.79017 0.779179 7.70873 0.806609C7.32899 0.952951 6.95693 1.11863 6.59411 1.30306C6.56065 1.32019 6.52639 1.33476 6.49379 1.35194C5.67637 1.77499 4.9103 2.29048 4.21054 2.88835C4.15824 2.93377 4.10936 2.9818 4.05706 3.02811C3.77126 3.2796 3.50088 3.54285 3.24598 3.81775C3.17569 3.89321 3.10707 3.96952 3.03849 4.04668C2.78756 4.32846 2.55034 4.62225 2.32688 4.92805C2.29603 4.97005 2.25916 5.00692 2.22912 5.04978C2.2252 5.05726 2.22173 5.065 2.21882 5.07293C-0.738467 9.21738 -0.738467 14.7822 2.21882 18.9266C2.22173 18.9345 2.22515 18.9423 2.22912 18.9498C2.25911 18.9926 2.29598 19.0295 2.32688 19.0715C2.55039 19.3767 2.78756 19.6705 3.03849 19.9529C3.10707 20.0301 3.17569 20.1064 3.24598 20.1818C3.50435 20.4579 3.77468 20.7211 4.05706 20.9715C4.10936 21.0178 4.15824 21.0658 4.21054 21.1112C4.90783 21.7086 5.67135 22.2241 6.48605 22.6476C6.51865 22.6648 6.55292 22.6793 6.58637 22.6965C6.94919 22.8809 7.3212 23.0466 7.70099 23.193C7.78675 23.2238 7.86477 23.253 7.9462 23.2787C8.284 23.4005 8.62697 23.5071 8.97507 23.5985C9.07796 23.626 9.18084 23.6543 9.28544 23.6783C9.62841 23.758 9.97133 23.8189 10.322 23.8686C10.4283 23.884 10.5329 23.9046 10.6401 23.9175C11.5434 24.0273 12.4565 24.0273 13.3598 23.9175C13.467 23.9046 13.5716 23.884 13.6779 23.8686C14.0286 23.8189 14.375 23.758 14.7145 23.6783C14.8191 23.6543 14.922 23.626 15.0249 23.5985C15.3758 23.5071 15.7188 23.4005 16.0537 23.2787C16.1395 23.2496 16.2175 23.2204 16.299 23.193C16.6787 23.0466 17.0508 22.8809 17.4136 22.6965C17.447 22.6794 17.4813 22.6648 17.5139 22.6476C18.3286 22.2241 19.0921 21.7086 19.7894 21.1112C19.8417 21.0658 19.8906 21.0178 19.9429 20.9715C20.2287 20.7205 20.4991 20.4573 20.754 20.1818C20.8243 20.1064 20.8929 20.0301 20.9615 19.9529C21.2124 19.6705 21.4496 19.3767 21.6731 19.0715C21.7039 19.0295 21.7408 18.9926 21.7708 18.9498C21.7747 18.9423 21.7782 18.9345 21.7811 18.9266C24.7384 14.7823 24.7384 9.21743 21.7811 5.07298ZM20.8029 6.69521C21.6228 8.04564 22.118 9.56804 22.2492 11.1425H17.1135C17.0506 10.1209 16.8898 9.10767 16.6334 8.11678C18.0841 7.84509 19.4883 7.36633 20.8029 6.69521ZM14.1855 1.94781C14.2335 1.95896 14.2798 1.97438 14.3278 1.98553C14.6348 2.05758 14.9392 2.13986 15.2367 2.24275C15.2821 2.25817 15.3267 2.27621 15.3713 2.29249C15.6663 2.39537 15.9569 2.50941 16.2416 2.63546C16.2913 2.65862 16.3402 2.68434 16.3899 2.7075C16.6626 2.83726 16.9289 2.97758 17.189 3.12849L17.3605 3.23223C17.6074 3.38314 17.8475 3.54461 18.0807 3.71667C18.1407 3.76038 18.2007 3.80243 18.2599 3.8504C18.4885 4.02186 18.7074 4.20563 18.9166 4.40171C18.9715 4.45145 19.0281 4.50033 19.0821 4.55177C19.3016 4.76011 19.5108 4.98045 19.7132 5.20853C19.7389 5.23852 19.7663 5.26595 19.792 5.29428C18.6311 5.84755 17.4012 6.24262 16.1353 6.46889C15.5488 4.85666 14.7741 3.31929 13.8272 1.88873C13.9463 1.91013 14.0681 1.92213 14.1855 1.94781ZM8.60562 11.1424C8.67324 10.2148 8.83119 9.29586 9.0772 8.39881C10.0486 8.51421 11.0261 8.57143 12.0043 8.57027C12.9835 8.56997 13.9619 8.5113 14.934 8.39449C15.1796 9.29299 15.3367 10.2133 15.403 11.1424H8.60562ZM15.403 12.8572C15.3354 13.7849 15.1775 14.7038 14.9314 15.6009C13.96 15.4855 12.9826 15.4283 12.0043 15.4294C11.0252 15.4283 10.0469 15.4855 9.07459 15.6009C8.82928 14.7038 8.67224 13.7849 8.60557 12.8572H15.403V12.8572ZM12.0043 2.27023C12.98 3.65312 13.7825 5.15045 14.3938 6.72867C13.6001 6.81296 12.8025 6.85531 12.0043 6.85557C11.207 6.85461 10.4102 6.81201 9.61731 6.72781C10.2294 5.15065 11.0309 3.65382 12.0043 2.27023ZM4.29639 5.20762C4.4979 4.97954 4.70794 4.7592 4.92743 4.55087C4.98143 4.49942 5.03805 4.45054 5.09291 4.40081C5.30441 4.2082 5.52335 4.02443 5.74967 3.8495C5.80885 3.80403 5.86883 3.76374 5.92886 3.71577C6.16207 3.54431 6.40215 3.38279 6.64907 3.23133L6.82053 3.12759C7.08061 2.97557 7.34697 2.8352 7.61961 2.70659C7.66934 2.68343 7.71823 2.65771 7.76796 2.63455C8.05261 2.50595 8.34328 2.39191 8.63823 2.29158C8.68279 2.2753 8.72398 2.25727 8.77281 2.24185C9.07032 2.14238 9.373 2.06009 9.68166 1.98463C9.72969 1.97348 9.77596 1.95805 9.82484 1.94776C9.94229 1.92203 10.0641 1.91003 10.1832 1.88858C9.23595 3.31939 8.46099 4.85706 7.87426 6.46959C6.60833 6.24332 5.37841 5.84825 4.21752 5.29498C4.24324 5.26504 4.27067 5.23761 4.29639 5.20762ZM3.20579 6.69521C4.52005 7.36628 5.92394 7.84504 7.3744 8.11678C7.11824 9.10772 6.95773 10.1209 6.89513 11.1425H1.7594C1.89072 9.56804 2.38586 8.04564 3.20579 6.69521ZM3.20579 17.3045C2.38581 15.9541 1.89067 14.4317 1.7594 12.8572H6.89513C6.95803 13.8789 7.11879 14.8921 7.37525 15.883C5.92454 16.1546 4.52035 16.6334 3.20579 17.3045ZM9.82313 22.0519C9.7751 22.0407 9.72883 22.0253 9.68081 22.0142C9.37386 21.9421 9.06947 21.8598 8.77196 21.7569C8.72649 21.7415 8.68193 21.7235 8.63732 21.7072C8.34238 21.6043 8.05175 21.4903 7.76706 21.3642C7.71732 21.3411 7.66844 21.3153 7.61871 21.2922C7.34607 21.1624 7.07971 21.0221 6.81963 20.8712L6.64817 20.7675C6.40125 20.6165 6.16116 20.4551 5.92796 20.283C5.86793 20.2393 5.80794 20.1973 5.74876 20.1493C5.52013 19.9778 5.3012 19.7941 5.09201 19.598C5.03715 19.5482 4.98053 19.4994 4.92652 19.4479C4.70704 19.2396 4.49785 19.0192 4.29549 18.7912C4.26977 18.7612 4.24234 18.7337 4.21662 18.7054C5.37756 18.1521 6.60742 17.7571 7.87336 17.5308C8.45983 19.143 9.23455 20.6804 10.1814 22.111C10.0623 22.0896 9.94059 22.0776 9.82313 22.0519ZM12.0043 21.7295C11.0286 20.3466 10.2261 18.8493 9.61474 17.2711C11.2026 17.1002 12.8042 17.1002 14.3921 17.2711L14.3912 17.2719C13.7792 18.849 12.9777 20.3459 12.0043 21.7295ZM19.7122 18.7921C19.5107 19.0201 19.3007 19.2405 19.0812 19.4488C19.0272 19.5003 18.9706 19.5491 18.9157 19.5989C18.7042 19.7921 18.4853 19.9759 18.259 20.1502C18.1998 20.1956 18.1398 20.2402 18.0798 20.2839C17.8466 20.4554 17.6065 20.6169 17.3596 20.7684L17.1881 20.8721C16.9286 21.0236 16.6622 21.1639 16.389 21.2931C16.3393 21.3163 16.2904 21.342 16.2407 21.3651C15.956 21.4937 15.6654 21.6078 15.3704 21.7081C15.3259 21.7244 15.2847 21.7424 15.2358 21.7578C14.9383 21.8573 14.6356 21.9396 14.327 22.0151C14.279 22.0262 14.2327 22.0416 14.1838 22.0519C14.0663 22.0777 13.9446 22.0897 13.8254 22.1111C14.7723 20.6805 15.547 19.1432 16.1335 17.5309C17.3994 17.7572 18.6293 18.1523 19.7902 18.7056C19.7654 18.7346 19.738 18.7621 19.7122 18.7921ZM20.8029 17.3045C19.4886 16.6335 18.0847 16.1547 16.6342 15.883C16.8904 14.892 17.0509 13.8788 17.1135 12.8572H22.2492C22.1179 14.4316 21.6228 15.954 20.8029 17.3045Z"
-                          fill="black"
-                        />
-                      </svg>
-                      <span>
-                        {if $langArr=='ru'}
-                          Рус
-                        {elseif $langArr=='uk'}
-                          Укр
-                        {elseif $langArr=='en'}
-                          En
-                        {/if}
-                    </span>
-                  </a>
-                  </div>
-                    {* <div class="mr-2"></div> *}
-                  {/if}
-              {/foreach}
-          {#/mod}
+				<div class="search font-weight-bold header__right-item">
+					<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path
+							d="M23.8535 22.4395L16.8817 15.4677C18.204 13.8351 19 11.7597 19 9.50004C19 4.26175 14.7383 0 9.49999 0C4.2617 0 0 4.26175 0 9.50004C0 14.7383 4.26175 19.0001 9.50004 19.0001C11.7597 19.0001 13.8351 18.204 15.4677 16.8817L22.4395 23.8536C22.6348 24.0488 22.9513 24.0488 23.1467 23.8536L23.8536 23.1466C24.0488 22.9513 24.0488 22.6347 23.8535 22.4395ZM9.50004 17.0001C5.3643 17.0001 2.00002 13.6358 2.00002 9.50004C2.00002 5.36429 5.3643 2.00002 9.50004 2.00002C13.6358 2.00002 17.0001 5.36429 17.0001 9.50004C17.0001 13.6358 13.6358 17.0001 9.50004 17.0001Z"
+							fill="black" />
+					</svg>
+				</div>
+				<div>
+					{if !$user || !$user->getId()}
+						<a class="header__right-item header__right-item--social"
+							href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/user/login" style="height:24px;">
+							<svg width="24" height="24" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path
+									d="M25 13C25 6.38342 19.6166 1 13 1C6.38342 1 1 6.38342 1 13C1 16.4948 2.50284 19.6449 4.89498 21.8399L4.88364 21.8499L5.27287 22.178C5.29818 22.1994 5.32567 22.2169 5.35098 22.2378C5.55782 22.4093 5.77207 22.5721 5.99025 22.7296C6.06095 22.7807 6.13164 22.8317 6.20364 22.8815C6.43665 23.042 6.67578 23.1943 6.92015 23.3388C6.97338 23.3702 7.02705 23.4007 7.08073 23.4313C7.34822 23.5836 7.62138 23.7271 7.90109 23.8589C7.9216 23.8685 7.94255 23.8772 7.96305 23.8868C8.87462 24.3105 9.84771 24.6217 10.8653 24.8054C10.8919 24.8102 10.9185 24.815 10.9456 24.8198C11.2615 24.8743 11.5809 24.918 11.9043 24.9472C11.9436 24.9507 11.9828 24.9529 12.0225 24.9564C12.3446 24.983 12.6701 25 13 25C13.3268 25 13.6493 24.983 13.9696 24.9572C14.0102 24.9537 14.0508 24.9516 14.0913 24.9481C14.4121 24.9188 14.7289 24.8765 15.0417 24.8228C15.0688 24.818 15.0963 24.8132 15.1233 24.808C16.1257 24.6282 17.0848 24.3241 17.9846 23.9113C18.0177 23.896 18.0513 23.8816 18.0845 23.8659C18.3537 23.7393 18.6169 23.6028 18.8748 23.4575C18.9389 23.4212 19.0026 23.3846 19.0663 23.3471C19.3011 23.2087 19.5319 23.0643 19.7562 22.9107C19.8369 22.8557 19.9159 22.7977 19.9958 22.7401C20.1873 22.6022 20.3754 22.4599 20.5583 22.3111C20.5988 22.2784 20.6425 22.25 20.6822 22.2164L21.0815 21.8831L21.0697 21.873C23.4828 19.6772 25 16.5127 25 13ZM1.87273 13C1.87273 6.86429 6.86429 1.87273 13 1.87273C19.1357 1.87273 24.1273 6.86429 24.1273 13C24.1273 16.3063 22.6764 19.2788 20.3793 21.3184C20.2511 21.2298 20.1219 21.1504 19.9897 21.0841L16.295 19.2369C15.9633 19.0711 15.7574 18.7377 15.7574 18.3673V17.0769C15.8429 16.9713 15.9332 16.8518 16.0266 16.7204C16.5049 16.0449 16.8884 15.2935 17.1681 14.4849C17.721 14.2223 18.078 13.6716 18.078 13.0497V11.5028C18.078 11.1245 17.9392 10.7575 17.6909 10.4691V8.43258C17.7136 8.20611 17.7939 6.928 16.8692 5.87375C16.065 4.95564 14.7633 4.49091 13 4.49091C11.2367 4.49091 9.93498 4.95564 9.13076 5.87331C8.20611 6.92756 8.2864 8.20567 8.30909 8.43215V10.4687C8.06124 10.7571 7.92204 11.1241 7.92204 11.5024V13.0493C7.92204 13.5297 8.1376 13.9779 8.50676 14.2803C8.86022 15.6649 9.58764 16.713 9.85644 17.0682V18.3311C9.85644 18.6871 9.66226 19.0144 9.34938 19.1855L5.89905 21.0675C5.78909 21.1273 5.68 21.1971 5.57091 21.2752C3.30225 19.2365 1.87273 16.2823 1.87273 13ZM19.5276 22.0031C19.3748 22.1139 19.2195 22.2212 19.062 22.3238C18.9895 22.3709 18.9175 22.418 18.8438 22.4639C18.6378 22.5913 18.4284 22.7126 18.2145 22.826C18.1674 22.8509 18.1199 22.8745 18.0723 22.8989C17.5809 23.1507 17.0726 23.3671 16.5503 23.543C16.5319 23.5491 16.5136 23.5556 16.4948 23.5617C16.2212 23.6525 15.9441 23.7332 15.664 23.8026C15.6631 23.8026 15.6623 23.8031 15.6614 23.8031C15.3786 23.8729 15.0924 23.9309 14.8044 23.9785C14.7965 23.9798 14.7887 23.9815 14.7808 23.9828C14.5098 24.0269 14.2367 24.0588 13.9626 24.0828C13.9142 24.0871 13.8657 24.0902 13.8169 24.0937C13.5459 24.1142 13.2736 24.1273 13 24.1273C12.7233 24.1273 12.4476 24.1137 12.1731 24.0932C12.1255 24.0897 12.078 24.0867 12.0308 24.0823C11.7542 24.0579 11.4788 24.0252 11.2061 23.9807C11.1939 23.9785 11.1817 23.9763 11.1695 23.9741C10.5926 23.8777 10.0249 23.7359 9.472 23.5504C9.45498 23.5447 9.43753 23.5386 9.42051 23.5329C9.14604 23.4396 8.87462 23.3361 8.608 23.2218C8.60625 23.2209 8.60407 23.2201 8.60233 23.2192C8.35011 23.1105 8.10269 22.9901 7.85833 22.8631C7.82647 22.8465 7.79418 22.8308 7.76276 22.8138C7.53978 22.6947 7.3216 22.566 7.10647 22.4316C7.04276 22.3914 6.97949 22.3508 6.91665 22.3098C6.71855 22.1802 6.52305 22.0454 6.3328 21.9027C6.31316 21.8879 6.2944 21.8721 6.27476 21.8573C6.28873 21.8495 6.30269 21.8416 6.31665 21.8337L9.76698 19.9517C10.3604 19.6279 10.7292 19.007 10.7292 18.3311L10.7287 16.7593L10.6284 16.638C10.6188 16.6271 9.67535 15.4794 9.31884 13.9255L9.27913 13.7527L9.13033 13.6563C8.92044 13.5206 8.79476 13.2937 8.79476 13.0489V11.502C8.79476 11.2991 8.88073 11.1101 9.03782 10.9683L9.18182 10.8383V8.40771L9.17789 8.35055C9.17658 8.34007 9.04785 7.29062 9.78705 6.448C10.418 5.72887 11.4993 5.36364 13 5.36364C14.495 5.36364 15.5728 5.72582 16.2055 6.43971C16.9439 7.2736 16.823 8.34269 16.8221 8.35142L16.8182 10.8391L16.9622 10.9692C17.1188 11.1105 17.2052 11.2999 17.2052 11.5028V13.0497C17.2052 13.3609 16.9936 13.6432 16.6899 13.737L16.473 13.8038L16.4032 14.0198C16.1457 14.8196 15.7792 15.5584 15.314 16.2156C15.1997 16.377 15.0884 16.5201 14.9929 16.6297L14.8847 16.7532V18.3673C14.8847 19.0707 15.2756 19.7034 15.9049 20.0176L19.5996 21.8647C19.6231 21.8765 19.6463 21.8887 19.6694 21.9009C19.6227 21.9363 19.5747 21.969 19.5276 22.0031Z"
+									fill="black" stroke="black" stroke-width="0.9" />
+							</svg>
+						</a>
+					{else}
+						<a class="header__right-item header__right-item--fill"
+							href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/user/logout" style="height:24px;">
+							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<use xlink:href="/images/header-icons-sprite.svg#user-logout" />
+							</svg>
+						</a>
+					{/if}
+				</div>
 
-        {if $emptyDataCounter > 0 || !$locale_data}
-          <div class="mr-2"></div>
-        {/if}
-        
-        <a class="header__btn header__btn--blue" href="{if $lang === 'en'}/en/{else}/{/if}about/contacts">
-          <svg
-            width="18"
-            height="18"
-            viewBox="0 0 18 18"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M16.5557 11.8149C15.4537 11.8149 14.3716 11.6426 13.3462 11.3037C12.8438 11.1323 12.2261 11.2896 11.9194 11.6045L9.8955 13.1324C7.54833 11.8794 6.10252 10.4341 4.8667 8.10455L6.34959 6.13336C6.73486 5.74861 6.87305 5.18658 6.70748 4.65923C6.36717 3.62845 6.1943 2.54691 6.1943 1.44441C6.19434 0.647953 5.54639 0 4.74998 0H1.44436C0.647953 0 0 0.647953 0 1.44436C0 10.5733 7.42678 18 16.5557 18C17.3521 18 18 17.352 18 16.5556V13.2593C18 12.4629 17.352 11.8149 16.5557 11.8149Z"
-              fill="white"
-            />
-          </svg>
-        </a>
-      </div>
-    </div>
-  </div>
+				{assign var=emptyDataCounter value=0}
+				{#mod 'Locale'}
+				{locale_data}
+				{foreach $locale_data as $langArr=>$data}
+					{if !$data}
+						{assign var=emptyDataCounter value=$emptyDataCounter+1}
+						{continue}
+					{/if}
+					{if ($lang == 'ru' && $langArr != 'ru') || ($lang == 'uk' && $langArr != 'uk') || ($lang == 'en' &&  $langArr != 'en')}
+						<div class="header__right-item header__right-item--lang">
+							<a href="{if $langArr=='ru' and $data.url|count_characters == 0 }/?lang=ru{else}{$data.url|default:'#'}{/if}"
+								{if $data} title="{$data['title']}" {/if} class="flex items-center">
+								<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+									style="margin-right: 5px">
+									<path
+										d="M21.7811 5.07298C21.7807 5.06525 21.7799 5.05751 21.7786 5.04983C21.7486 5.00697 21.7117 4.9701 21.6808 4.9281C21.4567 4.62286 21.2195 4.32907 20.9692 4.04668C20.9006 3.96952 20.832 3.89321 20.7617 3.81775C20.5039 3.54169 20.2336 3.27845 19.9506 3.02811C19.8983 2.9818 19.8494 2.93382 19.7971 2.88835C19.0998 2.29098 18.3363 1.77544 17.5216 1.35194C17.489 1.33481 17.4548 1.32024 17.4213 1.30306C17.0585 1.11868 16.6865 0.952951 16.3067 0.806609C16.2209 0.775763 16.1429 0.746575 16.0615 0.720853C15.7237 0.599128 15.3807 0.492524 15.0326 0.401041C14.9297 0.373611 14.8268 0.345328 14.7222 0.321314C14.3793 0.241587 14.0364 0.180699 13.6856 0.130964C13.5793 0.115541 13.4747 0.0949435 13.3675 0.0820827C12.4643 -0.0276864 11.5512 -0.0276864 10.6479 0.0820827C10.5407 0.0949435 10.4361 0.115541 10.3298 0.130964C9.97912 0.180699 9.63273 0.241587 9.29317 0.321314C9.18858 0.345328 9.08569 0.373611 8.98281 0.401041C8.6324 0.492473 8.28948 0.599078 7.95394 0.720853C7.86819 0.749991 7.79017 0.779179 7.70873 0.806609C7.32899 0.952951 6.95693 1.11863 6.59411 1.30306C6.56065 1.32019 6.52639 1.33476 6.49379 1.35194C5.67637 1.77499 4.9103 2.29048 4.21054 2.88835C4.15824 2.93377 4.10936 2.9818 4.05706 3.02811C3.77126 3.2796 3.50088 3.54285 3.24598 3.81775C3.17569 3.89321 3.10707 3.96952 3.03849 4.04668C2.78756 4.32846 2.55034 4.62225 2.32688 4.92805C2.29603 4.97005 2.25916 5.00692 2.22912 5.04978C2.2252 5.05726 2.22173 5.065 2.21882 5.07293C-0.738467 9.21738 -0.738467 14.7822 2.21882 18.9266C2.22173 18.9345 2.22515 18.9423 2.22912 18.9498C2.25911 18.9926 2.29598 19.0295 2.32688 19.0715C2.55039 19.3767 2.78756 19.6705 3.03849 19.9529C3.10707 20.0301 3.17569 20.1064 3.24598 20.1818C3.50435 20.4579 3.77468 20.7211 4.05706 20.9715C4.10936 21.0178 4.15824 21.0658 4.21054 21.1112C4.90783 21.7086 5.67135 22.2241 6.48605 22.6476C6.51865 22.6648 6.55292 22.6793 6.58637 22.6965C6.94919 22.8809 7.3212 23.0466 7.70099 23.193C7.78675 23.2238 7.86477 23.253 7.9462 23.2787C8.284 23.4005 8.62697 23.5071 8.97507 23.5985C9.07796 23.626 9.18084 23.6543 9.28544 23.6783C9.62841 23.758 9.97133 23.8189 10.322 23.8686C10.4283 23.884 10.5329 23.9046 10.6401 23.9175C11.5434 24.0273 12.4565 24.0273 13.3598 23.9175C13.467 23.9046 13.5716 23.884 13.6779 23.8686C14.0286 23.8189 14.375 23.758 14.7145 23.6783C14.8191 23.6543 14.922 23.626 15.0249 23.5985C15.3758 23.5071 15.7188 23.4005 16.0537 23.2787C16.1395 23.2496 16.2175 23.2204 16.299 23.193C16.6787 23.0466 17.0508 22.8809 17.4136 22.6965C17.447 22.6794 17.4813 22.6648 17.5139 22.6476C18.3286 22.2241 19.0921 21.7086 19.7894 21.1112C19.8417 21.0658 19.8906 21.0178 19.9429 20.9715C20.2287 20.7205 20.4991 20.4573 20.754 20.1818C20.8243 20.1064 20.8929 20.0301 20.9615 19.9529C21.2124 19.6705 21.4496 19.3767 21.6731 19.0715C21.7039 19.0295 21.7408 18.9926 21.7708 18.9498C21.7747 18.9423 21.7782 18.9345 21.7811 18.9266C24.7384 14.7823 24.7384 9.21743 21.7811 5.07298ZM20.8029 6.69521C21.6228 8.04564 22.118 9.56804 22.2492 11.1425H17.1135C17.0506 10.1209 16.8898 9.10767 16.6334 8.11678C18.0841 7.84509 19.4883 7.36633 20.8029 6.69521ZM14.1855 1.94781C14.2335 1.95896 14.2798 1.97438 14.3278 1.98553C14.6348 2.05758 14.9392 2.13986 15.2367 2.24275C15.2821 2.25817 15.3267 2.27621 15.3713 2.29249C15.6663 2.39537 15.9569 2.50941 16.2416 2.63546C16.2913 2.65862 16.3402 2.68434 16.3899 2.7075C16.6626 2.83726 16.9289 2.97758 17.189 3.12849L17.3605 3.23223C17.6074 3.38314 17.8475 3.54461 18.0807 3.71667C18.1407 3.76038 18.2007 3.80243 18.2599 3.8504C18.4885 4.02186 18.7074 4.20563 18.9166 4.40171C18.9715 4.45145 19.0281 4.50033 19.0821 4.55177C19.3016 4.76011 19.5108 4.98045 19.7132 5.20853C19.7389 5.23852 19.7663 5.26595 19.792 5.29428C18.6311 5.84755 17.4012 6.24262 16.1353 6.46889C15.5488 4.85666 14.7741 3.31929 13.8272 1.88873C13.9463 1.91013 14.0681 1.92213 14.1855 1.94781ZM8.60562 11.1424C8.67324 10.2148 8.83119 9.29586 9.0772 8.39881C10.0486 8.51421 11.0261 8.57143 12.0043 8.57027C12.9835 8.56997 13.9619 8.5113 14.934 8.39449C15.1796 9.29299 15.3367 10.2133 15.403 11.1424H8.60562ZM15.403 12.8572C15.3354 13.7849 15.1775 14.7038 14.9314 15.6009C13.96 15.4855 12.9826 15.4283 12.0043 15.4294C11.0252 15.4283 10.0469 15.4855 9.07459 15.6009C8.82928 14.7038 8.67224 13.7849 8.60557 12.8572H15.403V12.8572ZM12.0043 2.27023C12.98 3.65312 13.7825 5.15045 14.3938 6.72867C13.6001 6.81296 12.8025 6.85531 12.0043 6.85557C11.207 6.85461 10.4102 6.81201 9.61731 6.72781C10.2294 5.15065 11.0309 3.65382 12.0043 2.27023ZM4.29639 5.20762C4.4979 4.97954 4.70794 4.7592 4.92743 4.55087C4.98143 4.49942 5.03805 4.45054 5.09291 4.40081C5.30441 4.2082 5.52335 4.02443 5.74967 3.8495C5.80885 3.80403 5.86883 3.76374 5.92886 3.71577C6.16207 3.54431 6.40215 3.38279 6.64907 3.23133L6.82053 3.12759C7.08061 2.97557 7.34697 2.8352 7.61961 2.70659C7.66934 2.68343 7.71823 2.65771 7.76796 2.63455C8.05261 2.50595 8.34328 2.39191 8.63823 2.29158C8.68279 2.2753 8.72398 2.25727 8.77281 2.24185C9.07032 2.14238 9.373 2.06009 9.68166 1.98463C9.72969 1.97348 9.77596 1.95805 9.82484 1.94776C9.94229 1.92203 10.0641 1.91003 10.1832 1.88858C9.23595 3.31939 8.46099 4.85706 7.87426 6.46959C6.60833 6.24332 5.37841 5.84825 4.21752 5.29498C4.24324 5.26504 4.27067 5.23761 4.29639 5.20762ZM3.20579 6.69521C4.52005 7.36628 5.92394 7.84504 7.3744 8.11678C7.11824 9.10772 6.95773 10.1209 6.89513 11.1425H1.7594C1.89072 9.56804 2.38586 8.04564 3.20579 6.69521ZM3.20579 17.3045C2.38581 15.9541 1.89067 14.4317 1.7594 12.8572H6.89513C6.95803 13.8789 7.11879 14.8921 7.37525 15.883C5.92454 16.1546 4.52035 16.6334 3.20579 17.3045ZM9.82313 22.0519C9.7751 22.0407 9.72883 22.0253 9.68081 22.0142C9.37386 21.9421 9.06947 21.8598 8.77196 21.7569C8.72649 21.7415 8.68193 21.7235 8.63732 21.7072C8.34238 21.6043 8.05175 21.4903 7.76706 21.3642C7.71732 21.3411 7.66844 21.3153 7.61871 21.2922C7.34607 21.1624 7.07971 21.0221 6.81963 20.8712L6.64817 20.7675C6.40125 20.6165 6.16116 20.4551 5.92796 20.283C5.86793 20.2393 5.80794 20.1973 5.74876 20.1493C5.52013 19.9778 5.3012 19.7941 5.09201 19.598C5.03715 19.5482 4.98053 19.4994 4.92652 19.4479C4.70704 19.2396 4.49785 19.0192 4.29549 18.7912C4.26977 18.7612 4.24234 18.7337 4.21662 18.7054C5.37756 18.1521 6.60742 17.7571 7.87336 17.5308C8.45983 19.143 9.23455 20.6804 10.1814 22.111C10.0623 22.0896 9.94059 22.0776 9.82313 22.0519ZM12.0043 21.7295C11.0286 20.3466 10.2261 18.8493 9.61474 17.2711C11.2026 17.1002 12.8042 17.1002 14.3921 17.2711L14.3912 17.2719C13.7792 18.849 12.9777 20.3459 12.0043 21.7295ZM19.7122 18.7921C19.5107 19.0201 19.3007 19.2405 19.0812 19.4488C19.0272 19.5003 18.9706 19.5491 18.9157 19.5989C18.7042 19.7921 18.4853 19.9759 18.259 20.1502C18.1998 20.1956 18.1398 20.2402 18.0798 20.2839C17.8466 20.4554 17.6065 20.6169 17.3596 20.7684L17.1881 20.8721C16.9286 21.0236 16.6622 21.1639 16.389 21.2931C16.3393 21.3163 16.2904 21.342 16.2407 21.3651C15.956 21.4937 15.6654 21.6078 15.3704 21.7081C15.3259 21.7244 15.2847 21.7424 15.2358 21.7578C14.9383 21.8573 14.6356 21.9396 14.327 22.0151C14.279 22.0262 14.2327 22.0416 14.1838 22.0519C14.0663 22.0777 13.9446 22.0897 13.8254 22.1111C14.7723 20.6805 15.547 19.1432 16.1335 17.5309C17.3994 17.7572 18.6293 18.1523 19.7902 18.7056C19.7654 18.7346 19.738 18.7621 19.7122 18.7921ZM20.8029 17.3045C19.4886 16.6335 18.0847 16.1547 16.6342 15.883C16.8904 14.892 17.0509 13.8788 17.1135 12.8572H22.2492C22.1179 14.4316 21.6228 15.954 20.8029 17.3045Z"
+										fill="black" />
+								</svg>
+								<span>
+									{if $langArr=='ru'}
+										Рус
+									{elseif $langArr=='uk'}
+										Укр
+									{elseif $langArr=='en'}
+										En
+									{/if}
+								</span>
+							</a>
+						</div>
+						{* <div class="mr-2"></div> *}
+					{/if}
+				{/foreach}
+				{#/mod}
+
+				{if $emptyDataCounter > 0 || !$locale_data}
+					<div class="mr-2"></div>
+				{/if}
+
+				<a class="header__btn header__btn--blue" href="{if $lang === 'en'}/en/{else}/{/if}about/contacts">
+					<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path
+							d="M16.5557 11.8149C15.4537 11.8149 14.3716 11.6426 13.3462 11.3037C12.8438 11.1323 12.2261 11.2896 11.9194 11.6045L9.8955 13.1324C7.54833 11.8794 6.10252 10.4341 4.8667 8.10455L6.34959 6.13336C6.73486 5.74861 6.87305 5.18658 6.70748 4.65923C6.36717 3.62845 6.1943 2.54691 6.1943 1.44441C6.19434 0.647953 5.54639 0 4.74998 0H1.44436C0.647953 0 0 0.647953 0 1.44436C0 10.5733 7.42678 18 16.5557 18C17.3521 18 18 17.352 18 16.5556V13.2593C18 12.4629 17.352 11.8149 16.5557 11.8149Z"
+							fill="white" />
+					</svg>
+				</a>
+			</div>
+		</div>
+	</div>
 </header>
 <div class="header_search">
-  <div class="container">
-    <div class="flex w-full items-center">
-      <div class="cell small-3 mr-6" style="border:none;">
-        <div class="logo">
-          <img class="lazyimg" data-src="/images/logo-footer.svg" width="200px">
-        </div>
-      </div>
-      <div class="cell small-9" style="flex:7;">
-        <div class="search_input pt-0">
-            <form action="/search" method="get" class="search_frm">
-                <button style="border:none"><i class="fa fa-search" aria-hidden="true"></i></button>
-                <input name="q" class="w-full" type="search" value="{$query}" placeholder="{if $lang === 'ru'}Поиск среди 30 000 материалов в области инвестиций{else}Search among 30,000 materials about investments{/if}" style="height: 60px;"/>
-                <i class="fa fa-close mt-0" aria-hidden="true" id="close" style="height: 60px;line-height: 60px;width: 60px;text-align: center;"></i>
-            </form>
-        </div>
-      </div>
-    </div>
-  </div>
+	<div class="container">
+		<div class="flex w-full items-center">
+			<div class="cell small-3 mr-6" style="border:none;">
+				<div class="logo">
+					<img class="lazyimg" data-src="/images/logo-footer.svg" width="200px">
+				</div>
+			</div>
+			<div class="cell small-9" style="flex:7;">
+				<div class="search_input pt-0">
+					<form action="/search" method="get" class="search_frm">
+						<button style="border:none"><i class="fa fa-search" aria-hidden="true"></i></button>
+						<input name="q" class="w-full" type="search" value="{$query}"
+							placeholder="{if $lang === 'ru'}Поиск среди 30 000 материалов в области инвестиций{else}Search among 30,000 materials about investments{/if}"
+							style="height: 60px;" />
+						<i class="fa fa-close mt-0" aria-hidden="true" id="close"
+							style="height: 60px;line-height: 60px;width: 60px;text-align: center;"></i>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
