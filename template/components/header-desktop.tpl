@@ -268,7 +268,7 @@
                           viewBox="0 0 22 22"
                           fill="none"
                         >
-													<use xlink:href="/images/header-icons-sprite.svg#news-world" />
+													<use xlink:href="/images/header-icons-sprite.svg#news-world" style="stroke: none;"/>
                         </svg>
                         {if $lang === 'ru'}Мир{elseif $lang === 'uk'}Світ{else}World{/if}
                       </li>
