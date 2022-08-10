@@ -5,7 +5,7 @@
 	width: 100%;
 	left: 0;
 	right: 0;
-	
+
 	&__social-icon {
 		margin-right: 0.5em;
 		height: 36px;
@@ -110,10 +110,13 @@
 	}
 }
 
-.header .header__right-item, .mobile-nav, .header__right-item {
-	&--lang, &--lang a {
+.header .header__right-item,
+.mobile-nav,
+.header__right-item {
+	&--lang,
+	&--lang a {
 		font-weight: 500;
-		color: var(--main-accent-color)!important;
+		color: var(--main-accent-color) !important;
 	}
 }
 .header .header__right {
@@ -466,14 +469,15 @@
 		path {
 			transition: all 0.25s ease;
 		}
-		use{
+		use {
 			transition: all 0.25s ease;
-			stroke: #1F2E35;
+			stroke: #1f2e35;
 		}
 		&:hover {
 			color: var(--main-accent-color);
 			svg:not(.nochange) {
-				path, use {
+				path,
+				use {
 					stroke: var(--main-accent-color);
 				}
 			}
@@ -493,19 +497,26 @@
 			max-width: 22px;
 		}
 	}
-	.invest-ukraine path {
+	.invest-ukraine path,
+	.invest-ukraine use {
 		stroke: none !important;
 		// fill: var(--main-accent-color);
 	}
-	a:hover .nochange path {
+	a:hover .nochange path,
+	a:hover .nochange use {
 		// fill: initial;
 		stroke: none;
 	}
 	a:hover .invest-ukraine path,
+	a:hover .invest-ukraine use,
 	a:hover .investments-land path,
+	a:hover .investments-land use,
 	a:hover .franchising-svg path,
+	a:hover .franchising-svg use,
 	a:hover .services-svg path,
-	a:hover .fill-svg path {
+	a:hover .services-svg use,
+	a:hover .fill-svg path,
+	a:hover .fill-svg use {
 		fill: var(--main-accent-color);
 	}
 }
@@ -524,7 +535,8 @@
 	display: none;
 }
 
-.franchising-svg path {
+.franchising-svg path,
+.franchising-svg use {
 	stroke: none !important;
 }
 
