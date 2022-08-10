@@ -103,6 +103,7 @@
 	{script name="iti-load-utils" async="" src="/js/utils.js"}
 	{script name="lbx_script" async="" src="/js/lbx_script.js"}
 	{script name="sweetalert2" async="" src="https://cdn.jsdelivr.net/npm/sweetalert2@8"}
+	{script name="lazysizes" async="" src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.2.2/lazysizes.min.js"}
 	{script name="remodal" require="jquery" async="" src="https://cdnjs.cloudflare.com/ajax/libs/remodal/1.1.1/remodal.min.js"}
 	{script name="isValidNumber" require="intlTelInput,iti-load-utils" async="" src="/js/isValidNumber.js"}
 
@@ -266,8 +267,6 @@
 			'--desktop': '(min-width: 1024px)',
 		};
 	</script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.2.2/lazysizes.min.js"></script>
-	<script async defer src="/js/lbx_script.js"></script>
 </body>
 
 </html>
