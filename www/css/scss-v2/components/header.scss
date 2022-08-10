@@ -466,8 +466,9 @@
 		path {
 			transition: all 0.25s ease;
 		}
-		svg use{
-			stroke: "#1F2E35";
+		use{
+			transition: all 0.25s ease;
+			stroke: #1F2E35;
 		}
 		&:hover {
 			color: var(--main-accent-color);
