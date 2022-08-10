@@ -110,7 +110,6 @@
 	{head}
 
 	{* <script src="/js/intlTelInput-min.js"></script> *}
-	{script name="recaptcha" async="" src="https://www.google.com/recaptcha/api.js"}
 	{script name="intlTelInput" async="" src="/js/intlTelInput-min.js"}
 	{script name="iti-load-utils" async="" src="/js/utils.js"}
 	{script name="lbx_script" async="" src="/js/lbx_script.js"}
