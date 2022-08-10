@@ -45,7 +45,7 @@
 
 	<link rel="dns-prefetch" href="//netdna.bootstrapcdn.com">
 	<link rel="alternate" hreflang="x-default" href="https://inventure.com.ua/" />
-	{if $bigpost->getImage()}<link rel="preload" as="image" href="{$bigpost->getImage()->thumbup(600,400)->getUrl()}">{/if}
+	
 	{* {literal}
 		<!-- Google Tag Manager -->
 		<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':

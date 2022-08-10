@@ -76,7 +76,7 @@
 				</svg>
 			</button>
 		</div>
-		
+		{if $bigpost->getImage()}<link rel="preload" as="image" href="{$bigpost->getImage()->thumbup(600,400)->getUrl()}">{/if}
 		<div class="invest-projects__grid cards">
 			<a href="{$bigpost->getPath()}" class="cards__item card cards__item--big">
 				<div class="cards__img-wrapper mb-4">
