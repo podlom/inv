@@ -254,7 +254,7 @@
                           fill="none"
                           xmlns="http://www.w3.org/2000/svg"
                         >
-													<use xlink:href="/images/header-icons-sprite.svg#news-ukraine" />
+													<use xlink:href="/images/header-icons-sprite.svg#news-ukraine" style="stroke: none;"/>
                         </svg>
                         {if $lang === 'ru'}Украина{elseif $lang === 'uk'}Україна{else}Ukraine{/if}
                       </li>
