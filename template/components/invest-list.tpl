@@ -76,7 +76,7 @@
 				</svg>
 			</button>
 		</div>
-
+		
 		<div class="invest-projects__grid cards">
 			<a href="{$bigpost->getPath()}" class="cards__item card cards__item--big">
 				<div class="cards__img-wrapper mb-4">
