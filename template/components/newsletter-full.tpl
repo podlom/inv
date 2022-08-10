@@ -33,7 +33,7 @@
         </a>
       </div>
     </div>
-    <img data-src="images/inVenture-magazine-cuted.png" class="lazyload newsletter__mag mobile-only" alt="Фото инвестиционного дайджеста InVenture">
+    <img data-src="images/inVenture-magazine-cuted.png" width="318px" height="220px" class="lazyload newsletter__mag mobile-only" alt="Фото инвестиционного дайджеста InVenture">
   </div>
 </div>
 

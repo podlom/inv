@@ -37,13 +37,13 @@
     {if $post}
         {if $isInvestmentsPost}
 					<div class="flex items-center opacity-75 text-sm  mr-4"> 
-						<img data-src="/images/icons/star.svg" alt="Rating icon" class="lazyload">
+						<img data-src="/images/icons/star.svg" width="16px" height="16px" alt="Rating icon" class="lazyload">
 						<p class="ml-2 font-semibold text-sm text--grey">{$post->getRating()}</p>
 					</div>
 				{/if}
         
         <div class="flex items-center  opacity-75 text-sm  mr-4">
-            <img data-src="/images/icons/eye.svg" alt="Views icon" class="lazyload">
+            <img data-src="/images/icons/eye.svg" width="16px" height="16px" alt="Views icon" class="lazyload">
             <p class="ml-2 font-semibold text-sm text--grey">{$post->getViews() + 1}</p>
         </div>
     {/if}
