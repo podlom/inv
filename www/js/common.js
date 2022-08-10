@@ -29,7 +29,7 @@ if (document.getElementById('check-ru')) {
 const LIMITED_CHECKBOX =
 	'input[name="sf_investor[types][]"], input[name="sf_investor[profit][]"]';
 if ($(LIMITED_CHECKBOX).length) {
-	$(LIMITED_CHECKBOX).click(function() {
+	$(LIMITED_CHECKBOX).click(function () {
 		var selector = `input[name="${$(this).attr('name')}"]`;
 		$(this).attr('disabled', false);
 		if ($(selector + ':checked').length >= 3) {
@@ -42,17 +42,15 @@ if ($(LIMITED_CHECKBOX).length) {
 
 function changeCheckBox(lang) {
 	if (lang == 'ru') {
-		document.getElementById('check-ru').checked = !document.getElementById(
-			'check-ru',
-		).checked;
+		document.getElementById('check-ru').checked =
+			!document.getElementById('check-ru').checked;
 		document
 			.getElementById('check-box-ru')
 			.classList.toggle('subscription__check-box--active');
 	}
 	if (lang == 'en') {
-		document.getElementById('check-en').checked = !document.getElementById(
-			'check-en',
-		).checked;
+		document.getElementById('check-en').checked =
+			!document.getElementById('check-en').checked;
 		document
 			.getElementById('check-box-en')
 			.classList.toggle('subscription__check-box--active');
@@ -112,15 +110,10 @@ function redirectPost(location, args) {
 		}
 	});
 }); */
-$(
-	'form[action="/!Mail"]',
-).submit(function(e) {
+$('form[action="/!Mail"]').submit(function (e) {
 	e.preventDefault();
 
-	if (
-		$('#error-msg').length &&
-		!$('#error-msg').hasClass('hide')
-	) {
+	if ($('#error-msg').length && !$('#error-msg').hasClass('hide')) {
 		console.log('+124 prevent wrong phone inputmask value submit');
 		$('#phone').focus();
 		return;
@@ -140,7 +133,7 @@ $(
 	var action = '/invest.php';
 	var form = $(this);
 
-	$.post(action, $(this).serialize(), function(rData) {
+	$.post(action, $(this).serialize(), function (rData) {
 		console.log('+144 result data: ', rData);
 
 		form.trigger('reset');
@@ -151,23 +144,27 @@ $(
 		window.Swal = swal;
 
 		if (document.documentElement.lang == 'ru') {
-
 			console.log('+155 before Swal.fire()');
 			Swal.fire({
 				title: 'Благодарим за Ваш запрос!',
-				html: '<div><!-- +158 common.js -->\n' +
-					'\t\t\t' + rData + '.\n' +
+				html:
+					'<div><!-- +158 common.js -->\n' +
+					'\t\t\t' +
+					rData +
+					'.\n' +
 					'\t\t</div>\n' +
 					'\t\t',
 				type: 'success',
 				confirmButtonText: 'Закрыть',
 			});
-
 		} else {
 			Swal.fire({
 				title: 'Thank you for your apply!',
-				html: '<div><!-- +169 common.js -->\n' +
-					'\t\t\t' + rData + '.\n' +
+				html:
+					'<div><!-- +169 common.js -->\n' +
+					'\t\t\t' +
+					rData +
+					'.\n' +
 					'\t\t</div>\n' +
 					'\t\t',
 				type: 'success',
@@ -179,13 +176,10 @@ $(
 
 $(
 	'form[action="/form/approach"], form[action="/form/investor"], form[action="/form/investor_en"], form[action="/form/investment_callback"]',
-).submit(function(e) {
+).submit(function (e) {
 	e.preventDefault();
 
-	if (
-		$('#error-msg').length &&
-		!$('#error-msg').hasClass('hide')
-	) {
+	if ($('#error-msg').length && !$('#error-msg').hasClass('hide')) {
 		console.log('+189 prevent wrong phone inputmask value submit');
 		$('#phone').focus();
 		return;
@@ -214,34 +208,56 @@ $(
 		window.Swal = swal;
 
 		if (document.documentElement.lang == 'ru') {
-
 			// это для рекламного подхода - link_adv
 			// let newHref = 'https://drive.google.com/open?id=1sFGhi5u4wVwNH8-pJat4EX8ufHSBIXVS';
-			let newHref = 'https://drive.google.com/file/d/1_6DUg9KUdUFQ6-RDT0o0buJ3XrX2YVre/view?usp=sharing';
-			$.get('https://inventure.com.ua/page-attr-data.php', {'action': 'get_setting', 'name': 'link_adv'}, function(dat98) {
-				newHref = dat98;
-				console.log('+223 got link from admin settings: ' + newHref);
+			let newHref =
+				'https://drive.google.com/file/d/1_6DUg9KUdUFQ6-RDT0o0buJ3XrX2YVre/view?usp=sharing';
+			$.get(
+				'https://inventure.com.ua/page-attr-data.php',
+				{ action: 'get_setting', name: 'link_adv' },
+				function (dat98) {
+					newHref = dat98;
+					console.log(
+						'+223 got link from admin settings: ' + newHref,
+					);
 
-				$('#openNowLink').attr("href", newHref);
-				document.getElementById('openNowLink').setAttribute('href', newHref);
-			});
+					$('#openNowLink').attr('href', newHref);
+					document
+						.getElementById('openNowLink')
+						.setAttribute('href', newHref);
+				},
+			);
 
 			if (typeof window.isInd !== 'undefined') {
-				if (window.isInd) { // это для полного сопровождения - link_ind
+				if (window.isInd) {
+					// это для полного сопровождения - link_ind
 					// newHref = 'https://drive.google.com/open?id=19Ax-vqbQ9fPFEfTloQ_9UzNAZBKIPPcu';
-					newHref = 'https://drive.google.com/file/d/1O8kFTEPX1kiOn0cXV-WCLTxHunkiTThj/view?usp=sharing';
-					$.get('https://inventure.com.ua/page-attr-data.php', {'action': 'get_setting', 'name': 'link_ind'}, function(dat99) {
-						newHref = dat99;
-						console.log('+232 got link from admin settings: ' + newHref);
+					newHref =
+						'https://drive.google.com/file/d/1O8kFTEPX1kiOn0cXV-WCLTxHunkiTThj/view?usp=sharing';
+					$.get(
+						'https://inventure.com.ua/page-attr-data.php',
+						{ action: 'get_setting', name: 'link_ind' },
+						function (dat99) {
+							newHref = dat99;
+							console.log(
+								'+232 got link from admin settings: ' + newHref,
+							);
 
-						$('#openNowLink').attr("href", newHref);
-						document.getElementById('openNowLink').setAttribute('href', newHref);
-					});
-					
-					console.log('+235 fix #openNowLink link new href: ', newHref);
-					$('#openNowLink').attr("href", newHref);
-					document.getElementById('openNowLink').setAttribute('href', newHref);
+							$('#openNowLink').attr('href', newHref);
+							document
+								.getElementById('openNowLink')
+								.setAttribute('href', newHref);
+						},
+					);
 
+					console.log(
+						'+235 fix #openNowLink link new href: ',
+						newHref,
+					);
+					$('#openNowLink').attr('href', newHref);
+					document
+						.getElementById('openNowLink')
+						.setAttribute('href', newHref);
 				} else {
 					console.log('+240 window.isInd is true: ', window.isInd);
 				}
@@ -251,31 +267,34 @@ $(
 
 			console.log('+246 before Swal.fire()');
 			console.log('action', form.attr('action'));
-			if(form.attr('action') === '/form/investment_callback'){
+			if (form.attr('action') === '/form/investment_callback') {
 				Swal.fire({
 					title: 'Спасибо за заявку!',
 					html: '',
 					type: 'success',
 					confirmButtonText: 'Закрыть',
 				});
-			}else{
+			} else {
 				Swal.fire({
 					title: 'Благодарим за Ваш запрос!',
-					html: '<p><!-- +249 common.js -->\n' +
+					html:
+						'<p><!-- +249 common.js -->\n' +
 						'\t\t\tМы отправили Вам на почту презентацию с описанием условий сотрудничества.\n' +
 						'\t\t</p>\n' +
 						'\t\t<p> \n' +
 						'\t\t\tНаш менеджер свяжется с Вами в течение одного рабочего дня.\n' +
 						'\t\t</p>\n' +
 						'\t\t<br><p> \n' +
-						'\t\t<a style="text-decoration:underline;" id="openNowLink" target="_blank" href="' + newHref + '" class="w-full blue_but cell-but small-12" type="submit">Открыть сейчас</a>\n' +
+						'\t\t<a style="text-decoration:underline;" id="openNowLink" target="_blank" href="' +
+						newHref +
+						'" class="w-full blue_but cell-but small-12" type="submit">Открыть сейчас</a>\n' +
 						'\t\t</p>\n' +
 						'\t\t',
 					type: 'success',
 					confirmButtonText: 'Закрыть',
 				});
 			}
-		}else if (document.documentElement.lang == 'uk') {
+		} else if (document.documentElement.lang == 'uk') {
 			Swal.fire({
 				title: 'Дякуємо за подання заявки!',
 				html: '',
@@ -303,7 +322,18 @@ function loadScript(src) {
 		document.body.appendChild(script);
 	});
 }
-$(document.body).ready(function() {
+
+function reCaptchaOnFocus() {
+	loadScript('https://www.google.com/recaptcha/api.js');
+	document.querySelectorAll('input').forEach((item) => {
+		item.removeEventListener('focus', reCaptchaOnFocus);
+	});
+}
+
+$(document.body).ready(function () {
+	document.querySelectorAll('input').forEach((item) => {
+		item.addEventListener('focus', reCaptchaOnFocus, false);
+	});
 	if ($('.section__category').length) {
 		const url_string = window.location.href;
 		const url = new URL(url_string);
@@ -312,12 +342,8 @@ $(document.body).ready(function() {
 		const region = url.searchParams.get('region');
 
 		$('input[name="region"]').val(region);
-		$('.section__category').each(function(el) {
-			if (
-				$(this)
-					.attr('href')
-					.indexOf(activeParent) !== -1
-			) {
+		$('.section__category').each(function (el) {
+			if ($(this).attr('href').indexOf(activeParent) !== -1) {
 				$(this).addClass('section__category--active');
 			}
 			if (sortType) {
@@ -378,9 +404,8 @@ $(document.body).ready(function() {
 				$('#cards__list').html(data);
 				setTimeout(() => {
 					const randomIndex = getRandomNumber(7, 20);
-					const elements = document.querySelectorAll(
-						'#cards__list a',
-					);
+					const elements =
+						document.querySelectorAll('#cards__list a');
 					const elementByIndex = elements && elements[randomIndex];
 					if (elementByIndex) {
 						elementByIndex.insertAdjacentHTML(
@@ -413,12 +438,12 @@ $(document.body).ready(function() {
 		image.setAttribute('alt', 'Youtube постер');
 		image.addEventListener(
 			'load',
-			(function() {
+			(function () {
 				youtube[i].appendChild(image);
 			})(i),
 		);
 
-		youtube[i].addEventListener('click', function() {
+		youtube[i].addEventListener('click', function () {
 			var iframe = document.createElement('iframe');
 
 			iframe.setAttribute('frameborder', '0');
@@ -439,11 +464,11 @@ $(document.body).ready(function() {
 	var state = 'init';
 	var storage = window.sessionStorage || window.localStorage;
 	var is_sent = (storage && storage.getItem('callback_send')) || false;
-	var close = function() {
+	var close = function () {
 		state = 'close';
 		r.removeClass('gm_open').removeClass('gm_done');
 	};
-	var open = function() {
+	var open = function () {
 		state = 'open';
 		r.removeClass('gm_done').addClass('gm_open');
 	};
@@ -451,7 +476,7 @@ $(document.body).ready(function() {
 	$('#gm_callback .gm_call').click(open);
 	$('#gm_callback .gm_close').click(close);
 	$('#gm_callback input[type=tel]')
-		.keydown(function(e) {
+		.keydown(function (e) {
 			var t = e.target.value;
 			var r = '+' + t.replace(/[^0-9]/g, '');
 			if (r != t) e.target.value = r;
@@ -464,39 +489,33 @@ $(document.body).ready(function() {
 				return false;
 			}
 		})
-		.focus(function(e) {
+		.focus(function (e) {
 			if (e.target.value == '') {
 				e.target.value = '+';
 			}
 		})
-		.blur(function(e) {
+		.blur(function (e) {
 			if (e.target.value == '+') {
 				e.target.value = '';
 			}
 		});
-	$('#gm_callback form').submit(function(e) {
+	$('#gm_callback form').submit(function (e) {
 		// e.preventDefault();
 		// e.stopPropagation();
 		console.log('+221 #gm_callback form submit');
 
 		var tel3 = $('#phone3').val();
 		if (tel3.length < 13) {
-			$('#error-msg3')
-				.text('Number is too short')
-				.removeClass('hide');
+			$('#error-msg3').text('Number is too short').removeClass('hide');
 			$('#phone3').focus();
 			return;
 		} else if (tel3.length >= 14) {
-			$('#error-msg3')
-				.text('Number is too long')
-				.removeClass('hide');
+			$('#error-msg3').text('Number is too long').removeClass('hide');
 			$('#phone3').focus();
 			return;
 		} else {
 			console.log('+233 tel lenght is OK: ' + tel3.length);
-			$('#error-msg3')
-				.text('')
-				.addClass('hide');
+			$('#error-msg3').text('').addClass('hide');
 		}
 
 		if (
@@ -513,19 +532,15 @@ $(document.body).ready(function() {
 		}
 		r.removeClass('gm_open').addClass('gm_done');
 
-		$('[data-remodal-id=callback]')
-			.remodal()
-			.close();
+		$('[data-remodal-id=callback]').remodal().close();
 	});
 });
-$(document).ready(function() {
+$(document).ready(function () {
 	$('#gm_callback').fadeIn(300);
 });
-$(document).ready(function() {
-	$('.mobile_menu form [data-submit]').click(function() {
-		$(this)
-			.parents('form')
-			.submit();
+$(document).ready(function () {
+	$('.mobile_menu form [data-submit]').click(function () {
+		$(this).parents('form').submit();
 		console.log(this.form);
 	});
 	const hoverableNavs = 3;
@@ -542,27 +557,27 @@ $(document).ready(function() {
 		);
 	}
 
-	$('.header .right .search, .header .search').click(function() {
+	$('.header .right .search, .header .search').click(function () {
 		$('.header').hide();
 		$('.header_search').show();
 	});
-	$('#close').click(function() {
+	$('#close').click(function () {
 		$('.header_search').hide();
 		$('.header').show();
 	});
-	$('.open_popup').click(function() {
+	$('.open_popup').click(function () {
 		$('.my_popup').addClass('opened');
 		$('.dark_bg').addClass('opened');
 		if (window.innerWidth < 500) {
 			$('html').addClass('page-locked');
 		}
 	});
-	$('.my_popup i, .close__popup, .dark_bg').click(function() {
+	$('.my_popup i, .close__popup, .dark_bg').click(function () {
 		$('.my_popup').removeClass('opened');
 		$('.dark_bg').removeClass('opened');
 		$('html').removeClass('page-locked');
 	});
-	$('.my_popup').click(function(e) {
+	$('.my_popup').click(function (e) {
 		var container = $('.my_popup__wrapper');
 
 		if (!container.is(e.target) && container.has(e.target).length === 0) {
@@ -571,7 +586,7 @@ $(document).ready(function() {
 		}
 	});
 	$('#archiveFormYear, #archiveFormMonths')
-		.change(function(e) {
+		.change(function (e) {
 			link = $(
 				'#digest a.y' +
 					$('#archiveFormYear').val() +
@@ -589,7 +604,7 @@ $(document).ready(function() {
 			}
 		})
 		.change();
-	$('#archiveFormButton').click(function(e) {
+	$('#archiveFormButton').click(function (e) {
 		if ($(this).attr('disabled')) e.preventDefault();
 	});
 
@@ -697,11 +712,11 @@ $(document).ready(function() {
 	// 	$('.label-click6 .open').show();
 	// });
 
-	$('.up').click(function() {
+	$('.up').click(function () {
 		$('html, body').animate({ scrollTop: 0 }, 600);
 		return false;
 	});
-	$(window).scroll(function() {
+	$(window).scroll(function () {
 		if ($(this).scrollTop() > 800) {
 			$('.up').fadeIn();
 		} else {
@@ -720,12 +735,12 @@ $(document).ready(function() {
 	// });
 	const toggableMenuList = ['investments', 'news', 'analytics'];
 	for (let item of toggableMenuList) {
-		$(`.mobile_menu .${item} .fa-plus`).click(function() {
+		$(`.mobile_menu .${item} .fa-plus`).click(function () {
 			$(this).hide();
 			$(`.mobile_menu .${item} .fa-minus`).show();
 			$(`.mobile_menu .${item} ul`).show();
 		});
-		$(`.mobile_menu .${item} .fa-minus`).click(function() {
+		$(`.mobile_menu .${item} .fa-minus`).click(function () {
 			$(this).hide();
 			$(`.mobile_menu .${item} .fa-plus`).show();
 			$(`.mobile_menu .${item} ul`).hide();
@@ -776,7 +791,7 @@ $(document).ready(function() {
 	// 	);
 	// }
 
-	$('#hidden-digest div').each(function() {
+	$('#hidden-digest div').each(function () {
 		var month = $(this).attr('data-month'),
 			year = $(this).attr('data-year'),
 			link = $(this).text();
@@ -786,7 +801,7 @@ $(document).ready(function() {
 		);
 	});
 
-	$('.digest__years li').click(function() {
+	$('.digest__years li').click(function () {
 		$('.digest__years li.active').removeClass('active');
 		$('.digest__month.active').removeClass('active');
 		$('#digest__month-' + $(this).text()).addClass('active');
@@ -843,12 +858,12 @@ $(document).ready(function() {
 
 	var selectConfig = {
 		selectAll: false,
-		formatCountSelected: function(count, total) {
+		formatCountSelected: function (count, total) {
 			const fromStr =
 				document.documentElement.lang === 'ru' ? ' из ' : ' of ';
 			return count + fromStr + total;
 		},
-		formatAllSelected: function() {
+		formatAllSelected: function () {
 			return document.documentElement.lang === 'ru'
 				? 'Все выбраны'
 				: 'All selected';
@@ -956,7 +971,7 @@ $(document).ready(function() {
 		window.location.href = sortType;
 	});
 
-	$('.toggle-filter').click(function() {
+	$('.toggle-filter').click(function () {
 		$('.filter__wrapper').toggleClass('active');
 		$('html, body').toggleClass('is-locked');
 	});
@@ -970,7 +985,7 @@ $(document).ready(function() {
 		$navigation = $('header');
 
 	//open-close lateral menu clicking on the menu icon
-	$lateral_menu_trigger.on('click', function(event) {
+	$lateral_menu_trigger.on('click', function (event) {
 		event.preventDefault();
 
 		$lateral_menu_trigger.toggleClass('is-clicked');
@@ -979,7 +994,7 @@ $(document).ready(function() {
 			.toggleClass('lateral-menu-is-open')
 			.one(
 				'webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend',
-				function() {
+				function () {
 					// firefox transitions break when parent overflow is changed, so we need to wait for the end of the trasition to give the body an overflow hidden
 					$('body').toggleClass('overflow-hidden');
 				},
@@ -993,7 +1008,7 @@ $(document).ready(function() {
 	});
 
 	//close lateral menu clicking outside the menu itself
-	$content_wrapper.on('click', function(event) {
+	$content_wrapper.on('click', function (event) {
 		if (!$(event.target).is('#cd-menu-trigger, #cd-menu-trigger span')) {
 			$lateral_menu_trigger.removeClass('is-clicked');
 			$navigation.removeClass('lateral-menu-is-open');
@@ -1001,7 +1016,7 @@ $(document).ready(function() {
 				.removeClass('lateral-menu-is-open')
 				.one(
 					'webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend',
-					function() {
+					function () {
 						$('body').removeClass('overflow-hidden');
 					},
 				);
@@ -1015,7 +1030,7 @@ $(document).ready(function() {
 
 	$('.item-has-children')
 		.children('a')
-		.on('click', function(event) {
+		.on('click', function (event) {
 			event.preventDefault();
 			$(this)
 				.toggleClass('submenu-open')
@@ -1044,14 +1059,14 @@ $(document).ready(function() {
 		$('body, html').removeClass('modal-open');
 		$('#mobile-nav').removeClass('mobile-nav--opened');
 	}
-	$('#open-mobile-menu').click(function() {
+	$('#open-mobile-menu').click(function () {
 		$('#open-mobile-menu').hasClass('header__btn--close')
 			? closeMenu()
 			: openMenu();
 	});
 	if ($('#search-page #sort-select').length) {
 		const activeClass = 'sort__item--active';
-		$('#sort-select li').click(function(e) {
+		$('#sort-select li').click(function (e) {
 			e.preventDefault();
 			const sortType = $(this).attr('data-value');
 			$('#sort-select li').removeClass(activeClass);
@@ -1084,7 +1099,7 @@ $(document).ready(function() {
 		a.remove();
 	};
 
-	$('.preview__slider-download').click(function() {
+	$('.preview__slider-download').click(function () {
 		const link = $(this).attr('data-link');
 		const fileName = link.substring(link.lastIndexOf('/') + 1);
 		upload({ link, fileName });
