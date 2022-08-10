@@ -2,7 +2,7 @@
 	<div class="header__wrapper">
 		<div class="container header__container">
 			<a class="header__logo" href="{if $lang == 'en'}/en{elseif $lang == 'uk'}/uk{else}/?lang=ru{/if}">
-				<img src="/images/logo.svg" alt="Inventure logo" />
+				<img src="/images/logo.svg" width="200px" height="26px" alt="Inventure logo" />
 			</a>
 			<div class="menu">
 				{block 'menu'}

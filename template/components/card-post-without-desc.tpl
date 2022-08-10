@@ -43,12 +43,12 @@
       <div class="cards__meta-wrapper text-sm">
        {if $post->getAttr(13)}
             <div class="cards__meta-stat">
-								<img data-src="/images/icons/star.svg" alt="Rating icon" class="lazyload mr-2">
+								<img data-src="/images/icons/star.svg" width="16px" height="16px" alt="Rating icon" class="lazyload mr-2">
                 <div>{$post->getAttr(13)|number_format}</div>
             </div>
         {/if}
         <div class="cards__meta-stat">
-            <img data-src="/images/icons/eye.svg" alt="Views icon" class="lazyload mr-2">
+            <img data-src="/images/icons/eye.svg" width="16px" height="16px" alt="Views icon" class="lazyload mr-2">
             <div>{$post->getViews()+1}</div>
         </div>
       </div>
