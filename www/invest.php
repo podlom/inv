@@ -1146,7 +1146,7 @@ if (!empty($_REQUEST)) {
                 //
                 $resHmtl .= '<a href="' . $urlLangPrefix . '/investments/' . $a2['subpath'] . '"  class="cards__item project-' . $num . '">
                     <div class="cards__img-wrapper mb-2 parent_id-' . $a2['parent_id'] . ' lang-' . $lang . ' is-sold-' . $isSold . '">' . $soldHtml . '
-                        <img class="cards__img lazyimg" data-src="' . $imgUrl . '" alt="' . $a2['h1'] . '" src="' . $imgUrl . '">
+                        <img class="cards__img lazyload" data-src="' . $imgUrl . '" alt="' . $a2['h1'] . '" src="' . $imgUrl . '">
                     </div>
                     <div class="opacity-75 text-sm w-full cards__meta pt-0 mt-0">' . $dateFormatted . '</div>
                     <h2 class="cards__title mt-0" itemprop="headline">' . $a2['h1'] . '</h2>
