@@ -120,12 +120,12 @@
 								<div class="flex items-center ml-auto">
 									{if $bigpost->getAttr(13)}
 										<div class="flex items-center mr-4">
-											<img data-src="/images/icons/star.svg" width="16px" height="16px" alt="Rating icon" class="lazyload">
+											<img data-src="/images/icons/star.svg" width="16px" height="16px" alt="Rating icon" class="lazyimg">
 											<p class="ml-2 font-semibold text-sm">{$bigpost->getAttr(13)|number_format}</p>
 										</div>
 									{/if}
 									<div class="flex items-center">
-										<img data-src="/images/icons/eye.svg" width="16px" height="16px" alt="Views icon" class="lazyload">
+										<img data-src="/images/icons/eye.svg" width="16px" height="16px" alt="Views icon" class="lazyimg">
 										<p class="ml-2 font-semibold text-sm">{$bigpost->getViews()}</p>
 									</div>
 								</div>
@@ -170,12 +170,12 @@
 											<div class="flex items-center ml-auto">
 												{if $post->getAttr(13)}
 													<div class="flex items-center mr-4">
-														<img data-src="/images/icons/star.svg" width="16px" height="16px" alt="Rating icon" class="lazyload">
+														<img data-src="/images/icons/star.svg" width="16px" height="16px" alt="Rating icon" class="lazyimg">
 														<p class="ml-2 font-semibold text-sm">{$post->getAttr(13)|number_format}</p>
 													</div>
 												{/if}
 												<div class="flex items-center ">
-													<img data-src="/images/icons/eye.svg" width="16px" height="16px" alt="Views icon" class="lazyload">
+													<img data-src="/images/icons/eye.svg" width="16px" height="16px" alt="Views icon" class="lazyimg">
 													<p class="ml-2 font-semibold text-sm">{$post->getViews()}</p>
 												</div>
 											</div>
