@@ -13,7 +13,7 @@
 		<div class="section__title-categories pt-0 mb-2 pb-0 flex flex-row justify-between items-center">
 			<a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/investments">
 				<h1 class="pr-4">{if $lang === 'ru'}Инвестиционные предложения
-				{elseif $lang === 'uk'}Інвестиційні
+					{elseif $lang === 'uk'}Інвестиційні
 					пропозиції{else}Investment proposals
 					{/if}</h1>
 			</a>
@@ -76,12 +76,14 @@
 				</svg>
 			</button>
 		</div>
-		{if $bigpost->getImage()}<link rel="preload" as="image" href="{$bigpost->getImage()->thumbup(600,400)->getUrl()}">{/if}
+		{if $bigpost->getImage()}
+		<link rel="preload" as="image" href="{$bigpost->getImage()->thumbup(600,400)->getUrl()}">{/if}
 		<div class="invest-projects__grid cards">
 			<a href="{$bigpost->getPath()}" class="cards__item card cards__item--big">
 				<div class="cards__img-wrapper mb-4">
 					{if $bigpost->getImage()}
-						<img data-src="{$bigpost->getImage()->thumbup(600,400)->getUrl()}" alt="{$bigpost->getH1()}"
+						<img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+							data-src="{$bigpost->getImage()->thumbup(600,400)->getUrl()}" alt="{$bigpost->getH1()}"
 							class="lazyimg cards__img">
 					{else}
 						<img class="lazyimg cards__img" data-src="/img/resize.375.225/images/noThumb.jpg" alt="{$bigpost->getH1()}" />
