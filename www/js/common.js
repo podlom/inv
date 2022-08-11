@@ -418,6 +418,7 @@ $(document.body).ready(function () {
 			);
 		}
 	}
+
 	const advertCard = `<a href="/add-inv-prop" class="cards__item project-0">
 		<div class="cards__img-wrapper mb-2 lang-ru is-sold-0">
 				<img class="cards__img" src="/images/inventure-poster.jpg" alt="Найти инвестора, продать бизнес или коммерческую недвижимость, франчайзинг">
