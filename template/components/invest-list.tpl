@@ -137,11 +137,13 @@
 								<a href="{$post->getPath()}" class="cards__item cards__item--horizontal-sm card">
 									<div class="cards__img-wrapper bd-radius--default">
 										{if $post->getImage()}
-											<img data-src="{$post->getImage()->thumbup(350,254)->getUrl()}" alt="{$post->getH1()}"
+											<img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+												data-src="{$post->getImage()->thumbup(350,254)->getUrl()}" alt="{$post->getH1()}"
 												class="lazyimg cards__img mt-3 desktop-mt-0 border-4">
 										{else}
-											<img class="cards__img mt-3 desktop-mt-0 border-4 lazyimg" data-src="/img/resize.375.225/images/noThumb.jpg"
-												alt="{$post->getH1()}" />
+											<img class="cards__img mt-3 desktop-mt-0 border-4 lazyimg"
+												src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+												data-src="/img/resize.375.225/images/noThumb.jpg" alt="{$post->getH1()}" />
 										{/if}
 									</div>
 									<div class="flex flex-col w-full">
