@@ -17,7 +17,7 @@
 				<div>{$post->getAttr(55)}</div>
 			{elseif $post->getImage()}
 				{if $parent != 'post'}
-					<img class="cards__img lazyload" itemprop="image" data-src="{$post->getImage()->thumb(350,254)->getUrl()}"
+					<img class="cards__img lazyimg" itemprop="image" data-src="{$post->getImage()->thumb(350,254)->getUrl()}"
 						alt='{$post->getTitle()}' itemscope itemtype="http://schema.org/ImageObject" />
 				{else}
 					{css "https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.6/dist/jquery.fancybox.min.css"}
