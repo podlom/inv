@@ -626,7 +626,11 @@ $(document).ready(function() {
 		nav: true,
 		autoHeight: true,
 	});
-	$('.pgwSlideshow').pgwSlideshow();
+	if(document.querySelector('.pgwSlideshow')){
+		loadScript('/js/pgw-slideshow.min.js').then(() => {
+			$('.pgwSlideshow').pgwSlideshow();
+		})
+	}
 	var i = $('.investment_single iframe').parent();
 	i.parent().css('text-align', 'center');
 	$('.board_page .accordion .toggle_btn').on('click', togg);
