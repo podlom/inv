@@ -283,3 +283,14 @@ ul.tabs {
 .grecaptcha-badge {
 	display: none !important;
 }
+
+@keyframes pulse {
+	50% {
+		opacity: 0.5;
+	}
+}
+.lazyimg {
+	color: transparent;
+	background-color: rgb(226, 232, 240);
+	animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
