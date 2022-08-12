@@ -126,7 +126,7 @@
 	{script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js" async="" require="jquery" name="lazyload" }
 	{* {script src="/js/jquery.lazyload.min.js" require="jquery" name="lazyload" } *}
 	{* {script src="/js/autosize.min.js" require="jquery" name="autosize" } *}
-	{script src="/js/utm_widget1.js" name="utm_widget1"}
+	{script src="/js/utm_widget1.js" async="" require="jquery" name="utm_widget1"}
 	{script src="/js/ui.min.js" require="jquery,google_maps_api" name="ui_js" }
 
 	{script src="/js/jquery.hoverIntent.minified.js" name="hoverIntent" require="jquery" }
