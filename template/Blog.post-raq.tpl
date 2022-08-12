@@ -209,6 +209,7 @@
                 <div><div id="google_map" itemprop="maps"></div></div>
             </div>
         </div>
+				{script src="/js/ui.min.js" async="" require="jquery,google_maps_api" name="ui_js" }
         {script_code require="jquery,google_maps_api"}
         {script 'google_maps_api'}
         loader.on('google_maps',function(){
