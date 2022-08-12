@@ -112,7 +112,7 @@
 
 	{script src="/js/common-min.js" require="libs" name="common"}
 	{* {script src="/js/jquery.lazyload.min.js" require="jquery" name="lazyload" } *}
-	{script src="/js/autosize.min.js" require="jquery" name="autosize" }
+	{* {script src="/js/autosize.min.js" require="jquery" name="autosize" } *}
 	{script src="/js/jquery.copy-to-clipboard.js" require="jquery" name="copyclipboard"}
 	{script src="/js/utm_widget1.js" require="copyclipboard" name="utm_widget1"}
 	{script src="/js/ui.min.js" require="jquery,google_maps_api" name="ui_js" }
