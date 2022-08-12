@@ -69,7 +69,7 @@
 								{if $image->getId() == $mainImageId}
 									{continue}
 								{/if}
-								<a href="'{($image->getUrl())}'" class="js-smartphoto swiper-slide">
+								<a href="{($image->getUrl())}" class="js-smartphoto swiper-slide">
 									{if $user && $user->canAccess('Page.publish')}
 										<div class="preview__slider-download" data-link="{$image->getUrl()}">
 											<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
