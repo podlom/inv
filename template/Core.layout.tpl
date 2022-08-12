@@ -107,17 +107,17 @@
 	{script name="remodal" require="jquery" async="" src="https://cdnjs.cloudflare.com/ajax/libs/remodal/1.1.1/remodal.min.js"}
 	{script name="isValidNumber" require="intlTelInput,iti-load-utils" async="" src="/js/isValidNumber.js"}
 
-	{script 'jquery'}
-	{script src="/js/libs.min.js" require="jquery" name="libs" }
+	{script 'jquery' async=""}
 
+	{script src="/js/libs.min.js" async="" require="jquery" name="libs" }
 	{script src="/js/common-min.js" require="libs" name="common"}
 	{* {script src="/js/jquery.lazyload.min.js" require="jquery" name="lazyload" } *}
-	{script src="/js/utm_widget1.js" name="utm_widget1"}
-	{script src="/js/ui.min.js" require="jquery,google_maps_api" name="ui_js" }
+	{script src="/js/utm_widget1.js" async="" name="utm_widget1"}
+	{script src="/js/ui.min.js" async="" require="jquery,google_maps_api" name="ui_js" }
 
-	{script src="/js/jquery.hoverIntent.minified.js" name="hoverIntent" require="jquery" }
-	{script src="/js/script-min.js" require="jquery,hoverIntent" name="script"}
-	{script src="/js/invest.js" require="jquery" name="invest" }
+	{script src="/js/jquery.hoverIntent.minified.js" async="" name="hoverIntent" require="jquery" }
+	{script src="/js/script-min.js" async="" require="jquery,hoverIntent" name="script"}
+	{script src="/js/invest.js" async="" require="jquery" name="invest" }
 
 	{* {script_code require=['foundation2', 'jquery']}$(document).foundation();{/script_code} *}
 
