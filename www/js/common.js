@@ -860,6 +860,13 @@ $(document).ready(function () {
 		$(this).addClass('active');
 	});
 
+	if ($('.img.lazy').length) {
+		loadScript(
+			'https://cdnjs.cloudflare.com/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js',
+		).then(() => {
+			$("img.lazy").lazyload({effect : "fadeIn", skip_invisible:false, failure_limit : 5, threshold : 10});
+		});
+	}
 	if ($('[data-tippy-content]').length) {
 		Promise.all([
 			loadScript(

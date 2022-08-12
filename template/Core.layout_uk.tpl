@@ -123,14 +123,14 @@
 	{script src="/js/libs.min.js" require="jquery" name="libs" }
 
 	{script src="/js/common-min.js" require="libs" name="common"}
-	{script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js" async="" require="jquery" name="lazyload" }
+
 	{* {script src="/js/jquery.lazyload.min.js" require="jquery" name="lazyload" } *}
 	{* {script src="/js/autosize.min.js" require="jquery" name="autosize" } *}
 	{script src="/js/utm_widget1.js" async="" require="jquery" name="utm_widget1"}
 	{script src="/js/ui.min.js" require="jquery,google_maps_api" name="ui_js" }
 
 	{script src="/js/jquery.hoverIntent.minified.js" name="hoverIntent" require="jquery" }
-	{script src="/js/script-min.js" async="" require="jquery,hoverIntent,lazyload" name="script"}
+	{script src="/js/script-min.js" async="" require="jquery,hoverIntent" name="script"}
 	{script src="/js/invest.js" require="jquery" name="invest" }
 	{* {script_code require=['foundation2', 'jquery']}$(document).foundation();{/script_code} *}
 
@@ -267,55 +267,6 @@
 
 
 	<script>
-		document.addEventListener("DOMContentLoaded", function() {
-			var lazyloadImages;
-
-			if ("IntersectionObserver" in window) {
-				lazyloadImages = document.querySelectorAll(".lazyimg");
-				var imageObserver = new IntersectionObserver(function(entries, observer) {
-					entries.forEach(function(entry) {
-						if (entry.isIntersecting) {
-							var image = entry.target;
-							image.src = image.dataset.src;
-							image.classList.remove("lazyimg");
-							imageObserver.unobserve(image);
-						}
-					});
-				});
-
-				lazyloadImages.forEach(function(image) {
-					imageObserver.observe(image);
-				});
-			} else {
-				var lazyloadThrottleTimeout;
-				lazyloadImages = document.querySelectorAll(".lazyimg");
-
-				function lazyload() {
-					if (lazyloadThrottleTimeout) {
-						clearTimeout(lazyloadThrottleTimeout);
-					}
-
-					lazyloadThrottleTimeout = setTimeout(function() {
-						var scrollTop = window.pageYOffset;
-						lazyloadImages.forEach(function(img) {
-							if (img.offsetTop < (window.innerHeight + scrollTop)) {
-								img.src = img.dataset.src;
-								img.classList.remove('lazyimg');
-							}
-						});
-						if (lazyloadImages.length == 0) {
-							document.removeEventListener("scroll", lazyload);
-							window.removeEventListener("resize", lazyload);
-							window.removeEventListener("orientationChange", lazyload);
-						}
-					}, 20);
-				}
-
-				document.addEventListener("scroll", lazyload);
-				window.addEventListener("resize", lazyload);
-				window.addEventListener("orientationChange", lazyload);
-			}
-		});
 		window.lazySizesConfig = window.lazySizesConfig || {};
 		window.lazySizesConfig.customMedia = {
 			'--mobile': '(max-width: 1023px)',
