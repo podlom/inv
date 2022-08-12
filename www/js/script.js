@@ -163,8 +163,6 @@ $(document).ready(function() {
         });
     });
 
-    $("img.lazy").lazyload({effect : "fadeIn", skip_invisible:false, failure_limit : 5, threshold : 10});
-
     $('.instrumentQuestionMain, .instrumentQuestion').click(function() {
         var id = $(this).attr('data-expert-id');
         $("#questionForm form").find('input:first[type=hidden]').attr('value', id);

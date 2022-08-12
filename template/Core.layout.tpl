@@ -108,8 +108,6 @@
 	{script name="isValidNumber" require="intlTelInput,iti-load-utils" async="" src="/js/isValidNumber.js"}
 
 	{script 'jquery' async=""}
-
-	{script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js" async="" require="jquery" name="lazyload" }
 	
 	{script src="/js/libs.min.js" async="" require="jquery" name="libs" }
 	{script src="/js/common-min.js" require="libs" name="common"}
@@ -117,7 +115,7 @@
 	{script src="/js/ui.min.js" async="" require="jquery,google_maps_api" name="ui_js" }
 
 	{script src="/js/jquery.hoverIntent.minified.js" async="" name="hoverIntent" require="jquery" }
-	{script src="/js/script-min.js" async="" require="jquery,hoverIntent,lazyload" name="script"}
+	{script src="/js/script-min.js" async="" require="jquery,hoverIntent" name="script"}
 	{script src="/js/invest.js" async="" require="jquery" name="invest" }
 
 	{* {script_code require=['foundation2', 'jquery']}$(document).foundation();{/script_code} *}
