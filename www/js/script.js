@@ -162,7 +162,6 @@ $(document).ready(function() {
             }
         });
     });
-
     $('.instrumentQuestionMain, .instrumentQuestion').click(function() {
         var id = $(this).attr('data-expert-id');
         $("#questionForm form").find('input:first[type=hidden]').attr('value', id);
