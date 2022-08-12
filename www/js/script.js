@@ -177,20 +177,7 @@ $(document).ready(function() {
         e.preventDefault();
         return false;
     });
-    $(".js-news_slider").owlCarousel({
-        items: 4,
-        pagination: false,
-        navigation: true,
-        navigationText: ["", ""],
-        lazyLoad: true
-    });
-    $(".js-gallery").owlCarousel({
-        items: 4,
-        pagination: false,
-        navigation: true,
-        navigationText: ["", ""],
-        lazyLoad: true
-    });
+		
     $('.subMenuButton').click(function() {
         menu = $(this).parent().parent().find('.Nav').toggleClass('open');
         if (menu.is('.open')) {
