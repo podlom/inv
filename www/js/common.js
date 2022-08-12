@@ -323,6 +323,39 @@ function loadScript(src) {
 	});
 }
 
+if($('.js-news_slider, .js-gallery, .owl-carousel').length){
+	loadScript('https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js').then(() => {
+		if($(".js-news_slider").length){
+			$(".js-news_slider").owlCarousel({
+					items: 4,
+					pagination: false,
+					navigation: true,
+					navigationText: ["", ""],
+					lazyLoad: true
+			});
+		}
+		if($(".js-gallery").length){
+			$(".js-gallery").owlCarousel({
+				items: 4,
+				pagination: false,
+				navigation: true,
+				navigationText: ["", ""],
+				lazyLoad: true
+			});
+		}
+		if($(".owl-carousel").length){
+			$('.owl-carousel').owlCarousel({
+				margin: 10,
+				items: 1,
+				loop: true,
+				mouseDrag: false,
+				nav: true,
+				autoHeight: true,
+			});
+		}
+	})
+}
+
 function lazyLoadImages(){
 	let lazyloadImages;
 
