@@ -124,13 +124,13 @@
 
 	{script src="/js/common-min.js" require="libs" name="common"}
 	{* {script src="/js/jquery.lazyload.min.js" require="jquery" name="lazyload" } *}
-	{script src="/js/autosize.min.js" require="jquery" name="autosize" }
+	{* {script src="/js/autosize.min.js" require="jquery" name="autosize" } *}
 	{script src="/js/jquery.copy-to-clipboard.js" require="jquery" name="copyclipboard"}
 	{script src="/js/utm_widget1.js" require="copyclipboard" name="utm_widget1"}
 	{script src="/js/ui.min.js" require="jquery,google_maps_api" name="ui_js" }
 
 	{script src="/js/jquery.hoverIntent.minified.js" name="hoverIntent" require="jquery" }
-	{script src="/js/script-min.js" require="jquery,hoverIntent,autosize,copyclipboard" name="script"}
+	{script src="/js/script-min.js" require="jquery,hoverIntent,copyclipboard" name="script"}
 	{script src="/js/invest.js" require="jquery" name="invest" }
 	{* {script_code require=['foundation2', 'jquery']}$(document).foundation();{/script_code} *}
 
