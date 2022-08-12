@@ -110,9 +110,9 @@
 	{script 'jquery' async=""}
 	
 	{script src="/js/utm_widget1.js" async="" require="jquery" name="utm_widget1"}
-	{script src="/js/ui.min.js" async="" require="jquery,google_maps_api" name="ui_js" }
+	{* {script src="/js/ui.min.js" async="" require="jquery,google_maps_api" name="ui_js" } *}
 
-	{script src="/js/libs.min.js" async="" require="jquery,ui_js" name="libs" }
+	{script src="/js/libs.min.js" async="" require="jquery" name="libs" }
 	{script src="/js/common-min.js" require="libs" name="common"}
 
 	{script src="/js/jquery.hoverIntent.minified.js" async="" name="hoverIntent" require="jquery" }

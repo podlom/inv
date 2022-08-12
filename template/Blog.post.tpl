@@ -74,6 +74,7 @@
 </ul>
 {/block} *}
 {block 'content'}
+{script src="/js/ui.min.js" async="" require="jquery,google_maps_api" name="ui_js" }
 <div itemprop="mainEntity" {block 'page.scope'}itemtype="http://schema.org/Article"{/block} itemscope>
     {include 'partial/post' parent="post"}
 
