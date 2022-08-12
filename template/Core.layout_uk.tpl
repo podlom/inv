@@ -123,13 +123,14 @@
 	{script src="/js/libs.min.js" require="jquery" name="libs" }
 
 	{script src="/js/common-min.js" require="libs" name="common"}
+	{script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js" async="" require="jquery" name="lazyload" }
 	{* {script src="/js/jquery.lazyload.min.js" require="jquery" name="lazyload" } *}
 	{* {script src="/js/autosize.min.js" require="jquery" name="autosize" } *}
 	{script src="/js/utm_widget1.js" name="utm_widget1"}
 	{script src="/js/ui.min.js" require="jquery,google_maps_api" name="ui_js" }
 
 	{script src="/js/jquery.hoverIntent.minified.js" name="hoverIntent" require="jquery" }
-	{script src="/js/script-min.js" require="jquery,hoverIntent" name="script"}
+	{script src="/js/script-min.js" async="" require="jquery,hoverIntent,lazyload" name="script"}
 	{script src="/js/invest.js" require="jquery" name="invest" }
 	{* {script_code require=['foundation2', 'jquery']}$(document).foundation();{/script_code} *}
 
