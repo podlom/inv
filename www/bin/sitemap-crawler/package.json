@@ -1,0 +1,21 @@
+{
+  "name": "sitemap-crawler",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": {
+    "name": "Dennis Korbginski",
+    "email": "dennis.korbginski@blackbit.de",
+    "url": "http://www.blackbit.de/"
+  },
+  "dependencies": {
+    "cheerio": "^0.22.0",
+    "commander": "2.x",
+    "simplecrawler": "^0.7.0",
+    "sitemap": "1.x",
+    "underscore": "1.x",
+    "underscore.string": "2.x"
+  }
+}
