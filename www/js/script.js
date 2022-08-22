@@ -31,7 +31,7 @@ $('button[data-callback="submitDigest"]').click((e) => {
 		});
 	}
 	const hasUnfilledInputs = checkRequiredUnfilledInputs();
-	if (!hasUnfilledInputs) {
+	if (hasUnfilledInputs) {
 		console.log('hasUnfilledInputs');
 		e.preventDefault();
 	}
