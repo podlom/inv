@@ -26,13 +26,21 @@ $('form *[required]').change((e) => {
 	$(e.target).removeClass('error');
 });
 function validateForm(form) {
+	const ignoredRequiredNames = [
+		'subscribe[company]',
+		'subscribe[job]',
+		'subscribe[lastname]',
+	];
 	function getRequiredFields() {
 		let fields = [];
 		$(form)
 			.children('*[required]')
 			.each((idx, el) => {
-				if (!el.value) $(el).addClass('error');
-				fields.push($(el).attr('name'));
+				const fieldName = $(el).attr('name');
+				if (!ignoredRequiredNames.includes(fieldName)) {
+					if (!el.value) $(el).addClass('error');
+					fields.push(fieldName);
+				}
 			});
 		return fields;
 	}
