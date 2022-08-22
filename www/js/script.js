@@ -34,6 +34,7 @@ $('button[data-callback="submitDigest"]').click((e) => {
 	if (hasUnfilledInputs) {
 		console.log('hasUnfilledInputs');
 		e.preventDefault();
+		grecaptcha.reset();
 	}
 });
 function submitDigest(token) {
