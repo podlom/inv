@@ -15,7 +15,7 @@ $('button[data-callback="submitDigest"]').click((e) => {
 
 	function getRequiredFields() {
 		let fields = [];
-		$(temp1)
+		$(form)
 			.children('*[required]')
 			.each((idx, el) => fields.push($(el).attr('name')));
 		return fields;
