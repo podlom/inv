@@ -2,7 +2,7 @@
 {if $form->getErrors()}
 	<div class="callout alert">
 		<p>{if $lang == 'en'}You have successfully subscribed to the newsletter
-		{elseif $lang == 'uk'}Ви успішно підписані на
+			{elseif $lang == 'uk'}Ви успішно підписані на
 			розсилку{else}Вы успешно подписаны на рассылку
 			{/if}</p>
 		{foreach $form->getErrors() as $err}
@@ -16,7 +16,7 @@
 		{$form->getField('lastname')->getInput()->attr('id', 'subscribeLastname')->attr('placeholder', 'Surname')}
 	{else}
 		<input name="subscribe[firstname]" type="text" class="subscription__input" placeholder="First Name" required>
-		<input name="subscribe[lastname]" type="text" class="subscription__input" placeholder="Surname" required>
+		<input name="subscribe[lastname]" type="text" class="subscription__input" placeholder="Surname">
 	{/if}
 	{$form->getField('company')->getInput()->attr('id', 'subscribeCompany')->attr('placeholder', 'Company')}
 	{$form->getField('job')->getInput()->attr('id', 'subscribeJob')->attr('placeholder', 'Position')}
@@ -70,7 +70,7 @@
 		{$form->getField('lastname')->getInput()->attr('id', 'subscribeLastname')->attr('placeholder', 'Прізвище')}
 	{else}
 		<input name="subscribe[firstname]" type="text" class="subscription__input" placeholder="Імʼя" required>
-		<input name="subscribe[lastname]" type="text" class="subscription__input" placeholder="Прізвище" required>
+		<input name="subscribe[lastname]" type="text" class="subscription__input" placeholder="Прізвище">
 	{/if}
 	{$form->getField('company')->getInput()->attr('id', 'subscribeCompany')->attr('placeholder', 'Компанія')}
 	{$form->getField('job')->getInput()->attr('id', 'subscribeJob')->attr('placeholder', 'Посада')}
@@ -125,7 +125,7 @@
 			{$form->getField('lastname')->getInput()->attr('id', 'subscribeLastname')->attr('placeholder', $form->getField('lastname')->getLabel())}
 		{else}
 			<input name="subscribe[firstname]" type="text" class="subscription__input" placeholder="Имя" required>
-			<input name="subscribe[lastname]" type="text" class="subscription__input" placeholder="Фамилия" required>
+			<input name="subscribe[lastname]" type="text" class="subscription__input" placeholder="Фамилия">
 		{/if}
 		{$form->getField('company')->getInput()->attr('id', 'subscribeCompany')->attr('placeholder', $form->getField('company')->getLabel())}
 		{$form->getField('job')->getInput()->attr('id', 'subscribeJob')->attr('placeholder', $form->getField('job')->getLabel())}
