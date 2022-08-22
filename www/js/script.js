@@ -10,7 +10,32 @@ function getFilledSubscriptionForm() {
 		return firstNameValue && emailValue;
 	});
 }
+$('button[data-callback="submitDigest"]').click((e) => {
+	const form = $(e.target).closest('form')[0];
 
+	function getRequiredFields() {
+		let fields = [];
+		$(temp1)
+			.children('*[required]')
+			.each((idx, el) => fields.push($(el).attr('name')));
+		return fields;
+	}
+	function checkRequiredUnfilledInputs() {
+		const requiredFieldNames = getRequiredFields();
+		let serializedForm = $(form).serializeArray();
+		return requiredFieldNames.some((fieldName) => {
+			const fieldObject = serializedForm.find(
+				(field) => field.name === fieldName,
+			);
+			return !fieldObject.value;
+		});
+	}
+	const hasUnfilledInputs = checkRequiredUnfilledInputs();
+	if (!hasUnfilledInputs) {
+		console.log('hasUnfilledInputs');
+		e.preventDefault();
+	}
+});
 function submitDigest(token) {
 	console.log('+4 submitDigest() token: ', token);
 	const filledFormElement = getFilledSubscriptionForm();
