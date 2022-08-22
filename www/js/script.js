@@ -1,3 +1,15 @@
+class ReCaptchaToken {
+	constructor() {
+		this.value = null;
+	}
+	get() {
+		return this.value;
+	}
+	set(value) {
+		this.value = value;
+	}
+}
+const reCaptchaToken = new ReCaptchaToken();
 function getFilledSubscriptionForm() {
 	const subscriptionForms = $('.subscription__form').splice(0);
 	return subscriptionForms.find((formElement) => {
@@ -10,9 +22,8 @@ function getFilledSubscriptionForm() {
 		return firstNameValue && emailValue;
 	});
 }
-$('button[data-callback="submitDigest"]').click((e) => {
-	const form = $(e.target).closest('form')[0];
 
+function validateForm(form) {
 	function getRequiredFields() {
 		let fields = [];
 		$(form)
@@ -32,20 +43,54 @@ $('button[data-callback="submitDigest"]').click((e) => {
 	}
 	const hasUnfilledInputs = checkRequiredUnfilledInputs();
 	if (hasUnfilledInputs) {
+		return false;
+	}
+	return true;
+}
+$('button[data-callback="submitDigest"]').click((e) => {
+	const form = $(e.target).closest('form')[0];
+	const isValid = validateForm(form);
+	if (!isValid) {
 		console.log('hasUnfilledInputs');
 		e.preventDefault();
-		grecaptcha.reset();
 	}
+	const token = reCaptchaToken.get();
+	if (!token) return;
+	handleDigestFormSubmitDebounced(formElement, token);
 });
+
 function submitDigest(token) {
 	console.log('+4 submitDigest() token: ', token);
-	const filledFormElement = getFilledSubscriptionForm();
-	console.log('filledFormElement', filledFormElement);
-	if (!filledFormElement) return grecaptcha.reset();
-	let form = $(filledFormElement);
+	reCaptchaToken.set(token);
+	const formElement = getFilledSubscriptionForm();
+	const isValid = validateForm(formElement);
+	if (!isValid) {
+		console.log('invalidForm');
+		return;
+	}
+	handleDigestFormSubmitDebounced(formElement, token);
+}
+
+function debounce(func, timeout = 300) {
+	let timer;
+	return (...args) => {
+		clearTimeout(timer);
+		timer = setTimeout(() => {
+			func.apply(this, args);
+		}, timeout);
+	};
+}
+
+const handleDigestFormSubmitDebounced = debounce(handleDigestFormSubmit);
+
+function handleDigestFormSubmit(formElement, token) {
+	console.log('formElement', formElement);
+
+	if (!formElement || !token) return;
+	let form = $(formElement);
 	console.log('form', form);
 	let formData = {};
-	let fData = $(filledFormElement).serializeArray();
+	let fData = $(formElement).serializeArray();
 	console.log('fData', fData);
 	$(fData).each(function (index, obj) {
 		formData[obj.name] = obj.value;
