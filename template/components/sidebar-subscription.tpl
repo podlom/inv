@@ -47,7 +47,7 @@
 						Прізвище
 					{/if}
 				</label>
-				<input name="subscribe[lastname]" type="text" class="subscription__input" required>
+				<input name="subscribe[lastname]" type="text" class="subscription__input">
 			</div>
 			<div class="subscription__row">
 				<label>
@@ -59,7 +59,7 @@
 						Компанія
 					{/if}
 				</label>
-				<input name="subscribe[company]" type="text" class="subscription__input" required>
+				<input name="subscribe[company]" type="text" class="subscription__input">
 			</div>
 			<div class="subscription__row">
 				<label>
@@ -71,7 +71,7 @@
 						Посада
 					{/if}
 				</label>
-				<input name="subscribe[job]" type="text" class="subscription__input" required>
+				<input name="subscribe[job]" type="text" class="subscription__input">
 			</div>
 			<div class="subscription__row">
 				<label>
