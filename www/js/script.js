@@ -58,7 +58,7 @@ $('button[data-callback="submitDigest"]').click((e) => {
 	const isValid = validateForm(form);
 	if (!isValid) {
 		console.log('hasUnfilledInputs');
-		e.preventDefault();
+		return e.preventDefault();
 	}
 	const token = reCaptchaToken.get();
 	if (!token) return;
