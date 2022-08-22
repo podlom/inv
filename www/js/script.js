@@ -31,7 +31,7 @@ function validateForm(form) {
 		$(form)
 			.children('*[required]')
 			.each((idx, el) => {
-				if (!el.val()) el.addClass('error');
+				if (!el.value) $(el).addClass('error');
 				fields.push($(el).attr('name'));
 			});
 		return fields;
