@@ -15,6 +15,7 @@ function submitDigest(token) {
 	console.log('+4 submitDigest() token: ', token);
 	const filledFormElement = getFilledSubscriptionForm();
 	console.log('filledFormElement', filledFormElement);
+	if (!filledFormElement) return;
 	let form = $(filledFormElement);
 	console.log('form', form);
 	let formData = {};
