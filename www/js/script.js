@@ -23,7 +23,7 @@ function getFilledSubscriptionForm() {
 	});
 }
 $('form *[required]').change((e) => {
-	e.removeClass('error');
+	$(e.target).removeClass('error');
 });
 function validateForm(form) {
 	function getRequiredFields() {
