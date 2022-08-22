@@ -22,15 +22,21 @@ function getFilledSubscriptionForm() {
 		return firstNameValue && emailValue;
 	});
 }
-
+$('form *[required]').change((e) => {
+	e.removeClass('error');
+});
 function validateForm(form) {
 	function getRequiredFields() {
 		let fields = [];
 		$(form)
 			.children('*[required]')
-			.each((idx, el) => fields.push($(el).attr('name')));
+			.each((idx, el) => {
+				if (!el.val()) el.addClass('error');
+				fields.push($(el).attr('name'));
+			});
 		return fields;
 	}
+
 	function checkRequiredUnfilledInputs() {
 		const requiredFieldNames = getRequiredFields();
 		let serializedForm = $(form).serializeArray();
@@ -56,7 +62,7 @@ $('button[data-callback="submitDigest"]').click((e) => {
 	}
 	const token = reCaptchaToken.get();
 	if (!token) return;
-	handleDigestFormSubmitDebounced(formElement, token);
+	handleDigestFormSubmitDebounced(form, token);
 });
 
 function submitDigest(token) {
