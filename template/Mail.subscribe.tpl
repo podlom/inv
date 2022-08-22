@@ -93,7 +93,7 @@
 				</svg>
 			</div>
 			<span class="subscription__check-label">
-				Русский
+				Російська
 			</span>
 			<input type="checkbox" value="ru" name="subscribe[lang][]" id="check-ru" checked="true" hidden>
 		</div>
@@ -106,7 +106,7 @@
 				</svg>
 			</div>
 			<span class="subscription__check-label">
-				Английский
+				Англійська
 			</span>
 			<input type="checkbox" value="en" name="subscribe[lang][]" id="check-en" hidden>
 		</div>
@@ -147,7 +147,7 @@
 					</svg>
 				</div>
 				<span class="subscription__check-label">
-					Російська
+					Русский
 				</span>
 				<input type="checkbox" value="ru" name="subscribe[lang][]" id="check-ru" checked="true" hidden>
 			</div>
@@ -160,7 +160,7 @@
 					</svg>
 				</div>
 				<span class="subscription__check-label">
-					Англійська
+					Английский
 				</span>
 				<input type="checkbox" value="en" name="subscribe[lang][]" id="check-en" hidden>
 			</div>
