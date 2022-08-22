@@ -45,7 +45,7 @@
 
 	<link rel="dns-prefetch" href="//netdna.bootstrapcdn.com">
 	<link rel="alternate" hreflang="x-default" href="https://inventure.com.ua/" />
-	
+
 	{* {literal}
 		<!-- Google Tag Manager -->
 		<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -108,7 +108,7 @@
 	{script name="isValidNumber" require="intlTelInput,iti-load-utils" async="" src="/js/isValidNumber.js"}
 
 	{script 'jquery' async=""}
-	
+
 	{script src="/js/utm_widget1.js" async="" require="jquery" name="utm_widget1"}
 	{* {script src="/js/ui.min.js" async="" require="jquery,google_maps_api" name="ui_js" } *}
 
@@ -116,7 +116,7 @@
 	{script src="/js/common-min.js" require="jquery" name="common"}
 
 	{script src="/js/jquery.hoverIntent.minified.js" async="" name="hoverIntent" require="jquery" }
-	{script src="/js/script-min.js" async="" require="jquery,hoverIntent" name="script"}
+	{script src="/js/script.js" async="" require="jquery,hoverIntent" name="script"}
 	{script src="/js/invest.js" async="" require="jquery" name="invest" }
 
 	{* {script_code require=['foundation2', 'jquery']}$(document).foundation();{/script_code} *}
