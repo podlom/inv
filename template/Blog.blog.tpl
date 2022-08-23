@@ -163,12 +163,7 @@
     {if $request->getPathInfo()|strpos:'/investments'}
         {include 'components/mobile-sort'}
     {/if}
-		{if $isInvestments}
-			<!-- $isInvestments -->
-		{/if}
-		{if $request->getPathInfo()|strpos:'/investments'}
-			<!-- {if $request->getPathInfo()|strpos:'/investments'} -->
-		{/if}
+		
 		
     {/block}
     {block 'content.text'}
