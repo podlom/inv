@@ -161,7 +161,7 @@
     {/if}
 		
     {if $request->getPathInfo()|strpos:'/investments'}
-        {include 'components/mobile-sort'}
+        {* {include 'components/mobile-sort'} *}
     {/if}
 		{if $isInvestments}
 			<!-- $isInvestments -->
