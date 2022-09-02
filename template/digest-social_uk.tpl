@@ -50,19 +50,19 @@
 				<label>
 					Прізвище
 				</label>
-				<input name="subscribe[lastname]" type="text" class="subscription__input" required>
+				<input name="subscribe[lastname]" type="text" class="subscription__input">
 			</div>
 			<div class="subscription__row">
 				<label>
 					Компанія
 				</label>
-				<input name="subscribe[company]" type="text" class="subscription__input" required>
+				<input name="subscribe[company]" type="text" class="subscription__input">
 			</div>
 			<div class="subscription__row">
 				<label>
 					Посада
 				</label>
-				<input name="subscribe[jobtitle]" type="text" class="subscription__input" required>
+				<input name="subscribe[jobtitle]" type="text" class="subscription__input">
 			</div>
 			<div class="subscription__row">
 				<label>
@@ -136,7 +136,7 @@
 					<ul class="digest__years">
 						{for $y=intval($now->format('Y')) to intval($first->getPubDate()->format('Y')) step -1}
 						<li{if $now->format('Y')==$y} class='active' {/if}>{$y}</li>
-						{/for}
+							{/for}
 					</ul>
 				</div>
 				<div class="digest__wrapper">
@@ -232,14 +232,14 @@
 
                     {assign "count" "0"}
                     {rlent '/review' 20 var='review' analytics=0 category='add-inv-prop'}
-	                        <button class="glide__bullet" data-glide-dir="={$count++}"></button>
-	                    {/rlent}
-	                </div>
-	                </div>
-	            </div>
-	        </div>
-	    </div>
-	</section> *}
+		                        <button class="glide__bullet" data-glide-dir="={$count++}"></button>
+		                    {/rlent}
+		                </div>
+		                </div>
+		            </div>
+		        </div>
+		    </div>
+		</section> *}
 
 
 {/block}

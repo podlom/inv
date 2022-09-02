@@ -159,9 +159,7 @@
 						{/if}
         </div>
     {/if}
-    {if $request->getPathInfo()|strpos:'/investments'}
-        {include 'components/mobile-sort'}
-    {/if}
+		
     {/block}
     {block 'content.text'}
         {block 'posts'}
