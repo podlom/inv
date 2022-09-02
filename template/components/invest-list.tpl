@@ -58,7 +58,7 @@
 			<div class="section__categories-overlay"></div>
 		</div>
 
-		<div class="section__controls flex flex-row mobile-only ">
+		<div class="section__controls flex flex-row mobile-only " data-source="invest-list">
 			<select id="invest-sort" class="mobile-sort mr-2">
 				<option value="">{if $lang === 'ru'}Новые{elseif $lang === 'uk'}Нові{else}Latest{/if}</option>
 				<option value="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/investments?filter[sort]=views">
