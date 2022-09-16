@@ -298,10 +298,10 @@
                             <img src="{$img_avatar}">
                             <h5>{$user->getName()} {$user->get('job')}</h5>
                         </div>
-                        <div>
-                            <a href="">Followers</a>
-                            <a href="">Sales</a>
-                            <a href="">Friends</a>
+                        <div class="server-commands">
+                            <a class="free-memory-btn" href="#">Free memory</a>
+                            <!-- a href="">Sales</a -->
+                            <!-- a href="">Friends</a -->
                         </div>
                         <div>
                             <a href="/admin/user/edit/{$user->getId()}">Profile</a>
@@ -318,6 +318,14 @@
 
 {script name='daterangepicker' src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js" require="jquery"}
 {script_code 'datarangeinit' require=['jquery', 'moment', 'daterangepicker']}
+$(function() {
+    $("a.free-memory-btn").click(function(e19){
+        console.log('+323 Free Memory Button click handler');
+
+        e19.preventDefault();
+        return false;
+    });
+});
 $(function() {
   $('input[name="datetimes"]').daterangepicker({
     timePicker: true,
