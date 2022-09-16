@@ -297,10 +297,13 @@
 							{/if}
                             <img src="{$img_avatar}">
                             <h5>{$user->getName()} {$user->get('job')}</h5>
+
+                            <div class="free-memory-msg"></div>
+                            
                         </div>
                         <div class="server-commands">
                             <a class="free-memory-btn" href="#">Free memory</a>
-                            <div class="free-memory-msg"></div>
+
                             <!-- a href="">Sales</a -->
                             <!-- a href="">Friends</a -->
                         </div>
