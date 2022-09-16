@@ -1,16 +1,16 @@
 <?php
-
 /**
  * Created by PhpStorm
  * User: shtaras
  * Date: 01/02/20
  * Time: 12:21
  *
- * @author Taras Shkodenko <ts@doagency.net>
+ * @author Taras Shkodenko <taras@shkodenko.com>
  */
 
 use Auth\Access\Role;
 use Auth\User;
+
 
 require_once realpath(__DIR__.'/../bootstrap.php');
 
@@ -362,6 +362,24 @@ if (!empty($_POST)) {
             error_log( $msg );
             echo $res25;
         }
+    } elseif (isset($_POST['action'])
+        && ($_POST['action'] == 'free_memory')
+    ) { // Request free server memory
+
+        $res91 = false;
+        $restartServerFile = '/home/inventure/data/server-memory/restart.txt';
+        if (touch($restartServerFile)) {
+            $res91 = 'Free memory requested at: ' . date('Y-m-d H:i');
+        }
+
+        $msg = date('r') . ' ' . __FILE__ . ' +' . __LINE__ . ' $res91: ' . var_export($res91, true);
+        error_log( $msg );
+
+        if (!headers_sent()) {
+            header('Content-Type: text/plain; charset=utf-8');
+        }
+        echo $res91;
+
     } elseif (isset($_POST['action'])
         && ($_POST['action'] == 'check_slug')
     ) { // Check page slug to be uniq
