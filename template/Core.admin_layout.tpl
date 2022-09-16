@@ -327,7 +327,7 @@ $(function() {
         $.post(
             "/auth-attr-data.php",
             {'action':'free_memory'},
-            function(res19) { console.log('+330 Got result: ' + res19); $(".free-memory-msg").empty().append(res19); }
+            function(res19) { console.log('+330 Got result: ' + res19); $(".free-memory-msg").hide().text("Через несколько минут память сервера будет освобождена").show(); }
         );
 {/literal}
 
