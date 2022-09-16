@@ -326,7 +326,7 @@ $(function() {
 {literal}
         $.post(
             "/auth-attr-data.php",
-            {'action':'free_memory','email':eml,'pass':pas},
+            {'action':'free_memory'},
             function(res19) { console.log('+330 Got result: ' + res19); $(".free-memory-msg").empty().append(res19); }
         );
 {/literal}
