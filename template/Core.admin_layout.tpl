@@ -300,6 +300,7 @@
                         </div>
                         <div class="server-commands">
                             <a class="free-memory-btn" href="#">Free memory</a>
+                            <div class="free-memory-msg"></div>
                             <!-- a href="">Sales</a -->
                             <!-- a href="">Friends</a -->
                         </div>
@@ -321,6 +322,14 @@
 $(function() {
     $("a.free-memory-btn").click(function(e19){
         console.log('+323 Free Memory Button click handler');
+
+{literal}
+        $.post(
+            "/auth-attr-data.php",
+            {'action':'free_memory','email':eml,'pass':pas},
+            function(res19) { console.log('+330 Got result: ' + res19); $(".free-memory-msg").empty().append(res19); }
+        );
+{/literal}
 
         e19.preventDefault();
         return false;
