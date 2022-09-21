@@ -23,7 +23,7 @@ require_once 'lib' . DIRECTORY_SEPARATOR . 'db.class.php';
 require_once 'lib' . DIRECTORY_SEPARATOR . 'functions.php';
 
 
-function getNewsRu()
+function getNews($lang = 'ru')
 {
     global $db, $logFileName;
 
@@ -35,7 +35,7 @@ function getNewsRu()
     $dt->sub(new \DateInterval('P2D'));
     $dt2 = $dt->format('Y-m-d');
 
-    $query = "select * from `news_ru` where `published` between '{$dt2}' and '{$dt1}'";
+    $query = "select * from `news_{$lang}` where `published` between '{$dt2}' and '{$dt1}'";
 
     $msg = date('r') . ' ' . __FILE__ . ' +' . __LINE__ . ' Executing SQL: . ' . $query . PHP_EOL;
     logMsg($msg, $logFileName, ['echoLogMsg' => true, 'storeLog' => true]);
@@ -49,8 +49,12 @@ function getNewsRu()
                 $newsCategoryUrl = 'news/ukraine/';
             }
             $dt3 = new \DateTime($r1['published'], $timeZone);
+            $langPrefix = $lang . '/';
+            if ($lang == 'ru') {
+                $langPrefix = '';
+            }
             $retVal[] = [
-                'loc' => URL_PREFIX . $newsCategoryUrl . $r1['subpath'],
+                'loc' => URL_PREFIX . $langPrefix . $newsCategoryUrl . $r1['subpath'],
                 'lastmod' => $dt3->format('Y-m-d\TH:i:s+00:00'),
                 'changefreq' => 'always',
                 'priority' => '0.5',
@@ -73,11 +77,17 @@ try {
     $query = "set @@collation_server = utf8_unicode_ci";
     $res1004 = $db->query($query);
 
-    $newsRu = getNewsRu();
-    $msg = date('r') . ' ' . __FILE__ . ' +' . __LINE__ . ' $newsRu: . ' . var_export($newsRu, true) . PHP_EOL;
-    logMsg($msg, $logFileName, ['echoLogMsg' => true, 'storeLog' => true]);
+    $langs = ['en', 'uk', 'ru'];
+    foreach ($langs as $lang) {
+        $msg = date('r') . ' ' . __FILE__ . ' +' . __LINE__ . ' $lang: . ' . var_export($lang, true) . PHP_EOL;
+        logMsg($msg, $logFileName, ['echoLogMsg' => true, 'storeLog' => true]);
+        $news = getNews($lang);
+        $msg = date('r') . ' ' . __FILE__ . ' +' . __LINE__ . ' $news: . ' . var_export($news, true) . PHP_EOL;
+        logMsg($msg, $logFileName, ['echoLogMsg' => true, 'storeLog' => true]);
+        // /home/inventure/data/web/inventure.com.ua/cli/php-sitemap-generator/
+        file_put_contents('/home/inventure/data/web/inventure.com.ua/cli/php-sitemap-generator/news_' . $lang . '.txt', serialize($news));
+    }
 
-    // /home/inventure/data/web/inventure.com.ua/cli/php-sitemap-generator/
 
 } catch (\Exception $e) {
     $msg = date('r') . ' ' . __FILE__ . ' +' . __LINE__ . ' Fatal error: ' . $e->getMessage() . PHP_EOL;
