@@ -51,7 +51,7 @@ function getNewArticles()
 
 
 try {
-    $db = new DB(DBHOST, DBUSER, DBPASS, DBNAME);
+    $db = new DB('127.0.0.1', 'inventure', '6Qq2fnX51zShHhDO', 'inventure_prod');
     $query = "SET collation_connection = utf8_unicode_ci";
     $res1001 = $db->query($query);
     $query = "SET NAMES utf8";
@@ -64,6 +64,8 @@ try {
     $newArticles = getNewArticles();
     $msg = date('r') . ' ' . __FILE__ . ' +' . __LINE__ . ' $newArticles: . ' . var_export($newArticles, true) . PHP_EOL;
     logMsg($msg, $logFileName, ['echoLogMsg' => true, 'storeLog' => true]);
+
+    // /home/inventure/data/web/inventure.com.ua/cli/php-sitemap-generator/
 
 } catch (\Exception $e) {
     $msg = date('r') . ' ' . __FILE__ . ' +' . __LINE__ . ' Fatal error: ' . $e->getMessage() . PHP_EOL;
