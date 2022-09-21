@@ -3,14 +3,13 @@
 /**
  * Created by PhpStorm
  * User: Taras
- * Date: 2019-05-02
+ * Date: 2022-09-21
  * Time: 11:12
  *
  * @author Taras Shkodenko <taras@shkodenko.com>
  */
 
-define('DB_TABLE', 'hubspot');
-define('GA_TABLE', 'hs_ga');
+define('URL_PREFIX', 'https://inventure.com.ua/');
 
 (PHP_SAPI !== 'cli' || isset($_SERVER['HTTP_USER_AGENT'])) && die(' +' . __LINE__ . ' Fatal error: cli usage only allowed');
 
@@ -24,7 +23,7 @@ require_once 'lib' . DIRECTORY_SEPARATOR . 'db.class.php';
 require_once 'lib' . DIRECTORY_SEPARATOR . 'functions.php';
 
 
-function getNewArticles()
+function getNewsRu()
 {
     global $db, $logFileName;
 
@@ -43,10 +42,17 @@ function getNewArticles()
 
     $res = $db->query($query);
 
-    $msg = date('r') . ' ' . __FILE__ . ' +' . __LINE__ . ' Result: . ' . var_export($res, true) . PHP_EOL;
-    logMsg($msg, $logFileName, ['echoLogMsg' => true, 'storeLog' => true]);
+    if (!empty($res)) {
+        foreach ($res as $r1) {
+            $newsCategoryUrl = 'news/world/';
+            if ($r1['parent_id'] == 24) {
+                $newsCategoryUrl = 'news/ukraine/';
+            }
+            $retVal[] = URL_PREFIX . $newsCategoryUrl . $r1['subpath'];
+        }
+    }
 
-    return $retVal;
+    return $res;
 }
 
 
@@ -61,8 +67,8 @@ try {
     $query = "set @@collation_server = utf8_unicode_ci";
     $res1004 = $db->query($query);
 
-    $newArticles = getNewArticles();
-    $msg = date('r') . ' ' . __FILE__ . ' +' . __LINE__ . ' $newArticles: . ' . var_export($newArticles, true) . PHP_EOL;
+    $newsRu = getNewsRu();
+    $msg = date('r') . ' ' . __FILE__ . ' +' . __LINE__ . ' $newsRu: . ' . var_export($newsRu, true) . PHP_EOL;
     logMsg($msg, $logFileName, ['echoLogMsg' => true, 'storeLog' => true]);
 
     // /home/inventure/data/web/inventure.com.ua/cli/php-sitemap-generator/
