@@ -48,7 +48,13 @@ function getNewsRu()
             if ($r1['parent_id'] == 24) {
                 $newsCategoryUrl = 'news/ukraine/';
             }
-            $retVal[] = URL_PREFIX . $newsCategoryUrl . $r1['subpath'];
+            $dt3 = new \DateTime($r1['published'], $timeZone);
+            $retVal[] = [
+                'loc' => URL_PREFIX . $newsCategoryUrl . $r1['subpath'],
+                'lastmod' => $dt3->format('Y-m-d\TH:i:s+00:00'),
+                'changefreq' => 'always',
+                'priority' => '0.5',
+            ];
         }
     }
 
