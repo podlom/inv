@@ -17,13 +17,19 @@ body {
 p {
   margin-bottom: 0; }
 
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  font-family: Montserrat !important; }
+  font-family: Montserrat, 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif !important; }
 
 img {
   max-width: 100%; }
@@ -4634,6 +4640,10 @@ aside.poll .answer progress::progress-value {
 .share-btn_atlas_post {
   margin-left: 15px !important; }
 
+.check-row label.h3 {
+  font-weight: 600 !important;
+  line-height: 1.8em; }
+
 .check-row label {
   position: relative;
   padding-left: 20px;
@@ -5350,6 +5360,9 @@ form
 .columns
 input[type='checkbox'] {
   top: 6px; }
+
+.investor-form input[type='checkbox']:disabled {
+  filter: brightness(97%) !important; }
 
 .investor-form .viewbox-cnt-body .form-default form .checkbox .columns label {
   color: #4a4a4a;
@@ -7048,3 +7061,18 @@ aside .box-shadow_archive {
 
 div.reviews {
   display: none; }
+
+.save-inline-edits {
+  cursor: pointer;
+  height: 40px;
+  position: fixed;
+  margin-top: 20px;
+  color: white;
+  border-radius: 6px;
+  background: rgba(28, 29, 31, 0.6);
+  box-shadow: 0 5px #999; }
+
+.save-inline-edits:active {
+  background: rgba(28, 29, 31, 0.6);
+  box-shadow: 0 5px #666;
+  transform: translateY(4px); }
