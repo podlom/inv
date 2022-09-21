@@ -61,6 +61,7 @@ function getAlternates($urlPrefix, $uri)
 // $generator->addURL('/path/to/page/', new DateTime(), 'always', 0.5, $alternates);
 
 $changeFrequencyDefault = 'always';
+$priorityDefault = 0.5;
 
 $changeFrequencyConfig = [
     '/add-inv-prop' => 'never',
@@ -69,7 +70,7 @@ $changeFrequencyConfig = [
 ];
 echo ' $changeFrequencyConfig: ' . var_export($changeFrequencyConfig, true) . PHP_EOL;
 
-$generator->addURL('/', new DateTime(), $changeFrequencyDefault, 0.5, getAlternates($yourSiteUrl, ''));
+$generator->addURL('/', new DateTime(), $changeFrequencyDefault, $priorityDefault, getAlternates($yourSiteUrl, ''));
 
 $uri = [
     '/investments',
@@ -113,9 +114,35 @@ if (!empty($uri)) {
             $changeFrequency = $changeFrequencyConfig[$u1];
         }
         echo ' $changeFrequency: ' . var_export($changeFrequency, true) . PHP_EOL;
-        $generator->addURL($u1, new DateTime(), $changeFrequency, 0.5, getAlternates($yourSiteUrl, $u1));
+        $priority = $priorityDefault;
+        $generator->addURL($u1, new DateTime(), $changeFrequency, $priority, getAlternates($yourSiteUrl, $u1));
     }
 }
+
+$langs = ['en', 'uk', 'ru'];
+foreach ($langs as $lang) {
+    $newsFileName = 'news_' . $lang . '.txt';
+    if (file_exists($newsFileName)) {
+        $fileData = file_get_contents($newsFileName);
+        if (!empty($fileData)) {
+            $newsData = unserialize($fileData);
+            if (is_array($newsData) && !empty($newsData)) {
+                foreach ($newsData as $n1) {
+                    $changeFrequency = $changeFrequencyDefault;
+                    if (isset($n1['changefreq']) && !empty($n1['changefreq'])) {
+                        $changeFrequency = $n1['changefreq'];
+                    }
+                    $priority = $priorityDefault;
+                    if (isset($n1['priority']) && !empty($n1['priority'])) {
+                        $priority = $n1['priority'];
+                    }
+                    $generator->addURL($n1['loc'], new DateTime(), $changeFrequency, $priority, null);
+                }
+            }
+        }
+    }
+}
+
 
 // Flush all stored urls from memory to the disk and close all necessary tags.
 $generator->flush();
