@@ -57,7 +57,7 @@ function getNews($lang = 'ru')
                 'loc' => URL_PREFIX . $langPrefix . $newsCategoryUrl . $r1['subpath'],
                 'lastmod' => $dt3->format('Y-m-d\TH:i:s+00:00'),
                 'changefreq' => 'always',
-                'priority' => '0.5',
+                'priority' => 0.5,
             ];
         }
     }
@@ -84,6 +84,7 @@ try {
         $news = getNews($lang);
         $msg = date('r') . ' ' . __FILE__ . ' +' . __LINE__ . ' $news: . ' . var_export($news, true) . PHP_EOL;
         logMsg($msg, $logFileName, ['echoLogMsg' => true, 'storeLog' => true]);
+        // @see: https://developers.google.com/search/docs/crawling-indexing/sitemaps/news-sitemap
         // /home/inventure/data/web/inventure.com.ua/cli/php-sitemap-generator/
         file_put_contents('/home/inventure/data/web/inventure.com.ua/cli/php-sitemap-generator/news_' . $lang . '.txt', serialize($news));
     }
