@@ -140,7 +140,8 @@ foreach ($langs as $lang) {
                     if (isset($n1['lastmod']) && !empty($n1['lastmod'])) {
                         $lastMod = new DateTime($n1['lastmod']);
                     }
-                    $generator->addURL($n1['loc'], $lastMod, $changeFrequency, $priority, null);
+                    $location = str_replace($yourSiteUrl . $yourSiteUrl, $yourSiteUrl, $n1['loc']);
+                    $generator->addURL($location, $lastMod, $changeFrequency, $priority, null);
                 }
             }
         }
