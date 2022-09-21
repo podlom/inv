@@ -36,7 +36,7 @@ function getNewArticles()
     $dt->sub(new \DateInterval('P2D'));
     $dt2 = $dt->format('Y-m-d');
 
-    $query = "select * from `news_ru` where `published` between '{$dt1}' and '{$dt2}'";
+    $query = "select * from `news_ru` where `published` between '{$dt2}' and '{$dt1}'";
 
     $msg = date('r') . ' ' . __FILE__ . ' +' . __LINE__ . ' Executing SQL: . ' . $query . PHP_EOL;
     logMsg($msg, $logFileName, ['echoLogMsg' => true, 'storeLog' => true]);
