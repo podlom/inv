@@ -52,7 +52,7 @@ function getNewsRu()
         }
     }
 
-    return $res;
+    return $retVal;
 }
 
 
