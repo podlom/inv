@@ -49,12 +49,12 @@ function getNews($lang = 'ru')
                 $newsCategoryUrl = 'news/ukraine/';
             }
             $dt3 = new \DateTime($r1['published'], $timeZone);
-            $langPrefix = $lang . '/';
+            $langPrefix = '/' . $lang . '/';
             if ($lang == 'ru') {
-                $langPrefix = '';
+                $langPrefix = '/';
             }
             $retVal[] = [
-                'loc' => URL_PREFIX . $langPrefix . $newsCategoryUrl . $r1['subpath'],
+                'loc' => $langPrefix . $newsCategoryUrl . $r1['subpath'],
                 'lastmod' => $dt3->format('Y-m-d\TH:i:s+00:00'),
                 'changefreq' => 'always',
                 'priority' => 0.5,

@@ -136,7 +136,11 @@ foreach ($langs as $lang) {
                     if (isset($n1['priority']) && !empty($n1['priority'])) {
                         $priority = $n1['priority'];
                     }
-                    $generator->addURL($n1['loc'], new DateTime(), $changeFrequency, $priority, null);
+                    $lastMod = new DateTime();
+                    if (isset($n1['lastmod']) && !empty($n1['lastmod'])) {
+                        $lastMod = new DateTime($n1['lastmod']);
+                    }
+                    $generator->addURL($n1['loc'], $lastMod, $changeFrequency, $priority, null);
                 }
             }
         }
