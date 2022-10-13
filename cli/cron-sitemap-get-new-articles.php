@@ -84,6 +84,8 @@ try {
         $news = getNews($lang);
         $msg = date('r') . ' ' . __FILE__ . ' +' . __LINE__ . ' $news: . ' . var_export($news, true) . PHP_EOL;
         logMsg($msg, $logFileName, ['echoLogMsg' => true, 'storeLog' => true]);
+        // empty file
+        file_put_contents('/home/inventure/data/web/inventure.com.ua/cli/php-sitemap-generator/news_' . $lang . '.txt', '');
         // @see: https://developers.google.com/search/docs/crawling-indexing/sitemaps/news-sitemap
         // /home/inventure/data/web/inventure.com.ua/cli/php-sitemap-generator/
         file_put_contents('/home/inventure/data/web/inventure.com.ua/cli/php-sitemap-generator/news_' . $lang . '.txt', serialize($news));
