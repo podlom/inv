@@ -50,7 +50,7 @@
 						a large number of investors
 
 					</p>
-					<h3 class="proposal__features-title">Вы получите:</h3>
+					<h3 class="proposal__features-title">You will get:</h3>
 					<ul class="proposal__features-list">
 						<li>
 							Placing an offer on the largest Investment portal InVenture
@@ -100,7 +100,7 @@
 						comprehensive approach to investor relations is required.
 
 					</p>
-					<h3 class="proposal__features-title">Вы получите:</h3>
+					<h3 class="proposal__features-title">You will get:</h3>
 					<ul class="proposal__features-list proposal__features-list--light">
 
 						<li>Consulting support at all stages of the transaction </li>
@@ -112,9 +112,7 @@
 
 					<button data-deal-name="Индивидуальный подход" data-remodal-target="approach"
 						class="btn btn--white btn--blue-text w-full add-inv-prop-btn">
-
 						Get terms
-
 					</button>
 				</div>
 			</div>
@@ -138,7 +136,9 @@
 				</div>
 				<div class="statistics__block">
 					<div class="statistics__number">$170+</div>
-					<div class="statistics__caption">Стоимость закрытых сделок</div>
+					<div class="statistics__caption">
+						Amount of completed investments
+					</div>
 				</div>
 			</div>
 
