@@ -123,7 +123,7 @@
 						{if $lang === 'ru'}Прямые инвестиции и M&A
 						{elseif $lang == 'uk'}Прямі інвестиції та M&A
 						{else}Private Equity
-						& M&amp;A{/if}
+						& M&A{/if}
 					</a></li>
 				<li><a href="{if $lang === 'en'}/en{elseif $lang == 'uk'}/uk{/if}/news/startup">
 						{if $lang === 'ru'}Стартапы{elseif $lang == 'uk'}Стартапи{else}Venture Capital &amp; Startups{/if}

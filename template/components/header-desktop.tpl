@@ -148,9 +148,12 @@
 												<svg width="23" height="20" viewBox="0 0 23 20" fill="none">
 													<use xlink:href="/images/header-icons-sprite.svg#news-investments" />
 												</svg>
-												{if $lang === 'ru'}Прямые инвестиции и M&amp;A
-												{elseif $lang === 'uk'}Прямі інвестиції та
-												M&Amp;A{else}Private Equity & M&amp;A
+												{if $lang === 'ru'}
+													Прямые инвестиции и M&A
+												{elseif $lang === 'uk'}
+													Прямі інвестиції та M&A
+												{else}
+													Private Equity & M&A
 												{/if}
 											</li>
 										</a>
