@@ -2,87 +2,103 @@
 {* height: calc(100% - 80px); *}
 
 <div class="index-page">
-  <div class="container container--main container--post the_post inventure_list z-0 relative">
-    <main class="main large-9">
-      {include 'components/invest-list'}
-    </main>
-    <aside class="sidebar sidebar--index desktop-only">
-      {include 'components/promo-links'}
-      {include 'components/invest-filter'}
-    </aside>
-  </div>
-  <div class="container">
-    <div class="show-more show-more--big">
-      <a href="/en/investments" class="show-more__btn font-medium ">Show all</a>
-    </div>
-  </div>
+	<div class="container container--main container--post the_post inventure_list z-0 relative">
+		<main class="main large-9">
+			{include 'components/invest-list'}
+		</main>
+		<aside class="sidebar sidebar--index desktop-only">
+			{include 'components/promo-links'}
+			{include 'components/invest-filter'}
+		</aside>
+	</div>
+	<div class="container">
+		<div class="show-more show-more--big">
+			<a href="/en/investments" class="show-more__btn font-medium ">Show all</a>
+		</div>
+	</div>
 
-  {include 'components/newsletter-full'}
+	{include 'components/newsletter-full'}
 
-  <div class="container container--main container--post the_post inventure_list mt-6 z-0 relative">
-    <main class="main large-9">
-      <section>
-        {* news *}
+	<div class="container container--main container--post the_post inventure_list mt-6 z-0 relative">
+		<main class="main large-9">
+			<section>
+				{* news *}
 
-        <div class="section__title-categories pt-0 mb-2 pb-0 flex flex-row justify-between items-center mt-4">
-          <a href="/en/news"><h2  class="section__title-categories pr-4">News</h2></a>
-          <ul class="sort desktop-only text-xs">
-            <li class="sort__item"><a href="/en/news">All</a></li>
-            <li class="sort__item"><a href="/en/news/ukraine">Ukraine</a></li>
-            <li class="sort__item"><a href="/en/news/world">World</a></li>
-          </ul>
-        </div>
-        <div class="relative z-0">
-          <div class="section__categories-overlay"></div>
-          <nav class="section__categories">
-              <a class="section__category" href="/en/news/investments">{if $lang === 'ru'}Прямые инвестиции и M&A{else}Private Equity & M&amp;A{/if}</a>
-              <a class="section__category" href="/en/news/startup">{if $lang === 'ru'}Стартапы{else}Venture Capital &amp; Startups{/if}</a>
-              <a class="section__category" href="/en/news/government">{if $lang === 'ru'}Макроинвестиции{else}Macroeconomics{/if}</a>
-              <a class="section__category" href="/en/news/banking">{if $lang === 'ru'}Кредитование{else}Banking{/if}</a>
-              <a class="section__category" href="/en/news/stock">{if $lang === 'ru'}Фондовый рынок{else}Stock Market &amp; IPO{/if}</a>
-              <a class="section__category" href="/en/news/realestate">{if $lang === 'ru'}Недвижимость{else}Commercial Property{/if}</a>
-          </nav>
-        </div>
+				<div class="section__title-categories pt-0 mb-2 pb-0 flex flex-row justify-between items-center mt-4">
+					<a href="/en/news">
+						<h2 class="section__title-categories pr-4">News</h2>
+					</a>
+					<ul class="sort desktop-only text-xs">
+						<li class="sort__item"><a href="/en/news">All</a></li>
+						<li class="sort__item"><a href="/en/news/ukraine">Ukraine</a></li>
+						<li class="sort__item"><a href="/en/news/world">World</a></li>
+					</ul>
+				</div>
+				<div class="relative z-0">
+					<div class="section__categories-overlay"></div>
+					<nav class="section__categories">
+						<a class="section__category" href="/en/news/investments">{if $lang === 'ru'}Прямые инвестиции и
+							M&A{else}Private Equity & M&A
+							{/if}</a>
+						<a class="section__category" href="/en/news/startup">{if $lang === 'ru'}Стартапы
+						{else}Venture Capital &amp;
+							Startups{/if}</a>
+						<a class="section__category"
+							href="/en/news/government">{if $lang === 'ru'}Макроинвестиции{else}Macroeconomics{/if}</a>
+						<a class="section__category" href="/en/news/banking">{if $lang === 'ru'}Кредитование{else}Banking{/if}</a>
+						<a class="section__category" href="/en/news/stock">{if $lang === 'ru'}Фондовый рынок
+						{else}Stock Market &amp;
+							IPO{/if}</a>
+						<a class="section__category" href="/en/news/realestate">{if $lang === 'ru'}Недвижимость
+						{else}Commercial
+							Property{/if}</a>
+					</nav>
+				</div>
 
-        {lent_load '/en/news' 6 var="news_all" analytics=1}
-        <div class="cards">
-          {foreach $news_all as $post}
-            {include 'components/card-post-without-desc'}
-          {/foreach}
-        </div>
-        <div class="show-more">
-          <a href="/en/news" class="show-more__btn font-medium ">Show all</a>
-        </div>
-      </section>
-      
-      <section>
-        <h2 class="section__title-categories mt-4"><a href="/en/analytics">Analytics</a></h2>
-        <div class="relative z-0">
-          <div class="section__categories-overlay"></div>
-          <nav class="section__categories">
-            <a class="section__category" href="/en/analytics/investments">{if $lang === 'ru'}Исследования{else}Research{/if}</a>
-            <a class="section__category" href="/en/analytics/articles">{if $lang === 'ru'}Статьи{else}Articles{/if}</a>
-            <a class="section__category" href="/en/analytics/formula">{if $lang === 'ru'}Интервью{else}Investment interview{/if}</a>
-            <a class="section__category" href="/en/analytics/we-invest-in-ukraine">{if $lang === 'ru'}Инвестируем в Украину{else}We invest in Ukraine{/if}</a>
-            <a class="section__category" href="/en/tools/database">{if $lang === 'ru'}Рейтинги{else}Ratings{/if}</a>
-            <a class="section__category" href="/en/tools/library">{if $lang === 'ru'}Библиотека{else}Library{/if}</a>
-            <a class="section__category" href="/en/tools/investors">{if $lang === 'ru'}Инвесторы{else}Investors{/if}</a>
-          </nav>
-        </div>
-        {$invest=[]}
-        {lent_load '/en/analytics' 6 var='analytics' analytics=1}
-          <div class="cards">
-            {foreach $analytics as $post}
-              {include 'components/card-post-without-desc'}
-            {/foreach}
-          </div>
+				{lent_load '/en/news' 6 var="news_all" analytics=1}
+				<div class="cards">
+					{foreach $news_all as $post}
+						{include 'components/card-post-without-desc'}
+					{/foreach}
+				</div>
+				<div class="show-more">
+					<a href="/en/news" class="show-more__btn font-medium ">Show all</a>
+				</div>
+			</section>
 
-        <div class="show-more">
-          <a href="/en/analytics" class="show-more__btn font-medium ">Show all</a>
-        </div>
-      </section>
-      
-      {* <section id="events">
+			<section>
+				<h2 class="section__title-categories mt-4"><a href="/en/analytics">Analytics</a></h2>
+				<div class="relative z-0">
+					<div class="section__categories-overlay"></div>
+					<nav class="section__categories">
+						<a class="section__category"
+							href="/en/analytics/investments">{if $lang === 'ru'}Исследования{else}Research{/if}</a>
+						<a class="section__category" href="/en/analytics/articles">{if $lang === 'ru'}Статьи{else}Articles{/if}</a>
+						<a class="section__category" href="/en/analytics/formula">{if $lang === 'ru'}Интервью
+						{else}Investment
+							interview{/if}</a>
+						<a class="section__category" href="/en/analytics/we-invest-in-ukraine">{if $lang === 'ru'}Инвестируем в
+							Украину{else}We invest in Ukraine
+							{/if}</a>
+						<a class="section__category" href="/en/tools/database">{if $lang === 'ru'}Рейтинги{else}Ratings{/if}</a>
+						<a class="section__category" href="/en/tools/library">{if $lang === 'ru'}Библиотека{else}Library{/if}</a>
+						<a class="section__category" href="/en/tools/investors">{if $lang === 'ru'}Инвесторы{else}Investors{/if}</a>
+					</nav>
+				</div>
+				{$invest=[]}
+				{lent_load '/en/analytics' 6 var='analytics' analytics=1}
+				<div class="cards">
+					{foreach $analytics as $post}
+						{include 'components/card-post-without-desc'}
+					{/foreach}
+				</div>
+
+				<div class="show-more">
+					<a href="/en/analytics" class="show-more__btn font-medium ">Show all</a>
+				</div>
+			</section>
+
+			{* <section id="events">
         <h2 class="section__title-categories mt-4"><a href="/en/tools/events">Events</a></h2>
         {$event=[]}
         <div class="cards cards--event">
@@ -92,7 +108,7 @@
         </div>
       </section> *}
 
-      {* <section class="news">
+			{* <section class="news">
         <h2 class="section__title-categories mt-4"><a href="/en/tools/video">Video</a></h2>
 
         <div class="cards cards--video">
@@ -119,14 +135,14 @@
         </div>
       </section>
        *}
-    </main>
-    <aside class="sidebar without-promo-links desktop-only ">
-      {include 'components/sidebar'}
-    </aside>
-  </div>
+		</main>
+		<aside class="sidebar without-promo-links desktop-only ">
+			{include 'components/sidebar'}
+		</aside>
+	</div>
 
-  {include 'components/subscribe-modal'}
-{* 
+	{include 'components/subscribe-modal'}
+	{* 
   <div class="dark_bg"></div>
   <div class="my_popup ">
     {#mod Mail}
@@ -138,7 +154,7 @@
     {#/mod}
   </div> *}
 
-  {* <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> *}
+	{* <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> *}
 
-  {* <script src="/js/filter.js"></script> *}
+	{* <script src="/js/filter.js"></script> *}
 </div>

@@ -21,7 +21,7 @@
     <span><a href="/en/news">News</a></span>
     <div class="submenu">
       <div class="block1">
-        <a href="/en/news/investments">Private Equity & M&amp;A</a>
+        <a href="/en/news/investments">Private Equity & M&A</a>
         <a href="/en/news/startup">Venture Capital &amp; Startups</a>
         <a href="/en/news/government">Macroeconomics</a>
         <a href="/en/news/banking">Banking</a>
@@ -75,7 +75,7 @@
     <div class="news">
         <a href="/news">News</a><i class="fa fa-chevron-right"></i><i class="fa fa-chevron-down"></i>
         <ul class="ul1">
-            <li><a href="/en/news/investments">Private equity and M&amp;A</a></li>
+            <li><a href="/en/news/investments">Private equity and M&A</a></li>
             <li><a href="/en/news/startup">Venture capital&amp; startups</a></li>
             <li><a href="/en/news/government">Goverment finance</a></li>
             <li><a href="/en/news/banking">Banking</a></li>
@@ -132,7 +132,7 @@
   </div>
   <div class="cell small-6 medium-3">
    <h6><a href="/en/news">News</a></h6>
-    <p><a href="/en/news/investments">Private Equity & M&amp;A</a></p>
+    <p><a href="/en/news/investments">Private Equity & M&A</a></p>
     <p><a href="/en/news/startup">Venture Capital &amp; startups</a></p>
     <p><a href="/en/news/government">Macroeconomics</a></p>
     <p><a href="/en/news/banking">Banking</a></p>
