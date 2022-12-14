@@ -56,7 +56,7 @@
                 {if $post->getAttr(1)}
                     <div class="line mb-6 mt-6"></div>
                     <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Organization">
-                        <b>{if $lang=='en'}Source:{else}Источник:{/if} </b>
+                        <b>{if $lang=='en'}Source:{elseif $lang == 'uk'}Джерело:{else}Источник:{/if} </b>
                         <span itemprop="name">
                             {if $post->getAttr(2)}
                                 <a href="{$post->getAttr(2)}" itemprop="url">{$post->getAttr(1)}</a>
