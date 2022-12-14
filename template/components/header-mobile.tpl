@@ -244,8 +244,14 @@
 			<a href="https://inventure.ua{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{else}/{/if}"
 				target="_blank">{if $lang === 'ru'}О компании{elseif $lang === 'uk'}Про компанію{else}About us{/if}</a>
 		</li>
-		<li><a href="{if $lang === 'en'}/en{elseif $lang == 'uk'}/uk{/if}/digest-social">
-				{if $lang === 'ru'}Ежемесячная рассылка{elseif $lang == 'uk'}Щомісячна розсилка{else}Monthly newsletter{/if}
+		<li><a href="{if $lang === 'en'}/en{elseif $lang == 'uk'}/uk{/if}/analytics/digest">
+			{if $lang == 'ru'}
+				Инвестиционный дайджест
+			{elseif $lang == 'uk'}
+				Інвестиційний дайджест
+			{else}
+				Investment Digest
+			{/if}
 			</a></li>
 		<li><a href="{if $lang === 'en'}/en{elseif $lang == 'uk'}/uk{/if}/about/contacts">
 				{if $lang === 'ru'}Контакты{elseif $lang == 'uk'}Контакти{else}Contacts{/if}
