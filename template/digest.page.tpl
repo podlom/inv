@@ -113,7 +113,7 @@
 {elseif $lang == 'uk'}
 	{include 'components/reviews' category='digest-social'  title="Відгуки про дайджест"}
 {else}
-	{include 'components/reviews' category='digest-social'  title="Digest Reviews"}
+	{* {include 'components/reviews' category='digest-social'  title="Digest Reviews"} *}
 {/if}
 
 
