@@ -300,7 +300,7 @@ didgest_en:
 didgest_uk:
     urls:
         - '/uk/analytics/digest'
-    template: digest.page
+    template: digest.page_uk
     layout: Core.layout_uk
 library_en:
     urls:
