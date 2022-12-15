@@ -295,7 +295,7 @@ video_en:
 didgest_en:
     urls:
         - '/en/analytics/digest'
-    template: digest.page_en
+    template: digest.page
     layout: Core.layout_en
 didgest_uk:
     urls:
