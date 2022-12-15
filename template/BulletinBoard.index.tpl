@@ -137,7 +137,7 @@
                 <div class="box-shadow"></div>
                 <div class="form">
                     <div class="title">
-                        <a href="/analytics/digest"> <i class="fa fa-rss"></i>
+                        <a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/analytics/digest"> <i class="fa fa-rss"></i>
                         Подписка на дайджест </a>
                       </div>
                       <div class="img"><img src="/i/digest_img.jpg"></div>
@@ -148,7 +148,7 @@
                     <div class="box-shadow"></div>
                     <div class="archive">
                         <div class="title">
-                           <a href="/analytics/digest"><img src="/i/download_icon.png" alt="Загрузить" title="Загрузить">
+                           <a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/analytics/digest"><img src="/i/download_icon.png" alt="Загрузить" title="Загрузить">
                             Архив выпусков</a>
                           </div>
                         <form name="archiveForm" method="post" action="#">

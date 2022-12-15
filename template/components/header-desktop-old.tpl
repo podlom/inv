@@ -383,7 +383,7 @@
                         <p class="menu-item__info-text">Получайте ежемесячный инвестиционный журнал в сфере прямых инвестиций и венчурного капитала.</p>
                         <a href="/digest-social" class="menu-item__info-link">Подписаться</a>
                       </div>
-                      <a href="/analytics/digest" class='menu-item__advert'>
+                      <a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/analytics/digest" class='menu-item__advert'>
                         <img src="/images/newsletter-advert.jpg"/>
                       </a>
                     </div>

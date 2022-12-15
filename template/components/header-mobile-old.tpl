@@ -58,7 +58,7 @@
               <li><a href="/tools/investors">Инвесторы</a></li>
           </ul>
           <ul class="ul2">
-              <li><a href="/analytics/digest">Инвестиционный дайджест</a></li>
+              <li><a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/analytics/digest">Инвестиционный дайджест</a></li>
           </ul>
       </div>
   </div>

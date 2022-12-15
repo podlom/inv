@@ -43,7 +43,7 @@
         <p class="newsletter__text">Инвестиционный дайджест InVenture - все самое важное в сфере инвестиций за месяц, на 10 страницах, всего за 5 минут! <br><a target="_blank" id='last-news-link' href="/" class="newsletter__link">Скачать последний выпуск журнала</a></p>
         <div class="newsletter__buttons">
           <button class="newsletter__button newsletter__button--white open_popup">Подписаться</button>
-          <a href="/analytics/digest" class="newsletter__button newsletter__button--darken">Смотреть архив</a>
+          <a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/analytics/digest" class="newsletter__button newsletter__button--darken">Смотреть архив</a>
         </div>
       </div>
       <div id="newsletter__archive" hidden>
