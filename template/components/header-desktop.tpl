@@ -319,7 +319,7 @@
 									</div>
 									<a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/analytics/digest"
 										class="menu-item__advert">
-										<img class="lazyload" data-src="/images/newsletter-advert.jpg" alt="Новостная рассылка" />
+										<img class="lazyload" data-src="/images/newsletter-advert.jpg" alt="{if $lang == 'en'}/en{/if}/analytics/digest">{if $lang == 'ru'}Дайджест{elseif $lang == 'uk'}Дайджест{else}Digest{/if}" />
 									</a>
 								</div>
 							</div>

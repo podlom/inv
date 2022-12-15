@@ -46,12 +46,36 @@
     
         <div class="subscription__bottom grid-container container">
             {load_digests}
-            {$month = [1=>'Январь','Февраль','Март','Апрель','Май','Июнь','Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь']}
+						{if $lang === 'ru'}
+							{$month = [1=>'Январь','Февраль','Март','Апрель','Май','Июнь','Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь']}
+						{elseif $lang == 'uk'}
+							{$month = [1=>'Січень','Лютий','Березень','Квітень','Травень','Червень','Липень','Серпень','Вересень','Жовтень','Листопад','Грудень']}
+						{else}
+							{$month = [1=>"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]}
+						{/if}
             {$first = reset($digests)}
                     <div class="w-full" style="position: relative;">
-                      <h1 class="section__title text-center">Инвестиционный дайджест InVenture </h1>
-                      <p style="max-width: 640px;text-align: center;margin: 0 auto 20px;">Инвестиционный дайджест InVenture - все самое важное в сфере инвестиций за месяц, на 10 страницах, всего за 5 минут! </p>
-                      <button data-remodal-target="subscribe" class="btn btn--normal btn--blue pl-6 pr-6 mobile-mb-2 ml-auto mr-auto">{if $lang === 'ru'}Подписаться{else}Subscribe{/if}</button>
+                      <h1 class="section__title text-center">
+												{if $lang == 'ru'}
+													Инвестиционный дайджест InVenture
+												{elseif $lang == 'uk'}
+													Інвестиційний дайджест InVenture
+												{else}
+													Investment Digest InVenture
+												{/if}
+											</h1>
+                      <p style="max-width: 640px;text-align: center;margin: 0 auto 20px;">
+											{if $lang === 'ru'}
+												Все самое важное в сфере инвестиций за месяц, на 10 страницах, всего за 5 минут!
+											{elseif $lang == 'uk'}
+												Все найважливіше у сфері інвестицій за місяць, на 10 сторінках, всього за 5 хвилин!
+											{else}
+												An electronic professional journal that provides monthly overview in sphere of direct investment and venture capital.
+											{/if}
+											</p>
+                      <button data-remodal-target="subscribe" class="btn btn--normal btn--blue pl-6 pr-6 mobile-mb-2 ml-auto mr-auto">
+												{if $lang == 'ru'}Подписаться{elseif $lang == 'uk'}Підписатися{else}Subscribe{/if}
+											</button>
                         <div class="digest__header mt-8 mb-4 ml-auto mr-auto block">
                             <ul class="digest__years">
                                 {for $y=intval($now->format('Y')) to intval($first->getPubDate()->format('Y')) step -1}
@@ -77,18 +101,20 @@
                 </div>
             </div>
 
-            <div id="hidden-digest" hidden>
-
-            </div>
+            {* <div id="hidden-digest" hidden></div> *}
         </div>
     </section>
 
-<div id="hidden-digest" hidden>
-
-</div>
+<div id="hidden-digest" hidden></div>
 
 
-{include 'components/reviews' category='digest-social'  title="Отзывы о дайджесте"}
+{if $lang === 'ru'}
+	{include 'components/reviews' category='digest-social'  title="Отзывы о дайджесте"}
+{elseif $lang == 'uk'}
+	{include 'components/reviews' category='digest-social'  title="Відгуки про дайджест"}
+{else}
+	{include 'components/reviews' category='digest-social'  title="Digest Reviews"}
+{/if}
 
 
 <div class="mt-4 mb-8 container">
