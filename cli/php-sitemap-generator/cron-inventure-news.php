@@ -54,11 +54,11 @@ foreach ($langs as $lang) {
    <loc>' . $location . '</loc>
    <news:news>
    <news:publication>
-     <news:name>The Example Times</news:name>
+     <news:name>' . $n1['h1'] . '</news:name>
      <news:language>' . $lang . '</news:language>
    </news:publication>
    <news:publication_date>' . $lastMod->format('Y-m-d') . '</news:publication_date>
-     <news:title>Companies A, B in Merger Talks</news:title>
+     <news:title>' . $n1['h1'] . '</news:title>
     </news:news>
   </url>';
                     $saveNewSitemap = true;
