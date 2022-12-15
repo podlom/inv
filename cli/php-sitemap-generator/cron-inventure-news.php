@@ -48,7 +48,8 @@ foreach ($langs as $lang) {
                     if (isset($n1['lastmod']) && !empty($n1['lastmod'])) {
                         $lastMod = new DateTime($n1['lastmod']);
                     }
-                    $location = str_replace($yourSiteUrl . $yourSiteUrl, $yourSiteUrl, $n1['loc']);
+                    // $location = str_replace($yourSiteUrl . $yourSiteUrl, $yourSiteUrl, $n1['loc']);
+                    $location = $yourSiteUrl . $n1['loc'];
                     // $generator->addURL($location, $lastMod, null, null, null);
                     $sitemapXml .= '  <url>
    <loc>' . $location . '</loc>
