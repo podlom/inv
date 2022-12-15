@@ -28,6 +28,8 @@ $outputDir = getcwd();
 // Set the sitemap index file name
 // $generator->setSitemapIndexFileName("news-sitemap-index.xml");
 
+$saveNewSitemap = false;
+
 $sitemapXml = '<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">';
@@ -59,13 +61,14 @@ foreach ($langs as $lang) {
      <news:title>Companies A, B in Merger Talks</news:title>
     </news:news>
   </url>';
+                    $saveNewSitemap = true;
                 }
             }
         }
     }
 }
 $sitemapXml .= '</urlset>';
-if (file_put_contents($outputDir . '/news-sitemap.xml', $sitemapXml)) {
+if ($saveNewSitemap && file_put_contents($outputDir . '/news-sitemap.xml', $sitemapXml)) {
     echo ' Wrote news sitemap to file: ' . $outputDir . '/news-sitemap.xml' . PHP_EOL;
 }
 
