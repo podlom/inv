@@ -1,6 +1,6 @@
-{assign "isNews" value=($request->getPathInfo()|strpos:'/news' === 0)}
-{assign "isVideo" value=($request->getPathInfo()|strpos:'/tools/video' === 0)}
-{assign "isAnalytics" value=($request->getPathInfo()|strpos:'/analytics' === 0)}
+{assign "isNews" value=($request->getPathInfo()|strpos:'/news' >= 0)}
+{assign "isVideo" value=($request->getPathInfo()|strpos:'/tools/video' >= 0)}
+{assign "isAnalytics" value=($request->getPathInfo()|strpos:'/analytics' >= 0)}
 {block 'breadcrumbs'}{/block}
 <div class="preview__wrapper  {if $post->getImage()}plain-text__card--with-img{else}plain-text__card--without-img{/if}">
     {if $post->getImage()}
