@@ -27,7 +27,7 @@ fields:
         multiple: true
         values:
           en: Английский
-          ru: Русский
+          ru: Украинский
     attributes:
       required: false
 #   validators:

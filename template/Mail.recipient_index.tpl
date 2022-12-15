@@ -43,7 +43,13 @@
 				<h3 class="h5">Категория рассылки</h3>
 				<select onchange="changeMailLinkHrefVal()" name="mailing_category" id="mail_cat">
 					<option value="newsletter">Рассылка инвесторам</option>
-					<option value="digest">Дайджест (русский)</option>
+					<option value="digest">Дайджест ({if $lang === 'ru'}
+						Украинский
+					{elseif $lang == 'uk'}
+						Українська
+					{else}
+						Ukrainian
+					{/if})</option>
 					<option value="digest">Дайджест (английский)</option>
 				</select>
 			</section>

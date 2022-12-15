@@ -106,7 +106,13 @@
 						</svg>
 					</div>
 					<span class="subscription__check-label">
-						{if $lang === 'ru'}Русский{else if $lang === 'en'}Russian{else}Російська{/if}
+						{if $lang === 'ru'}
+							Украинский
+						{elseif $lang == 'uk'}
+							Українська
+						{else}
+							Ukrainian
+						{/if}
 					</span>
 					<input type="checkbox" value="ru" name="subscribe[lang][]" id="check-ru" checked="true" hidden>
 				</div>
