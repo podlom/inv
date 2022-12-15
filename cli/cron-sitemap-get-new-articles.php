@@ -56,6 +56,8 @@ function getNews($lang = 'ru')
             $retVal[] = [
                 'loc' => $langPrefix . $newsCategoryUrl . $r1['subpath'],
                 'lastmod' => $dt3->format('Y-m-d\TH:i:s+00:00'),
+                'h1' => $r1['h1'],
+                'category_title' => $r1['category_title'],
                 'changefreq' => 'always',
                 'priority' => 0.5,
             ];
