@@ -99,7 +99,7 @@
             <li><a href="/en/tools/investors">Investors</a></li>
         </ul>
         <ul class="ul2">
-            <li><a href="/analytics/digest">Investment digest</a></li>
+            <li><a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/analytics/digest">Investment digest</a></li>
         </ul>
     </div>
 </div>

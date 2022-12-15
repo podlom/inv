@@ -48,7 +48,7 @@
           </div>
           <div class="cell small-6 medium-3">
             <h6><a href="/analytics">Аналитика</a></h6>
-            <p><a href="/analytics/digest">Инвестиционный дайджест</a></p>
+            <p><a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/analytics/digest">Инвестиционный дайджест</a></p>
             <p><a href="/analytics/investments">Исследования</a></p>
             <p><a href="/analytics/articles">Статьи</a></p>
             <p><a href="/analytics/formula">Интервью</a></p>

@@ -21,7 +21,7 @@
 			<a>
 			{/if}
 			<div class="subscription__tablet">
-				<a href="/analytics/digest" class="subscription__title">
+				<a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/analytics/digest" class="subscription__title">
 					{if $lang == 'ru'}
 						Инвестиционный дайджест InVenture
 					{elseif $lang == 'uk'}

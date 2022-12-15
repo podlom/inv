@@ -85,7 +85,7 @@
 
 
             {else}
-                <a href="/analytics/digest"> <i class="fa fa-rss"></i>Подписка на дайджест</a>
+                <a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/analytics/digest"> <i class="fa fa-rss"></i>Подписка на дайджест</a>
             {/if}
               </div>
               <div class="img"><img src="/i/digest_img.jpg"></div>
@@ -100,7 +100,7 @@
 
 
             {else}
-               <a href="/analytics/digest"> <img src="/i/download_icon.png" alt="Загрузить" title="Загрузить">Архив выпусков</a>
+               <a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/analytics/digest"> <img src="/i/download_icon.png" alt="Загрузить" title="Загрузить">Архив выпусков</a>
             {/if}
               </div>
             <form name="archiveForm" method="post" action="#">
