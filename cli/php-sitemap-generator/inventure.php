@@ -121,7 +121,8 @@ if (!empty($uri)) {
 
 $langs = ['en', 'uk', 'ru'];
 foreach ($langs as $lang) {
-    $newsFileName = 'news_' . $lang . '.txt';
+    // $newsFileName = 'news_' . $lang . '.txt';
+    $newsFileName = 'all_published_news_' . $lang . '.txt';
     if (file_exists($newsFileName)) {
         $fileData = file_get_contents($newsFileName);
         if (!empty($fileData)) {
