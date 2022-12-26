@@ -121,10 +121,35 @@ if (!empty($uri)) {
 
 $langs = ['en', 'uk', 'ru'];
 foreach ($langs as $lang) {
-    // $newsFileName = 'news_' . $lang . '.txt';
     $newsFileName = 'all_published_news_' . $lang . '.txt';
     if (file_exists($newsFileName)) {
         $fileData = file_get_contents($newsFileName);
+        if (!empty($fileData)) {
+            $newsData = unserialize($fileData);
+            if (is_array($newsData) && !empty($newsData)) {
+                foreach ($newsData as $n1) {
+                    $changeFrequency = $changeFrequencyDefault;
+                    if (isset($n1['changefreq']) && !empty($n1['changefreq'])) {
+                        $changeFrequency = $n1['changefreq'];
+                    }
+                    $priority = $priorityDefault;
+                    if (isset($n1['priority']) && !empty($n1['priority'])) {
+                        $priority = $n1['priority'];
+                    }
+                    $lastMod = new DateTime();
+                    if (isset($n1['lastmod']) && !empty($n1['lastmod'])) {
+                        $lastMod = new DateTime($n1['lastmod']);
+                    }
+                    $location = str_replace($yourSiteUrl . $yourSiteUrl, $yourSiteUrl, $n1['loc']);
+                    $generator->addURL($location, $lastMod, $changeFrequency, $priority, null);
+                }
+            }
+        }
+    }
+    // @ts 2022-12-27 include all published analytics
+    $analyticsFileName = 'all_published_analytics_' . $lang . '.txt';
+    if (file_exists($analyticsFileName)) {
+        $fileData = file_get_contents($analyticsFileName);
         if (!empty($fileData)) {
             $newsData = unserialize($fileData);
             if (is_array($newsData) && !empty($newsData)) {
