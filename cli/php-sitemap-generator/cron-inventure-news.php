@@ -55,7 +55,7 @@ foreach ($langs as $lang) {
    <loc>' . $location . '</loc>
    <news:news>
    <news:publication>
-     <news:name>' . $n1['h1'] . '</news:name>
+     <news:name>InVenture</news:name>
      <news:language>' . $lang . '</news:language>
    </news:publication>
    <news:publication_date>' . $lastMod->format('Y-m-d') . '</news:publication_date>
