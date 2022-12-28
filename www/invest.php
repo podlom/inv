@@ -405,11 +405,12 @@ function sendAddInvPropMail($data, $recipient = 'info@inventure.ua', $subject = 
         // '/page-attr-data.php', {'action': 'get_setting', 'name': 'link_ind'} - Для Полного сопровождения
         // '/page-attr-data.php', {'action': 'get_setting', 'name': 'link_adv'} - Для Рекламного подхода
         //
-        // Для Полного сопровождения
         // $linkHref = 'https://drive.google.com/open?id=19Ax-vqbQ9fPFEfTloQ_9UzNAZBKIPPcu';
-        $linkHref = 'https://drive.google.com/file/d/1O8kFTEPX1kiOn0cXV-WCLTxHunkiTThj/view?usp=sharing';
-        if (($linkHref = getLink('link_ind')) == false) {
-            $linkHref = 'https://drive.google.com/file/d/1O8kFTEPX1kiOn0cXV-WCLTxHunkiTThj/view?usp=sharing';
+        // $linkHref = 'https://drive.google.com/file/d/1O8kFTEPX1kiOn0cXV-WCLTxHunkiTThj/view?usp=sharing';
+        //
+        $linkHref = 'https://drive.google.com/file/d/1dTvFAqPnFBYfYRf86J5wFy4UtgQ3xkcq/view?usp=sharing';
+        if (($linkHref = getLink('link_ind')) == false) { // Для Полного сопровождения
+            $linkHref = 'https://drive.google.com/file/d/1dTvFAqPnFBYfYRf86J5wFy4UtgQ3xkcq/view?usp=sharing';
         }
         if ($formType == 1) { // Для Рекламного подхода
             // $linkHref = 'https://drive.google.com/file/d/11uxZNhMDjBNRu93jmb913zqokNHGzIbU/view?usp=sharing';

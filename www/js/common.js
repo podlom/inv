@@ -233,7 +233,8 @@ $(
 					// это для полного сопровождения - link_ind
 					// newHref = 'https://drive.google.com/open?id=19Ax-vqbQ9fPFEfTloQ_9UzNAZBKIPPcu';
 					newHref =
-						'https://drive.google.com/file/d/1O8kFTEPX1kiOn0cXV-WCLTxHunkiTThj/view?usp=sharing';
+						'https://drive.google.com/file/d/1dTvFAqPnFBYfYRf86J5wFy4UtgQ3xkcq/view?usp=sharing';
+
 					$.get(
 						'https://inventure.com.ua/page-attr-data.php',
 						{ action: 'get_setting', name: 'link_ind' },
