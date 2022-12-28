@@ -31,7 +31,7 @@ function l_m($msg)
     // Do not log on prod by default
     if ($_SERVER['SERVER_NAME'] === 'inventure.com.ua') {
         // error_log(__FILE__ . ' +' . __LINE__ . ' ' . __FUNCTION__ . ' log to file is disabled for production env: ' . $_SERVER['SERVER_NAME']);
-        return false;
+        // return false;
     }
     // Do not log if client IP does not match list below
     if (($_SERVER['REMOTE_ADDR'] !== '185.11.28.184') // @ts 2021-01-18 ISP Best, Grand Villas, home
