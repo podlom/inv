@@ -207,66 +207,67 @@ $(
 
 		window.Swal = swal;
 
-		if (document.documentElement.lang == 'ru') {
-			// это для рекламного подхода - link_adv
-			// let newHref = 'https://drive.google.com/open?id=1sFGhi5u4wVwNH8-pJat4EX8ufHSBIXVS';
-			let newHref =
-				'https://drive.google.com/file/d/1_6DUg9KUdUFQ6-RDT0o0buJ3XrX2YVre/view?usp=sharing';
-			$.get(
-				'https://inventure.com.ua/page-attr-data.php',
-				{ action: 'get_setting', name: 'link_adv' },
-				function (dat98) {
-					newHref = dat98;
-					console.log(
-						'+223 got link from admin settings: ' + newHref,
-					);
+		// это для рекламного подхода - link_adv
+		// let newHref = 'https://drive.google.com/open?id=1sFGhi5u4wVwNH8-pJat4EX8ufHSBIXVS';
+		let newHref =
+			'https://drive.google.com/file/d/1_6DUg9KUdUFQ6-RDT0o0buJ3XrX2YVre/view?usp=sharing';
+		$.get(
+			'https://inventure.com.ua/page-attr-data.php',
+			{ action: 'get_setting', name: 'link_adv' },
+			function (dat98) {
+				newHref = dat98;
+				console.log(
+					'+220 got link from admin settings: ' + newHref,
+				);
 
-					$('#openNowLink').attr('href', newHref);
-					document
-						.getElementById('openNowLink')
-						.setAttribute('href', newHref);
-				},
-			);
+				$('#openNowLink').attr('href', newHref);
+				document
+					.getElementById('openNowLink')
+					.setAttribute('href', newHref);
+			},
+		);
 
-			if (typeof window.isInd !== 'undefined') {
-				if (window.isInd) {
-					// это для полного сопровождения - link_ind
-					// newHref = 'https://drive.google.com/open?id=19Ax-vqbQ9fPFEfTloQ_9UzNAZBKIPPcu';
-					newHref =
-						'https://drive.google.com/file/d/1dTvFAqPnFBYfYRf86J5wFy4UtgQ3xkcq/view?usp=sharing';
+		if (typeof window.isInd !== 'undefined') {
+			if (window.isInd) {
+				// это для полного сопровождения - link_ind
+				// newHref = 'https://drive.google.com/open?id=19Ax-vqbQ9fPFEfTloQ_9UzNAZBKIPPcu';
+				newHref =
+					'https://drive.google.com/file/d/1dTvFAqPnFBYfYRf86J5wFy4UtgQ3xkcq/view?usp=sharing';
 
-					$.get(
-						'https://inventure.com.ua/page-attr-data.php',
-						{ action: 'get_setting', name: 'link_ind' },
-						function (dat99) {
-							newHref = dat99;
-							console.log(
-								'+232 got link from admin settings: ' + newHref,
-							);
+				$.get(
+					'https://inventure.com.ua/page-attr-data.php',
+					{ action: 'get_setting', name: 'link_ind' },
+					function (dat99) {
+						newHref = dat99;
+						console.log(
+							'+243 got link from admin settings: ' + newHref,
+						);
 
-							$('#openNowLink').attr('href', newHref);
-							document
-								.getElementById('openNowLink')
-								.setAttribute('href', newHref);
-						},
-					);
+						$('#openNowLink').attr('href', newHref);
+						document
+							.getElementById('openNowLink')
+							.setAttribute('href', newHref);
+					},
+				);
 
-					console.log(
-						'+235 fix #openNowLink link new href: ',
-						newHref,
-					);
-					$('#openNowLink').attr('href', newHref);
-					document
-						.getElementById('openNowLink')
-						.setAttribute('href', newHref);
-				} else {
-					console.log('+240 window.isInd is true: ', window.isInd);
-				}
+				console.log(
+					'+254 fix #openNowLink link new href: ',
+					newHref,
+				);
+				$('#openNowLink').attr('href', newHref);
+				document
+					.getElementById('openNowLink')
+					.setAttribute('href', newHref);
 			} else {
-				console.log('+243 window.isInd is not defined.');
+				console.log('+262 window.isInd is true: ', window.isInd);
 			}
+		} else {
+			console.log('+265 window.isInd is not defined.');
+		}
 
-			console.log('+246 before Swal.fire()');
+		if (document.documentElement.lang == 'ru') {
+
+			console.log('+270 before Swal.fire()');
 			console.log('action', form.attr('action'));
 			if (form.attr('action') === '/form/investment_callback') {
 				Swal.fire({
@@ -279,7 +280,7 @@ $(
 				Swal.fire({
 					title: 'Благодарим за Ваш запрос!',
 					html:
-						'<p><!-- +249 common.js -->\n' +
+						'<p><!-- +283 common.js -->\n' +
 						'\t\t\tМы отправили Вам на почту презентацию с описанием условий сотрудничества.\n' +
 						'\t\t</p>\n' +
 						'\t\t<p> \n' +
@@ -299,7 +300,7 @@ $(
 			Swal.fire({
 				title: 'Дякуємо вам за заявку!',
 				html:
-					'<p><!-- +302 common.js -->\n' +
+					'<p><!-- +303 common.js -->\n' +
 					'\t\t\tМи відправили Вам на пошту презентацію з описом умов для співробітництва.\n' +
 					'\t\t</p>\n' +
 					'\t\t<p> \n' +
@@ -318,7 +319,7 @@ $(
 			Swal.fire({
 				title: 'Thank you for your apply!',
 				html:
-					'<p><!-- +321 common.js -->\n' +
+					'<p><!-- +322 common.js -->\n' +
 					'\t\t\tWe have sent you an email with a presentation describing the terms of cooperation.\n' +
 					'\t\t</p>\n' +
 					'\t\t<p> \n' +
