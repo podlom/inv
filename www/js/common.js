@@ -297,15 +297,39 @@ $(
 			}
 		} else if (document.documentElement.lang == 'uk') {
 			Swal.fire({
-				title: 'Дякуємо за подання заявки!',
-				html: '',
+				title: 'Дякуємо вам за заявку!',
+				html:
+					'<p><!-- +302 common.js -->\n' +
+					'\t\t\tМи відправили Вам на пошту презентацію з описом умов для співробітництва.\n' +
+					'\t\t</p>\n' +
+					'\t\t<p> \n' +
+					'\t\t\tНаш менеджер зв`яжеться з Вами протягом одного робочого дня.\n' +
+					'\t\t</p>\n' +
+					'\t\t<br><p> \n' +
+					'\t\t<a style="text-decoration:underline;" id="openNowLink" target="_blank" href="' +
+					newHref +
+					'" class="w-full blue_but cell-but small-12" type="submit">Відкрити зараз</a>\n' +
+					'\t\t</p>\n' +
+					'\t\t',
 				type: 'success',
 				confirmButtonText: 'Закрити',
 			});
 		} else {
 			Swal.fire({
 				title: 'Thank you for your apply!',
-				html: '',
+				html:
+					'<p><!-- +321 common.js -->\n' +
+					'\t\t\tWe have sent you an email with a presentation describing the terms of cooperation.\n' +
+					'\t\t</p>\n' +
+					'\t\t<p> \n' +
+					'\t\t\tOur manager will contact you within one business day.\n' +
+					'\t\t</p>\n' +
+					'\t\t<br><p> \n' +
+					'\t\t<a style="text-decoration:underline;" id="openNowLink" target="_blank" href="' +
+					newHref +
+					'" class="w-full blue_but cell-but small-12" type="submit">Open now</a>\n' +
+					'\t\t</p>\n' +
+					'\t\t',
 				type: 'success',
 				confirmButtonText: 'Close',
 			});
