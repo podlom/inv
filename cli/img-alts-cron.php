@@ -41,6 +41,7 @@ try {
     $query = "SELECT * FROM `PagePart` " .
         " WHERE `id` > 3000 " .
         " AND (`text` LIKE '%<img%' AND `text` LIKE '%alt=\"\"%') " .
+        " ORDER BY rand() " .
         " LIMIT 0, 5 "
         ; // " FOR UPDATE"
     echo date('r') . ' ' . __FILE__ . ' +' . __LINE__ . ' SQL: ' . $query . PHP_EOL;
@@ -50,17 +51,19 @@ try {
             echo date('r') . ' ' . __FILE__ . ' +' . __LINE__ . ' DB result: ' . var_export($r, true) . PHP_EOL;
             preg_match_all('|alt=""|', $r['text'], $m, PREG_OFFSET_CAPTURE);
             if (!empty($m)) {
+                echo date('r') . ' ' . __FILE__ . ' +' . __LINE__ . ' Found matches: ' . PHP_EOL . var_export($m, true) . PHP_EOL;
                 if (isset($m[0][0][1])) {
                     $s1 = substr($r['text'], 0, $m[0][0][1]);
                     $s1 .= ' alt="' . str_replace('"', '&quot;', $r['title']) . '" ';
                     $s1 .= substr($r['text'], $m[0][0][1] + 6);
-                    $s1 = str_replace("'", '', $s1);
-                    echo date('r') . ' ' . __FILE__ . ' +' . __LINE__ . ' New text value: ' . $s1 . PHP_EOL;
+                    //
+                    $newTextValue = str_replace("'", '', $s1);
+                    echo date('r') . ' ' . __FILE__ . ' +' . __LINE__ . ' New text value: ' . PHP_EOL . $newTextValue . PHP_EOL;
 
-                    $query = "UPDATE `PagePart` SET `text` = '{$s1}' WHERE `id` = '{$r['id']}'";
-                    echo date('r') . ' ' . __FILE__ . ' +' . __LINE__ . ' SQL: ' . $query . PHP_EOL;
+                    $query = "UPDATE `PagePart` SET `text` = '{$newTextValue}' WHERE `id` = '{$r['id']}'";
+                    echo date('r') . ' ' . __FILE__ . ' +' . __LINE__ . ' SQL: ' . PHP_EOL . $query . PHP_EOL;
                     $res20 = $db->query($query);
-                    echo date('r') . ' ' . __FILE__ . ' +' . __LINE__ . ' res: ' . var_export($res20, true) . PHP_EOL;
+                    echo date('r') . ' ' . __FILE__ . ' +' . __LINE__ . ' DB result: ' . var_export($res20, true) . PHP_EOL;
 
                     // $doCommit = true;
                 }
