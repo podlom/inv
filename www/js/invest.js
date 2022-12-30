@@ -173,30 +173,34 @@ setTimeout(function() {
 
 function checkCroudinvesting()
 {
-  console.log('+173 checking window.location.pathname: ' + window.location.pathname);
+  console.log('+176 checking window.location.pathname: ' + window.location.pathname);
   if (window.location.pathname == '/investments/investicii-v-rasshirenie-kompanii-po-utilizacii-opasnyh-othodov') {
+    console.log('+178 true');
     return true;
   } else if (window.location.pathname == '/investments/investicii-v-rasshirenie-onlajn-biznesa-po-torgovle-shinami') {
+    console.log('+181 true');
     return true;
   }
 
+  console.log('+185 false');
   return false;
 }
 
 if (checkCroudinvesting()) {
+  console.log('+190 checked ');
   var postId = $('span.postId1').text();
 
   // @see: https://stackoverflow.com/questions/5515310/is-there-a-standard-function-to-check-for-null-undefined-or-blank-variables-in
   if (postId) {
-    console.log('+190 postId: ', postId);
+    console.log('+195 postId: ', postId);
     $.get(
         '/croudinvest.php',
         { action: 'form1', href: window.location.href, post_id: postId },
         function() {
-          console.log('+195 ajax status: success');
+          console.log('+200 ajax status: success');
         },
     ).done(function(d1) {
-      console.log('+198 got data: ' + d1);
+      console.log('+203 got data: ' + d1);
       $('#croud_form1').html(d1);
     });
   }
@@ -208,16 +212,16 @@ $('section.croudinvest').on("submit", '#croudinvest1', {}, croudSubmit);
 function croudSubmit()
 {
   var formData = $('#croudinvest1').serialize();
-  console.log('+201 croudSubmit() formData: ', formData);
+  console.log('+215 croudSubmit() formData: ', formData);
 
   $.post(
       '/croudinvest.php',
       { action: 'form1submit', data: formData },
       function() {
-        console.log('+208 ajax status: success');
+        console.log('+221 ajax status: success');
       },
   ).done(function(d1) {
-    // console.log('+207 got data: ' + d1);
+    console.log('+224 got data: ' + d1);
     $('#croud_form1').empty();
     $('#croud_form1').html(d1);
   });
@@ -225,16 +229,22 @@ function croudSubmit()
 
 function showCroudInvestStatus()
 {
+  console.log('+232 in showCroudInvestStatus()');
   var postId = $('span.postId1').text();
-  console.log('+220 postId: ', postId);
-  $.get(
-      '/croudinvest.php',
-      { action: 'showInvestStatus', href: window.location.href, post_id: postId },
-      function() {
-        console.log('+225 ajax status: success');
-      },
-  ).done(function(d2) {
-    $('#croud_stat1').html(d2);
-  });
+
+  if (postId) {
+    console.log('+236 postId: ', postId);
+
+    $.get(
+        '/croudinvest.php',
+        { action: 'showInvestStatus', href: window.location.href, post_id: postId },
+        function() {
+          console.log('+242 ajax status: success');
+        },
+    ).done(function(d2) {
+      $('#croud_stat1').html(d2);
+      console.log('+246 it is done');
+    });
+  }
 }
 showCroudInvestStatus();
