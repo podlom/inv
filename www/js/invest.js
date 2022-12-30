@@ -185,14 +185,15 @@ function checkCroudinvesting()
 
 if (checkCroudinvesting()) {
   var postId = $('span.postId1').text();
-  console.log('+187 postId: ', postId);
 
-  if (postId.length) {
+  // @see: https://stackoverflow.com/questions/5515310/is-there-a-standard-function-to-check-for-null-undefined-or-blank-variables-in
+  if (postId) {
+    console.log('+190 postId: ', postId);
     $.get(
         '/croudinvest.php',
         { action: 'form1', href: window.location.href, post_id: postId },
         function() {
-          console.log('+187 ajax status: success');
+          console.log('+195 ajax status: success');
         },
     ).done(function(d1) {
       console.log('+198 got data: ' + d1);
