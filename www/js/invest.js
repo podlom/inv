@@ -179,22 +179,27 @@ function checkCroudinvesting()
   } else if (window.location.pathname == '/investments/investicii-v-rasshirenie-onlajn-biznesa-po-torgovle-shinami') {
     return true;
   }
+
   return false;
 }
 
 if (checkCroudinvesting()) {
   var postId = $('span.postId1').text();
-  console.log('+184 postId: ', postId);
-  $.get(
-      '/croudinvest.php',
-      { action: 'form1', href: window.location.href, post_id: postId },
-      function() {
-        console.log('+187 ajax status: success');
-      },
-  ).done(function(d1) {
-    // console.log('+190 got data: ' + d1);
-    $('#croud_form1').html(d1);
-  });
+  console.log('+187 postId: ', postId);
+
+  if (postId.length) {
+    $.get(
+        '/croudinvest.php',
+        { action: 'form1', href: window.location.href, post_id: postId },
+        function() {
+          console.log('+187 ajax status: success');
+        },
+    ).done(function(d1) {
+      console.log('+198 got data: ' + d1);
+      $('#croud_form1').html(d1);
+    });
+  }
+
 }
 
 $('section.croudinvest').on("submit", '#croudinvest1', {}, croudSubmit);
