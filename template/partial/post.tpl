@@ -123,7 +123,7 @@
                         document.body.appendChild(script);
                         });
                     }
-                    loadScript('https://unpkg.com/swiper/swiper-bundle.min.js').then(() => {
+                    loadScript('https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js').then(() => {
                         const galleryThumbs = new Swiper('.gallery-thumbs', {
                             spaceBetween: 10,
                             slidesPerView: 5,
