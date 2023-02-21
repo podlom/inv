@@ -31,3 +31,7 @@ cli/php-sitemap-generator/sitemap*.gz
 .DS_Store
 *.txt
 *.tar.bz2
+# @ts 2023-02-21 ignore generated proxy classes
+data/gen_lib/Proxy/__CG__*.php
+# @ts 2023-02-21 ignore generated js files
+data/react/dist/*.js
