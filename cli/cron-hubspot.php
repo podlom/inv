@@ -5,8 +5,10 @@
  * User: Taras
  * Date: 2019-05-02
  * Time: 11:12
+ * 
+ * Version: 2023-02-24 21:14
  *
- * @author Taras Shkodenko <ts@doagency.net>
+ * @author Taras Shkodenko <taras@shkodenko.com>
  */
 
 define('DB_TABLE', 'hubspot');
@@ -30,7 +32,7 @@ require_once 'lib' . DIRECTORY_SEPARATOR . 'hubspot.class.php';
  * @param $formData
  * @return bool
  *
- * @author Taras Shkodenko <ts@doagency.net>
+ * @author Taras Shkodenko <taras@shkodenko.com>
  */
 function userRegister($formData)
 {
@@ -50,7 +52,7 @@ function userRegister($formData)
     if (isset($formData['phone'])) {
         $contactData['phone'] = $formData['phone'];
     }
-    // TODO: get contact owner - now hardcoded test responsible user to - ts@doagency.net
+    // TODO: get contact owner - now hardcoded test responsible user to - taras@shkodenko.com
     // $contactData['hubspot_owner_id'] = 36382326;
     //
     // Тип клиента
@@ -100,7 +102,7 @@ function userRegister($formData)
  * @param $formData
  * @return bool
  *
- * @author Taras Shkodenko <ts@doagency.net>
+ * @author Taras Shkodenko <taras@shkodenko.com>
  */
 function bulletinAdd($formData)
 {
@@ -161,7 +163,7 @@ function bulletinAdd($formData)
     if (!empty($gaJson)) {
         $contactData['source'] = $gaJson['source_title'];
     }
-    // TODO: get contact owner - now hardcoded to - ts@doagency.net
+    // TODO: get contact owner - now hardcoded to - taras@shkodenko.com
     // $contactData['hubspot_owner_id'] = 36382326;
     //
     // Тип клиента
@@ -629,7 +631,7 @@ function sfInvestor($formData)
     // Тип клиента
     $contactData['type_of_client'] = 'Инвестор'; // @see: https://app.hubspot.com/property-settings/1982701/contact/type_of_client
     //
-    // TODO: get contact owner - now hardcoded to - ts@doagency.net
+    // TODO: get contact owner - now hardcoded to - taras@shkodenko.com
     // $contactData['hubspot_owner_id'] = 36382326;
     //
     $res1 = $hubSpot->findContactByEmail($formData['email']);

@@ -1,5 +1,14 @@
 <?php
 
+/**
+ * Created by PhpStorm
+ * User: Taras
+ * 
+ * Version: 2023-02-24 21:16
+ *
+ * @author Taras Shkodenko <taras@shkodenko.com>
+ */
+
 
 class Hubspot
 {
@@ -8,6 +17,8 @@ class Hubspot
     const OWNER_ID = 36382326;
 
     const PORTAL_ID = 1982701;
+
+    const TOKEN = 'pat-na1-42969d3e-8acf-493b-8a02-b5d7b37a7309';
 
     private $errorLogFile = null;
 
@@ -33,7 +44,7 @@ class Hubspot
             $msg = date('r') . ' ' . __METHOD__ . ' +' . __LINE__ . ' Error HubSpot CRM settings not configured: ' . var_export($settings, 1) . PHP_EOL ;
             error_log( $msg . PHP_EOL, 3, $this->getErrorLogFile() );
         }
-        $this->hapiKey = $settings['hubspot']['api_key'];
+        // $this->hapiKey = $settings['hubspot']['api_key'];
         $this->db = $db;
         $this->owners = $this->setOwners();
     }
@@ -190,7 +201,7 @@ class Hubspot
                 'value' => $data['hubspot_owner_id'],
             ];
         }
-        $resp = $this->query('/contacts/v1/contact?hapikey=' . $this->hapiKey, __METHOD__, $arrData);
+        $resp = $this->query('/contacts/v1/contact', __METHOD__, $arrData);
         if ($this->hubRespCode == 200) {
             return $resp;
         } else {
@@ -257,7 +268,7 @@ class Hubspot
             ];
         }
         //
-        $resp = $this->query('/contacts/v1/contact/vid/' . $data['vid'] . '/profile?hapikey=' . $this->hapiKey, __METHOD__, $arrData);
+        $resp = $this->query('/contacts/v1/contact/vid/' . $data['vid'] . '/profile', __METHOD__, $arrData);
         if ($this->hubRespCode == 204) {
             return $resp;
         } else {
@@ -275,7 +286,7 @@ class Hubspot
      * @param array $data
      * @return array|string|null
      *
-     * @author Taras Shkodenko <ts@doagency.net>
+     * @author Taras Shkodenko <taras@shkodenko.com>
      */
     public function addOrUpdateContact($data)
     {
@@ -422,7 +433,7 @@ class Hubspot
                 'value' => $data['hubspot_owner_id'],
             ];
         }
-        $resp = $this->query('/contacts/v1/contact/createOrUpdate/email/' . urlencode($data['email']) . '/?hapikey=' . $this->hapiKey, __METHOD__, $arrData);
+        $resp = $this->query('/contacts/v1/contact/createOrUpdate/email/' . urlencode($data['email']) . '/', __METHOD__, $arrData);
         if ($this->hubRespCode == 200) {
             return $resp;
         } else {
@@ -438,12 +449,12 @@ class Hubspot
      * @see: https://developers.hubspot.com/docs/methods/contacts/v2/get_contacts_properties
      * @return bool|string|null
      *
-     * @author Taras Shkodenko <ts@doagency.net>
+     * @author Taras Shkodenko <taras@shkodenko.com>
      */
     public function getAllContactProperties()
     {
         $arrData = [];
-        $resp = $this->query('/properties/v1/contacts/properties?hapikey=' . $this->hapiKey, __METHOD__, $arrData);
+        $resp = $this->query('/properties/v1/contacts/properties', __METHOD__, $arrData);
         return $resp;
     }
 
@@ -453,7 +464,7 @@ class Hubspot
      * @param string $name
      * @return bool|string|null
      *
-     * @author Taras Shkodenko <ts@doagency.net>
+     * @author Taras Shkodenko <taras@shkodenko.com>
      */
     public function getContactPropertyByName($name)
     {
@@ -464,7 +475,7 @@ class Hubspot
         }
         $arrData = [];
         $propName = urlencode($name);
-        $resp = $this->query('/properties/v1/contacts/properties/named/' . $propName . '?hapikey=' . $this->hapiKey, __METHOD__, $arrData);
+        $resp = $this->query('/properties/v1/contacts/properties/named/' . $propName, __METHOD__, $arrData);
         // return $resp;
         if ($this->hubRespCode == 200) {
             return $resp;
@@ -481,7 +492,7 @@ class Hubspot
      * @param array $data
      * @return array|string|null
      *
-     * @author Taras Shkodenko <ts@doagency.net>
+     * @author Taras Shkodenko <taras@shkodenko.com>
      */
     public function updateContactProperty($data)
     {
@@ -515,7 +526,7 @@ class Hubspot
         //
         $propName = urlencode($data['name']);
         // /properties/v1/contacts/properties/named/custom_field?hapikey=
-        $resp = $this->query('/properties/v1/contacts/properties/named/' . $propName . '?hapikey=' . $this->hapiKey, __METHOD__, $arrData, $reqConfig);
+        $resp = $this->query('/properties/v1/contacts/properties/named/' . $propName, __METHOD__, $arrData, $reqConfig);
         if ($this->hubRespCode == 200) {
             return $resp;
         } else {
@@ -532,7 +543,7 @@ class Hubspot
      * @param array $data
      * @return array|bool|string|null
      *
-     * @author Taras Shkodenko <ts@doagency.net>
+     * @author Taras Shkodenko <taras@shkodenko.com>
      */
     public function updateContactPropertyByName($name, $data)
     {
@@ -550,7 +561,7 @@ class Hubspot
         ];
         //
         $propName = urlencode($name);
-        $resp = $this->query('/properties/v1/contacts/properties/named/' . $propName . '?hapikey=' . $this->hapiKey, __METHOD__, $arrData, $reqConfig);
+        $resp = $this->query('/properties/v1/contacts/properties/named/' . $propName, __METHOD__, $arrData, $reqConfig);
         if ($this->hubRespCode == 200) {
             return $resp;
         } else {
@@ -565,7 +576,7 @@ class Hubspot
     public function getContactPropertyGroups()
     {
         $arrData = [];
-        $resp = $this->query('/properties/v1/contacts/groups?hapikey=' . $this->hapiKey, __METHOD__, $arrData);
+        $resp = $this->query('/properties/v1/contacts/groups', __METHOD__, $arrData);
         return $resp;
     }
 
@@ -574,12 +585,12 @@ class Hubspot
      * @see: https://developers.hubspot.com/docs/methods/owners/get_owners
      * @return bool|string|null
      *
-     * @author Taras Shkodenko <ts@doagency.net>
+     * @author Taras Shkodenko <taras@shkodenko.com>
      */
     protected function setOwners()
     {
         $arrData = [];
-        $resp = $this->query('/owners/v2/owners?hapikey=' . $this->hapiKey, __METHOD__, $arrData);
+        $resp = $this->query('/owners/v2/owners', __METHOD__, $arrData);
         return $resp;
     }
 
@@ -587,7 +598,7 @@ class Hubspot
      * Get owners
      * @return array|null
      *
-     * @author Taras Shkodenko <ts@doagency.net>
+     * @author Taras Shkodenko <taras@shkodenko.com>
      */
     public function getOwners()
     {
@@ -631,7 +642,7 @@ class Hubspot
             return false;
         }
         $email = urlencode($email);
-        $uri = '/contacts/v1/contact/email/' . $email . '/profile?hapikey=' . $this->hapiKey;
+        $uri = '/contacts/v1/contact/email/' . $email . '/profile';
         if (!is_null($params) && is_array($params) && !empty($params)) {
             if (isset($params['propertyMode']) && !empty($params['propertyMode'])) {
                 $uri .= '&propertyMode=' . $params['propertyMode'];
@@ -655,7 +666,7 @@ class Hubspot
     {
         $phone = urlencode($this->sanitizePhoneNumber($phone));
         // @example: https://api.hubapi.com/contacts/v1/search/query?q=testingapis&hapikey=demo
-        $uri = '/contacts/v1/search/query?q=' . $phone . '&hapikey=' . $this->hapiKey;
+        $uri = '/contacts/v1/search/query?q=' . $phone;
         $resp = $this->query($uri, __METHOD__, []);
         return $resp;
     }
@@ -670,7 +681,7 @@ class Hubspot
     public function getContactById($contactId)
     {
         // @example: https://api.hubapi.com/contacts/v1/contact/vid/3234574/profile?hapikey=demo
-        $resp = $this->query('/contacts/v1/contact/vid/' . (int)$contactId . '/profile?hapikey=' . $this->hapiKey, __METHOD__, []);
+        $resp = $this->query('/contacts/v1/contact/vid/' . (int)$contactId . '/profile', __METHOD__, []);
         if (!empty($resp)) {
             return $resp;
         }
@@ -682,13 +693,13 @@ class Hubspot
      * @param $arrData
      * @return array|bool|string|null
      *
-     * @author Taras Shkodenko <ts@doagency.net>
+     * @author Taras Shkodenko <taras@shkodenko.com>
      */
     public function getEmailSubscribers($arrData)
     {
         // @see: https://developers.hubspot.com/docs/methods/contacts/search_contacts
         //
-        $uri = '/contacts/v1/lists/all/contacts/all?hapikey=' . $this->hapiKey;
+        $uri = '/contacts/v1/lists/all/contacts/all';
         //
         // @example: $arrCont = [
         //        'count' => 100,
@@ -737,7 +748,7 @@ class Hubspot
      * @param null|int $offsetVid
      * @return array|bool|string|null
      *
-     * @author Taras Shkodenko <ts@doagency.net>
+     * @author Taras Shkodenko <taras@shkodenko.com>
      */
     public function getContactsInList($listId, $count = 100, $offsetVid = null)
     {
@@ -748,9 +759,9 @@ class Hubspot
         // @example URL: https://api.hubapi.com/contacts/v1/lists/226468/contacts/all?hapikey=demo
         //
         if (!is_null($offsetVid)) {
-            $uri = '/contacts/v1/lists/' . $listId . '/contacts/all?hapikey=' . $this->hapiKey . '&count=' . $count . '&vidOffset=' . $offsetVid;
+            $uri = '/contacts/v1/lists/' . $listId . '/contacts/all?count=' . $count . '&vidOffset=' . $offsetVid;
         } else {
-            $uri = '/contacts/v1/lists/' . $listId . '/contacts/all?hapikey=' . $this->hapiKey . '&count=' . $count;
+            $uri = '/contacts/v1/lists/' . $listId . '/contacts/all?count=' . $count;
         }
 
         $resp = $this->query($uri, __METHOD__, []);
@@ -772,11 +783,11 @@ class Hubspot
      * @param int $companyId
      * @return bool|string|null
      *
-     * @author Taras Shkodenko <ts@doagency.net>
+     * @author Taras Shkodenko <taras@shkodenko.com>
      */
     public function getCompanyById($companyId)
     {
-        $resp = $this->query('/companies/v2/companies/' . (int)$companyId . '?hapikey=' . $this->hapiKey, __METHOD__, []);
+        $resp = $this->query('/companies/v2/companies/' . (int)$companyId, __METHOD__, []);
         if (!empty($resp)) {
             return $resp;
         }
@@ -862,7 +873,7 @@ class Hubspot
         error_log( $msg . PHP_EOL, 3, $this->getErrorLogFile() );
         //
         // @example: 'https://api.hubapi.com/deals/v1/deal?hapikey=demo'
-        $uri = '/deals/v1/deal?hapikey=' . $this->hapiKey;
+        $uri = '/deals/v1/deal';
         $resp = $this->query($uri, __METHOD__, $arrData);
         if ($this->hubRespCode == 200) {
             return $resp;
@@ -901,7 +912,7 @@ class Hubspot
                 ];
             }
         }
-        $uri = '/deals/v1/deal/' . (int)$data['dealId'] . '?hapikey=' . $this->hapiKey;
+        $uri = '/deals/v1/deal/' . (int)$data['dealId'];
         $resp = $this->query($uri, __METHOD__, $arrData, ['method' => 'PUT']);
         if (!empty($resp)) {
             return $resp;
@@ -923,7 +934,7 @@ class Hubspot
      */
     public function getDealById($dealId)
     {
-        $resp = $this->query('/deals/v1/deal/' . (int)$dealId . '?hapikey=' . $this->hapiKey, __METHOD__, []);
+        $resp = $this->query('/deals/v1/deal/' . (int) $dealId, __METHOD__, []);
         if (!empty($resp)) {
             return $resp;
         }
@@ -935,11 +946,11 @@ class Hubspot
      * @see: https://developers.hubspot.com/docs/methods/deal-pipelines/get-all-deal-pipelines
      * @return bool|string|null
      *
-     * @author Taras Shkodenko <ts@doagency.net>
+     * @author Taras Shkodenko <taras@shkodenko.com>
      */
     public function getDealPipelines()
     {
-        $resp = $this->query('/deals/v1/pipelines?hapikey=' . $this->hapiKey, __METHOD__, []);
+        $resp = $this->query('/deals/v1/pipelines', __METHOD__, []);
         if (!empty($resp)) {
             return $resp;
         }
@@ -951,11 +962,11 @@ class Hubspot
      * @see: https://developers.hubspot.com/docs/methods/deals/get_deals_created
      * @return bool|string|null
      *
-     * @author Taras Shkodenko <ts@doagency.net>
+     * @author Taras Shkodenko <taras@shkodenko.com>
      */
     public function getRecentlyCreatedDeals($reqData = [])
     {
-        $resp = $this->query('/deals/v1/deal/recent/created?hapikey=' . $this->hapiKey, __METHOD__, $reqData);
+        $resp = $this->query('/deals/v1/deal/recent/created', __METHOD__, $reqData);
         if (!empty($resp)) {
             return $resp;
         }
@@ -968,11 +979,11 @@ class Hubspot
      * @param array $reqData
      * @return bool|string|null
      *
-     * @author Taras Shkodenko <ts@doagency.net>
+     * @author Taras Shkodenko <taras@shkodenko.com>
      */
     public function getRecentlyModifiedDeals($reqData = [])
     {
-        $resp = $this->query('/deals/v1/deal/recent/modified?hapikey=' . $this->hapiKey, __METHOD__, $reqData);
+        $resp = $this->query('/deals/v1/deal/recent/modified', __METHOD__, $reqData);
         if (!empty($resp)) {
             return $resp;
         }
@@ -1002,7 +1013,7 @@ class Hubspot
         "body": "note body"
         } ]; */
         // TODO: check data
-        $uri = '/engagements/v1/engagements?hapikey=' . $this->hapiKey;
+        $uri = '/engagements/v1/engagements';
         $resp = $this->query($uri, __METHOD__, $data);
         if (!empty($resp)) {
             return $resp;
@@ -1015,11 +1026,11 @@ class Hubspot
      * @see: https://developers.hubspot.com/docs/methods/webhooks/webhooks-overview
      * @return bool|string|null
      *
-     * @author Taras Shkodenko <ts@doagency.net>
+     * @author Taras Shkodenko <taras@shkodenko.com>
      */
     public function getWebhookSettings()
     {
-        $resp = $this->query('/webhooks/v1/' . self::APP_ID . '/settings?hapikey=' . $this->hapiKey, __METHOD__, []);
+        $resp = $this->query('/webhooks/v1/' . self::APP_ID . '/settings', __METHOD__, []);
         if (!empty($resp)) {
             return $resp;
         }
@@ -1068,7 +1079,10 @@ class Hubspot
         if ($isPostRequest) {
             curl_setopt($ch, CURLOPT_POST, true);
             curl_setopt($ch, CURLOPT_POSTFIELDS, $postJson);
-            curl_setopt($ch, CURLOPT_HTTPHEADER, ["Content-Type: application/json"]);
+            curl_setopt($ch, CURLOPT_HTTPHEADER, [
+                'Content-Type: application/json',
+                'Authorization: Bearer ' . self::TOKEN,
+            ]);
         }
         if ($isPutRequest) {
             // CURLOPT_ENCODING
@@ -1081,7 +1095,8 @@ class Hubspot
             curl_setopt($ch, CURLOPT_POSTFIELDS, $putJson);
             // Headers
             curl_setopt($ch, CURLOPT_HTTPHEADER, [
-                "Content-Type: application/json",
+                'Content-Type: application/json',
+                'Authorization: Bearer ' . self::TOKEN,
                 "cache-control: no-cache",
             ]);
         }
