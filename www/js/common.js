@@ -217,7 +217,9 @@ $(
 	var action = '/invest.php';
 	var form = $(this);
 
+	console.log('before action submitted', action);
 	$.post(action, $(this).serialize(), async () => {
+		console.log('action submitted', action);
 		form.trigger('reset');
 		$('.my_popup').removeClass('opened');
 		$('.dark_bg').removeClass('opened');
@@ -229,7 +231,7 @@ $(
 		// let documentLink = 'https://drive.google.com/open?id=1sFGhi5u4wVwNH8-pJat4EX8ufHSBIXVS';
 		let documentLink = DEFAULT_DOCUMENT_LINK;
 		const attrName = getAttrName();
-
+		console.log({ attrName });
 		try {
 			documentLink = await getDocumentLink(attrName);
 			console.log({ documentLink });
