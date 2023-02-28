@@ -174,6 +174,24 @@ $('form[action="/!Mail"]').submit(function (e) {
 	});
 });
 
+function getDocumentLink(attrName) {
+	return $.get('https://inventure.com.ua/page-attr-data.php', {
+		action: 'get_setting',
+		name: attrName,
+	});
+}
+
+function getAttrName() {
+	const isInd = typeof window.isInd !== 'undefined' && window.isInd;
+	const lang = document.documentElement.lang;
+	const name = isInd ? 'link_ind' : 'link_adv';
+	if (lang === 'ru') return name;
+	return `${lang}_${name}`;
+}
+
+const DEFAULT_DOCUMENT_LINK =
+	'https://drive.google.com/file/d/1_6DUg9KUdUFQ6-RDT0o0buJ3XrX2YVre/view?usp=sharing';
+
 $(
 	'form[action="/form/approach"], form[action="/form/investor"], form[action="/form/investor_en"], form[action="/form/investment_callback"]',
 ).submit(function (e) {
@@ -199,7 +217,7 @@ $(
 	var action = '/invest.php';
 	var form = $(this);
 
-	$.post(action, $(this).serialize(), () => {
+	$.post(action, $(this).serialize(), async () => {
 		form.trigger('reset');
 		$('.my_popup').removeClass('opened');
 		$('.dark_bg').removeClass('opened');
@@ -208,65 +226,73 @@ $(
 		window.Swal = swal;
 
 		// это для рекламного подхода - link_adv
-		// let newHref = 'https://drive.google.com/open?id=1sFGhi5u4wVwNH8-pJat4EX8ufHSBIXVS';
-		let newHref =
-			'https://drive.google.com/file/d/1_6DUg9KUdUFQ6-RDT0o0buJ3XrX2YVre/view?usp=sharing';
-		$.get(
-			'https://inventure.com.ua/page-attr-data.php',
-			{ action: 'get_setting', name: 'link_adv' },
-			function (dat98) {
-				newHref = dat98;
-				console.log(
-					'+220 got link from admin settings: ' + newHref,
-				);
+		// let documentLink = 'https://drive.google.com/open?id=1sFGhi5u4wVwNH8-pJat4EX8ufHSBIXVS';
+		let documentLink = DEFAULT_DOCUMENT_LINK;
+		const attrName = getAttrName();
 
-				$('#openNowLink').attr('href', newHref);
-				document
-					.getElementById('openNowLink')
-					.setAttribute('href', newHref);
-			},
-		);
-
-		if (typeof window.isInd !== 'undefined') {
-			if (window.isInd) {
-				// это для полного сопровождения - link_ind
-				// newHref = 'https://drive.google.com/open?id=19Ax-vqbQ9fPFEfTloQ_9UzNAZBKIPPcu';
-				newHref =
-					'https://drive.google.com/file/d/1dTvFAqPnFBYfYRf86J5wFy4UtgQ3xkcq/view?usp=sharing';
-
-				$.get(
-					'https://inventure.com.ua/page-attr-data.php',
-					{ action: 'get_setting', name: 'link_ind' },
-					function (dat99) {
-						newHref = dat99;
-						console.log(
-							'+243 got link from admin settings: ' + newHref,
-						);
-
-						$('#openNowLink').attr('href', newHref);
-						document
-							.getElementById('openNowLink')
-							.setAttribute('href', newHref);
-					},
-				);
-
-				console.log(
-					'+254 fix #openNowLink link new href: ',
-					newHref,
-				);
-				$('#openNowLink').attr('href', newHref);
-				document
-					.getElementById('openNowLink')
-					.setAttribute('href', newHref);
-			} else {
-				console.log('+262 window.isInd is true: ', window.isInd);
-			}
-		} else {
-			console.log('+265 window.isInd is not defined.');
+		try {
+			documentLink = await getDocumentLink(attrName);
+			console.log({ documentLink });
+		} catch (err) {
+			console.error(err);
 		}
 
-		if (document.documentElement.lang == 'ru') {
+		// $.get(
+		// 	'https://inventure.com.ua/page-attr-data.php',
+		// 	{ action: 'get_setting', name: 'link_adv' },
+		// 	function (dat98) {
+		// 		documentLink = dat98;
+		// 		console.log(
+		// 			'+220 got link from admin settings: ' + documentLink,
+		// 		);
 
+		// 		$('#openNowLink').attr('href', documentLink);
+		// 		document
+		// 			.getElementById('openNowLink')
+		// 			.setAttribute('href', documentLink);
+		// 	},
+		// );
+
+		// if (typeof window.isInd !== 'undefined') {
+		// 	if (window.isInd) {
+		// 		// это для полного сопровождения - link_ind
+		// 		// documentLink = 'https://drive.google.com/open?id=19Ax-vqbQ9fPFEfTloQ_9UzNAZBKIPPcu';
+		// 		documentLink =
+		// 			'https://drive.google.com/file/d/1dTvFAqPnFBYfYRf86J5wFy4UtgQ3xkcq/view?usp=sharing';
+
+		// 		$.get(
+		// 			'https://inventure.com.ua/page-attr-data.php',
+		// 			{ action: 'get_setting', name: 'link_ind' },
+		// 			function (dat99) {
+		// 				documentLink = dat99;
+		// 				console.log(
+		// 					'+243 got link from admin settings: ' +
+		// 						documentLink,
+		// 				);
+
+		// 				$('#openNowLink').attr('href', documentLink);
+		// 				document
+		// 					.getElementById('openNowLink')
+		// 					.setAttribute('href', documentLink);
+		// 			},
+		// 		);
+
+		// 		console.log(
+		// 			'+254 fix #openNowLink link new href: ',
+		// 			documentLink,
+		// 		);
+		// 		$('#openNowLink').attr('href', documentLink);
+		// 		document
+		// 			.getElementById('openNowLink')
+		// 			.setAttribute('href', documentLink);
+		// 	} else {
+		// 		console.log('+262 window.isInd is true: ', window.isInd);
+		// 	}
+		// } else {
+		// 	console.log('+265 window.isInd is not defined.');
+		// }
+
+		if (document.documentElement.lang == 'ru') {
 			console.log('+270 before Swal.fire()');
 			console.log('action', form.attr('action'));
 			if (form.attr('action') === '/form/investment_callback') {
@@ -288,7 +314,7 @@ $(
 						'\t\t</p>\n' +
 						'\t\t<br><p> \n' +
 						'\t\t<a style="text-decoration:underline;" id="openNowLink" target="_blank" href="' +
-						newHref +
+						documentLink +
 						'" class="w-full blue_but cell-but small-12" type="submit">Открыть сейчас</a>\n' +
 						'\t\t</p>\n' +
 						'\t\t',
@@ -308,7 +334,7 @@ $(
 					'\t\t</p>\n' +
 					'\t\t<br><p> \n' +
 					'\t\t<a style="text-decoration:underline;" id="openNowLink" target="_blank" href="' +
-					newHref +
+					documentLink +
 					'" class="w-full blue_but cell-but small-12" type="submit">Відкрити зараз</a>\n' +
 					'\t\t</p>\n' +
 					'\t\t',
@@ -327,7 +353,7 @@ $(
 					'\t\t</p>\n' +
 					'\t\t<br><p> \n' +
 					'\t\t<a style="text-decoration:underline;" id="openNowLink" target="_blank" href="' +
-					newHref +
+					documentLink +
 					'" class="w-full blue_but cell-but small-12" type="submit">Open now</a>\n' +
 					'\t\t</p>\n' +
 					'\t\t',
@@ -349,27 +375,29 @@ function loadScript(src) {
 	});
 }
 
-if($('.js-news_slider, .js-gallery, .owl-carousel').length){
-	loadScript('https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js').then(() => {
-		if($(".js-news_slider").length){
-			$(".js-news_slider").owlCarousel({
-					items: 4,
-					pagination: false,
-					navigation: true,
-					navigationText: ["", ""],
-					lazyLoad: true
-			});
-		}
-		if($(".js-gallery").length){
-			$(".js-gallery").owlCarousel({
+if ($('.js-news_slider, .js-gallery, .owl-carousel').length) {
+	loadScript(
+		'https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js',
+	).then(() => {
+		if ($('.js-news_slider').length) {
+			$('.js-news_slider').owlCarousel({
 				items: 4,
 				pagination: false,
 				navigation: true,
-				navigationText: ["", ""],
-				lazyLoad: true
+				navigationText: ['', ''],
+				lazyLoad: true,
 			});
 		}
-		if($(".owl-carousel").length){
+		if ($('.js-gallery').length) {
+			$('.js-gallery').owlCarousel({
+				items: 4,
+				pagination: false,
+				navigation: true,
+				navigationText: ['', ''],
+				lazyLoad: true,
+			});
+		}
+		if ($('.owl-carousel').length) {
 			$('.owl-carousel').owlCarousel({
 				margin: 10,
 				items: 1,
@@ -379,56 +407,59 @@ if($('.js-news_slider, .js-gallery, .owl-carousel').length){
 				autoHeight: true,
 			});
 		}
-	})
+	});
 }
 
-function lazyLoadImages(){
+function lazyLoadImages() {
 	let lazyloadImages;
 
-	if ("IntersectionObserver" in window) {
-		lazyloadImages = document.querySelectorAll(".lazyimg");
-		var imageObserver = new IntersectionObserver(function(entries, observer) {
-			entries.forEach(function(entry) {
+	if ('IntersectionObserver' in window) {
+		lazyloadImages = document.querySelectorAll('.lazyimg');
+		var imageObserver = new IntersectionObserver(function (
+			entries,
+			observer,
+		) {
+			entries.forEach(function (entry) {
 				if (entry.isIntersecting) {
 					var image = entry.target;
 					image.src = image.dataset.src;
-					image.classList.remove("lazyimg");
+					image.classList.remove('lazyimg');
 					imageObserver.unobserve(image);
 				}
 			});
 		});
 
-		lazyloadImages.forEach(function(image) {
+		lazyloadImages.forEach(function (image) {
 			imageObserver.observe(image);
 		});
 	} else {
 		var lazyloadThrottleTimeout;
-		lazyloadImages = document.querySelectorAll(".lazyimg");
+		lazyloadImages = document.querySelectorAll('.lazyimg');
 
 		function lazyload() {
 			if (lazyloadThrottleTimeout) {
 				clearTimeout(lazyloadThrottleTimeout);
 			}
 
-			lazyloadThrottleTimeout = setTimeout(function() {
+			lazyloadThrottleTimeout = setTimeout(function () {
 				var scrollTop = window.pageYOffset;
-				lazyloadImages.forEach(function(img) {
-					if (img.offsetTop < (window.innerHeight + scrollTop)) {
+				lazyloadImages.forEach(function (img) {
+					if (img.offsetTop < window.innerHeight + scrollTop) {
 						img.src = img.dataset.src;
 						img.classList.remove('lazyimg');
 					}
 				});
 				if (lazyloadImages.length == 0) {
-					document.removeEventListener("scroll", lazyload);
-					window.removeEventListener("resize", lazyload);
-					window.removeEventListener("orientationChange", lazyload);
+					document.removeEventListener('scroll', lazyload);
+					window.removeEventListener('resize', lazyload);
+					window.removeEventListener('orientationChange', lazyload);
 				}
 			}, 20);
 		}
 
-		document.addEventListener("scroll", lazyload);
-		window.addEventListener("resize", lazyload);
-		window.addEventListener("orientationChange", lazyload);
+		document.addEventListener('scroll', lazyload);
+		window.addEventListener('resize', lazyload);
+		window.addEventListener('orientationChange', lazyload);
 	}
 }
 
@@ -923,7 +954,12 @@ $(document).ready(function () {
 		loadScript(
 			'https://cdnjs.cloudflare.com/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js',
 		).then(() => {
-			$("img.lazy").lazyload({effect : "fadeIn", skip_invisible:false, failure_limit : 5, threshold : 10});
+			$('img.lazy').lazyload({
+				effect: 'fadeIn',
+				skip_invisible: false,
+				failure_limit: 5,
+				threshold: 10,
+			});
 		});
 	}
 	if ($('[data-tippy-content]').length) {
