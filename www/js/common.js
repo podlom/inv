@@ -194,7 +194,7 @@ const DEFAULT_DOCUMENT_LINK =
 
 $(
 	'form[action="/form/approach"], form[action="/form/investor"], form[action="/form/investor_en"], form[action="/form/investment_callback"]',
-).submit(function (e) {
+).submit(async function (e) {
 	e.preventDefault();
 
 	if ($('#error-msg').length && !$('#error-msg').hasClass('hide')) {
@@ -218,152 +218,152 @@ $(
 	var form = $(this);
 
 	console.log('before action submitted', action);
-	$.post(action, $(this).serialize(), async () => {
-		console.log('action submitted', action);
-		form.trigger('reset');
-		$('.my_popup').removeClass('opened');
-		$('.dark_bg').removeClass('opened');
-		$('html').removeClass('page-locked');
+	await $.post(action, $(this).serialize());
 
-		window.Swal = swal;
+	console.log('action submitted', action);
+	form.trigger('reset');
+	$('.my_popup').removeClass('opened');
+	$('.dark_bg').removeClass('opened');
+	$('html').removeClass('page-locked');
 
-		// это для рекламного подхода - link_adv
-		// let documentLink = 'https://drive.google.com/open?id=1sFGhi5u4wVwNH8-pJat4EX8ufHSBIXVS';
-		let documentLink = DEFAULT_DOCUMENT_LINK;
-		const attrName = getAttrName();
-		console.log({ attrName });
-		try {
-			documentLink = await getDocumentLink(attrName);
-			console.log({ documentLink });
-		} catch (err) {
-			console.error(err);
-		}
+	window.Swal = swal;
 
-		// $.get(
-		// 	'https://inventure.com.ua/page-attr-data.php',
-		// 	{ action: 'get_setting', name: 'link_adv' },
-		// 	function (dat98) {
-		// 		documentLink = dat98;
-		// 		console.log(
-		// 			'+220 got link from admin settings: ' + documentLink,
-		// 		);
+	// это для рекламного подхода - link_adv
+	// let documentLink = 'https://drive.google.com/open?id=1sFGhi5u4wVwNH8-pJat4EX8ufHSBIXVS';
+	let documentLink = DEFAULT_DOCUMENT_LINK;
+	const attrName = getAttrName();
+	console.log({ attrName });
+	try {
+		documentLink = await getDocumentLink(attrName);
+		console.log({ documentLink });
+	} catch (err) {
+		console.error(err);
+	}
 
-		// 		$('#openNowLink').attr('href', documentLink);
-		// 		document
-		// 			.getElementById('openNowLink')
-		// 			.setAttribute('href', documentLink);
-		// 	},
-		// );
+	// $.get(
+	// 	'https://inventure.com.ua/page-attr-data.php',
+	// 	{ action: 'get_setting', name: 'link_adv' },
+	// 	function (dat98) {
+	// 		documentLink = dat98;
+	// 		console.log(
+	// 			'+220 got link from admin settings: ' + documentLink,
+	// 		);
 
-		// if (typeof window.isInd !== 'undefined') {
-		// 	if (window.isInd) {
-		// 		// это для полного сопровождения - link_ind
-		// 		// documentLink = 'https://drive.google.com/open?id=19Ax-vqbQ9fPFEfTloQ_9UzNAZBKIPPcu';
-		// 		documentLink =
-		// 			'https://drive.google.com/file/d/1dTvFAqPnFBYfYRf86J5wFy4UtgQ3xkcq/view?usp=sharing';
+	// 		$('#openNowLink').attr('href', documentLink);
+	// 		document
+	// 			.getElementById('openNowLink')
+	// 			.setAttribute('href', documentLink);
+	// 	},
+	// );
 
-		// 		$.get(
-		// 			'https://inventure.com.ua/page-attr-data.php',
-		// 			{ action: 'get_setting', name: 'link_ind' },
-		// 			function (dat99) {
-		// 				documentLink = dat99;
-		// 				console.log(
-		// 					'+243 got link from admin settings: ' +
-		// 						documentLink,
-		// 				);
+	// if (typeof window.isInd !== 'undefined') {
+	// 	if (window.isInd) {
+	// 		// это для полного сопровождения - link_ind
+	// 		// documentLink = 'https://drive.google.com/open?id=19Ax-vqbQ9fPFEfTloQ_9UzNAZBKIPPcu';
+	// 		documentLink =
+	// 			'https://drive.google.com/file/d/1dTvFAqPnFBYfYRf86J5wFy4UtgQ3xkcq/view?usp=sharing';
 
-		// 				$('#openNowLink').attr('href', documentLink);
-		// 				document
-		// 					.getElementById('openNowLink')
-		// 					.setAttribute('href', documentLink);
-		// 			},
-		// 		);
+	// 		$.get(
+	// 			'https://inventure.com.ua/page-attr-data.php',
+	// 			{ action: 'get_setting', name: 'link_ind' },
+	// 			function (dat99) {
+	// 				documentLink = dat99;
+	// 				console.log(
+	// 					'+243 got link from admin settings: ' +
+	// 						documentLink,
+	// 				);
 
-		// 		console.log(
-		// 			'+254 fix #openNowLink link new href: ',
-		// 			documentLink,
-		// 		);
-		// 		$('#openNowLink').attr('href', documentLink);
-		// 		document
-		// 			.getElementById('openNowLink')
-		// 			.setAttribute('href', documentLink);
-		// 	} else {
-		// 		console.log('+262 window.isInd is true: ', window.isInd);
-		// 	}
-		// } else {
-		// 	console.log('+265 window.isInd is not defined.');
-		// }
+	// 				$('#openNowLink').attr('href', documentLink);
+	// 				document
+	// 					.getElementById('openNowLink')
+	// 					.setAttribute('href', documentLink);
+	// 			},
+	// 		);
 
-		if (document.documentElement.lang == 'ru') {
-			console.log('+270 before Swal.fire()');
-			console.log('action', form.attr('action'));
-			if (form.attr('action') === '/form/investment_callback') {
-				Swal.fire({
-					title: 'Спасибо за заявку!',
-					html: '',
-					type: 'success',
-					confirmButtonText: 'Закрыть',
-				});
-			} else {
-				Swal.fire({
-					title: 'Благодарим за Ваш запрос!',
-					html:
-						'<p><!-- +283 common.js -->\n' +
-						'\t\t\tМы отправили Вам на почту презентацию с описанием условий сотрудничества.\n' +
-						'\t\t</p>\n' +
-						'\t\t<p> \n' +
-						'\t\t\tНаш менеджер свяжется с Вами в течение одного рабочего дня.\n' +
-						'\t\t</p>\n' +
-						'\t\t<br><p> \n' +
-						'\t\t<a style="text-decoration:underline;" id="openNowLink" target="_blank" href="' +
-						documentLink +
-						'" class="w-full blue_but cell-but small-12" type="submit">Открыть сейчас</a>\n' +
-						'\t\t</p>\n' +
-						'\t\t',
-					type: 'success',
-					confirmButtonText: 'Закрыть',
-				});
-			}
-		} else if (document.documentElement.lang == 'uk') {
+	// 		console.log(
+	// 			'+254 fix #openNowLink link new href: ',
+	// 			documentLink,
+	// 		);
+	// 		$('#openNowLink').attr('href', documentLink);
+	// 		document
+	// 			.getElementById('openNowLink')
+	// 			.setAttribute('href', documentLink);
+	// 	} else {
+	// 		console.log('+262 window.isInd is true: ', window.isInd);
+	// 	}
+	// } else {
+	// 	console.log('+265 window.isInd is not defined.');
+	// }
+
+	if (document.documentElement.lang == 'ru') {
+		console.log('+270 before Swal.fire()');
+		console.log('action', form.attr('action'));
+		if (form.attr('action') === '/form/investment_callback') {
 			Swal.fire({
-				title: 'Дякуємо вам за заявку!',
-				html:
-					'<p><!-- +303 common.js -->\n' +
-					'\t\t\tМи відправили Вам на пошту презентацію з описом умов для співробітництва.\n' +
-					'\t\t</p>\n' +
-					'\t\t<p> \n' +
-					'\t\t\tНаш менеджер зв`яжеться з Вами протягом одного робочого дня.\n' +
-					'\t\t</p>\n' +
-					'\t\t<br><p> \n' +
-					'\t\t<a style="text-decoration:underline;" id="openNowLink" target="_blank" href="' +
-					documentLink +
-					'" class="w-full blue_but cell-but small-12" type="submit">Відкрити зараз</a>\n' +
-					'\t\t</p>\n' +
-					'\t\t',
+				title: 'Спасибо за заявку!',
+				html: '',
 				type: 'success',
-				confirmButtonText: 'Закрити',
+				confirmButtonText: 'Закрыть',
 			});
 		} else {
 			Swal.fire({
-				title: 'Thank you for your apply!',
+				title: 'Благодарим за Ваш запрос!',
 				html:
-					'<p><!-- +322 common.js -->\n' +
-					'\t\t\tWe have sent you an email with a presentation describing the terms of cooperation.\n' +
+					'<p><!-- +283 common.js -->\n' +
+					'\t\t\tМы отправили Вам на почту презентацию с описанием условий сотрудничества.\n' +
 					'\t\t</p>\n' +
 					'\t\t<p> \n' +
-					'\t\t\tOur manager will contact you within one business day.\n' +
+					'\t\t\tНаш менеджер свяжется с Вами в течение одного рабочего дня.\n' +
 					'\t\t</p>\n' +
 					'\t\t<br><p> \n' +
 					'\t\t<a style="text-decoration:underline;" id="openNowLink" target="_blank" href="' +
 					documentLink +
-					'" class="w-full blue_but cell-but small-12" type="submit">Open now</a>\n' +
+					'" class="w-full blue_but cell-but small-12" type="submit">Открыть сейчас</a>\n' +
 					'\t\t</p>\n' +
 					'\t\t',
 				type: 'success',
-				confirmButtonText: 'Close',
+				confirmButtonText: 'Закрыть',
 			});
 		}
-	});
+	} else if (document.documentElement.lang == 'uk') {
+		Swal.fire({
+			title: 'Дякуємо вам за заявку!',
+			html:
+				'<p><!-- +303 common.js -->\n' +
+				'\t\t\tМи відправили Вам на пошту презентацію з описом умов для співробітництва.\n' +
+				'\t\t</p>\n' +
+				'\t\t<p> \n' +
+				'\t\t\tНаш менеджер зв`яжеться з Вами протягом одного робочого дня.\n' +
+				'\t\t</p>\n' +
+				'\t\t<br><p> \n' +
+				'\t\t<a style="text-decoration:underline;" id="openNowLink" target="_blank" href="' +
+				documentLink +
+				'" class="w-full blue_but cell-but small-12" type="submit">Відкрити зараз</a>\n' +
+				'\t\t</p>\n' +
+				'\t\t',
+			type: 'success',
+			confirmButtonText: 'Закрити',
+		});
+	} else {
+		Swal.fire({
+			title: 'Thank you for your apply!',
+			html:
+				'<p><!-- +322 common.js -->\n' +
+				'\t\t\tWe have sent you an email with a presentation describing the terms of cooperation.\n' +
+				'\t\t</p>\n' +
+				'\t\t<p> \n' +
+				'\t\t\tOur manager will contact you within one business day.\n' +
+				'\t\t</p>\n' +
+				'\t\t<br><p> \n' +
+				'\t\t<a style="text-decoration:underline;" id="openNowLink" target="_blank" href="' +
+				documentLink +
+				'" class="w-full blue_but cell-but small-12" type="submit">Open now</a>\n' +
+				'\t\t</p>\n' +
+				'\t\t',
+			type: 'success',
+			confirmButtonText: 'Close',
+		});
+	}
 });
 
 function loadScript(src) {
