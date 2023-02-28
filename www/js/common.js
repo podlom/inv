@@ -181,16 +181,23 @@ function getDocumentLink(attrName) {
 	});
 }
 
+const DEFAULT_DOCUMENT_LINK =
+	'https://drive.google.com/file/d/1_6DUg9KUdUFQ6-RDT0o0buJ3XrX2YVre/view?usp=sharing';
+
 function getAttrName() {
 	const isInd = typeof window.isInd !== 'undefined' && window.isInd;
 	const lang = document.documentElement.lang;
+
+	// для рекламного подхода - link_adv
+	// let documentLink = 'https://drive.google.com/open?id=1sFGhi5u4wVwNH8-pJat4EX8ufHSBIXVS';
+
+	// для полного сопровождения - link_ind
+	// documentLink = 'https://drive.google.com/open?id=19Ax-vqbQ9fPFEfTloQ_9UzNAZBKIPPcu';
+
 	const name = isInd ? 'link_ind' : 'link_adv';
 	if (lang === 'ru') return name;
 	return `${lang}_${name}`;
 }
-
-const DEFAULT_DOCUMENT_LINK =
-	'https://drive.google.com/file/d/1_6DUg9KUdUFQ6-RDT0o0buJ3XrX2YVre/view?usp=sharing';
 
 $(
 	'form[action="/form/approach"], form[action="/form/investor"], form[action="/form/investor_en"], form[action="/form/investment_callback"]',
@@ -217,10 +224,8 @@ $(
 	var action = '/invest.php';
 	var form = $(this);
 
-	console.log('before action submitted', action);
-	await $.post(action, $(this).serialize());
+	$.post(action, $(this).serialize()); // We dont wait for response on purpose
 
-	console.log('action submitted', action);
 	form.trigger('reset');
 	$('.my_popup').removeClass('opened');
 	$('.dark_bg').removeClass('opened');
@@ -228,72 +233,15 @@ $(
 
 	window.Swal = swal;
 
-	// это для рекламного подхода - link_adv
-	// let documentLink = 'https://drive.google.com/open?id=1sFGhi5u4wVwNH8-pJat4EX8ufHSBIXVS';
 	let documentLink = DEFAULT_DOCUMENT_LINK;
 	const attrName = getAttrName();
-	console.log({ attrName });
+
 	try {
 		documentLink = await getDocumentLink(attrName);
 		console.log({ documentLink });
 	} catch (err) {
 		console.error(err);
 	}
-
-	// $.get(
-	// 	'https://inventure.com.ua/page-attr-data.php',
-	// 	{ action: 'get_setting', name: 'link_adv' },
-	// 	function (dat98) {
-	// 		documentLink = dat98;
-	// 		console.log(
-	// 			'+220 got link from admin settings: ' + documentLink,
-	// 		);
-
-	// 		$('#openNowLink').attr('href', documentLink);
-	// 		document
-	// 			.getElementById('openNowLink')
-	// 			.setAttribute('href', documentLink);
-	// 	},
-	// );
-
-	// if (typeof window.isInd !== 'undefined') {
-	// 	if (window.isInd) {
-	// 		// это для полного сопровождения - link_ind
-	// 		// documentLink = 'https://drive.google.com/open?id=19Ax-vqbQ9fPFEfTloQ_9UzNAZBKIPPcu';
-	// 		documentLink =
-	// 			'https://drive.google.com/file/d/1dTvFAqPnFBYfYRf86J5wFy4UtgQ3xkcq/view?usp=sharing';
-
-	// 		$.get(
-	// 			'https://inventure.com.ua/page-attr-data.php',
-	// 			{ action: 'get_setting', name: 'link_ind' },
-	// 			function (dat99) {
-	// 				documentLink = dat99;
-	// 				console.log(
-	// 					'+243 got link from admin settings: ' +
-	// 						documentLink,
-	// 				);
-
-	// 				$('#openNowLink').attr('href', documentLink);
-	// 				document
-	// 					.getElementById('openNowLink')
-	// 					.setAttribute('href', documentLink);
-	// 			},
-	// 		);
-
-	// 		console.log(
-	// 			'+254 fix #openNowLink link new href: ',
-	// 			documentLink,
-	// 		);
-	// 		$('#openNowLink').attr('href', documentLink);
-	// 		document
-	// 			.getElementById('openNowLink')
-	// 			.setAttribute('href', documentLink);
-	// 	} else {
-	// 		console.log('+262 window.isInd is true: ', window.isInd);
-	// 	}
-	// } else {
-	// 	console.log('+265 window.isInd is not defined.');
-	// }
 
 	if (document.documentElement.lang == 'ru') {
 		console.log('+270 before Swal.fire()');
