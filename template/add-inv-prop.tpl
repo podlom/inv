@@ -54,16 +54,24 @@
 			margin: 0;
 			padding: 0;
 			font-size: 14px;
-			line-height: 1.4;
+			line-height: 18px;
 			font-weight: 500;
 		}
 
 		.proposal__discounts small {
-			font-size: 10px;
+			font-size: 9px;
+			display: block;
+		}
+
+		@media screen and (min-width: 1220px) {
+
+			.proposal__discounts small {
+				display: inline-block !important;
+			}
 		}
 
 		.proposal__discounts-title {
-			font-weight: 700;
+			font-weight: 700 !important;
 		}
 
 		.proposal__discounts-title.--blue {
