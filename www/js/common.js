@@ -199,8 +199,82 @@ function getAttrName() {
 	return `${lang}_${name}`;
 }
 
+$('form[action="/form/investment_callback"]').submit(async function (e) {
+	e.preventDefault();
+
+	if ($('#error-msg').length && !$('#error-msg').hasClass('hide')) {
+		console.log('+206 prevent wrong phone inputmask value submit');
+		$('#phone').focus();
+		return;
+	}
+
+	if (
+		$('#phone2').length &&
+		$('#error-msg2').length &&
+		!$('#error-msg2').hasClass('hide')
+	) {
+		console.log('+216 prevent wrong phone inputmask value submit');
+		$('#phone2').focus();
+		return;
+	}
+
+	var serialize = $(this).serializeArray();
+	var action = '/invest.php';
+	var form = $(this);
+
+	$.post(action, $(this).serialize()); // We dont wait for response on purpose
+
+	form.trigger('reset');
+	$('.my_popup').removeClass('opened');
+	$('.dark_bg').removeClass('opened');
+	$('html').removeClass('page-locked');
+
+	window.Swal = swal;
+
+	let documentLink = DEFAULT_DOCUMENT_LINK;
+	const attrName = getAttrName();
+
+	try {
+		documentLink = await getDocumentLink(attrName);
+		console.log({ documentLink });
+	} catch (err) {
+		console.error(err);
+	}
+
+	if (document.documentElement.lang == 'ru') {
+		console.log('+270 before Swal.fire()');
+		console.log('action', form.attr('action'));
+
+		Swal.fire({
+			title: 'Спасибо за заявку!',
+			html: '',
+			type: 'success',
+			confirmButtonText: 'Закрыть',
+		});
+
+	} else if (document.documentElement.lang == 'uk') {
+
+		Swal.fire({
+			title: 'Дякуємо за заявку!',
+			html: '',
+			type: 'success',
+			confirmButtonText: 'Закрити',
+		});
+
+	} else {
+
+		Swal.fire({
+			title: 'Thank you for your application!',
+			html: '',
+			type: 'success',
+			confirmButtonText: 'Close',
+		});
+
+	}
+});
+
 $(
-	'form[action="/form/approach"], form[action="/form/investor"], form[action="/form/investor_en"], form[action="/form/investment_callback"]',
+	'form[action="/form/approach"], form[action="/form/investor"], form[action="/form/investor_en"]'
 ).submit(async function (e) {
 	e.preventDefault();
 
@@ -245,35 +319,28 @@ $(
 
 	if (document.documentElement.lang == 'ru') {
 		console.log('+270 before Swal.fire()');
-		console.log('action', form.attr('action'));
-		if (form.attr('action') === '/form/investment_callback') {
-			Swal.fire({
-				title: 'Спасибо за заявку!',
-				html: '',
-				type: 'success',
-				confirmButtonText: 'Закрыть',
-			});
-		} else {
-			Swal.fire({
-				title: 'Благодарим за Ваш запрос!',
-				html:
-					'<p><!-- +283 common.js -->\n' +
-					'\t\t\tМы отправили Вам на почту презентацию с описанием условий сотрудничества.\n' +
-					'\t\t</p>\n' +
-					'\t\t<p> \n' +
-					'\t\t\tНаш менеджер свяжется с Вами в течение одного рабочего дня.\n' +
-					'\t\t</p>\n' +
-					'\t\t<br><p> \n' +
-					'\t\t<a style="text-decoration:underline;" id="openNowLink" target="_blank" href="' +
-					documentLink +
-					'" class="w-full blue_but cell-but small-12" type="submit">Открыть сейчас</a>\n' +
-					'\t\t</p>\n' +
-					'\t\t',
-				type: 'success',
-				confirmButtonText: 'Закрыть',
-			});
-		}
+
+		Swal.fire({
+			title: 'Благодарим за Ваш запрос!',
+			html:
+				'<p><!-- +283 common.js -->\n' +
+				'\t\t\tМы отправили Вам на почту презентацию с описанием условий сотрудничества.\n' +
+				'\t\t</p>\n' +
+				'\t\t<p> \n' +
+				'\t\t\tНаш менеджер свяжется с Вами в течение одного рабочего дня.\n' +
+				'\t\t</p>\n' +
+				'\t\t<br><p> \n' +
+				'\t\t<a style="text-decoration:underline;" id="openNowLink" target="_blank" href="' +
+				documentLink +
+				'" class="w-full blue_but cell-but small-12" type="submit">Открыть сейчас</a>\n' +
+				'\t\t</p>\n' +
+				'\t\t',
+			type: 'success',
+			confirmButtonText: 'Закрыть',
+		});
+
 	} else if (document.documentElement.lang == 'uk') {
+
 		Swal.fire({
 			title: 'Дякуємо вам за заявку!',
 			html:
@@ -292,7 +359,9 @@ $(
 			type: 'success',
 			confirmButtonText: 'Закрити',
 		});
+
 	} else {
+
 		Swal.fire({
 			title: 'Thank you for your apply!',
 			html:
@@ -311,6 +380,7 @@ $(
 			type: 'success',
 			confirmButtonText: 'Close',
 		});
+
 	}
 });
 
