@@ -233,7 +233,7 @@
 					<div class="statistics__caption">База email подписчиков</div>
 				</div>
 				<div class="statistics__block">
-					<div class="statistics__number">23 000+</div>
+					<div class="statistics__number">35 000+</div>
 					<div class="statistics__caption">Подписчиков в соцсетях</div>
 				</div>
 				<div class="statistics__block">
@@ -241,7 +241,7 @@
 					<div class="statistics__caption">Закрытых сделок</div>
 				</div>
 				<div class="statistics__block">
-					<div class="statistics__number">$170+</div>
+					<div class="statistics__number">$300+ млн</div>
 					<div class="statistics__caption">Стоимость закрытых сделок</div>
 				</div>
 			</div>

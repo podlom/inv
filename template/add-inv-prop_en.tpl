@@ -31,11 +31,13 @@
 					<div class="investor-proposals__description">
 
 						<p>
-							For more than 10 years of work in the investment market of Ukraine, we have developed effective tools for
+							For more than 10 years of work in the investment market of Ukraine,
+							we have developed effective tools for
 							investment seekers and business sellers.
 						</p>
 						<p>
-							Choose the format of cooperation that suits for you to speed up sell a business or raise a capital.
+							Choose the format of cooperation that suits for you to speed up sell
+							a business or raise a capital.
 						</p>
 
 					</div>
@@ -46,7 +48,8 @@
 					<h2 class="proposal__title">Investment advertising and promotion</h2>
 					<p class="proposal__description">
 
-						Suitable for small or medium businesses, real estate or start-ups when it is required to bring information to
+						Suitable for small or medium businesses, real estate or start-ups when
+						it is required to bring information to
 						a large number of investors
 
 					</p>
@@ -58,7 +61,8 @@
 						</li>
 
 						<li>
-							Placing an offer in the monthly magazine “Investment Digest InVenture”
+							Placing an offer in the monthly magazine “Investment Digest
+							InVenture”
 							<span> - 13 700+ subscribers </span>
 						</li>
 
@@ -68,12 +72,14 @@
 						</li>
 
 						<li>
-							Promotion of the offer in own investment communities Facebook, LinkedIn, Telegram
+							Promotion of the offer in own investment communities Facebook,
+							LinkedIn, Telegram
 							<span> (15 000+ subscribers) </span>
 						</li>
 
 						<li>
-							Placing an offer manually on specialized websites and investment advertising boards
+							Placing an offer manually on specialized websites and investment
+							advertising boards
 							<span> - 5 sites </span>
 						</li>
 
@@ -85,7 +91,8 @@
 
 					</ul>
 
-					<button data-deal-name="Рекламное продвижение" data-remodal-target="approach"
+					<button data-deal-name="Рекламное продвижение"
+						data-remodal-target="approach"
 						class="btn btn--blue btn--blue-text w-full add-inv-prop-btn">
 
 						Get terms
@@ -96,7 +103,8 @@
 					<h2 class="proposal__title">Individual approach</h2>
 					<p class="proposal__description">
 
-						Suitable for medium and large businesses or large-scale investment projects where an individual and
+						Suitable for medium and large businesses or large-scale investment
+						projects where an individual and
 						comprehensive approach to investor relations is required.
 
 					</p>
@@ -104,13 +112,15 @@
 					<ul class="proposal__features-list proposal__features-list--light">
 
 						<li>Consulting support at all stages of the transaction </li>
-						<li>Individual complex of promotion and advertising of the investment proposal</li>
+						<li>Individual complex of promotion and advertising of the investment
+							proposal</li>
 						<li>Direct sales and individual promotion</li>
 						<li>Development of a professional presentation for investors</li>
 
 					</ul>
 
-					<button data-deal-name="Индивидуальный подход" data-remodal-target="approach"
+					<button data-deal-name="Индивидуальный подход"
+						data-remodal-target="approach"
 						class="btn btn--white btn--blue-text w-full add-inv-prop-btn">
 						Get terms
 					</button>
@@ -127,7 +137,7 @@
 					<div class="statistics__caption">Subscribers</div>
 				</div>
 				<div class="statistics__block">
-					<div class="statistics__number">23 000+</div>
+					<div class="statistics__number">35 000+</div>
 					<div class="statistics__caption">Subscribers in social media</div>
 				</div>
 				<div class="statistics__block">
@@ -135,7 +145,7 @@
 					<div class="statistics__caption">Closed deals</div>
 				</div>
 				<div class="statistics__block">
-					<div class="statistics__number">$170+</div>
+					<div class="statistics__number">$300+ млн</div>
 					<div class="statistics__caption">
 						Amount of completed investments
 					</div>
@@ -152,7 +162,8 @@
 		<button data-remodal-action="close" class="remodal-close"></button>
 		<div class="remodal__title">
 
-			Please fill in your contact details and we will send the terms of cooperation
+			Please fill in your contact details and we will send the terms of
+			cooperation
 
 		</div>
 		<div class="callback__form">
