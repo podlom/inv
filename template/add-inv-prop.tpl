@@ -66,6 +66,7 @@
 
 		.proposal__discounts small {
 			font-size: 9px;
+			line-height: 12px;
 			display: block;
 		}
 
@@ -73,6 +74,7 @@
 
 			.proposal__discounts small {
 				display: inline-block !important;
+				line-height: 14px !important;
 			}
 		}
 
