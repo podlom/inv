@@ -30,11 +30,13 @@
 			<div class="investor-proposals__header">
 				<div>
 					<h1 class="investor-proposals__title">
-						Залучення інвестицій, продаж бізнесу та комерційної нерухомості в Україні
+						Залучення інвестицій, продаж бізнесу та комерційної нерухомості в
+						Україні
 					</h1>
 					<div class="investor-proposals__description">
 						<p>
-							За більш ніж 10 років роботи на інвестиційному ринку України, ми розробили дієві інструменти із залучення
+							За більш ніж 10 років роботи на інвестиційному ринку України, ми
+							розробили дієві інструменти із залучення
 							інвестицій, продажу бізнесу, франшиз та комерційної нерухомості.
 						</p>
 						<p class="mt-2 font-bold">
@@ -47,8 +49,10 @@
 			<div class="investor-proposals__form">
 				<div class="investor-proposals__proposal proposal">
 					<h2 class="proposal__title">Рекламний підхід</h2>
-					<p class="proposal__description">Підійде для продажу малого або середнього бізнесу, об'єкта нерухомості,
-					франшизи або стартапу, коли потрібно донести інформацію до широкого кола інвесторів.</p>
+					<p class="proposal__description">Підійде для продажу малого або
+						середнього бізнесу, об'єкта нерухомості,
+					франшизи або стартапу, коли потрібно донести інформацію до широкого
+					кола інвесторів.</p>
 				<h3 class="proposal__features-title">Ви отримаєте:</h3>
 				<ul class="proposal__features-list">
 					<li>Розміщення на інвестиційному порталі InVenture</li>
@@ -56,12 +60,14 @@
 					<li>Рекламний банер на інвестиційному порталі InVenture</li>
 					<li>Просування у соцмережах (Facebook, LinkedIn, Telegram)</li>
 					<li>Налаштування контекстної реклами Google Ads</li>
-					<li>Розміщення на спеціалізованих інтернет майданчиках та дошках оголошень</li>
+					<li>Розміщення на спеціалізованих інтернет майданчиках та дошках
+						оголошень</li>
 					<li>Розміщення у галузевому аналітичному дослідженні</li>
 					<li>Розсилка по найбільшій базі інвесторів</li>
 				</ul>
 
-				<button data-deal-id="adv" data-deal-name="Рекламное продвижение" data-remodal-target="approach"
+				<button data-deal-id="adv" data-deal-name="Рекламное продвижение"
+					data-remodal-target="approach"
 					class="btn btn--blue btn--blue-text w-full add-inv-prop-btn">
 					Отримати умови
 				</button>
@@ -69,7 +75,8 @@
 			<div class="investor-proposals__proposal proposal proposal--blue">
 				<h2 class="proposal__title">Повний супровід</h2>
 				<p class="proposal__description">
-					Підійде для продажу середнього та великого бізнесу, залучення інвестицій у масштабні інвестпроекти, коли
+					Підійде для продажу середнього та великого бізнесу, залучення
+					інвестицій у масштабні інвестпроекти, коли
 					потрібен індивідуальний та комплексний підхід щодо пошуку інвестора.
 				</p>
 				<h3 class="proposal__features-title">Ви отримаєте:</h3>
@@ -83,7 +90,8 @@
 					<li>Медіація у переговорних процесах</li>
 				</ul>
 
-				<button data-deal-id="ind" data-deal-name="Индивидуальный подход" data-remodal-target="approach"
+				<button data-deal-id="ind" data-deal-name="Индивидуальный подход"
+					data-remodal-target="approach"
 					class="btn btn--white btn--blue-text w-full add-inv-prop-btn">
 					Отримати умови
 				</button>
@@ -100,7 +108,7 @@
 				<div class="statistics__caption">База email</div>
 			</div>
 			<div class="statistics__block">
-				<div class="statistics__number">23 000+</div>
+				<div class="statistics__number">35 000+</div>
 				<div class="statistics__caption">Підписники у соцмережах</div>
 			</div>
 			<div class="statistics__block">
@@ -108,7 +116,7 @@
 				<div class="statistics__caption">Закриті угоди</div>
 			</div>
 			<div class="statistics__block">
-				<div class="statistics__number">$170+</div>
+				<div class="statistics__number">$300+ млн</div>
 				<div class="statistics__caption">Вартість закритих угод</div>
 			</div>
 		</div>
@@ -138,8 +146,10 @@
 		<p>
 			Наш менеджер зв'яжеться з Вами протягом одного робочого дня.
 			</p>
-			<a id="openNowLink" target="_blank" href="https://drive.google.com/open?id=1sFGhi5u4wVwNH8-pJat4EX8ufHSBIXVS"
-				class="w-full blue_but cell-but small-12" type="submit">Відкрити презентацію</a>
+			<a id="openNowLink" target="_blank"
+				href="https://drive.google.com/open?id=1sFGhi5u4wVwNH8-pJat4EX8ufHSBIXVS"
+				class="w-full blue_but cell-but small-12" type="submit">Відкрити
+				презентацію</a>
 			<button data-remodal-action="close" type='button'
 				class="w-full blue_but cell-but  small-12 close__popup">Закрити</button>
 		</div>
