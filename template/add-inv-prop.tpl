@@ -46,6 +46,8 @@
 		.proposal__discounts-icon {
 			margin-right: 12px;
 			width: 44px;
+			border-radius: 44px;
+
 		}
 
 		.proposal__discounts h3,
@@ -76,6 +78,10 @@
 
 		.proposal__discounts-title.--blue {
 			color: #5e87b3;
+		}
+
+		.proposal__discounts-item.--white * {
+			color: #fff;
 		}
 	</style>
 
@@ -132,10 +138,6 @@
 						<li>Размещение в отраслевом аналитическом исследовании</li>
 						<li>Рассылка по крупнейшей базе инвесторов</li>
 					</ul>
-					{* advert-packages-min.svg
-commission-payment-min.svg
-discount-small-business-min.svg
-free-military-min.svg *}
 					<div class="proposal__discounts --grid">
 						<div class="proposal__discounts-item">
 							<img alt="Иконка" class="lazyimg proposal__discounts-icon"
@@ -192,6 +194,18 @@ free-military-min.svg *}
 						<li>Координация процесса Due Diligence</li>
 						<li>Медиация в переговорных процессах</li>
 					</ul>
+
+					<div class="proposal__discounts --grid">
+						<div class="proposal__discounts-item --white">
+							<img alt="Иконка" class="lazyimg proposal__discounts-icon"
+								data-src="/images/commission-payment-min.svg" width="44"
+								height="44" />
+							<div>
+								<h3 class="proposal__discounts-title --blue">Комиссия</h3>
+								<p>% + авансовый платеж от $5 000</p>
+							</div>
+						</div>
+					</div>
 
 					<button data-deal-id="ind" data-deal-name="Индивидуальный подход"
 						data-remodal-target="approach"
