@@ -89,6 +89,12 @@
 		.proposal__discounts-item.--white * {
 			color: #fff;
 		}
+
+		.proposal__discounts-divider {
+			height: 1px;
+			width: 100%;
+			background: #e1e1e1;
+		}
 	</style>
 
 	<section class="investor-proposals">
@@ -144,6 +150,7 @@
 						<li>Размещение в отраслевом аналитическом исследовании</li>
 						<li>Рассылка по крупнейшей базе инвесторов</li>
 					</ul>
+					<div class="proposal__discounts-divider"></div>
 					<div class="proposal__discounts --grid">
 						<div class="proposal__discounts-item">
 							<img alt="Иконка" class="lazyimg proposal__discounts-icon"
