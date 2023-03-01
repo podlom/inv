@@ -98,7 +98,7 @@
 		}
 
 		.proposal__discounts-divider.--white {
-			background: #D9D9D9 !important;
+			background: #ffffff3b !important;
 
 		}
 	</style>
