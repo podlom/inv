@@ -60,7 +60,7 @@
 			margin: 0;
 			padding: 0;
 			font-size: 14px;
-			line-height: 18px;
+			line-height: 16px;
 			font-weight: 500;
 		}
 
