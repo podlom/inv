@@ -32,9 +32,13 @@
 			margin-bottom: 20px;
 		}
 
-		@media screen and (min-width: 480px) {
+		@media screen and (min-width: 1024px) {
 			.proposal__discounts.--grid {
 				grid-template-columns: 1fr 1fr;
+			}
+
+			.proposal__discounts.--double-rows {
+				grid-template-rows: 1fr 1fr;
 			}
 		}
 
@@ -195,7 +199,7 @@
 						<li>Медиация в переговорных процессах</li>
 					</ul>
 
-					<div class="proposal__discounts --grid">
+					<div class="proposal__discounts --double-rows">
 						<div class="proposal__discounts-item --white">
 							<img alt="Иконка" class="lazyimg proposal__discounts-icon"
 								data-src="/images/commission-payment-min.svg" width="44"
