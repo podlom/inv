@@ -28,7 +28,7 @@
 
 		.proposal__discounts {
 			display: grid;
-			gap: 14px;
+			gap: 14px 8px;
 			margin-bottom: 20px;
 		}
 
@@ -49,11 +49,17 @@
 		}
 
 		.proposal__discounts h3,
+		.proposal__discounts small,
 		.proposal__discounts p {
 			margin: 0;
 			padding: 0;
 			font-size: 14px;
 			line-height: 1.4;
+			font-weight: 500;
+		}
+
+		.proposal__discounts small {
+			font-size: 10px;
 		}
 
 		.proposal__discounts-title {
@@ -146,7 +152,7 @@ free-military-min.svg *}
 								height="44" />
 							<div>
 								<h3 class="proposal__discounts-title --blue">Скидка 20%</h3>
-								<p>для малого бизнеса (до $50 000)</p>
+								<p>для малого бизнеса <small>(до $50 000)</small></p>
 							</div>
 						</div>
 					</div>
