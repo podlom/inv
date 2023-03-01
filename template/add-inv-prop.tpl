@@ -29,6 +29,7 @@
 		.proposal__discounts {
 			display: grid;
 			gap: 14px;
+			margin-bottom: 20px;
 		}
 
 		@media screen and (min-width: 480px) {
@@ -45,7 +46,6 @@
 		.proposal__discounts-icon {
 			margin-right: 12px;
 			width: 44px;
-			background: black;
 		}
 
 		.proposal__discounts h3,
@@ -125,8 +125,8 @@ free-military-min.svg *}
 					<div class="proposal__discounts --grid">
 						<div class="proposal__discounts-item">
 							<img alt="Иконка" class="lazyimg proposal__discounts-icon"
-								src="https://inventure.com.ua/images/advert-packages-min.svg"
-								width="44" height="44" />
+								data-src="/images/advert-packages-min.svg" width="44"
+								height="44" />
 							<div>
 								<h3 class="proposal__discounts-title --blue">Рекламные пакеты</h3>
 								<p>от $350</p>
@@ -134,8 +134,7 @@ free-military-min.svg *}
 						</div>
 						<div class="proposal__discounts-item">
 							<img alt="Иконка" class="lazyimg proposal__discounts-icon"
-								src="https://inventure.com.ua/images/free-military-min.svg"
-								width="44" height="44" />
+								data-src="/images/free-military-min.svg" width="44" height="44" />
 							<div>
 								<h3 class="proposal__discounts-title --blue">Бесплатно</h3>
 								<p>для military tech проектов</p>
@@ -143,8 +142,8 @@ free-military-min.svg *}
 						</div>
 						<div class="proposal__discounts-item">
 							<img alt="Иконка" class="lazyimg proposal__discounts-icon"
-								src="https://inventure.com.ua/images/discount-small-business-min.svg"
-								width="44" height="44" />
+								data-src="/images/discount-small-business-min.svg" width="44"
+								height="44" />
 							<div>
 								<h3 class="proposal__discounts-title --blue">Скидка 20%</h3>
 								<p>для малого бизнеса (до $50 000)</p>
