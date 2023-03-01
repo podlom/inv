@@ -94,6 +94,12 @@
 			height: 1px;
 			width: 100%;
 			background: #e1e1e1;
+			margin-bottom: 20px;
+		}
+
+		.proposal__discounts-divider.--white {
+			background: #fff !important;
+
 		}
 	</style>
 
@@ -207,7 +213,7 @@
 						<li>Координация процесса Due Diligence</li>
 						<li>Медиация в переговорных процессах</li>
 					</ul>
-
+					<div class="proposal__discounts-divider --white"></div>
 					<div class="proposal__discounts --double-rows">
 						<div class="proposal__discounts-item --white">
 							<img alt="Иконка" class="lazyimg proposal__discounts-icon"
