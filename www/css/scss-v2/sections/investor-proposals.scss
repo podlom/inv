@@ -344,3 +344,76 @@
 		}
 	}
 }
+
+.proposal__discounts {
+	display: grid;
+	gap: 14px 8px;
+	margin-bottom: 20px;
+}
+
+@media screen and (min-width: 1024px) {
+	.proposal__discounts.--grid {
+		grid-template-columns: 1fr 1fr;
+	}
+
+	.proposal__discounts.--double-rows {
+		grid-template-rows: 1fr 1fr;
+	}
+}
+
+.proposal__discounts-item {
+	display: flex;
+	align-items: center;
+}
+
+.proposal__discounts-icon {
+	margin-right: 12px;
+	width: 44px;
+	border-radius: 44px;
+}
+
+.proposal__discounts h3,
+.proposal__discounts small,
+.proposal__discounts p {
+	margin: 0;
+	padding: 0;
+	font-size: 14px;
+	line-height: 16px;
+	font-weight: 500;
+}
+
+.proposal__discounts small {
+	font-size: 9px;
+	line-height: 12px;
+	display: block;
+}
+
+@media screen and (min-width: 1220px) {
+	.proposal__discounts small {
+		display: inline-block !important;
+		line-height: 14px !important;
+	}
+}
+
+.proposal__discounts-title {
+	font-weight: 700 !important;
+}
+
+.proposal__discounts-title.--blue {
+	color: #5e87b3;
+}
+
+.proposal__discounts-item.--white * {
+	color: #fff;
+}
+
+.proposal__discounts-divider {
+	height: 1px;
+	width: 100%;
+	background: #e1e1e1;
+	margin-bottom: 20px;
+}
+
+.proposal__discounts-divider.--white {
+	background: #ffffff3b !important;
+}
