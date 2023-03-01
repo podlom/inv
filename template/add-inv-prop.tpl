@@ -23,6 +23,46 @@
 				display: block;
 			}
 		}
+
+
+
+		.proposal__discounts {
+			display: grid;
+			gap: 14px;
+		}
+
+		@media screen and (min-width: 480px) {
+			.proposal__discounts.--grid {
+				grid-template-columns: 1fr 1fr;
+			}
+		}
+
+		.proposal__discounts-item {
+			display: flex;
+			align-items: center;
+		}
+
+		.proposal__discounts-icon {
+			margin-right: 12px;
+			width: 44px;
+			background: black;
+		}
+
+		.proposal__discounts h3,
+		.proposal__discounts p {
+			margin: 0;
+			padding: 0;
+			font-size: 14px;
+			line-height: 1.4;
+		}
+
+		.proposal__discounts-title {
+			font-weight: 700;
+		}
+
+		.proposal__discounts-title.--blue {
+			color: #5e87b3;
+		}
 	</style>
 
 	<section class="investor-proposals">
@@ -31,9 +71,11 @@
 				<div>
 					<h1 class="investor-proposals__title">
 						{if $lang === 'ru'}
-							Привлечение инвестиций, продажа бизнеса и коммерческой недвижимости в Украине
+							Привлечение инвестиций, продажа бизнеса и коммерческой недвижимости в
+							Украине
 						{elseif $lang === 'uk'}
-							Залучення інвестицій, продаж бізнесу та комерційної нерухомості в Україні
+							Залучення інвестицій, продаж бізнесу та комерційної нерухомості в
+							Україні
 						{else}
 							Services for Raising Capital & Sell a Business
 						{/if}
@@ -42,8 +84,10 @@
 
 
 						<p>
-							За более чем 10 лет работы на инвестиционном рынке Украины, мы разработали действенные инструменты по
-							привлечению инвестиций, продаже бизнеса, франшиз и коммерческой недвижимости.
+							За более чем 10 лет работы на инвестиционном рынке Украины, мы
+							разработали действенные инструменты по
+							привлечению инвестиций, продаже бизнеса, франшиз и коммерческой
+							недвижимости.
 						</p>
 						<p class="mt-2 font-bold">
 							Выберите подходящий Вам формат сотрудничества:
@@ -57,7 +101,8 @@
 					<h2 class="proposal__title">Рекламный подход</h2>
 					<p class="proposal__description">
 
-						Подойдет для продажи малого или среднего бизнеса, объекта недвижимости, франшизы или стартапа, когда требуется
+						Подойдет для продажи малого или среднего бизнеса, объекта
+						недвижимости, франшизы или стартапа, когда требуется
 						донести информацию до широкого круга инвесторов.
 
 					</p>
@@ -68,24 +113,56 @@
 						<li>Рекламный баннер на инвестиционном портале InVenture</li>
 						<li>Продвижение в соцсетях (Facebook, LinkedIn, Telegram)</li>
 						<li>Настройка контекстной рекламы Google Ads</li>
-						<li>Размещение на специализированных интернет площадках и досках объявлений</li>
+						<li>Размещение на специализированных интернет площадках и досках
+							объявлений</li>
 						<li>Размещение в отраслевом аналитическом исследовании</li>
 						<li>Рассылка по крупнейшей базе инвесторов</li>
 					</ul>
-
-					<button data-deal-id="adv" data-deal-name="Рекламное продвижение" data-remodal-target="approach"
+					{* advert-packages-min.svg
+commission-payment-min.svg
+discount-small-business-min.svg
+free-military-min.svg *}
+					<div class="proposal__discounts --grid">
+						<div class="proposal__discounts-item">
+							<img alt="Иконка" class="lazyimg proposal__discounts-icon"
+								src="https://inventure.com.ua/images/advert-packages-min.svg"
+								width="44" height="44" />
+							<div>
+								<h3 class="proposal__discounts-title --blue">Рекламные пакеты</h3>
+								<p>от $350</p>
+							</div>
+						</div>
+						<div class="proposal__discounts-item">
+							<img alt="Иконка" class="lazyimg proposal__discounts-icon"
+								src="https://inventure.com.ua/images/free-military-min.svg"
+								width="44" height="44" />
+							<div>
+								<h3 class="proposal__discounts-title --blue">Бесплатно</h3>
+								<p>для military tech проектов</p>
+							</div>
+						</div>
+						<div class="proposal__discounts-item">
+							<img alt="Иконка" class="lazyimg proposal__discounts-icon"
+								src="https://inventure.com.ua/images/discount-small-business-min.svg"
+								width="44" height="44" />
+							<div>
+								<h3 class="proposal__discounts-title --blue">Скидка 20%</h3>
+								<p>для малого бизнеса (до $50 000)</p>
+							</div>
+						</div>
+					</div>
+					<button data-deal-id="adv" data-deal-name="Рекламное продвижение"
+						data-remodal-target="approach"
 						class="btn btn--blue btn--blue-text w-full add-inv-prop-btn">
-
 						Получить условия
-
-
 					</button>
 				</div>
 				<div class="investor-proposals__proposal proposal proposal--blue">
 					<h2 class="proposal__title">Полное сопровождение</h2>
 					<p class="proposal__description">
 
-						Подойдет для продажи среднего и крупного бизнеса, привлечения инвестиций в масштабные инвестпроекты, когда
+						Подойдет для продажи среднего и крупного бизнеса, привлечения
+						инвестиций в масштабные инвестпроекты, когда
 						требуется индивидуальный и комплексный подход по поиску инвестора.
 
 					</p>
@@ -95,14 +172,16 @@
 						<li>Профессиональную презентацию для работы с инвесторами</li>
 						<li>Рекомендации по предпродажной подготовке бизнеса</li>
 						<li>Прямые продажи и целенаправленный поиск инвесторов</li>
-						<li>Индивидуальный комплекс продвижения инвестиционного предложения</li>
+						<li>Индивидуальный комплекс продвижения инвестиционного предложения
+						</li>
 						<li>Консультационное сопровождение на всех этапах сделки</li>
 
 						<li>Координация процесса Due Diligence</li>
 						<li>Медиация в переговорных процессах</li>
 					</ul>
 
-					<button data-deal-id="ind" data-deal-name="Индивидуальный подход" data-remodal-target="approach"
+					<button data-deal-id="ind" data-deal-name="Индивидуальный подход"
+						data-remodal-target="approach"
 						class="btn btn--white btn--blue-text w-full add-inv-prop-btn">
 
 						Получить условия
@@ -161,8 +240,10 @@
 			<p>
 				Наш менеджер свяжется с Вами в течение одного рабочего дня.
 			</p>
-			<a id="openNowLink" target="_blank" href="https://drive.google.com/open?id=1sFGhi5u4wVwNH8-pJat4EX8ufHSBIXVS"
-				class="w-full blue_but cell-but small-12" type="submit">Открыть призентацию</a>
+			<a id="openNowLink" target="_blank"
+				href="https://drive.google.com/open?id=1sFGhi5u4wVwNH8-pJat4EX8ufHSBIXVS"
+				class="w-full blue_but cell-but small-12" type="submit">Открыть
+				призентацию</a>
 			<button data-remodal-action="close" type='button'
 				class="w-full blue_but cell-but  small-12 close__popup">Закрыть</button>
 		</div>
