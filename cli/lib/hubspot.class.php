@@ -651,6 +651,8 @@ class Hubspot
                 $uri .= $params['properties'];
             }
         }
+        // @ts 2023-03-02 21:04 fix auth
+        $uri .= '&hapikey=' . self::TOKEN;
         $resp = $this->query($uri, __METHOD__, []);
         return $resp;
     }
