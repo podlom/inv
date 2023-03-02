@@ -652,7 +652,7 @@ class Hubspot
             }
         }
         // @ts 2023-03-02 21:04 fix auth
-        $uri .= '&hapikey=' . self::TOKEN;
+        // $uri .= '&hapikey=' . self::TOKEN;
         $resp = $this->query($uri, __METHOD__, []);
         return $resp;
     }
@@ -1100,6 +1100,12 @@ class Hubspot
                 'Content-Type: application/json',
                 'Authorization: Bearer ' . self::TOKEN,
                 "cache-control: no-cache",
+            ]);
+        } else {
+            // @ts 2023-03-02 21:14 added to authorize all other request types except of POST and PUT
+            curl_setopt($ch, CURLOPT_HTTPHEADER, [
+                'Content-Type: application/json',
+                'Authorization: Bearer ' . self::TOKEN,
             ]);
         }
         //
