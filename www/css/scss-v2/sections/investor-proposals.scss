@@ -97,7 +97,7 @@
 		font-family: Montserrat;
 		font-style: normal;
 		font-weight: 600;
-		font-size: 16px;
+		font-size: 18px;
 		line-height: 160%;
 		@media (min-width: 1024px) {
 			font-size: 24px;
@@ -377,14 +377,15 @@
 .proposal__discounts p {
 	margin: 0;
 	padding: 0;
-	font-size: 14px;
-	line-height: 16px;
+
+	font-size: 16px;
+	line-height: 1.4px;
 	font-weight: 500;
 }
 
 .proposal__discounts small {
-	font-size: 9px;
-	line-height: 12px;
+	font-size: 12px;
+	line-height: 1.3;
 	display: block;
 }
 
@@ -392,6 +393,18 @@
 	.proposal__discounts small {
 		display: inline-block !important;
 		line-height: 14px !important;
+	}
+
+	.proposal__discounts h3,
+	.proposal__discounts p {
+		font-size: 14px !important;
+		line-height: 16px !important;
+	}
+
+	.proposal__discounts small {
+		font-size: 9px !important;
+		line-height: 12px !important;
+		display: block;
 	}
 }
 
