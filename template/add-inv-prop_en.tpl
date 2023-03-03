@@ -91,6 +91,38 @@
 
 					</ul>
 
+					<div class="proposal__discounts-divider"></div>
+					<div class="proposal__discounts --grid">
+						<div class="proposal__discounts-item">
+							<img alt="Icon" class="lazyimg proposal__discounts-icon"
+								data-src="/images/advert-packages-min.svg" width="44"
+								height="44" />
+							<div>
+								<h3 class="proposal__discounts-title --blue">
+									Advertising packages
+								</h3>
+								<p>from $350</p>
+							</div>
+						</div>
+						<div class="proposal__discounts-item">
+							<img alt="Icon" class="lazyimg proposal__discounts-icon"
+								data-src="/images/free-military-min.svg" width="44" height="44" />
+							<div>
+								<h3 class="proposal__discounts-title --blue">For free</h3>
+								<p>military tech projects</p>
+							</div>
+						</div>
+						<div class="proposal__discounts-item">
+							<img alt="Icon" class="lazyimg proposal__discounts-icon"
+								data-src="/images/discount-small-business-min.svg" width="44"
+								height="44" />
+							<div>
+								<h3 class="proposal__discounts-title --blue">20% discount</h3>
+								<p>for small businesses <small>(up to $50,000)</small></p>
+							</div>
+						</div>
+					</div>
+
 					<button data-deal-name="Рекламное продвижение"
 						data-remodal-target="approach"
 						class="btn btn--blue btn--blue-text w-full add-inv-prop-btn">
@@ -145,7 +177,7 @@
 					<div class="statistics__caption">Closed deals</div>
 				</div>
 				<div class="statistics__block">
-					<div class="statistics__number">$300+ млн</div>
+					<div class="statistics__number">$300+ mln</div>
 					<div class="statistics__caption">
 						Amount of completed investments
 					</div>
