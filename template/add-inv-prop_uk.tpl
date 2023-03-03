@@ -66,6 +66,36 @@
 					<li>Розсилка по найбільшій базі інвесторів</li>
 				</ul>
 
+				<div class="proposal__discounts-divider"></div>
+				<div class="proposal__discounts --grid">
+					<div class="proposal__discounts-item">
+						<img alt="Иконка" class="lazyimg proposal__discounts-icon"
+							data-src="/images/advert-packages-min.svg" width="44"
+							height="44" />
+						<div>
+							<h3 class="proposal__discounts-title --blue">Рекламні пакети</h3>
+							<p>від $350</p>
+						</div>
+					</div>
+					<div class="proposal__discounts-item">
+						<img alt="Иконка" class="lazyimg proposal__discounts-icon"
+							data-src="/images/free-military-min.svg" width="44" height="44" />
+						<div>
+							<h3 class="proposal__discounts-title --blue">Безкоштовно</h3>
+							<p>для military tech проектів</p>
+						</div>
+					</div>
+					<div class="proposal__discounts-item">
+						<img alt="Иконка" class="lazyimg proposal__discounts-icon"
+							data-src="/images/discount-small-business-min.svg" width="44"
+							height="44" />
+						<div>
+							<h3 class="proposal__discounts-title --blue">Знижка 20%</h3>
+							<p>для малого бізнесу <small>(до $50 000)</small></p>
+						</div>
+					</div>
+				</div>
+
 				<button data-deal-id="adv" data-deal-name="Рекламное продвижение"
 					data-remodal-target="approach"
 					class="btn btn--blue btn--blue-text w-full add-inv-prop-btn">
