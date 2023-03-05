@@ -120,6 +120,19 @@
 					<li>Медіація у переговорних процесах</li>
 				</ul>
 
+				<div class="proposal__discounts-divider --white"></div>
+				<div class="proposal__discounts --double-rows">
+					<div class="proposal__discounts-item --white">
+						<img alt="Иконка" class="lazyimg proposal__discounts-icon"
+							data-src="/images/commission-payment-min.svg" width="44"
+							height="44" />
+						<div>
+							<h3 class="proposal__discounts-title --blue">Комісія</h3>
+							<p>% + авансовий платіж від $5000</p>
+						</div>
+					</div>
+				</div>
+
 				<button data-deal-id="ind" data-deal-name="Индивидуальный подход"
 					data-remodal-target="approach"
 					class="btn btn--white btn--blue-text w-full add-inv-prop-btn">

@@ -151,6 +151,21 @@
 
 					</ul>
 
+
+					<div class="proposal__discounts-divider --white"></div>
+					<div class="proposal__discounts --double-rows">
+						<div class="proposal__discounts-item --white">
+							<img alt="Иконка" class="lazyimg proposal__discounts-icon"
+								data-src="/images/commission-payment-min.svg" width="44"
+								height="44" />
+							<div>
+								<h3 class="proposal__discounts-title --blue">Success fee</h3>
+								<p>% + advance payment, starting from $5,000</p>
+							</div>
+						</div>
+					</div>
+
+
 					<button data-deal-name="Индивидуальный подход"
 						data-remodal-target="approach"
 						class="btn btn--white btn--blue-text w-full add-inv-prop-btn">
@@ -179,7 +194,7 @@
 				<div class="statistics__block">
 					<div class="statistics__number">$300+ mln</div>
 					<div class="statistics__caption">
-						Amount of completed investments
+						Amount of closed deals
 					</div>
 				</div>
 			</div>
