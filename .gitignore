@@ -35,3 +35,5 @@ cli/php-sitemap-generator/sitemap*.gz
 data/gen_lib/Proxy/__CG__*.php
 # @ts 2023-02-21 ignore generated js files
 data/react/dist/*.js
+# @ts 2023-05-18
+/vendor/
