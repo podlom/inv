@@ -5,7 +5,6 @@ RUN apt-get update \
     && apt-get -y --no-install-recommends install \
         php8.1-bz2 \ 
         php8.1-gd \ 
-        php8.1-http \ 
         php8.1-imagick \ 
         php8.1-imap \ 
         php8.1-intl \ 
@@ -27,3 +26,5 @@ RUN apt-get update \
         php8.1-yaml \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/share/doc/*
+
+COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer

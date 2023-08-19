@@ -37,3 +37,6 @@ data/gen_lib/Proxy/__CG__*.php
 data/react/dist/*.js
 # @ts 2023-05-18
 /vendor/
+# @ts 2023-08-19
+cli/config/settings.php
+vendor/*
