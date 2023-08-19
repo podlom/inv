@@ -5,7 +5,6 @@ RUN apt-get update \
     && apt-get -y --no-install-recommends install \
         php8.1-bz2 \ 
         php8.1-gd \ 
-        php8.1-gmagick \ 
         php8.1-http \ 
         php8.1-imagick \ 
         php8.1-imap \ 
