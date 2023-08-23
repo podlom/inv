@@ -1,29 +1,31 @@
-FROM phpdockerio/php:8.1-fpm
+FROM phpdockerio/php72-fpm
 WORKDIR "/application"
 
 RUN apt-get update \
     && apt-get -y --no-install-recommends install \
-        php8.1-bz2 \ 
-        php8.1-gd \ 
-        php8.1-imagick \ 
-        php8.1-imap \ 
-        php8.1-intl \ 
-        php8.1-ldap \ 
-        php8.1-mcrypt \ 
-        php8.1-memcache \ 
-        php8.1-memcached \ 
-        php8.1-mysql \ 
-        php8.1-odbc \ 
-        php8.1-phpdbg \ 
-        php8.1-pspell \ 
-        php8.1-soap \ 
-        php8.1-ssh2 \ 
-        php8.1-tidy \ 
-        php8.1-uuid \ 
-        php8.1-xdebug \ 
-        php8.1-xmlrpc \ 
-        php8.1-xsl \ 
-        php8.1-yaml \
+        php7.2-bcmath \
+        php7.2-bz2 \
+        php7.2-cli \
+        php7.2-common \
+        php7.2-curl \
+        php7.2-fpm \
+        php7.2-gd \
+        php7.2-imap \
+        php7.2-intl \
+        php7.2-json \
+        php7.2-mbstring \
+        php7.2-mysql \
+        php7.2-opcache \
+        php7.2-pspell \
+        php7.2-readline \
+        php7.2-soap \
+        php7.2-sqlite3 \
+        php7.2-tidy \
+        php7.2-xml \
+        php7.2-xmlrpc \
+        php7.2-xsl \
+        php7.2-yaml \
+        php7.2-zip \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/share/doc/*
 
