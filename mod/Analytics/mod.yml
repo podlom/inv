@@ -1,0 +1,10 @@
+version: 0.1.2
+model: ['Page']
+event:
+  'core.init':
+    priority: 1
+  'core.terminate': []
+  'doctrine.update': []
+  'page.view': []
+inject: 
+  'Core\Page': 'tCorePage'
