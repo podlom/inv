@@ -20,17 +20,17 @@ function checkWinLocHref() {
   console.log(
     '+4 checking window.location.pathname: ' + window.location.pathname,
   );
-  if (window.location.pathname == '/investments/projects') {
+  if ((window.location.pathname == '/investments/projects') || (window.location.pathname == '/uk/investments/projects') || (window.location.pathname == '/en/investments/projects')) {
     return false;
-  } else if (window.location.pathname == '/investments/business') {
+  } else if ((window.location.pathname == '/investments/business') || (window.location.pathname == '/uk/investments/business') || (window.location.pathname == '/en/investments/business')) {
     return false;
-  } else if (window.location.pathname == '/investments/realestate') {
+  } else if ((window.location.pathname == '/investments/realestate') || (window.location.pathname == '/uk/investments/realestate') || (window.location.pathname == '/en/investments/realestate')) {
     return false;
-  } else if (window.location.pathname == '/investments/land') {
+  } else if ((window.location.pathname == '/investments/land') || (window.location.pathname == '/uk/investments/land') || (window.location.pathname == '/en/investments/land')) {
     return false;
-  } else if (window.location.pathname == '/investments/franchising') {
+  } else if ((window.location.pathname == '/investments/franchising') || (window.location.pathname == '/uk/investments/franchising') || (window.location.pathname == '/en/investments/en_franchising')) {
     return false;
-  } else if (window.location.pathname == '/investments/offer') {
+  } else if ((window.location.pathname == '/investments/offer') || (window.location.pathname == '/uk/investments/offer') || (window.location.pathname == '/en/investments/offer')) {
     return false;
   }
 

@@ -5,8 +5,9 @@
  * User: shtaras
  * Date: 2020-04-18
  * Time: 07:38
+ * Updated: 2023-12-19 16:56
  *
- * @author Taras Shkodenko <ts@doagency.net>
+ * @author Taras Shkodenko <taras@shkodenko.com>
  */
 
 require_once dirname(__FILE__) . '/../vendor/autoload.php';
@@ -38,6 +39,7 @@ function l_m($msg)
         || ($_SERVER['REMOTE_ADDR'] !== '178.214.193.98') // InVenture, Kyiv, office
         || ($_SERVER['REMOTE_ADDR'] !== '178.214.193.122') // 2022-06-29 Unit.City, Kyiv, office
         || ($_SERVER['REMOTE_ADDR'] !== '188.163.56.214') // 2020-09-08 ISP Kyivstar, Mariupol, home
+        || ($_SERVER['REMOTE_ADDR'] !== '31.43.103.143') // 2023-12-19 Kyiv, Obolon, Feelin cafe
     ) {
         // error_log(__FILE__ . ' +' . __LINE__ . ' ' . __FUNCTION__ . ' log to file is disabled for client IP: ' . $_SERVER['REMOTE_ADDR']);
         return false;
