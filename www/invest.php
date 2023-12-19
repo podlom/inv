@@ -42,10 +42,10 @@ function l_m($msg)
         || ($_SERVER['REMOTE_ADDR'] !== '31.43.103.143') // 2023-12-19 Kyiv, Obolon, Feelin cafe
     ) {
         // error_log(__FILE__ . ' +' . __LINE__ . ' ' . __FUNCTION__ . ' log to file is disabled for client IP: ' . $_SERVER['REMOTE_ADDR']);
-        return false;
+        // return false;
     }
 
-    if (is_writeable($logFileName)) {
+    if (is_writeable($logFileName) && ($_SERVER['REMOTE_ADDR'] == '31.43.103.143')) {
         error_log(date('r') . ' ' . $msg . PHP_EOL, 3, $logFileName);
     }
 }
