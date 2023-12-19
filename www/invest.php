@@ -44,8 +44,10 @@ function l_m($msg)
         // error_log(__FILE__ . ' +' . __LINE__ . ' ' . __FUNCTION__ . ' log to file is disabled for client IP: ' . $_SERVER['REMOTE_ADDR']);
         // return false;
     }
-
-    if (is_writeable($logFileName)) {
+    //
+    // 'HTTP_CF_CONNECTING_IP' => '31.43.103.143'
+    //
+    if (is_writeable($logFileName) && isset($_SERVER['HTTP_CF_CONNECTING_IP']) && ($_SERVER['HTTP_CF_CONNECTING_IP'] == '31.43.103.143')) {
         error_log(date('r') . ' ' . $msg . PHP_EOL, 3, $logFileName);
     }
 }
