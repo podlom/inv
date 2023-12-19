@@ -24,7 +24,7 @@ const DEFAULT_LIMIT = 24;
 
 function l_m($msg)
 {
-    $logFileName = '/home/inventure/data/web/inventure.com.ua/www/invest_new.log';
+    $logFileName = dirname(__FILE__) . '/invest_new.log';
     if (!file_exists($logFileName)) {
         touch($logFileName);
         chmod($logFileName, 0666);
@@ -45,7 +45,7 @@ function l_m($msg)
         // return false;
     }
 
-    if (is_writeable($logFileName) && ($_SERVER['REMOTE_ADDR'] == '31.43.103.143')) {
+    if (is_writeable($logFileName)) {
         error_log(date('r') . ' ' . $msg . PHP_EOL, 3, $logFileName);
     }
 }
