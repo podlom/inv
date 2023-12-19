@@ -43,10 +43,10 @@ function l_m($msg)
     ) {
         // error_log(__FILE__ . ' +' . __LINE__ . ' ' . __FUNCTION__ . ' log to file is disabled for client IP: ' . $_SERVER['REMOTE_ADDR']);
         return false;
-    } else {
-        if (is_writeable($logFileName)) {
-            error_log(date('r') . ' ' . $msg . PHP_EOL, 3, $logFileName);
-        }
+    }
+
+    if (is_writeable($logFileName)) {
+        error_log(date('r') . ' ' . $msg . PHP_EOL, 3, $logFileName);
     }
 }
 
