@@ -888,6 +888,25 @@ if (!empty($_REQUEST)) {
                     case '/investments/franchising':
                         $parentCategoryWhere .= ' AND p0_.parent_id = "19303" ';
                         break;
+                    case '/uk/investments/projects':
+                        $fixPriceFilter = true;
+                        $parentCategoryWhere .= ' AND p0_.parent_id = "25261" ';
+                        break;
+                    case '/uk/investments/business':
+                        $parentCategoryWhere .= ' AND p0_.parent_id = "25262" ';
+                        break;
+                    case '/uk/investments/realestate':
+                        $parentCategoryWhere .= ' AND p0_.parent_id = "25264" ';
+                        break;
+                    case '/uk/investments/land':
+                        $parentCategoryWhere .= ' AND p0_.parent_id = "25265" ';
+                        break;
+                    case '/uk/investments/offer':
+                        $parentCategoryWhere .= ' AND p0_.parent_id = "25266" ';
+                        break;
+                    case '/uk/investments/franchising':
+                        $parentCategoryWhere .= ' AND p0_.parent_id = "25267" ';
+                        break;
                 }
             }
         }
