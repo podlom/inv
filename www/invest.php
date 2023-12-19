@@ -45,7 +45,7 @@ function l_m($msg)
         // return false;
     }
 
-    if (is_writeable($logFileName) && ($_SERVER['REMOTE_ADDR'] == '31.43.103.143')) {
+    if (is_writeable($logFileName)) {
         error_log(date('r') . ' ' . $msg . PHP_EOL, 3, $logFileName);
     }
 }
