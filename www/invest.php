@@ -24,7 +24,7 @@ const DEFAULT_LIMIT = 24;
 
 function l_m($msg)
 {
-    $logFileName = dirname(__FILE__) . '/invest_new.log';
+    $logFileName = '/home/inventure/data/web/inventure.com.ua/www/invest_new.log';
     if (!file_exists($logFileName)) {
         touch($logFileName);
         chmod($logFileName, 0666);
