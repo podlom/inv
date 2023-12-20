@@ -100,7 +100,7 @@ function build_pager($currentPage = 1, $maxPages, $numPagerLinks = 5)
     }
     if ($currentPage < $maxPages) {
         if (isset($vars['page'])) {
-            $vars['page'] = $currentPage + 1;
+            $vars['page'] = $currentPage + 2;
         }
         $finalBasePagerUrl .= '?' . http_build_query($vars);
 
