@@ -43,7 +43,8 @@ function l_m($msg)
 
 function build_pager($currentPage = 1, $maxPages, $numPagerLinks = 5)
 {
-    $basePagerHref = $_SERVER['REQUEST_URI'];
+    // $basePagerHref = $_SERVER['REQUEST_URI'];
+    $basePagerHref = $_SERVER['HTTP_REFERER'];
 
     $pagerHtml = '';
 
