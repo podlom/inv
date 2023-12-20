@@ -41,6 +41,29 @@ function l_m($msg)
     }
 }
 
+function build_pager($currentPage = 1, $maxPages, $numPagerLinks = 5)
+{
+    $pagerHtml = '';
+
+    $pagerHtml .= '<ul class="pagination mb-10">';
+    for ($i = 1; $i <= $numPagerLinks; $i++) {
+        if ($currentPage > 1) {
+            $pagerHtml .= '<li class=""><a href="&amp;page=' . ($currentPage - 1) . '" class=""><svg width="7" height="13" viewBox="0 0 7 13" fill="none" xmlns="http://www.w3.org/2000/svg"><path opacity="0.8" d="M6.25 12.25L0.75 6.75L6.25 1.25" stroke="black" stroke-linecap="round" stroke-linejoin="round"></path></svg></a></li>';
+        }
+        if ($currentPage == $i) {
+            $pagerHtml .= '<li class="current"><a href="#" class="">' . $i . '</a></li>';
+        } else {
+            $pagerHtml .= '<li class=""><a href="" class="">' . $i . '</a></li>';
+        }
+        if ($currentPage < $maxPages) {
+            $pagerHtml .= '<li class=""><a href="" class=""><svg width="7" height="13" viewBox="0 0 7 13" fill="none" xmlns="http://www.w3.org/2000/svg"><path opacity="0.8" d="M0.75 1.25L6.25 6.75L0.75 12.25" stroke="black" stroke-linecap="round" stroke-linejoin="round"></path></svg></a></li>';
+        }
+    }
+    $pagerHtml .= '</ul>';
+
+    return $pagerHtml;
+}
+
 /*
 function ucmp($a, $b) {
     if ($a == $b) {
@@ -291,7 +314,10 @@ if (!empty($_REQUEST)) {
             $limit = 24;
         }
         l_m(__FILE__ . ' +' . __LINE__ . ' $limit: ' . var_export($limit, true) . PHP_EOL);
-
+        //
+        $numPages = 0;
+        l_m(__FILE__ . ' +' . __LINE__ . ' $numPages: ' . var_export($numPages, true) . PHP_EOL);
+        //
         if (isset($_REQUEST['page'])) {
             $page = intval($_REQUEST['page']);
             $offset = ($page - 1) * $limit;
@@ -346,13 +372,21 @@ if (!empty($_REQUEST)) {
                 });
                 l_m( __FILE__ . ' +' . __LINE__ . ' Result after sort: ' . var_export($r8, true) . PHP_EOL ); */
                 //
+                $showPager = false;
                 $num = 1;
                 $resHmtl .= '<!-- @ts limit: ' . var_export($limit, true) . ' -->' . PHP_EOL;
                 $resHmtl .= '<!-- @ts page: ' . var_export($page, true) . ' -->' . PHP_EOL;
                 $resHmtl .= '<!-- @ts offset: ' . var_export($offset, true) . ' -->' . PHP_EOL;
                 if (isset($res312[0]['num_events'])) {
                     $resHmtl .= '<!-- @ts num events: ' . var_export($res312[0]['num_events'], true) . ' -->' . PHP_EOL;
+
+                    $numPages = ceil($res312[0]['num_events'] / $limit);
+                    $resHmtl .= '<!-- @ts num pages: ' . var_export($numPages, true) . ' -->' . PHP_EOL;
+                    if ($numPages > 1) {
+                        $showPager = true;
+                    }
                 }
+                $resHmtl .= '<!-- @ts show pager: ' . var_export($showPager, true) . ' -->' . PHP_EOL;
                 $resHmtl .= '';
                 foreach ($res3 as $r7) {
                     // l_m(__FILE__ . ' +' . __LINE__ . ' Result: ' . var_export($r7, true) . PHP_EOL);
@@ -435,6 +469,10 @@ if (!empty($_REQUEST)) {
                     $num++;
                 }
                 $resHmtl .= '';
+                if ($showPager) {
+                    // TODO: show pager for events here
+                    $resHmtl .= build_pager($page, $numPages, 5);
+                }
             }
         }
     }
