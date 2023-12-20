@@ -18,7 +18,8 @@ function l_m($msg)
         chmod($logFileName, 0666);
     }
     // IP: 193.0.217.7 - Kyiv - Volodymyra Ivasyuka 24-a
-    if (is_writeable($logFileName) && isset($_SERVER['HTTP_CF_CONNECTING_IP']) && ($_SERVER['HTTP_CF_CONNECTING_IP'] == '193.0.217.7')) {
+    // IP: 176.37.192.192 - Kyiv - Rollhouse cafe
+    if (is_writeable($logFileName) && isset($_SERVER['HTTP_CF_CONNECTING_IP']) && ($_SERVER['HTTP_CF_CONNECTING_IP'] == '176.37.192.192')) {
         error_log(date('r') . ' ' . $msg . PHP_EOL, 3, $logFileName);
     }
     // Do not log on prod by default
