@@ -302,10 +302,15 @@ if (!empty($_REQUEST)) {
         l_m(__FILE__ . ' +' . __LINE__ . ' $offset: ' . var_export($offset, true) . PHP_EOL);
 
         // $query = "SELECT DISTINCT id_0 FROM (SELECT p0_.id AS id_0, p0_.sort1 AS sort_1, p0_.past2 AS past_2, p0_.h1 AS h1_1, p0_.status AS status_2, p0_.deleted AS deleted_3, p0_.published AS published_4, p0_.short_text AS short_text_5, p0_.subpath AS subpath_6, p0_.created AS created_7, p0_.updated AS updated_8, p0_.attr AS attr_9, p0_.class AS class_10, p0_.image_id AS image_id_11, p0_.user_id AS user_id_12, p0_.route_id AS route_id_13, p0_.parent_id AS parent_id_14 FROM Page p0_ WHERE (p0_.past2 = {$filterPastEvents}) AND (p0_.route_id = 29) AND p0_.class IN ('16') ORDER BY {$eventSortField} {$eventsSortOrder}) alias1 LIMIT {$limit} OFFSET {$offset} ";
-        $query = "SELECT DISTINCT p0_.id AS id_0, p0_.sort1 AS sort_1, p0_.past2 AS past_2, p0_.h1 AS h1_1, p0_.status AS status_2, p0_.deleted AS deleted_3, p0_.published AS published_4, p0_.short_text AS short_text_5, p0_.subpath AS subpath_6, p0_.created AS created_7, p0_.updated AS updated_8, p0_.attr AS attr_9, p0_.class AS class_10, p0_.image_id AS image_id_11, p0_.user_id AS user_id_12, p0_.route_id AS route_id_13, p0_.parent_id AS parent_id_14 FROM Page p0_ WHERE (p0_.past2 = {$filterPastEvents}) AND (p0_.route_id = 29) AND p0_.class IN ('16') ORDER BY {$eventSortField} {$eventsSortOrder} LIMIT {$limit} OFFSET {$offset} ";
+        $query = "SELECT SQL_CALC_FOUND_ROWS DISTINCT p0_.id AS id_0, p0_.sort1 AS sort_1, p0_.past2 AS past_2, p0_.h1 AS h1_1, p0_.status AS status_2, p0_.deleted AS deleted_3, p0_.published AS published_4, p0_.short_text AS short_text_5, p0_.subpath AS subpath_6, p0_.created AS created_7, p0_.updated AS updated_8, p0_.attr AS attr_9, p0_.class AS class_10, p0_.image_id AS image_id_11, p0_.user_id AS user_id_12, p0_.route_id AS route_id_13, p0_.parent_id AS parent_id_14 FROM Page p0_ WHERE (p0_.past2 = {$filterPastEvents}) AND (p0_.route_id = 29) AND p0_.class IN ('16') ORDER BY {$eventSortField} {$eventsSortOrder} LIMIT {$limit} OFFSET {$offset} ";
         l_m(__FILE__ . ' +' . __LINE__ . ' SQL: ' . $query . PHP_EOL);
         $res2 = $db->query($query);
         // l_m( __FILE__ . ' +' . __LINE__ . ' Result: ' . var_export($res2, true) . PHP_EOL );
+        //
+        $query = "SELECT FOUND_ROWS()";
+        l_m(__FILE__ . ' +' . __LINE__ . ' SQL: ' . $query);
+        $res312 = $db->query($query);
+        l_m(__FILE__ . ' +' . __LINE__ . ' Result322: ' . var_export($res312, true));
         //
         $pageId = [];
         if (!empty($res2) && is_array($res2)) {
