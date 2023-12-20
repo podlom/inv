@@ -72,21 +72,20 @@ function build_pager($currentPage = 1, $maxPages, $numPagerLinks = 5)
 
         $pagerHtml .= '<li class=""><a href="' . $newBaseUrl . '" class=""><svg width="7" height="13" viewBox="0 0 7 13" fill="none" xmlns="http://www.w3.org/2000/svg"><path opacity="0.8" d="M6.25 12.25L0.75 6.75L6.25 1.25" stroke="black" stroke-linecap="round" stroke-linejoin="round"></path></svg></a></li>';
     }
-    for ($i = 0, $j = 1; $i < $numPagerLinks; $i++, $j++) {
+    for ($i = 0, $j = 1; $j <= $numPagerLinks; $i++, $j++) {
         l_m(__FILE__ . ' +' . __LINE__ . ' $i: ' . var_export($i, true));
         l_m(__FILE__ . ' +' . __LINE__ . ' $j: ' . var_export($j, true));
 
         if (isset($vars['page'])) {
-            $vars['page'] = $i;
+            $vars['page'] = $j;
         }
         l_m(__FILE__ . ' +' . __LINE__ . ' $vars: ' . var_export($vars, true));
         l_m(__FILE__ . ' +' . __LINE__ . ' $newBasePagerUrl: ' . var_export($newBasePagerUrl, true));
+        $newBasePagerUrl = $parsedUrl['scheme'] . '://' . $parsedUrl['host'] . $parsedUrl['path'] . '?' . http_build_query($vars);
 
-        if ($currentPage == $i) {
+        if ($currentPage == $j) {
             $pagerHtml .= '<li class="current"><a href="#" class="">' . $j . '</a></li>';
         } else {
-
-
             $pagerHtml .= '<li class=""><a href="' . $newBasePagerUrl . '" class="">' . $j . '</a></li>';
         }
     }
