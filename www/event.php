@@ -57,6 +57,10 @@ function build_pager($currentPage = 1, $maxPages, $numPagerLinks = 5)
         }
     }
     if ($currentPage < $maxPages) {
+        $pagerHtml .= '<li class="spacer"><a class="">...</a></li>' .
+            '<li class="last"><a class="" href="&amp;page=' . $maxPages . '">' . $maxPages . '</a></li>';
+    }
+    if ($currentPage < $maxPages) {
         $pagerHtml .= '<li class=""><a href="" class=""><svg width="7" height="13" viewBox="0 0 7 13" fill="none" xmlns="http://www.w3.org/2000/svg"><path opacity="0.8" d="M0.75 1.25L6.25 6.75L0.75 12.25" stroke="black" stroke-linecap="round" stroke-linejoin="round"></path></svg></a></li>';
     }
     $pagerHtml .= '</ul>';
