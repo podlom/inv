@@ -46,7 +46,7 @@ function build_pager($currentPage = 1, $maxPages, $numPagerLinks = 5)
     // $basePagerHref = $_SERVER['REQUEST_URI'];
     $basePagerHref = $_SERVER['HTTP_REFERER'];
 
-    if (preg_match('%page=d*%', $basePagerHref, $m0)) {
+    if (preg_match('%page=(d*)%', $basePagerHref, $m0, PREG_OFFSET_CAPTURE)) {
         l_m(__FILE__ . ' +' . __LINE__ . ' $m0: ' . var_export($m0, true));
     }
 
