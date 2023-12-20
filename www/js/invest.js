@@ -99,7 +99,7 @@ function loadRegionData() {
                         }
                     });
                 }
-            }, 500),
+            }, 500)
         );
     }
 }
