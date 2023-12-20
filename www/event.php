@@ -47,10 +47,16 @@ function build_pager($currentPage = 1, $maxPages, $numPagerLinks = 5)
     $basePagerHref = $_SERVER['HTTP_REFERER'];
     l_m(__FILE__ . ' +' . __LINE__ . ' $vars: ' . var_export($basePagerHref, true));
 
+    $parsedUrl = parse_url($basePagerHref);
+    l_m(__FILE__ . ' +' . __LINE__ . ' $parsedUrl: ' . var_export($parsedUrl, true));
+
     $querystring = parse_url($basePagerHref, PHP_URL_QUERY);
     l_m(__FILE__ . ' +' . __LINE__ . ' $querystring: ' . var_export($querystring, true));
     parse_str($querystring, $vars);
     l_m(__FILE__ . ' +' . __LINE__ . ' $vars: ' . var_export($vars, true));
+    if(isset($vars['page'])) {
+        $currentPage = $vars['page'];
+    }
 
     $pagerHtml = '';
 
