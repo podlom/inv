@@ -12,6 +12,12 @@
 
 function l_m($msg)
 {
+    // Do not log on prod by default
+    if ($_SERVER['SERVER_NAME'] === 'inventure.com.ua') {
+        // error_log(__FILE__ . ' +' . __LINE__ . ' ' . __FUNCTION__ . ' log to file is disabled for production env: ' . $_SERVER['SERVER_NAME']);
+        return false;
+    }
+
     $logFileName = dirname(__FILE__) . '/event.log';
     if (!file_exists($logFileName)) {
         touch($logFileName);
@@ -22,11 +28,7 @@ function l_m($msg)
     if (is_writeable($logFileName) && isset($_SERVER['HTTP_CF_CONNECTING_IP']) && ($_SERVER['HTTP_CF_CONNECTING_IP'] == '193.0.217.7')) {
         error_log(date('r') . ' ' . $msg . PHP_EOL, 3, $logFileName);
     }
-    // Do not log on prod by default
-    if ($_SERVER['SERVER_NAME'] === 'inventure.com.ua') {
-        // error_log(__FILE__ . ' +' . __LINE__ . ' ' . __FUNCTION__ . ' log to file is disabled for production env: ' . $_SERVER['SERVER_NAME']);
-        return false;
-    }
+
     // Do not log if client IP does not match list below
     if (($_SERVER['REMOTE_ADDR'] !== '185.11.28.246') // @ts 2021-02-25; ISP Best; Grand Villas; home
         && ($_SERVER['REMOTE_ADDR'] !== '178.214.193.98') // InVenture office; Kyiv
@@ -43,72 +45,49 @@ function l_m($msg)
 
 function build_pager($currentPage = 1, $maxPages, $numPagerLinks = 5)
 {
-    l_m(__FILE__ . ' +' . __LINE__ . ' $currentPage: ' . var_export($currentPage, true));
+    // Base URL construction from the HTTP referer
+    $parsedUrl = parse_url($_SERVER['HTTP_REFERER']);
+    $baseUrl = $parsedUrl['scheme'] . '://' . $parsedUrl['host'] . $parsedUrl['path'];
 
-    // $basePagerHref = $_SERVER['REQUEST_URI'];
-    $basePagerHref = $_SERVER['HTTP_REFERER'];
-    l_m(__FILE__ . ' +' . __LINE__ . ' $basePagerHref: ' . var_export($basePagerHref, true));
-
-    $parsedUrl = parse_url($basePagerHref);
-    l_m(__FILE__ . ' +' . __LINE__ . ' $parsedUrl: ' . var_export($parsedUrl, true));
-    $finalBasePagerUrl = $yetAnotherBaseUrl = $newBasePagerUrl = $newBaseUrl = $parsedUrl['scheme'] . '://' . $parsedUrl['host'] . $parsedUrl['path'];
-
-    $querystring = parse_url($basePagerHref, PHP_URL_QUERY);
-    // l_m(__FILE__ . ' +' . __LINE__ . ' $querystring: ' . var_export($querystring, true));
-    parse_str($querystring, $vars);
-    l_m(__FILE__ . ' +' . __LINE__ . ' $vars: ' . var_export($vars, true));
+    // Parse query string and update current page
+    parse_str(parse_url($_SERVER['HTTP_REFERER'], PHP_URL_QUERY), $vars);
     if (isset($vars['page'])) {
-        $currentPage = $vars['page'];
+        $currentPage = (int)$vars['page'];
     }
 
-    $pagerHtml = '';
+    // Pagination HTML
+    $pagerHtml = '<ul class="pagination mb-10">';
 
-    $pagerHtml .= '<ul class="pagination mb-10">';
+    // Previous page link
     if ($currentPage > 1) {
-        if (isset($vars['page'])) {
-            $vars['page'] = $currentPage - 1;
-        }
-        $newBaseUrl .= '?' . http_build_query($vars);
-
-        $pagerHtml .= '<li class=""><a href="' . $newBaseUrl . '" class=""><svg width="7" height="13" viewBox="0 0 7 13" fill="none" xmlns="http://www.w3.org/2000/svg"><path opacity="0.8" d="M6.25 12.25L0.75 6.75L6.25 1.25" stroke="black" stroke-linecap="round" stroke-linejoin="round"></path></svg></a></li>';
+        $vars['page'] = $currentPage - 1;
+        $pagerHtml .= buildPagerLink($baseUrl, $vars, '<svg width="7" height="13" viewBox="0 0 7 13" fill="none" xmlns="http://www.w3.org/2000/svg"><path opacity="0.8" d="M6.25 12.25L0.75 6.75L6.25 1.25" stroke="black" stroke-linecap="round" stroke-linejoin="round"></path></svg>'); // Replace with actual SVG
     }
-    for ($i = 0, $j = 1; $j <= $numPagerLinks; $i++, $j++) {
-        l_m(__FILE__ . ' +' . __LINE__ . ' $i: ' . var_export($i, true));
-        l_m(__FILE__ . ' +' . __LINE__ . ' $j: ' . var_export($j, true));
 
-        if (isset($vars['page'])) {
-            $vars['page'] = $j;
-        }
-        l_m(__FILE__ . ' +' . __LINE__ . ' $vars: ' . var_export($vars, true));
-        l_m(__FILE__ . ' +' . __LINE__ . ' $newBasePagerUrl: ' . var_export($newBasePagerUrl, true));
-        $newBasePagerUrl = $parsedUrl['scheme'] . '://' . $parsedUrl['host'] . $parsedUrl['path'] . '?' . http_build_query($vars);
+    // Page number links
+    $startPage = max(1, $currentPage - floor($numPagerLinks / 2));
+    $endPage = min($maxPages, $startPage + $numPagerLinks - 1);
 
-        if ($currentPage == $j) {
-            $pagerHtml .= '<li class="current"><a href="#" class="">' . $j . '</a></li>';
-        } else {
-            $pagerHtml .= '<li class=""><a href="' . $newBasePagerUrl . '" class="">' . $j . '</a></li>';
-        }
+    for ($page = $startPage; $page <= $endPage; $page++) {
+        $vars['page'] = $page;
+        $class = ($page == $currentPage) ? 'current' : '';
+        $pagerHtml .= buildPagerLink($baseUrl, $vars, $page, $class);
     }
+
+    // Next page link
     if ($currentPage < $maxPages) {
-        if (isset($vars['page'])) {
-            $vars['page'] = $maxPages;
-        }
-        $yetAnotherBaseUrl .= '?' . http_build_query($vars);
-
-        $pagerHtml .= '<li class="spacer"><a class="">...</a></li>' .
-            '<li class="last"><a class="" href="' . $yetAnotherBaseUrl . '">' . $maxPages . '</a></li>';
+        $vars['page'] = $currentPage + 1;
+        $pagerHtml .= buildPagerLink($baseUrl, $vars, '<svg width="7" height="13" viewBox="0 0 7 13" fill="none" xmlns="http://www.w3.org/2000/svg"><path opacity="0.8" d="M0.75 1.25L6.25 6.75L0.75 12.25" stroke="black" stroke-linecap="round" stroke-linejoin="round"></path></svg>'); // Replace with actual SVG
     }
-    if ($currentPage < $maxPages) {
-        if (isset($vars['page'])) {
-            $vars['page'] = $currentPage + 1;
-        }
-        $finalBasePagerUrl .= '?' . http_build_query($vars);
 
-        $pagerHtml .= '<li class=""><a href="' . $finalBasePagerUrl . '" class=""><svg width="7" height="13" viewBox="0 0 7 13" fill="none" xmlns="http://www.w3.org/2000/svg"><path opacity="0.8" d="M0.75 1.25L6.25 6.75L0.75 12.25" stroke="black" stroke-linecap="round" stroke-linejoin="round"></path></svg></a></li>';
-    }
     $pagerHtml .= '</ul>';
-
     return $pagerHtml;
+}
+
+function buildPagerLink($baseUrl, $vars, $label, $class = '')
+{
+    $href = htmlspecialchars($baseUrl . '?' . http_build_query($vars));
+    return "<li class=\"$class\"><a href=\"$href\">$label</a></li>";
 }
 
 /*
