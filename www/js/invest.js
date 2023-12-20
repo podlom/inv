@@ -220,7 +220,7 @@ function croudSubmit() {
         {action: 'form1submit', data: formData},
         function () {
             console.log('+221 ajax status: success');
-        },
+        }
     ).done(function (d1) {
         console.log('+224 got data: ' + d1);
         $('#croud_form1').empty();
