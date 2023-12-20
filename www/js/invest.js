@@ -200,7 +200,7 @@ if (checkCroudinvesting()) {
             {action: 'form1', href: window.location.href, post_id: postId},
             function () {
                 console.log('+200 ajax status: success');
-            },
+            }
         ).done(function (d1) {
             console.log('+203 got data: ' + d1);
             $('#croud_form1').html(d1);
