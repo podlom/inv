@@ -307,10 +307,10 @@ if (!empty($_REQUEST)) {
         $res2 = $db->query($query);
         // l_m( __FILE__ . ' +' . __LINE__ . ' Result: ' . var_export($res2, true) . PHP_EOL );
         //
-        $query = "SELECT FOUND_ROWS()";
+        $query = "SELECT FOUND_ROWS() AS num_events";
         l_m(__FILE__ . ' +' . __LINE__ . ' SQL: ' . $query);
         $res312 = $db->query($query);
-        l_m(__FILE__ . ' +' . __LINE__ . ' Result322: ' . var_export($res312, true));
+        l_m(__FILE__ . ' +' . __LINE__ . ' Result312: ' . var_export($res312, true));
         //
         $pageId = [];
         if (!empty($res2) && is_array($res2)) {
