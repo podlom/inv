@@ -240,7 +240,7 @@ function showCroudInvestStatus() {
             {action: 'showInvestStatus', href: window.location.href, post_id: postId},
             function () {
                 console.log('+242 ajax status: success');
-            },
+            }
         ).done(function (d2) {
             $('#croud_stat1').html(d2);
             console.log('+246 it is done');
