@@ -70,16 +70,16 @@ function build_pager($currentPage = 1, $maxPages, $numPagerLinks = 5)
 
         $pagerHtml .= '<li class=""><a href="' . $newBaseUrl . '" class=""><svg width="7" height="13" viewBox="0 0 7 13" fill="none" xmlns="http://www.w3.org/2000/svg"><path opacity="0.8" d="M6.25 12.25L0.75 6.75L6.25 1.25" stroke="black" stroke-linecap="round" stroke-linejoin="round"></path></svg></a></li>';
     }
-    for ($i = 0; $i < $numPagerLinks; $i++) {
+    for ($i = 0, $j = 1; $i < $numPagerLinks; $i++, $j++) {
         if ($currentPage == $i) {
-            $pagerHtml .= '<li class="current"><a href="#" class="">' . $i . '</a></li>';
+            $pagerHtml .= '<li class="current"><a href="#" class="">' . $j . '</a></li>';
         } else {
             if (isset($vars['page'])) {
                 $vars['page'] = $currentPage - 1;
             }
             $newBasePagerUrl .= '?' . http_build_query($vars);
 
-            $pagerHtml .= '<li class=""><a href="' . $newBasePagerUrl . '" class="">' . $i . '</a></li>';
+            $pagerHtml .= '<li class=""><a href="' . $newBasePagerUrl . '" class="">' . $j . '</a></li>';
         }
     }
     if ($currentPage < $maxPages) {
