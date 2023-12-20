@@ -1,12 +1,17 @@
-#
+# ignore phpStorm IDE config folder
 .idea/*
 #
+www/bin/sitemaps/*.xml
 www/upload
 www/img
 www/import
 www/skynar
 www/error
 www/*.log
+www/news-sitemap.xml
+www/news-sitemap.xml.gz
+www/sitemap.xml
+www/sitemap.xml.gz
 cache
 log
 # /template/Mail.mailing_*
