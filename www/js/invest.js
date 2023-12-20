@@ -44,15 +44,15 @@ function loadInvestProjects() {
             '/invest.php',
             {action: 'get', href: window.location.href},
             function () {
-                console.log('+25 ajax status: success');
-            },
+                console.log('invest.js +25 ajax status: success');
+            }
         ).done(function (d1) {
             console.log('+27 got data: ' + d1);
             $('.inventure-list-container').empty();
             $('.inventure-list-container').html(d1);
         });
     } else {
-        console.log('+32 window location check was not passed.');
+        console.log('invest.js +32 window location check was not passed.');
     }
 }
 
