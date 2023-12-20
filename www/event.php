@@ -347,6 +347,12 @@ if (!empty($_REQUEST)) {
                 l_m( __FILE__ . ' +' . __LINE__ . ' Result after sort: ' . var_export($r8, true) . PHP_EOL ); */
                 //
                 $num = 1;
+                $resHmtl .= '<!-- @ts limit: ' . var_export($limit, true) . ' -->' . PHP_EOL;
+                $resHmtl .= '<!-- @ts page: ' . var_export($page, true) . ' -->' . PHP_EOL;
+                $resHmtl .= '<!-- @ts offset: ' . var_export($offset, true) . ' -->' . PHP_EOL;
+                if (isset($res312[0]['num_events'])) {
+                    $resHmtl .= '<!-- @ts num events: ' . var_export($res312[0]['num_events'], true) . ' -->' . PHP_EOL;
+                }
                 $resHmtl .= '';
                 foreach ($res3 as $r7) {
                     // l_m(__FILE__ . ' +' . __LINE__ . ' Result: ' . var_export($r7, true) . PHP_EOL);
