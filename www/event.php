@@ -45,10 +45,12 @@ function build_pager($currentPage = 1, $maxPages, $numPagerLinks = 5)
 {
     // $basePagerHref = $_SERVER['REQUEST_URI'];
     $basePagerHref = $_SERVER['HTTP_REFERER'];
+    l_m(__FILE__ . ' +' . __LINE__ . ' $vars: ' . var_export($basePagerHref, true));
 
-    if (preg_match('%page=(d*)%', $basePagerHref, $m0, PREG_OFFSET_CAPTURE)) {
-        l_m(__FILE__ . ' +' . __LINE__ . ' $m0: ' . var_export($m0, true));
-    }
+    $querystring = parse_url($basePagerHref, PHP_URL_QUERY);
+    l_m(__FILE__ . ' +' . __LINE__ . ' $querystring: ' . var_export($querystring, true));
+    parse_str($querystring, $vars);
+    l_m(__FILE__ . ' +' . __LINE__ . ' $vars: ' . var_export($vars, true));
 
     $pagerHtml = '';
 
