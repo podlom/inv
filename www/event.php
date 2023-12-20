@@ -75,7 +75,7 @@ function build_pager($currentPage = 1, $maxPages, $numPagerLinks = 5)
             $pagerHtml .= '<li class="current"><a href="#" class="">' . $j . '</a></li>';
         } else {
             if (isset($vars['page'])) {
-                $vars['page'] = $currentPage - 1;
+                $vars['page'] = $currentPage;
             }
             $newBasePagerUrl .= '?' . http_build_query($vars);
 
