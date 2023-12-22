@@ -67,7 +67,7 @@
             {/if}
 
             {if !empty($blog)}
-                {assign "blogTitle" value=($blog->getId())}
+                {assign "blogTitle" value=($blog->getPath())}
             {/if}
             <h1 class="ts-19 pr-4 investments__title">{$blogTitle}</h1>
             <a href="{if $lang == 'en'}/en{elseif $lang == 'uk'}/uk{/if}/add-inv-prop" class="investments__title-link desktop-only" >{if $lang == 'en'}How to advertise?{elseif $lang == 'uk'}Як сюди потрапити?{else}Как сюда попасть?{/if}</a>
