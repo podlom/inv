@@ -65,11 +65,9 @@
             {else}
                 {assign "blogTitle" value=($blog->getTitle('content'))}
             {/if}
-
             {if !empty($blog)}
-                {assign "blogTitle" value=($blog->getPath())}
+                {assign "blogTitle" value=($blog->getTitle('content'))}
             {/if}
-
             {if !empty($category)}
                 {assign "blogTitle" value=($category->getTitle())}
             {/if}
