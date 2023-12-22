@@ -60,7 +60,7 @@
 {if $isNewStylesAvaible}
 	{if $isInvestments}
         <div class="section__title-categories pt-0 mb-2 pb-0 flex flex-row justify-between items-center">
-            {if !empty($post->getTitle())}
+            {if !empty($post)}
                 {assign "blogTitle" value=($post->getTitle())}
             {else}
                 {assign "blogTitle" value=($blog->getTitle('content'))}
