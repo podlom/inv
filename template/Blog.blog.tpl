@@ -113,15 +113,18 @@
 {* {if}sort__item--active{/if} *}
             </ul>
         </div>
-    {* {elseif $request->getPathInfo()|strpos:'/analytics' >= 0 && $request->getPathInfo()|strpos:'/analytics' !== false}
+    {elseif $request->getPathInfo()|strpos:'/analytics' >= 0 && $request->getPathInfo()|strpos:'/analytics' !== false}
+        {if !empty($rubric)}
+            {assign "blogTitle" value=($rubric->getTitle())}
+            {assign "line" value="119"}
+        {else}
+            {assign "blogTitle" value=($blog->getTitle('content'))}
+            {assign "line" value="122"}
+        {/if}
         <div class="section__title-categories pt-0 mb-2 pb-0 flex flex-row justify-between items-center">
-            <a href="/news"><h1  class="section__title-categories pr-4">{$blog->getTitle('content')}</h1></a>
-            <ul class="sort desktop-only text-xs">
-                <li class="sort__item {if !$category}sort__item--active{/if}"><a href="{$blog->getPath()}{if $rubric}/{$rubric->getSubpath()}{/if}">{if $lang=='en'}Latest{else}Все{/if}</a><li>
-                <li class="sort__item {if $category && $category->getSubpath() =='ukraine'}sort__item--active{/if}"><a href="{$blog->getPath()}/ukraine{if $rubric}/{$rubric->getSubpath()}{/if}">{if $lang=='en'}Ukraine{else}Украина{/if}</a><li>
-                <li class="sort__item {if $category && $category->getSubpath() =='world'}sort__item--active{/if}"><a href="{$blog->getPath()}/world{if $rubric}/{$rubric->getSubpath()}{/if}">{if $lang=='en'}World{else}Мир{/if}</a><li>
-            </ul>
-        </div> *}
+            <a href="/analytics"><h1  class="ts-line-{$line} section__title-categories pr-4">{$blogTitle}</h1></a>
+            <a href="{if $lang == 'en'}/en{elseif $lang == 'uk'}/uk{/if}/add-inv-prop" class="investments__title-link desktop-only" >{if $lang == 'en'}How to advertise?{elseif $lang == 'uk'}Як сюди потрапити?{else}Как сюда попасть?{/if}</a>
+        </div>
     {else}
         <h1 class="section__title">
             {$blog->getTitle('content')}
