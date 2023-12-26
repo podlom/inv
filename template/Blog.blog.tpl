@@ -88,7 +88,14 @@
         </div>
     {elseif $request->getPathInfo()|strpos:'/news' >= 0 && $request->getPathInfo()|strpos:'/news' !== false}
         <div class="section__title-categories pt-0 mb-2 pb-0 flex flex-row justify-between items-center">
-            <a href="/news"><h1 data-link="news" class="section__title-categories pr-4">{$blog->getTitle('content')}</h1></a>
+            {if !empty($rubric)}
+                {assign "blogTitle" value=($rubric->getTitle())}
+                {assign "line" value="93"}
+            {else}
+                {assign "blogTitle" value=($blog->getTitle('content'))}
+                {assign "line" value="96"}
+            {/if}
+            <a href="/news"><h1 data-link="news" class="ts-line-{$line} section__title-categories pr-4">{$blogTitle}</h1></a>
             <ul class="sort desktop-only text-xs">
                 <li class="sort__item {if !$category}sort__item--active{/if}"><a href="{$blog->getPath()}{if $rubric}/{$rubric->getSubpath()}{/if}">{if $lang=='en'}Latest{elseif $lang == 'uk'}Усі{else}Все{/if}</a><li>
                 <li class="sort__item {if $category && $category->getSubpath() =='ukraine'}sort__item--active{/if}"><a href="{$blog->getPath()}/ukraine{if $rubric}/{$rubric->getSubpath()}{/if}">{if $lang=='en'}Ukraine{elseif $lang == 'uk'}Україна{else}Украина{/if}</a><li>
