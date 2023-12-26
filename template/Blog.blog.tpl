@@ -62,19 +62,28 @@
         <div class="section__title-categories pt-0 mb-2 pb-0 flex flex-row justify-between items-center">
             {if !empty($post)}
                 {assign "blogTitle" value=($post->getTitle())}
+                {assign "line" value="65"}
             {else}
                 {assign "blogTitle" value=($blog->getTitle('content'))}
+                {assign "line" value="68"}
             {/if}
             {if !empty($blog)}
                 {assign "blogTitle" value=($blog->getTitle('content'))}
+                {assign "line" value="72"}
             {/if}
             {if !empty($category)}
                 {assign "blogTitle" value=($category->getTitle())}
+                {assign "line" value="76"}
             {/if}
             {if !empty($page)}
                 {assign "blogTitle" value=($page->getTitle())}
+                {assign "line" value="80"}
             {/if}
-            <h1 class="ts-19 pr-4 investments__title">{$blogTitle}</h1>
+            {if !empty($rubric)}
+                {assign "blogTitle" value=($rubric->getTitle())}
+                {assign "line" value="84"}
+            {/if}
+            <h1 class="ts-line-{$line} pr-4 investments__title">{$blogTitle}</h1>
             <a href="{if $lang == 'en'}/en{elseif $lang == 'uk'}/uk{/if}/add-inv-prop" class="investments__title-link desktop-only" >{if $lang == 'en'}How to advertise?{elseif $lang == 'uk'}Як сюди потрапити?{else}Как сюда попасть?{/if}</a>
         </div>
     {elseif $request->getPathInfo()|strpos:'/news' >= 0 && $request->getPathInfo()|strpos:'/news' !== false}
