@@ -114,8 +114,8 @@
             </ul>
         </div>
     {elseif $request->getPathInfo()|strpos:'/analytics' >= 0 && $request->getPathInfo()|strpos:'/analytics' !== false}
-        {if !empty($rubric)}
-            {assign "blogTitle" value=($rubric->getTitle())}
+        {if !empty($category)}
+            {assign "blogTitle" value=($category->getTitle())}
             {assign "line" value="119"}
         {else}
             {assign "blogTitle" value=($blog->getTitle('content'))}
