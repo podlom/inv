@@ -3,14 +3,6 @@
 <div class="index-page">
   <div class="container container--main container--post the_post inventure_list z-0 relative">
     <main class="main large-9">
-      {if !empty($page)}
-        {assign "blogTitle" value=($page->getTitle('content'))}
-        {assign "line" value="8"}
-      {/if}
-      {if !empty($blogTitle)}
-        <h1 class="ts-line-{$line} pr-4 home-page__title">{$blogTitle}</h1>
-      {/if}
-
       {include 'components/invest-list'}
     </main>
     <aside class="sidebar sidebar--index">

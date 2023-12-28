@@ -11,6 +11,15 @@
 		<div class="footer__logo">
 			<img class="lazyimg" data-src="/images/logo-footer.svg" itemprop="logo">
 		</div>
+		<div class="footer__header">
+			{if !empty($page)}
+				{assign "blogTitle" value=($page->getTitle('content'))}
+				{assign "line" value="17"}
+			{/if}
+			{if !empty($blogTitle)}
+				<h1 class="ts-line-{$line} pr-4 footer__title">{$blogTitle}</h1>
+			{/if}
+		</div>
 		{block 'footer_menu'}
 			<div class="footer__wrapper">
 				<div class="cell">
