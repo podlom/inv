@@ -12092,3 +12092,7 @@ input.error {
 .iti__country {
 	color: black;
 }
+
+.footer__header h1, .footer__header h1 a {
+	color: white;
+}
