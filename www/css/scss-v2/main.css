@@ -3562,7 +3562,7 @@ ul.tabs {
 .footer__wrapper h6 {
 	margin-bottom: 1em;
 }
-.footer__wrapper a {
+.footer__header a, .footer__wrapper a {
 	color: white;
 	margin-bottom: 0.6em;
 	line-height: 1.4em;
@@ -3570,7 +3570,7 @@ ul.tabs {
 	opacity: 0.8;
 	transition: all 0.25s ease;
 }
-.footer__wrapper a:hover {
+.footer__header a:hover, .footer__wrapper a:hover {
 	opacity: 1;
 }
 .footer__socials {
