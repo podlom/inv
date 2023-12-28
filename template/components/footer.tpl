@@ -17,7 +17,7 @@
 				{assign "line" value="17"}
 			{/if}
 			{if !empty($blogTitle)}
-				<h1 class="ts-line-{$line} pr-4 footer__title"><a href="/">{$blogTitle}</a></h1>
+				<h1 class="ts-line-{$line} pr-4 footer__title"><a style="color:white;" href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{else}/{/if}">{$blogTitle}</a></h1>
 			{/if}
 		</div>
 		{block 'footer_menu'}
