@@ -653,15 +653,38 @@ if (!empty($_REQUEST)) {
     }
     //
     // @TODO: ts debug here
-    if (isset($_POST, $_POST['sf_investment_callback']) && is_array($_POST['sf_investment_callback']) && !empty($_POST['sf_investment_callback'])) { // Add investment proposal
+    if (isset($_REQUEST, $_REQUEST['sf_investment_callback']) && is_array($_REQUEST['sf_investment_callback']) && !empty($_REQUEST['sf_investment_callback'])) { // Add investment proposal
 
-        l_m(__FILE__ . ' +' . __LINE__ . ' POST: ' . var_export($_POST, true));
+        l_m(__FILE__ . ' +' . __LINE__ . ' $_REQUEST: ' . var_export($_REQUEST, true));
 
-        $sFormData = serialize($_POST['sf_investment_callback']);
+        $sFormData = serialize($_REQUEST['sf_investment_callback']);
         $formData = array_merge(['formData' => $sFormData], ['formName' => 'sf_investment_callback', 'formUri' => '/form/investment_callback']);
         $rs7 = _sendFormRequest($formData, false);
         if ($rs7 !== false) {
-            sendMailForm($_POST['sf_investment_callback'], 'info@inventure.ua', 'InVenture form submission');
+
+            // @see: https://developers.google.com/recaptcha/docs/verify
+            $postData = http_build_query(
+                [
+                    'secret' => '6LdAzj8pAAAAAFbuLh5WKlJIvwBdrI27Nc4F4A9g',
+                    'response' => $_REQUEST['g-recaptcha-response'],
+                    // 'remoteip' => 'Optional. The user's IP address.',
+                ]
+            );
+            $opts = [
+                'http' =>
+                    [
+                        'method' => 'POST',
+                        'header' => 'Content-type: application/x-www-form-urlencoded',
+                        'content' => $postData,
+                    ],
+            ];
+            $context = stream_context_create($opts);
+            $result = file_get_contents('https://www.google.com/recaptcha/api/siteverify', false, $context);
+
+            l_m(__FILE__ . ' +' . __LINE__ . ' $result: ' . var_export($result, true));
+            //
+
+            sendMailForm($_REQUEST['sf_investment_callback'], 'info@inventure.ua', 'InVenture form submission');
         }
     }
     //
