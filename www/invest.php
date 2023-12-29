@@ -5,7 +5,7 @@
  * User: shtaras
  * Date: 2020-04-18
  * Time: 07:38
- * Updated: 2023-12-19 16:56
+ * Updated: 2023-12-29 14:53
  *
  * @author Taras Shkodenko <taras@shkodenko.com>
  */
@@ -40,6 +40,7 @@ function l_m($msg)
         || ($_SERVER['REMOTE_ADDR'] !== '178.214.193.122') // 2022-06-29 Unit.City, Kyiv, office
         || ($_SERVER['REMOTE_ADDR'] !== '188.163.56.214') // 2020-09-08 ISP Kyivstar, Mariupol, home
         || ($_SERVER['REMOTE_ADDR'] !== '31.43.103.143') // 2023-12-19 Kyiv, Obolon, Feelin cafe
+        || ($_SERVER['REMOTE_ADDR'] !== '193.0.217.7') // 2023-12-29 Kyiv, Obolon, home
     ) {
         // error_log(__FILE__ . ' +' . __LINE__ . ' ' . __FUNCTION__ . ' log to file is disabled for client IP: ' . $_SERVER['REMOTE_ADDR']);
         // return false;
@@ -47,7 +48,7 @@ function l_m($msg)
     //
     // 'HTTP_CF_CONNECTING_IP' => '31.43.103.143'
     //
-    if (is_writeable($logFileName) && isset($_SERVER['HTTP_CF_CONNECTING_IP']) && ($_SERVER['HTTP_CF_CONNECTING_IP'] == '31.43.103.143')) {
+    if (is_writeable($logFileName) && isset($_SERVER['HTTP_CF_CONNECTING_IP']) && ($_SERVER['HTTP_CF_CONNECTING_IP'] == '193.0.217.7')) {
         error_log(date('r') . ' ' . $msg . PHP_EOL, 3, $logFileName);
     }
 }
@@ -651,6 +652,7 @@ if (!empty($_REQUEST)) {
         }
     }
     //
+    // @TODO: ts debug here
     if (isset($_POST, $_POST['sf_investment_callback']) && is_array($_POST['sf_investment_callback']) && !empty($_POST['sf_investment_callback'])) { // Add investment proposal
         $sFormData = serialize($_POST['sf_investment_callback']);
         $formData = array_merge(['formData' => $sFormData], ['formName' => 'sf_investment_callback', 'formUri' => '/form/investment_callback']);

@@ -203,8 +203,17 @@
                         <span id="error-msg" class="hide"></span>
                     </div>
                 </div>
-                <div class="g-recaptcha" data-sitekey="6LdAzj8pAAAAAKzj8VirFh5Q6cfQrBLr2jJ6vBul"></div>
-                <button type="submit" class="g-recaptcha contact-form__btn btn w-full btn--blue">
+
+{script_code require=["jquery"] name="blogcontactform"}
+    function onSubmit(token)
+    {
+        document.getElementById("contact-form-19").submit();
+    }
+{/script_code}
+
+                <button type="submit" class="g-recaptcha contact-form__btn btn w-full btn--blue" data-sitekey="6LdAzj8pAAAAAKzj8VirFh5Q6cfQrBLr2jJ6vBul"
+                        data-callback='onSubmit'
+                        data-action='submit'>
                     {if $lang == 'ru'}Отправить{elseif $lang == 'uk'}Відправити{else}Submit{/if}
                 </button>
             </div>
