@@ -22,6 +22,14 @@ use Symfony\Component\Yaml\Yaml;
 const MAX_PAGER_SIZE = 25;
 const DEFAULT_LIMIT = 24;
 
+//
+// ts 2023-12-29 block by IP
+// 138.68.92.8
+if (isset($_SERVER['HTTP_CF_CONNECTING_IP']) && ($_SERVER['HTTP_CF_CONNECTING_IP'] == '138.68.92.8')) {
+    die('401: Access denied');
+}
+//
+
 function l_m($msg)
 {
     $logFileName = dirname(__FILE__) . '/invest_new.log';
