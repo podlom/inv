@@ -213,6 +213,15 @@
         console.log('+214 token: ' + token);
         document.getElementById("contact-form-19").submit();
     }
+
+    let url = window.location.href;
+    if (url.contains('contactSent=1')) {
+        console.log('+219 URL contains: contactSent=1');
+        document.getElementById("message-sent-19").style.visibility = 'visible';
+    } else {
+        console.log('+222 URL does not contain: contactSent=1');
+    }
+
 </script>
 {/literal}
 
@@ -221,6 +230,9 @@
                         data-action='submit'>
                     {if $lang == 'ru'}Отправить{elseif $lang == 'uk'}Відправити{else}Submit{/if}
                 </button>
+            </div>
+            <div id="message-sent-19" class="contact-form__sent_message" style="visibility:hidden;">
+                {if $lang === 'ru'}Сообщение отправлено. Спасибо.{elseif $lang === 'uk'} Повідомлення відправлено. Дякуємо.{else}Message sent. Thank you.{/if}
             </div>
         </form>
     </section>
