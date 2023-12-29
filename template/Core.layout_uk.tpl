@@ -135,6 +135,18 @@
 	{script src="/js/invest.js" require="jquery" name="invest" }
 	{* {script_code require=['foundation2', 'jquery']}$(document).foundation();{/script_code} *}
 
+	{script_code require="google_recaptcha" name="grecaptchainitinblog"}
+
+		console.log('+140 Google reCaptcha JavaScript API init');
+
+		function onContact19Submit(token)
+		{
+			console.log('+144 token: ' + token);
+			document.getElementById("contact-form-19").submit();
+		}
+
+	{/script_code}
+
 </head>
 
 <body>
