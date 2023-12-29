@@ -237,7 +237,7 @@
                 const url1 = window.location.href;
                 console.log('+238 url1: ' + url1);
                 console.log('+239 typeof(url1): ' + typeof(url1));
-                if ((typeof(url1) == 'string') && url1.contains('contactSent=')) {
+                if ((typeof(url1) == 'string') && url1.includes('contactSent=')) {
                     console.log('+239 URL contains: contactSent=');
                     // document.getElementById("msg-sent-19").style.visibility = 'visible';
                     document.getElementById("msg-sent-19").classList.remove("invisible");
