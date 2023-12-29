@@ -212,8 +212,8 @@
 {/script_code}
 
                 <button type="submit" class="g-recaptcha contact-form__btn btn w-full btn--blue" data-sitekey="6LdAzj8pAAAAAKzj8VirFh5Q6cfQrBLr2jJ6vBul"
-                        data-callback='onSubmit'
-                        data-action='submit'>
+                        ts-data-callback='onSubmit'
+                        ts-data-action='submit'>
                     {if $lang == 'ru'}Отправить{elseif $lang == 'uk'}Відправити{else}Submit{/if}
                 </button>
             </div>
