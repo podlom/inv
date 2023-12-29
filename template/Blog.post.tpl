@@ -206,16 +206,21 @@
 
 {script_code require=["jquery"] name="blogcontactform"}
 {literal}
+
+    console.log('+210 init');
+
     function onSubmit(token)
     {
+        console.log('+214 token: ' + token);
         document.getElementById("contact-form-19").submit();
     }
+
 {/literal}
 {/script_code}
 
                 <button type="submit" class="g-recaptcha contact-form__btn btn w-full btn--blue" data-sitekey="6LdAzj8pAAAAAKzj8VirFh5Q6cfQrBLr2jJ6vBul"
-                        ts-data-callback='onSubmit'
-                        ts-data-action='submit'>
+                        data-callback='onSubmit'
+                        data-action='submit'>
                     {if $lang == 'ru'}Отправить{elseif $lang == 'uk'}Відправити{else}Submit{/if}
                 </button>
             </div>
