@@ -136,7 +136,7 @@
 
 
         {script src="https://www.google.com/recaptcha/api.js" name="google_recaptcha_api"}
-        {script_code name="grecaptchainitinblogcontact"}
+        {script name="grecaptchainitinblogcontact"}
 
             console.log('+141 Google reCaptcha JavaScript API init');
 
@@ -146,7 +146,7 @@
             document.getElementById("contact-form-19").submit();
             }
 
-        {/script_code}
+        {/script}
 
         <form action="/form/investment_callback" class="contact-form__form" id="contact-form-19">
             <input required type="hidden" name="sf_investment_callback[ga_utm]" value="">
