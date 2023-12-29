@@ -47,7 +47,7 @@ function logMsg($msg, $logFileName = null, $logParams = [])
     }
     if ($storeLog) {
         if (is_null($logFileName)) {
-            $errorLogFile = dirname( dirname(__FILE__) ) . '/logs/errors_' . date('Y-m-d') . '.log';
+            $errorLogFile = dirname(__FILE__) . '/logs/errors_' . date('Y-m-d') . '.log';
         } else {
             $errorLogFile = $logFileName;
         }
