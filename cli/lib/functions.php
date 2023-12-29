@@ -49,7 +49,7 @@ function logMsg($msg, $logFileName = null, $logParams = [])
         if (is_null($logFileName)) {
             $errorLogFile = dirname(__FILE__) . '/logs/errors_' . date('Y-m-d') . '.log';
         } else {
-            $errorLogFile = $logFileName;
+            $errorLogFile = '/home/inventure/data/web/inventure.com.ua/cli/logs/' . $logFileName;
         }
         if (!file_exists($errorLogFile)) {
             touch($errorLogFile);
