@@ -689,6 +689,9 @@ if (!empty($_REQUEST)) {
             }
             //
             if (!empty($_SERVER['HTTP_REFERER'])) {
+                $p99 = strpos($_SERVER['HTTP_REFERER'], '?');
+                l_m(__FILE__ . ' +' . __LINE__ . ' $p99: ' . var_export($p99, true));
+
                 l_m(__FILE__ . ' +' . __LINE__ . ' Make reirect to: ' . var_export($_SERVER['HTTP_REFERER'], true));
                 die('<meta http-equiv="refresh" content="3; url=' . $_SERVER['HTTP_REFERER'] . '">');
             }
