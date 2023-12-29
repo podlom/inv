@@ -654,6 +654,9 @@ if (!empty($_REQUEST)) {
     //
     // @TODO: ts debug here
     if (isset($_POST, $_POST['sf_investment_callback']) && is_array($_POST['sf_investment_callback']) && !empty($_POST['sf_investment_callback'])) { // Add investment proposal
+
+        l_m(__FILE__ . ' +' . __LINE__ . ' POST: ' . var_export($_POST, true));
+
         $sFormData = serialize($_POST['sf_investment_callback']);
         $formData = array_merge(['formData' => $sFormData], ['formName' => 'sf_investment_callback', 'formUri' => '/form/investment_callback']);
         $rs7 = _sendFormRequest($formData, false);
