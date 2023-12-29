@@ -205,10 +205,12 @@
                 </div>
 
 {script_code require=["jquery"] name="blogcontactform"}
+{literal}
     function onSubmit(token)
     {
         document.getElementById("contact-form-19").submit();
     }
+{/literal}
 {/script_code}
 
                 <button type="submit" class="g-recaptcha contact-form__btn btn w-full btn--blue" data-sitekey="6LdAzj8pAAAAAKzj8VirFh5Q6cfQrBLr2jJ6vBul"
