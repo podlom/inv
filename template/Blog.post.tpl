@@ -133,6 +133,21 @@
         <h2 class="section__title contact-form__title">
             {if $lang === 'ru'}Контакты{else}Contacts{/if}
         </h2>
+
+
+        {script src="https://www.google.com/recaptcha/api.js" name="google_recaptcha_api"}
+        {script_code name="grecaptchainitinblogcontact"}
+
+            console.log('+141 Google reCaptcha JavaScript API init');
+
+            function onContact19Subm(token)
+            {
+            console.log('+145 token: ' + token);
+            document.getElementById("contact-form-19").submit();
+            }
+
+        {/script_code}
+
         <form action="/form/investment_callback" class="contact-form__form" id="contact-form-19">
             <input required type="hidden" name="sf_investment_callback[ga_utm]" value="">
             <input type="hidden" name="sf_investment_callback[url]" value="">
@@ -188,23 +203,12 @@
                         <span id="error-msg" class="hide"></span>
                     </div>
                 </div>
-                <button type="submit" class="g-recaptcha contact-form__btn btn w-full btn--blue" data-sitekey="6LdAzj8pAAAAAKzj8VirFh5Q6cfQrBLr2jJ6vBul" data-callback="onContact19Submit" data-action="submit">
+                <button type="submit" class="g-recaptcha contact-form__btn btn w-full btn--blue" data-sitekey="6LdAzj8pAAAAAKzj8VirFh5Q6cfQrBLr2jJ6vBul" data-callback="onContact19Subm" data-action="submit">
                     {if $lang == 'ru'}Отправить{elseif $lang == 'uk'}Відправити{else}Submit{/if}
                 </button>
             </div>
         </form>
     </section>
-
-{script_code require="google_recaptcha" name="grecaptchainitinblogcontact"}
-    console.log('+199 Google reCaptcha JavaScript API init');
-
-    function onContact19Submit(token)
-    {
-        console.log('+203 token: ' + token);
-        document.getElementById("contact-form-19").submit();
-    }
-
-{/script_code}
 
     {/block}
     {block 'croudinvest'}
