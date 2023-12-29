@@ -133,7 +133,7 @@
         <h2 class="section__title contact-form__title">
             {if $lang === 'ru'}Контакты{else}Contacts{/if}
         </h2>
-        <form action="/form/investment_callback" class="contact-form__form">
+        <form action="/form/investment_callback" class="contact-form__form" id="contact-form-19">
             <input required type="hidden" name="sf_investment_callback[ga_utm]" value="">
             <input type="hidden" name="sf_investment_callback[url]" value="">
 
@@ -188,8 +188,8 @@
                         <span id="error-msg" class="hide"></span>
                     </div>
                 </div>
-                <button type="submit" class="contact-form__btn btn w-full btn--blue">
-                    {if $lang === 'ru'}Отправить{elseif $lang === 'uk'} Відправити {else}Submit{/if}
+                <button type="submit" class="g-recaptcha contact-form__btn btn w-full btn--blue" data-sitekey="6LdAzj8pAAAAAKzj8VirFh5Q6cfQrBLr2jJ6vBul" data-callback="onContact19Submit" data-action="submit">
+                    {if $lang == 'ru'}Отправить{elseif $lang == 'uk'}Відправити{else}Submit{/if}
                 </button>
             </div>
         </form>
