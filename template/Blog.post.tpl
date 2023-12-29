@@ -206,21 +206,13 @@
 
 {literal}
 <script>
+
     console.log('+210 init');
 
     function onSubmit(token)
     {
         console.log('+214 token: ' + token);
         document.getElementById("contact-form-19").submit();
-    }
-
-    let url = window.location.href;
-    if (url.contains('contactSent')) {
-        console.log('+219 URL contains: contactSent');
-        // document.getElementById("msg-sent-19").style.visibility = 'visible';
-        document.getElementById("msg-sent-19").classList.remove("invisible");
-    } else {
-        console.log('+223 URL does not contain: contactSent');
     }
 
 </script>
@@ -235,8 +227,24 @@
         </form>
 
         <div id="msg-sent-19" class="contact-form__sent_message invisible">
-            {if $lang === 'ru'}Сообщение отправлено. Спасибо.{elseif $lang === 'uk'} Повідомлення відправлено. Дякуємо.{else}Message sent. Thank you.{/if}
+            <h3 class="contact-form__subtitle">
+                {if $lang === 'ru'}Сообщение отправлено. Спасибо.{elseif $lang === 'uk'} Повідомлення відправлено. Дякуємо.{else}Message sent. Thank you.{/if}
+            </h3>
         </div>
+        {literal}
+            <script>
+
+                const url1 = window.location.href;
+                if (url1.contains('contactSent')) {
+                    console.log('+239 URL contains: contactSent');
+                    // document.getElementById("msg-sent-19").style.visibility = 'visible';
+                    document.getElementById("msg-sent-19").classList.remove("invisible");
+                } else {
+                    console.log('+243 URL does not contain: contactSent');
+                }
+
+            </script>
+        {/literal}
 
     </section>
 
