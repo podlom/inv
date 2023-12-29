@@ -35,6 +35,10 @@ google_maps_api_en:
     file: '//maps.google.com/maps/api/js?sensor=false&language=en&libraries=places&callback=google_loaded&key=AIzaSyAPN3Neq0YC-My56mfPKTtpzD-Q1U2OcVE'
     position: top
     require: {  }
+google_recaptcha:
+    file: 'https://www.google.com/recaptcha/api.js'
+    position: top
+    require: {  }
 easySlider:
     file: jquery.easySlider.js
     position: top

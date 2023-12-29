@@ -121,6 +121,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 	{* {script_code require=['foundation2', 'jquery']}$(document).foundation();{/script_code} *}
 
+	{script_code require="google_recaptcha" name="grecaptchainitinblog"}
+		console.log('Google reCaptcha JavaScript API init');
+	{/script_code}
+
 </head>
 
 <body>
