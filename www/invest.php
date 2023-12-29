@@ -652,7 +652,7 @@ if (!empty($_REQUEST)) {
         }
     }
     //
-    // @TODO: ts debug here
+    // 2023-12-29 ts debug here
     if (isset($_REQUEST, $_REQUEST['sf_investment_callback']) && is_array($_REQUEST['sf_investment_callback']) && !empty($_REQUEST['sf_investment_callback'])) { // Add investment proposal
 
         l_m(__FILE__ . ' +' . __LINE__ . ' $_REQUEST: ' . var_export($_REQUEST, true));
@@ -682,9 +682,17 @@ if (!empty($_REQUEST)) {
             $result = file_get_contents('https://www.google.com/recaptcha/api/siteverify', false, $context);
 
             l_m(__FILE__ . ' +' . __LINE__ . ' $result: ' . var_export($result, true));
-            //
 
-            sendMailForm($_REQUEST['sf_investment_callback'], 'info@inventure.ua', 'InVenture form submission');
+            $r97 = json_decode($result, true);
+            if (isset($r97["success"]) && ($r97["success"] == true)) { // Send email
+                sendMailForm($_REQUEST['sf_investment_callback'], 'info@inventure.ua', 'InVenture form submission');
+            }
+            //
+            if (!empty($_SERVER['HTTP_REFERER'])) {
+                l_m(__FILE__ . ' +' . __LINE__ . ' Make reirect to: ' . var_export($_SERVER['HTTP_REFERER'], true));
+                die('<meta http-equiv="refresh" content="3; url=' . $_SERVER['HTTP_REFERER'] . '">');
+            }
+            //
         }
     }
     //
