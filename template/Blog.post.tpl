@@ -148,7 +148,7 @@
 
 {/script_code}
 
-        <form action="/form/investment_callback" class="contact-form__form" id="contact-form-19">
+        <form action="/invest.php" onsubmit="return false;" class="contact-form__form" id="contact-form-19">
             <input required type="hidden" name="sf_investment_callback[ga_utm]" value="">
             <input type="hidden" name="sf_investment_callback[url]" value="">
 
