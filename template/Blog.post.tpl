@@ -226,7 +226,7 @@
             </div>
         </form>
 
-        <div id="msg-sent-19" class="contact-form__sent_message invisible">
+        <div id="msg-sent-19" class="text-center contact-form__sent_message invisible">
             <h3 class="contact-form__subtitle">
                 {if $lang === 'ru'}Сообщение отправлено. Спасибо.{elseif $lang === 'uk'} Повідомлення відправлено. Дякуємо.{else}Message sent. Thank you.{/if}
             </h3>
@@ -235,12 +235,14 @@
             <script>
 
                 const url1 = window.location.href;
-                if (url1.contains('contactSent')) {
-                    console.log('+239 URL contains: contactSent');
+                console.log('+238 url1: ' + url1);
+                console.log('+239 typeof(url1): ' + typeof(url1));
+                if ((typeof(url1) == 'string') && url1.contains('contactSent=')) {
+                    console.log('+239 URL contains: contactSent=');
                     // document.getElementById("msg-sent-19").style.visibility = 'visible';
                     document.getElementById("msg-sent-19").classList.remove("invisible");
                 } else {
-                    console.log('+243 URL does not contain: contactSent');
+                    console.log('+243 URL does string or does not contains: contactSent=');
                 }
 
             </script>
