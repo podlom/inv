@@ -194,7 +194,18 @@
             </div>
         </form>
     </section>
-        
+
+{script_code require="google_recaptcha" name="grecaptchainitinblogcontact"}
+    console.log('+199 Google reCaptcha JavaScript API init');
+
+    function onContact19Submit(token)
+    {
+        console.log('+203 token: ' + token);
+        document.getElementById("contact-form-19").submit();
+    }
+
+{/script_code}
+
     {/block}
     {block 'croudinvest'}
         <section class="croudinvest">
