@@ -694,9 +694,9 @@ if (!empty($_REQUEST)) {
 
                 $redirectTo = $_SERVER['HTTP_REFERER'];
                 if ($p99 !== false) {
-                    $redirectTo .= '&contactSent=1';
+                    $redirectTo .= '&contactSent=1#contact-form-19';
                 } else {
-                    $redirectTo .= '?contactSent=1';
+                    $redirectTo .= '?contactSent=1#contact-form-19';
                 }
 
                 l_m(__FILE__ . ' +' . __LINE__ . ' Make reirect to: ' . var_export($redirectTo, true));
