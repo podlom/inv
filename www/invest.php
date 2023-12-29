@@ -692,8 +692,15 @@ if (!empty($_REQUEST)) {
                 $p99 = strpos($_SERVER['HTTP_REFERER'], '?');
                 l_m(__FILE__ . ' +' . __LINE__ . ' $p99: ' . var_export($p99, true));
 
-                l_m(__FILE__ . ' +' . __LINE__ . ' Make reirect to: ' . var_export($_SERVER['HTTP_REFERER'], true));
-                die('<meta http-equiv="refresh" content="3; url=' . $_SERVER['HTTP_REFERER'] . '">');
+                $redirectTo = $_SERVER['HTTP_REFERER'];
+                if ($p99 !== false) {
+                    $redirectTo .= '&contactSent=1';
+                } else {
+                    $redirectTo .= '?contactSent=1';
+                }
+
+                l_m(__FILE__ . ' +' . __LINE__ . ' Make reirect to: ' . var_export($redirectTo, true));
+                die('<meta http-equiv="refresh" content="2; url=' . $redirectTo . '">');
             }
             //
         }
