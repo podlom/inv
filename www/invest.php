@@ -211,6 +211,10 @@ function sendMailForm($data, $recipient = 'info@inventure.ua', $subject = 'InVen
         l_m(__FUNCTION__ . ' +' . __LINE__ . ' error in mail config!' . PHP_EOL);
         return false;
     }
+    if (!isset($appConfig['google_recaptcha']) || !is_array($appConfig['google_recaptcha']) || empty($appConfig['google_recaptcha'])) {
+        l_m(__FUNCTION__ . ' +' . __LINE__ . ' error in google_recaptcha config!' . PHP_EOL);
+        return false;
+    }
 
     $mail = new PHPMailer(true);
     try {
@@ -669,22 +673,21 @@ if (!empty($_REQUEST)) {
         $formData = array_merge(['formData' => $sFormData], ['formName' => 'sf_investment_callback', 'formUri' => '/form/investment_callback']);
         $rs7 = _sendFormRequest($formData, false);
         if ($rs7 !== false) {
+            $appConfig = Yaml::parseFile( dirname(__FILE__) . '/../config/app.yml');
+            $googleReCaptchaSecret = $appConfig['google_recaptcha']['secret_key'];
 
             // @see: https://developers.google.com/recaptcha/docs/verify
-            $postData = http_build_query(
-                [
-                    'secret' => '6LdAzj8pAAAAAFbuLh5WKlJIvwBdrI27Nc4F4A9g',
-                    'response' => $_REQUEST['g-recaptcha-response'],
-                    // 'remoteip' => 'Optional. The user's IP address.',
-                ]
-            );
-            $opts = [
-                'http' =>
-                    [
-                        'method' => 'POST',
-                        'header' => 'Content-type: application/x-www-form-urlencoded',
-                        'content' => $postData,
-                    ],
+            $postData = http_build_query([
+                'secret' => $googleReCaptchaSecret,
+                'response' => $_REQUEST['g-recaptcha-response'],
+                // 'remoteip' => 'Optional. The user's IP address.',
+            ]);
+            $opts = ['http' =>
+                        [
+                            'method' => 'POST',
+                            'header' => 'Content-type: application/x-www-form-urlencoded',
+                            'content' => $postData,
+                        ],
             ];
             $context = stream_context_create($opts);
             $result = file_get_contents('https://www.google.com/recaptcha/api/siteverify', false, $context);
