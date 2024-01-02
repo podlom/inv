@@ -50,7 +50,7 @@
 				<a class="section__category" href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/investments/land">
 					{if $lang === 'ru'}Земля{elseif $lang === 'uk'}Земля{else}Land{/if}</a>
 				<a class="section__category"
-					href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/investments/{if $lang === 'en'}/en_{elseif $lang === 'uk'}/uk_{/if}franchising">
+					href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/investments/{if $lang === 'en'}/en_{/if}franchising">
 					{if $lang === 'ru'}Франчайзинг{elseif $lang === 'uk'}Франчайзинг{else}Franchising{/if}</a>
 				<a class="section__category" href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/investments/offer">
 					{if $lang === 'ru'}Инвесторы{elseif $lang === 'uk'}Інвестори{else}Investor Offers{/if}</a>
