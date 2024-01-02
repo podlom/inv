@@ -5,14 +5,6 @@ require_once '../cli/lib' . DIRECTORY_SEPARATOR . 'functions.php';
 require_once '../cli/lib' . DIRECTORY_SEPARATOR . 'db.class.php';
 
 
-//
-// ts 2023-12-29 block by IP
-// 138.68.92.8
-if (isset($_SERVER['HTTP_CF_CONNECTING_IP']) && ($_SERVER['HTTP_CF_CONNECTING_IP'] == '138.68.92.8')) {
-    die('401: Access denied');
-}
-//
-
 $logParams = ['echoLogMsg' => false, 'storeLog' => true];
 $errorLogFile = realpath(dirname(__FILE__) . '/../logs') . '/hubspot_' . date('Y-m-d') . '.log';
 $msg = date('r') . ' Got request data $_SERVER: ' . var_export($_SERVER, 1) . '; $_GET: ' . var_export($_GET, 1) . '; $_POST: ' . var_export($_POST, 1) . '; $_REQUEST: ' . var_export($_REQUEST, 1) . '; $_COOKIE: ' . var_export($_COOKIE, 1) . PHP_EOL;
