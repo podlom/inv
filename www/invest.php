@@ -5,7 +5,7 @@
  * User: shtaras
  * Date: 2020-04-18
  * Time: 07:38
- * Updated: 2023-12-29 14:53
+ * Updated: 2024-01-01 18:53
  *
  * @author Taras Shkodenko <taras@shkodenko.com>
  */
@@ -21,14 +21,6 @@ use Symfony\Component\Yaml\Yaml;
 
 const MAX_PAGER_SIZE = 25;
 const DEFAULT_LIMIT = 24;
-
-//
-// ts 2023-12-29 block by IP
-// 138.68.92.8
-if (isset($_SERVER['HTTP_CF_CONNECTING_IP']) && ($_SERVER['HTTP_CF_CONNECTING_IP'] == '138.68.92.8')) {
-    die('401: Access denied');
-}
-//
 
 function l_m($msg)
 {
@@ -470,7 +462,9 @@ E-mail: info@inventure.ua
 function addMailSubscriber($data, $db)
 {
     $retMsg = '';
-    // l_m(__FUNCTION__ . ' +' . __LINE__ . ' POST data: ' . var_export($data, true));
+    //
+    l_m(__FUNCTION__ . ' +' . __LINE__ . ' POST data: ' . var_export($data, true));
+    //
     if (isset($data['subscribe'], $data['subscribe']['email']) && !empty($data['subscribe']['email'])) {
         $email = $db->escape($data['subscribe']['email']);
         $query = "SELECT * FROM `Mail_Subscriber` WHERE `email` = '{$email}'";
