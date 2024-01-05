@@ -6,6 +6,14 @@
 {/if}
 
 <div class="index-page">
+	{if !empty($page)}
+		{assign "blogTitle" value=($page->getTitle('content'))}
+		{assign "line" value="11"}
+	{/if}
+	{if !empty($blogTitle)}
+		<h1 class="ts-line-{$line} ts-lang-{$lang} pr-4 home-page__title invisible">{$blogTitle}</h1>
+	{/if}
+
 	<div class="container container--main container--post the_post inventure_list z-0 relative">
 		<main class="main large-9">
 			{include 'components/invest-list'}

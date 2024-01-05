@@ -1,6 +1,14 @@
 {* prefilter=off *}
 {* height: calc(100% - 80px); *}
 <div class="index-page">
+  {if !empty($blog)}
+    {assign "blogTitle" value=($blog->getTitle('content'))}
+    {assign "line" value="6"}
+  {/if}
+  {if !empty($blogTitle)}
+    <h1 class="ts-line-{$line} pr-4 investments__title invisible">{$blogTitle}</h1>
+  {/if}
+
   <div class="container container--main container--post the_post inventure_list z-0 relative">
     <main class="main large-9">
       {include 'components/invest-list'}
