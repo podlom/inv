@@ -1,9 +1,11 @@
 {* prefilter=off *}
+
 {* height: calc(100% - 80px); *}
+
 <div class="index-page">
-  {if !empty($blog)}
-    {assign "blogTitle" value=($blog->getTitle('content'))}
-    {assign "line" value="6"}
+  {if !empty($page)}
+    {assign "blogTitle" value=($page->getTitle('content'))}
+    {assign "line" value="8"}
   {/if}
   {if !empty($blogTitle)}
     <h1 class="ts-line-{$line} pr-4 investments__title invisible">{$blogTitle}</h1>
