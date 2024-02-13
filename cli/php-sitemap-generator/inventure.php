@@ -3,6 +3,22 @@
 include "vendor/autoload.php";
 
 $yourSiteUrl = 'https://inventure.com.ua';
+echo ' yourSiteUrl: ' . var_export($yourSiteUrl, true) . PHP_EOL;
+
+$langs = ['en', 'uk', 'ru'];
+$lang = $defaultLang = 'uk';
+if (!empty($argv[1])) {
+    echo ' arg lang: ' . var_export($argv[1], true) . PHP_EOL;
+
+    if (!in_array($argv[1], $langs)) {
+        $lang = $defaultLang;
+    } else {
+        $lang = $argv[1];
+    }
+} else {
+    $lang = $defaultLang;
+}
+echo ' selected lang: ' . var_export($lang, true) . PHP_EOL;
 
 // Setting the current working directory to be output directory
 // for generated sitemaps (and, if needed, robots.txt)
@@ -23,10 +39,10 @@ $generator->enableCompression();
 $generator->setMaxUrlsPerSitemap(50000);
 
 // Set the sitemap file name
-$generator->setSitemapFileName("sitemap.xml");
+$generator->setSitemapFileName("sitemap-{$lang}.xml");
 
 // Set the sitemap index file name
-$generator->setSitemapIndexFileName("sitemap-index.xml");
+$generator->setSitemapIndexFileName("sitemap-index-{$lang}.xml");
 
 // Add alternate languages if needed
 /* $alternates = [
@@ -108,7 +124,7 @@ $uri = [
 
 if (!empty($uri)) {
     foreach ($uri as $u1) {
-        echo 'Processing ' . $u1 . PHP_EOL;
+        echo ' Processing ' . $u1 . PHP_EOL;
         $changeFrequency = $changeFrequencyDefault;
         if (isset($changeFrequencyConfig[$u1])) {
             $changeFrequency = $changeFrequencyConfig[$u1];
@@ -119,8 +135,10 @@ if (!empty($uri)) {
     }
 }
 
-$langs = ['en', 'uk', 'ru'];
-foreach ($langs as $lang) {
+
+// @ts 2024-02-13 process only one language
+// foreach ($langs as $lang) {
+
     $newsFileName = 'all_published_news_' . $lang . '.txt';
     if (file_exists($newsFileName)) {
         $fileData = file_get_contents($newsFileName);
@@ -172,7 +190,9 @@ foreach ($langs as $lang) {
             }
         }
     }
-}
+
+// }
+// @ts 2024-02-13 process only one language
 
 
 // Flush all stored urls from memory to the disk and close all necessary tags.
