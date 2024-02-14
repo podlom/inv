@@ -6,7 +6,7 @@ $yourSiteUrl = 'https://inventure.com.ua';
 echo ' yourSiteUrl: ' . var_export($yourSiteUrl, true) . PHP_EOL;
 
 $langs = ['en', 'uk', 'ru'];
-$lang = $defaultLang = 'uk';
+$langUrlPrefix = $lang = $defaultLang = 'uk';
 if (!empty($argv[1])) {
     echo ' arg lang: ' . var_export($argv[1], true) . PHP_EOL;
 
@@ -19,6 +19,12 @@ if (!empty($argv[1])) {
     $lang = $defaultLang;
 }
 echo ' selected lang: ' . var_export($lang, true) . PHP_EOL;
+if ($langUrlPrefix == 'ru') {
+    $langUrlPrefix = '';
+} else {
+    $langUrlPrefix = '/' . $langUrlPrefix;
+}
+echo ' langUrlPrefix: ' . var_export($langUrlPrefix, true) . PHP_EOL;
 
 // Setting the current working directory to be output directory
 // for generated sitemaps (and, if needed, robots.txt)
@@ -86,40 +92,40 @@ $changeFrequencyConfig = [
 ];
 echo ' $changeFrequencyConfig: ' . var_export($changeFrequencyConfig, true) . PHP_EOL;
 
-$generator->addURL('/', new DateTime(), $changeFrequencyDefault, $priorityDefault, getAlternates($yourSiteUrl, ''));
+$generator->addURL($langUrlPrefix . '/', new DateTime(), $changeFrequencyDefault, $priorityDefault, getAlternates($yourSiteUrl, ''));
 
 $uri = [
-    '/investments',
-    '/news',
-    '/analytics',
-    '/about',
-    '/about/advertising',
-    '/investor',
-    '/analytics/digest',
-    // '/about/mediapartner',
-    // '/about/team',
-    '/tools/hr',
-    '/about/contacts',
-    '/about/faq',
-    // '/project',
-    // '/votes',
-    // '/tools/calculator',
-    '/tools/events',
-    '/tools/video',
-    '/add-inv-prop',
-    '/tools/library',
-    '/tools/database',
-    '/analytics/we-invest-in-ukraine',
-    '/analytics/formula',
-    '/analytics/articles',
-    '/analytics/investments',
-    '/news/realestate',
-    '/news/stock',
-    '/news/banking',
-    '/news/government',
-    '/news/startup',
-    '/news/investments',
-    '/politika-konfidencialnosti',
+    $langUrlPrefix . '/investments',
+    $langUrlPrefix . '/news',
+    $langUrlPrefix . '/analytics',
+    $langUrlPrefix . '/about',
+    $langUrlPrefix . '/about/advertising',
+    $langUrlPrefix . '/investor',
+    $langUrlPrefix . '/analytics/digest',
+    // $langUrlPrefix . '/about/mediapartner',
+    // $langUrlPrefix . '/about/team',
+    $langUrlPrefix . '/tools/hr',
+    $langUrlPrefix . '/about/contacts',
+    $langUrlPrefix . '/about/faq',
+    // $langUrlPrefix . '/project',
+    // $langUrlPrefix . '/votes',
+    // $langUrlPrefix . '/tools/calculator',
+    $langUrlPrefix . '/tools/events',
+    $langUrlPrefix . '/tools/video',
+    $langUrlPrefix . '/add-inv-prop',
+    $langUrlPrefix . '/tools/library',
+    $langUrlPrefix . '/tools/database',
+    $langUrlPrefix . '/analytics/we-invest-in-ukraine',
+    $langUrlPrefix . '/analytics/formula',
+    $langUrlPrefix . '/analytics/articles',
+    $langUrlPrefix . '/analytics/investments',
+    $langUrlPrefix . '/news/realestate',
+    $langUrlPrefix . '/news/stock',
+    $langUrlPrefix . '/news/banking',
+    $langUrlPrefix . '/news/government',
+    $langUrlPrefix . '/news/startup',
+    $langUrlPrefix . '/news/investments',
+    $langUrlPrefix . '/politika-konfidencialnosti',
 ];
 
 if (!empty($uri)) {
