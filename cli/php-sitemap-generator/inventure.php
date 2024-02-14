@@ -20,7 +20,7 @@ if (!empty($argv[1])) {
 }
 echo ' selected lang: ' . var_export($lang, true) . PHP_EOL;
 if ($langUrlPrefix == 'ru') {
-    $langUrlPrefix = '/';
+    $langUrlPrefix = '';
 } else {
     $langUrlPrefix = '/' . $langUrlPrefix;
 }
