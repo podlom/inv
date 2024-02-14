@@ -65,7 +65,7 @@ function getAlternates($urlPrefix, $uri, $currentLang = 'ru')
 {
     if (!empty($uri)) {
         if (strlen($uri) >= 3) {
-            $uri = substr($uri, 0, 2);
+            $uri = substr($uri, 3);
         }
         switch ($currentLang) {
             case 'ru':
