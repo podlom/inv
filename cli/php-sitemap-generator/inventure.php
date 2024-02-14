@@ -133,7 +133,7 @@ $changeFrequencyConfig = [
 ];
 echo ' $changeFrequencyConfig: ' . var_export($changeFrequencyConfig, true) . PHP_EOL;
 
-$generator->addURL($langUrlPrefix, new DateTime(), $changeFrequencyDefault, $priorityDefault, getAlternates($yourSiteUrl, '', $lang));
+$generator->addURL($langUrlPrefix . '/', new DateTime(), $changeFrequencyDefault, $priorityDefault, getAlternates($yourSiteUrl, '', $lang));
 
 $uri = [
     $langUrlPrefix . '/investments',
