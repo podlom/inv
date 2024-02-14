@@ -20,7 +20,7 @@ if (!empty($argv[1])) {
 }
 echo ' selected lang: ' . var_export($lang, true) . PHP_EOL;
 if ($langUrlPrefix == 'ru') {
-    $langUrlPrefix = '';
+    $langUrlPrefix = '/';
 } else {
     $langUrlPrefix = '/' . $langUrlPrefix;
 }
@@ -61,13 +61,50 @@ $generator->setSitemapIndexFileName("sitemap-index-{$lang}.xml");
  * @param $uri
  * @return string[][]
  */
-function getAlternates($urlPrefix, $uri)
+function getAlternates($urlPrefix, $uri, $currentLang = 'ru')
 {
     if (!empty($uri)) {
-        return [
-            ['hreflang' => 'uk', 'href' => $urlPrefix . "/uk" . $uri],
-            ['hreflang' => 'en', 'href' => $urlPrefix . "/en" . $uri],
-        ];
+        switch ($currentLang) {
+            case 'ru':
+                return [
+                    ['hreflang' => 'uk', 'href' => $urlPrefix . "/uk" . $uri],
+                    ['hreflang' => 'en', 'href' => $urlPrefix . "/en" . $uri],
+                ];
+                break;
+            case 'uk':
+                return [
+                    ['hreflang' => 'ru', 'href' => $urlPrefix . $uri],
+                    ['hreflang' => 'en', 'href' => $urlPrefix . "/en" . $uri],
+                ];
+                break;
+            case 'en':
+                return [
+                    ['hreflang' => 'ru', 'href' => $urlPrefix . $uri],
+                    ['hreflang' => 'uk', 'href' => $urlPrefix . "/uk" . $uri],
+                ];
+                break;
+        }
+    }
+
+    switch ($currentLang) {
+        case 'ru':
+            return [
+                ['hreflang' => 'uk', 'href' => $urlPrefix . "/uk"],
+                ['hreflang' => 'en', 'href' => $urlPrefix . "/en"],
+            ];
+            break;
+        case 'uk':
+            return [
+                ['hreflang' => 'ru', 'href' => $urlPrefix],
+                ['hreflang' => 'en', 'href' => $urlPrefix . "/en"],
+            ];
+            break;
+        case 'en':
+            return [
+                ['hreflang' => 'ru', 'href' => $urlPrefix],
+                ['hreflang' => 'uk', 'href' => $urlPrefix . "/uk"],
+            ];
+            break;
     }
 
     return [
@@ -92,7 +129,7 @@ $changeFrequencyConfig = [
 ];
 echo ' $changeFrequencyConfig: ' . var_export($changeFrequencyConfig, true) . PHP_EOL;
 
-$generator->addURL($langUrlPrefix . '/', new DateTime(), $changeFrequencyDefault, $priorityDefault, getAlternates($yourSiteUrl, ''));
+$generator->addURL($langUrlPrefix, new DateTime(), $changeFrequencyDefault, $priorityDefault, getAlternates($yourSiteUrl, '', $lang));
 
 $uri = [
     $langUrlPrefix . '/investments',
@@ -137,7 +174,7 @@ if (!empty($uri)) {
         }
         echo ' $changeFrequency: ' . var_export($changeFrequency, true) . PHP_EOL;
         $priority = $priorityDefault;
-        $generator->addURL($u1, new DateTime(), $changeFrequency, $priority, getAlternates($yourSiteUrl, $u1));
+        $generator->addURL($u1, new DateTime(), $changeFrequency, $priority, getAlternates($yourSiteUrl, $u1, $lang));
     }
 }
 
@@ -145,57 +182,57 @@ if (!empty($uri)) {
 // @ts 2024-02-13 process only one language
 // foreach ($langs as $lang) {
 
-    $newsFileName = 'all_published_news_' . $lang . '.txt';
-    if (file_exists($newsFileName)) {
-        $fileData = file_get_contents($newsFileName);
-        if (!empty($fileData)) {
-            $newsData = unserialize($fileData);
-            if (is_array($newsData) && !empty($newsData)) {
-                foreach ($newsData as $n1) {
-                    $changeFrequency = $changeFrequencyDefault;
-                    if (isset($n1['changefreq']) && !empty($n1['changefreq'])) {
-                        $changeFrequency = $n1['changefreq'];
-                    }
-                    $priority = $priorityDefault;
-                    if (isset($n1['priority']) && !empty($n1['priority'])) {
-                        $priority = $n1['priority'];
-                    }
-                    $lastMod = new DateTime();
-                    if (isset($n1['lastmod']) && !empty($n1['lastmod'])) {
-                        $lastMod = new DateTime($n1['lastmod']);
-                    }
-                    $location = str_replace($yourSiteUrl . $yourSiteUrl, $yourSiteUrl, $n1['loc']);
-                    $generator->addURL($location, $lastMod, $changeFrequency, $priority, null);
+$newsFileName = 'all_published_news_' . $lang . '.txt';
+if (file_exists($newsFileName)) {
+    $fileData = file_get_contents($newsFileName);
+    if (!empty($fileData)) {
+        $newsData = unserialize($fileData);
+        if (is_array($newsData) && !empty($newsData)) {
+            foreach ($newsData as $n1) {
+                $changeFrequency = $changeFrequencyDefault;
+                if (isset($n1['changefreq']) && !empty($n1['changefreq'])) {
+                    $changeFrequency = $n1['changefreq'];
                 }
+                $priority = $priorityDefault;
+                if (isset($n1['priority']) && !empty($n1['priority'])) {
+                    $priority = $n1['priority'];
+                }
+                $lastMod = new DateTime();
+                if (isset($n1['lastmod']) && !empty($n1['lastmod'])) {
+                    $lastMod = new DateTime($n1['lastmod']);
+                }
+                $location = str_replace($yourSiteUrl . $yourSiteUrl, $yourSiteUrl, $n1['loc']);
+                $generator->addURL($location, $lastMod, $changeFrequency, $priority, null);
             }
         }
     }
-    // @ts 2022-12-27 include all published analytics
-    $analyticsFileName = 'all_published_analytics_' . $lang . '.txt';
-    if (file_exists($analyticsFileName)) {
-        $fileData = file_get_contents($analyticsFileName);
-        if (!empty($fileData)) {
-            $newsData = unserialize($fileData);
-            if (is_array($newsData) && !empty($newsData)) {
-                foreach ($newsData as $n1) {
-                    $changeFrequency = $changeFrequencyDefault;
-                    if (isset($n1['changefreq']) && !empty($n1['changefreq'])) {
-                        $changeFrequency = $n1['changefreq'];
-                    }
-                    $priority = $priorityDefault;
-                    if (isset($n1['priority']) && !empty($n1['priority'])) {
-                        $priority = $n1['priority'];
-                    }
-                    $lastMod = new DateTime();
-                    if (isset($n1['lastmod']) && !empty($n1['lastmod'])) {
-                        $lastMod = new DateTime($n1['lastmod']);
-                    }
-                    $location = str_replace($yourSiteUrl . $yourSiteUrl, $yourSiteUrl, $n1['loc']);
-                    $generator->addURL($location, $lastMod, $changeFrequency, $priority, null);
+}
+// @ts 2022-12-27 include all published analytics
+$analyticsFileName = 'all_published_analytics_' . $lang . '.txt';
+if (file_exists($analyticsFileName)) {
+    $fileData = file_get_contents($analyticsFileName);
+    if (!empty($fileData)) {
+        $newsData = unserialize($fileData);
+        if (is_array($newsData) && !empty($newsData)) {
+            foreach ($newsData as $n1) {
+                $changeFrequency = $changeFrequencyDefault;
+                if (isset($n1['changefreq']) && !empty($n1['changefreq'])) {
+                    $changeFrequency = $n1['changefreq'];
                 }
+                $priority = $priorityDefault;
+                if (isset($n1['priority']) && !empty($n1['priority'])) {
+                    $priority = $n1['priority'];
+                }
+                $lastMod = new DateTime();
+                if (isset($n1['lastmod']) && !empty($n1['lastmod'])) {
+                    $lastMod = new DateTime($n1['lastmod']);
+                }
+                $location = str_replace($yourSiteUrl . $yourSiteUrl, $yourSiteUrl, $n1['loc']);
+                $generator->addURL($location, $lastMod, $changeFrequency, $priority, null);
             }
         }
     }
+}
 
 // }
 // @ts 2024-02-13 process only one language
