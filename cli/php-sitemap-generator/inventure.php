@@ -64,8 +64,9 @@ $generator->setSitemapIndexFileName("sitemap-index-{$lang}.xml");
 function getAlternates($urlPrefix, $uri, $currentLang = 'ru')
 {
     if (!empty($uri)) {
-        if (strlen($uri) >= 2) {
-            $uri = substr($uri, 2);
+        $len = strlen($uri);
+        if ($len >= 2) {
+            $uri = substr($uri,2, $len);
         }
         switch ($currentLang) {
             case 'ru':
