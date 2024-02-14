@@ -6,17 +6,17 @@ $yourSiteUrl = 'https://inventure.com.ua';
 echo ' yourSiteUrl: ' . var_export($yourSiteUrl, true) . PHP_EOL;
 
 $langs = ['en', 'uk', 'ru'];
-$langUrlPrefix = $lang = $defaultLang = 'uk';
+$langUrlPrefix = $lang = $defaultLang = '';
 if (!empty($argv[1])) {
     echo ' arg lang: ' . var_export($argv[1], true) . PHP_EOL;
 
     if (!in_array($argv[1], $langs)) {
-        $lang = $defaultLang;
+        $langUrlPrefix = $lang = $defaultLang;
     } else {
-        $lang = $argv[1];
+        $langUrlPrefix = $lang = $argv[1];
     }
 } else {
-    $lang = $defaultLang;
+    $langUrlPrefix = $lang = $defaultLang = 'uk';
 }
 echo ' selected lang: ' . var_export($lang, true) . PHP_EOL;
 if ($langUrlPrefix == 'ru') {
