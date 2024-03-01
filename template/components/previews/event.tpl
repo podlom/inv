@@ -28,7 +28,17 @@
           <div class="flex mobile-mb-4">
             {include 'components/share-btn'}
           </div>
-          {if ($post->getAttr(6))}<a href="{$post->getAttr(6)}" target="_blank" itemprop="url" rel="nofollow" class="btn btn--normal btn--blue pl-6 pr-6">Забронировать</a>{/if}
+          {if ($post->getAttr(6))}
+            <a href="{$post->getAttr(6)}" target="_blank" itemprop="url" rel="nofollow" class="btn btn--normal btn--blue pl-6 pr-6">
+              {if $lang === 'ru'}
+                Забронировать
+              {elseif $lang === 'uk'}
+                Забронювати
+              {else}
+                Book
+              {/if}
+            </a>
+          {/if}
         </div>
     </div>
     <div class="preview__wrapper-main" style="position: relative;" itemprop="about" itemscope itemtype="http://schema.org/Event">
