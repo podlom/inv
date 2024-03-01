@@ -108,8 +108,8 @@
                 <h1 class="section__title-categories pr-4">{$blog->getTitle('content')}</h1>
             </a>
             <ul class="sort desktop-only text-xs">
-                <li class="sort__item {if $request->query->get('past',0) == 0}sort__item--active{/if}"><a href="/tools/events">{if $lang=='en'}Upcoming{elseif $lang == 'uk'}Майбутні{else}Предстоящие{/if}</a><li>
-                <li class="sort__item {if $request->query->get('past',0) == 1}sort__item--active{/if}"><a href="/tools/events?past=1">{if $lang=='en'}Past{elseif $lang == 'uk'}Минулі{else}Прошедшие{/if}</a><li>
+                <li class="sort__item {if $request->query->get('past',0) == 0}sort__item--active{/if}"><a href="{if $lang == 'en'}/en{elseif $lang == 'uk'}/uk{/if}/tools/events">{if $lang=='en'}Upcoming{elseif $lang == 'uk'}Майбутні{else}Предстоящие{/if}</a><li>
+                <li class="sort__item {if $request->query->get('past',0) == 1}sort__item--active{/if}"><a href="{if $lang == 'en'}/en{elseif $lang == 'uk'}/uk{/if}/tools/events?past=1">{if $lang=='en'}Past{elseif $lang == 'uk'}Минулі{else}Прошедшие{/if}</a><li>
 {* {if}sort__item--active{/if} *}
             </ul>
         </div>
