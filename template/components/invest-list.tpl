@@ -101,8 +101,8 @@
 				{/if}
 				<div
 					class="cards__meta flex justify-between mt-auto opacity-75 text-sm big-itm parent-category-id-{$bigpost->getParent()->getId()} ">
-					{if $bigpost->getParent()->getId() == 7861 || $bigpost->getParent()->getId() == 7862 || $bigpost->getParent()->getId() == 7863 || $bigpost->getParent()->getId() == 9779 || $bigpost->getParent()->getId() == 9780 || $bigpost->getParent()->getId() == 9781}
-						<p class="price-tag font-semibold text-sm attr15-len-{$bigpost->hasAttr("15")|strlen}">
+						{if $bigpost->getParent()->getId() == 7861 || $bigpost->getParent()->getId() == 7862 || $bigpost->getParent()->getId() == 7863 || $bigpost->getParent()->getId() == 9779 || $bigpost->getParent()->getId() == 9780 || $bigpost->getParent()->getId() == 9781  || $bigpost->getParent()->getId() == 25262}
+							<p class="price-tag font-semibold text-sm attr15-len-{$bigpost->hasAttr("15")|strlen}">
 							{if $bigpost->hasAttr("15")}
 								{if $bigpost->getAttr("15")|strlen}${$bigpost->printAttr("15")|number_format:0:'.':' '}{else}Договорная{/if}{/if}
 							</p>
@@ -152,9 +152,8 @@
 										<div class="line-clamp line-clamp--2 desktop-line-clamp-3 mt-4 desktop-mt-0 desktop-mb-0  mobile-mt-0">
 											<h2 class="cards__title mt-0 mb-0">{$post->getTitle()}</h2>
 										</div>
-										<div
-											class="cards__meta flex justify-between mt-auto opacity-75 text-sm ts-post-parent-id-{$post->getParent()->getId()} ">
-											{if $post->getParent()->getId() == 7861 || $post->getParent()->getId() == 7862 || $post->getParent()->getId() == 7863 || $post->getParent()->getId() == 9779 || $post->getParent()->getId() == 9780 || $post->getParent()->getId() == 9781}
+										<div class="cards__meta flex justify-between mt-auto opacity-75 text-sm ts-post-parent-id-{$post->getParent()->getId()}">
+											{if $post->getParent()->getId() == 7861 || $post->getParent()->getId() == 7862 || $post->getParent()->getId() == 7863 || $post->getParent()->getId() == 9779 || $post->getParent()->getId() == 9780 || $post->getParent()->getId() == 9781  || $post->getParent()->getId() == 25262}
 												<p class="price-tag font-semibold text-sm attr15-len-{$post->hasAttr("15")}">
 													{if $post->hasAttr("15")|mb_strlen}{if $post->getAttr("15")|strlen}${$post->printAttr("15")|number_format:0:'.':' '}{else}Договорная{/if}{/if}
 												</p>
