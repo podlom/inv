@@ -7,9 +7,8 @@
 			<div class="menu">
 				{block 'menu'}
 					<nav class="header__nav" id="nav">
-						<li class="header__nav-item"><span><a
-									href="https://inventure.ua{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{else}/{/if}"
-									target="_blank">{if $lang === 'ru'}О компании
+						<li class="header__nav-item">
+						<span><a rel="nofollow" href="https://inventure.ua{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{else}/{/if}" target="_blank">{if $lang === 'ru'}О компании
 									{elseif $lang === 'uk'}Про компанію
 									{else}About
 									us{/if}</a></span></li>

@@ -23,9 +23,7 @@
 		{block 'footer_menu'}
 			<div class="footer__wrapper">
 				<div class="cell">
-					<p class="font-bold mb-4"><a
-							href="https://inventure.ua{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{else}/{/if}"
-							target="_blank" itemprop="url">InVenture <span>Investment Group</span></a></p>
+					<p class="font-bold mb-4"><a rel="nofollow" href="https://inventure.ua{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{else}/{/if}" target="_blank" itemprop="url">InVenture <span>Investment Group</span></a></p>
 					<p><a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/about">{if $lang === 'ru'}О
 						проекте{elseif $lang === 'uk'}Про проект
 						{else}About project

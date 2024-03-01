@@ -241,7 +241,7 @@
 			</li>
 		{/if}
 		<li>
-			<a href="https://inventure.ua{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{else}/{/if}"
+			<a rel="nofollow" href="https://inventure.ua{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{else}/{/if}"
 				target="_blank">{if $lang === 'ru'}О компании{elseif $lang === 'uk'}Про компанію{else}About us{/if}</a>
 		</li>
 		<li><a href="{if $lang === 'en'}/en{elseif $lang == 'uk'}/uk{/if}/analytics/digest">
