@@ -104,7 +104,7 @@
 						инвестиций / продажа бизнеса{elseif $lang === 'uk'}Залучення інвестицій / продаж бізнесу
 						{else}Services for
 						Raising Capital & Sell a Business{/if}</a></p>
-				<p><a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/project">{if $lang === 'ru'}Сервисы
+				<p><a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/investor">{if $lang === 'ru'}Сервисы
 						для
 						инвестора{elseif $lang === 'uk'}Сервіси для інвестора
 						{else}Services for Investors
