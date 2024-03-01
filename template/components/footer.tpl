@@ -168,13 +168,13 @@
 		</div>
 		{/block}
 		<div class="footer__socials">
-			<a itemprop="sameAs" href="https://www.facebook.com/inventure.com.ua" target="_blank"><i
+			<a itemprop="sameAs" rel="nofollow" href="https://www.facebook.com/inventure.com.ua" target="_blank"><i
 					class="fa fa-facebook-square" aria-hidden="true"></i></a>
-			<a itemprop="sameAs" href="https://www.linkedin.com/groups/4386794/" target="_blank"><i
+			<a itemprop="sameAs" rel="nofollow" href="https://www.linkedin.com/groups/4386794/" target="_blank"><i
 					class="fa fa-linkedin-square" aria-hidden="true"></i></a>
-			<a itemprop="sameAs" href="https://twitter.com/inventure_ua" target="_blank"><i class="fa fa-twitter-square"
-					aria-hidden="true"></i></a>
-			<a itemprop="sameAs" href="https://t.me/inventure" target="_blank"><i class="fa fa-telegram"
+			<a itemprop="sameAs" rel="nofollow" href="https://twitter.com/inventure_ua" target="_blank"><i
+					class="fa fa-twitter-square" aria-hidden="true"></i></a>
+			<a itemprop="sameAs" rel="nofollow" href="https://t.me/inventure" target="_blank"><i class="fa fa-telegram"
 					aria-hidden="true"></i></a>
 		</div>
 		<div class="footer__copyright">

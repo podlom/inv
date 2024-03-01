@@ -261,7 +261,7 @@
 	</ul>
 
 	<div class="mobile-nav__socials mb-12">
-		<a target="_blank" rel="noopener noreferrer" href="https://t.me/inventure">
+		<a target="_blank" rel="nofollow" href="https://t.me/inventure">
 			<svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" aria-label="Telegram" viewBox="0 0 512 512">
 				<rect width="512" height="512" rx="15%" fill="#37aee2" />
 				<path fill="#c8daea" d="M199 404c-11 0-10-4-13-14l-32-105 245-144" />
@@ -270,23 +270,23 @@
 					d="m204 319 135 99c14 9 26 4 30-14l55-258c5-22-9-32-24-25L79 245c-21 8-21 21-4 26l83 26 190-121c9-5 17-3 11 4" />
 			</svg>
 		</a>
-		<a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/inventure.com.ua">
+		<a target="_blank" rel="nofollow" href="https://www.facebook.com/inventure.com.ua">
 			<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
 				<path
 					d="M16.7482 0H2.87441C1.28959 0 0 1.31439 0 2.92969V17.0703C0 18.6856 1.28959 20 2.87441 20H8.66156V12.9297H6.36203V9.41406H8.66156V7.03125C8.66156 5.09262 10.2088 3.51562 12.1108 3.51562H15.5985V7.03125H12.1108V9.41406H15.5985L15.0236 12.9297H12.1108V20H16.7482C18.333 20 19.6226 18.6856 19.6226 17.0703V2.92969C19.6226 1.31439 18.333 0 16.7482 0Z"
 					fill="#3B8FEE"></path>
 			</svg>
 		</a>
-		<a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4386794/">
-			<svg width="20" rel="noopener noreferrer" height="20" viewBox="0 0 20 20" fill="none"
+		<a target="_blank" rel="nofollow" href="https://www.linkedin.com/groups/4386794/">
+			<svg width="20"  height="20" viewBox="0 0 20 20" fill="none"
 				xmlns="http://www.w3.org/2000/svg">
 				<path
 					d="M17.0703 0H2.92969C1.31439 0 0 1.31439 0 2.92969V17.0703C0 18.6856 1.31439 20 2.92969 20H17.0703C18.6856 20 20 18.6856 20 17.0703V2.92969C20 1.31439 18.6856 0 17.0703 0ZM7.07031 15.8594H4.72656V7.65625H7.07031V15.8594ZM7.07031 6.48438H4.72656V4.14062H7.07031V6.48438ZM15.2734 15.8594H12.9297V11.1719C12.9297 10.5258 12.4039 10 11.7578 10C11.1118 10 10.5859 10.5258 10.5859 11.1719V15.8594H8.24219V7.65625H10.5859V8.09799C11.2 7.9071 11.5988 7.65625 12.3438 7.65625C13.9333 7.65793 15.2734 9.08386 15.2734 10.769V15.8594Z"
 					fill="#3D76B1"></path>
 			</svg>
 		</a>
-		<a target="_blank" rel="noopener noreferrer" href="https://twitter.com/inventure_ua">
-			<svg width="20" rel="noopener noreferrer" height="20" viewBox="0 0 20 20" fill="none"
+		<a target="_blank" rel="nofollow" href="https://twitter.com/inventure_ua">
+			<svg width="20"  height="20" viewBox="0 0 20 20" fill="none"
 				xmlns="http://www.w3.org/2000/svg">
 				<rect width="19.6226" height="20" rx="3" fill="#4EB1EF"></rect>
 				<path
