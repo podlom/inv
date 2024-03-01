@@ -11,11 +11,9 @@
 		{/if}
 	</div>
 
-	<div class="cards__img-wrapper" data-test="card-post">
+	<div class="cards__img-wrapper">
 		{block 'image'}
-			{if substr($post->getPath(),0,14) == "/tools/video"}
-				<div>{$post->getAttr(55)}</div>
-			{elseif $post->getImage()}
+			{if $post->getImage()}
 				{if $parent != 'post'}
 					<img class="cards__img lazyimg" itemprop="image" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
 						data-src="{$post->getImage()->thumb(350,254)->getUrl()}" alt='{$post->getTitle()}' itemscope
