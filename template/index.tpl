@@ -8,7 +8,7 @@
     {assign "line" value="8"}
   {/if}
   {if !empty($blogTitle)}
-    <h1 class="ts-line-{$line} pr-4 investments__title invisible" style="height: 0px;">{$blogTitle}</h1>
+    <h1 class="ts-line-{$line} pr-4 investments__title" style="height: 0px;visibility: hidden !important;">{$blogTitle}</h1>
   {/if}
 
   <div class="container container--main container--post the_post inventure_list z-0 relative">
