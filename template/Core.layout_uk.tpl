@@ -35,11 +35,19 @@
 
 	{literal}
 		<!-- Google Tag Manager -->
-		<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-						new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-					j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-					'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-			})(window,document,'script','dataLayer','GTM-MHZGQ4C');</script>
+		<script>
+			(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+			new Date().getTime(), event: 'gtm.js'
+			});
+			var f = d.getElementsByTagName(s)[0],
+				j = d.createElement(s),
+				dl = l != 'dataLayer' ? '&l=' + l : '';
+			j.async = true;
+			j.src =
+				'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+			f.parentNode.insertBefore(j, f);
+			})(window, document, 'script', 'dataLayer', 'GTM-MHZGQ4C');
+		</script>
 		<!-- End Google Tag Manager -->
 	{/literal}
 
@@ -111,7 +119,7 @@
 	{head}
 
 	{* <script src="/js/intlTelInput-min.js"></script> *}
-	
+
 	{script name="intlTelInput" async="" src="/js/intlTelInput-min.js"}
 	{script name="iti-load-utils" async="" src="/js/utils.js"}
 	{script name="lbx_script" async="" src="/js/lbx_script.js"}
@@ -123,7 +131,7 @@
 	{script 'jquery'}
 	{script src="/js/libs.min.js" require="jquery" name="libs" }
 
-	{script src="/js/common-min.js" require="libs" name="common"}
+	{script src="/js/dist/common-min.js" require="libs" name="common"}
 
 	{* {script src="/js/jquery.lazyload.min.js" require="jquery" name="lazyload" } *}
 	{* {script src="/js/autosize.min.js" require="jquery" name="autosize" } *}
@@ -137,13 +145,13 @@
 
 	{script_code require="google_recaptcha" name="grecaptchainitinblog"}
 
-		console.log('+140 Google reCaptcha JavaScript API init');
+	console.log('+140 Google reCaptcha JavaScript API init');
 
-		function onContact19Submit(token)
-		{
-			console.log('+144 token: ' + token);
-			document.getElementById("contact-form-19").submit();
-		}
+	function onContact19Submit(token)
+	{
+	console.log('+144 token: ' + token);
+	document.getElementById("contact-form-19").submit();
+	}
 
 	{/script_code}
 
@@ -262,7 +270,8 @@
 		console.log('+251 save edits with new text: ' + jQuery('.the_post_content').html());
 		console.log('+252 location path: ' + window.location.pathname);
 		{literal}
-			jQuery.post('/invest.php', {'action':'set','data':jQuery('.the_post_content').html(),'path':window.location.pathname},
+			jQuery.post('/invest.php',
+			{'action':'set','data':jQuery('.the_post_content').html(),'path':window.location.pathname},
 			function(res1){ console.log('+824 Got result: ' + res1); });
 		{/literal}
 		});

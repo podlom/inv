@@ -46,15 +46,23 @@
 	<link rel="dns-prefetch" href="//netdna.bootstrapcdn.com">
 	<link rel="alternate" hreflang="x-default" href="https://inventure.com.ua/" />
 
-{literal}
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-MHZGQ4C');</script>
-<!-- End Google Tag Manager -->
-{/literal}
+	{literal}
+		<!-- Google Tag Manager -->
+		<script>
+			(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+			new Date().getTime(), event: 'gtm.js'
+			});
+			var f = d.getElementsByTagName(s)[0],
+				j = d.createElement(s),
+				dl = l != 'dataLayer' ? '&l=' + l : '';
+			j.async = true;
+			j.src =
+				'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+			f.parentNode.insertBefore(j, f);
+			})(window, document, 'script', 'dataLayer', 'GTM-MHZGQ4C');
+		</script>
+		<!-- End Google Tag Manager -->
+	{/literal}
 
 	{if $post}
 		{meta 'og.1' property='og:title'  content=html_entity_decode($post->getH1()) raw=1}
@@ -113,7 +121,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 	{* {script src="/js/ui.min.js" async="" require="jquery,google_maps_api" name="ui_js" } *}
 
 	{* {script src="/js/libs.min.js" async="" require="jquery" name="libs" } *}
-	{script src="/js/common-min.js" require="jquery" name="common"}
+	{script src="/js/dist/common-min.js" require="jquery" name="common"}
 
 	{script src="/js/jquery.hoverIntent.minified.js" async="" name="hoverIntent" require="jquery" }
 	{script src="/js/script.js" async="" require="jquery,hoverIntent" name="script"}
@@ -122,13 +130,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 	{* {script_code require=['foundation2', 'jquery']}$(document).foundation();{/script_code} *}
 
 	{script_code require="google_recaptcha" name="grecaptchainitinblog"}
-		console.log('+125 Google reCaptcha JavaScript API init');
+	console.log('+125 Google reCaptcha JavaScript API init');
 
-		function onContact19Submit(token)
-		{
-			console.log('+129 token: ' + token);
-			document.getElementById("contact-form-19").submit();
-		}
+	function onContact19Submit(token)
+	{
+	console.log('+129 token: ' + token);
+	document.getElementById("contact-form-19").submit();
+	}
 
 	{/script_code}
 
@@ -136,12 +144,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 <body>
 
-{literal}
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MHZGQ4C"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-{/literal}
+	{literal}
+		<!-- Google Tag Manager (noscript) -->
+		<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MHZGQ4C" height="0" width="0"
+				style="display:none;visibility:hidden"></iframe></noscript>
+		<!-- End Google Tag Manager (noscript) -->
+	{/literal}
 
 	<!-- @ts:$isNewStylesAvaible: '{$isNewStylesAvaible}' -->
 	<!-- @ts:$lang+166: '{$lang}' -->
@@ -163,13 +171,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 				{block 'side_buttons'}
 					<a href="{if $lang=='en'}/en{elseif $lang=='uk'}/uk{/if}/investor"
 						class="tablet_button1">{if $lang=='en'}invest{elseif $lang=='uk'}інвестувати{else}инвестировать{/if}</a>
-					<a href="{if $lang=='en'}/en{elseif $lang=='uk'}/uk{/if}/add-inv-prop" class="tablet_button2">{if $lang=='en'}Find
-					an investor{elseif $lang=='uk'}Знайти інвестора
-					{else}Найти инвестора
-					{/if}</a>
-			{/block}
+					<a href="{if $lang=='en'}/en{elseif $lang=='uk'}/uk{/if}/add-inv-prop"
+						class="tablet_button2">{if $lang=='en'}Find
+						an investor{elseif $lang=='uk'}Знайти інвестора
+						{else}Найти инвестора
+						{/if}</a>
+				{/block}
+			</div>
 		</div>
-	</div>
 	{/if}
 
 	<div class="off-canvas-wrap" data-offcanvas="">
@@ -201,7 +210,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 	<div class="up" style="display: none;">
-		<img src="/images/up.svg" alt="{if lang=='en'}Go up{else}Вверх{/if}" title="{if lang=='en'}Go up{else}Вверх{/if}">
+		<img src="/images/up.svg" alt="{if lang=='en'}Go up{else}Вверх{/if}"
+			title="{if lang=='en'}Go up{else}Вверх{/if}">
 		{* <img src="/i/up.png" alt="Вверх" title="Вверх"> *}
 	</div>
 
@@ -252,7 +262,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 		console.log('+821 save edits with new text: ' + jQuery('.the_post_content').html());
 		console.log('+822 location path: ' + window.location.pathname);
 		{literal}
-			jQuery.post('/invest.php', {'action':'set','data':jQuery('.the_post_content').html(),'path':window.location.pathname},
+			jQuery.post('/invest.php',
+			{'action':'set','data':jQuery('.the_post_content').html(),'path':window.location.pathname},
 			function(res1){ console.log('+824 Got result: ' + res1); });
 		{/literal}
 		});
