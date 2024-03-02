@@ -43,7 +43,7 @@
 {/block}
 	{block 'posts'}
 		{include 'components/mobile-sort'}
-		<article id="cards__list" class="cards"></article>
+		{include 'components/investments-list'}
 	{/block}
 
 	{script_code require="jquery"}

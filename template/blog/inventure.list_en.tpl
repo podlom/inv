@@ -27,9 +27,8 @@
 </ul>
 {/block}
 {block 'posts'}
-<div class="auto-height">
-     <article id="cards__list" class="cards"></article>
-</div>
+    {include 'components/mobile-sort'}
+    {include 'components/investments-list'}
 {/block}
 
 <div data-append="sort" class="section__title-categories pt-0 mb-2 pb-0 flex flex-row justify-between items-center">
