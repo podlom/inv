@@ -1218,8 +1218,12 @@ if (!empty($_REQUEST)) {
                     $soldHtml .= '</div>';
                     $isSold = 1;
                 }
-                //
-                $resHmtl .= '<a href="' . $urlLangPrefix . '/investments/' . $a2['subpath'] . '"  class="cards__item project-' . $num . '">
+                
+                $nextPageLink = '/invest.php?action=get&limit=23&page=' . ($page + 1);
+                $isLast = $num === count($res2) - 1;
+                $nextPageRequest = $isLast ? 'hx-get="' . $nextPageLink . '" hx-trigger="revealed" hx-indicator="#spinner" hx-swap="afterend"' : '';
+
+                $resHmtl .= '<a href="' . $urlLangPrefix . '/investments/' . $a2['subpath'] . '"  class="cards__item project-' . $num . '" ' . $nextPageRequest . '>
                     <div class="cards__img-wrapper mb-2 parent_id-' . $a2['parent_id'] . ' lang-' . $lang . ' is-sold-' . $isSold . '">' . $soldHtml . '
                         <img class="cards__img lazyload" data-src="' . $imgUrl . '" alt="' . $a2['h1'] . '" src="' . $imgUrl . '">
                     </div>

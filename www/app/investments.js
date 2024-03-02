@@ -46,13 +46,17 @@ function fetchData(search) {
 }
 
 const renderInvestments = (data) => {
-  $("#cards__list").html(data);
+  const cardsList = document.querySelector("#cards__list");
+  cardsList.innerHTML = data;
   setTimeout(() => {
     const randomIndex = getRandomNumber(7, 20);
     const elements = document.querySelectorAll("#cards__list a");
     const elementByIndex = elements && elements[randomIndex];
     if (elementByIndex) {
       elementByIndex.insertAdjacentHTML("afterend", advertCard);
+    }
+    if(typeof window.htmx !== 'undefined'){
+      window.htmx.process(cardsList)
     }
   }, 0);
 };
@@ -61,11 +65,11 @@ export const init = () => {
   const { search, pathname } = window.location;
   const isInvestmentsPage = pathname.indexOf("/investments") !== -1;
   if (!isInvestmentsPage) return;
-  Promise.all([
-    loadScript("https://unpkg.com/htmx.org@1.9.10"),
-    fetchData(search),
-  ])
+  fetchData(search)
     .then(renderInvestments)
+    // .then(() => {
+    //   return loadScript("https://unpkg.com/htmx.org@1.9.10");
+    // })
     .catch((error) => {
       // Handle errors here
       console.error("Error occurred:", error.message);
