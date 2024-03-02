@@ -61,8 +61,10 @@ export const init = () => {
   const { search, pathname } = window.location;
   const isInvestmentsPage = pathname.indexOf("/investments") !== -1;
   if (!isInvestmentsPage) return;
-
-  fetchData(search)
+  Promise.all([
+    loadScript("https://unpkg.com/htmx.org@1.9.10"),
+    fetchData(search),
+  ])
     .then(renderInvestments)
     .catch((error) => {
       // Handle errors here
