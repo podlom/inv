@@ -14,6 +14,11 @@
 	{if $sm}
 		{$user = $sm->getUser()}
 	{/if}
+
+	{if isset($_GET.page) && $_GET.page > 1}
+		<meta name="robots" content="noindex">
+	{/if}
+
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />

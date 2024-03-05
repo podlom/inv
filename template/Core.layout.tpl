@@ -15,6 +15,10 @@
 	<!-- @ts:$request->getPathInfo(): '{$request->getPathInfo()}' -->
 	<!-- @ts:$lang: '{$lang}' -->
 
+	{if isset($_GET.page) && $_GET.page > 1}
+		<meta name="robots" content="noindex">
+	{/if}
+
 	{if $sm}
 		{$user = $sm->getUser()}
 	{/if}
