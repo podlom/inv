@@ -14,6 +14,11 @@
 
 	<!-- @ts:$request->getPathInfo(): '{$request->getPathInfo()}' -->
 	<!-- @ts:$lang: '{$lang}' -->
+
+	{if isset($smarty.get.page) && $smarty.get.page > 1}
+		<!-- @ts page: {$smarty.get.page} -->
+	{/if}
+
 	{if $sm}
 		{$user = $sm->getUser()}
 	{/if}
