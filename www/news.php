@@ -139,22 +139,33 @@ if (!empty($_REQUEST)) {
         l_m(__FILE__ . ' +' . __LINE__ . ' Result322: ' . var_export($res322, true));
         //
         //
+        $nextPage = $page + 1;
         $itemNo = 0;
         $resHmtl .= '<div class="cards">';
         if (!empty($res2) && is_array($res2)) {
             foreach ($res2 as $r9) {
                 $itemNo ++;
+                //
+                if ($r9['category_title'] == 'Новости инвестиций Украины') {
+                    $categoryUrl = 'ukraine';
+                } elseif ($r9['category_title'] == 'Новости инвестиций мира') {
+                    $categoryUrl = 'world';
+                }
+                //
                 $lastItem = false;
+                if ($limit == $itemNo) {
+                    $lastItem = true;
+                }
                 $linkAttributes = '';
                 if ($lastItem) {
-                    $linkAttributes = 'hx-get="тут url для наступної сторінки" hx-trigger="revealed" hx-indicator="#spinner" hx-swap="afterend"';
+                    $linkAttributes = 'hx-get="/news/' . $categoryUrl . '/' . $r9['subpath'] . '?page='  . $nextPage . '" hx-trigger="revealed" hx-indicator="#spinner" hx-swap="afterend"';
                 }
                 // $pageId[] = $r9['id'];
                 $dateStr = date("d.m.y", strtotime($r9['created']));
                 //
                 $resHmtl .= '<div data-item-no="' . $itemNo . '" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/Article">' .
                     '<meta itemprop="position" content="0">' .
-                    '<a ' . $linkAttributes . ' href="/news/world/' . $r9['subpath'] . '" class="cards__item">' .
+                    '<a ' . $linkAttributes . ' href="/news/' . $categoryUrl . '/' . $r9['subpath'] . '" class="cards__item">' .
                     '<div class="cards__labels flex"> </div> ' .
                     '<div class="cards__img-wrapper"> ' .
                     '<img class="cards__img" itemprop="image" src="/img/thumb.350.254' . $r9['picture_url'] . '" data-src="/img/thumb.350.254' . $r9['picture_url'] . '" alt="Stonepeak привлекает $3,3 млрд для своего первого инфраструктурного фонда ориентированного на Азию" itemscope="" itemtype="http://schema.org/ImageObject"> </div> ' .
