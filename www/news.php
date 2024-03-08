@@ -28,6 +28,7 @@ function l_m($msg)
     if (($_SERVER['REMOTE_ADDR'] !== '185.11.28.246') // @ts 2021-02-25; ISP Best; Grand Villas; home
         && ($_SERVER['REMOTE_ADDR'] !== '178.214.193.98') // InVenture office; Kyiv
         && ($_SERVER['REMOTE_ADDR'] !== '176.106.0.146') // Ilmolino Saksaganskogo str. 120; Kyiv
+        && ($_SERVER['REMOTE_ADDR'] !== '185.143.147.154') // Kreshchatyk str. 25; Kyiv
     ) {
         // error_log(__FILE__ . ' +' . __LINE__ . ' ' . __FUNCTION__ . ' log to file is disabled for client IP: ' . $_SERVER['REMOTE_ADDR']);
         return false;
