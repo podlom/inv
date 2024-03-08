@@ -143,6 +143,8 @@ if (!empty($_REQUEST)) {
         if (!empty($res2) && is_array($res2)) {
             foreach ($res2 as $r9) {
                 // $pageId[] = $r9['id'];
+                $dateStr = date("d.m.y", strtotime($r9['created']));
+                //
                 $resHmtl .= '<div itemprop="itemListElement" itemscope="" itemtype="http://schema.org/Article">' .
                     '<meta itemprop="position" content="0">' .
                     '<a href="/news/world/' . $r9['subpath'] . '" class="cards__item">' .
@@ -152,7 +154,7 @@ if (!empty($_REQUEST)) {
                     '<h2 class="cards__title" itemprop="headline">' . $r9['h1'] . '</h2> ' .
                     '<div itemprop="description" class="the_shorttext">' . $r9['short_text'] . '</div> ' .
                     '<div class="cards__meta flex justify-between mt-auto opacity-75 text-sm"> ' .
-                    '<div class="cards__date text-sm"> ' . $r9['created'] . ' </div> ' .
+                    '<div class="cards__date text-sm"> ' . $dateStr . ' </div> ' .
                     '<div class="cards__meta-wrapper text-sm"> ' .
                     '<div class="cards__meta-stat"> ' .
                     '<img data-src="/images/icons/eye.svg" width="16px" height="16px" alt="Views icon" class="mr-2 ls-is-cached lazyloaded" src="/images/icons/eye.svg"> ' .
