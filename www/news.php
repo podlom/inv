@@ -139,18 +139,32 @@ if (!empty($_REQUEST)) {
         l_m(__FILE__ . ' +' . __LINE__ . ' Result322: ' . var_export($res322, true));
         //
         //
-        $pageId = [];
+        $resHmtl .= '<div class="cards">';
         if (!empty($res2) && is_array($res2)) {
             foreach ($res2 as $r9) {
-                $pageId[] = $r9['id'];
+                // $pageId[] = $r9['id'];
+                $resHmtl .= '<div itemprop="itemListElement" itemscope="" itemtype="http://schema.org/Article">' .
+                    '<meta itemprop="position" content="0">' .
+                    '<a href="/news/world/' . $r9['subpath'] . '" class="cards__item">' .
+                    '<div class="cards__labels flex"> </div> ' .
+                    '<div class="cards__img-wrapper"> ' .
+                    '<img class="cards__img" itemprop="image" src="/img/thumb.350.254' . $r9['picture_url'] . '" data-src="/img/thumb.350.254' . $r9['picture_url'] . '" alt="Stonepeak привлекает $3,3 млрд для своего первого инфраструктурного фонда ориентированного на Азию" itemscope="" itemtype="http://schema.org/ImageObject"> </div> ' .
+                    '<h2 class="cards__title" itemprop="headline">' . $r9['h1'] . '</h2> ' .
+                    '<div itemprop="description" class="the_shorttext">' . $r9['short_text'] . '</div> ' .
+                    '<div class="cards__meta flex justify-between mt-auto opacity-75 text-sm"> ' .
+                    '<div class="cards__date text-sm"> ' . $r9['created'] . ' </div> ' .
+                    '<div class="cards__meta-wrapper text-sm"> ' .
+                    '<div class="cards__meta-stat"> ' .
+                    '<img data-src="/images/icons/eye.svg" width="16px" height="16px" alt="Views icon" class="mr-2 ls-is-cached lazyloaded" src="/images/icons/eye.svg"> ' .
+                    '<div>' . $r9['page_views'] . '</div> ' .
+                    '</div> ' .
+                    '</div> ' .
+                    '</div> ' .
+                    '</a></div>';
             }
         }
-        l_m(__FILE__ . ' +' . __LINE__ . ' $pageId: ' . var_export($pageId, true) . PHP_EOL);
-        if (!empty($pageId)) {
-            $idsList = implode(',', $pageId);
-            l_m(__FILE__ . ' +' . __LINE__ . ' $idsList: ' . var_export($idsList, true) . PHP_EOL);
+        $resHmtl .= '</div>';
 
-        }
     }
 
 }
