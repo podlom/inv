@@ -158,6 +158,8 @@ if (!empty($_REQUEST)) {
                     $categoryUrl = 'ukraine';
                 } elseif ($r9['category_title'] == 'World news') {
                     $categoryUrl = 'world';
+                } else {
+                    $categoryUrl = '';
                 }
                 //
                 $lastItem = false;
