@@ -79,8 +79,13 @@ if (!empty($_REQUEST)) {
     // l_m($msg);
     //
     $lang = $defaultLang = 'ru';
-    if (isset($_SERVER['HTTP_ACCEPT_LANGUAGE']) && !empty($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
-        $lang = locale_accept_from_http($_SERVER['HTTP_ACCEPT_LANGUAGE']);
+    //
+    if (isset($_REQUEST['lang']) && !empty($_REQUEST['lang'])) {
+        $lang = $_REQUEST['lang'];
+    } else {
+        if (isset($_SERVER['HTTP_ACCEPT_LANGUAGE']) && !empty($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
+            $lang = locale_accept_from_http($_SERVER['HTTP_ACCEPT_LANGUAGE']);
+        }
     }
     //
     if (strlen($lang) > 2) {
