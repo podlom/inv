@@ -150,6 +150,14 @@ if (!empty($_REQUEST)) {
                     $categoryUrl = 'ukraine';
                 } elseif ($r9['category_title'] == 'Новости инвестиций мира') {
                     $categoryUrl = 'world';
+                } elseif ($r9['category_title'] == 'Новини інвестицій України') {
+                    $categoryUrl = 'ukraine';
+                } elseif ($r9['category_title'] == 'Світові новини інвестицій') {
+                    $categoryUrl = 'world';
+                } elseif ($r9['category_title'] == 'News in Ukraine') {
+                    $categoryUrl = 'ukraine';
+                } elseif ($r9['category_title'] == 'World news') {
+                    $categoryUrl = 'world';
                 }
                 //
                 $lastItem = false;
