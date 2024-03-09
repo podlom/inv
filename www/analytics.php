@@ -5,7 +5,7 @@
  * User: shtaras
  * Date: 2024-03-08
  * Time: 20:23
- * Modified: 2024-03-08 20:23
+ * Modified: 2024-03-09 11:09
  *
  * @author Taras Shkodenko <taras@shkodenko.com>
  */
@@ -20,7 +20,7 @@ function l_m($msg)
     // IP: 193.0.217.7 - Kyiv - Volodymyra Ivasyuka 24-a
     // IP: 176.37.192.192 - Kyiv - Rollhouse cafe
     // IP: 185.143.147.154 - Kyiv - Kreshchatyk, 25 hall
-    if (is_writeable($logFileName) && isset($_SERVER['HTTP_CF_CONNECTING_IP']) && ($_SERVER['HTTP_CF_CONNECTING_IP'] == '185.143.147.154')) {
+    if (is_writeable($logFileName) && isset($_SERVER['HTTP_CF_CONNECTING_IP']) && ($_SERVER['HTTP_CF_CONNECTING_IP'] == '193.0.217.97')) {
         error_log(date('r') . ' ' . $msg . PHP_EOL, 3, $logFileName);
     }
 
@@ -29,6 +29,7 @@ function l_m($msg)
         && ($_SERVER['REMOTE_ADDR'] !== '178.214.193.98') // InVenture office; Kyiv
         && ($_SERVER['REMOTE_ADDR'] !== '176.106.0.146') // Ilmolino Saksaganskogo str. 120; Kyiv
         && ($_SERVER['REMOTE_ADDR'] !== '185.143.147.154') // Kreshchatyk str. 25; Kyiv
+        && ($_SERVER['REMOTE_ADDR'] !== '193.0.217.97') // Volodymyra Ivasyuka ave. 24-a; Kyiv
     ) {
         // error_log(__FILE__ . ' +' . __LINE__ . ' ' . __FUNCTION__ . ' log to file is disabled for client IP: ' . $_SERVER['REMOTE_ADDR']);
         return false;
@@ -37,6 +38,36 @@ function l_m($msg)
             error_log(date('r') . ' ' . $msg . PHP_EOL, 3, $logFileName);
         }
     }
+}
+
+function increment_page_param(string $url) : string
+{
+    // Розділити URL на шлях та параметри
+    $parts = parse_url($url);
+    $query = isset($parts['query']) ? $parts['query'] : '';
+    parse_str($query, $params);
+
+    // Перевірити, чи існує параметр 'page'
+    if (isset($params['page'])) {
+        // Збільшити значення параметра 'page' на 1
+        $params['page']++;
+
+        // Побудувати новий рядок запиту
+        $new_query = http_build_query($params);
+
+        // Побудувати новий URL
+        $new_url = $parts['path'] . '?' . $new_query;
+
+        // Перевірити, чи є які-небудь інші параметри та додати їх до нового URL, якщо так
+        if (isset($parts['fragment'])) {
+            $new_url .= '#' . $parts['fragment'];
+        }
+
+        return $new_url;
+    }
+
+    // Якщо параметр 'page' не знайдено, повернути той самий URL
+    return $url;
 }
 
 
@@ -139,15 +170,65 @@ if (!empty($_REQUEST)) {
         l_m(__FILE__ . ' +' . __LINE__ . ' Result322: ' . var_export($res322, true));
         //
         //
-        $resHmtl .= '<div class="cards">';
+        $nextPage = $page + 1;
+        $itemNo = 0;
+        $resHmtl .= '<div class="cards analytics-cards">';
         if (!empty($res2) && is_array($res2)) {
             foreach ($res2 as $r9) {
+                $itemNo ++;
+                //
+                if ($r9['category_title'] == 'Инвестиционная, финансовая и бизнес аналитика Украина') {
+                    $categoryUrl = '/analytics/investments';
+                } elseif ($r9['category_title'] == 'Рейтинги Украины: инвестиции, компании, инвесторы, бизнес') {
+                    $categoryUrl = '/tools/database';
+                } elseif ($r9['category_title'] == 'Интервью с инвесторами, бизнесменами и предпринимателями') {
+                    $categoryUrl = '/analytics/formula';
+                } elseif ($r9['category_title'] == 'Статьи об инвестициях и бизнесе в Украине') {
+                    $categoryUrl = '/analytics/articles';
+                } elseif ($r9['category_title'] == 'Инвестируем в Украину | We invest in Ukraine') {
+                    $categoryUrl = '/analytics/we-invest-in-ukraine';
+
+                } elseif ($r9['category_title'] == 'Інвестиційна аналітика та економічні дослідження') {
+                    $categoryUrl = '/uk/analytics/investments';
+                } elseif ($r9['category_title'] == 'Інтерв\'ю з інвесторами, бізнесменами та підприємцями') {
+                    $categoryUrl = '/uk/analytics/formula';
+                } elseif ($r9['category_title'] == 'Статті про інвестиції в Україні') {
+                    $categoryUrl = '/uk/analytics/articles';
+                } elseif ($r9['category_title'] == 'Інвестуємо в Україну | We invest in Ukraine') {
+                    $categoryUrl = '/uk/analytics/we-invest-in-ukraine';
+                } elseif ($r9['category_title'] == 'Рейтинги Україна: інвестиції, компанії, інвестори, бізнес') {
+                    $categoryUrl = '/uk/tools/database';
+
+                } elseif ($r9['category_title'] == 'Interviews with investors, businessmen and entrepreneurs') {
+                    $categoryUrl = '/en/analytics/formula';
+                } elseif ($r9['category_title'] == 'Investment, economic, marketing research in Ukraine') {
+                    $categoryUrl = '/en/analytics/investments';
+                } elseif ($r9['category_title'] == 'Articles about investments and business in Ukraine') {
+                    $categoryUrl = '/en/analytics/articles';
+                } elseif ($r9['category_title'] == 'Investing in Ukraine | We invest in Ukraine') {
+                    $categoryUrl = '/en/analytics/we-invest-in-ukraine';
+                } elseif ($r9['category_title'] == 'Ratings and rankings of Ukraine: investments, companies, investors, business') {
+                    $categoryUrl = '/en/tools/database';
+
+                } else {
+                    $categoryUrl = '';
+                }
+                //
+                $lastItem = false;
+                if ($limit == $itemNo) {
+                    $lastItem = true;
+                }
+                $linkAttributes = '';
+                $nextPageUrl = increment_page_param($_SERVER['REQUEST_URI']);
+                if ($lastItem) {
+                    $linkAttributes = 'hx-get="' . $nextPageUrl . '" hx-trigger="revealed" hx-indicator="#spinner" hx-swap="afterend"';
+                }
                 // $pageId[] = $r9['id'];
                 $dateStr = date("d.m.y", strtotime($r9['created']));
                 //
-                $resHmtl .= '<div itemprop="itemListElement" itemscope="" itemtype="http://schema.org/Article">' .
+                $resHmtl .= '<div data-item-no="' . $itemNo . '" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/Article">' .
                     '<meta itemprop="position" content="0">' .
-                    '<a href="/news/world/' . $r9['subpath'] . '" class="cards__item">' .
+                    '<a ' . $linkAttributes . ' href="' . $categoryUrl . '/' . $r9['subpath'] . '" class="cards__item">' .
                     '<div class="cards__labels flex"> </div> ' .
                     '<div class="cards__img-wrapper"> ' .
                     '<img class="cards__img" itemprop="image" src="/img/thumb.350.254' . $r9['picture_url'] . '" data-src="/img/thumb.350.254' . $r9['picture_url'] . '" alt="Stonepeak привлекает $3,3 млрд для своего первого инфраструктурного фонда ориентированного на Азию" itemscope="" itemtype="http://schema.org/ImageObject"> </div> ' .
