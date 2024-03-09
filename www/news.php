@@ -10,7 +10,7 @@
  * @author Taras Shkodenko <taras@shkodenko.com>
  */
 
-function l_m($msg)
+function l_m(string $msg)
 {
     $logFileName = dirname(__FILE__) . '/news.log';
     if (!file_exists($logFileName)) {
@@ -38,6 +38,36 @@ function l_m($msg)
             error_log(date('r') . ' ' . $msg . PHP_EOL, 3, $logFileName);
         }
     }
+}
+
+function increment_page_param(string $url) : string
+{
+    // Розділити URL на шлях та параметри
+    $parts = parse_url($url);
+    $query = isset($parts['query']) ? $parts['query'] : '';
+    parse_str($query, $params);
+
+    // Перевірити, чи існує параметр 'page'
+    if (isset($params['page'])) {
+        // Збільшити значення параметра 'page' на 1
+        $params['page']++;
+
+        // Побудувати новий рядок запиту
+        $new_query = http_build_query($params);
+
+        // Побудувати новий URL
+        $new_url = $parts['path'] . '?' . $new_query;
+
+        // Перевірити, чи є які-небудь інші параметри та додати їх до нового URL, якщо так
+        if (isset($parts['fragment'])) {
+            $new_url .= '#' . $parts['fragment'];
+        }
+
+        return $new_url;
+    }
+
+    // Якщо параметр 'page' не знайдено, повернути той самий URL
+    return $url;
 }
 
 
@@ -168,8 +198,9 @@ if (!empty($_REQUEST)) {
                     $lastItem = true;
                 }
                 $linkAttributes = '';
+                $nextPageUrl = increment_page_param($_SERVER['REQUEST_URI']);
                 if ($lastItem) {
-                    $linkAttributes = 'hx-get="/news/' . $categoryUrl . '/' . $r9['subpath'] . '?page='  . $nextPage . '" hx-trigger="revealed" hx-indicator="#spinner" hx-swap="afterend"';
+                    $linkAttributes = 'hx-get="' . $nextPageUrl . '" hx-trigger="revealed" hx-indicator="#spinner" hx-swap="afterend"';
                 }
                 // $pageId[] = $r9['id'];
                 $dateStr = date("d.m.y", strtotime($r9['created']));
