@@ -5,7 +5,7 @@
  * User: shtaras
  * Date: 2024-03-08
  * Time: 19:25
- * Modified: 2024-03-08 19:25
+ * Modified: 2024-03-09 11:01
  *
  * @author Taras Shkodenko <taras@shkodenko.com>
  */
@@ -20,7 +20,7 @@ function l_m($msg)
     // IP: 193.0.217.7 - Kyiv - Volodymyra Ivasyuka 24-a
     // IP: 176.37.192.192 - Kyiv - Rollhouse cafe
     // IP: 185.143.147.154 - Kyiv - Kreshchatyk, 25 hall
-    if (is_writeable($logFileName) && isset($_SERVER['HTTP_CF_CONNECTING_IP']) && ($_SERVER['HTTP_CF_CONNECTING_IP'] == '185.143.147.154')) {
+    if (is_writeable($logFileName) && isset($_SERVER['HTTP_CF_CONNECTING_IP']) && ($_SERVER['HTTP_CF_CONNECTING_IP'] == '193.0.217.97')) {
         error_log(date('r') . ' ' . $msg . PHP_EOL, 3, $logFileName);
     }
 
@@ -29,6 +29,7 @@ function l_m($msg)
         && ($_SERVER['REMOTE_ADDR'] !== '178.214.193.98') // InVenture office; Kyiv
         && ($_SERVER['REMOTE_ADDR'] !== '176.106.0.146') // Ilmolino Saksaganskogo str. 120; Kyiv
         && ($_SERVER['REMOTE_ADDR'] !== '185.143.147.154') // Kreshchatyk str. 25; Kyiv
+        && ($_SERVER['REMOTE_ADDR'] !== '193.0.217.97') // Volodymyra Ivasyuka ave. 24-a; Kyiv
     ) {
         // error_log(__FILE__ . ' +' . __LINE__ . ' ' . __FUNCTION__ . ' log to file is disabled for client IP: ' . $_SERVER['REMOTE_ADDR']);
         return false;
