@@ -222,7 +222,7 @@
                             {/if}
                             <div   itemprop="itemListElement" itemscope itemtype="http://schema.org/Article">
                                 <meta itemprop="position" content="{$idx}">
-                                {include 'components/card-post' linkAttributes=$linkAttributes}
+                                {include 'components/card-post' linkAttributes="$linkAttributes"}
                             </div>
                         {/foreach}
                     </div>
