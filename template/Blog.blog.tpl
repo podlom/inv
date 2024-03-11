@@ -11,6 +11,9 @@
 ]}
 
 {$nextPageUrl = '/news.php?lang=ru&action=news-list&page=1'}
+{if $request->getPathInfo()|strpos:'/analytics' === 0}
+    {$nextPageUrl = '/analytics.php?lang=ru&action=analytics-list&page=1'}
+{/if}
 
 {if $lang == 'uk'}
 {$links = [
@@ -22,6 +25,9 @@
     '/uk/investments/offer' => 'Інвестори'
 ]}
     {$nextPageUrl = '/news.php?lang=uk&action=news-list&page=1'}
+    {if $request->getPathInfo()|strpos:'/uk/analytics' === 0}
+        {$nextPageUrl = '/analytics.php?lang=uk&action=analytics-list&page=1'}
+    {/if}
 {/if}
 
 {if $lang == 'en'}
@@ -34,6 +40,9 @@
     '/en/investments/offer'=>'Investor Offers'
 ]}
     {$nextPageUrl = '/news.php?lang=en&action=news-list&page=1'}
+    {if $request->getPathInfo()|strpos:'/en/analytics' === 0}
+        {$nextPageUrl = '/analytics.php?lang=en&action=analytics-list&page=1'}
+    {/if}
 {/if}
 
 {assign "isNewStylesAvaible" value=(true)}
