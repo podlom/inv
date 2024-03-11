@@ -119,6 +119,8 @@ if (!empty($_REQUEST)) {
         }
     }
     //
+    $categoryUrl = '/tools/video';
+    $routeId = 7331;
     if (strlen($lang) > 2) {
         $lang = substr($lang, 0, 2);
     }
@@ -136,7 +138,7 @@ if (!empty($_REQUEST)) {
     $msg = __FILE__ . ' +' . __LINE__ . ' $_GET: ' . var_export($_GET, true) . '; $_POST: ' . var_export($_POST, true) . '; $_REQUEST: ' . var_export($_REQUEST, true);
     l_m($msg);
     //
-    if (isset($_REQUEST['action']) && ($_REQUEST['action'] == 'news-list')) { // Get events for home page action
+    if (isset($_REQUEST['action']) && ($_REQUEST['action'] == 'video-list')) { // Get events for home page action
         if (isset($_REQUEST['limit'])) {
             $limit = intval($_REQUEST['limit']);
         } else {
@@ -153,8 +155,16 @@ if (!empty($_REQUEST)) {
         }
         l_m(__FILE__ . ' +' . __LINE__ . ' $page: ' . var_export($page, true) . PHP_EOL);
         l_m(__FILE__ . ' +' . __LINE__ . ' $offset: ' . var_export($offset, true) . PHP_EOL);
-
-        $query = "SELECT SQL_CALC_FOUND_ROWS * FROM news_{$lang} LIMIT {$limit} OFFSET {$offset} ";
+        //
+        if ($lang == 'uk') {
+            $routeId = 7548;
+            $categoryUrl = '/uk/tools/video';
+        } elseif ($lang == 'en') {
+            $routeId = 7420;
+            $categoryUrl = '/en/tools/video';
+        }
+        //
+        $query = "SELECT SQL_CALC_FOUND_ROWS * FROM `Page` WHERE `status` = 1 AND route_id = {$routeId} ORDER BY `id` DESC LIMIT {$limit} OFFSET {$offset} ";
         l_m(__FILE__ . ' +' . __LINE__ . ' SQL: ' . $query . PHP_EOL);
         $res2 = $db->query($query);
         // l_m( __FILE__ . ' +' . __LINE__ . ' Result: ' . var_export($res2, true) . PHP_EOL );
@@ -167,26 +177,10 @@ if (!empty($_REQUEST)) {
         //
         $nextPage = $page + 1;
         $itemNo = 0;
-        $resHmtl .= '<div class="cards news-cards">';
+        $resHmtl .= '<div class="cards video-cards">';
         if (!empty($res2) && is_array($res2)) {
             foreach ($res2 as $r9) {
                 $itemNo ++;
-                //
-                if ($r9['category_title'] == 'Новости инвестиций Украины') {
-                    $categoryUrl = '/news/ukraine';
-                } elseif ($r9['category_title'] == 'Новости инвестиций мира') {
-                    $categoryUrl = '/news/world';
-                } elseif ($r9['category_title'] == 'Новини інвестицій України') {
-                    $categoryUrl = '/uk/news/ukraine';
-                } elseif ($r9['category_title'] == 'Світові новини інвестицій') {
-                    $categoryUrl = '/uk/news/world';
-                } elseif ($r9['category_title'] == 'News in Ukraine') {
-                    $categoryUrl = '/en/news/ukraine';
-                } elseif ($r9['category_title'] == 'World news') {
-                    $categoryUrl = '/en/news/world';
-                } else {
-                    $categoryUrl = '';
-                }
                 //
                 $lastItem = false;
                 if ($limit == $itemNo) {
