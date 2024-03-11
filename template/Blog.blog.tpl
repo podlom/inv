@@ -235,7 +235,7 @@
                     <div class="cards">
                         {foreach $posts as $idx=>$post}
                             {assign "linkAttributes" value=""}
-                            {if $idx == 20}
+                            {if $post@last}
                                 {assign "linkAttributes" value="hx-get='`$nextPageUrl`' hx-trigger='revealed' hx-indicator='#spinner' hx-swap='afterend'"}
                             {/if}
                             <div   itemprop="itemListElement" itemscope itemtype="http://schema.org/Article">
