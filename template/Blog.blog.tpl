@@ -218,7 +218,7 @@
                         {foreach $posts as $idx=>$post}
                             {assign "linkAttributes" value=""}
                             {if $idx == 20}
-                                {assign "linkAttributes" value="hx-get=\""`$nextPageUrl`"\" hx-trigger=\"revealed\" hx-indicator=\"#spinner\" hx-swap=\"afterend\""}
+                                {assign "linkAttributes" value="hx-get='`$nextPageUrl`' hx-trigger='revealed' hx-indicator='#spinner' hx-swap='afterend'"}
                             {/if}
                             <div   itemprop="itemListElement" itemscope itemtype="http://schema.org/Article">
                                 <meta itemprop="position" content="{$idx}">
