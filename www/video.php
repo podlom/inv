@@ -180,6 +180,14 @@ if (!empty($_REQUEST)) {
         $resHmtl .= '<div class="cards video-cards">';
         if (!empty($res2) && is_array($res2)) {
             foreach ($res2 as $r9) {
+                $attr55 = '';
+                if (isset($r9['attr'])) {
+                    $decodedAttr = json_decode($r9['attr'], true);
+                    if (isset($decodedAttr[55])) {
+                        $attr55 = $decodedAttr[55];
+                    }
+                }
+                //
                 $itemNo ++;
                 //
                 $lastItem = false;
@@ -199,7 +207,9 @@ if (!empty($_REQUEST)) {
                     '<a ' . $linkAttributes . ' href="' . $categoryUrl . '/' . $r9['subpath'] . '" class="cards__item">' .
                     '<div class="cards__labels flex"> </div> ' .
                     '<div class="cards__img-wrapper"> ' .
-                    '<img class="cards__img" itemprop="image" src="/img/thumb.350.254' . $r9['picture_url'] . '" data-src="/img/thumb.350.254' . $r9['picture_url'] . '" alt="Stonepeak привлекает $3,3 млрд для своего первого инфраструктурного фонда ориентированного на Азию" itemscope="" itemtype="http://schema.org/ImageObject"> </div> ' .
+                    // '<img class="cards__img" itemprop="image" src="/img/thumb.350.254' . $r9['picture_url'] . '" data-src="/img/thumb.350.254' . $r9['picture_url'] . '" alt="Stonepeak привлекает $3,3 млрд для своего первого инфраструктурного фонда ориентированного на Азию" itemscope="" itemtype="http://schema.org/ImageObject">' .
+                    ' <img src="//img.youtube.com/vi/' . $attr55 . '/mqdefault.jpg" class="cards__img" itemscope itemtype="http://schema.org/ImageObject"> '.
+                    ' </div> ' .
                     '<h2 class="cards__title" itemprop="headline">' . $r9['h1'] . '</h2> ' .
                     '<div itemprop="description" class="the_shorttext">' . $r9['short_text'] . '</div> ' .
                     '<div class="cards__meta flex justify-between mt-auto opacity-75 text-sm"> ' .
