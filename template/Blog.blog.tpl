@@ -14,6 +14,9 @@
 {if $request->getPathInfo()|strpos:'/analytics' === 0}
     {$nextPageUrl = '/analytics.php?lang=ru&action=analytics-list&page=1'}
 {/if}
+{if $request->getPathInfo()|strpos:'/tools/video' === 0}
+    {$nextPageUrl = '/video.php?lang=ru&action=video-list&page=1'}
+{/if}
 
 {if $lang == 'uk'}
 {$links = [
@@ -27,6 +30,9 @@
     {$nextPageUrl = '/news.php?lang=uk&action=news-list&page=1'}
     {if $request->getPathInfo()|strpos:'/uk/analytics' === 0}
         {$nextPageUrl = '/analytics.php?lang=uk&action=analytics-list&page=1'}
+    {/if}
+    {if $request->getPathInfo()|strpos:'/uk/tools/video' === 0}
+        {$nextPageUrl = '/video.php?lang=uk&action=video-list&page=1'}
     {/if}
 {/if}
 
@@ -42,6 +48,9 @@
     {$nextPageUrl = '/news.php?lang=en&action=news-list&page=1'}
     {if $request->getPathInfo()|strpos:'/en/analytics' === 0}
         {$nextPageUrl = '/analytics.php?lang=en&action=analytics-list&page=1'}
+    {/if}
+    {if $request->getPathInfo()|strpos:'/en/tools/video' === 0}
+        {$nextPageUrl = '/video.php?lang=en&action=video-list&page=1'}
     {/if}
 {/if}
 
