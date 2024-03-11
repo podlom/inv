@@ -10,6 +10,8 @@
     '/investments/offer'=>'Инвесторы'
 ]}
 
+{$nextPageUrl = '/news.php?lang=ru&action=news-list&page=1'}
+
 {if $lang == 'uk'}
 {$links = [
     '/uk/investments/projects' => 'Інвестиційні проекти і стартапи',
@@ -19,6 +21,7 @@
     '/uk/investments/franchising' => 'Франчайзинг',
     '/uk/investments/offer' => 'Інвестори'
 ]}
+    {$nextPageUrl = '/news.php?lang=uk&action=news-list&page=1'}
 {/if}
 
 {if $lang == 'en'}
@@ -30,6 +33,7 @@
     '/en/investments/en_franchising'=>'Franchising',
     '/en/investments/offer'=>'Investor Offers'
 ]}
+    {$nextPageUrl = '/news.php?lang=en&action=news-list&page=1'}
 {/if}
 
 {assign "isNewStylesAvaible" value=(true)}
@@ -212,9 +216,13 @@
                 {else}
                     <div class="cards">
                         {foreach $posts as $idx=>$post}
+                            {assign "linkAttributes" value=""}
+                            {if $idx == 20}
+                                {assign "linkAttributes" value="hx-get=\"" . $nextPageUrl . "\" hx-trigger=\"revealed\" hx-indicator=\"#spinner\" hx-swap=\"afterend\""}
+                            {/if}
                             <div   itemprop="itemListElement" itemscope itemtype="http://schema.org/Article">
                                 <meta itemprop="position" content="{$idx}">
-                                {include 'components/card-post'}
+                                {include 'components/card-post' linkAttributes=$linkAttributes}
                             </div>
                         {/foreach}
                     </div>
