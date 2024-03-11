@@ -183,8 +183,8 @@ if (!empty($_REQUEST)) {
                 $attr55 = '';
                 if (isset($r9['attr'])) {
                     $decodedAttr = json_decode($r9['attr'], true);
-                    if (isset($decodedAttr[55])) {
-                        $attr55 = $decodedAttr[55];
+                    if (isset($decodedAttr['attr55'])) {
+                        $attr55 = $decodedAttr['attr55'];
                     }
                 }
                 //
