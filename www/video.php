@@ -164,7 +164,7 @@ if (!empty($_REQUEST)) {
             $categoryUrl = '/en/tools/video';
         }
         //
-        $query = "SELECT SQL_CALC_FOUND_ROWS *, '' AS picture_url FROM `Page` WHERE `status` = 1 AND route_id = {$routeId} ORDER BY `id` DESC LIMIT {$limit} OFFSET {$offset} ";
+        $query = "SELECT SQL_CALC_FOUND_ROWS p.*, '' AS picture_url, ap.`views` AS `page_views` FROM `Page` AS `p` LEFT JOIN `Analytics_Page` AS `ap` ON ((`p`.`id` = `ap`.`page_id`)) WHERE p.`status` = 1 AND p.route_id = {$routeId} ORDER BY p.`id` DESC LIMIT {$limit} OFFSET {$offset} ";
         l_m(__FILE__ . ' +' . __LINE__ . ' SQL: ' . $query . PHP_EOL);
         $res2 = $db->query($query);
         // l_m( __FILE__ . ' +' . __LINE__ . ' Result: ' . var_export($res2, true) . PHP_EOL );
