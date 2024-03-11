@@ -1,4 +1,4 @@
-<a {if !empty($linkAttributes)}$linkAttributes{/if} href="{$post->getPath()}" class="cards__item">
+<a {if !empty($linkAttributes)}{$linkAttributes}{/if} href="{$post->getPath()}" class="cards__item">
 	<div class="cards__labels flex">
 		{if $post->getAttr(64) == 1}
 			<div data-tippy-content="{if $lang=='en'}{elseif $lang == 'uk'}На правах реклами{else}На правах рекламы{/if}"
