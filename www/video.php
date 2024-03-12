@@ -177,7 +177,7 @@ if (!empty($_REQUEST)) {
         //
         $nextPage = $page + 1;
         $itemNo = 0;
-        // $resHmtl .= '<div class="cards video-cards">';
+
         $resHmtl .= '';
         if (!empty($res2) && is_array($res2)) {
             foreach ($res2 as $r9) {
