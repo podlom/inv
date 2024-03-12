@@ -270,7 +270,7 @@
             {assign "isAnalyticsPage" value=($request->getPathInfo() == '/analytics' || $request->getPathInfo() == '/en/analytics'|| $request->getPathInfo() == '/uk/analytics'	)}
             {assign "isVideoPage" value=($request->getPathInfo() == '/video' || $request->getPathInfo() == '/en/video'|| $request->getPathInfo() == '/uk/video'	)}
 
-            {if $isInvestmentsPage || $isNewsPage || $isAnalyticsPage || $isVideoPage}
+            {* {if $isInvestmentsPage || $isNewsPage || $isAnalyticsPage || $isVideoPage}
                 {script src="https://unpkg.com/htmx.org@1.9.10" name="htmx"}
                 <style>               
                 .lds-ellipsis {
@@ -368,7 +368,12 @@
                         <li class="{$a->getAttr('class')}">{$a->setAttr('class', '')}</li>
                     {/foreach}
                 </ul>
-            {/if}
+            {/if} *}
+            <ul class="pagination mb-10">
+                {foreach $posts->getPagination()->getLinks() as $a}
+                    <li class="{$a->getAttr('class')}">{$a->setAttr('class', '')}</li>
+                {/foreach}
+            </ul>
         {/block}
 
 				{if $isInvestments}
