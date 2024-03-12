@@ -208,6 +208,3 @@ servicePopup: true
 
 	{include 'components/subscribe-modal'}
 
-	{if $isInvestmentsPage}
-		{script src="https://unpkg.com/htmx.org@1.9.10" name="htmx"}
-	{/if}

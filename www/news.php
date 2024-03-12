@@ -172,7 +172,8 @@ if (!empty($_REQUEST)) {
         //
         $nextPage = $page + 1;
         $itemNo = 0;
-        $resHmtl .= '<div class="cards news-cards">';
+        // $resHmtl .= '<div class="cards news-cards">';
+        $resHmtl .= '';
         if (!empty($res2) && is_array($res2)) {
             foreach ($res2 as $r9) {
                 $itemNo ++;
@@ -225,7 +226,7 @@ if (!empty($_REQUEST)) {
                     '</a></div>';
             }
         }
-        $resHmtl .= '</div>';
+        // $resHmtl .= '</div>';
 
     }
 
