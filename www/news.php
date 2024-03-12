@@ -206,9 +206,9 @@ if (!empty($_REQUEST)) {
                 // $pageId[] = $r9['id'];
                 $dateStr = date("d.m.y", strtotime($r9['created']));
                 //
-                $resHmtl .= '<div data-item-no="' . $itemNo . '" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/Article">' .
+                $resHmtl .= '<div ' . $linkAttributes . '  data-item-no="' . $itemNo . '" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/Article">' .
                     '<meta itemprop="position" content="0">' .
-                    '<a ' . $linkAttributes . ' href="' . $categoryUrl . '/' . $r9['subpath'] . '" class="cards__item">' .
+                    '<a href="' . $categoryUrl . '/' . $r9['subpath'] . '" class="cards__item">' .
                     '<div class="cards__labels flex"> </div> ' .
                     '<div class="cards__img-wrapper"> ' .
                     '<img class="cards__img" itemprop="image" src="/img/thumb.350.254' . $r9['picture_url'] . '" data-src="/img/thumb.350.254' . $r9['picture_url'] . '" alt="Stonepeak привлекает $3,3 млрд для своего первого инфраструктурного фонда ориентированного на Азию" itemscope="" itemtype="http://schema.org/ImageObject"> </div> ' .

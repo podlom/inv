@@ -238,7 +238,7 @@
                             {if $post@last}
                                 {assign "linkAttributes" value="hx-get='`$nextPageUrl`' hx-trigger='revealed' hx-indicator='#spinner' hx-swap='afterend'"}
                             {/if}
-                            <div   itemprop="itemListElement" itemscope itemtype="http://schema.org/Article">
+                            <div {if !empty($linkAttributes)}{$linkAttributes}{/if} itemprop="itemListElement" itemscope itemtype="http://schema.org/Article">
                                 <meta itemprop="position" content="{$idx}">
                                 {include 'components/card-post' linkAttributes="$linkAttributes"}
                             </div>
@@ -266,12 +266,11 @@
         {/if}
         {/block}
         {block 'pagination'}
-            {assign "isNewsPage" value=($request->getPathInfo() == '/news' || $request->getPathInfo() == '/en/news' || $request->getPathInfo() == '/uk/news')}
-            {assign "isAnalyticsPage" value=($request->getPathInfo() == '/analytics' || $request->getPathInfo() == '/en/analytics'|| $request->getPathInfo() == '/uk/analytics'	)}
-            {assign "isVideoPage" value=($request->getPathInfo() == '/video' || $request->getPathInfo() == '/en/video'|| $request->getPathInfo() == '/uk/video'	)}
+            {assign "isNewsPage" value=($request->getPathInfo()|strpos:'/news' === 0 || $request->getPathInfo()|strpos:'/en/news' === 0 || $request->getPathInfo()|strpos:'/uk/news' === 0)}
+            {assign "isAnalyticsPage" value=($request->getPathInfo()|strpos:'/analytics' === 0 || $request->getPathInfo()|strpos:'/en/analytics' === 0 || $request->getPathInfo()|strpos:'/uk/analytics' === 0)}
+            {assign "isVideoPage" value=($request->getPathInfo()|strpos:'/tools/video' === 0 || $request->getPathInfo()|strpos:'/en/tools/video' === 0 || $request->getPathInfo()|strpos:'/uk/tools/video' === 0)}
 
-            {* {if $isInvestmentsPage || $isNewsPage || $isAnalyticsPage || $isVideoPage}
-                {script src="https://unpkg.com/htmx.org@1.9.10" name="htmx"}
+            {if $isInvestmentsPage || $isNewsPage || $isAnalyticsPage || $isVideoPage }
                 <style>               
                 .lds-ellipsis {
                     display: inline-block;
@@ -354,13 +353,14 @@
                 }
                 </style>
                 <div id="spinner" style="margin: 0 auto; display: block;" class="lds-ellipsis htmx-indicator"><div></div><div></div><div></div><div></div></div>
+                {script src="https://unpkg.com/htmx.org@1.9.10" name="htmx" }
                 <script>
-                    const processHtmx = () => {
+                    const htmxScript = document.querySelector('script[data-name="htmx"]');
+                    htmxScript.addEventListener("load", () => {
+                        console.log('htmx loaded')
                         const cardList = document.querySelector('.cards');
-                        window.htmx.process(cardList);
-                    }
-                    if(htmx) processHtmx();
-                    else document.body.addEventListener('htmx:load', processHtmx);
+                        if(cardList) window.htmx.process(cardList);
+                    });
                 </script>
             {else}
                 <ul class="pagination mb-10">
@@ -368,12 +368,7 @@
                         <li class="{$a->getAttr('class')}">{$a->setAttr('class', '')}</li>
                     {/foreach}
                 </ul>
-            {/if} *}
-            <ul class="pagination mb-10">
-                {foreach $posts->getPagination()->getLinks() as $a}
-                    <li class="{$a->getAttr('class')}">{$a->setAttr('class', '')}</li>
-                {/foreach}
-            </ul>
+            {/if}
         {/block}
 
 				{if $isInvestments}
