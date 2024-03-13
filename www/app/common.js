@@ -928,9 +928,13 @@ $(document).ready(function () {
     $(".event_list .cards").addClass("cards--event");
     const pathname = window.location.pathname;
     const action = pathname.includes("tools/events") ? "events" : "home";
-    let search = window.location.search;
-    if (!!search) search = `&${search.substring(1)}`;
-    $.get(`/event.php?action=${action}${search}`).then((data) => {
+    
+    const searchParams = (new URL(document.location)).searchParams
+    const past = searchParams.get("past") || '0';
+    const params = new URLSearchParams();
+    params.append('past', past);
+    params.append('action', action);
+    $.get(`/event.php?${params.toString()}`).then((data) => {
       if (data) {
         $("#events .cards, .event_list .cards").html(data);
       }

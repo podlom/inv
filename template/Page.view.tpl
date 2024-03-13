@@ -34,11 +34,8 @@ servicePopup: true
 )}
 
 {* || $request->getPathInfo() == '/about/contacts' *}
-{assign "isInvestmentsPage" value=(
-	 $request->getPathInfo() == '/investments' 
-|| $request->getPathInfo() == '/en/investments'
-|| $request->getPathInfo() == '/uk/investments'
-)}
+
+{assign "isInvestmentsPage" value=($request->getPathInfo()|strpos:'/investments' === 0 || $request->getPathInfo()|strpos:'/en/investments' === 0 || $request->getPathInfo()|strpos:'/uk/investments' === 0)}
 {assign "isCustomTitle" value=(
 	$request->getPathInfo() === '/add-inv-prop' 
 	|| $request->getPathInfo() === '/en/add-inv-prop' 
