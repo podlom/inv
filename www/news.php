@@ -176,7 +176,7 @@ if (!empty($_REQUEST)) {
         $resHmtl .= '';
         if (!empty($res2) && is_array($res2)) {
             foreach ($res2 as $r9) {
-                $itemNo ++;
+                $itemNo++;
                 //
                 if ($r9['category_title'] == 'Новости инвестиций Украины') {
                     $categoryUrl = '/news/ukraine';

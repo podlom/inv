@@ -929,14 +929,39 @@ $(document).ready(function () {
     const pathname = window.location.pathname;
     const action = pathname.includes("tools/events") ? "events" : "home";
     
+    const language = document.documentElement.lang;
+    const labels = {
+      ru: "Пока что нет мероприятий",
+      uk: "Поки що немає подій",
+      en: "No events yet"
+    };
+    const label = labels[language];
+    
     const searchParams = (new URL(document.location)).searchParams
-    const past = searchParams.get("past") || '0';
+    const past = searchParams.get("past");
     const params = new URLSearchParams();
-    params.append('past', past);
+    if(past) params.append('past', past);
     params.append('action', action);
+    params.append('lang', language);
+    params.append('page', '1');
     $.get(`/event.php?${params.toString()}`).then((data) => {
-      if (data) {
+      if (!data){
+        
+        $("#events .cards, .event_list .cards").html(`<div class="content seo-text text-center"><p>${label}</p></div>`);
+      }else{
+        console.log({data})
         $("#events .cards, .event_list .cards").html(data);
+        if(window.htmx){
+          const cardList = document.querySelector('.cards');
+          if(cardList) window.htmx.process(cardList);
+        }else{
+          const htmxScript = document.querySelector('script[data-name="htmx"]');
+          htmxScript.addEventListener("load", () => {
+              console.log('htmx loaded')
+              const cardList = document.querySelector('.cards');
+              if(cardList) window.htmx.process(cardList);
+          });
+        }
       }
     });
   }

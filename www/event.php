@@ -9,7 +9,35 @@
  *
  * @author Taras Shkodenko <taras@shkodenko.com>
  */
+function increment_page_param(string $url) : string
+{
+    // Розділити URL на шлях та параметри
+    $parts = parse_url($url);
+    $query = isset($parts['query']) ? $parts['query'] : '';
+    parse_str($query, $params);
 
+    // Перевірити, чи існує параметр 'page'
+    if (isset($params['page'])) {
+        // Збільшити значення параметра 'page' на 1
+        $params['page']++;
+
+        // Побудувати новий рядок запиту
+        $new_query = http_build_query($params);
+
+        // Побудувати новий URL
+        $new_url = $parts['path'] . '?' . $new_query;
+
+        // Перевірити, чи є які-небудь інші параметри та додати їх до нового URL, якщо так
+        if (isset($parts['fragment'])) {
+            $new_url .= '#' . $parts['fragment'];
+        }
+
+        return $new_url;
+    }
+
+    // Якщо параметр 'page' не знайдено, повернути той самий URL
+    return $url;
+}
 function l_m($msg)
 {
     // Do not log on prod by default
@@ -238,7 +266,9 @@ if (!empty($_REQUEST)) {
                 //
                 $num = 1;
                 $resHmtl .= '';
+                
                 foreach ($res3 as $r7) {
+                    
                     // l_m(__FILE__ . ' +' . __LINE__ . ' Result: ' . var_export($r7, true) . PHP_EOL);
                     $imgHtml = '';
                     if (isset($r7['page_url_30']) && !empty($r7['page_url_30'])) {
@@ -296,6 +326,7 @@ if (!empty($_REQUEST)) {
                     //             </div>';
 
                     // <img class="lazyimg cards__img" data-src="/img/thumbup.120.90/' . $r7['page_url_30'] . '" alt="' . $r7['title_19'] . '" src="/img/thumbup.120.90/' . $r7['page_url_30'] . '">
+                    
                     $resHmtl .= '
                     <a href="/tools/events/' . $r7['subpath_7'] . '" class="cards__item event mb-4">
                         <div class="event__date">
@@ -414,7 +445,18 @@ if (!empty($_REQUEST)) {
                 }
                 $resHmtl .= '<!-- @ts show pager: ' . var_export($showPager, true) . ' -->' . PHP_EOL;
                 $resHmtl .= '';
+                $itemNo = 0;
                 foreach ($res3 as $r7) {
+                    $itemNo++;
+                    $lastItem = false;
+                    if ($limit == $itemNo) {
+                        $lastItem = true;
+                    }
+                    $linkAttributes = '';
+                    $nextPageUrl = increment_page_param($_SERVER['REQUEST_URI']);
+                    if ($lastItem) {
+                        $linkAttributes = 'hx-get="' . $nextPageUrl . '" hx-trigger="revealed" hx-indicator="#spinner" hx-swap="afterend"';
+                    }
                     // l_m(__FILE__ . ' +' . __LINE__ . ' Result: ' . var_export($r7, true) . PHP_EOL);
                     $imgHtml = '';
                     if (isset($r7['page_url_30']) && !empty($r7['page_url_30'])) {
@@ -472,7 +514,7 @@ if (!empty($_REQUEST)) {
                     //             </div>';
 
                     $resHmtl .= '
-                    <a href="/tools/events/' . $r7['subpath_7'] . '" class="cards__item event mb-4">
+                    <a href="/tools/events/' . $r7['subpath_7'] . '" ' . $linkAttributes . ' class="cards__item event mb-4">
                         <div class="event__date past__event' . $r7['past_2'] . '">
                             <div class="event__day font-semibold">' . $formatDay . '</div>
                             <div class="event__month">' . $formatMonth . '</div>
@@ -495,10 +537,10 @@ if (!empty($_REQUEST)) {
                     $num++;
                 }
                 $resHmtl .= '';
-                if ($showPager) {
-                    // TODO: show pager for events here
-                    $resHmtl .= build_pager($page, $numPages, 5);
-                }
+                // if ($showPager) {
+                //     // TODO: show pager for events here
+                //     $resHmtl .= build_pager($page, $numPages, 5);
+                // }
             }
         }
     }

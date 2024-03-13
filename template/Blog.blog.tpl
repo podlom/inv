@@ -269,8 +269,9 @@
             {assign "isNewsPage" value=($request->getPathInfo()|strpos:'/news' === 0 || $request->getPathInfo()|strpos:'/en/news' === 0 || $request->getPathInfo()|strpos:'/uk/news' === 0)}
             {assign "isAnalyticsPage" value=($request->getPathInfo()|strpos:'/analytics' === 0 || $request->getPathInfo()|strpos:'/en/analytics' === 0 || $request->getPathInfo()|strpos:'/uk/analytics' === 0)}
             {assign "isVideoPage" value=($request->getPathInfo()|strpos:'/tools/video' === 0 || $request->getPathInfo()|strpos:'/en/tools/video' === 0 || $request->getPathInfo()|strpos:'/uk/tools/video' === 0)}
+            {assign "isEventsPage" value=($request->getPathInfo()|strpos:'/tools/events' === 0 || $request->getPathInfo()|strpos:'/en/tools/events' === 0 || $request->getPathInfo()|strpos:'/uk/tools/events' === 0)}
 
-            {if $isInvestmentsPage || $isNewsPage || $isAnalyticsPage || $isVideoPage }
+            {if $isInvestmentsPage || $isNewsPage || $isAnalyticsPage || $isVideoPage || $isEventsPage }
                 <style>               
                 .lds-ellipsis {
                     display: inline-block;
