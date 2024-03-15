@@ -21,6 +21,9 @@
 	<meta name="google-site-verification" content="LfVoNUP8eiLhw36D_ybQCjOCMGpC2A3l39tbZpaHP5A" />
 	<meta name="google-site-verification" content="-6zzop7KDzhnKh2o5OdjWKynXd1cQol6feh7N75LVmk" />
 	<!-- Favicons -->
+	<link rel="icon" href="/images/theme/favicon/favicon.ico" sizes="16x16" />
+	<link rel="icon" href="/images/theme/favicon/touch-icon-iphone.png" sizes="60x60" />
+	<link rel="icon" href="/images/theme/favicon/touch-icon-iphone-retina.png" sizes="120x120" />
 	<link rel="apple-touch-icon" href="/images/theme/favicon/touch-icon-iphone.png" />
 	<link rel="apple-touch-icon" sizes="76x76" href="/images/theme/favicon/touch-icon-ipad.png" />
 	<link rel="apple-touch-icon" sizes="120x120" href="/images/theme/favicon/touch-icon-iphone-retina.png" />
