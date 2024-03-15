@@ -34,11 +34,8 @@ servicePopup: true
 )}
 
 {* || $request->getPathInfo() == '/about/contacts' *}
-{assign "isInvestmentsPage" value=(
-	 $request->getPathInfo() == '/investments' 
-|| $request->getPathInfo() == '/en/investments'
-|| $request->getPathInfo() == '/uk/investments'
-)}
+
+{assign "isInvestmentsPage" value=($request->getPathInfo()|strpos:'/investments' === 0 || $request->getPathInfo()|strpos:'/en/investments' === 0 || $request->getPathInfo()|strpos:'/uk/investments' === 0)}
 {assign "isCustomTitle" value=(
 	$request->getPathInfo() === '/add-inv-prop' 
 	|| $request->getPathInfo() === '/en/add-inv-prop' 
@@ -69,24 +66,61 @@ servicePopup: true
     $request->getPathInfo() == '/uk/politika-konfidencialnosti'
 )}
 
-<div data-is-post="{$isPost}" data-is-investments-post="{$isInvestmentsPost}" data-path-info="{$request->getPathInfo()}" data-is-full-view="{$isFullView}" ></div>
+<div data-is-post="{$isPost}" data-is-investments-post="{$isInvestmentsPost}" data-path-info="{$request->getPathInfo()}"
+	data-is-full-view="{$isFullView}"></div>
 {if $isInvestmentsPost && $isPost}
 	{include 'components/previews/invest-project'}
 	<div class="bg-white pb-6 pt-6">
 	{/if}
 
 	<div itemscope itemtype="http://schema.org/WebPage" class="
-			{block 'page.class'}container container--main
-				{if ($request->getPathInfo() == '/investor' || $request->getPathInfo() == '/en/investor' || $request->getPathInfo() == '/uk/investor'  )}
-					investor-form
-				{else}
-					container--post the_post z-0 relative
-				{/if}
-				{if $isFullView}
-					container--full
-				{/if}
-			{/block}
-			">
+									{block 'page.class'}container container--main
+
+
+
+
+
+
+			{if ($request->getPathInfo() == '/investor' || $request->getPathInfo() == '/en/investor' || $request->getPathInfo() == '/uk/investor'  )}
+																							investor-form
+
+
+
+
+
+
+			{else}
+																							container--post the_post z-0 relative
+
+
+
+
+
+
+			{/if}
+
+
+
+
+
+
+			{if $isFullView}
+																							container--full
+
+
+
+
+
+
+			{/if}
+
+
+
+
+
+
+		{/block}
+									">
 			{if $isPlainText}
 				<div class="container container--main container--post the_post the_post flex  {if !$isFullView}pl-0 pr-0{/if}">
 					<div class="post__wrapper post__wrapper--shadow">
@@ -96,8 +130,8 @@ servicePopup: true
 						<div class="post__container">
 							<div class="line mb-6 mt-6 s"></div>
 							{block 'content'}
-								<div class="wrapper" itemprop="mainEntity" {block 'page.scope'}itemtype="http://schema.org/CreativeWork"
-									{/block} itemscope>
+								<div class="wrapper" itemprop="mainEntity"
+									{block 'page.scope'}itemtype="http://schema.org/CreativeWork" {/block} itemscope>
 									<div class="post__content content pb-6">
 										{block 'content.text'}
 											{content $editable attr=['class'=>'the_post_content', 'itemprop'=>'text']}
@@ -118,7 +152,7 @@ servicePopup: true
 						{/if}
 					{/block}
 					{block 'breadcrumbs'}
-							{* <div class="clearfix">
+						{* <div class="clearfix">
 								<ul class="breadcrumbs-box">
 									<li><a href="/">{site_name()}</a></li>
 									<li class="current">{$page->getH1()|truncate:75:" ..."|trim}</li>
@@ -128,8 +162,8 @@ servicePopup: true
 					{block 'menu'}{/block}
 					{block 'filter'}{/block}
 					{block 'content'}
-						<div class="wrapper" itemprop="mainEntity" {block 'page.scope'}itemtype="http://schema.org/CreativeWork" {/block}
-							itemscope>
+						<div class="wrapper" itemprop="mainEntity" {block 'page.scope'}itemtype="http://schema.org/CreativeWork"
+							{/block} itemscope>
 							<div class="viewbox-cnt-body m_b-20">
 								{block 'content.text'}
 									{content $editable attr=['class'=>'the_post_content', 'itemprop'=>'text']}
@@ -170,3 +204,4 @@ servicePopup: true
 {/if} *}
 
 	{include 'components/subscribe-modal'}
+
