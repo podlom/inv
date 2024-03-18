@@ -5,72 +5,12 @@
  * User: shtaras
  * Date: 2024-03-08
  * Time: 19:25
- * Modified: 2024-03-09 11:01
+ * Modified: 2024-03-18 09:41
  *
  * @author Taras Shkodenko <taras@shkodenko.com>
  */
 
-function l_m(string $msg)
-{
-    $logFileName = dirname(__FILE__) . '/news.log';
-    if (!file_exists($logFileName)) {
-        touch($logFileName);
-        chmod($logFileName, 0666);
-    }
-    // IP: 193.0.217.7 - Kyiv - Volodymyra Ivasyuka 24-a
-    // IP: 176.37.192.192 - Kyiv - Rollhouse cafe
-    // IP: 185.143.147.154 - Kyiv - Kreshchatyk, 25 hall
-    if (is_writeable($logFileName) && isset($_SERVER['HTTP_CF_CONNECTING_IP']) && ($_SERVER['HTTP_CF_CONNECTING_IP'] == '193.0.217.97')) {
-        error_log(date('r') . ' ' . $msg . PHP_EOL, 3, $logFileName);
-    }
-
-    // Do not log if client IP does not match list below
-    if (($_SERVER['REMOTE_ADDR'] !== '185.11.28.246') // @ts 2021-02-25; ISP Best; Grand Villas; home
-        && ($_SERVER['REMOTE_ADDR'] !== '178.214.193.98') // InVenture office; Kyiv
-        && ($_SERVER['REMOTE_ADDR'] !== '176.106.0.146') // Ilmolino Saksaganskogo str. 120; Kyiv
-        && ($_SERVER['REMOTE_ADDR'] !== '185.143.147.154') // Kreshchatyk str. 25; Kyiv
-        && ($_SERVER['REMOTE_ADDR'] !== '193.0.217.97') // Volodymyra Ivasyuka ave. 24-a; Kyiv
-    ) {
-        // error_log(__FILE__ . ' +' . __LINE__ . ' ' . __FUNCTION__ . ' log to file is disabled for client IP: ' . $_SERVER['REMOTE_ADDR']);
-        return false;
-    } else {
-        if (is_writeable($logFileName)) {
-            error_log(date('r') . ' ' . $msg . PHP_EOL, 3, $logFileName);
-        }
-    }
-}
-
-function increment_page_param(string $url) : string
-{
-    // Розділити URL на шлях та параметри
-    $parts = parse_url($url);
-    $query = isset($parts['query']) ? $parts['query'] : '';
-    parse_str($query, $params);
-
-    // Перевірити, чи існує параметр 'page'
-    if (isset($params['page'])) {
-        // Збільшити значення параметра 'page' на 1
-        $params['page']++;
-
-        // Побудувати новий рядок запиту
-        $new_query = http_build_query($params);
-
-        // Побудувати новий URL
-        $new_url = $parts['path'] . '?' . $new_query;
-
-        // Перевірити, чи є які-небудь інші параметри та додати їх до нового URL, якщо так
-        if (isset($parts['fragment'])) {
-            $new_url .= '#' . $parts['fragment'];
-        }
-
-        return $new_url;
-    }
-
-    // Якщо параметр 'page' не знайдено, повернути той самий URL
-    return $url;
-}
-
-
+require_once 'lib/functions.php';
 require_once realpath(__DIR__ . '/../bootstrap.php');
 
 
