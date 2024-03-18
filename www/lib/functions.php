@@ -10,6 +10,41 @@
  * @author Taras Shkodenko <taras@shkodenko.com>
  */
 
+
+function l_m(string $msg)
+{
+    // Do not log on prod by default
+    // if ($_SERVER['SERVER_NAME'] === 'inventure.com.ua') {
+        // error_log(__FILE__ . ' +' . __LINE__ . ' ' . __FUNCTION__ . ' log to file is disabled for production env: ' . $_SERVER['SERVER_NAME']);
+        // return false;
+    // }
+
+    $logFileName = dirname(__FILE__) . '/' . date('Y-m-d_H-i') . '_' . bin2hex(random_bytes(7)) . '.log';
+    if (!file_exists($logFileName)) {
+        touch($logFileName);
+        chmod($logFileName, 0666);
+    }
+    // IP: 193.0.217.7 - Kyiv - Volodymyra Ivasyuka 24-a
+    // IP: 176.37.192.192 - Kyiv - Rollhouse cafe
+    // IP: 31.43.103.143 - 2024-03-18 - Kyiv - Feelin cafe
+    // IP: 193.0.217.97 - 2024-03-18 - Kyiv - Volodymyra Ivasyuka ave. 24-a
+    if (is_writeable($logFileName) && isset($_SERVER['HTTP_CF_CONNECTING_IP']) && ($_SERVER['HTTP_CF_CONNECTING_IP'] == '193.0.217.97')) {
+        error_log(date('r') . ' ' . $msg . PHP_EOL, 3, $logFileName);
+    }
+
+    // Do not log if client IP does not match list below
+    if (($_SERVER['REMOTE_ADDR'] !== '185.11.28.246') // @ts 2021-02-25; ISP Best; Grand Villas; home
+        && ($_SERVER['REMOTE_ADDR'] !== '178.214.193.98') // InVenture office; Kyiv
+    ) {
+        // error_log(__FILE__ . ' +' . __LINE__ . ' ' . __FUNCTION__ . ' log to file is disabled for client IP: ' . $_SERVER['REMOTE_ADDR']);
+        return false;
+    } else {
+        if (is_writeable($logFileName)) {
+            error_log(date('r') . ' ' . $msg . PHP_EOL, 3, $logFileName);
+        }
+    }
+}
+
 /**
  * Default UA phone number normalization function
  * @param string $str
@@ -244,40 +279,6 @@ function increment_page_param(string $url) : string
 
     // Якщо параметр 'page' не знайдено, повернути той самий URL
     return $url;
-}
-
-function l_m($msg)
-{
-    // Do not log on prod by default
-    if ($_SERVER['SERVER_NAME'] === 'inventure.com.ua') {
-        // error_log(__FILE__ . ' +' . __LINE__ . ' ' . __FUNCTION__ . ' log to file is disabled for production env: ' . $_SERVER['SERVER_NAME']);
-        return false;
-    }
-
-    $logFileName = dirname(__FILE__) . '/' . date('Y-m-d_H-i') . '_' . bin2hex(random_bytes(7)) . '.log';
-    if (!file_exists($logFileName)) {
-        touch($logFileName);
-        chmod($logFileName, 0666);
-    }
-    // IP: 193.0.217.7 - Kyiv - Volodymyra Ivasyuka 24-a
-    // IP: 176.37.192.192 - Kyiv - Rollhouse cafe
-    // IP: 31.43.103.143 - 2024-03-18 - Kyiv - Feelin cafe
-    if (is_writeable($logFileName) && isset($_SERVER['HTTP_CF_CONNECTING_IP']) && ($_SERVER['HTTP_CF_CONNECTING_IP'] == '193.0.217.7')) {
-        error_log(date('r') . ' ' . $msg . PHP_EOL, 3, $logFileName);
-    }
-
-    // Do not log if client IP does not match list below
-    if (($_SERVER['REMOTE_ADDR'] !== '185.11.28.246') // @ts 2021-02-25; ISP Best; Grand Villas; home
-        && ($_SERVER['REMOTE_ADDR'] !== '178.214.193.98') // InVenture office; Kyiv
-        && ($_SERVER['REMOTE_ADDR'] !== '176.106.0.146') // Ilmolino Saksaganskogo str. 120; Kyiv
-    ) {
-        // error_log(__FILE__ . ' +' . __LINE__ . ' ' . __FUNCTION__ . ' log to file is disabled for client IP: ' . $_SERVER['REMOTE_ADDR']);
-        return false;
-    } else {
-        if (is_writeable($logFileName)) {
-            error_log(date('r') . ' ' . $msg . PHP_EOL, 3, $logFileName);
-        }
-    }
 }
 
 function build_pager($currentPage = 1, $maxPages, $numPagerLinks = 5)
