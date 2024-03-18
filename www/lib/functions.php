@@ -261,6 +261,7 @@ function l_m($msg)
     }
     // IP: 193.0.217.7 - Kyiv - Volodymyra Ivasyuka 24-a
     // IP: 176.37.192.192 - Kyiv - Rollhouse cafe
+    // IP: 31.43.103.143 - 2024-03-18 - Kyiv - Feelin cafe
     if (is_writeable($logFileName) && isset($_SERVER['HTTP_CF_CONNECTING_IP']) && ($_SERVER['HTTP_CF_CONNECTING_IP'] == '193.0.217.7')) {
         error_log(date('r') . ' ' . $msg . PHP_EOL, 3, $logFileName);
     }
