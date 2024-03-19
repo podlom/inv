@@ -77,8 +77,8 @@ if (!empty($_REQUEST)) {
     //
     if (isset($_SERVER['HTTP_REFERER'])) {
         $parsedHttpReferer = parse_url($_SERVER['HTTP_REFERER']);
-        // $msg = __FILE__ . ' +' . __LINE__ . ' @ts $parsedHttpReferer: ' . var_export($parsedHttpReferer, true);
-        // l_m($msg);
+        $msg = __FILE__ . ' +' . __LINE__ . ' @ts $parsedHttpReferer: ' . var_export($parsedHttpReferer, true);
+        l_m($msg);
         //
         $categorySqlValue = '';
         if (isset($parsedHttpReferer['path']) && !empty($parsedHttpReferer['path'])) {
@@ -93,11 +93,16 @@ if (!empty($_REQUEST)) {
 
             foreach ($categories as $path => $category) {
                 if (preg_match('|^' . preg_quote($path, '|') . '/(.*)|', $parsedHttpReferer['path'], $m19)) {
+                    $msg = __FILE__ . ' +' . __LINE__ . ' @ts $m19: ' . var_export($m19, true);
+                    l_m($msg);
+                    //
                     $categorySqlValue = ' WHERE category_title = "' . $category . '" ';
                     break;
                 }
             }
         }
+        $msg = __FILE__ . ' +' . __LINE__ . ' @ts $categorySqlValue: ' . var_export($categorySqlValue, true);
+        l_m($msg);
     }
     //
     // $msg = __FILE__ . ' +' . __LINE__ . ' $_SERVER HTTP_USER_AGENT: ' . var_export($_SERVER['HTTP_USER_AGENT'], true);
