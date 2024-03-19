@@ -102,6 +102,14 @@ if (!empty($_REQUEST)) {
                     $categorySqlValue = ' WHERE category_title = "World news" ';
                     break;
             }
+            if (preg_match('|/news/ukraine/(.*)|', $parsedHttpReferer['path'], $m19)) {
+                $msg = __FILE__ . ' +' . __LINE__ . ' @ts $m19: ' . var_export($m19, true);
+                l_m($msg);
+            }
+            if (preg_match('|/news/world/(.*)|', $parsedHttpReferer['path'], $m19)) {
+                $msg = __FILE__ . ' +' . __LINE__ . ' @ts $m19: ' . var_export($m19, true);
+                l_m($msg);
+            }
         }
     }
     //
