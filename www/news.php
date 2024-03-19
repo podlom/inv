@@ -77,50 +77,25 @@ if (!empty($_REQUEST)) {
     //
     if (isset($_SERVER['HTTP_REFERER'])) {
         $parsedHttpReferer = parse_url($_SERVER['HTTP_REFERER']);
-        $msg = __FILE__ . ' +' . __LINE__ . ' @ts $parsedHttpReferer: ' . var_export($parsedHttpReferer, true);
-        l_m($msg);
+        // $msg = __FILE__ . ' +' . __LINE__ . ' @ts $parsedHttpReferer: ' . var_export($parsedHttpReferer, true);
+        // l_m($msg);
         //
         $categorySqlValue = '';
-        if (isset($parsedHttpReferer['path'])) {
-            switch ($parsedHttpReferer['path']) {
-                case '/news/ukraine':
-                    $categorySqlValue = ' WHERE category_title = "Новости инвестиций Украины" ';
-                break;
-                case '/news/world':
-                    $categorySqlValue = ' WHERE category_title = "Новости инвестиций мира" ';
-                break;
-                case '/uk/news/ukraine':
-                    $categorySqlValue = ' WHERE category_title = "Новини інвестицій України" ';
+        if (isset($parsedHttpReferer['path']) && !empty($parsedHttpReferer['path'])) {
+            $categories = [
+                '/news/ukraine' => 'Новости инвестиций Украины',
+                '/news/world' => 'Новости инвестиций мира',
+                '/uk/news/ukraine' => 'Новини інвестицій України',
+                '/uk/news/world' => 'Світові новини інвестицій',
+                '/en/news/ukraine' => 'News in Ukraine',
+                '/en/news/world' => 'World news',
+            ];
+
+            foreach ($categories as $path => $category) {
+                if (preg_match('|^' . preg_quote($path, '|') . '/(.*)|', $parsedHttpReferer['path'], $m19)) {
+                    $categorySqlValue = ' WHERE category_title = "' . $category . '" ';
                     break;
-                case '/uk/news/world':
-                    $categorySqlValue = ' WHERE category_title = "Світові новини інвестицій" ';
-                    break;
-                case '/en/news/ukraine':
-                    $categorySqlValue = ' WHERE category_title = "News in Ukraine" ';
-                    break;
-                case '/en/news/world':
-                    $categorySqlValue = ' WHERE category_title = "World news" ';
-                    break;
-            }
-            if (preg_match('|/news/ukraine/(.*)|', $parsedHttpReferer['path'], $m19)) {
-                $categorySqlValue = ' WHERE category_title = "Новости инвестиций Украины" ';
-            }
-            if (preg_match('|/news/world/(.*)|', $parsedHttpReferer['path'], $m19)) {
-                $categorySqlValue = ' WHERE category_title = "Новости инвестиций мира" ';
-            }
-            //
-            if (preg_match('|/uk/news/ukraine/(.*)|', $parsedHttpReferer['path'], $m19)) {
-                $categorySqlValue = ' WHERE category_title = "Новини інвестицій України" ';
-            }
-            if (preg_match('|/uk/news/world/(.*)|', $parsedHttpReferer['path'], $m19)) {
-                $categorySqlValue = ' WHERE category_title = "Світові новини інвестицій" ';
-            }
-            //
-            if (preg_match('|/en/news/ukraine/(.*)|', $parsedHttpReferer['path'], $m19)) {
-                $categorySqlValue = ' WHERE category_title = "News in Ukraine" ';
-            }
-            if (preg_match('|/en/news/world/(.*)|', $parsedHttpReferer['path'], $m19)) {
-                $categorySqlValue = ' WHERE category_title = "World news" ';
+                }
             }
         }
     }
