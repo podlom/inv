@@ -79,13 +79,37 @@ if (!empty($_REQUEST)) {
         $parsedHttpReferer = parse_url($_SERVER['HTTP_REFERER']);
         $msg = __FILE__ . ' +' . __LINE__ . ' @ts $parsedHttpReferer: ' . var_export($parsedHttpReferer, true);
         l_m($msg);
+        //
+        $categorySqlValue = '';
+        if (isset($parsedHttpReferer['path'])) {
+            switch ($parsedHttpReferer['path']) {
+                case '/news/ukraine':
+                    $categorySqlValue = ' WHERE category_title = "Новости инвестиций Украины" ';
+                break;
+                case '/news/world':
+                    $categorySqlValue = ' WHERE category_title = "Новости инвестиций мира" ';
+                break;
+                case '/uk/news/ukraine':
+                    $categorySqlValue = ' WHERE category_title = "Новини інвестицій України" ';
+                    break;
+                case '/uk/news/world':
+                    $categorySqlValue = ' WHERE category_title = "Світові новини інвестицій" ';
+                    break;
+                case '/en/news/ukraine':
+                    $categorySqlValue = ' WHERE category_title = "News in Ukraine" ';
+                    break;
+                case '/en/news/world':
+                    $categorySqlValue = ' WHERE category_title = "World news" ';
+                    break;
+            }
+        }
     }
     //
     // $msg = __FILE__ . ' +' . __LINE__ . ' $_SERVER HTTP_USER_AGENT: ' . var_export($_SERVER['HTTP_USER_AGENT'], true);
     // l_m($msg);
     //
-    $msg = __FILE__ . ' +' . __LINE__ . ' $_GET: ' . var_export($_GET, true) . '; $_POST: ' . var_export($_POST, true) . '; $_REQUEST: ' . var_export($_REQUEST, true);
-    l_m($msg);
+    // $msg = __FILE__ . ' +' . __LINE__ . ' $_GET: ' . var_export($_GET, true) . '; $_POST: ' . var_export($_POST, true) . '; $_REQUEST: ' . var_export($_REQUEST, true);
+    // l_m($msg);
     //
     if (isset($_REQUEST['action']) && ($_REQUEST['action'] == 'news-list')) { // Get events for home page action
         if (isset($_REQUEST['limit'])) {
@@ -105,7 +129,7 @@ if (!empty($_REQUEST)) {
         l_m(__FILE__ . ' +' . __LINE__ . ' $page: ' . var_export($page, true) . PHP_EOL);
         l_m(__FILE__ . ' +' . __LINE__ . ' $offset: ' . var_export($offset, true) . PHP_EOL);
 
-        $query = "SELECT SQL_CALC_FOUND_ROWS * FROM news_{$lang} LIMIT {$limit} OFFSET {$offset} ";
+        $query = "SELECT SQL_CALC_FOUND_ROWS * FROM news_{$lang} {$categorySqlValue} LIMIT {$limit} OFFSET {$offset} ";
         l_m(__FILE__ . ' +' . __LINE__ . ' SQL: ' . $query . PHP_EOL);
         $res2 = $db->query($query);
         // l_m( __FILE__ . ' +' . __LINE__ . ' Result: ' . var_export($res2, true) . PHP_EOL );
