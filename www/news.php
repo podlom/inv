@@ -92,6 +92,9 @@ if (!empty($_REQUEST)) {
             ];
 
             foreach ($categories as $path => $category) {
+                $msg = __FILE__ . ' +' . __LINE__ . ' @ts $path: ' . var_export($path, true) . '; $category: ' . var_export($category, true);
+                l_m($msg);
+                //
                 if (preg_match('|^' . preg_quote($path, '|') . '/(.*)|', $parsedHttpReferer['path'], $m19)) {
                     $msg = __FILE__ . ' +' . __LINE__ . ' @ts $m19: ' . var_export($m19, true);
                     l_m($msg);
