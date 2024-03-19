@@ -95,11 +95,11 @@ if (!empty($_REQUEST)) {
                 $msg = __FILE__ . ' +' . __LINE__ . ' @ts $path: ' . var_export($path19, true) . '; $category: ' . var_export($category, true);
                 l_m($msg);
                 //
-                if (preg_match('|^' . preg_quote($path19, '|') . '/(.*)|', $parsedHttpReferer['path'], $m19)) {
+                if (preg_match('|^' . preg_quote($path19, '|') . '/(.*)?|', $parsedHttpReferer['path'], $m19)) {
                     $msg = __FILE__ . ' +' . __LINE__ . ' @ts $m19: ' . var_export($m19, true);
                     l_m($msg);
                     //
-                    $categorySqlValue = ' WHERE category_title = "' . $category . '" ';
+                    $categorySqlValue = ' WHERE `category_title` = "' . $category . '" ';
                     break;
                 }
             }
