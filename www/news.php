@@ -103,12 +103,24 @@ if (!empty($_REQUEST)) {
                     break;
             }
             if (preg_match('|/news/ukraine/(.*)|', $parsedHttpReferer['path'], $m19)) {
-                $msg = __FILE__ . ' +' . __LINE__ . ' @ts $m19: ' . var_export($m19, true);
-                l_m($msg);
+                $categorySqlValue = ' WHERE category_title = "Новости инвестиций Украины" ';
             }
             if (preg_match('|/news/world/(.*)|', $parsedHttpReferer['path'], $m19)) {
-                $msg = __FILE__ . ' +' . __LINE__ . ' @ts $m19: ' . var_export($m19, true);
-                l_m($msg);
+                $categorySqlValue = ' WHERE category_title = "Новости инвестиций мира" ';
+            }
+            //
+            if (preg_match('|/uk/news/ukraine/(.*)|', $parsedHttpReferer['path'], $m19)) {
+                $categorySqlValue = ' WHERE category_title = "Новини інвестицій України" ';
+            }
+            if (preg_match('|/uk/news/world/(.*)|', $parsedHttpReferer['path'], $m19)) {
+                $categorySqlValue = ' WHERE category_title = "Світові новини інвестицій" ';
+            }
+            //
+            if (preg_match('|/en/news/ukraine/(.*)|', $parsedHttpReferer['path'], $m19)) {
+                $categorySqlValue = ' WHERE category_title = "News in Ukraine" ';
+            }
+            if (preg_match('|/en/news/world/(.*)|', $parsedHttpReferer['path'], $m19)) {
+                $categorySqlValue = ' WHERE category_title = "World news" ';
             }
         }
     }
