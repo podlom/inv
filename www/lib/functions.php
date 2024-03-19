@@ -5,7 +5,7 @@
  * User: Taras
  * Date: 16.08.2018
  * Time: 14:54
- * Updated: 2024-03-18 13:20
+ * Updated: 2024-03-19 18:31
  *
  * @author Taras Shkodenko <taras@shkodenko.com>
  */
@@ -35,6 +35,7 @@ function l_m(string $msg)
     // Do not log if client IP does not match list below
     if (($_SERVER['REMOTE_ADDR'] !== '185.11.28.246') // @ts 2021-02-25; ISP Best; Grand Villas; home
         && ($_SERVER['REMOTE_ADDR'] !== '178.214.193.98') // InVenture office; Kyiv
+        && ($_SERVER['REMOTE_ADDR'] !== '193.0.217.97') // InVenture office; Kyiv
     ) {
         // error_log(__FILE__ . ' +' . __LINE__ . ' ' . __FUNCTION__ . ' log to file is disabled for client IP: ' . $_SERVER['REMOTE_ADDR']);
         return false;
