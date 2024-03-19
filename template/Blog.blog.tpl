@@ -27,12 +27,12 @@
     '/uk/investments/franchising' => 'Франчайзинг',
     '/uk/investments/offer' => 'Інвестори'
 ]}
-    {$nextPageUrl = '/news.php?lang=uk&action=news-list&page=1'}
+    {$nextPageUrl = '/news.php?lang=uk&action=news-list&page=2'}
     {if $request->getPathInfo()|strpos:'/uk/analytics' === 0}
-        {$nextPageUrl = '/analytics.php?lang=uk&action=analytics-list&page=1'}
+        {$nextPageUrl = '/analytics.php?lang=uk&action=analytics-list&page=2'}
     {/if}
     {if $request->getPathInfo()|strpos:'/uk/tools/video' === 0}
-        {$nextPageUrl = '/video.php?lang=uk&action=video-list&page=1'}
+        {$nextPageUrl = '/video.php?lang=uk&action=video-list&page=2'}
     {/if}
 {/if}
 
@@ -45,12 +45,12 @@
     '/en/investments/en_franchising'=>'Franchising',
     '/en/investments/offer'=>'Investor Offers'
 ]}
-    {$nextPageUrl = '/news.php?lang=en&action=news-list&page=1'}
+    {$nextPageUrl = '/news.php?lang=en&action=news-list&page=2'}
     {if $request->getPathInfo()|strpos:'/en/analytics' === 0}
-        {$nextPageUrl = '/analytics.php?lang=en&action=analytics-list&page=1'}
+        {$nextPageUrl = '/analytics.php?lang=en&action=analytics-list&page=2'}
     {/if}
     {if $request->getPathInfo()|strpos:'/en/tools/video' === 0}
-        {$nextPageUrl = '/video.php?lang=en&action=video-list&page=1'}
+        {$nextPageUrl = '/video.php?lang=en&action=video-list&page=2'}
     {/if}
 {/if}
 
