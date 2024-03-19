@@ -21,7 +21,7 @@ function l_m(string $msg)
 
     // $logFileName = dirname(__FILE__) . '/' . date('Y-m-d_H-i') . '_' . bin2hex(random_bytes(7)) . '.log';
     // $logFileName = realpath(__DIR__ . '/../../log') . '/' . date('Y-m-d_H-i') . '_l_m.log';
-    $logFileName = realpath(__DIR__ . '/../../log') . '/' . date('Y-m-d_H-i') . '_l_m.log';
+    $logFileName = realpath(__DIR__ . '/../../log') . '/' . date('Y-m-d_H') . '_l_m.log';
     if (!file_exists($logFileName)) {
         touch($logFileName);
         @chmod($logFileName, 0664);
