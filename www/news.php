@@ -78,10 +78,10 @@ if (!empty($_REQUEST)) {
     $categorySqlValue = '';
     if (isset($_SERVER['HTTP_REFERER'])) {
         $parsedHttpReferer = parse_url($_SERVER['HTTP_REFERER']);
-        $msg = __FILE__ . ' +' . __LINE__ . ' @ts $parsedHttpReferer: ' . var_export($parsedHttpReferer, true);
-        l_m($msg);
+        // $msg = __FILE__ . ' +' . __LINE__ . ' @ts $parsedHttpReferer: ' . var_export($parsedHttpReferer, true);
+        // l_m($msg);
         //
-        if (isset($parsedHttpReferer['path']) && !empty($parsedHttpReferer['path'])) {
+        if (isset($parsedHttpReferer['path'])) {
             $categories = [
                 '/news/ukraine' => 'Новости инвестиций Украины',
                 '/news/world' => 'Новости инвестиций мира',
@@ -91,11 +91,11 @@ if (!empty($_REQUEST)) {
                 '/en/news/world' => 'World news',
             ];
 
-            foreach ($categories as $path => $category) {
-                $msg = __FILE__ . ' +' . __LINE__ . ' @ts $path: ' . var_export($path, true) . '; $category: ' . var_export($category, true);
+            foreach ($categories as $path19 => $category) {
+                $msg = __FILE__ . ' +' . __LINE__ . ' @ts $path: ' . var_export($path19, true) . '; $category: ' . var_export($category, true);
                 l_m($msg);
                 //
-                if (preg_match('|^' . preg_quote($path, '|') . '/(.*)|', $parsedHttpReferer['path'], $m19)) {
+                if (preg_match('|^' . preg_quote($path19, '|') . '/(.*)|', $parsedHttpReferer['path'], $m19)) {
                     $msg = __FILE__ . ' +' . __LINE__ . ' @ts $m19: ' . var_export($m19, true);
                     l_m($msg);
                     //
