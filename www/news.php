@@ -75,6 +75,12 @@ if (!empty($_REQUEST)) {
         l_m($msg);
     }
     //
+    if (isset($_SERVER['HTTP_REFERER'])) {
+        $parsedHttpReferer = parse_url($_SERVER['HTTP_REFERER']);
+        $msg = __FILE__ . ' +' . __LINE__ . ' @ts $parsedHttpReferer: ' . var_export($parsedHttpReferer, true);
+        l_m($msg);
+    }
+    //
     // $msg = __FILE__ . ' +' . __LINE__ . ' $_SERVER HTTP_USER_AGENT: ' . var_export($_SERVER['HTTP_USER_AGENT'], true);
     // l_m($msg);
     //
