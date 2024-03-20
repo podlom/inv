@@ -54,20 +54,26 @@
     {/if}
 {/if}
 
+
+{if $category && $category->getSubpath()}
+    {assign var="nextPageUrl" value=$nextPageUrl|cat:"&category="|cat:$category->getSubpath()}
+{/if}
+
+
 {assign "isNewStylesAvaible" value=(true)}
 {assign "isInvestments" value=(
 	$request->getPathInfo()|strpos:'/investments' >= 0 &&
 	$request->getPathInfo()|strpos:'/investments' !== false
 )}
-    {* $request->getPathInfo() == '/add-inv-prop' 
-    || $request->getPathInfo() == '/' 
-    || $request->getPathInfo() == '/investor' 
+    {* $request->getPathInfo() == '/add-inv-prop'
+    || $request->getPathInfo() == '/'
+    || $request->getPathInfo() == '/investor'
     || $request->getPathInfo() == '/tools/investors'
-    || $request->getPathInfo() == '/tools/database' 
+    || $request->getPathInfo() == '/tools/database'
     || $request->getPathInfo() =='/tools/library'
-    || $request->getPathInfo() =='/politika-konfidencialnosti' 
-    || $request->getPathInfo() =='/usloviya-ispolzovaniya' 
-    || $request->getPathInfo() =='/about' 
+    || $request->getPathInfo() =='/politika-konfidencialnosti'
+    || $request->getPathInfo() =='/usloviya-ispolzovaniya'
+    || $request->getPathInfo() =='/about'
     || $request->getPathInfo()|strpos:'/about' === 0
     || $request->getPathInfo()|strpos:'/analytics' === 0
     || $request->getPathInfo()|strpos:'/tools/video' === 0
@@ -157,16 +163,16 @@
         {if $isInvestmentsPage}
             <h2 class="filter__heading">
                 <span>{$blog->getTitle('content')}</span>
-                
+
                     <div class="filter__heading-filter toggle-filter">
                         <i class="fa fa-filter"  style="color: #5287b0; font-size:24px" aria-hidden="true"></i>
                     </div>
             </h2>
-            
+
         {else}
             <h2>{$blog->getTitle('content')}</h2>
         {/if}
-        
+
     </div>
 {/if}
 {/block}
@@ -190,13 +196,13 @@
     {if ($request->getPathInfo()|strpos:'/search')}
     {else}
         <div class="relative z-0 flex flex-row justify-between items-center {if $isInvestments}investments__nav{/if}">
-            
+
             {if $links}
                 <div class="relative w-full">
                     <nav class="section__categories">
                         {foreach $links as $url=>$name}
                             <a class="section__category {if $request->getPathInfo()===$url}section__category--active{/if}" href="{$url}">{$name}</a>
-                        {/foreach}	
+                        {/foreach}
                     </nav>
                     <div class="section__categories-overlay"></div>
                 </div>
@@ -214,13 +220,13 @@
 						{/if}
         </div>
     {/if}
-		
+
     {/block}
     {block 'content.text'}
         {block 'posts'}
         {if $isNewStylesAvaible}
             {assign "horizontal" value=($request->getPathInfo() == '/tools/investors')}
-            
+
             {block 'post.preview'}
                 {if $horizontal}
                     <div  class="horizontal-cards__list">
@@ -272,7 +278,7 @@
             {assign "isEventsPage" value=($request->getPathInfo()|strpos:'/tools/events' === 0 || $request->getPathInfo()|strpos:'/en/tools/events' === 0 || $request->getPathInfo()|strpos:'/uk/tools/events' === 0)}
 
             {if $isInvestmentsPage || $isNewsPage || $isAnalyticsPage || $isVideoPage || $isEventsPage }
-                <style>               
+                <style>
                 .lds-ellipsis {
                     display: inline-block;
                     position: relative;
@@ -425,8 +431,6 @@
 				{SeoText::getText($request->getPathInfo())}
 		</div>
 	{/if}
-{/block} 
-
 {/block}
 
-
+{/block}
