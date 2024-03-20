@@ -5,7 +5,7 @@
  * User: shtaras
  * Date: 2024-03-08
  * Time: 19:25
- * Modified: 2024-03-18 09:41
+ * Modified: 2024-03-20 15:33
  *
  * @author Taras Shkodenko <taras@shkodenko.com>
  */
@@ -76,6 +76,7 @@ if (!empty($_REQUEST)) {
     }
     //
     $categorySqlValue = '';
+    /*
     if (isset($_SERVER['HTTP_REFERER'])) {
         $parsedHttpReferer = parse_url($_SERVER['HTTP_REFERER']);
         // $msg = __FILE__ . ' +' . __LINE__ . ' @ts $parsedHttpReferer: ' . var_export($parsedHttpReferer, true);
@@ -102,6 +103,32 @@ if (!empty($_REQUEST)) {
                     $categorySqlValue = ' WHERE `category_title` = "' . $category . '" ';
                     break;
                 }
+            }
+        }
+    }
+    */
+    if (isset($_REQUEST['category']) && !empty($_REQUEST['category'])) {
+        $category = $_REQUEST['category'];
+        $msg = __FILE__ . ' +' . __LINE__ . ' @ts $category: ' . var_export($category, true);
+        l_m($msg);
+        //
+        if ($lang == 'ru') {
+            if ($category == 'ukraine') {
+                $categorySqlValue = ' WHERE `category_title` = "Новости инвестиций Украины" ';
+            } elseif ($category == 'world') {
+                $categorySqlValue = ' WHERE `category_title` = "Новости инвестиций мира" ';
+            }
+        } elseif ($lang == 'uk') {
+            if ($category == 'ukraine') {
+                $categorySqlValue = ' WHERE `category_title` = "Новини інвестицій України" ';
+            } elseif ($category == 'world') {
+                $categorySqlValue = ' WHERE `category_title` = "Світові новини інвестицій" ';
+            }
+        } elseif ($lang == 'en') {
+            if ($category == 'ukraine') {
+                $categorySqlValue = ' WHERE `category_title` = "News in Ukraine" ';
+            } elseif ($category == 'world') {
+                $categorySqlValue = ' WHERE `category_title` = "World news" ';
             }
         }
     }
