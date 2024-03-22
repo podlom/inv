@@ -86,32 +86,55 @@ if (!empty($_REQUEST)) {
         $msg = __FILE__ . ' +' . __LINE__ . ' used default $lang: ' . var_export($lang, true);
         l_m($msg);
     }
+    $msg = __FILE__ . ' +' . __LINE__ . ' @ts $lang: ' . var_export($lang, true);
+    l_m($msg);
     //
     // $msg = __FILE__ . ' +' . __LINE__ . ' $_SERVER HTTP_USER_AGENT: ' . var_export($_SERVER['HTTP_USER_AGENT'], true);
     // l_m($msg);
     //
+    $routeId = 29;
+    //
     $msg = __FILE__ . ' +' . __LINE__ . ' $_GET: ' . var_export($_GET, true) . '; $_POST: ' . var_export($_POST, true) . '; $_REQUEST: ' . var_export($_REQUEST, true);
     l_m($msg);
     //
+    if ($lang == 'uk') {
+        $routeId = 7542;
+    } elseif ($lang == 'en') {
+        $routeId = 7362;
+    }
+    $msg = __FILE__ . ' +' . __LINE__ . ' @ts $routeId: ' . var_export($routeId, true);
+    l_m($msg);
+    //
+    $eventSortField = 'sort_1';
+    $eventsSortOrder = 'ASC';
+    if (isset($_REQUEST['past'])) {
+        $filterPastEvents = 1;
+        $eventSortField = 'id_0';
+        $eventsSortOrder = 'DESC';
+    } else {
+        $filterPastEvents = 0;
+    }
+    l_m(__FILE__ . ' +' . __LINE__ . ' $filterPastEvents: ' . var_export($filterPastEvents, true) . PHP_EOL);
+    //
+    if (isset($_REQUEST['limit'])) {
+        $limit = intval($_REQUEST['limit']);
+    } else {
+        $limit = 24; // Default limit value
+    }
+    l_m(__FILE__ . ' +' . __LINE__ . ' $limit: ' . var_export($limit, true) . PHP_EOL);
+    //
+    if (isset($_REQUEST['page'])) {
+        $page = intval($_REQUEST['page']);
+        $offset = ($page - 1) * $limit;
+    } else {
+        $page = 1;
+        $offset = 0;
+    }
+    l_m(__FILE__ . ' +' . __LINE__ . ' $page: ' . var_export($page, true) . PHP_EOL);
+    l_m(__FILE__ . ' +' . __LINE__ . ' $offset: ' . var_export($offset, true) . PHP_EOL);
+    //
     if (isset($_REQUEST['action']) && ($_REQUEST['action'] == 'home')) { // Get events for home page action
-        if (isset($_REQUEST['limit'])) {
-            $limit = intval($_REQUEST['limit']);
-        } else {
-            $limit = 24;
-        }
-        l_m(__FILE__ . ' +' . __LINE__ . ' $limit: ' . var_export($limit, true) . PHP_EOL);
-
-        if (isset($_REQUEST['page'])) {
-            $page = intval($_REQUEST['page']);
-            $offset = ($page - 1) * $limit;
-        } else {
-            $page = 1;
-            $offset = 0;
-        }
-        l_m(__FILE__ . ' +' . __LINE__ . ' $page: ' . var_export($page, true) . PHP_EOL);
-        l_m(__FILE__ . ' +' . __LINE__ . ' $offset: ' . var_export($offset, true) . PHP_EOL);
-
-        $query = "SELECT SQL_CALC_FOUND_ROWS DISTINCT id_0 FROM (SELECT p0_.id AS id_0, p0_.sort1 AS sort_1, p0_.past2 AS past_2, p0_.h1 AS h1_1, p0_.status AS status_2, p0_.deleted AS deleted_3, p0_.published AS published_4, p0_.short_text AS short_text_5, p0_.subpath AS subpath_6, p0_.created AS created_7, p0_.updated AS updated_8, p0_.attr AS attr_9, p0_.class AS class_10, p0_.image_id AS image_id_11, p0_.user_id AS user_id_12, p0_.route_id AS route_id_13, p0_.parent_id AS parent_id_14 FROM Page p0_ WHERE (p0_.past2 = 0) AND (p0_.route_id = 29) AND p0_.class IN ('16') ORDER BY sort_1 ASC) alias1 LIMIT 4 OFFSET 0 ";
+        $query = "SELECT SQL_CALC_FOUND_ROWS DISTINCT id_0 FROM (SELECT p0_.id AS id_0, p0_.sort1 AS sort_1, p0_.past2 AS past_2, p0_.h1 AS h1_1, p0_.status AS status_2, p0_.deleted AS deleted_3, p0_.published AS published_4, p0_.short_text AS short_text_5, p0_.subpath AS subpath_6, p0_.created AS created_7, p0_.updated AS updated_8, p0_.attr AS attr_9, p0_.class AS class_10, p0_.image_id AS image_id_11, p0_.user_id AS user_id_12, p0_.route_id AS route_id_13, p0_.parent_id AS parent_id_14 FROM Page p0_ WHERE (p0_.past2 = {$filterPastEvents}) AND (p0_.route_id = {$routeId}) AND p0_.class IN ('16') ORDER BY {$eventSortField} {$eventsSortOrder}) alias1 LIMIT 4 OFFSET 0 ";
         l_m(__FILE__ . ' +' . __LINE__ . ' SQL: ' . $query . PHP_EOL);
         $res2 = $db->query($query);
         // l_m( __FILE__ . ' +' . __LINE__ . ' Result: ' . var_export($res2, true) . PHP_EOL );
@@ -247,6 +270,7 @@ if (!empty($_REQUEST)) {
             }
         }
     } elseif (isset($_REQUEST['action']) && ($_REQUEST['action'] == 'events')) {
+        // Get events for events section page
         $eventSortField = 'sort_1';
         $eventsSortOrder = 'ASC';
         if (isset($_REQUEST['past'])) {
@@ -268,18 +292,10 @@ if (!empty($_REQUEST)) {
         $numPages = 0;
         l_m(__FILE__ . ' +' . __LINE__ . ' $numPages: ' . var_export($numPages, true) . PHP_EOL);
         //
-        if (isset($_REQUEST['page'])) {
-            $page = intval($_REQUEST['page']);
-            $offset = ($page - 1) * $limit;
-        } else {
-            $page = 1;
-            $offset = 0;
-        }
-        l_m(__FILE__ . ' +' . __LINE__ . ' $page: ' . var_export($page, true) . PHP_EOL);
-        l_m(__FILE__ . ' +' . __LINE__ . ' $offset: ' . var_export($offset, true) . PHP_EOL);
+
 
         // $query = "SELECT DISTINCT id_0 FROM (SELECT p0_.id AS id_0, p0_.sort1 AS sort_1, p0_.past2 AS past_2, p0_.h1 AS h1_1, p0_.status AS status_2, p0_.deleted AS deleted_3, p0_.published AS published_4, p0_.short_text AS short_text_5, p0_.subpath AS subpath_6, p0_.created AS created_7, p0_.updated AS updated_8, p0_.attr AS attr_9, p0_.class AS class_10, p0_.image_id AS image_id_11, p0_.user_id AS user_id_12, p0_.route_id AS route_id_13, p0_.parent_id AS parent_id_14 FROM Page p0_ WHERE (p0_.past2 = {$filterPastEvents}) AND (p0_.route_id = 29) AND p0_.class IN ('16') ORDER BY {$eventSortField} {$eventsSortOrder}) alias1 LIMIT {$limit} OFFSET {$offset} ";
-        $query = "SELECT SQL_CALC_FOUND_ROWS DISTINCT p0_.id AS id_0, p0_.sort1 AS sort_1, p0_.past2 AS past_2, p0_.h1 AS h1_1, p0_.status AS status_2, p0_.deleted AS deleted_3, p0_.published AS published_4, p0_.short_text AS short_text_5, p0_.subpath AS subpath_6, p0_.created AS created_7, p0_.updated AS updated_8, p0_.attr AS attr_9, p0_.class AS class_10, p0_.image_id AS image_id_11, p0_.user_id AS user_id_12, p0_.route_id AS route_id_13, p0_.parent_id AS parent_id_14 FROM Page p0_ WHERE (p0_.past2 = {$filterPastEvents}) AND (p0_.route_id = 29) AND p0_.class IN ('16') ORDER BY {$eventSortField} {$eventsSortOrder} LIMIT {$limit} OFFSET {$offset} ";
+        $query = "SELECT SQL_CALC_FOUND_ROWS DISTINCT p0_.id AS id_0, p0_.sort1 AS sort_1, p0_.past2 AS past_2, p0_.h1 AS h1_1, p0_.status AS status_2, p0_.deleted AS deleted_3, p0_.published AS published_4, p0_.short_text AS short_text_5, p0_.subpath AS subpath_6, p0_.created AS created_7, p0_.updated AS updated_8, p0_.attr AS attr_9, p0_.class AS class_10, p0_.image_id AS image_id_11, p0_.user_id AS user_id_12, p0_.route_id AS route_id_13, p0_.parent_id AS parent_id_14 FROM Page p0_ WHERE (p0_.past2 = {$filterPastEvents}) AND (p0_.route_id = {$routeId}) AND p0_.class IN ('16') ORDER BY {$eventSortField} {$eventsSortOrder} LIMIT {$limit} OFFSET {$offset} ";
         l_m(__FILE__ . ' +' . __LINE__ . ' SQL: ' . $query . PHP_EOL);
         $res2 = $db->query($query);
         // l_m( __FILE__ . ' +' . __LINE__ . ' Result: ' . var_export($res2, true) . PHP_EOL );
