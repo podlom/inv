@@ -5,7 +5,7 @@
  * User: shtaras
  * Date: 2024-03-08
  * Time: 20:23
- * Modified: 2024-03-18 11:09
+ * Modified: 2024-03-22 14:07
  *
  * @author Taras Shkodenko <taras@shkodenko.com>
  */
@@ -81,6 +81,53 @@ if (!empty($_REQUEST)) {
     $msg = __FILE__ . ' +' . __LINE__ . ' $_GET: ' . var_export($_GET, true) . '; $_POST: ' . var_export($_POST, true) . '; $_REQUEST: ' . var_export($_REQUEST, true);
     l_m($msg);
     //
+    $categorySqlValue = '';
+    if (isset($_REQUEST['category']) && !empty($_REQUEST['category'])) {
+        $category = $_REQUEST['category'];
+        $msg = __FILE__ . ' +' . __LINE__ . ' @ts $category: ' . var_export($category, true);
+        l_m($msg);
+        //
+        if ($lang == 'ru') {
+            if ($category == 'investments') {
+                $categorySqlValue = ' WHERE `category_title` = "Инвестиционная, финансовая и бизнес аналитика Украина" ';
+            } elseif ($category == 'database') {
+                $categorySqlValue = ' WHERE `category_title` = "Рейтинги Украины: инвестиции, компании, инвесторы, бизнес" ';
+            } elseif ($category == 'formula') {
+                $categorySqlValue = ' WHERE `category_title` = "Интервью с инвесторами, бизнесменами и предпринимателями" ';
+            } elseif ($category == 'articles') {
+                $categorySqlValue = ' WHERE `category_title` = "Статьи об инвестициях и бизнесе в Украине" ';
+            } elseif ($category == 'we-invest-in-ukraine') {
+                $categorySqlValue = ' WHERE `category_title` = "Инвестируем в Украину | We invest in Ukraine" ';
+            }
+        } elseif ($lang == 'uk') {
+            if ($category == 'investments') {
+                $categorySqlValue = ' WHERE `category_title` = "Інвестиційна аналітика та економічні дослідження" ';
+            } elseif ($category == 'database') {
+                $categorySqlValue = ' WHERE `category_title` = "Інструментарій інвестора" ';
+            } elseif ($category == 'formula') {
+                $categorySqlValue = ' WHERE `category_title` = "Інтерв\'ю з інвесторами, бізнесменами та підприємцями" ';
+            } elseif ($category == 'articles') {
+                $categorySqlValue = ' WHERE `category_title` = "Статті про інвестиції в Україні" ';
+            } elseif ($category == 'we-invest-in-ukraine') {
+                $categorySqlValue = ' WHERE `category_title` = "Інвестуємо в Україну | We invest in Ukraine" ';
+            }
+        } elseif ($lang == 'en') {
+            if ($category == 'investments') {
+                $categorySqlValue = ' WHERE `category_title` = "Investment, economic, marketing research in Ukraine" ';
+            } elseif ($category == 'database') {
+                $categorySqlValue = ' WHERE `category_title` = "Investor Toolkit" ';
+            } elseif ($category == 'formula') {
+                $categorySqlValue = ' WHERE `category_title` = "Interviews with investors, businessmen and entrepreneurs" ';
+            } elseif ($category == 'articles') {
+                $categorySqlValue = ' WHERE `category_title` = "Articles about investments and business in Ukraine" ';
+            } elseif ($category == 'we-invest-in-ukraine') {
+                $categorySqlValue = ' WHERE `category_title` = "Investing in Ukraine | We invest in Ukraine" ';
+            }
+        }
+    }
+    $msg = __FILE__ . ' +' . __LINE__ . ' @ts $categorySqlValue: ' . var_export($categorySqlValue, true);
+    l_m($msg);
+    //
     if (isset($_REQUEST['action']) && ($_REQUEST['action'] == 'analytics-list')) { // Get events for home page action
         if (isset($_REQUEST['limit'])) {
             $limit = intval($_REQUEST['limit']);
@@ -99,7 +146,7 @@ if (!empty($_REQUEST)) {
         l_m(__FILE__ . ' +' . __LINE__ . ' $page: ' . var_export($page, true) . PHP_EOL);
         l_m(__FILE__ . ' +' . __LINE__ . ' $offset: ' . var_export($offset, true) . PHP_EOL);
 
-        $query = "SELECT SQL_CALC_FOUND_ROWS * FROM analytics_{$lang} LIMIT {$limit} OFFSET {$offset} ";
+        $query = "SELECT SQL_CALC_FOUND_ROWS * FROM analytics_{$lang} {$categorySqlValue} LIMIT {$limit} OFFSET {$offset} ";
         l_m(__FILE__ . ' +' . __LINE__ . ' SQL: ' . $query . PHP_EOL);
         $res2 = $db->query($query);
         // l_m( __FILE__ . ' +' . __LINE__ . ' Result: ' . var_export($res2, true) . PHP_EOL );
