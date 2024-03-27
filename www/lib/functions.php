@@ -1,11 +1,21 @@
 <?php
 
+require_once dirname(__FILE__) . '/../../vendor/autoload.php';
+require_once realpath(__DIR__ . '/../../bootstrap.php');
+
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+use Symfony\Component\Yaml\Yaml;
+
+
 /**
  * Created by PhpStorm.
  * User: Taras
  * Date: 16.08.2018
  * Time: 14:54
- * Updated: 2024-03-19 18:31
+ * Updated: 2024-03-27 20:00
  *
  * @author Taras Shkodenko <taras@shkodenko.com>
  */
