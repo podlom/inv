@@ -495,7 +495,7 @@ function sendMailForm($data, $recipient = 'info@inventure.ua', $subject = 'InVen
     ];
 
     l_m(__FUNCTION__ . ' +' . __LINE__ . ' sending email with data: ' . var_export($data, true) . PHP_EOL);
-    $appConfig = Yaml::parseFile( dirname(__FILE__) . '/../config/app.yml');
+    $appConfig = Yaml::parseFile( dirname(__FILE__) . '/../../config/app.yml');
     if (!isset($appConfig['mail']) || !is_array($appConfig['mail']) || empty($appConfig['mail'])) {
         l_m(__FUNCTION__ . ' +' . __LINE__ . ' error in mail config!' . PHP_EOL);
         return false;
@@ -673,7 +673,7 @@ function sendMailForm($data, $recipient = 'info@inventure.ua', $subject = 'InVen
 function sendAddInvPropMail($data, $recipient = 'info@inventure.ua', $subject = 'InVenture form submission', $formType = 1)
 {
     l_m(__FUNCTION__ . ' +' . __LINE__ . ' sending email with data: ' . var_export($data, true) . PHP_EOL);
-    $appConfig = Yaml::parseFile( dirname(__FILE__) . '/../config/app.yml');
+    $appConfig = Yaml::parseFile( dirname(__FILE__) . '/../../config/app.yml');
     if (!isset($appConfig['mail']) || !is_array($appConfig['mail']) || empty($appConfig['mail'])) {
         l_m(__FUNCTION__ . ' +' . __LINE__ . ' error in mail config!' . PHP_EOL);
         return false;
