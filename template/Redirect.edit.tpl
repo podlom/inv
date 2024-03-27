@@ -1,5 +1,5 @@
 <div class="admin-pages">
-    <div class="menu-blocks">   
+    <div class="menu-blocks">
         <div>
             <div>
                 <p>Новости</p>
@@ -43,7 +43,7 @@
         <a href="/admin"><i class="fa fa-home"></i>Главная</a> <span>></span> Перенаправления
     </div>
 </div>
-<div class="edit light-form redirect-edit-form">
+<div class="edit light-form">
     {$form->open()}
         {$form->getField('from')}
         {$form->getField('to')}
