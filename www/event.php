@@ -5,7 +5,7 @@
  * User: shtaras
  * Date: 2020-07-22
  * Time: 16:58
- * Modified: 2024-03-22 17:10
+ * Modified: 2024-04-01 15:03
  *
  * @author Taras Shkodenko <taras@shkodenko.com>
  */
@@ -58,11 +58,6 @@ if (!empty($_REQUEST)) {
     // l_m($msg);
     //
     $lang = $defaultLang = 'ru';
-    /*
-    if (isset($_SERVER['HTTP_ACCEPT_LANGUAGE']) && !empty($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
-        $lang = locale_accept_from_http($_SERVER['HTTP_ACCEPT_LANGUAGE']);
-    }
-    */
     if (isset($_REQUEST['lang']) && !empty($_REQUEST['lang'])) {
         $lang = $_REQUEST['lang'];
     } else {
@@ -98,7 +93,7 @@ if (!empty($_REQUEST)) {
     l_m($msg);
     //
     if ($lang == 'uk') {
-        $routeId = 7542;
+        $routeId = 29; // @ts fix 2024-04-01 $routeId = 7542;
     } elseif ($lang == 'en') {
         $routeId = 7362;
     }
