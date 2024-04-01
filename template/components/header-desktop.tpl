@@ -88,7 +88,7 @@
 												</svg>
 												{if $lang === 'ru'}Найти инвестора или продать бизнес
 												{elseif $lang === 'uk'}Знайти інвестора або
-												продати бізнес{else}Services for Raising Capital & Sell a Business< 
+												продати бізнес{else}Services for Raising Capital & Sell a Business<
 												{/if} </li>
 										</a>
 										<a class="font-weight-bold" href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/investor">
@@ -318,7 +318,7 @@
 									</div>
 									<a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/analytics/digest"
 										class="menu-item__advert">
-										<img class="lazyload" data-src="/images/newsletter-advert.jpg" alt="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/analytics/digest">{if $lang == 'ru'}Дайджест{elseif $lang == 'uk'}Дайджест{else}Digest{/if}" />
+										<img class="lazyload" data-src="/images/newsletter-advert.jpg" alt="{if $lang == 'ru'}Дайджест{elseif $lang == 'uk'}Дайджест{else}Digest{/if}" />
 									</a>
 								</div>
 							</div>
