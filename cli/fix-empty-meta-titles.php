@@ -712,7 +712,7 @@ try {
         'https://inventure.com.ua/news/ukraine/top-10-ubytochnyh-bankov-ukrainy',
         'https://inventure.com.ua/news/ukraine/kak-uhodili-inostrannye-banki-iz-ukrainy',
         'https://inventure.com.ua/news/ukraine/forbes-sdelka-sergeya-tigipko-so-shvedskim-swedbank-okazalos-samoi-provalnoi-na-bankovskom-rynke-ukrainy',
-        'https://inventure.com.ua/news/ukraine/moodys-dopuskaet-ponizhenie-reitingov-4-krupneishih-bankov-ukrainy',
+        // 'https://inventure.com.ua/news/ukraine/moodys-dopuskaet-ponizhenie-reitingov-4-krupneishih-bankov-ukrainy',
         'https://inventure.com.ua/news/ukraine/kreditnyi-risk-v-ukrainskih-bankah',
         'https://inventure.com.ua/news/ukraine/abrenessans-kapitalbb-nachinaet-sotrudnichestvo-s-turciei',
         'https://inventure.com.ua/news/ukraine/evropeiskii-investicionnyi-bank-otkroet-predstavitelstvo-v-ukraine',
