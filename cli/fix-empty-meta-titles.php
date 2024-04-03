@@ -723,7 +723,7 @@ try {
         'https://inventure.com.ua/news/ukraine/pochemu-kapital-iz-ukrainy-bezhit-v-rossiyu',
         'https://inventure.com.ua/news/ukraine/agenty-kapitala-v-ukraine-est-investory-kotorye-gotovy-vkladyvat-sredstva',
         'https://inventure.com.ua/uk/news/ukraine/ukrayini-potribni-investiciyi-u-virobnictvo-vlasnih-bpla-ta-visokotochnogo-ozbroyennya',
-        'https://inventure.com.ua/news/world/moodys-ponizilo-reitingi-neskolkih-portugalskih-bankov',
+        // 'https://inventure.com.ua/news/world/moodys-ponizilo-reitingi-neskolkih-portugalskih-bankov',
         'https://inventure.com.ua/news/world/alfa-grupp-reshila-zavyazat-s-aviaciei',
         'https://inventure.com.ua/news/ukraine/v-borbe-protiv-reidestrva-alfa-grupp-vzyala-pod-zaschitu-univermag-201cukraina201d-v-kieve',
         'https://inventure.com.ua/news/ukraine/28-6-regal-petroleum-dostanetsya-abalfa-gruppbb',
@@ -5031,7 +5031,7 @@ try {
 
         if (isset($res2[0]['id']) && !empty($res2[0]['id'])) {
             $pageId = $res2[0]['id'];
-            $metaTitle = $res2[0]['h1'];
+            $metaTitle = str_replace(["'"], ["&quot;"], $res2[0]['h1']);
 
             $query = "SELECT * FROM `Metadata` WHERE `page_id` = '{$pageId}' AND `title` = ''";
             $res19 = $db->query($query);
