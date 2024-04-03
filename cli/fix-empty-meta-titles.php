@@ -5027,6 +5027,14 @@ try {
         $query = "SELECT `id`, `h1`, `subpath`, `status`, `created`, `updated` FROM `Page` WHERE `status` = '1' AND `subpath` = '{$subPath}'";
         $res2 = $db->query($query);
         echo date('r') . ' ' . __FILE__ . ' +' . __LINE__ . ' Found pages with dublicate URIs: ' . var_export($res2, true) . PHP_EOL;
+
+        if (isset($res2[0]['id']) && !empty($res2[0]['id'])) {
+            $pageId = $res2[0]['id'];
+
+            $query = "SELECT * FROM `Metadata` WHERE `page_id` = '{$pageId}' AND `title` = ''";
+            $res19 = $db->query($query);
+            echo date('r') . ' ' . __FILE__ . ' +' . __LINE__ . ' Found page with empty meta title: ' . var_export($res19, true) . PHP_EOL;
+        }
     }
 
 } catch (\Exception $e) {
