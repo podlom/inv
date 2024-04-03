@@ -5019,6 +5019,7 @@ try {
         'https://inventure.com.ua/news/world/ernst-young-stoimost-sdelok-na-rynke-m-a-v-ukraine-v-2012-g.-upala-v-3-raza',
     ];
 
+    $numUpdates = 0;
     foreach ($urlToCheck as $u1) {
         $a1 = explode('/', $u1);
 
@@ -5030,12 +5031,22 @@ try {
 
         if (isset($res2[0]['id']) && !empty($res2[0]['id'])) {
             $pageId = $res2[0]['id'];
+            $metaTitle = $res2[0]['h1'];
 
             $query = "SELECT * FROM `Metadata` WHERE `page_id` = '{$pageId}' AND `title` = ''";
             $res19 = $db->query($query);
             echo date('r') . ' ' . __FILE__ . ' +' . __LINE__ . ' Found page with empty meta title: ' . var_export($res19, true) . PHP_EOL;
+
+            if (isset($res19[0]['page_id']) && !empty($res19[0]['page_id'])) {
+                $query = "UPDATE `Metadata` SET `title` = '{$metaTitle}' WHERE `page_id` = '{$pageId}' LIMIT 1";
+                $res99 = $db->query($query);
+                echo date('r') . ' ' . __FILE__ . ' +' . __LINE__ . ' Update result: ' . var_export($res99, true) . PHP_EOL;
+
+                $numUpdates += $res99;
+            }
         }
     }
+    echo date('r') . ' ' . __FILE__ . ' +' . __LINE__ . ' Number of updated meta titles: ' . var_export($numUpdates, true) . PHP_EOL;
 
 } catch (\Exception $e) {
     $msg = date('r') . ' ' . __FILE__ . ' +' . __LINE__ . ' Fatal error: ' . $e->getMessage() . PHP_EOL;
