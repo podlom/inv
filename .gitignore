@@ -45,3 +45,4 @@ data/react/dist/*.js
 # @ts 2023-08-19
 vendor/*
 cli/config/settings.php
+cli/config/inv-prod-settings.php

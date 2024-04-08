@@ -13,14 +13,10 @@
 
 require_once 'lib/db.class.php';
 
-const
-    DBHOST = '127.0.0.1',
-    DBUSER = 'inventure',
-    DBPASS = '6Qq2fnX51zShHhDO',
-    DBNAME = 'inventure_prod';
 
 try {
-    $db = new DB(DBHOST, DBUSER, DBPASS, DBNAME);
+    require_once 'config' . DIRECTORY_SEPARATOR . 'inv-prod-settings.php';
+    $db = new DB(INV_PROD_DBHOST, INV_PROD_DBUSER, INV_PROD_DBPASS, INV_PROD_DBNAME);
 
     $query = "select id, attr from Page where (attr like '%\"attr13\":_,%' or attr like '%\"attr13\":10,%')";
     $res19 = $db->query($query);

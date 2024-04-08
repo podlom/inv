@@ -13,14 +13,9 @@
 
 require_once 'lib/db.class.php';
 
-const
-    DBHOST = '127.0.0.1',
-    DBUSER = 'inventure_dev',
-    DBPASS = '[[)sq5J0mXKZ5x2E',
-    DBNAME = 'inventure_dev';
-
 try {
-    $db = new DB(DBHOST, DBUSER, DBPASS, DBNAME);
+    require_once 'config' . DIRECTORY_SEPARATOR . 'inv-prod-settings.php';
+    $db = new DB(INV_PROD_DBHOST, INV_PROD_DBUSER, INV_PROD_DBPASS, INV_PROD_DBNAME);
     $query = "SET collation_connection = utf8_unicode_ci";
     $res0 = $db->query($query);
     $query = "SET NAMES utf8";

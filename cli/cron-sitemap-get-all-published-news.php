@@ -65,7 +65,8 @@ function getNews($lang = 'ru')
 
 
 try {
-    $db = new DB('127.0.0.1', 'inventure', '6Qq2fnX51zShHhDO', 'inventure_prod');
+    require_once 'config' . DIRECTORY_SEPARATOR . 'inv-prod-settings.php';
+    $db = new DB(INV_PROD_DBHOST, INV_PROD_DBUSER, INV_PROD_DBPASS, INV_PROD_DBNAME);
     $query = "SET collation_connection = utf8_unicode_ci";
     $res1001 = $db->query($query);
     $query = "SET NAMES utf8";
