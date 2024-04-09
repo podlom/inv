@@ -146,29 +146,9 @@ if (!empty($_REQUEST)) {
         $formData = array_merge(['formData' => $sFormData], ['formName' => 'sf_investment_callback', 'formUri' => '/form/investment_callback']);
         $rs7 = _sendFormRequest($formData, false);
         if ($rs7 !== false) {
-            $appConfig = Yaml::parseFile( dirname(__FILE__) . '/../config/app.yml');
-            $googleReCaptchaSecret = $appConfig['google_recaptcha']['secret_key'];
-
-            // @see: https://developers.google.com/recaptcha/docs/verify
-            $postData = http_build_query([
-                'secret' => $googleReCaptchaSecret,
-                'response' => $_REQUEST['g-recaptcha-response'],
-                // 'remoteip' => 'Optional. The user's IP address.',
-            ]);
-            $opts = ['http' =>
-                        [
-                            'method' => 'POST',
-                            'header' => 'Content-type: application/x-www-form-urlencoded',
-                            'content' => $postData,
-                        ],
-            ];
-            $context = stream_context_create($opts);
-            $result = file_get_contents('https://www.google.com/recaptcha/api/siteverify', false, $context);
-
-            l_m(__FILE__ . ' +' . __LINE__ . ' $result: ' . var_export($result, true));
-
-            $r97 = json_decode($result, true);
-            if (isset($r97["success"]) && ($r97["success"] == true)) { // Send email
+            //
+            $googleReCaptchaValid = _validateGoogleReCaptcha($_REQUEST['g-recaptcha-response']);
+            if ($googleReCaptchaValid) {
                 sendMailForm($_REQUEST['sf_investment_callback'], 'info@inventure.ua', 'InVenture form submission');
             }
             //

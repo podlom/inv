@@ -350,6 +350,38 @@ function ucmp($a, $b) {
 }
 */
 
+function _validateGoogleReCaptcha($googleReCapchaResponse)
+{
+    // $appConfig = Yaml::parseFile( dirname(__FILE__) . '/../config/app.yml');
+    $cfg = app()->getService('config')->get('app')->google_recaptcha;
+    $googleReCaptchaSecret = $cfg['secret_key'];
+
+    // @see: https://developers.google.com/recaptcha/docs/verify
+    $postData = http_build_query([
+        'secret' => $googleReCaptchaSecret,
+        'response' => $googleReCapchaResponse,
+        // 'remoteip' => 'Optional. The user's IP address.',
+    ]);
+    $opts = ['http' =>
+        [
+            'method' => 'POST',
+            'header' => 'Content-type: application/x-www-form-urlencoded',
+            'content' => $postData,
+        ],
+    ];
+    $context = stream_context_create($opts);
+    $result = file_get_contents('https://www.google.com/recaptcha/api/siteverify', false, $context);
+
+    l_m(__FILE__ . ' +' . __LINE__ . ' $result: ' . var_export($result, true));
+
+    $r97 = json_decode($result, true);
+    if (isset($r97["success"]) && ($r97["success"] == true)) {
+        return true;
+    }
+
+    return false;
+}
+
 function _sendFormRequest($data, $useExternalConnector = true)
 {
     l_m(__FUNCTION__ . ' +' . __LINE__ . ' sending data to HubSpot CRM: ' . var_export($data, 1));
