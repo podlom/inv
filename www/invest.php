@@ -133,7 +133,10 @@ if (!empty($_REQUEST)) {
         $formData = array_merge(['formData' => $sFormData], ['formName' => 'sf_investor', 'formUri' => '/form/investor']);
         $rs8 = _sendFormRequest($formData, false);
         if ($rs8 !== false) {
-            sendMailForm($_POST['sf_investor'], 'info@inventure.ua', 'InVenture form submission');
+            $googleReCaptchaValid = _validateGoogleReCaptcha($_POST['g-recaptcha-response']);
+            if ($googleReCaptchaValid) {
+                sendMailForm($_POST['sf_investor'], 'info@inventure.ua', 'InVenture form submission');
+            }
         }
     }
     //
