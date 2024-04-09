@@ -194,7 +194,7 @@
 		<div class="form__footer footer">
 			<div class="container">
 				<div class="footer__wrapper">
-					<button class="btn form__submit btn--white">
+					<button class="btn form__submit btn--white g-recaptcha" data-sitekey="6LdAzj8pAAAAAKzj8VirFh5Q6cfQrBLr2jJ6vBul">
 						{if $lang === 'ru'}
 						Отправить анкету
 						{else if $lang === 'en'}
