@@ -15,7 +15,7 @@ use Symfony\Component\Yaml\Yaml;
  * User: Taras
  * Date: 16.08.2018
  * Time: 14:54
- * Updated: 2024-03-27 20:00
+ * Updated: 2024-04-23 20:42
  *
  * @author Taras Shkodenko <taras@shkodenko.com>
  */
@@ -40,7 +40,8 @@ function l_m(string $msg)
     // IP: 176.37.192.192 - Kyiv - Rollhouse cafe
     // IP: 31.43.103.143 - 2024-03-18 - Kyiv - Feelin cafe
     // IP: 193.0.217.97 - 2024-03-18 - Kyiv - Volodymyra Ivasyuka ave. 24-a
-    if (is_writeable($logFileName) && isset($_SERVER['HTTP_CF_CONNECTING_IP']) && ($_SERVER['HTTP_CF_CONNECTING_IP'] == '193.0.217.97')) {
+    // IP: 188.191.237.50 - 2024-04-23 - Chernivtsi - My Cake cafe
+    if (is_writeable($logFileName) && isset($_SERVER['HTTP_CF_CONNECTING_IP']) && ($_SERVER['HTTP_CF_CONNECTING_IP'] == '188.191.237.50')) {
         error_log(date('r') . ' ' . $msg . PHP_EOL, 3, $logFileName);
     }
 
