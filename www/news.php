@@ -114,9 +114,11 @@ if (!empty($_REQUEST)) {
         //
         if ($lang == 'ru') {
             if ($category == 'ukraine') {
-                $categorySqlValue = ' WHERE `category_title` = "Новости инвестиций Украины" ';
+                // $categorySqlValue = ' WHERE `category_title` = "Новости инвестиций Украины" ';
+                $categorySqlValue = ' WHERE `parent_id` = "24" ';
             } elseif ($category == 'world') {
-                $categorySqlValue = ' WHERE `category_title` = "Новости инвестиций мира" ';
+                // $categorySqlValue = ' WHERE `category_title` = "Новости инвестиций мира" ';
+                $categorySqlValue = ' WHERE `parent_id` = "21" ';
             }
         } elseif ($lang == 'uk') {
             if ($category == 'ukraine') {
