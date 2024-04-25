@@ -88,7 +88,6 @@ if (!empty($_REQUEST)) {
         l_m($msg);
         //
         if ($lang == 'ru') {
-
             /**
              * category_title    parent_id
              * Инвестиционная, финансовая и бизнес аналитика Украина    20
@@ -127,16 +126,30 @@ if (!empty($_REQUEST)) {
                 $categorySqlValue = ' WHERE `category_title` = "Інвестуємо в Україну | We invest in Ukraine" ';
             }
         } elseif ($lang == 'en') {
+            /**
+             * category_title    parent_id
+             * Interviews with investors, businessmen and entrepreneurs    9788
+             * Investment, economic, marketing research in Ukraine    9789
+             * Articles about investments and business in Ukraine    11946
+             * Investing in Ukraine | We invest in Ukraine    15073
+             * Ratings and rankings of Ukraine: investments, companies, investors, business    15077
+             */
+
             if ($category == 'investments') {
-                $categorySqlValue = ' WHERE `category_title` = "Investment, economic, marketing research in Ukraine" ';
+                // $categorySqlValue = ' WHERE `category_title` = "Investment, economic, marketing research in Ukraine" ';
+                $categorySqlValue = ' WHERE `parent_id` = "9789" ';
             } elseif ($category == 'database') {
-                $categorySqlValue = ' WHERE `category_title` = "Investor Toolkit" ';
+                // $categorySqlValue = ' WHERE `category_title` = "Investor Toolkit" ';
+                $categorySqlValue = ' WHERE `parent_id` = "15077" ';
             } elseif ($category == 'formula') {
-                $categorySqlValue = ' WHERE `category_title` = "Interviews with investors, businessmen and entrepreneurs" ';
+                // $categorySqlValue = ' WHERE `category_title` = "Interviews with investors, businessmen and entrepreneurs" ';
+                $categorySqlValue = ' WHERE `parent_id` = "9788" ';
             } elseif ($category == 'articles') {
-                $categorySqlValue = ' WHERE `category_title` = "Articles about investments and business in Ukraine" ';
+                // $categorySqlValue = ' WHERE `category_title` = "Articles about investments and business in Ukraine" ';
+                $categorySqlValue = ' WHERE `parent_id` = "11946" ';
             } elseif ($category == 'we-invest-in-ukraine') {
-                $categorySqlValue = ' WHERE `category_title` = "Investing in Ukraine | We invest in Ukraine" ';
+                // $categorySqlValue = ' WHERE `category_title` = "Investing in Ukraine | We invest in Ukraine" ';
+                $categorySqlValue = ' WHERE `parent_id` = "15073" ';
             }
         }
     }
