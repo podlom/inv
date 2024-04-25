@@ -114,16 +114,30 @@ if (!empty($_REQUEST)) {
                 $categorySqlValue = ' WHERE `parent_id` = "14597" ';
             }
         } elseif ($lang == 'uk') {
+            /**
+             * category_title    parent_id
+             * Інвестиційна аналітика та економічні дослідження    25411
+             * Інтерв'ю з інвесторами, бізнесменами та підприємцями    25413
+             * Статті про інвестиції в Україні    25414
+             * Інвестуємо в Україну | We invest in Ukraine    25416
+             * Рейтинги Україна: інвестиції, компанії, інвестори, бізнес    25510
+             */
+
             if ($category == 'investments') {
-                $categorySqlValue = ' WHERE `category_title` = "Інвестиційна аналітика та економічні дослідження" ';
+                // $categorySqlValue = ' WHERE `category_title` = "Інвестиційна аналітика та економічні дослідження" ';
+                $categorySqlValue = ' WHERE `parent_id` = "25411" ';
             } elseif ($category == 'database') {
-                $categorySqlValue = ' WHERE `category_title` = "Інструментарій інвестора" ';
+                // $categorySqlValue = ' WHERE `category_title` = "Інструментарій інвестора" ';
+                $categorySqlValue = ' WHERE `parent_id` = "25510" ';
             } elseif ($category == 'formula') {
-                $categorySqlValue = ' WHERE `category_title` = "Інтерв\'ю з інвесторами, бізнесменами та підприємцями" ';
+                // $categorySqlValue = ' WHERE `category_title` = "Інтерв\'ю з інвесторами, бізнесменами та підприємцями" ';
+                $categorySqlValue = ' WHERE `parent_id` = "25413" ';
             } elseif ($category == 'articles') {
-                $categorySqlValue = ' WHERE `category_title` = "Статті про інвестиції в Україні" ';
+                // $categorySqlValue = ' WHERE `category_title` = "Статті про інвестиції в Україні" ';
+                $categorySqlValue = ' WHERE `parent_id` = "25414" ';
             } elseif ($category == 'we-invest-in-ukraine') {
-                $categorySqlValue = ' WHERE `category_title` = "Інвестуємо в Україну | We invest in Ukraine" ';
+                // $categorySqlValue = ' WHERE `category_title` = "Інвестуємо в Україну | We invest in Ukraine" ';
+                $categorySqlValue = ' WHERE `parent_id` = "25416" ';
             }
         } elseif ($lang == 'en') {
             /**
