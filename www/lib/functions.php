@@ -15,7 +15,7 @@ use Symfony\Component\Yaml\Yaml;
  * User: Taras
  * Date: 16.08.2018
  * Time: 14:54
- * Updated: 2024-04-23 20:42
+ * Updated: 2024-04-25 18:17
  *
  * @author Taras Shkodenko <taras@shkodenko.com>
  */
@@ -32,7 +32,8 @@ function l_m(string $msg)
     // $logFileName = dirname(__FILE__) . '/' . date('Y-m-d_H-i') . '_' . bin2hex(random_bytes(7)) . '.log';
     // $logFileName = realpath(__DIR__ . '/../../log') . '/' . date('Y-m-d_H-i') . '_l_m.log';
     $logFileName = realpath(__DIR__ . '/../../log') . '/' . date('Y-m-d_H') . '_l_m.log';
-    if (!file_exists($logFileName)) {
+    if (!file_exists($logFileName))
+    {
         touch($logFileName);
         @chmod($logFileName, 0664);
     }
@@ -41,7 +42,9 @@ function l_m(string $msg)
     // IP: 31.43.103.143 - 2024-03-18 - Kyiv - Feelin cafe
     // IP: 193.0.217.97 - 2024-03-18 - Kyiv - Volodymyra Ivasyuka ave. 24-a
     // IP: 188.191.237.50 - 2024-04-23 - Chernivtsi - My Cake cafe
-    if (is_writeable($logFileName) && isset($_SERVER['HTTP_CF_CONNECTING_IP']) && ($_SERVER['HTTP_CF_CONNECTING_IP'] == '188.191.237.50')) {
+    // IP: 91.237.27.106 - 2024-04-25 - Chernivtsi - Tolstogo str.10
+    if (is_writeable($logFileName) && isset($_SERVER['HTTP_CF_CONNECTING_IP']) && ($_SERVER['HTTP_CF_CONNECTING_IP'] == '91.237.27.106'))
+    {
         error_log(date('r') . ' ' . $msg . PHP_EOL, 3, $logFileName);
     }
 
