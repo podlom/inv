@@ -122,14 +122,18 @@ if (!empty($_REQUEST)) {
             }
         } elseif ($lang == 'uk') {
             if ($category == 'ukraine') {
-                $categorySqlValue = ' WHERE `category_title` = "Новини інвестицій України" ';
+                // $categorySqlValue = ' WHERE `category_title` = "Новини інвестицій України" ';
+                $categorySqlValue = ' WHERE `parent_id` = "25248" ';
             } elseif ($category == 'world') {
-                $categorySqlValue = ' WHERE `category_title` = "Світові новини інвестицій" ';
+                // $categorySqlValue = ' WHERE `category_title` = "Світові новини інвестицій" ';
+                $categorySqlValue = ' WHERE `parent_id` = "25278" ';
             }
         } elseif ($lang == 'en') {
             if ($category == 'ukraine') {
+                // $categorySqlValue = ' WHERE `category_title` = "News in Ukraine" ';
                 $categorySqlValue = ' WHERE `category_title` = "News in Ukraine" ';
             } elseif ($category == 'world') {
+                // $categorySqlValue = ' WHERE `category_title` = "World news" ';
                 $categorySqlValue = ' WHERE `category_title` = "World news" ';
             }
         }
