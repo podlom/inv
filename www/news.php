@@ -131,10 +131,10 @@ if (!empty($_REQUEST)) {
         } elseif ($lang == 'en') {
             if ($category == 'ukraine') {
                 // $categorySqlValue = ' WHERE `category_title` = "News in Ukraine" ';
-                $categorySqlValue = ' WHERE `category_title` = "News in Ukraine" ';
+                $categorySqlValue = ' WHERE `parent_id` = "9752" ';
             } elseif ($category == 'world') {
                 // $categorySqlValue = ' WHERE `category_title` = "World news" ';
-                $categorySqlValue = ' WHERE `category_title` = "World news" ';
+                $categorySqlValue = ' WHERE `parent_id` = "9750" ';
             }
         }
     }
