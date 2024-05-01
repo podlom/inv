@@ -28,13 +28,13 @@ if (!empty($_REQUEST)) {
     require_once app()->getPath() . '/cli/lib/db.class.php';
     $cfg = app()->getService('config')->get('app')->db;
     //
-    if ($_SERVER['SERVER_NAME'] != 'inventure.com.ua') {
+    /* if ($_SERVER['SERVER_NAME'] != 'inventure.com.ua') {
         // adjust db settings for dev environment
         $cfg['host'] = '127.0.0.1';
         $cfg['dbname'] = 'inventure_dev';
         $cfg['user'] = 'inventure_dev';
         $cfg['password'] = '[[)sq5J0mXKZ5x2E';
-    }
+    } */
     //
     try {
         $db = new \DB($cfg['host'], $cfg['user'], $cfg['password'], $cfg['dbname']);
@@ -93,7 +93,8 @@ if (!empty($_REQUEST)) {
     l_m($msg);
     //
     if ($lang == 'uk') {
-        $routeId = 29; // @ts fix 2024-04-01 $routeId = 7542;
+        // $routeId = 29; // @ts fix 2024-04-01 $routeId = 7542;
+        $routeId = 7542;
     } elseif ($lang == 'en') {
         $routeId = 7362;
     }
