@@ -7,6 +7,7 @@
  * User: shtaras
  * Date: 2020-08-06
  * Time: 13:35
+ * Modified: 2024-05-01 22:04
  *
  * @author Taras Shkodenko <taras@shkodenko.com>
  */
@@ -22,7 +23,7 @@ try {
     $curTime = time();
 
     $query = "SELECT DISTINCT id_0, attr_9, sort_1, past_2 FROM (
-SELECT p0_.id AS id_0, p0_.sort1 AS sort_1, p0_.past2 AS past_2, p0_.h1 AS h1_1, p0_.status AS status_2, p0_.deleted AS deleted_3, p0_.published AS published_4, p0_.short_text AS short_text_5, p0_.subpath AS subpath_6, p0_.created AS created_7, p0_.updated AS updated_8, p0_.attr AS attr_9, p0_.class AS class_10, p0_.image_id AS image_id_11, p0_.user_id AS user_id_12, p0_.route_id AS route_id_13, p0_.parent_id AS parent_id_14 FROM Page p0_ WHERE (p0_.route_id = 29) AND p0_.class IN ('16')
+SELECT p0_.id AS id_0, p0_.sort1 AS sort_1, p0_.past2 AS past_2, p0_.h1 AS h1_1, p0_.status AS status_2, p0_.deleted AS deleted_3, p0_.published AS published_4, p0_.short_text AS short_text_5, p0_.subpath AS subpath_6, p0_.created AS created_7, p0_.updated AS updated_8, p0_.attr AS attr_9, p0_.class AS class_10, p0_.image_id AS image_id_11, p0_.user_id AS user_id_12, p0_.route_id AS route_id_13, p0_.parent_id AS parent_id_14 FROM Page p0_ WHERE ((p0_.route_id = 29) OR (p0_.route_id = 7542) OR (p0_.route_id = 7362)) AND p0_.class IN ('16')
 ) dctrn_result_inner ORDER BY id_0 DESC";
     $res19 = $db->query($query);
     if (!empty($res19) && is_array($res19)) {

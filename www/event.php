@@ -5,7 +5,7 @@
  * User: shtaras
  * Date: 2020-07-22
  * Time: 16:58
- * Modified: 2024-04-01 15:03
+ * Modified: 2024-05-01 22:04
  *
  * @author Taras Shkodenko <taras@shkodenko.com>
  */
@@ -93,7 +93,6 @@ if (!empty($_REQUEST)) {
     l_m($msg);
     //
     if ($lang == 'uk') {
-        // $routeId = 29; // @ts fix 2024-04-01 $routeId = 7542;
         $routeId = 7542;
     } elseif ($lang == 'en') {
         $routeId = 7362;
