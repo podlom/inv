@@ -5,7 +5,7 @@
  * User: shtaras
  * Date: 2020-07-22
  * Time: 16:58
- * Modified: 2024-05-01 22:04
+ * Modified: 2024-05-02 12:18
  *
  * @author Taras Shkodenko <taras@shkodenko.com>
  */
@@ -22,6 +22,7 @@ try {
     echo $app->getService('template')->renderException($e);
 }
 //
+$langPrefix = '';
 $resHmtl = '';
 //
 if (!empty($_REQUEST)) {
@@ -94,8 +95,10 @@ if (!empty($_REQUEST)) {
     //
     if ($lang == 'uk') {
         $routeId = 7542;
+        $langPrefix = '/uk';
     } elseif ($lang == 'en') {
         $routeId = 7362;
+        $langPrefix = '/en';
     }
     $msg = __FILE__ . ' +' . __LINE__ . ' @ts $routeId: ' . var_export($routeId, true);
     l_m($msg);
@@ -188,7 +191,7 @@ if (!empty($_REQUEST)) {
                     // l_m(__FILE__ . ' +' . __LINE__ . ' Result: ' . var_export($r7, true) . PHP_EOL);
                     $imgHtml = '';
                     if (isset($r7['page_url_30']) && !empty($r7['page_url_30'])) {
-                        $imgHtml = '<a href="/tools/events/' . $r7['subpath_7'] . '"><img class="" data-src="/img/thumbup.120.90' . $r7['page_url_30'] . '" alt="' . $r7['title_19'] . '" src="' . $r7['page_url_30'] . '"></a>';
+                        $imgHtml = '<a href="' . $langPrefix . '/tools/events/' . $r7['subpath_7'] . '"><img class="" data-src="/img/thumbup.120.90' . $r7['page_url_30'] . '" alt="' . $r7['title_19'] . '" src="' . $r7['page_url_30'] . '"></a>';
                     }
                     $attr = json_decode($r7['attr_10'], true);
                     // l_m( __FILE__ . ' +' . __LINE__ . ' Attributes: ' . var_export($attr, true) . PHP_EOL );
@@ -234,7 +237,7 @@ if (!empty($_REQUEST)) {
                     //                 <div class="event">
                     //                     <div class="img">' .$imgHtml . '</div>
                     //                     <div class="content">
-                    //                     <h5><a href="/tools/events/' . $r7['subpath_7'] . '">' . $r7['description_22'] . '</a></h5>
+                    //                     <h5><a href="' . $langPrefix . '/tools/events/' . $r7['subpath_7'] . '">' . $r7['description_22'] . '</a></h5>
                     //                     ' . $dateHtml . '
                     //                     ' . $catHtml . '
                     //                     </div>
@@ -244,7 +247,7 @@ if (!empty($_REQUEST)) {
                     // <img class="lazyimg cards__img" data-src="/img/thumbup.120.90/' . $r7['page_url_30'] . '" alt="' . $r7['title_19'] . '" src="/img/thumbup.120.90/' . $r7['page_url_30'] . '">
                     
                     $resHmtl .= '
-                    <a href="/tools/events/' . $r7['subpath_7'] . '" class="cards__item event mb-4">
+                    <a href="' . $langPrefix . '/tools/events/' . $r7['subpath_7'] . '" class="cards__item event mb-4">
                         <div class="event__date">
                             <div class="event__day font-semibold">' . $formatDay . '</div>
                             <div class="event__month">' . $formatMonth . '</div>
@@ -372,7 +375,7 @@ if (!empty($_REQUEST)) {
                     // l_m(__FILE__ . ' +' . __LINE__ . ' Result: ' . var_export($r7, true) . PHP_EOL);
                     $imgHtml = '';
                     if (isset($r7['page_url_30']) && !empty($r7['page_url_30'])) {
-                        $imgHtml = '<a href="/tools/events/' . $r7['subpath_7'] . '"><img class="" data-src="/img/thumbup.120.90/' . $r7['page_url_30'] . '" alt="' . $r7['title_19'] . '" src="/img/thumbup.120.90/' . $r7['page_url_30'] . '"></a>';
+                        $imgHtml = '<a href="' . $langPrefix . '/tools/events/' . $r7['subpath_7'] . '"><img class="" data-src="/img/thumbup.120.90/' . $r7['page_url_30'] . '" alt="' . $r7['title_19'] . '" src="/img/thumbup.120.90/' . $r7['page_url_30'] . '"></a>';
                     }
                     $attr = json_decode($r7['attr_10'], true);
                     // l_m( __FILE__ . ' +' . __LINE__ . ' Attributes: ' . var_export($attr, true) . PHP_EOL );
@@ -418,7 +421,7 @@ if (!empty($_REQUEST)) {
                     //                 <div class="event">
                     //                     <div class="img">' .$imgHtml . '</div>
                     //                     <div class="content">
-                    //                     <h5><a href="/tools/events/' . $r7['subpath_7'] . '">' . $r7['description_22'] . '</a></h5>
+                    //                     <h5><a href="' . $langPrefix . '/tools/events/' . $r7['subpath_7'] . '">' . $r7['description_22'] . '</a></h5>
                     //                     ' . $dateHtml . '
                     //                     ' . $catHtml . '
                     //                     </div>
@@ -426,7 +429,7 @@ if (!empty($_REQUEST)) {
                     //             </div>';
 
                     $resHmtl .= '
-                    <a href="/tools/events/' . $r7['subpath_7'] . '" ' . $linkAttributes . ' class="cards__item event mb-4">
+                    <a href="' . $langPrefix . '/tools/events/' . $r7['subpath_7'] . '" ' . $linkAttributes . ' class="cards__item event mb-4">
                         <div class="event__date past__event' . $r7['past_2'] . '">
                             <div class="event__day font-semibold">' . $formatDay . '</div>
                             <div class="event__month">' . $formatMonth . '</div>
