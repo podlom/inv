@@ -23,6 +23,16 @@
     </aside>
   </div>
   <div class="container">
+    <a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/add-inv-prop"
+    class="investments__title-link --mobile mt-4">
+    {if $lang == 'en'}
+      Place an ad
+    {elseif $lang === 'uk'}
+      Розмістити обʼяву
+    {else}
+      Разместить объявление
+    {/if}
+    </a>
     <div class="show-more show-more--big">
       <a href="/investments" class="show-more__btn font-medium ">Показать все</a>
     </div>
