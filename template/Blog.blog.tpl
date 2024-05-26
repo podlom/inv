@@ -112,7 +112,16 @@
                 {assign "line" value="84"}
             {/if}
             <h1 class="ts-line-{$line} pr-4 investments__title">{$blogTitle}</h1>
-            <a href="{if $lang == 'en'}/en{elseif $lang == 'uk'}/uk{/if}/add-inv-prop" class="investments__title-link desktop-only" >{if $lang == 'en'}How to advertise?{elseif $lang == 'uk'}Як сюди потрапити?{else}Как сюда попасть?{/if}</a>
+            <a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/add-inv-prop"
+                class="investments__title-link desktop-only ml-4">
+                {if $lang == 'en'}
+                    Place an ad
+                  {elseif $lang === 'uk'}
+                    Розмістити оголошення
+                  {else}
+                    Разместить объявление
+                  {/if}
+            </a>
         </div>
     {elseif $request->getPathInfo()|strpos:'/news' >= 0 && $request->getPathInfo()|strpos:'/news' !== false}
         <div class="section__title-categories pt-0 mb-2 pb-0 flex flex-row justify-between items-center">
@@ -151,7 +160,17 @@
         {/if}
         <div class="section__title-categories pt-0 mb-2 pb-0 flex flex-row justify-between items-center">
             <a href="/analytics"><h1  class="ts-line-{$line} section__title-categories pr-4">{$blogTitle}</h1></a>
-            <a href="{if $lang == 'en'}/en{elseif $lang == 'uk'}/uk{/if}/add-inv-prop" class="investments__title-link desktop-only" >{if $lang == 'en'}How to advertise?{elseif $lang == 'uk'}Як сюди потрапити?{else}Как сюда попасть?{/if}</a>
+
+            <a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/add-inv-prop"
+                class="investments__title-link desktop-only ml-4">
+                {if $lang == 'en'}
+                    Place an ad
+                  {elseif $lang === 'uk'}
+                    Розмістити оголошення
+                  {else}
+                    Разместить объявление
+                  {/if}
+            </a>
         </div>
     {else}
         <h1 class="section__title">

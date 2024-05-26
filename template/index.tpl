@@ -24,11 +24,11 @@
   </div>
   <div class="container">
     <a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/add-inv-prop"
-    class="investments__title-link --mobile mt-4">
+    class="investments__title-link --mobile mobile-only mt-4">
     {if $lang == 'en'}
       Place an ad
     {elseif $lang === 'uk'}
-      Розмістити обʼяву
+      Розмістити оголошення
     {else}
       Разместить объявление
     {/if}
