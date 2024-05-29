@@ -46,3 +46,5 @@ data/react/dist/*.js
 vendor/*
 cli/config/settings.php
 cli/config/inv-prod-settings.php
+# @ts 2024-05-29
+.env

@@ -10,6 +10,8 @@
     '/investments/offer'=>'Инвесторы'
 ]}
 
+
+{* if $lang == 'ru' *}
 {$nextPageUrl = '/news.php?lang=ru&action=news-list&page=2'}
 {if $request->getPathInfo()|strpos:'/analytics' === 0}
     {$nextPageUrl = '/analytics.php?lang=ru&action=analytics-list&page=2'}
@@ -18,6 +20,8 @@
     {$nextPageUrl = '/video.php?lang=ru&action=video-list&page=2'}
 {/if}
 
+
+{* if $lang == 'uk' *}
 {if $lang == 'uk'}
 {$links = [
     '/uk/investments/projects' => 'Інвестиційні проекти і стартапи',
@@ -36,6 +40,8 @@
     {/if}
 {/if}
 
+
+{* if $lang == 'en' *}
 {if $lang == 'en'}
 {$links = [
     '/en/investments/projects'=>'Investment Projects and Startups',
