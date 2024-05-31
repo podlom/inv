@@ -8,6 +8,7 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 use Symfony\Component\Yaml\Yaml;
+use Dotenv\Dotenv;
 
 
 /**
@@ -15,7 +16,7 @@ use Symfony\Component\Yaml\Yaml;
  * User: Taras
  * Date: 16.08.2018
  * Time: 14:54
- * Updated: 2024-05-01 21:25
+ * Updated: 2024-05-31 22:55
  *
  * @author Taras Shkodenko <taras@shkodenko.com>
  */
@@ -23,6 +24,14 @@ use Symfony\Component\Yaml\Yaml;
 
 function l_m(string $msg)
 {
+    // IP: 193.0.217.7 - Kyiv - Volodymyra Ivasyuka 24-a
+    // IP: 176.37.192.192 - Kyiv - Rollhouse cafe
+    // IP: 31.43.103.143 - 2024-03-18 - Kyiv - Feelin cafe
+    // IP: 193.0.217.97 - 2024-03-18 - Kyiv - Volodymyra Ivasyuka ave. 24-a
+    // IP: 188.191.237.50 - 2024-04-23 - Chernivtsi - My Cake cafe
+    // IP: 91.237.27.106 - 2024-04-25 - Chernivtsi - Tolstogo str.10
+    $debugIp = $_ENV['DEBUG_IP'] ?? '193.0.217.97';
+
     // Do not log on prod by default
     // if ($_SERVER['SERVER_NAME'] === 'inventure.com.ua') {
         // error_log(__FILE__ . ' +' . __LINE__ . ' ' . __FUNCTION__ . ' log to file is disabled for production env: ' . $_SERVER['SERVER_NAME']);
@@ -37,13 +46,7 @@ function l_m(string $msg)
         touch($logFileName);
         @chmod($logFileName, 0664);
     }
-    // IP: 193.0.217.7 - Kyiv - Volodymyra Ivasyuka 24-a
-    // IP: 176.37.192.192 - Kyiv - Rollhouse cafe
-    // IP: 31.43.103.143 - 2024-03-18 - Kyiv - Feelin cafe
-    // IP: 193.0.217.97 - 2024-03-18 - Kyiv - Volodymyra Ivasyuka ave. 24-a
-    // IP: 188.191.237.50 - 2024-04-23 - Chernivtsi - My Cake cafe
-    // IP: 91.237.27.106 - 2024-04-25 - Chernivtsi - Tolstogo str.10
-    if (is_writeable($logFileName) && isset($_SERVER['HTTP_CF_CONNECTING_IP']) && ($_SERVER['HTTP_CF_CONNECTING_IP'] == '91.237.27.106'))
+    if (is_writeable($logFileName) && isset($_SERVER['HTTP_CF_CONNECTING_IP']) && ($_SERVER['HTTP_CF_CONNECTING_IP'] == $debugIp))
     {
         error_log(date('r') . ' ' . $msg . PHP_EOL, 3, $logFileName);
     }
