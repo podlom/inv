@@ -5,7 +5,7 @@
  * User: shtaras
  * Date: 2024-03-08
  * Time: 19:25
- * Modified: 2024-03-20 15:33
+ * Modified: 2024-06-06 17:41
  *
  * @author Taras Shkodenko <taras@shkodenko.com>
  */
@@ -138,8 +138,23 @@ if (!empty($_REQUEST)) {
             }
         }
     }
+
+    // 2024-06-06 added by @ts
+    if (isset($_REQUEST['rubric']) && !empty($_REQUEST['rubric'])) {
+        $rubric = $_REQUEST['rubric'];
+        $msg = __FILE__ . ' +' . __LINE__ . ' @ts $rubric: ' . var_export($rubric, true);
+        l_m($msg);
+        //
+        if (!empty($categorySqlValue)) {
+            $categorySqlValue .= ' AND pr.`rubric_id` = "' . $rubric . '" ';
+        } else {
+            $categorySqlValue .= ' WHERE pr.`rubric_id` = "' . $rubric . '" ';
+        }
+    }
+
     $msg = __FILE__ . ' +' . __LINE__ . ' @ts $categorySqlValue: ' . var_export($categorySqlValue, true);
     l_m($msg);
+
     //
     // $msg = __FILE__ . ' +' . __LINE__ . ' $_SERVER HTTP_USER_AGENT: ' . var_export($_SERVER['HTTP_USER_AGENT'], true);
     // l_m($msg);
@@ -165,7 +180,7 @@ if (!empty($_REQUEST)) {
         l_m(__FILE__ . ' +' . __LINE__ . ' $page: ' . var_export($page, true) . PHP_EOL);
         l_m(__FILE__ . ' +' . __LINE__ . ' $offset: ' . var_export($offset, true) . PHP_EOL);
 
-        $query = "SELECT SQL_CALC_FOUND_ROWS * FROM news_{$lang} {$categorySqlValue} LIMIT {$limit} OFFSET {$offset} ";
+        $query = "SELECT SQL_CALC_FOUND_ROWS n.*, pr.rubric_id AS rubric_id FROM news_{$lang} AS n {$categorySqlValue} LEFT JOIN post_rubric AS pr ON pr.post_id = n.id LIMIT {$limit} OFFSET {$offset} ";
         l_m(__FILE__ . ' +' . __LINE__ . ' SQL: ' . $query . PHP_EOL);
         $res2 = $db->query($query);
         // l_m( __FILE__ . ' +' . __LINE__ . ' Result: ' . var_export($res2, true) . PHP_EOL );
