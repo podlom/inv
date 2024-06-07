@@ -145,10 +145,80 @@ if (!empty($_REQUEST)) {
         $msg = __FILE__ . ' +' . __LINE__ . ' @ts $rubric: ' . var_export($rubric, true);
         l_m($msg);
         //
+        $rubricId = $rubric;
+        if (!is_numeric($rubric)) {
+            if ($lang == 'ru') {
+                switch ($rubric) {
+                    case 'investments':
+                        $rubricId = 37;
+                        break;
+                    case 'startup':
+                        $rubricId = 38;
+                        break;
+                    case 'government':
+                        $rubricId = 39;
+                        break;
+                    case 'banking':
+                        $rubricId = 40;
+                        break;
+                    case 'stock':
+                        $rubricId = 41;
+                        break;
+                    case 'realestate':
+                        $rubricId = 42;
+                        break;
+                }
+            } elseif ($lang == 'uk') {
+                switch ($rubric) {
+                    case 'investments':
+                        $rubricId = 25249;
+                        break;
+                    case 'startup':
+                        $rubricId = 25609;
+                        break;
+                    case 'government':
+                        $rubricId = 25610;
+                        break;
+                    case 'banking':
+                        $rubricId = 25611;
+                        break;
+                    case 'stock':
+                        $rubricId = 25613;
+                        break;
+                    case 'realestate':
+                        $rubricId = 25614;
+                        break;
+                }
+            } elseif ($lang == 'en') {
+                switch ($rubric) {
+                    case 'investments':
+                        $rubricId = 9759;
+                        break;
+                    case 'startup':
+                        $rubricId = 9758;
+                        break;
+                    case 'government':
+                        $rubricId = 9757;
+                        break;
+                    case 'banking':
+                        $rubricId = 9754;
+                        break;
+                    case 'stock':
+                        $rubricId = 9755;
+                        break;
+                    case 'realestate':
+                        $rubricId = 9756;
+                        break;
+                }
+            }
+        }
+        $msg = __FILE__ . ' +' . __LINE__ . ' @ts $rubricId: ' . var_export($rubricId, true);
+        l_m($msg);
+        //
         if (!empty($categorySqlValue)) {
-            $categorySqlValue .= ' AND pr.`rubric_id` = "' . $rubric . '" ';
+            $categorySqlValue .= ' AND pr.`rubric_id` = "' . $rubricId . '" ';
         } else {
-            $categorySqlValue .= ' WHERE pr.`rubric_id` = "' . $rubric . '" ';
+            $categorySqlValue .= ' WHERE pr.`rubric_id` = "' . $rubricId . '" ';
         }
     }
 
