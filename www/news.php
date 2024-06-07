@@ -180,7 +180,7 @@ if (!empty($_REQUEST)) {
         l_m(__FILE__ . ' +' . __LINE__ . ' $page: ' . var_export($page, true) . PHP_EOL);
         l_m(__FILE__ . ' +' . __LINE__ . ' $offset: ' . var_export($offset, true) . PHP_EOL);
 
-        $query = "SELECT SQL_CALC_FOUND_ROWS n.*, pr.rubric_id AS rubric_id FROM news_{$lang} AS n {$categorySqlValue} LEFT JOIN post_rubric AS pr ON pr.post_id = n.id LIMIT {$limit} OFFSET {$offset} ";
+        $query = "SELECT SQL_CALC_FOUND_ROWS n.*, pr.rubric_id AS rubric_id FROM news_{$lang} AS n LEFT JOIN post_rubric AS pr ON pr.post_id = n.id {$categorySqlValue} LIMIT {$limit} OFFSET {$offset} ";
         l_m(__FILE__ . ' +' . __LINE__ . ' SQL: ' . $query . PHP_EOL);
         $res2 = $db->query($query);
         // l_m( __FILE__ . ' +' . __LINE__ . ' Result: ' . var_export($res2, true) . PHP_EOL );
