@@ -30,7 +30,8 @@ function l_m(string $msg)
     // IP: 193.0.217.97 - 2024-03-18 - Kyiv - Volodymyra Ivasyuka ave. 24-a
     // IP: 188.191.237.50 - 2024-04-23 - Chernivtsi - My Cake cafe
     // IP: 91.237.27.106 - 2024-04-25 - Chernivtsi - Tolstogo str.10
-    $debugIp = $_ENV['DEBUG_IP'] ?? '193.0.217.97';
+    // IP: 193.0.218.31 - 2024-06-11 - Kyiv - Perfetto
+    $debugIp = $_ENV['DEBUG_IP'] ?? '193.0.218.31';
     error_log(__METHOD__ . ' +' . __LINE__ . ' $debugIp: ' . var_export($debugIp, true));
 
     // Do not log on prod by default
