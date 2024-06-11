@@ -251,14 +251,14 @@ if (!empty($_REQUEST)) {
         l_m(__FILE__ . ' +' . __LINE__ . ' $offset: ' . var_export($offset, true) . PHP_EOL);
 
         $query = "SELECT SQL_CALC_FOUND_ROWS n.*, pr.rubric_id AS rubric_id FROM news_{$lang} AS n LEFT JOIN post_rubric AS pr ON pr.post_id = n.id {$categorySqlValue} LIMIT {$limit} OFFSET {$offset} ";
-        l_m(__FILE__ . ' +' . __LINE__ . ' SQL: ' . $query . PHP_EOL);
+        l_m(__FILE__ . ' +' . __LINE__ . ' SQL1: ' . $query . PHP_EOL);
         $res2 = $db->query($query);
-        // l_m( __FILE__ . ' +' . __LINE__ . ' Result: ' . var_export($res2, true) . PHP_EOL );
+        l_m( __FILE__ . ' +' . __LINE__ . ' Result1: ' . var_export($res2, true) . PHP_EOL );
         //
         $query = "SELECT FOUND_ROWS()";
-        l_m(__FILE__ . ' +' . __LINE__ . ' SQL: ' . $query);
+        l_m(__FILE__ . ' +' . __LINE__ . ' SQL2: ' . $query);
         $res322 = $db->query($query);
-        l_m(__FILE__ . ' +' . __LINE__ . ' Result322: ' . var_export($res322, true));
+        l_m(__FILE__ . ' +' . __LINE__ . ' Result2: ' . var_export($res322, true));
         //
         //
         $nextPage = $page + 1;
