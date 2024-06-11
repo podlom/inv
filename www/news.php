@@ -140,6 +140,7 @@ if (!empty($_REQUEST)) {
     }
 
     // 2024-06-06 added by @ts
+    $newsHasRubric = false;
     if (isset($_REQUEST['rubric']) && !empty($_REQUEST['rubric'])) {
         $rubric = $_REQUEST['rubric'];
         $msg = __FILE__ . ' +' . __LINE__ . ' @ts $rubric: ' . var_export($rubric, true);
@@ -151,63 +152,81 @@ if (!empty($_REQUEST)) {
                 switch ($rubric) {
                     case 'investments':
                         $rubricId = 37;
+                        $newsHasRubric = true;
                         break;
                     case 'startup':
                         $rubricId = 38;
+                        $newsHasRubric = true;
                         break;
                     case 'government':
                         $rubricId = 39;
+                        $newsHasRubric = true;
                         break;
                     case 'banking':
                         $rubricId = 40;
+                        $newsHasRubric = true;
                         break;
                     case 'stock':
                         $rubricId = 41;
+                        $newsHasRubric = true;
                         break;
                     case 'realestate':
                         $rubricId = 42;
+                        $newsHasRubric = true;
                         break;
                 }
             } elseif ($lang == 'uk') {
                 switch ($rubric) {
                     case 'investments':
                         $rubricId = 25249;
+                        $newsHasRubric = true;
                         break;
                     case 'startup':
                         $rubricId = 25609;
+                        $newsHasRubric = true;
                         break;
                     case 'government':
                         $rubricId = 25610;
+                        $newsHasRubric = true;
                         break;
                     case 'banking':
                         $rubricId = 25611;
+                        $newsHasRubric = true;
                         break;
                     case 'stock':
                         $rubricId = 25613;
+                        $newsHasRubric = true;
                         break;
                     case 'realestate':
                         $rubricId = 25614;
+                        $newsHasRubric = true;
                         break;
                 }
             } elseif ($lang == 'en') {
                 switch ($rubric) {
                     case 'investments':
                         $rubricId = 9759;
+                        $newsHasRubric = true;
                         break;
                     case 'startup':
                         $rubricId = 9758;
+                        $newsHasRubric = true;
                         break;
                     case 'government':
                         $rubricId = 9757;
+                        $newsHasRubric = true;
                         break;
                     case 'banking':
                         $rubricId = 9754;
+                        $newsHasRubric = true;
                         break;
                     case 'stock':
                         $rubricId = 9755;
+                        $newsHasRubric = true;
                         break;
                     case 'realestate':
                         $rubricId = 9756;
+                        $newsHasRubric = true;
                         break;
                 }
             }
@@ -250,10 +269,14 @@ if (!empty($_REQUEST)) {
         l_m(__FILE__ . ' +' . __LINE__ . ' $page: ' . var_export($page, true) . PHP_EOL);
         l_m(__FILE__ . ' +' . __LINE__ . ' $offset: ' . var_export($offset, true) . PHP_EOL);
 
-        $query = "SELECT SQL_CALC_FOUND_ROWS n.*, pr.rubric_id AS rubric_id FROM news_{$lang} AS n LEFT JOIN post_rubric AS pr ON pr.post_id = n.id {$categorySqlValue} LIMIT {$limit} OFFSET {$offset} ";
+        if ($newsHasRubric) {
+            $query = "SELECT SQL_CALC_FOUND_ROWS n.*, pr.rubric_id AS rubric_id FROM news_{$lang} AS n LEFT JOIN post_rubric AS pr ON pr.post_id = n.id {$categorySqlValue} LIMIT {$limit} OFFSET {$offset} ";
+        } else {
+            $query = "SELECT SQL_CALC_FOUND_ROWS n.* FROM news_{$lang} AS n {$categorySqlValue} LIMIT {$limit} OFFSET {$offset} ";
+        }
         l_m(__FILE__ . ' +' . __LINE__ . ' SQL1: ' . $query . PHP_EOL);
         $res2 = $db->query($query);
-        l_m( __FILE__ . ' +' . __LINE__ . ' Result1: ' . var_export($res2, true) . PHP_EOL );
+        // l_m( __FILE__ . ' +' . __LINE__ . ' Result1: ' . var_export($res2, true) . PHP_EOL );
         //
         $query = "SELECT FOUND_ROWS()";
         l_m(__FILE__ . ' +' . __LINE__ . ' SQL2: ' . $query);
