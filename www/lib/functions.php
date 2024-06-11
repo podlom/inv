@@ -16,7 +16,7 @@ use Dotenv\Dotenv;
  * User: Taras
  * Date: 16.08.2018
  * Time: 14:54
- * Updated: 2024-05-31 22:55
+ * Updated: 2024-06-11 10:06
  *
  * @author Taras Shkodenko <taras@shkodenko.com>
  */
@@ -31,6 +31,7 @@ function l_m(string $msg)
     // IP: 188.191.237.50 - 2024-04-23 - Chernivtsi - My Cake cafe
     // IP: 91.237.27.106 - 2024-04-25 - Chernivtsi - Tolstogo str.10
     $debugIp = $_ENV['DEBUG_IP'] ?? '193.0.217.97';
+    error_log(__METHOD__ . ' +' . __LINE__ . ' $debugIp: ' . var_export($debugIp, true));
 
     // Do not log on prod by default
     // if ($_SERVER['SERVER_NAME'] === 'inventure.com.ua') {
@@ -40,7 +41,7 @@ function l_m(string $msg)
 
     // $logFileName = dirname(__FILE__) . '/' . date('Y-m-d_H-i') . '_' . bin2hex(random_bytes(7)) . '.log';
     // $logFileName = realpath(__DIR__ . '/../../log') . '/' . date('Y-m-d_H-i') . '_l_m.log';
-    $logFileName = realpath(__DIR__ . '/../../log') . '/' . date('Y-m-d_H') . '_l_m.log';
+    $logFileName = realpath(__DIR__ . '/../../log') . '/' . date('Y-m-d_H') . '__l_m.log';
     if (!file_exists($logFileName))
     {
         touch($logFileName);
