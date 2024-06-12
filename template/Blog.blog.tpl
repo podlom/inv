@@ -65,6 +65,9 @@
     {assign var="nextPageUrl" value=$nextPageUrl|cat:"&category="|cat:$category->getSubpath()}
 {/if}
 
+{if $rubric && $rubric->getSubpath()}
+    {assign var="nextPageUrl" value=$nextPageUrl|cat:"&rubric="|cat:$rubric->getSubpath()}
+{/if}
 
 {assign "isNewStylesAvaible" value=(true)}
 {assign "isInvestments" value=(
