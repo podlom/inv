@@ -94,6 +94,7 @@
 {if $isNewStylesAvaible}
 	{if $isInvestments}
         <div class="section__title-categories pt-0 mb-2 pb-0 flex flex-row justify-between items-center">
+            {assign "rubricSubpath" value=("")}
             {if !empty($post)}
                 {assign "blogTitle" value=($post->getTitle())}
                 {assign "line" value="99"}
@@ -116,8 +117,9 @@
             {if !empty($rubric)}
                 {assign "blogTitle" value=($rubric->getTitle())}
                 {assign "line" value="118"}
+                {assign "rubricSubpath" value=($rubric->getSubpath())}
             {/if}
-            <h1 class="ts-line-{$line} pr-4 investments__title">{$blogTitle}</h1>
+            <h1 class="ts-line-{$line} ts-{$rubricSubpath}-ts pr-4 investments__title">{$blogTitle}</h1>
             <a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/add-inv-prop"
                 class="investments__title-link desktop-only ml-4">
                 {if $lang == 'en'}
