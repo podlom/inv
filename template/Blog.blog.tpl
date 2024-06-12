@@ -96,26 +96,26 @@
         <div class="section__title-categories pt-0 mb-2 pb-0 flex flex-row justify-between items-center">
             {if !empty($post)}
                 {assign "blogTitle" value=($post->getTitle())}
-                {assign "line" value="65"}
+                {assign "line" value="99"}
             {else}
                 {assign "blogTitle" value=($blog->getTitle('content'))}
-                {assign "line" value="68"}
+                {assign "line" value="102"}
             {/if}
             {if !empty($blog)}
                 {assign "blogTitle" value=($blog->getTitle('content'))}
-                {assign "line" value="72"}
+                {assign "line" value="106"}
             {/if}
             {if !empty($category)}
                 {assign "blogTitle" value=($category->getTitle())}
-                {assign "line" value="76"}
+                {assign "line" value="110"}
             {/if}
             {if !empty($page)}
                 {assign "blogTitle" value=($page->getTitle())}
-                {assign "line" value="80"}
+                {assign "line" value="114"}
             {/if}
             {if !empty($rubric)}
                 {assign "blogTitle" value=($rubric->getTitle())}
-                {assign "line" value="84"}
+                {assign "line" value="118"}
             {/if}
             <h1 class="ts-line-{$line} pr-4 investments__title">{$blogTitle}</h1>
             <a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/add-inv-prop"
@@ -133,10 +133,10 @@
         <div class="section__title-categories pt-0 mb-2 pb-0 flex flex-row justify-between items-center">
             {if !empty($rubric)}
                 {assign "blogTitle" value=($rubric->getTitle())}
-                {assign "line" value="93"}
+                {assign "line" value="136"}
             {else}
                 {assign "blogTitle" value=($blog->getTitle('content'))}
-                {assign "line" value="96"}
+                {assign "line" value="139"}
             {/if}
             <a href="/news"><h1 data-link="news" class="ts-line-{$line} section__title-categories pr-4">{$blogTitle}</h1></a>
             <ul class="sort desktop-only text-xs">
