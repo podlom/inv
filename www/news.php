@@ -5,7 +5,7 @@
  * User: shtaras
  * Date: 2024-03-08
  * Time: 19:25
- * Modified: 2024-06-06 17:41
+ * Modified: 2024-06-19 13:25
  *
  * @author Taras Shkodenko <taras@shkodenko.com>
  */
@@ -270,7 +270,7 @@ if (!empty($_REQUEST)) {
         l_m(__FILE__ . ' +' . __LINE__ . ' $offset: ' . var_export($offset, true) . PHP_EOL);
 
         if ($newsHasRubric) {
-            $query = "SELECT SQL_CALC_FOUND_ROWS n.*, pr.rubric_id AS rubric_id FROM news_{$lang} AS n LEFT JOIN post_rubric AS pr ON pr.post_id = n.id {$categorySqlValue} LIMIT {$limit} OFFSET {$offset} ";
+            $query = "SELECT SQL_CALC_FOUND_ROWS n.*, pr.rubric_id AS rubric_id FROM news_{$lang} AS n LEFT JOIN post_rubric AS pr ON pr.post_id = n.id {$categorySqlValue} ORDER BY n.id DESC LIMIT {$limit} OFFSET {$offset} ";
         } else {
             $query = "SELECT SQL_CALC_FOUND_ROWS n.* FROM news_{$lang} AS n {$categorySqlValue} LIMIT {$limit} OFFSET {$offset} ";
         }
