@@ -17,11 +17,8 @@ $('#entityParamsVotes').on('input change', function(){
 
 $('#frm1').submit(function(e19){
 	console.log('admin_app +19');
-	e19.preventDefault();
-
-	console.log('admin_app +22');
 	document.querySelector('#mceu_2 > button').click();
 
-	console.log('admin_app +25');
-	$('#frm1').submit();
+	console.log('admin_app +22');
+	document.querySelector('#frm1 > input').click();
 });
