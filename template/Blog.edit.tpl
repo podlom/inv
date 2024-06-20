@@ -465,6 +465,7 @@ $( "select[name='page[category][parent]']" ).change(function(e1) {
 
     if (cv1 == 19303) {
         if (pid == 'add') {
+            document.querySelector('#mceu_2 > button').click();
             $('#frm1').submit();
         }
 
