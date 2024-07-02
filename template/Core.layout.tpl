@@ -125,7 +125,7 @@
 	{script 'jquery' async=""}
 
 	{script src="/js/utm_widget1.js" async="" require="jquery" name="utm_widget1"}
-	{* {script src="/js/ui.min.js" async="" require="jquery,google_maps_api" name="ui_js" } *}
+	{* {script src="/js/ui.js" async="" require="jquery,google_maps_api" name="ui_js" } *}
 
 	{* {script src="/js/libs.min.js" async="" require="jquery" name="libs" } *}
 	{script src="/js/dist/common-min.js" require="jquery" name="common"}

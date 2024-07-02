@@ -75,7 +75,7 @@ scrollto:
     file: jquery.scrollto.min.js
     require: [jquery]
 ui:
-    file: ui.min.js
+    file: https://inventure.ua/ui.js
     position: end
     require: [jquery]
     css: [ui.css]

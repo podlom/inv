@@ -233,7 +233,7 @@
                     <h2>Расположение</h2>
                     <div id="google_map"></div>
                 </div>
-								{script src="/js/ui.min.js" async="" require="jquery,google_maps_api" name="ui_js" }
+								{script src="/js/ui.js" async="" require="jquery,google_maps_api" name="ui_js" }
                 {script_code require="jquery,google_maps_api"}
                 {script 'google_maps_api'}
                 loader.on('google_maps',function(){

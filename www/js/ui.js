@@ -238,6 +238,7 @@ var UI;
     var Html = (function () {
         function Html(item) {
             var $item = $(item);
+            console.log('html should init', $item);
             this.tinymce = $item.tinymce(Html.config);
         }
         Html.check = function () {
