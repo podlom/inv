@@ -17,6 +17,16 @@ $("#entityParamsVotes").on("input change", function () {
 });
 
 $("#frm1").submit(function (e19) {
+  try {
+    const textEditorWrapper = document.querySelector("[data-quill-wrapper]");
+    const inputName = textEditorWrapper.getAttribute("data-name");
+    const editorsHtml = textEditorWrapper._quill.getSemanticHTML();
+    const input = document.querySelector(`[name="${inputName}"]`);
+    input.value = editorsHtml;
+  } catch (err) {
+    console.log(err);
+  }
+
   console.log("admin_app +19");
   document.querySelector("#mceu_2 > button").click();
 
