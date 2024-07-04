@@ -1,12 +1,13 @@
 <?php
 
 //
-// Updated at 2024-07-04 15:23
+// Updated at 2024-07-04 15:28
 //
 // @see: https://stackoverflow.com/questions/12553160/getting-visitors-country-from-their-ip
 //
 
-function ipInfo($ip = null, $purpose = 'location', $deep_detect = true) {
+function ipInfo(string $ip = null, string $purpose = 'location', bool $deep_detect = true): array
+{
     if (!filter_var($ip, FILTER_VALIDATE_IP)) {
         $ip = $_SERVER['REMOTE_ADDR'];
         if ($deep_detect) {
@@ -73,7 +74,8 @@ function ipInfo($ip = null, $purpose = 'location', $deep_detect = true) {
             return $output;
         }
     }
-    return null;
+
+    return [];
 }
 
 //
