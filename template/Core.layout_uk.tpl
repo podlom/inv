@@ -140,7 +140,7 @@
 	{* {script src="/js/jquery.lazyload.min.js" require="jquery" name="lazyload" } *}
 	{* {script src="/js/autosize.min.js" require="jquery" name="autosize" } *}
 	{script src="/js/utm_widget1.js" async="" require="jquery" name="utm_widget1"}
-	{script src="/js/ui.min.js" require="jquery,google_maps_api" name="ui_js" }
+	{script src="/js/ui.js" require="jquery,google_maps_api" name="ui_js" }
 
 	{script src="/js/jquery.hoverIntent.minified.js" name="hoverIntent" require="jquery" }
 	{script src="/js/script-min.js" async="" require="jquery,hoverIntent" name="script"}

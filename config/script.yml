@@ -9,8 +9,14 @@ autocomplete:
     require: [jquery]
 tinymce:
     file: tinymce_4.9/tinymce.min.js
+    # file: https://cdn.jsdelivr.net/npm/tinymce@4.1.9/tinymce.jquery.min.js
     position: top
     require: [jquery, filemanager]
+quill:
+    file: https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.js
+    position: top
+    require: [jquery]
+    css: [https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.snow.css]
 urlslug:
     file: ui/urlslug.js
     position: top
@@ -74,9 +80,9 @@ scrollto:
     file: jquery.scrollto.min.js
     require: [jquery]
 ui:
-    file: ui.min.js
+    file: https://inventure.ua/ui.js
     position: end
-    require: [jquery]
+    require: [jquery, quill]
     css: [ui.css]
 setproperty:
     file: setPropety.js
