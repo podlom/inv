@@ -87,14 +87,15 @@ function ipInfo(string $ip = null, string $purpose = 'location', bool $deep_dete
 // Redirect home page
 if ($_SERVER['REQUEST_URI'] == '/') {
     if (isset($_SERVER['HTTP_CF_IPCOUNTRY']) && $_SERVER['HTTP_CF_IPCOUNTRY'] == 'UA') {
-        die('<!-- ' . var_export($_SERVER, true) . ' -->');
+        // die('<!-- ' . var_export($_SERVER, true) . ' -->');
+        header('Location: /uk');
     }
 
-    $ipData = ipInfo($_SERVER['HTTP_CF_CONNECTING_IP'], 'country');
+    /* $ipData = ipInfo($_SERVER['HTTP_CF_CONNECTING_IP'], 'country');
     // if country is Ukraine to Ukraininan website version
     if (isset($ipData['country']) && ($ipData['country'] == 'Ukraine')) {
         header('Location: /uk');
-    }
+    } */
 }
 
 
