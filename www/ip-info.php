@@ -1,6 +1,10 @@
 <?php
 
+//
+// Updated at 2024-07-04 15:23
+//
 // @see: https://stackoverflow.com/questions/12553160/getting-visitors-country-from-their-ip
+//
 
 function ipInfo($ip = null, $purpose = 'location', $deep_detect = true) {
     if (!filter_var($ip, FILTER_VALIDATE_IP)) {
@@ -72,7 +76,10 @@ function ipInfo($ip = null, $purpose = 'location', $deep_detect = true) {
     return null;
 }
 
-$ipToCheck = $_SERVER['REMOTE_ADDR'];
+//
+// $ipToCheck = $_SERVER['REMOTE_ADDR'];
+// 2024-07-04 Server with CloudFlare has different variable for client IP address
+$ipToCheck = $_SERVER['HTTP_CF_CONNECTING_IP'];
 // Use FILTER_VALIDATE_IP to validate and sanitize the input.
 $userIP = filter_input(INPUT_GET, 'ip', FILTER_VALIDATE_IP);
 if ($userIP) {
