@@ -17,6 +17,9 @@ quill:
     position: top
     require: [jquery]
     css: [https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.snow.css]
+quill-paste-smart:
+    file:https://unpkg.com/quill-paste-smart@latest/dist/quill-paste-smart.js
+    require: [jquery, quill]
 urlslug:
     file: ui/urlslug.js
     position: top
@@ -82,7 +85,7 @@ scrollto:
 ui:
     file: https://inventure.ua/ui.js
     position: end
-    require: [jquery, quill]
+    require: [jquery, quill, quill-paste-smart, select2]
     css: [ui.css]
 setproperty:
     file: setPropety.js
