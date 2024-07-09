@@ -21,7 +21,7 @@ if ($(LIMITED_CHECKBOX).length) {
   });
 }
 
-function changeCheckBox(lang) {
+window.changeCheckBox = (lang) => {
   if (lang == "ru") {
     document.getElementById("check-ru").checked =
       !document.getElementById("check-ru").checked;
@@ -36,7 +36,7 @@ function changeCheckBox(lang) {
       .getElementById("check-box-en")
       .classList.toggle("subscription__check-box--active");
   }
-}
+};
 
 function redirectPost(location, args) {
   var form = "";
@@ -928,38 +928,39 @@ $(document).ready(function () {
     $(".event_list .cards").addClass("cards--event");
     const pathname = window.location.pathname;
     const action = pathname.includes("tools/events") ? "events" : "home";
-    
+
     const language = document.documentElement.lang;
     const labels = {
       ru: "Пока что нет мероприятий",
       uk: "Поки що немає подій",
-      en: "No events yet"
+      en: "No events yet",
     };
     const label = labels[language];
-    
-    const searchParams = (new URL(document.location)).searchParams
+
+    const searchParams = new URL(document.location).searchParams;
     const past = searchParams.get("past");
     const params = new URLSearchParams();
-    if(past) params.append('past', past);
-    params.append('action', action);
-    params.append('lang', language);
-    params.append('page', '1');
+    if (past) params.append("past", past);
+    params.append("action", action);
+    params.append("lang", language);
+    params.append("page", "1");
     $.get(`/event.php?${params.toString()}`).then((data) => {
-      if (!data){
-        
-        $("#events .cards, .event_list .cards").html(`<div class="content seo-text text-center"><p>${label}</p></div>`);
-      }else{
-        console.log({data})
+      if (!data) {
+        $("#events .cards, .event_list .cards").html(
+          `<div class="content seo-text text-center"><p>${label}</p></div>`
+        );
+      } else {
+        console.log({ data });
         $("#events .cards, .event_list .cards").html(data);
-        if(window.htmx){
-          const cardList = document.querySelector('.cards');
-          if(cardList) window.htmx.process(cardList);
-        }else{
+        if (window.htmx) {
+          const cardList = document.querySelector(".cards");
+          if (cardList) window.htmx.process(cardList);
+        } else {
           const htmxScript = document.querySelector('script[data-name="htmx"]');
           htmxScript.addEventListener("load", () => {
-              console.log('htmx loaded')
-              const cardList = document.querySelector('.cards');
-              if(cardList) window.htmx.process(cardList);
+            console.log("htmx loaded");
+            const cardList = document.querySelector(".cards");
+            if (cardList) window.htmx.process(cardList);
           });
         }
       }
