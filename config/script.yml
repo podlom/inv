@@ -8,7 +8,8 @@ autocomplete:
   position: top
   require: [jquery]
 tinymce:
-  file: tinymce_4.9/tinymce.min.js
+  file: https://cdn.jsdelivr.net/npm/tinymce@7.2.1/tinymce.min.js
+  # file: tinymce_4.9/tinymce.min.js
   # file: https://cdn.jsdelivr.net/npm/tinymce@4.1.9/tinymce.jquery.min.js
   position: top
   require: [jquery, filemanager]
