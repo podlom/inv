@@ -31,7 +31,8 @@ function l_m(string $msg)
     // IP: 91.237.27.106 - 2024-04-25 - Chernivtsi - Tolstogo str.10
     // IP: 193.0.218.31 - 2024-06-11 - Kyiv - Perfetto
     // $debugIp = $_ENV['DEBUG_IP'] ?? '193.0.217.97'; // use debug IP value from env or default one if env is not set
-    $debugIp = $_ENV['DEBUG_IP'] ?? '91.237.27.42'; // Temporary debug IP Chernivtsi, Tolstogo str.10, apt.5
+    // $debugIp = $_ENV['DEBUG_IP'] ?? '91.237.27.42'; // Temporary debug IP 91.237.27.42 - Chernivtsi, Tolstogo str.10, apt.5
+    $debugIp = $_ENV['DEBUG_IP'] ?? '185.151.105.115'; // Temporary debug IP 185.151.105.115 - Kyiv, Stolychne highway, 103
     error_log(__METHOD__ . ' +' . __LINE__ . ' $debugIp: ' . var_export($debugIp, true));
 
     // Do not log on prod by default
