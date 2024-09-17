@@ -143,7 +143,20 @@ if (!empty($_REQUEST)) {
     // 2023-12-29 ts debug here
     if (isset($_REQUEST, $_REQUEST['sf_investment_callback']) && is_array($_REQUEST['sf_investment_callback']) && !empty($_REQUEST['sf_investment_callback'])) { // Add investment proposal
 
-        l_m(__FILE__ . ' +' . __LINE__ . ' $_REQUEST: ' . var_export($_REQUEST, true));
+        l_m(__FILE__ . ' +' . __LINE__ . ' @ts original $_REQUEST: ' . var_export($_REQUEST, true));
+
+        // Added extra SPAM protection for firstname field
+        // Fetch the first name from the request
+        $firstname = $_REQUEST['sf_investment_callback']['firstname'] ?? '';
+        // Define the regex pattern for English, Ukrainian, and Russian letters
+        $allowedPattern = '/[^a-zA-ZА-Яа-яЁёІіЇїЄє]/u';
+        // Remove any character that is not in the allowed range
+        $filteredFirstname = preg_replace($allowedPattern, '', $firstname);
+        // Optionally, you can trim extra spaces and check for empty values after filtering
+        $filteredFirstname = trim($filteredFirstname);
+        $_REQUEST['sf_investment_callback']['firstname'] = $filteredFirstname;
+
+        l_m(__FILE__ . ' +' . __LINE__ . ' @ts fixed $_REQUEST: ' . var_export($_REQUEST, true));
 
         $sFormData = serialize($_REQUEST['sf_investment_callback']);
         $formData = array_merge(['formData' => $sFormData], ['formName' => 'sf_investment_callback', 'formUri' => '/form/investment_callback']);
