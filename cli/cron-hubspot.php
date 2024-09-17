@@ -1392,7 +1392,7 @@ function fSubscribe($formData)
     return $retVal;
 }
 
-function sfInvestmentCallback($formData)
+function sfInvestmentCallback($formData, int $id)
 {
     global $db, $hubSpot, $logFileName, $keyId, $data1;
 
@@ -1402,6 +1402,9 @@ function sfInvestmentCallback($formData)
     if (empty($formData['email']) || empty($formData['firstname']) || empty($formData['lastname'])) {
         $msg = date('r') . ' ' . __METHOD__ . ' +' . __LINE__ . ' Wrong form empty validation data: ' . var_export($formData, 1) . PHP_EOL;
         logMsg($msg, $logFileName, ['echoLogMsg' => false, 'storeLog' => true]);
+
+        $query = "UPDATE `" . DB_TABLE . "` SET `updated_at` = NOW(), `status` = 'error1_form_data' WHERE `id` = '{$id}'";
+        $res911 = $db->query($query);
 
         return $retVal;
     }
@@ -1988,7 +1991,7 @@ try {
                     continue; // go to the next record
                     break;
                 case 'sf_investment_callback':
-                    sfInvestmentCallback($d1);
+                    sfInvestmentCallback($d1, $id);
                     $name = $db->escape(trim($d1['firstname'] . ' ' . $d1['lastname']));
                     $email = $db->escape($d1['email']);
                     $phone = $db->escape($d1['tel']);
