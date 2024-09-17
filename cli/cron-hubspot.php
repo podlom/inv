@@ -1867,7 +1867,6 @@ try {
                     $name = $db->escape($d1['name_name']);
                     $query = "UPDATE `" . DB_TABLE . "` SET `status` = 'processed', `updated_at` = NOW(), `email` = '{$email}', `phone` = '{$phone}', `name` = '{$name}' WHERE `id` = '{$id}'";
                     $db->query($query);
-                    continue; // go to the next record
                     break;
                 case 'bulletin_add':
                     bulletinAdd($d1);
@@ -1876,7 +1875,6 @@ try {
                     $name = $db->escape($d1['page']['attr']['attr_5']);
                     $query = "UPDATE `" . DB_TABLE . "` SET `status` = 'processed', `updated_at` = NOW(), `email` = '{$email}', `phone` = '{$phone}', `name` = '{$name}' WHERE `id` = '{$id}'";
                     $db->query($query);
-                    continue; // go to the next record
                     break;
                 case 'sf_investor':
                     if (isset($d1['sf_investor']['manager']) && ($d1['sf_investor']['manager'] == 'on')) {
@@ -1890,7 +1888,6 @@ try {
                     $name = $db->escape(trim($d1['sf_investor']['firstname'] . ' ' . $d1['sf_investor']['lastname']));
                     $query = "UPDATE `" . DB_TABLE . "` SET `status` = 'processed', `updated_at` = NOW(), `email` = '{$email}', `phone` = '{$phone}', `name` = '{$name}' WHERE `id` = '{$id}'";
                     $db->query($query);
-                    continue; // go to the next record
                     break;
                 case 'sf_callback':
                 case 'sf_msb_form1':
@@ -1941,7 +1938,6 @@ try {
                     sfCallback($d1);
                     $query = "UPDATE `" . DB_TABLE . "` SET `status` = 'processed', `updated_at` = NOW(), `phone` = '{$phone}', `name` = '{$name}' WHERE `id` = '{$id}'";
                     $db->query($query);
-                    continue; // go to the next record
                     break;
                 case 'sf_approach':
                 case 'sf_msb_form2':
@@ -1971,7 +1967,6 @@ try {
                     $phone = $db->escape($d1['tel']);
                     $query = "UPDATE `" . DB_TABLE . "` SET `status` = 'processed', `updated_at` = NOW(), `email` = '{$email}', `phone` = '{$phone}', `name` = '{$name}' WHERE `id` = '{$id}'";
                     $db->query($query);
-                    continue; // go to the next record
                     break;
                 case 'subscribe':
                     fSubscribe($d1); // digest
@@ -1988,7 +1983,6 @@ try {
                     }
                     $query = "UPDATE `" . DB_TABLE . "` SET `status` = 'processed', `updated_at` = NOW(), `email` = '{$email}', `phone` = '{$phone}', `name` = '{$name}' WHERE `id` = '{$id}'";
                     $db->query($query);
-                    continue; // go to the next record
                     break;
                 case 'sf_investment_callback':
                     sfInvestmentCallback($d1, $id);
@@ -1997,7 +1991,6 @@ try {
                     $phone = $db->escape($d1['tel']);
                     $query = "UPDATE `" . DB_TABLE . "` SET `status` = 'processed', `updated_at` = NOW(), `email` = '{$email}', `phone` = '{$phone}', `name` = '{$name}' WHERE `id` = '{$id}'";
                     $db->query($query);
-                    continue; // go to the next record
                     break;
                 case 'unsubscribe':
                     fUnSubscribe($d1);
@@ -2006,7 +1999,6 @@ try {
                     $phone = $db->escape($d1['tel']);
                     $query = "UPDATE `" . DB_TABLE . "` SET `status` = 'processed', `updated_at` = NOW(), `email` = '{$email}', `phone` = '{$phone}', `name` = '{$name}' WHERE `id` = '{$id}'";
                     $db->query($query);
-                    continue; // go to the next record
                     break;
                 case 'landing_form1':
                     fLandForm1($d1);
@@ -2015,7 +2007,6 @@ try {
                     $phone = $db->escape($d1['tel']);
                     $query = "UPDATE `" . DB_TABLE . "` SET `status` = 'processed', `updated_at` = NOW(), `email` = '{$email}', `phone` = '{$phone}', `name` = '{$name}' WHERE `id` = '{$id}'";
                     $db->query($query);
-                    continue; // go to the next record
                     break;
                 default:
                     $msg = date('r') . ' ' . __FILE__ . ' +' . __LINE__ . ' Form handler for: ' . var_export($f1, true) . ' is not implemented yet.' . PHP_EOL;
