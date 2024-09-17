@@ -52,7 +52,7 @@ try {
                 echo date('r') . ' ' . __FILE__ . ' +' . __LINE__ . ' Found matches: ' . PHP_EOL . var_export($m, true) . PHP_EOL;
                 if (isset($m[0][0][1])) {
                     $s1 = substr($r['text'], 0, $m[0][0][1]);
-                    $s1 .= ' alt="' . str_replace('"', '&quot;', $r['page_title']) . '" ';
+                    $s1 .= ' alt="' . str_replace('"', '&quot;', trim($r['page_title'])) . '" ';
                     $s1 .= substr($r['text'], $m[0][0][1] + 6);
                     //
                     $newTextValue = str_replace("'", '', $s1);
