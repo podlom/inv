@@ -881,3 +881,24 @@ function getLink($name = '')
     l_m(__METHOD__ . ' +' . __LINE__ . ' $resLink: ' . var_export($resLink, true));
     return $resLink;
 }
+
+/**
+ * Функція для фільтрації імені, дозволяє лише англійські, українські та російські символи
+ *
+ * @param string $originalName Оригінальне ім'я
+ * @return string Виправлене ім'я
+*/
+function filterNameValueForHubspot($originalName)
+{
+    // Регулярний вираз для дозволених символів
+    $allowedPattern = '/[^a-zA-ZА-Яа-яЁёІіЇїЄє]/u';
+
+    // Видалення всіх символів, що не входять у дозволений діапазон
+    $filteredName = preg_replace($allowedPattern, '', $originalName);
+
+    // Обрізаємо зайві пробіли
+    $filteredName = trim($filteredName);
+
+    // Повертаємо відфільтроване ім'я
+    return $filteredName;
+}

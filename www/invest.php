@@ -145,17 +145,16 @@ if (!empty($_REQUEST)) {
 
         l_m(__FILE__ . ' +' . __LINE__ . ' @ts original $_REQUEST: ' . var_export($_REQUEST, true));
 
-        // Added extra SPAM protection for firstname field
+        // [ Added extra SPAM protection for first and last name fields
         // Fetch the first name from the request
-        $firstname = $_REQUEST['sf_investment_callback']['firstname'] ?? '';
-        // Define the regex pattern for English, Ukrainian, and Russian letters
-        $allowedPattern = '/[^a-zA-ZА-Яа-яЁёІіЇїЄє]/u';
-        // Remove any character that is not in the allowed range
-        $filteredFirstname = preg_replace($allowedPattern, '', $firstname);
-        // Optionally, you can trim extra spaces and check for empty values after filtering
-        $filteredFirstname = trim($filteredFirstname);
-        $_REQUEST['sf_investment_callback']['firstname'] = $filteredFirstname;
-
+        $firstName = $_REQUEST['sf_investment_callback']['firstname'] ?? '';
+        $filteredFirstName = filterNameValueForHubspot($firstName);
+        $_REQUEST['sf_investment_callback']['firstname'] = $filteredFirstName;
+        //
+        $lastName = $_REQUEST['sf_investment_callback']['lastname'] ?? '';
+        $filteredLastName = filterNameValueForHubspot($lastName);
+        $_REQUEST['sf_investment_callback']['lastname'] = $filteredLastName;
+        // ]
         l_m(__FILE__ . ' +' . __LINE__ . ' @ts fixed $_REQUEST: ' . var_export($_REQUEST, true));
 
         $sFormData = serialize($_REQUEST['sf_investment_callback']);
