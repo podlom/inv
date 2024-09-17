@@ -34,9 +34,11 @@ try {
     // $res18 = $db->query($query);
     // echo date('r') . ' ' . __FILE__ . ' +' . __LINE__ . ' res: ' . var_export($res18, true) . PHP_EOL;
     //
-    $query = "SELECT * FROM `PagePart` " .
-        " WHERE `id` > 3000 " .
-        " AND (`text` LIKE '%<img%' AND `text` LIKE '%alt=\"\"%') " .
+    $query = "SELECT pp.*, p.h1 as page_title " .
+        " FROM `PagePart` AS pp " .
+        " LEFT JOIN `Page` AS p ON p.id = pp.page_id".
+        " WHERE pp.`id` > 3000 " .
+        " AND (pp.`text` LIKE '%<img%' AND pp.`text` LIKE '%alt=\"\"%') " .
         " ORDER BY rand() " .
         " LIMIT 0, 5 "
         ; // " FOR UPDATE"
@@ -50,7 +52,7 @@ try {
                 echo date('r') . ' ' . __FILE__ . ' +' . __LINE__ . ' Found matches: ' . PHP_EOL . var_export($m, true) . PHP_EOL;
                 if (isset($m[0][0][1])) {
                     $s1 = substr($r['text'], 0, $m[0][0][1]);
-                    $s1 .= ' alt="' . str_replace('"', '&quot;', $r['title']) . '" ';
+                    $s1 .= ' alt="' . str_replace('"', '&quot;', $r['page_title']) . '" ';
                     $s1 .= substr($r['text'], $m[0][0][1] + 6);
                     //
                     $newTextValue = str_replace("'", '', $s1);
