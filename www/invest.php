@@ -141,9 +141,18 @@ if (!empty($_REQUEST)) {
     }
     //
     // 2023-12-29 ts debug here
-    if (isset($_REQUEST, $_REQUEST['sf_investment_callback']) && is_array($_REQUEST['sf_investment_callback']) && !empty($_REQUEST['sf_investment_callback'])) { // Add investment proposal
+    if (
+        isset($_REQUEST, $_REQUEST['sf_investment_callback'])
+        && is_array($_REQUEST['sf_investment_callback'])
+        && !empty($_REQUEST['sf_investment_callback'])
+    ) { // Add investment proposal
 
         l_m(__FILE__ . ' +' . __LINE__ . ' @ts original $_REQUEST: ' . var_export($_REQUEST, true));
+
+        if ($_REQUEST['sf_investment_callback']['email'] == 'stevescan@24hinbox.com') {
+            l_m(__FILE__ . ' +' . __LINE__ . ' @ts banned user with $_REQUEST: ' . var_export($_REQUEST, true));
+            die('User with email stevescan@24hinbox.com has been banned.');
+        }
 
         // [ Added extra SPAM protection for first and last name fields
         // Fetch the first name from the request
