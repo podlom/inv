@@ -149,7 +149,11 @@ if (!empty($_REQUEST)) {
 
         l_m(__FILE__ . ' +' . __LINE__ . ' @ts original $_REQUEST: ' . var_export($_REQUEST, true));
 
-        if ($_REQUEST['sf_investment_callback']['email'] == 'stevescan@24hinbox.com') {
+        if (
+            ($_REQUEST['sf_investment_callback']['email'] == 'friedenspfeifen@omggreatfoods.com')
+            || ($_REQUEST['sf_investment_callback']['email'] == 'hatty2001@murahpanel.com')
+            || ($_REQUEST['sf_investment_callback']['email'] == 'stevescan@24hinbox.com')
+        ) {
             l_m(__FILE__ . ' +' . __LINE__ . ' @ts banned user with $_REQUEST: ' . var_export($_REQUEST, true));
             die('User with email stevescan@24hinbox.com has been banned.');
         }
