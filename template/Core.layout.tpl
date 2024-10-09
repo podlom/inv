@@ -91,7 +91,7 @@
 		{meta 'og:5' raw=1  property='og:image' content=full_link('/i/inventure_corp.png')}
 	{/if}
 
-
+	<link rel="canonical" href="https://{$smarty.server.HTTP_HOST}{$smarty.server.REQUEST_URI|replace:$querystr:''}" />
 
 	{meta 'fb1' property='fb:app_id' content='160711107658620' raw=1}
 	{*style '/css/foundation.min.css'*}
