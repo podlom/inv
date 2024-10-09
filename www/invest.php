@@ -129,6 +129,19 @@ if (!empty($_REQUEST)) {
     }
     //
     if (isset($_POST, $_POST['sf_investor']) && is_array($_POST['sf_investor']) && !empty($_POST['sf_investor'])) { // Add investment proposal
+
+        l_m(__FILE__ . ' +' . __LINE__ . ' @ts original $_POST: ' . var_export($_POST, true));
+
+        if (
+            ($_POST['sf_investor']['email'] == 'friedenspfeifen@omggreatfoods.com')
+            || ($_POST['sf_investor']['email'] == 'hatty2001@murahpanel.com')
+            || ($_POST['sf_investor']['email'] == 'stevescan@24hinbox.com')
+            || ($_POST['sf_investor']['email'] == 'testing@example.com')
+        ) {
+            l_m(__FILE__ . ' +' . __LINE__ . ' @ts banned user with request data: ' . var_export($_POST['sf_investor'], true));
+            die('User with email ' . $_POST['sf_investor']['email'] . ' has been banned.');
+        }
+
         $sFormData = serialize($_POST);
         $formData = array_merge(['formData' => $sFormData], ['formName' => 'sf_investor', 'formUri' => '/form/investor']);
         $rs8 = _sendFormRequest($formData, false);
@@ -153,9 +166,10 @@ if (!empty($_REQUEST)) {
             ($_REQUEST['sf_investment_callback']['email'] == 'friedenspfeifen@omggreatfoods.com')
             || ($_REQUEST['sf_investment_callback']['email'] == 'hatty2001@murahpanel.com')
             || ($_REQUEST['sf_investment_callback']['email'] == 'stevescan@24hinbox.com')
+            || ($_REQUEST['sf_investment_callback']['email'] == 'testing@example.com')
         ) {
             l_m(__FILE__ . ' +' . __LINE__ . ' @ts banned user with $_REQUEST: ' . var_export($_REQUEST, true));
-            die('User with email stevescan@24hinbox.com has been banned.');
+            die('User with email ' . $_REQUEST['sf_investment_callback']['email'] . ' has been banned.');
         }
 
         // [ Added extra SPAM protection for first and last name fields

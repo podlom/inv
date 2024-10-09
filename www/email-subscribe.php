@@ -141,15 +141,29 @@ if (!isset($_POST['subscribe'], $_POST['subscribe']['lang'])
 ) {
     $result['errors'][] = 'Ошибка в обязательных параметрах запроса';
     $result['status'] = $validRequest = false;
+
 } elseif (validateEmail($_POST['subscribe']['email']) === false) {
     $result['errors'][] = 'Неправильный Email';
     $result['status'] = $validRequest = false;
+
 } elseif (!isset($_POST['g-recaptcha-response']) || empty($_POST['g-recaptcha-response'])) {
     $result['errors'][] = 'Invalid reCaptcha';
     $result['status'] = $validRequest = false;
+
 } elseif (!$resReCaptcha) {
     $result['errors'][] = 'Google reCaptcha check has failed';
     $result['status'] = $validRequest = false;
+
+} elseif (
+    ($_POST['subscribe']['email'] === 'friedenspfeifen@omggreatfoods.com')
+    || ($_POST['subscribe']['email'] === 'hatty2001@murahpanel.com')
+    || ($_POST['subscribe']['email'] === 'stevescan@24hinbox.com')
+    || ($_POST['subscribe']['email'] === 'testing@example.com')
+) {
+
+    $result['errors'][] = 'User with email ' . $_POST['subscribe']['email'] . ' has been banned.';
+    $result['status'] = $validRequest = false;
+
 } else {
 
     $lastName = '';
