@@ -99,6 +99,7 @@
     || $request->getPathInfo()|strpos:'/board' === 0
     || $request->getPathInfo()|strpos:'/search' === 0 *}
 
+	<link rel="canonical" href="https://{$smarty.server.HTTP_HOST}{$smarty.server.REQUEST_URI|replace:$querystr:''}" />
 
 	{* {if $isNewStylesAvaible}
       {style '/css/style-v2.css'}
