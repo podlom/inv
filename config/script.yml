@@ -46,6 +46,10 @@ google_recaptcha:
   file: "https://www.google.com/recaptcha/api.js"
   position: top
   require: {}
+cloudflare_captcha:
+  file: "https://challenges.cloudflare.com/turnstile/v0/api.js"
+  position: top
+  require: {}
 easySlider:
   file: jquery.easySlider.js
   position: top
