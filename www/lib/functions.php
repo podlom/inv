@@ -440,6 +440,9 @@ function _sendFormRequest($data, $useExternalConnector = true)
 
 function sendMailForm($data, $recipient = 'info@inventure.ua', $subject = 'InVenture form submission')
 {
+    l_m(__FUNCTION__ . ' +' . __LINE__ . " Message could not be sent. Temporary disabled because of SPAM attack");
+    return true;
+
     $inputLabel = [
         'firstname' => 'Имя',
         'lastname' => 'Фамилия',
