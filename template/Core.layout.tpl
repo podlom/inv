@@ -137,11 +137,14 @@
 	{* {script_code require=['foundation2', 'jquery']}$(document).foundation();{/script_code} *}
 
 	{script_code require="google_recaptcha" name="grecaptchainitinblog"}
-	console.log('+125 Google reCaptcha JavaScript API init');
+	console.log('+140 Google reCaptcha JavaScript API init');
+
+	{script_code require="cloudflare_captcha" name="cloudflareinitinblog"}
+	console.log('+143 CloudFlare captcha JavaScript API init');
 
 	function onContact19Submit(token)
 	{
-	console.log('+129 token: ' + token);
+	console.log('+147 token: ' + token);
 	document.getElementById("contact-form-19").submit();
 	}
 
