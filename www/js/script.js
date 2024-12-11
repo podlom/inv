@@ -116,9 +116,9 @@ function handleDigestFormSubmit(formElement, token) {
 		}
 	});
 
-	// Substitute token if input with name g-recaptcha-response is empty
-	if (!formData['g-recaptcha-response']) {
-		formData['g-recaptcha-response'] = token;
+	// Substitute token if input with name cf-turnstile-response is empty
+	if (!formData['cf-turnstile-response']) {
+		formData['cf-turnstile-response'] = token;
 	}
 
 	console.log('+18 formData: ', formData);
