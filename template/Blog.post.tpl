@@ -204,7 +204,7 @@
                     </div>
                     <div class="contact-form__captcha-block">
                         <!-- The following line controls and configures the Turnstile widget. -->
-                        <div class="cf-turnstile" data-sitekey="0x4AAAAAAA16EgKzQUTvZdcv" data-theme="light"></div>
+                        <div class="cf-turnstile" data-sitekey="0x4AAAAAAA16EgKzQUTvZdcv" data-theme="light" data-size="flexible" data-action="submit"></div>
                         <!-- end. -->
                     </div>
                 </div>
@@ -223,8 +223,7 @@
 </script>
 {/literal}
 
-                <button type="submit" class="contact-form__btn btn w-full btn--blue"
-                        data-action='submit'>
+                <button type="submit" class="contact-form__btn btn w-full btn--blue">
                     {if $lang == 'ru'}Отправить{elseif $lang == 'uk'}Відправити{else}Submit{/if}
                 </button>
             </div>
