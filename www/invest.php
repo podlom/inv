@@ -146,8 +146,8 @@ if (!empty($_REQUEST)) {
         $formData = array_merge(['formData' => $sFormData], ['formName' => 'sf_investor', 'formUri' => '/form/investor']);
         $rs8 = _sendFormRequest($formData, false);
         if ($rs8 !== false) {
-            $googleReCaptchaValid = _validateGoogleReCaptcha($_POST['g-recaptcha-response']);
-            if ($googleReCaptchaValid) {
+            $cloudflareCaptchaValid = _validateCloudflareCaptcha($_POST['cf-turnstile-response']);
+            if ($cloudflareCaptchaValid) {
                 sendMailForm($_POST['sf_investor'], 'info@inventure.ua', 'InVenture form submission');
             }
         }
@@ -189,8 +189,8 @@ if (!empty($_REQUEST)) {
         $rs7 = _sendFormRequest($formData, false);
         if ($rs7 !== false) {
             //
-            $googleReCaptchaValid = _validateGoogleReCaptcha($_REQUEST['g-recaptcha-response']);
-            if ($googleReCaptchaValid) {
+            $cloudflareCaptchaValid = _validateCloudflareCaptcha($_REQUEST['cf-turnstile-response']);
+            if ($cloudflareCaptchaValid) {
                 sendMailForm($_REQUEST['sf_investment_callback'], 'info@inventure.ua', 'InVenture form submission');
             }
             //

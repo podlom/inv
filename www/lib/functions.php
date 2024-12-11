@@ -440,8 +440,8 @@ function _sendFormRequest($data, $useExternalConnector = true)
 
 function sendMailForm($data, $recipient = 'info@inventure.ua', $subject = 'InVenture form submission')
 {
-    l_m(__FUNCTION__ . ' +' . __LINE__ . " Message could not be sent. Temporary disabled because of SPAM attack");
-    return true;
+    // l_m(__FUNCTION__ . ' +' . __LINE__ . " Message could not be sent. Temporary disabled because of SPAM attack");
+    // return true;
 
     $inputLabel = [
         'firstname' => 'Имя',
@@ -904,4 +904,38 @@ function filterNameValueForHubspot($originalName)
 
     // Повертаємо відфільтроване ім'я
     return $filteredName;
+}
+
+function _validateCloudflareCaptcha(string $cloudflareCapchaResponse) : bool
+{
+    if (empty($cloudflareCapchaResponse)) {
+        return false;
+    }
+
+    $cfg = app()->getService('config')->get('app')->cloudflare_captcha;
+    $cloudflareCaptchaSecret = $cfg['secret_key'];
+
+    // @see: https://developers.cloudflare.com/turnstile/get-started/server-side-validation/
+    $postData = http_build_query([
+        'secret' => $cloudflareCaptchaSecret,
+        'response' => $cloudflareCapchaResponse,
+    ]);
+    $opts = ['http' =>
+        [
+            'method' => 'POST',
+            'header' => 'Content-type: application/x-www-form-urlencoded',
+            'content' => $postData,
+        ],
+    ];
+    $context = stream_context_create($opts);
+    $result = file_get_contents('https://challenges.cloudflare.com/turnstile/v0/siteverify', false, $context);
+
+    l_m(__FILE__ . ' +' . __LINE__ . ' $result: ' . var_export($result, true));
+
+    $r96 = json_decode($result, true);
+    if (isset($r96["success"]) && ($r96["success"] == true)) {
+        return true;
+    }
+
+    return false;
 }
