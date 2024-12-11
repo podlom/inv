@@ -6,10 +6,11 @@
  * Date: 10/29/19
  * Time: 14:51
  *
- * @author Taras Shkodenko <ts@doagency.net>
+ * @author Taras Shkodenko <taras.shkodenko@gmail.com>
  */
 
 require_once realpath(__DIR__.'/../bootstrap.php');
+require_once 'lib/functions.php';
 
 
 $app_name = trim(file_get_contents(__DIR__.'/../app_id'));
@@ -101,6 +102,7 @@ $result = ['status' => $validRequest, 'errors' => []];
 
 //
 // @see: https://developers.google.com/recaptcha/docs/verify
+/*
 $postData = http_build_query(
     [
         'secret' => '6Le8bI8fAAAAAD9qs7jAslFEQMdO-IdX1s7fgEzF',
@@ -118,6 +120,9 @@ $opts = [
 ];
 $context = stream_context_create($opts);
 $resReCaptcha = file_get_contents('https://www.google.com/recaptcha/api/siteverify', false, $context);
+*/
+//
+$resCaptcha = _validateCloudflareCaptcha($_POST['g-recaptcha-response']);
 //
 
 // fix for firstname column
@@ -146,12 +151,12 @@ if (!isset($_POST['subscribe'], $_POST['subscribe']['lang'])
     $result['errors'][] = 'Неправильный Email';
     $result['status'] = $validRequest = false;
 
-} elseif (!isset($_POST['g-recaptcha-response']) || empty($_POST['g-recaptcha-response'])) {
-    $result['errors'][] = 'Invalid reCaptcha';
+} elseif (!isset($_POST['cf-turnstile-response']) || empty($_POST['cf-turnstile-response'])) {
+    $result['errors'][] = 'Invalid captcha';
     $result['status'] = $validRequest = false;
 
-} elseif (!$resReCaptcha) {
-    $result['errors'][] = 'Google reCaptcha check has failed';
+} elseif (!$resCaptcha) {
+    $result['errors'][] = 'Cloudflare captcha check has failed';
     $result['status'] = $validRequest = false;
 
 } elseif (
