@@ -126,7 +126,7 @@ $context = stream_context_create($opts);
 $resReCaptcha = file_get_contents('https://www.google.com/recaptcha/api/siteverify', false, $context);
 */
 //
-$resCaptcha = _validateCloudflareCaptcha($_POST['g-recaptcha-response']);
+$resCaptcha = _validateCloudflareCaptcha($_POST['cf-turnstile-response']);
 //
 
 // fix for firstname column
@@ -156,7 +156,7 @@ if (!isset($_POST['subscribe'], $_POST['subscribe']['lang'])
     $result['status'] = $validRequest = false;
 
 } elseif (!isset($_POST['cf-turnstile-response']) || empty($_POST['cf-turnstile-response'])) {
-    $result['errors'][] = 'Invalid captcha';
+    $result['errors'][] = 'Invalid or empty captcha';
     $result['status'] = $validRequest = false;
 
 } elseif (!$resCaptcha) {
