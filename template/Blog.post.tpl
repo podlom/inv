@@ -202,6 +202,11 @@
                         <input required id="phone" name="sf_investment_callback[tel]" type="text" placeholder="+380" class="contact-form__input">
                         <span id="error-msg" class="hide"></span>
                     </div>
+                    <div class="contact-form__captcha-block">
+                        <!-- The following line controls and configures the Turnstile widget. -->
+                        <div class="cf-turnstile" data-sitekey="0x4AAAAAAA16EgKzQUTvZdcv" data-theme="light"></div>
+                        <!-- end. -->
+                    </div>
                 </div>
 
 {literal}
@@ -218,8 +223,7 @@
 </script>
 {/literal}
 
-                <button type="submit" class="g-recaptcha contact-form__btn btn w-full btn--blue" data-sitekey="6LdAzj8pAAAAAKzj8VirFh5Q6cfQrBLr2jJ6vBul"
-                        data-callback='onSubmit'
+                <button type="submit" class="contact-form__btn btn w-full btn--blue"
                         data-action='submit'>
                     {if $lang == 'ru'}Отправить{elseif $lang == 'uk'}Відправити{else}Submit{/if}
                 </button>
