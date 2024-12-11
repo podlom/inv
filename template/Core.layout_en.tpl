@@ -1,8 +1,7 @@
-{if $lang !== 'en'}
-    {$lang = 'en'}
-{/if}
+{* prefilter=off *}
 
 {extends 'Core.layout'}
+
 {* {block 'menu'}
 <nav id="nav">
   <li class="menu-item1">
