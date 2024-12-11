@@ -134,20 +134,6 @@
             {if $lang === 'ru'}Контакты{else}Contacts{/if}
         </h2>
 
-
-{* script src="https://www.google.com/recaptcha/api.js" name="google_recaptcha_api"*}
-{* script_code name="grecaptchainitinblogcontact" *}
-
-    console.log('+141 Google reCaptcha JavaScript API init');
-
-    function onContact19Subm(token)
-    {
-        console.log('+145 token: ' + token);
-        document.getElementById("contact-form-19").submit();
-    }
-
-{/script_code}
-
         <form method="post" action="/invest.php" onsubmit="return false;" class="contact-form__form" id="contact-form-19">
             <input required type="hidden" name="sf_investment_callback[ga_utm]" value="">
             <input type="hidden" name="sf_investment_callback[url]" value="">
