@@ -27,6 +27,9 @@ $msg = date('r') . ' ' . __FILE__ . ' +' . __LINE__ . PHP_EOL .
 
 error_log($msg);
 
+/*
+ * moved to lib/functions.php
+ *
 function _sendFormRequest($data)
 {
     // error_log(__METHOD__ . ' +' . __LINE__);
@@ -56,6 +59,7 @@ function _sendFormRequest($data)
         'code' => $resCode,
     ];
 }
+*/
 
 function validateEmail($email)
 {
