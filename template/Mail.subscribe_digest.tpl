@@ -11,7 +11,7 @@
         <input type="hidden" name="ga_utm" value="">
 
         <!-- The following line controls and configures the Turnstile widget. -->
-        <div class="cf-turnstile" data-sitekey="0x4AAAAAAA16EgKzQUTvZdcv" data-theme="light"></div>
+        <div class="cf-turnstile" data-sitekey="0x4AAAAAAA16EgKzQUTvZdcv" data-theme="light" data-size="flexible"></div>
         <!-- end. -->
 
         <button class="blue_but cell-but w-full" type="submit" id="subscribeButton">Subscribe</button>
@@ -46,11 +46,15 @@
             </div>
         </div>
 
+        <input type="checkbox" name="subscribe[lang][]" value="ru" checked="checked" style="display: none;">
         <input type="hidden" name="subscribe[ga_utm]" value="">
-
         <input type="hidden" name="ga_utm" value="">
 
-        <button class="blue_but cell-but w-full g-recaptcha" data-sitekey="6Le8bI8fAAAAAFT1lTrt6gL31hrhm8mFfc4nKmbX" type="submit" id="subscribeButton" data-callback="submitDigest">Подписаться</button>
+        <!-- The following line controls and configures the Turnstile widget. -->
+        <div class="cf-turnstile" data-sitekey="0x4AAAAAAA16EgKzQUTvZdcv" data-theme="light" data-size="flexible"></div>
+        <!-- end. -->
+
+        <button class="blue_but cell-but w-full" type="submit" id="subscribeButton">Подписаться</button>
         {$form->protection()}
     {$form->close()}
 {/if}

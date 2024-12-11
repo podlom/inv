@@ -132,7 +132,7 @@
 			</div>
 			<div class="subscription__captcha-block">
 				<!-- The following line controls and configures the Turnstile widget. -->
-				<div class="cf-turnstile" data-sitekey="0x4AAAAAAA16EgKzQUTvZdcv" data-theme="light"></div>
+				<div class="cf-turnstile" data-sitekey="0x4AAAAAAA16EgKzQUTvZdcv" data-theme="light" data-size="flexible"></div>
 				<!-- end. -->
 			</div>
 			<input name="subscribe[ga_utm]" hidden type="hidden">
