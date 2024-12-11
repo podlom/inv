@@ -135,8 +135,8 @@
         </h2>
 
 
-{script src="https://www.google.com/recaptcha/api.js" name="google_recaptcha_api"}
-{script_code name="grecaptchainitinblogcontact"}
+{* script src="https://www.google.com/recaptcha/api.js" name="google_recaptcha_api"*}
+{* script_code name="grecaptchainitinblogcontact" *}
 
     console.log('+141 Google reCaptcha JavaScript API init');
 
@@ -204,7 +204,7 @@
                     </div>
                     <div class="contact-form__captcha-block">
                         <!-- The following line controls and configures the Turnstile widget. -->
-                        <div class="cf-turnstile" data-sitekey="0x4AAAAAAA16EgKzQUTvZdcv" data-theme="light" data-size="flexible" data-action="submit"></div>
+                        <div class="cf-turnstile" data-sitekey="0x4AAAAAAA16EgKzQUTvZdcv" data-theme="light" data-size="flexible"></div>
                         <!-- end. -->
                     </div>
                 </div>
