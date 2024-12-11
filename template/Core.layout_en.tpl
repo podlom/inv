@@ -1,3 +1,7 @@
+{if $lang !== 'en'}
+    {$lang = 'en'}
+{/if}
+
 {extends 'Core.layout'}
 {* {block 'menu'}
 <nav id="nav">
