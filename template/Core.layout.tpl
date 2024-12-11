@@ -1,7 +1,3 @@
-{if $request->getPathInfo() == '/uk'}
-	{$lang='uk'}
-{/if}
-
 <!DOCTYPE html>
 <!--[if lt IE 7]><html class="lt-ie9 lt-ie8 lt-ie7" prefix="og: https://ogp.me/ns#" /> <![endif]-->
 <!--[if IE 7]><html class="lt-ie9 lt-ie8" prefix="og: https://ogp.me/ns#" /> <![endif]-->
