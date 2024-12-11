@@ -139,9 +139,6 @@
 	{* script_code require="google_recaptcha" name="grecaptchainitinblog" *}
 	{* console.log('+140 Google reCaptcha JavaScript API init'); *}
 
-	{script_code require="cloudflare_captcha" name="cloudflareinitinblog"}
-	console.log('+143 CloudFlare captcha JavaScript API init');
-
 	function onContact19Submit(token)
 	{
 		console.log('+147 token: ' + token);
@@ -174,6 +171,7 @@
 		{/literal}
 	{/if}
 
+	<script defer src="https://challenges.cloudflare.com/turnstile/v0/api.js"></script>
 </head>
 
 <body>
