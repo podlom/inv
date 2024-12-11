@@ -52,7 +52,7 @@
     {/if}
 {/block}
 
-{block 'breadcrumbs'}{/block} 
+{block 'breadcrumbs'}{/block}
 {* {block 'breadcrumbs'}
 {$rubrics = $post->getRubrics()}
 {$breadcrumbs = array_filter([$blog, $category,$rubrics[0]])}
@@ -134,7 +134,7 @@
             {if $lang === 'ru'}Контакты{else}Contacts{/if}
         </h2>
 
-        <form method="post" action="/invest.php" onsubmit="return false;" class="contact-form__form" id="contact-form-19">
+        <form method="post" action="/invest.php" class="contact-form__form" id="contact-form-19">
             <input required type="hidden" name="sf_investment_callback[ga_utm]" value="">
             <input type="hidden" name="sf_investment_callback[url]" value="">
 
@@ -170,7 +170,7 @@
                     </div>
                     <div class="contact-form__item">
                         <label class="contact-form__label">
-                            
+
                             {if $lang === 'ru'}Фамилия{elseif $lang === 'uk'} Прізвище {else}Last name{/if}
                         </label>
                         <input required type="text" name="sf_investment_callback[lastname]" class="contact-form__input">
@@ -300,13 +300,13 @@
 {/block}
 
 
-{* 
+{*
 <div class="contacts-wrap">
         {block 'contacts.inner'}
             <div class="contacts" id="contactsBlock">
             <div class="box-shadow box-shadow1"></div>
                 <h2>Контакты</h2>
-                <div class="contacts1"> 
+                <div class="contacts1">
                     {#mod Attribute}{if $post->getAttr(5) && $post->getAttr(4) && $post->getAttr(3)}
 
                         <div class="avatar">
