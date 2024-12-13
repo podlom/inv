@@ -86,7 +86,7 @@
 								height="44" />
 							<div>
 								<h3 class="proposal__discounts-title --blue">Рекламные пакеты</h3>
-								<p>от $350</p>
+								<p>от $450</p>
 							</div>
 						</div>
 						<div class="proposal__discounts-item">
@@ -219,12 +219,12 @@
 
 {/block}
 
-{* 
+{*
 <div class="my_popup">
     <div class="my_popup__wrapper">
         <h5>Заполните пожалуйста Ваши контактные данные и мы направим условия сотрудничества</h5>
         <i class="fa fa-close"></i>
         {form 'approach'}
     </div>
-</div> 
+</div>
 *}
