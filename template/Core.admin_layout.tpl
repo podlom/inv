@@ -100,9 +100,11 @@
                     <a href="/admin/user" class="{if mb_substr($request->getPathInfo(),0,11) == '/admin/user'}active{/if}"><i class="fa fa-user"></i><span class="text-hide">Пользователи</span></a>
                 </li>
             {else}
-                <li>
-                    <a href="/admin/user/edit/{$user->getId()}" class="{if mb_substr($request->getPathInfo(),0,11) == '/admin/user'}active{/if}"><i class="fa fa-user"></i><span class="text-hide">Редактировать профиль</span></a>
-                </li>
+                {if !empty($user)}
+                    <li>
+                        <a href="/admin/user/edit/{$user->getId()}" class="{if mb_substr($request->getPathInfo(),0,11) == '/admin/user'}active{/if}"><i class="fa fa-user"></i><span class="text-hide">Редактировать профиль</span></a>
+                    </li>
+                {/if}
             {/if}
 
             <li>
