@@ -284,9 +284,9 @@
                     <a><div><img src="{$img_avatar}"></div>
                     <h6>{if !$user && $sm}
                             {$user = $sm->getUser()}
-                            {$user->getName()}
-                        {elseif !empty($user)}
-                            {$user->getName()}
+                            {if !is_null($user)}
+                                {$user->getName()}
+                            {/if}
                         {else}
                             Oleksiy Oleynikov
                         {/if}</h6></a>
