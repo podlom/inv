@@ -53,8 +53,6 @@
                                 {if !is_null($user)}
                                     {$user->getName()}
                                 {/if}
-                            {elseif !empty($user)}
-                                {$user->getName()}
                             {else}
                                 Oleksiy Oleynikov
                             {/if}
