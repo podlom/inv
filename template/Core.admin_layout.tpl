@@ -50,7 +50,9 @@
                         <h6>
                             {if !$user && $sm}
                                 {$user = $sm->getUser()}
-                                {$user->getName()}
+                                {if !is_null($user)}
+                                    {$user->getName()}
+                                {/if}
                             {elseif !empty($user)}
                                 {$user->getName()}
                             {else}
