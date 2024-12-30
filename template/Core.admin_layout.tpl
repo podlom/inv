@@ -85,7 +85,7 @@
                 <a href="/admin" class="{if $request->getPathInfo() == '/admin'}active{/if}"><i class="fa fa-home"></i><span class="text-hide">Главная</span></a>
             </li>
 
-            {if $user->canAccess('Page.moderate')}
+            {if !empty($user) && $user->canAccess('Page.moderate')}
                 <li>
                     <a href="/admin/page" class="{if mb_substr($request->getPathInfo(),0,11) == '/admin/page'}active{/if}"><i class="fa fa-file"></i><span class="text-hide">Страницы</span></a>
                 </li>
@@ -95,7 +95,7 @@
                 </li>
             {/if}
 
-            {if $user->canAccess('Auth.users') && $user->canAccess('Auth.permission')}
+            {if !empty($user) && $user->canAccess('Auth.users') && $user->canAccess('Auth.permission')}
                 <li>
                     <a href="/admin/user" class="{if mb_substr($request->getPathInfo(),0,11) == '/admin/user'}active{/if}"><i class="fa fa-user"></i><span class="text-hide">Пользователи</span></a>
                 </li>
@@ -118,7 +118,7 @@
                 <a href="/admin/mail?sort=!created" class="{if mb_substr($request->getPathInfo(),0,11) == '/admin/mail'}active{/if}"><i class="fa fa-envelope"></i><span class="text-hide">Почта</span></a>
             </li>
 
-            {if $user->canAccess('Payment.view')}
+            {if !empty($user) && $user->canAccess('Payment.view')}
                 <li>
                     <a href="/admin/payment" class="{if mb_substr($request->getPathInfo(),0,14) == '/admin/payment'}active{/if}"><i class="fa fa-credit-card"></i><span class="text-hide">Invoices</span></a>
                 </li>
@@ -128,7 +128,7 @@
                 <a href="/admin/widget" class="{if mb_substr($request->getPathInfo(),0,13) == '/admin/widget'}active{/if}"><i class="fa fa-puzzle-piece"></i><span class="text-hide">Widgets</span></a>
             </li>
 
-            {if $user->canAccess('Page.moderate')}
+            {if !empty($user) && $user->canAccess('Page.moderate')}
                 <li>
                     <a href="/admin/review" class="{if mb_substr($request->getPathInfo(),0,13) == '/admin/review'}active{/if}"><i class="fa fa-star"></i><span class="text-hide">Отзывы</span></a>
                 </li>
