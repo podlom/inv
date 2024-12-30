@@ -16,7 +16,7 @@ $app = new Skynar\Application($app_name, realpath(__DIR__.'/../'), __DIR__);
 try{
 	$app->init();
     // $app->getService('cache')->deleteAll();
-	$log = $app->getService('module')->install(['Core', 'Auth', 'Page', 'React', 'Blog', 'Attribute', 'Analytics', 'Metadata', 'Locale', 'Sphinx', 'Redirect', 'Sitemap', 'Blacklist', 'Digest', 'EventSort', 'Widget', 'Poll', 'Rating', 'Map', 'Payment', 'Liqpay', 'Mail', 'BulletinBoard', 'Banner', 'Dashboard', 'Tinyurl', 'Template', 'Review']);
+	$log = $app->getService('module')->install(['Core', 'Auth', 'Page', 'React', 'Blog', 'Attribute', 'Analytics', 'Metadata', 'Locale', 'Sphinx', 'Redirect', 'Sitemap', 'Blacklist', 'Digest', 'EventSort', 'Widget', 'Poll', 'Rating', 'Map', 'Payment', 'Liqpay', 'Mail', 'BulletinBoard', 'Banner', 'Dashboard', 'Tinyurl', 'Template', 'Review', 'SeoText']);
 	
 	//$app->getService('module')->getModule('React')->build(['React', 'Mail'], true);
 	/*$u = User::getRepository()->findOneBy(['email'=>'dev@feelgoodlabs.com']);
