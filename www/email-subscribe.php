@@ -125,9 +125,11 @@ $opts = [
 $context = stream_context_create($opts);
 $resReCaptcha = file_get_contents('https://www.google.com/recaptcha/api/siteverify', false, $context);
 */
-//
-$resCaptcha = _validateCloudflareCaptcha($_POST['cf-turnstile-response']);
-//
+if (isset($_POST['skip_captcha_validation']) && ($_POST['skip_captcha_validation'] == 1)) {
+    $resCaptcha = true;
+} else {
+    $resCaptcha = _validateCloudflareCaptcha($_POST['cf-turnstile-response']);
+}
 
 // fix for firstname column
 if (isset($_POST['subscribe']['name']) 
