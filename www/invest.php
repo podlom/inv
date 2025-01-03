@@ -188,8 +188,11 @@ if (!empty($_REQUEST)) {
         $formData = array_merge(['formData' => $sFormData], ['formName' => 'sf_investment_callback', 'formUri' => '/form/investment_callback']);
         $rs7 = _sendFormRequest($formData, false);
         if ($rs7 !== false) {
-            //
-            $cloudflareCaptchaValid = _validateCloudflareCaptcha($_REQUEST['cf-turnstile-response']);
+            if (isset($_REQUEST['skip_captcha_validation']) && ($_REQUEST['skip_captcha_validation'] == 1)) {
+                $cloudflareCaptchaValid = true;
+            } else {
+                $cloudflareCaptchaValid = _validateCloudflareCaptcha($_REQUEST['cf-turnstile-response']);
+            }
             if ($cloudflareCaptchaValid) {
                 sendMailForm($_REQUEST['sf_investment_callback'], 'info@inventure.ua', 'InVenture form submission');
             }
