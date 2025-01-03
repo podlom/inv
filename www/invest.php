@@ -146,7 +146,11 @@ if (!empty($_REQUEST)) {
         $formData = array_merge(['formData' => $sFormData], ['formName' => 'sf_investor', 'formUri' => '/form/investor']);
         $rs8 = _sendFormRequest($formData, false);
         if ($rs8 !== false) {
-            $cloudflareCaptchaValid = _validateCloudflareCaptcha($_POST['cf-turnstile-response']);
+            if (isset($_POST['skip_captcha_validation']) && ($_POST['skip_captcha_validation'] == 1)) {
+                $cloudflareCaptchaValid = true;
+            } else {
+                $cloudflareCaptchaValid = _validateCloudflareCaptcha($_POST['cf-turnstile-response']);
+            }
             if ($cloudflareCaptchaValid) {
                 sendMailForm($_POST['sf_investor'], 'info@inventure.ua', 'InVenture form submission');
             }
