@@ -13,7 +13,7 @@
 					<div class="preview__slider">
 						<div class="swiper-container gallery-top">
 							{if $post->getAttr(58) == 1}
-								<div class="preview__status block">{if $lang === 'ru'}Продано{else}Sold{/if}</div>
+								<div class="preview__status block">{if $lang == 'ru'}Продано{elseif $lang == 'uk'}Продано{else}Sold{/if}</div>
 							{/if}
 							<div class="preview__info mobile-only">
 								<p class="font-semibold text-sm">{$post->getPublished()->format('d.m.y')}</p>
