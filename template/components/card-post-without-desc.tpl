@@ -12,7 +12,7 @@
     <div class="cards__img-wrapper">
         {block 'image'}
             {if $post->getAttr(58) == 1}
-                <div class="preview__status">{if $lang === 'ru'}Продано{else}Sold{/if}</div>
+                <div class="preview__status">{if $lang == 'en'}Sold{else}Продано{/if}</div>
             {/if}
             {if substr($post->getPath(),0,14) == "/tools/video"}
                 <div>{$post->getAttr(55)}</div>

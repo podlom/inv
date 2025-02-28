@@ -719,6 +719,9 @@ if (!empty($_REQUEST)) {
                             $soldHtml = '<div class="previewstatus preview__status">';
                             $soldHtml .= 'Продано';
                         }
+                    } elseif ($lang === 'uk') {
+                        $soldHtml = '<div class="previewstatus preview__status">';
+                        $soldHtml .= 'Продано';
                     } else {
                         $soldHtml = '<div class="previewstatus preview__status">';
                         $soldHtml .= 'Sold';
