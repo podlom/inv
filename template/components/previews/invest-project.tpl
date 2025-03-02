@@ -15,6 +15,9 @@
 							{if $post->getAttr(58) == 1}
 								<div class="preview__status block">{if $lang == 'en'}Sold{else}Продано{/if}</div>
 							{/if}
+							{if $post->getAttr(73) == 1}
+								<div class="preview__status block">{if $lang == 'en'}Verified{elseif $lang == 'ru'}Проверено{else}Перевірено{/if}</div>
+							{/if}
 							<div class="preview__info mobile-only">
 								<p class="font-semibold text-sm">{$post->getPublished()->format('d.m.y')}</p>
 								<!-- <div class="preview__slider-item--item"></div> -->
