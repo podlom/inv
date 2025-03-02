@@ -729,13 +729,30 @@ if (!empty($_REQUEST)) {
                     $soldHtml .= '</div>';
                     $isSold = 1;
                 }
+                //
+                $isChecked = 0;
+                $checkedHtml = '';
+                if (isset($j2['attr73']) && ($j2['attr73'] == 1)) {
+                    if ($lang === 'ru') {
+                        $checkedHtml = '<div class="previewstatus preview__status">';
+                        $checkedHtml .= 'Проверено';
+                    } elseif ($lang === 'uk') {
+                        $checkedHtml = '<div class="previewstatus preview__status">';
+                        $checkedHtml .= 'Перевірено';
+                    } else {
+                        $checkedHtml = '<div class="previewstatus preview__status">';
+                        $checkedHtml .= 'Verified';
+                    }
+                    $checkedHtml .= '</div>';
+                    $isChecked = 1;
+                }
                 
                 $nextPageLink = '/invest.php?action=get&limit=23&page=' . ($page + 1);
                 $isLast = $num === count($res2) - 1;
                 $nextPageRequest = $isLast ? 'hx-get="' . $nextPageLink . '" hx-trigger="revealed" hx-indicator="#spinner" hx-swap="afterend"' : '';
 
                 $resHmtl .= '<a href="' . $urlLangPrefix . '/investments/' . $a2['subpath'] . '"  class="cards__item project-' . $num . '" ' . $nextPageRequest . '>
-                    <div class="cards__img-wrapper mb-2 parent_id-' . $a2['parent_id'] . ' lang-' . $lang . ' is-sold-' . $isSold . '">' . $soldHtml . '
+                    <div class="cards__img-wrapper mb-2 parent_id-' . $a2['parent_id'] . ' lang-' . $lang . ' is-sold-' . $isSold . ' is-checked-' . $isChecked . '">' . $soldHtml . $checkedHtml . '
                         <img class="cards__img lazyload" data-src="' . $imgUrl . '" alt="' . $a2['h1'] . '" src="' . $imgUrl . '">
                     </div>
                     <div class="opacity-75 text-sm w-full cards__meta pt-0 mt-0">' . $dateFormatted . '</div>
