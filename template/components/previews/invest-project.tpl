@@ -141,10 +141,6 @@
 			</div>
 
 			<div class="preview__wrapper-main mobile-pl-0 mobile-pr-0">
-				{if $post->getAttr(74) == 1}
-					<button href="{if $lang == 'en'}/en/partners{elseif $lang == 'ru'}/partners{else}/uk/partners{/if}" class="btn btn--blue mt-6 btn--normal">{if $lang == 'en'}Do you know who is interested? Earn money with us!{elseif $lang == 'ru'}Знаете, кого это интересует? Зарабатывайте с нами!{else}Знаєте, кого це цікавить? Заробляйте з нами!{/if}</button>
-				{/if}
-
 				<p class="preview__name-category mobile-mt-4">
 					{* {$breadcrumbs = array_filter([$blog, $category,$rubrics[0]])}
                   {foreach $breadcrumbs as $item}
@@ -174,6 +170,11 @@
 					</ul>
 				</div>
 				<div class="line mb-6 mt-6 mobile-only w-full ml-0 mr-0"></div>
+
+				{if $post->getAttr(74) == 1}
+					<a href="{if $lang == 'en'}/en/partners{elseif $lang == 'ru'}/partners{else}/uk/partners{/if}" class="btn btn--blue mt-6 btn--normal">{if $lang == 'en'}Do you know who is interested? Earn money with us!{elseif $lang == 'ru'}Знаете, кого это интересует? Зарабатывайте с нами!{else}Знаєте, кого це цікавить? Заробляйте з нами!{/if}</a>
+				{/if}
+
 			</div>
 		</div>
 	</div>
