@@ -1,6 +1,6 @@
 <div class="preview preview--invest ">
 	<div class="container">
-		<div class="preview__wrapper preview__wrapper--none-bg-desktop pb-6">
+		<div class="preview__wrapper preview__wrapper--none-bg-desktop pb-6 preview__wrapper_relative pb-3em">
 			<div class="preview__wrapper-block flex flex-col">
 				{* <p class="preview__name-category">
                   {$rubrics = $post->getRubrics()}
@@ -129,7 +129,7 @@
 				</div>
 				{/if}
 
-				<div class="desktop-only mt-auto pt-4 flex">
+				<div class="desktop-only mt-auto pt-4 flex position-absolute-top-100">
 
 					<p class="flex items-center opacity-75 text-sm  mr-4 font-semibold text--grey">ID: <span
 							class="postId1">{$post->getId()}</span></p>
@@ -174,7 +174,7 @@
 				</div>
 
 				{if $post->getAttr(74) == 1}
-					<a href="{if $lang == 'en'}/en/partners{elseif $lang == 'ru'}/partners{else}/uk/partners{/if}" class="partners-btn btn btn--blue mt-6 btn--normal">{if $lang == 'en'}Do you know who is interested? Earn money with us!{elseif $lang == 'ru'}Знаете, кого это интересует? Зарабатывайте с нами!{else}Знаєте, кого це цікавить? Заробляйте з нами!{/if}</a>
+					<a href="{if $lang == 'en'}/en/partners{elseif $lang == 'ru'}/partners{else}/uk/partners{/if}" class="partners-btn btn btn--blue marbtm-12 btn--normal">{if $lang == 'en'}Do you know who is interested? Earn money with us!{elseif $lang == 'ru'}Знаете, кого это интересует? Зарабатывайте с нами!{else}Знаєте, кого це цікавить? Заробляйте з нами!{/if}</a>
 				{/if}
 
 			</div>
