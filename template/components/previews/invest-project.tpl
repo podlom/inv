@@ -140,39 +140,41 @@
 				</div>
 			</div>
 
-			<div class="preview__wrapper-main mobile-pl-0 mobile-pr-0">
-				<p class="preview__name-category mobile-mt-4">
-					{* {$breadcrumbs = array_filter([$blog, $category,$rubrics[0]])}
-                  {foreach $breadcrumbs as $item}
-                    <a href="{$item->getPath()}" itemprop="item">
-                        {$item->geth1()|truncate:75}
-                    </a>
-                  {/foreach} *}
+			<div class="preview__wrapper-main mobile-pl-0 mobile-pr-0 column-parent-container">
+				<div>
+					<p class="preview__name-category mobile-mt-4">
+						{* {$breadcrumbs = array_filter([$blog, $category,$rubrics[0]])}
+                      {foreach $breadcrumbs as $item}
+                        <a href="{$item->getPath()}" itemprop="item">
+                            {$item->geth1()|truncate:75}
+                        </a>
+                      {/foreach} *}
 
-					<a href="{$post->getParent()->getPath()}">{$post->getParent()->getH1()}</a>
-				</p>
-				<div class="preview__text">
-					<h1 class="preview__title">{$post->getH1()}</h1>
-					<p class="preview__description">{$post->getShortText()}</p>
-				</div>
-				<div class="mobile-only  pb-2">
-					{include 'components/share-btn'}
-				</div>
-				<div class="mb-4">
-					<p class="font-bold ">{if $lang === 'ru'}Расположение:{elseif $lang === 'uk'}Розташування:{else}Location:{/if}
+						<a href="{$post->getParent()->getPath()}">{$post->getParent()->getH1()}</a>
 					</p>
-					<p class="inline"> {$post->printAttr("10")}</p>
+					<div class="preview__text">
+						<h1 class="preview__title">{$post->getH1()}</h1>
+						<p class="preview__description">{$post->getShortText()}</p>
+					</div>
+					<div class="mobile-only  pb-2">
+						{include 'components/share-btn'}
+					</div>
+					<div class="mb-4">
+						<p class="font-bold ">{if $lang === 'ru'}Расположение:{elseif $lang === 'uk'}Розташування:{else}Location:{/if}
+						</p>
+						<p class="inline"> {$post->printAttr("10")}</p>
+					</div>
+					<div class="preview__characteristics content pb-0">
+						{* <div class="line"></div> *}
+						<ul class="preview__characteristics--grid">
+							{include concat('inc/investments/',$post->getParent()->getSubpath())}
+						</ul>
+					</div>
+					<div class="line mb-6 mt-6 mobile-only w-full ml-0 mr-0"></div>
 				</div>
-				<div class="preview__characteristics content pb-0">
-					{* <div class="line"></div> *}
-					<ul class="preview__characteristics--grid">
-						{include concat('inc/investments/',$post->getParent()->getSubpath())}
-					</ul>
-				</div>
-				<div class="line mb-6 mt-6 mobile-only w-full ml-0 mr-0"></div>
 
 				{if $post->getAttr(74) == 1}
-					<a href="{if $lang == 'en'}/en/partners{elseif $lang == 'ru'}/partners{else}/uk/partners{/if}" class="btn btn--blue mt-6 btn--normal">{if $lang == 'en'}Do you know who is interested? Earn money with us!{elseif $lang == 'ru'}Знаете, кого это интересует? Зарабатывайте с нами!{else}Знаєте, кого це цікавить? Заробляйте з нами!{/if}</a>
+					<a href="{if $lang == 'en'}/en/partners{elseif $lang == 'ru'}/partners{else}/uk/partners{/if}" class="partners-btn btn btn--blue mt-6 btn--normal">{if $lang == 'en'}Do you know who is interested? Earn money with us!{elseif $lang == 'ru'}Знаете, кого это интересует? Зарабатывайте с нами!{else}Знаєте, кого це цікавить? Заробляйте з нами!{/if}</a>
 				{/if}
 
 			</div>

@@ -6472,3 +6472,12 @@ a.menu-item__right.menu--add-inv-prop:after {
 		display: none !important;
 	}
 }
+
+.column-parent-container {
+	display: flex;
+	flex-direction: column;
+}
+
+.partners-btn {
+	flex: 1;
+}
