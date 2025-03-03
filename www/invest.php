@@ -734,13 +734,13 @@ if (!empty($_REQUEST)) {
                 $checkedHtml = '';
                 if (isset($j2['attr73']) && ($j2['attr73'] == 1)) {
                     if ($lang === 'ru') {
-                        $checkedHtml = '<div class="previewstatus verified__status">';
+                        $checkedHtml = '<div class="ts-status-preview verified__status">';
                         $checkedHtml .= 'Проверено';
                     } elseif ($lang === 'uk') {
-                        $checkedHtml = '<div class="previewstatus verified__status">';
+                        $checkedHtml = '<div class="ts-status-preview verified__status">';
                         $checkedHtml .= 'Перевірено';
                     } else {
-                        $checkedHtml = '<div class="previewstatus verified__status">';
+                        $checkedHtml = '<div class="ts-status-preview verified__status">';
                         $checkedHtml .= 'Verified';
                     }
                     $checkedHtml .= '</div>';
