@@ -174,7 +174,7 @@
 				</div>
 
 				{if $post->getAttr(74) == 1}
-					<a href="{if $lang == 'en'}/en/partners{elseif $lang == 'ru'}/partners{else}/uk/partners{/if}" class="partners-btn btn btn--blue marbtm-12 btn--normal">{if $lang == 'en'}Do you know who is interested? Earn money with us!{elseif $lang == 'ru'}Знаете, кого это интересует? Зарабатывайте с нами!{else}Знаєте, кого це цікавить? Заробляйте з нами!{/if}</a>
+					<a href="{if $lang == 'en'}/en/partners{elseif $lang == 'ru'}/partners{else}/uk/partners{/if}" class="partners-btn btn btn--blue marbtm-12 bg-pink-500 btn--normal">{if $lang == 'en'}Do you know who is interested? Earn money with us!{elseif $lang == 'ru'}Знаете, кого это интересует? Зарабатывайте с нами!{else}Знаєте, кого це цікавить? Заробляйте з нами!{/if}</a>
 				{/if}
 
 			</div>
