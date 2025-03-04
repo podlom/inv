@@ -448,8 +448,15 @@
   }
 }
 
-.preview__status {
+.badges-wrapper {
   position: absolute;
+  top: 10px;
+  left: 10px;
+  display: flex;
+  gap: 10px;
+}
+
+.preview__status {
   display: none;
   font-weight: bold;
   font-size: 14px;
@@ -463,13 +470,10 @@
   background: var(--secondary-accent-color);
   box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1);
   border-radius: 4px;
-  top: 10px;
-  left: 10px;
   z-index: 9;
 }
 
 .verified__status {
-  position: absolute;
   display: none;
   font-weight: bold;
   font-size: 14px;
@@ -483,8 +487,6 @@
   background: var(--main-ok-color);
   box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1);
   border-radius: 4px;
-  top: 10px;
-  left: 120px;
   z-index: 10;
 }
 
