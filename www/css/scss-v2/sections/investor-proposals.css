@@ -431,3 +431,24 @@
     display: flex;
   }
 }
+
+.partners-btn {
+  flex: 1;
+}
+
+.preview__wrapper_relative {
+  position: relative;
+}
+
+.position-absolute-top-100 {
+  position: absolute;
+  top: 100%;
+}
+
+.pb-3em {
+  padding-bottom: 3em !important;
+}
+
+.marbtm-12 {
+  margin-bottom: 12px;
+}

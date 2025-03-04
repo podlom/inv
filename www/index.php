@@ -1,10 +1,10 @@
 <?php
 
-// Updated by @ts 2024-07-04 16:07
+// Updated by @ts 2025-03-04 19:37
 
 // @ts 2022-07-16 old debug IPs: 95.158.38.121
 // @ts 2022-08-03 Chernivtsi, Lva Tolstogo str.10, fl.5 static IP: 91.237.27.42
-if ($_SERVER['HTTP_CF_CONNECTING_IP'] == '91.237.27.42') {
+if (isset($_SERVER['HTTP_CF_CONNECTING_IP']) && ($_SERVER['HTTP_CF_CONNECTING_IP'] == '91.237.27.42')) {
     error_log(__FILE__ . ' +' . __LINE__);
     define('SKYNAR_DEBUG_SQL', true);
 }

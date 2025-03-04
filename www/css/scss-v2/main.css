@@ -6477,24 +6477,3 @@ a.menu-item__right.menu--add-inv-prop:after {
 	display: flex;
 	flex-direction: column;
 }
-
-.partners-btn {
-	flex: 1;
-}
-
-.preview__wrapper_relative {
-	position: relative;
-}
-
-.position-absolute-top-100 {
-	position: absolute;
-	top: 100%;
-}
-
-.pb-3em {
-	padding-bottom: 3em !important;
-}
-
-.marbtm-12 {
-	margin-bottom: 12px;
-}
