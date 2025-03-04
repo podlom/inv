@@ -752,7 +752,11 @@ if (!empty($_REQUEST)) {
                 $nextPageRequest = $isLast ? 'hx-get="' . $nextPageLink . '" hx-trigger="revealed" hx-indicator="#spinner" hx-swap="afterend"' : '';
 
                 $resHmtl .= '<a href="' . $urlLangPrefix . '/investments/' . $a2['subpath'] . '"  class="cards__item project-' . $num . '" ' . $nextPageRequest . '>
-                    <div class="cards__img-wrapper mb-2 parent_id-' . $a2['parent_id'] . ' lang-' . $lang . ' is-sold-' . $isSold . ' is-checked-' . $isChecked . '">' . $soldHtml . $checkedHtml . '
+                    <div class="cards__img-wrapper mb-2 parent_id-' . $a2['parent_id'] . ' lang-' . $lang . ' is-sold-' . $isSold . ' is-checked-' . $isChecked . '"> 
+                    <div class="badges-wrapper">' .
+                        $soldHtml .
+                        $checkedHtml .
+                    '</div>
                         <img class="cards__img lazyload" data-src="' . $imgUrl . '" alt="' . $a2['h1'] . '" src="' . $imgUrl . '">
                     </div>
                     <div class="opacity-75 text-sm w-full cards__meta pt-0 mt-0">' . $dateFormatted . '</div>
