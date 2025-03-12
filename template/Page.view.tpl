@@ -49,14 +49,17 @@ servicePopup: true
 
 {assign "isPost" value=($page|strpos:'Post') }
 {assign "isPlainText" value=(
+	$request->getPathInfo() == '/partners' ||
     $request->getPathInfo() == '/about' || 
     $request->getPathInfo() == '/en/about' || 
     $request->getPathInfo() == '/uk/about' || 
-    $request->getPathInfo() == '/about/advertising' || 
+    $request->getPathInfo() == '/uk/partners' ||
+    $request->getPathInfo() == '/about/advertising' ||
     $request->getPathInfo() == '/en/about/advertising' || 
     $request->getPathInfo() == '/uk/about/advertising' || 
     $request->getPathInfo() == '/about/faq' || 
-    $request->getPathInfo() == '/en/about/faq' || 
+    $request->getPathInfo() == '/en/about/faq' ||
+	$request->getPathInfo() == '/en/partners' ||
     $request->getPathInfo() == '/uk/about/faq' || 
     $request->getPathInfo() == '/usloviya-ispolzovaniya' || 
     $request->getPathInfo() == '/en/usloviya-ispolzovaniya' || 
