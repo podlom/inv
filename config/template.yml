@@ -398,6 +398,11 @@ en:
   urls:
     - "/en/*"
   layout: Core.layout_en
+partners_uk:
+  urls:
+    - "/uk/partners"
+  template: "blog/inventure.post_uk"
+  layout: Core.layout_uk
 uk:
   urls:
     - "/uk/*"
