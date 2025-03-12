@@ -401,7 +401,7 @@ en:
 partners_uk:
   urls:
     - "/uk/partners"
-  template: "blog/news"
+  template: "blog/inventure.post_uk"
   layout: Core.layout_uk
 uk:
   urls:
