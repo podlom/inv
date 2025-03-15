@@ -24,10 +24,8 @@
 			<div class="footer__wrapper">
 				<div class="cell">
 					<p class="font-bold mb-4"><a rel="nofollow" href="https://inventure.ua{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{else}/{/if}" target="_blank" itemprop="url">InVenture <span>Investment Group</span></a></p>
-					<p><a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/about">{if $lang === 'ru'}О
-						проекте{elseif $lang === 'uk'}Про проект
-						{else}About project
-						{/if}</a></p>
+					<p><a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/about">{if $lang === 'ru'}О проекте{elseif $lang === 'uk'}Про проект{else}About project{/if}</a></p>
+					<p><a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/partners">{if $lang === 'ru'}Стать партнером{elseif $lang === 'uk'}Стати партнером{else}Join as a partner{/if}</a></p>
 				<p><a
 						href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/about/advertising">{if $lang === 'ru'}Реклама{elseif $lang === 'uk'}Реклама{else}Advertising{/if}</a>
 				</p>
