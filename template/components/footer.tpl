@@ -51,6 +51,18 @@
 				<p><a href="https://inventure.ua{if $lang === 'en'}/en/{elseif $lang === 'uk'}/uk/{else}/{/if}vacancies/"
 						target="_blank">{if $lang === 'ru'}Вакансии{elseif $lang === 'uk'}Вакансії{else}Vacancies{/if}</a>
 				</p>
+				{if $lang !== 'ru'}
+					<p>
+						<a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/board">
+							{if $lang === 'ru'}
+								Доска объявлений
+							{elseif $lang === 'uk'}Дошка оголошень
+							{else}
+								Board
+							{/if}
+						</a>
+					</p>
+				{/if}
 				<p><a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/about/faq">{if $lang === 'ru'}Часто
 						задаваемые
 						вопросы{elseif $lang === 'uk'}Часті запитання
