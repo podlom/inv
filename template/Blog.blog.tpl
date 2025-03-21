@@ -257,8 +257,6 @@
     {block 'content.text'}
         {block 'posts'}
         {if $isNewStylesAvaible}
-            {assign "horizontal" value=($request->getPathInfo() == '/tools/investors')}
-
             {block 'post.preview'}
                 {if $horizontal}
                     <div  class="horizontal-cards__list">
