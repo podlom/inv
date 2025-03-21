@@ -37,15 +37,6 @@
 				<p><a
 						href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/about/advertising">{if $lang === 'ru'}Реклама{elseif $lang === 'uk'}Реклама{else}Advertising{/if}</a>
 				</p>
-
-				<p><a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/investor">{if $lang === 'ru'}Сервисы
-						для
-						инвестора{elseif $lang === 'uk'}Сервіси для інвестора
-						{else}Services for Investors
-						{/if}</a></p>
-				<p><a
-						href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/tools/events">{if $lang === 'ru'}Мероприятия{elseif $lang === 'uk'}Заходи{else}Events{/if}</a>
-				</p>
 				<p><a href="https://www.inventure.ua{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{else}/ru{/if}/management"
 						target="_blank">{if $lang === 'ru'}Команда{elseif $lang === 'uk'}Команда{else}Team{/if}</a></p>
 				<p><a href="https://inventure.ua{if $lang === 'en'}/en/{elseif $lang === 'uk'}/uk/{else}/{/if}vacancies/"
@@ -100,9 +91,15 @@
 						{elseif $lang === 'uk'}Продаж бізнесу
 						{else}Business for
 						Sale{/if} </a></p>
-				<p><a
-						href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/investments?filter[category][parent]=7862">{if $lang === 'ru'}Недвижимость{elseif $lang === 'uk'}Нерухомість{else}Commercial
-						Property{/if}</a></p>
+				<p>
+					<a
+						href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/investments?filter[category][parent]=7862">
+						{if $lang === 'ru'}Коммерческая недвижимость
+						{elseif $lang === 'uk'}Комерційна
+						нерухомість{else}Commercial
+						Property{/if}
+					</a>
+				</p>
 				<p><a
 						href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/investments?filter[category][parent]=7863">{if $lang === 'ru'}Земля{elseif $lang === 'uk'}Земля{else}Land{/if}</a>
 				</p>
@@ -114,15 +111,19 @@
 						инвесторов{elseif $lang === 'uk'}Пропозиції інвесторів
 						{else}Investor Offers
 						{/if}</a></p>
-				<p><a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/add-inv-prop">{if $lang === 'ru'}Привлечение
+				<p class="font-bold mb-4 mt-4">
+					<a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/add-inv-prop">{if $lang === 'ru'}Привлечение
 						инвестиций / продажа бизнеса{elseif $lang === 'uk'}Залучення інвестицій / продаж бізнесу
 						{else}Services for
-						Raising Capital & Sell a Business{/if}</a></p>
-				<p><a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/investor">{if $lang === 'ru'}Сервисы
+						Raising Capital & Sell a Business{/if}</a>
+				</p>
+				<p class="font-bold mb-4 mt-4">
+					<a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/investor">{if $lang === 'ru'}Сервисы
 						для
 						инвестора{elseif $lang === 'uk'}Сервіси для інвестора
 						{else}Services for Investors
-						{/if}</a></p>
+						{/if}</a>
+				</p>
 			</div>
 			<div class="cell">
 				<p class="font-bold mb-4"><a
@@ -132,20 +133,36 @@
 						инвестиции и M&A{elseif $lang === 'uk'}Прямі інвестиції та M&A
 						{else}Private Equity & M&A
 						{/if}</a></p>
-				<p><a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/news/startup">{if $lang === 'ru'}Стартапы{elseif $lang === 'uk'}Стартапи{else}Venture
-						Capital &amp; Startups{/if}</a></p>
-				<p><a
-						href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/news/government">{if $lang === 'ru'}Макроинвестиции{elseif $lang === 'uk'}Макроінвестиції{else}Macroeconomics{/if}</a>
+				<p>
+					<a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/news/startup">{if $lang === 'ru'}Венчурные
+						инвестиции и стартапы{elseif $lang === 'uk'}Венчурні інвестиції і стартапи
+						{else}Venture
+						Capital &amp; Startups{/if}</a>
+				</p>
+				<p><a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/news/government">{if $lang === 'ru'}Государственные
+						инвестиции{elseif $lang === 'uk'}Державні інвестиції
+						{else}Government Investments
+						{/if}</a>
 				</p>
 				<p><a
 						href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/news/banking">{if $lang === 'ru'}Кредитование{elseif $lang === 'uk'}Кредитування{else}Banking{/if}</a>
 				</p>
-				<p><a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/news/stock">{if $lang === 'ru'}Фондовый
-						рынок{elseif $lang === 'uk'}Фондовий ринок
+				<p>
+					<a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/news/stock">
+						{if $lang === 'ru'}Фондовый рынок и IPO
+						{elseif $lang === 'uk'}Фондовий ринок і IPO
 						{else}Stock Market &amp; IPO
-						{/if}</a></p>
-				<p><a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/news/realestate">{if $lang === 'ru'}Недвижимость{elseif $lang === 'uk'}Нерухомість{else}Commercial
-						Property{/if}</a></p>
+						{/if}
+					</a>
+				</p>
+				<p>
+					<a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/news/realestate">
+						{if $lang === 'ru'}Инвестиции в недвижимость
+						{elseif $lang === 'uk'}Інвестиції в нерухомість
+						{else}Real Estate Investments
+						{/if}
+					</a>
+				</p>
 			</div>
 			<div class="cell">
 				<p class="font-bold mb-4"><a
@@ -175,6 +192,10 @@
 				</p>
 				<p><a
 						href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/tools/investors">{if $lang === 'ru'}Инвесторы{elseif $lang === 'uk'}Інвестори{else}Investors{/if}</a>
+				</p>
+				<p>
+					<a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/tools/events">{if $lang === 'ru'}Мероприятия{elseif $lang === 'uk'}Заходи{else}Events{/if}
+					</a>
 				</p>
 			</div>
 		</div>
