@@ -18,7 +18,8 @@
 									<div class="preview__status block">{if $lang == 'en'}Sold{else}Продано{/if}</div>
 								{/if}
 								{if $post->getAttr(73) == 1}
-									<div class="verified__status block">{if $lang == 'en'}Verified{elseif $lang == 'ru'}Проверено{else}Перевірено{/if}</div>
+									<div class="verified__status block">
+										{if $lang == 'en'}Verified{elseif $lang == 'ru'}Проверено{else}Перевірено{/if}</div>
 								{/if}
 							</div>
 
@@ -26,7 +27,8 @@
 								<p class="font-semibold text-sm">{$post->getPublished()->format('d.m.y')}</p>
 								<!-- <div class="preview__slider-item--item"></div> -->
 								<div class="preview__views">
-									<svg width="16" height="11" viewBox="0 0 16 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<svg width="16" height="11" viewBox="0 0 16 11" fill="none"
+										xmlns="http://www.w3.org/2000/svg">
 										<path
 											d="M7.98888 0C2.6069 0 0 5.42316 0 5.42316C0 5.42316 2.59008 10.8463 7.98888 10.8463C13.3877 10.8463 15.9778 5.42316 15.9778 5.42316C15.9778 5.42316 13.3709 0 7.98888 0ZM7.98888 9.61685C5.6679 9.61685 3.80102 7.73053 3.80102 5.42316C3.80102 3.09895 5.68472 1.22947 7.98888 1.22947C10.293 1.22947 12.1767 3.11579 12.1767 5.42316C12.1767 7.74737 10.3099 9.61685 7.98888 9.61685Z"
 											fill="white"></path>
@@ -45,9 +47,9 @@
 									<a href="{($post->getImage()->getUrl())}" class="js-smartphoto swiper-slide">
 										{if $user && $user->canAccess('Page.publish')}
 											<div class="preview__slider-download" data-link="{$post->getImage()->getUrl()}">
-												<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-													x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;"
-													xml:space="preserve">
+												<svg version="1.1" xmlns="http://www.w3.org/2000/svg"
+													xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512"
+													style="enable-background:new 0 0 512 512;" xml:space="preserve">
 													<g>
 														<path
 															d="M484.078,27.923C466.072,9.917,442.131,0.001,416.666,0.002L95.334,0C42.766,0.002,0,42.769,0,95.333v321.333
@@ -63,7 +65,8 @@
 										{/if}
 										<div class="img-overlay mobile-only opacity-75"></div>
 										<img class="ts-main-post-image swiper-lazy"
-											data-src="/img/thumbup.600.400{($post->getImage()->getUrl())}" alt="{$post->getH1()}">
+											data-src="/img/thumbup.600.400{($post->getImage()->getUrl())}"
+											alt="{$post->getH1()}">
 										<div class="swiper-lazy-preloader"></div>
 									</a>
 								{/if}
@@ -79,9 +82,9 @@
 								<a href="{($image->getUrl())}" class="js-smartphoto swiper-slide">
 									{if $user && $user->canAccess('Page.publish')}
 										<div class="preview__slider-download" data-link="{$image->getUrl()}">
-											<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-												x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;"
-												xml:space="preserve">
+											<svg version="1.1" xmlns="http://www.w3.org/2000/svg"
+												xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512"
+												style="enable-background:new 0 0 512 512;" xml:space="preserve">
 												<g>
 													<path d="M484.078,27.923C466.072,9.917,442.131,0.001,416.666,0.002L95.334,0C42.766,0.002,0,42.769,0,95.333v321.333
                                             C0,469.233,42.768,512,95.334,512h321.332C469.233,512,512,469.233,512,416.666V95.335C512,69.87,502.084,45.929,484.078,27.923z
@@ -123,7 +126,8 @@
 									{continue}
 								{/if}
 								<div class="swiper-slide">
-									<img class="swiper-lazy" data-src="/img/thumbup.350.254{($image->getUrl())}" alt="{$post->getH1()}">
+									<img class="swiper-lazy" data-src="/img/thumbup.350.254{($image->getUrl())}"
+										alt="{$post->getH1()}">
 									<div class="swiper-lazy-preloader"></div>
 								</div>
 							{/foreach}
@@ -133,7 +137,7 @@
 				</div>
 				{/if}
 
-				<div class="desktop-only mt-auto pt-4 flex position-absolute-top-100">
+				<div class="desktop-only mt-auto pt-4 flex">
 
 					<p class="flex items-center opacity-75 text-sm  mr-4 font-semibold text--grey">ID: <span
 							class="postId1">{$post->getId()}</span></p>
@@ -164,7 +168,8 @@
 						{include 'components/share-btn'}
 					</div>
 					<div class="mb-4">
-						<p class="font-bold ">{if $lang === 'ru'}Расположение:{elseif $lang === 'uk'}Розташування:{else}Location:{/if}
+						<p class="font-bold ">
+							{if $lang === 'ru'}Расположение:{elseif $lang === 'uk'}Розташування:{else}Location:{/if}
 						</p>
 						<p class="inline"> {$post->printAttr("10")}</p>
 					</div>
@@ -178,7 +183,11 @@
 				</div>
 
 				{if $post->getAttr(74) == 1}
-					<a href="{if $lang == 'en'}/en/partners{elseif $lang == 'ru'}/partners{else}/uk/partners{/if}" class="partners-btn btn btn--blue marbtm-12 bg-pink-500 btn--normal">{if $lang == 'en'}Do you know who is interested? Earn money with us!{elseif $lang == 'ru'}Знаете, кого это интересует? Зарабатывайте с нами!{else}Знаєте, кого це цікавить? Заробляйте з нами!{/if}</a>
+					<a href="{if $lang == 'en'}/en/partners{elseif $lang == 'ru'}/partners{else}/uk/partners{/if}"
+						class="partners-btn btn btn--blue marbtm-12 bg-pink-500 btn--normal">{if $lang == 'en'}Do you know
+						who is interested? Earn money with us!{elseif $lang == 'ru'}Знаете, кого это интересует?
+						Зарабатывайте с нами!{else}Знаєте, кого це цікавить? Заробляйте з нами!
+						{/if}</a>
 				{/if}
 
 			</div>
