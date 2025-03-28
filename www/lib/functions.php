@@ -57,7 +57,7 @@ function l_m(string $msg)
     // Do not log if client IP does not match list below
     if (($_SERVER['REMOTE_ADDR'] !== '185.11.28.246') // @ts 2021-02-25; ISP Best; Grand Villas; home
         && ($_SERVER['REMOTE_ADDR'] !== '178.214.193.98') // InVenture office; Kyiv
-        && ($_SERVER['REMOTE_ADDR'] !== '193.0.217.97') // Kyiv - Volodymyra Ivasyuka ave. 24-a
+        && ($_SERVER['REMOTE_ADDR'] !== '82.193.120.77') // Kyiv - cafe Kombinat - Volodymyra Ivasyuka ave. 24-a
     ) {
         // error_log(__FILE__ . ' +' . __LINE__ . ' ' . __FUNCTION__ . ' log to file is disabled for client IP: ' . $_SERVER['REMOTE_ADDR']);
         return false;
@@ -436,6 +436,8 @@ function _sendFormRequest($data, $useExternalConnector = true)
             l_m(__FUNCTION__ . ' +' . __LINE__ . ' HTTP error code: ' . var_export($resCode, 1));
         }
     }
+
+    return $result;
 }
 
 function sendMailForm($data, $recipient = 'info@inventure.ua', $subject = 'InVenture form submission')
@@ -819,6 +821,50 @@ function addMailSubscriber($data, $db)
 
         // $msg = __FILE__ . ' +' . __LINE__ . ' Select db result: ' . var_export($res69, true) . PHP_EOL;
         // l_m( $msg );
+
+        // Added by @ts 2025-03-28 11:40 send new Digest Subscriber data to HubSpot CRM
+        $lastName = '';
+        if (isset($data['subscribe']['lastname']) && !empty($data['subscribe']['lastname'])) {
+            $lastName = $data['subscribe']['lastname'];
+        }
+        $company = '';
+        if (isset($data['subscribe']['company']) && !empty($data['subscribe']['company'])) {
+            $company = $data['subscribe']['company'];
+        }
+        $jobTitle = '';
+        if (isset($data['subscribe']['jobtitle']) && !empty($data['subscribe']['jobtitle'])) {
+            $jobTitle = $data['subscribe']['jobtitle'];
+        }
+        if (isset($data['subscribe']['job']) && !empty($data['subscribe']['job'])) {
+            $jobTitle = $data['subscribe']['job'];
+        }
+        $phone = '';
+        if (isset($data['subscribe']['phone']) && !empty($data['subscribe']['phone'])) {
+            $phone = $data['subscribe']['phone'];
+        }
+        $gaUtm = '';
+        if (isset($data['subscribe']['ga_utm']) && !empty($data['subscribe']['ga_utm'])) {
+            $gaUtm = $data['subscribe']['ga_utm'];
+        }
+        $sFormData = serialize(array_merge([
+            'email' => $data['subscribe']['email'],
+            'firstname' => $data['subscribe']['firstname'],
+            'lastname' => $lastName,
+            'company' => $company,
+            'jobtitle' => $jobTitle,
+            'phone' => $phone,
+            'lang' => $data['subscribe']['lang'],
+            'ga_utm' => $gaUtm,
+        ], [
+            'REMOTE_ADDR' => $_SERVER['REMOTE_ADDR'],
+            'HTTP_REFERER' => $_SERVER['HTTP_REFERER'],
+            'HTTP_USER_AGENT' => $_SERVER['HTTP_USER_AGENT'],
+        ]));
+        $formData = array_merge(['formData' => $sFormData], ['formName' => 'subscribe', 'formUri' => $_SERVER['REQUEST_URI']]);
+        $res = _sendFormRequest($formData);
+        $msg = __FILE__ . ' +' . __LINE__ . ' Send data to HupSpot CRM result: ' . var_export($res, true) . PHP_EOL;
+        l_m( $msg );
+        //
 
         if (isset($res69[0]) && is_array($res69[0]) && !empty($res69[0])) {
             // $attrData = json_decode($res69[0]['attr']);
