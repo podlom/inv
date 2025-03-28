@@ -409,11 +409,14 @@ function _sendFormRequest($data, $useExternalConnector = true)
         }
     }
     //
+    /*
     $uri = 'https://nh.leadbox.com.ua/hubspot/074bmom3utuln3yym6joh12dnl6ow6lltiark1ar';
     if ($useExternalConnector !== true) {
-        // $uri = 'https://dev.inventure.com.ua/hubspot.php?key=074bmom3utuln3yym6joh12dnl6ow6lltiark1ar';
+        $uri = 'https://dev.inventure.com.ua/hubspot.php?key=074bmom3utuln3yym6joh12dnl6ow6lltiark1ar';
         $uri = 'https://inventure.com.ua/hubspot.php?key=074bmom3utuln3yym6joh12dnl6ow6lltiark1ar';
     }
+    */
+    $uri = 'https://inventure.com.ua/hubspot.php?key=074bmom3utuln3yym6joh12dnl6ow6lltiark1ar';
     l_m(__FUNCTION__ . ' +' . __LINE__ . ' Sending request to: ' . var_export($uri, 1));
     //
     $ch = curl_init();
