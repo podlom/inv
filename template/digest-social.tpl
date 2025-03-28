@@ -117,13 +117,16 @@
 						<input type="checkbox" value="en" name="subscribe[lang][]" id="check-en" hidden>
 					</div>
 				</div>
+				<div class="subscription__captcha-block">
+					<!-- The following line controls and configures the Turnstile widget. -->
+					<div class="cf-turnstile" data-sitekey="0x4AAAAAAA16EgKzQUTvZdcv" data-theme="light" data-size="flexible"></div>
+					<!-- end. -->
+				</div>
 				<input name="subscribe[ga_utm]" hidden type="hidden">
-				<button type="submit" class="subscription__button g-recaptcha digest-social"
-					data-sitekey="6Le8bI8fAAAAAFT1lTrt6gL31hrhm8mFfc4nKmbX" data-callback="submitDigest">
-					Подписаться
+				<button type="submit" class="subscription__button digest-social">
+					{if $lang === 'ru'}Подписаться{else if $lang === 'en'}Subscribe{else}Підписатися{/if}
 				</button>
 			</form>
-
 
 		</div>
 	</section>
