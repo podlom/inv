@@ -13,7 +13,8 @@ function _sendFormRequest($data)
 {
     $resData = [];
     error_log( date('r') . ' ' . __FUNCTION__ . ' +' . __LINE__ . ' $data: ' . PHP_EOL . var_export($data, 1) . PHP_EOL );
-    $uri = 'https://nh.leadbox.com.ua/hubspot/074bmom3utuln3yym6joh12dnl6ow6lltiark1ar';
+    // $uri = 'https://nh.leadbox.com.ua/hubspot/074bmom3utuln3yym6joh12dnl6ow6lltiark1ar';
+    $uri = 'https://inventure.com.ua/hubspot.php?key=074bmom3utuln3yym6joh12dnl6ow6lltiark1ar';
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $uri);
     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false); // On dev server only!
