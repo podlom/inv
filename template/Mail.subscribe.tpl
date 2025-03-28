@@ -58,10 +58,13 @@
 		</div>
 	</div>
 
+	<div class="subscription__captcha-block">
+		<!-- The following line controls and configures the Turnstile widget. -->
+		<div class="cf-turnstile" data-sitekey="0x4AAAAAAA16EgKzQUTvZdcv" data-theme="light" data-size="flexible"></div>
+		<!-- end. -->
+	</div>
 	<input type="hidden" name="subscribe[ga_utm]" value="">
-	<div class='grid-x'><button class="blue_but cell-but small-12 w-full g-recaptcha"
-			data-sitekey="6Le8bI8fAAAAAFT1lTrt6gL31hrhm8mFfc4nKmbX" type="submit" id="subscribeButton"
-			data-callback="submitDigest">Subscribe</button></div>
+	<div class='grid-x'><button class="blue_but cell-but small-12 w-full" type="submit" id="subscribeButton">Subscribe</button></div>
 	<!-- div class='grid-x'><button type='button' class="blue_but cell-but  small-12 close__popup">Close</button></div -->
 
 {elseif $lang == 'uk'}
@@ -117,10 +120,14 @@
 			<input type="checkbox" value="en" name="subscribe[lang][]" id="check-en" hidden>
 		</div>
 	</div>
+
+	<div class="subscription__captcha-block">
+		<!-- The following line controls and configures the Turnstile widget. -->
+		<div class="cf-turnstile" data-sitekey="0x4AAAAAAA16EgKzQUTvZdcv" data-theme="light" data-size="flexible"></div>
+		<!-- end. -->
+	</div>
 	<input type="hidden" name="subscribe[ga_utm]" value="">
-	<div class='grid-x'><button class="blue_but cell-but small-12 w-full g-recaptcha"
-			data-sitekey="6Le8bI8fAAAAAFT1lTrt6gL31hrhm8mFfc4nKmbX" type="submit" id="subscribeButton"
-			data-callback="submitDigest">Підписатися</button></div>
+	<div class='grid-x'><button class="blue_but cell-but small-12 w-full" type="submit" id="subscribeButton">Підписатися</button></div>
 
 {else}
 	{if isset($smarty.get.id) && isset($smarty.get.email)}
@@ -178,10 +185,14 @@
 			</div>
 		</div>
 
+		<div class="subscription__captcha-block">
+			<!-- The following line controls and configures the Turnstile widget. -->
+			<div class="cf-turnstile" data-sitekey="0x4AAAAAAA16EgKzQUTvZdcv" data-theme="light" data-size="flexible"></div>
+			<!-- end. -->
+		</div>
 		<input type="hidden" name="subscribe[ga_utm]" value="">
 		<div class='grid-x'>
-			<button class="blue_but cell-but small-12 w-full g-recaptcha" data-sitekey="6Le8bI8fAAAAAFT1lTrt6gL31hrhm8mFfc4nKmbX"
-				type="submit" id="subscribeButton" data-callback="submitDigest">Подписаться</button>
+			<button class="blue_but cell-but small-12 w-full" type="submit" id="subscribeButton">Подписаться</button>
 		</div>
 		<!-- div class='grid-x'><button type='button' class="blue_but cell-but  small-12 close__popup">Закрыть</button></div -->
 	{/if}
