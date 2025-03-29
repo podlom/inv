@@ -15,8 +15,8 @@
 		{$form->getField('firstname')->getInput()->attr('id', 'subscribeFirstname')->attr('placeholder', 'First Name')}
 		{$form->getField('lastname')->getInput()->attr('id', 'subscribeLastname')->attr('placeholder', 'Surname')}
 	{else}
-		<input name="subscribe[firstname]" type="text" class="subscription__input" placeholder="First Name" required>
-		<input name="subscribe[lastname]" type="text" class="subscription__input" placeholder="Surname">
+		<input autocomplete="off" name="subscribe[firstname]" type="text" class="subscription__input" placeholder="First Name" required>
+		<input autocomplete="off" name="subscribe[lastname]" type="text" class="subscription__input" placeholder="Surname">
 	{/if}
 	{$form->getField('company')->getInput()->attr('id', 'subscribeCompany')->attr('placeholder', 'Company')}
 	{$form->getField('job')->getInput()->attr('id', 'subscribeJob')->attr('placeholder', 'Position')}
@@ -24,7 +24,7 @@
 	{* $form->getField('phone')->getInput()->attr('id', 'subscribeTel')->attr('placeholder', 'Phone') *}
 	{literal}
 		<div class="input-aproach">
-			<input type="tel" id="phone" name="subscribe[phone]" required>
+			<input autocomplete="off" type="tel" id="phone" name="subscribe[phone]" required>
 			<span id="valid-msg" class="hide">✓ Valid</span>
 			<span id="error-msg" class="hide"></span>
 		</div>
@@ -72,8 +72,8 @@
 		{$form->getField('firstname')->getInput()->attr('id', 'subscribeFirstname')->attr('placeholder', 'Імʼя')}
 		{$form->getField('lastname')->getInput()->attr('id', 'subscribeLastname')->attr('placeholder', 'Прізвище')}
 	{else}
-		<input name="subscribe[firstname]" type="text" class="subscription__input" placeholder="Імʼя" required>
-		<input name="subscribe[lastname]" type="text" class="subscription__input" placeholder="Прізвище">
+		<input autocomplete="off" name="subscribe[firstname]" type="text" class="subscription__input" placeholder="Імʼя" required>
+		<input autocomplete="off" name="subscribe[lastname]" type="text" class="subscription__input" placeholder="Прізвище">
 	{/if}
 	{$form->getField('company')->getInput()->attr('id', 'subscribeCompany')->attr('placeholder', 'Компанія')}
 	{$form->getField('job')->getInput()->attr('id', 'subscribeJob')->attr('placeholder', 'Посада')}
@@ -81,7 +81,7 @@
 	{* $form->getField('phone')->getInput()->attr('id', 'subscribeTel')->attr('placeholder', 'Номер телефону') *}
 	{literal}
 		<div class="input-aproach">
-			<input type="tel" id="phone" name="subscribe[phone]" required>
+			<input autocomplete="off" type="tel" id="phone" name="subscribe[phone]" required>
 			<span id="valid-msg" class="hide">✓ Правильний</span>
 			<span id="error-msg" class="hide"></span>
 		</div>
@@ -137,15 +137,15 @@
 			{$form->getField('firstname')->getInput()->attr('id', 'subscribeFirstname')->attr('placeholder', $form->getField('firstname')->getLabel())}
 			{$form->getField('lastname')->getInput()->attr('id', 'subscribeLastname')->attr('placeholder', $form->getField('lastname')->getLabel())}
 		{else}
-			<input name="subscribe[firstname]" type="text" class="subscription__input" placeholder="Имя" required>
-			<input name="subscribe[lastname]" type="text" class="subscription__input" placeholder="Фамилия">
+			<input autocomplete="off" name="subscribe[firstname]" type="text" class="subscription__input" placeholder="Имя" required>
+			<input autocomplete="off" name="subscribe[lastname]" type="text" class="subscription__input" placeholder="Фамилия">
 		{/if}
 		{$form->getField('company')->getInput()->attr('id', 'subscribeCompany')->attr('placeholder', $form->getField('company')->getLabel())}
 		{$form->getField('job')->getInput()->attr('id', 'subscribeJob')->attr('placeholder', $form->getField('job')->getLabel())}
 		{$form->getField('email')->getInput()->attr('id', 'subscribeMail')->attr('placeholder', $form->getField('email')->getLabel())}
 		{literal}
 			<div class="input-aproach">
-				<input type="tel" id="phone" name="subscribe[phone]" required>
+				<input autocomplete="off" type="tel" id="phone" name="subscribe[phone]" required>
 				<span id="valid-msg" class="hide">✓ Правильний</span>
 				<span id="error-msg" class="hide"></span>
 			</div>
