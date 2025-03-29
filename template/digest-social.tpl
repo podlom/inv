@@ -45,31 +45,31 @@
 					<label>
 						Имя
 					</label>
-					<input name="subscribe[firstname]" type="text" class="subscription__input" required>
+					<input autocomplete="off" name="subscribe[firstname]" type="text" class="subscription__input" required>
 				</div>
 				<div class="subscription__row">
 					<label>
 						Фамилия
 					</label>
-					<input name="subscribe[lastname]" type="text" class="subscription__input">
+					<input autocomplete="off" name="subscribe[lastname]" type="text" class="subscription__input">
 				</div>
 				<div class="subscription__row">
 					<label>
 						Компания
 					</label>
-					<input name="subscribe[company]" type="text" class="subscription__input">
+					<input autocomplete="off" name="subscribe[company]" type="text" class="subscription__input">
 				</div>
 				<div class="subscription__row">
 					<label>
 						Должность
 					</label>
-					<input name="subscribe[jobtitle]" type="text" class="subscription__input">
+					<input autocomplete="off" name="subscribe[jobtitle]" type="text" class="subscription__input">
 				</div>
 				<div class="subscription__row">
 					<label>
 						E-mail
 					</label>
-					<input name="subscribe[email]" type="email" class="subscription__input" required>
+					<input autocomplete="off" name="subscribe[email]" type="email" class="subscription__input" required>
 				</div>
 				<div class="subscription__row">
 					<label>
@@ -77,7 +77,7 @@
 					</label>
 					{literal}
 						<div class="input-aproach">
-							<input name="subscribe[phone]" type="text" class="subscription__input" id="phone" required>
+							<input autocomplete="off" name="subscribe[phone]" type="text" class="subscription__input" id="phone" required>
 							<span id="valid-msg" class="hide">✓ Valid</span>
 							<span id="error-msg" class="hide"></span>
 						</div>
