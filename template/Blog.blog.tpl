@@ -24,13 +24,13 @@
 {* if $lang == 'uk' *}
 {if $lang == 'uk'}
     {$links = [
-        '/uk/investments/projects' => 'Інвестиційні проекти і стартапи',
-        '/uk/investments/business' => 'Продаж бізнесу',
-        '/uk/investments/realestate' => 'Нерухомість',
-        '/uk/investments/land' => 'Земля',
-        '/uk/investments/franchising' => 'Франчайзинг',
-        '/uk/investments/offer' => 'Інвестори'
-    ]}
+            '/uk/investments/projects' => 'Інвестиційні проекти і стартапи',
+            '/uk/investments/business' => 'Продаж бізнесу',
+            '/uk/investments/realestate' => 'Нерухомість',
+            '/uk/investments/land' => 'Земля',
+            '/uk/investments/franchising' => 'Франчайзинг',
+            '/uk/investments/offer' => 'Інвестори'
+        ]}
     {$nextPageUrl = '/news.php?lang=uk&action=news-list&page=2'}
     {if $request->getPathInfo()|strpos:'/uk/analytics' === 0}
         {$nextPageUrl = '/analytics.php?lang=uk&action=analytics-list&page=2'}
@@ -44,13 +44,13 @@
 {* if $lang == 'en' *}
 {if $lang == 'en'}
     {$links = [
-        '/en/investments/projects'=>'Investment Projects and Startups',
-        '/en/investments/business'=>'Business for Sale',
-        '/en/investments/realestate'=>'Commercial Property',
-        '/en/investments/land'=>'Land',
-        '/en/investments/en_franchising'=>'Franchising',
-        '/en/investments/offer'=>'Investor Offers'
-    ]}
+            '/en/investments/projects'=>'Investment Projects and Startups',
+            '/en/investments/business'=>'Business for Sale',
+            '/en/investments/realestate'=>'Commercial Property',
+            '/en/investments/land'=>'Land',
+            '/en/investments/en_franchising'=>'Franchising',
+            '/en/investments/offer'=>'Investor Offers'
+        ]}
     {$nextPageUrl = '/news.php?lang=en&action=news-list&page=2'}
     {if $request->getPathInfo()|strpos:'/en/analytics' === 0}
         {$nextPageUrl = '/analytics.php?lang=en&action=analytics-list&page=2'}
@@ -383,7 +383,7 @@
                     <div></div>
                     <div></div>
                 </div>
-                {script src="https://unpkg.com/htmx.org@1.9.10" name="htmx" }
+                {script src="https://unpkg.com/htmx.org@1.9.11" name="htmx" }
                 <script>
                     const htmxScript = document.querySelector('script[data-name="htmx"]');
                     htmxScript.addEventListener("load", () => {
