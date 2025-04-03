@@ -505,6 +505,11 @@ if (!empty($_REQUEST)) {
         }
         l_m(__FILE__ . ' +' . __LINE__ . ' $filterRegionWhere: ' . $filterRegionWhere . PHP_EOL);
         //
+        $filterSoldWhere = '';
+        if (isset($_REQUEST['is_sold']) && ($_REQUEST['is_sold'] == '1')) {
+            $filterSoldWhere = ' AND p0_.`attr` LIKE \'%"attr58":"1"%\' ';
+        }
+        //
         $filterBranchWhere = '';
         if (
             isset($filter, $filter['attr_16'], $filter['attr_16'][0])
@@ -573,6 +578,7 @@ if (!empty($_REQUEST)) {
             $parentCategoryWhere .
             $filterRegionWhere .
             $filterBranchWhere .
+            $filterSoldWhere .
             // " AND p0_.class IN ('16') " .
             " ORDER BY {$sqlOrderBy} " .
             " LIMIT {$limit} OFFSET {$offset}";
