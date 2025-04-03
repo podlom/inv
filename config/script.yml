@@ -126,9 +126,9 @@ select2:
   file: select2.min.js
   css: [select2.min.css]
 react:
-  file: "https://unpkg.com/react@16/umd/react.development.js"
+  file: /js/vendor/react.production.min.js
 react-dom:
-  file: "https://unpkg.com/react-dom@16/umd/react-dom.development.js"
+  file: /js/vendor/react-dom.production.min.js
   require: [react]
 sci:
   file: sci.js
