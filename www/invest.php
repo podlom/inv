@@ -21,7 +21,7 @@ use PHPMailer\PHPMailer\Exception;
 use Symfony\Component\Yaml\Yaml;
 
 
-const MAX_PAGER_SIZE = 25;
+// const MAX_PAGER_SIZE = 25;
 const DEFAULT_LIMIT = 24;
 
 
@@ -285,9 +285,9 @@ if (!empty($_REQUEST)) {
 
         if (isset($_REQUEST['page'])) {
             $page = intval($_REQUEST['page']);
-            if ($page > MAX_PAGER_SIZE) {
+            /* if ($page > MAX_PAGER_SIZE) {
                 $page = MAX_PAGER_SIZE;
-            }
+            } */
             $offset = ($page - 1) * $limit;
         } else {
             $page = 1;
