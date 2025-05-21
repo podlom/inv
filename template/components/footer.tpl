@@ -209,6 +209,8 @@
 					class="fa fa-twitter-square" aria-hidden="true"></i></a>
 			<a itemprop="sameAs" rel="nofollow" href="https://t.me/inventure" target="_blank"><i class="fa fa-telegram"
 					aria-hidden="true"></i></a>
+			<a itemprop="sameAs" rel="nofollow" href="https://www.youtube.com/@inventure-ua" target="_blank"><i
+					class="fa fa-youtube-square" aria-hidden="true"></i></a>
 		</div>
 		<div class="footer__copyright">
 			{block 'copyright'}
