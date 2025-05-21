@@ -8,10 +8,13 @@
 				{block 'menu'}
 					<nav class="header__nav" id="nav">
 						<li class="header__nav-item">
-						<span><a rel="nofollow" href="https://inventure.ua{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{else}/{/if}" target="_blank">{if $lang === 'ru'}О компании
+							<span><a rel="nofollow"
+									href="https://inventure.ua{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{else}/{/if}"
+									target="_blank">{if $lang === 'ru'}О компании
 									{elseif $lang === 'uk'}Про компанію
 									{else}About
-									us{/if}</a></span></li>
+									us{/if}</a></span>
+						</li>
 						<li class="menu-item1 header__nav-item">
 							<span>
 								<a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/investments">{if $lang === 'ru'}Инвестиционные
@@ -22,7 +25,8 @@
 							<div class="grid-container container">
 								<div class="menu-item__left">
 									<ul class="menu-item__left-top">
-										<a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/investments/projects">
+										<a
+											href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/investments/projects">
 											<li>
 												<svg width="23" height="23" fill="none">
 													<use xlink:href="/images/header-icons-sprite.svg#projects" />
@@ -33,18 +37,22 @@
 												{/if}
 											</li>
 										</a>
-										<a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/investments/land">
+										<a
+											href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/investments/land">
 											<li>
 												<svg class="investments-land" width="22" height="22" fill="none">
-													<use xlink:href="/images/header-icons-sprite.svg#investments-land" />
+													<use
+														xlink:href="/images/header-icons-sprite.svg#investments-land" />
 												</svg>
 												{if $lang === 'ru'}Земля{elseif $lang === 'uk'}Земля{else}Land{/if}
 											</li>
 										</a>
-										<a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/investments/business">
+										<a
+											href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/investments/business">
 											<li>
 												<svg width="23" height="20" viewBox="0 0 23 20" fill="none">
-													<use xlink:href="/images/header-icons-sprite.svg#investments-business" />
+													<use
+														xlink:href="/images/header-icons-sprite.svg#investments-business" />
 												</svg>
 												{if $lang === 'ru'}Продажа бизнеса
 												{elseif $lang === 'uk'}Продаж бізнесу
@@ -55,27 +63,40 @@
 										<a
 											href="{if $lang == 'en'}/en{elseif $lang == 'uk'}/uk{/if}/investments/{if $lang == 'en'}/en_{/if}franchising">
 											<li>
-												<svg class="franchising-svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
-													<use xlink:href="/images/header-icons-sprite.svg#investments-franchising" />
+												<svg class="franchising-svg" width="22" height="22" viewBox="0 0 22 22"
+													fill="none">
+													<use
+														xlink:href="/images/header-icons-sprite.svg#investments-franchising" />
 												</svg>
 												{if $lang === 'ru'}Франчайзинг{elseif $lang === 'uk'}Франчайзинг{else}Franchising{/if}
 											</li>
 										</a>
-										<a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/investments/offer">
+										<a
+											href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/investments/offer">
 											<li>
 												<svg width="23" height="26" viewBox="0 0 23 26" fill="none">
-													<use xlink:href="/images/header-icons-sprite.svg#investments-offer" />
+													<use
+														xlink:href="/images/header-icons-sprite.svg#investments-offer" />
 												</svg>
-												{if $lang === 'ru'}Инвесторы{elseif $lang === 'uk'}Інвестори{else}Investor Offers{/if}
+												{if $lang === 'ru'}Инвесторы
+												{elseif $lang === 'uk'}Інвестори
+												{else}Investor
+												Offers{/if}
 											</li>
 										</a>
-										<a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/investments/realestate">
+										<a
+											href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/investments/realestate">
 											<li>
-												<svg class="fill-svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-													<use xlink:href="/images/header-icons-sprite.svg#investments-realestate" />
+												<svg class="fill-svg" width="24" height="24" viewBox="0 0 24 24"
+													fill="none">
+													<use
+														xlink:href="/images/header-icons-sprite.svg#investments-realestate" />
 
 												</svg>
-												{if $lang === 'ru'}Недвижимость{elseif $lang === 'uk'}Нерухомість{else}Commercial Property{/if}
+												{if $lang === 'ru'}Недвижимость
+												{elseif $lang === 'uk'}Нерухомість
+												{else}Commercial
+												Property{/if}
 											</li>
 										</a>
 									</ul>
@@ -83,17 +104,20 @@
 										<a class="font-weight-bold"
 											href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/add-inv-prop">
 											<li>
-												<svg width="23" height="20" viewBox="0 0 23 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+												<svg width="23" height="20" viewBox="0 0 23 20" fill="none"
+													xmlns="http://www.w3.org/2000/svg">
 													<use xlink:href="/images/header-icons-sprite.svg#add-inv-prop" />
 												</svg>
 												{if $lang === 'ru'}Найти инвестора или продать бизнес
 												{elseif $lang === 'uk'}Знайти інвестора або
 												продати бізнес{else}Services for Raising Capital & Sell a Business<
-												{/if} </li>
+													{/if} </li>
 										</a>
-										<a class="font-weight-bold" href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/investor">
+										<a class="font-weight-bold"
+											href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/investor">
 											<li>
-												<svg class="fill-svg" width="23" height="23" viewBox="0 0 23 23" fill="none">
+												<svg class="fill-svg" width="23" height="23" viewBox="0 0 23 23"
+													fill="none">
 													<use xlink:href="/images/header-icons-sprite.svg#investor" />
 												</svg>
 												{if $lang === 'ru'}Сервисы для инвестора
@@ -110,7 +134,8 @@
 										<p class="menu-item__info-text">
 											{* {if $lang === 'ru'}Узнай вероятность привлечения инвестиций в свой бизнес прямо сейчас{else}Find out the probability of raising investment for your business right now.{/if} *}
 											{if $lang === 'ru'}
-												Привлечение инвестиций, продажа бизнеса и коммерческой недвижимости в Украине
+												Привлечение инвестиций, продажа бизнеса и коммерческой недвижимости в
+												Украине
 											{elseif $lang === 'uk'}
 												Залучення інвестицій, продаж бізнесу та комерційної нерухомості в Україні
 											{else}
@@ -142,10 +167,12 @@
 							<div class="grid-container container">
 								<div class="menu-item__list-wrapper">
 									<ul class="menu-item__list {if $lang === 'en'}mr-24{/if}">
-										<a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/news/investments">
+										<a
+											href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/news/investments">
 											<li>
 												<svg width="23" height="20" viewBox="0 0 23 20" fill="none">
-													<use xlink:href="/images/header-icons-sprite.svg#news-investments" />
+													<use
+														xlink:href="/images/header-icons-sprite.svg#news-investments" />
 												</svg>
 												{if $lang === 'ru'}
 													Прямые инвестиции и M&A
@@ -179,7 +206,8 @@
 										</a>
 										<a href="{if $lang == 'en'}/en{elseif $lang == 'uk'}/uk{/if}/news/banking">
 											<li>
-												<svg class="fill-svg franchising-svg" width="22" height="16" viewBox="0 0 22 16" fill="none">
+												<svg class="fill-svg franchising-svg" width="22" height="16"
+													viewBox="0 0 22 16" fill="none">
 													<use xlink:href="/images/header-icons-sprite.svg#news-banking" />
 												</svg>
 												{if $lang == 'ru'}Кредитование{elseif $lang == 'uk'}Кредитування{else}Banking{/if}
@@ -187,7 +215,8 @@
 										</a>
 										<a href="{if $lang == 'en'}/en{elseif $lang == 'uk'}/uk{/if}/news/stock">
 											<li>
-												<svg class="fill-svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+												<svg class="fill-svg" width="24" height="24" viewBox="0 0 24 24"
+													fill="none">
 													<use xlink:href="/images/header-icons-sprite.svg#news-stock" />
 
 												</svg>
@@ -199,27 +228,34 @@
 										</a>
 										<a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/news/realestate">
 											<li>
-												<svg class="fill-svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+												<svg class="fill-svg" width="24" height="24" viewBox="0 0 24 24"
+													fill="none">
 													<use xlink:href="/images/header-icons-sprite.svg#news-realestate" />
 												</svg>
-												{if $lang === 'ru'}Недвижимость{elseif $lang === 'uk'}Нерухомість{else}Commercial Property{/if}
+												{if $lang === 'ru'}Недвижимость
+												{elseif $lang === 'uk'}Нерухомість
+												{else}Commercial
+												Property{/if}
 											</li>
 										</a>
 									</ul>
 									<ul class="menu-item__list menu-item__list--world">
 										<a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/news/ukraine">
 											<li>
-												<svg class="nochange" width="22" height="22" viewBox="0 0 22 22" fill="none"
-													xmlns="http://www.w3.org/2000/svg">
-													<use xlink:href="/images/header-icons-sprite.svg#news-ukraine" style="stroke: none;" />
+												<svg class="nochange" width="22" height="22" viewBox="0 0 22 22"
+													fill="none" xmlns="http://www.w3.org/2000/svg">
+													<use xlink:href="/images/header-icons-sprite.svg#news-ukraine"
+														style="stroke: none;" />
 												</svg>
 												{if $lang === 'ru'}Украина{elseif $lang === 'uk'}Україна{else}Ukraine{/if}
 											</li>
 										</a>
 										<a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/news/world">
 											<li>
-												<svg width="22" class="nochange" height="22" viewBox="0 0 22 22" fill="none">
-													<use xlink:href="/images/header-icons-sprite.svg#news-world" style="stroke: none;" />
+												<svg width="22" class="nochange" height="22" viewBox="0 0 22 22"
+													fill="none">
+													<use xlink:href="/images/header-icons-sprite.svg#news-world"
+														style="stroke: none;" />
 												</svg>
 												{if $lang === 'ru'}Мир{elseif $lang === 'uk'}Світ{else}World{/if}
 											</li>
@@ -236,19 +272,24 @@
 							<div class="grid-container container">
 								<div class="menu-item__left">
 									<ul class="menu-item__left-top">
-										<a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/analytics/investments">
+										<a
+											href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/analytics/investments">
 											<li>
-												<svg class="fill-svg" width="24" height="23" viewBox="0 0 24 23" fill="none"
-													xmlns="http://www.w3.org/2000/svg">
-													<use xlink:href="/images/header-icons-sprite.svg#analytics-investments" />
+												<svg class="fill-svg" width="24" height="23" viewBox="0 0 24 23"
+													fill="none" xmlns="http://www.w3.org/2000/svg">
+													<use
+														xlink:href="/images/header-icons-sprite.svg#analytics-investments" />
 												</svg>
 												{if $lang === 'ru'}Исследования{elseif $lang === 'uk'}Дослідження{else}Research{/if}
 											</li>
 										</a>
-										<a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/analytics/we-invest-in-ukraine">
+										<a
+											href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/analytics/we-invest-in-ukraine">
 											<li>
-												<svg class="invest-ukraine" width="22" height="25" viewBox="0 0 22 25" fill="none">
-													<use xlink:href="/images/header-icons-sprite.svg#analytics-ukraine" />
+												<svg class="invest-ukraine" width="22" height="25" viewBox="0 0 22 25"
+													fill="none">
+													<use
+														xlink:href="/images/header-icons-sprite.svg#analytics-ukraine" />
 												</svg>
 												{if $lang === 'ru'}Инвестируем в Украину
 												{elseif $lang === 'uk'}Інвестуємо в Україну
@@ -256,34 +297,43 @@
 												invest in Ukraine{/if}
 											</li>
 										</a>
-										<a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/analytics/articles">
+										<a
+											href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/analytics/articles">
 											<li>
 												<svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-													<use xlink:href="/images/header-icons-sprite.svg#analytics-articles" />
+													<use
+														xlink:href="/images/header-icons-sprite.svg#analytics-articles" />
 												</svg>
 												{if $lang === 'ru'}Статьи{elseif $lang === 'uk'}Статті{else}Articles{/if}
 											</li>
 										</a>
 										<a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/tools/database">
 											<li>
-												<svg class="fill-svg" width="24" height="22" viewBox="0 0 24 22" fill="none">
+												<svg class="fill-svg" width="24" height="22" viewBox="0 0 24 22"
+													fill="none">
 													<use xlink:href="/images/header-icons-sprite.svg#tools-database" />
 												</svg>
 												{if $lang === 'ru'}Рейтинги{elseif $lang === 'uk'}Рейтинги{else}Ratings{/if}
 											</li>
 										</a>
-										<a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/analytics/formula">
+										<a
+											href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/analytics/formula">
 											<li>
-												<svg class="fill-svg" width="24" height="19" viewBox="0 0 24 19" fill="none">
-													<use xlink:href="/images/header-icons-sprite.svg#analytics-formula" />
+												<svg class="fill-svg" width="24" height="19" viewBox="0 0 24 19"
+													fill="none">
+													<use
+														xlink:href="/images/header-icons-sprite.svg#analytics-formula" />
 												</svg>
-												{if $lang === 'ru'}Интервью{elseif $lang === 'uk'}Інтерв`ю{else}Investment interview{/if}
+												{if $lang === 'ru'}Интервью
+												{elseif $lang === 'uk'}Інтерв`ю
+												{else}Investment
+												interview{/if}
 											</li>
 										</a>
 										<a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/tools/library">
 											<li>
-												<svg class="fill-svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-													xmlns="http://www.w3.org/2000/svg">
+												<svg class="fill-svg" width="24" height="24" viewBox="0 0 24 24"
+													fill="none" xmlns="http://www.w3.org/2000/svg">
 													<use xlink:href="/images/header-icons-sprite.svg#tools-library" />
 												</svg>
 												{if $lang === 'ru'}Библиотека{elseif $lang === 'uk'}Бібліотека{else}Library{/if}
@@ -291,7 +341,8 @@
 										</a>
 										<a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/tools/investors">
 											<li>
-												<svg width="22" height="26" viewBox="0 0 22 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+												<svg width="22" height="26" viewBox="0 0 22 26" fill="none"
+													xmlns="http://www.w3.org/2000/svg">
 													<use xlink:href="/images/header-icons-sprite.svg#tools-investors" />
 												</svg>
 												{if $lang === 'ru'}Инвесторы{elseif $lang === 'uk'}Інвестори{else}Investors{/if}
@@ -308,17 +359,18 @@
 											{else if $lang == 'en'}
 												Get a monthly investment magazine in private equity and venture capital.
 											{else}
-												Отримайте щомісячний інвестиційний журнал у галузі прямих інвестицій та венчурного капіталу.
+												Отримайте щомісячний інвестиційний журнал у галузі прямих інвестицій та
+												венчурного капіталу.
 											{/if}
 										</p>
-										<a href="{if $lang == 'en'}/en{elseif $lang == 'uk'}/uk{/if}/digest-social"
-											class="menu-item__info-link">
+										<a href="#" data-remodal-target="subscribe" class="menu-item__info-link">
 											{if $lang == 'ru'}Подписаться{elseif $lang == 'uk'}Підписатися{else}Subscribe{/if}
 										</a>
 									</div>
 									<a href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/analytics/digest"
 										class="menu-item__advert">
-										<img class="lazyload" data-src="/images/newsletter-advert.jpg" alt="{if $lang == 'ru'}Дайджест{elseif $lang == 'uk'}Дайджест{else}Digest{/if}" />
+										<img class="lazyload" data-src="/images/newsletter-advert.jpg"
+											alt="{if $lang == 'ru'}Дайджест{elseif $lang == 'uk'}Дайджест{else}Digest{/if}" />
 									</a>
 								</div>
 							</div>
@@ -331,9 +383,6 @@
 				{/block}
 			</div>
 			<div class="header__right">
-				<!-- <a href="{if $lang === 'en'}/en{/if}/digest-social" class="header__subscribe header__right-item">
-          <i class="fa fa-envelope" aria-hidden="true"></i> Подписка
-        </a> -->
 				<div class="search font-weight-bold header__right-item">
 					<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 						<path
@@ -372,7 +421,8 @@
 					{if ($lang == 'ru' && $langArr != 'ru') || ($lang == 'uk' && $langArr != 'uk') || ($lang == 'en' &&  $langArr != 'en')}
 						<div class="header__right-item header__right-item--lang">
 							<a href="{if $langArr=='ru' and $data.url|count_characters == 1 }/?lang=ru{else}{$data.url|default:'#'}{/if}"
-								{if $data} title="{$data['title']}" {/if} class="flex items-center ts-du-{{$data.url|count_characters}}-cc">
+								{if $data} title="{$data['title']}" {/if}
+								class="flex items-center ts-du-{{$data.url|count_characters}}-cc">
 								<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
 									style="margin-right: 5px">
 									<path
