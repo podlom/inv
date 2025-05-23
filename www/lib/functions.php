@@ -16,7 +16,7 @@ use Dotenv\Dotenv;
  * User: Taras
  * Date: 16.08.2018
  * Time: 14:54
- * Updated: 2024-06-11 10:06
+ * Updated: 2025-05-23 16:31
  *
  * @author Taras Shkodenko <taras@shkodenko.com>
  */
@@ -24,16 +24,7 @@ use Dotenv\Dotenv;
 
 function l_m(string $msg)
 {
-    // IP: 193.0.217.97 - 2024-03-18 - Kyiv - Volodymyra Ivasyuka ave. 24-a
-    // IP: 176.37.192.192 - Kyiv - Rollhouse cafe
-    // IP: 31.43.103.143 - 2024-03-18 - Kyiv - Feelin cafe
-    // IP: 188.191.237.50 - 2024-04-23 - Chernivtsi - My Cake cafe
-    // IP: 91.237.27.106 - 2024-04-25 - Chernivtsi - Tolstogo str.10
-    // IP: 193.0.218.31 - 2024-06-11 - Kyiv - Perfetto
-    // $debugIp = $_ENV['DEBUG_IP'] ?? '91.237.27.42'; // Temporary debug IP 91.237.27.42 - Chernivtsi, Tolstogo str.10, apt.5
-    // $debugIp = $_ENV['DEBUG_IP'] ?? '185.151.105.115'; // Temporary debug IP 185.151.105.115 - Kyiv, Stolychne highway, 103
-    // $debugIp = $_ENV['DEBUG_IP'] ?? '193.0.217.97'; // use debug IP value from env or default one if env is not set
-    $debugIp = $_ENV['DEBUG_IP'] ?? '82.193.120.77'; // use debug IP value from env or default one if env is not set
+    $debugIp = $_ENV['DEBUG_IP'] ?? '95.158.48.69'; // use debug IP value from env or default one if env is not set
     error_log(__METHOD__ . ' +' . __LINE__ . ' $debugIp: ' . var_export($debugIp, true));
 
     // Do not log on prod by default
