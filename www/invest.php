@@ -384,65 +384,9 @@ if (!empty($_REQUEST)) {
         if (empty($parentCategoryWhere)) {
             if (!empty($_SERVER['HTTP_REFERER'])) {
                 $urlPath = parse_url($_SERVER['HTTP_REFERER'], PHP_URL_PATH);
-                switch ($urlPath) {
-                    case '/en/investments/business':
-                        $parentCategoryWhere .= ' AND p0_.parent_id = "9779" ';
-                        break;
-                    case '/en/investments/projects':
-                        $fixPriceFilter = true;
-                        $parentCategoryWhere .= ' AND p0_.parent_id = "9778" ';
-                        break;
-                    case '/en/investments/realestate':
-                        $parentCategoryWhere .= ' AND p0_.parent_id = "9780" ';
-                        break;
-                    case '/en/investments/land':
-                        $parentCategoryWhere .= ' AND p0_.parent_id = "9781" ';
-                        break;
-                    case '/en/investments/offer':
-                        $parentCategoryWhere .= ' AND p0_.parent_id = "9782" ';
-                        break;
-                    case '/en/investments/franchising':
-                    case '/en/investments/en_franchising':
-                        $parentCategoryWhere .= ' AND p0_.parent_id = "19304" ';
-                        break;
-                    case '/investments/projects':
-                        $fixPriceFilter = true;
-                        $parentCategoryWhere .= ' AND p0_.parent_id = "7860" ';
-                        break;
-                    case '/investments/business':
-                        $parentCategoryWhere .= ' AND p0_.parent_id = "7861" ';
-                        break;
-                    case '/investments/realestate':
-                        $parentCategoryWhere .= ' AND p0_.parent_id = "7862" ';
-                        break;
-                    case '/investments/land':
-                        $parentCategoryWhere .= ' AND p0_.parent_id = "7863" ';
-                        break;
-                    case '/investments/offer':
-                        $parentCategoryWhere .= ' AND p0_.parent_id = "7864" ';
-                        break;
-                    case '/investments/franchising':
-                        $parentCategoryWhere .= ' AND p0_.parent_id = "19303" ';
-                        break;
-                    case '/uk/investments/projects':
-                        $fixPriceFilter = true;
-                        $parentCategoryWhere .= ' AND p0_.parent_id = "25261" ';
-                        break;
-                    case '/uk/investments/business':
-                        $parentCategoryWhere .= ' AND p0_.parent_id = "25262" ';
-                        break;
-                    case '/uk/investments/realestate':
-                        $parentCategoryWhere .= ' AND p0_.parent_id = "25264" ';
-                        break;
-                    case '/uk/investments/land':
-                        $parentCategoryWhere .= ' AND p0_.parent_id = "25265" ';
-                        break;
-                    case '/uk/investments/offer':
-                        $parentCategoryWhere .= ' AND p0_.parent_id = "25266" ';
-                        break;
-                    case '/uk/investments/franchising':
-                        $parentCategoryWhere .= ' AND p0_.parent_id = "25267" ';
-                        break;
+                $parentCategoryId = getParentCategoryIdByHref($urlPath);
+                if (!empty($parentCategoryId)) {
+                    $parentCategoryWhere .= ' AND p0_.parent_id = "' . $parentCategoryId . '" ';
                 }
             }
         }
@@ -584,6 +528,7 @@ if (!empty($_REQUEST)) {
                     }
                 }
                 //
+                /*
                 if (
                     isset($j2['attr10'], $j2['attr10']['loc'])
                     && !empty($j2['attr10']['loc'])
@@ -597,6 +542,7 @@ if (!empty($_REQUEST)) {
                         continue;
                     }
                 }
+                */
                 //
                 if (
                     !isset($j2['attr15'])

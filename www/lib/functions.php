@@ -939,3 +939,68 @@ function _validateCloudflareCaptcha(string $cloudflareCapchaResponse) : bool
 
     return false;
 }
+
+function getParentCategoryIdByHref(string $urlPath) : ?int
+{
+    $parentCategoryId = null;
+
+    switch ($urlPath) {
+        case '/en/investments/business':
+            $parentCategoryId = 9779;
+            break;
+        case '/en/investments/projects':
+            $parentCategoryId = 9778;
+            break;
+        case '/en/investments/realestate':
+            $parentCategoryId = 9780;
+            break;
+        case '/en/investments/land':
+            $parentCategoryId = 9781;
+            break;
+        case '/en/investments/offer':
+            $parentCategoryId = 9782;
+            break;
+        case '/en/investments/franchising':
+        case '/en/investments/en_franchising':
+            $parentCategoryId = 19304;
+            break;
+        case '/investments/projects':
+            $parentCategoryId = 7860;
+            break;
+        case '/investments/business':
+            $parentCategoryId = 7861;
+            break;
+        case '/investments/realestate':
+            $parentCategoryId = 7862;
+            break;
+        case '/investments/land':
+            $parentCategoryId = 7863;
+            break;
+        case '/investments/offer':
+            $parentCategoryId = 7864;
+            break;
+        case '/investments/franchising':
+            $parentCategoryId = 19303;
+            break;
+        case '/uk/investments/projects':
+            $parentCategoryId = 25261;
+            break;
+        case '/uk/investments/business':
+            $parentCategoryId = 25262;
+            break;
+        case '/uk/investments/realestate':
+            $parentCategoryId = 25264;
+            break;
+        case '/uk/investments/land':
+            $parentCategoryId = 25265;
+            break;
+        case '/uk/investments/offer':
+            $parentCategoryId = 25266;
+            break;
+        case '/uk/investments/franchising':
+            $parentCategoryId = 25267;
+            break;
+    }
+
+    return $parentCategoryId;
+}
