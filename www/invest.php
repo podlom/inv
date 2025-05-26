@@ -325,9 +325,7 @@ if (!empty($_REQUEST)) {
             $priceSql = ' AND p0_.attr NOT LIKE "%\"attr15\":\"\"%" ';
         }
         l_m(__FILE__ . ' +' . __LINE__ . ' price SQL: ' . $priceSql . PHP_EOL);
-
-        $fixPriceFilter = false;
-        $parentCategoryWhere = '';
+        //
         $categoryMap = [
             'projects' => 7860,
             'business' => 7861,
@@ -337,34 +335,11 @@ if (!empty($_REQUEST)) {
             'franchising' => 19303,
         ];
         //
-        if (
-            isset($p1['https://dev_inventure_com_ua/investments?filter'], $p1['https://dev_inventure_com_ua/investments?filter']['category'], $p1['https://dev_inventure_com_ua/investments?filter']['category']['parent'])
-            || isset($p1['filter'], $p1['filter']['category'], $p1['filter']['category']['parent'])
-        ) {
-            if (
-                isset($p1['https://dev_inventure_com_ua/investments?filter'], $p1['https://dev_inventure_com_ua/investments?filter']['category'], $p1['https://dev_inventure_com_ua/investments?filter']['category']['parent'])
-                && is_array($p1['https://dev_inventure_com_ua/investments?filter']['category']) && !empty($p1['https://dev_inventure_com_ua/investments?filter']['category']['parent'])
-            ) {
-                if (isset($categoryMap[$p1['https://dev_inventure_com_ua/investments?filter']['category']['parent']]) && !empty($categoryMap[$p1['https://dev_inventure_com_ua/investments?filter']['category']['parent']])) {
-                    $parentCategoryWhere .= ' AND p0_.parent_id = "' . $categoryMap[$p1['https://dev_inventure_com_ua/investments?filter']['category']['parent']] . '" ';
-                }
-            }
-            if (isset($p1['filter'], $p1['filter']['category'], $p1['filter']['category']['parent']) && is_array($p1['filter']['category']) && !empty($p1['filter']['category']['parent'])) {
-                if (isset($categoryMap[$p1['filter']['category']['parent']]) && !empty($categoryMap[$p1['filter']['category']['parent']])) {
-                    if (!empty($parentCategoryWhere)) {
-                        if ($p1['filter']['category']['parent'] == 'projects') {
-                            $fixPriceFilter = true;
-                        }
-                        $parentCategoryWhere .= ' OR p0_.parent_id = "' . $categoryMap[$p1['filter']['category']['parent']] . '" ';
-                    } else {
-                        if ($p1['filter']['category']['parent'] == 'projects') {
-                            $fixPriceFilter = true;
-                        }
-                        $parentCategoryWhere .= ' AND p0_.parent_id = "' . $categoryMap[$p1['filter']['category']['parent']] . '" ';
-                    }
-                }
-            }
-        }
+        $fixPriceFilter = false;
+        $parentCategoryWhere = '';
+        /*
+
+        //
         if (isset($_REQUEST['parent']) && !empty($_REQUEST['parent'])) {
             if (isset($categoryMap[$_REQUEST['parent']]) && !empty($categoryMap[$_REQUEST['parent']])) {
                 $parentCategoryWhere .= ' AND p0_.parent_id = "' . $categoryMap[$_REQUEST['parent']] . '" ';
@@ -372,6 +347,8 @@ if (!empty($_REQUEST)) {
                 $parentCategoryWhere .= ' AND p0_.parent_id = "' . intval($_REQUEST['parent']) . '" ';
             }
         }
+        */
+        //
         if (
             isset($cat, $cat['category'], $cat['category']['parent'])
             && is_array($cat)
@@ -474,9 +451,11 @@ if (!empty($_REQUEST)) {
         l_m(__FILE__ . ' +' . __LINE__ . ' $fixPriceFilter: ' . var_export($fixPriceFilter, true) . PHP_EOL);
         //
         $filterRegionWhere = '';
+        /*
         if (isset($p1['https://dev_inventure_com_ua/investments?filter'], $p1['https://dev_inventure_com_ua/investments?filter']['attr_10'])) {
             $filterRegionWhere = ' AND p0_.attr LIKE "%' . urldecode($p1['https://dev_inventure_com_ua/investments?filter']['attr_10']) . '%" ';
         }
+        */
         if (isset($region, $region['attr_10']) && !empty($region['attr_10'])) {
             $filterRegionWhere = ' AND p0_.attr LIKE "%' . urldecode($region['attr_10']) . '%" ';
         }
