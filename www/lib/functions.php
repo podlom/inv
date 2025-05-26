@@ -16,11 +16,14 @@ use Dotenv\Dotenv;
  * User: Taras
  * Date: 16.08.2018
  * Time: 14:54
- * Updated: 2025-05-23 16:31
+ * Updated: 2025-05-26 12:37
  *
- * @author Taras Shkodenko <taras@shkodenko.com>
+ * @author Taras Shkodenko <taras.shkodenko@gmail.com>
  */
 
+// Bootstrap .env
+$dotenv = Dotenv::createImmutable(dirname(__DIR__, 2)); // Adjust to the directory with your .env file
+$dotenv->load();
 
 function l_m(string $msg)
 {
@@ -296,7 +299,7 @@ function increment_page_param(string $url) : string
     return $url;
 }
 
-function build_pager($currentPage = 1, $maxPages, $numPagerLinks = 5)
+function build_pager($maxPages, $currentPage = 1, $numPagerLinks = 5)
 {
     // Base URL construction from the HTTP referer
     $parsedUrl = parse_url($_SERVER['HTTP_REFERER']);
