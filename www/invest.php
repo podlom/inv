@@ -384,7 +384,11 @@ if (!empty($_REQUEST)) {
         if (empty($parentCategoryWhere)) {
             if (!empty($_SERVER['HTTP_REFERER'])) {
                 $urlPath = parse_url($_SERVER['HTTP_REFERER'], PHP_URL_PATH);
+                l_m(__FILE__ . ' +' . __LINE__ . ' $urlPath: ' . var_export($urlPath, true) . PHP_EOL);
+
                 $parentCategoryId = getParentCategoryIdByHref($urlPath);
+                l_m(__FILE__ . ' +' . __LINE__ . ' $parentCategoryId: ' . var_export($parentCategoryId, true) . PHP_EOL);
+                
                 if (!empty($parentCategoryId)) {
                     $parentCategoryWhere .= ' AND p0_.parent_id = "' . $parentCategoryId . '" ';
                 }
