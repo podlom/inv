@@ -382,17 +382,22 @@ if (!empty($_REQUEST)) {
         }
         //
         if (empty($parentCategoryWhere)) {
-            if (!empty($_SERVER['HTTP_REFERER'])) {
-                $urlPath = parse_url($_SERVER['HTTP_REFERER'], PHP_URL_PATH);
+            if (!empty($_SERVER['HTTP_REFERER']) && !empty($_REQUEST['filter']['category']['parent'])) {
+                $checkUrlPath = $_SERVER['HTTP_REFERER'] . '/' . $_REQUEST['filter']['category']['parent'];
+                l_m(__FILE__ . ' +' . __LINE__ . ' $checkUrlPath: ' . var_export($checkUrlPath, true) . PHP_EOL);
+
+                $urlPath = parse_url($checkUrlPath, PHP_URL_PATH);
                 l_m(__FILE__ . ' +' . __LINE__ . ' $urlPath: ' . var_export($urlPath, true) . PHP_EOL);
 
                 $parentCategoryId = getParentCategoryIdByHref($urlPath);
                 l_m(__FILE__ . ' +' . __LINE__ . ' $parentCategoryId: ' . var_export($parentCategoryId, true) . PHP_EOL);
-                
+
                 if (!empty($parentCategoryId)) {
                     $parentCategoryWhere .= ' AND p0_.parent_id = "' . $parentCategoryId . '" ';
                 }
             }
+
+            // = parse_url($_SERVER['HTTP_REFERER'], PHP_URL_PATH);
         }
         //
         l_m(__FILE__ . ' +' . __LINE__ . ' $parentCategoryWhere: ' . $parentCategoryWhere . PHP_EOL);
