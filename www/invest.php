@@ -5,7 +5,7 @@
  * User: shtaras
  * Date: 2020-04-18
  * Time: 07:38
- * Updated: 2025-05-27 14:11
+ * Updated: 2025-05-27 18:21
  *
  * @author Taras Shkodenko <taras.shkodenko@gmail.com>
  */
@@ -90,11 +90,10 @@ if (!empty($_REQUEST)) {
         $msg = date('r') . ' ' . __FILE__ . ' +' . __LINE__ . ' Fatal error: ' . $e->getMessage() . PHP_EOL;
         die($msg);
     }
-    //
+
     $msg = __FILE__ . ' +' . __LINE__ . ' $_SERVER: ' . var_export($_SERVER, true) . ' $_GET: ' . var_export($_GET, true) . '; $_POST: ' . var_export($_POST, true) . '; $_REQUEST: ' . var_export($_REQUEST, true);
     l_m($msg);
-    //
-    //
+
     if (isset($_POST, $_POST['subscribe']) && is_array($_POST['subscribe']) && !empty($_POST['subscribe'])) { // Mail subscribe form handler
         $resHmtl = addMailSubscriber($_POST, $db);
         if (!headers_sent()) {
@@ -103,14 +102,14 @@ if (!empty($_REQUEST)) {
         }
         die($resHmtl);
     }
-    //
+
     if (isset($_POST, $_POST['sf_approach']) && is_array($_POST['sf_approach']) && !empty($_POST['sf_approach'])) { // Add investment proposal
         $sFormData = serialize($_POST['sf_approach']);
         $formData = array_merge(['formData' => $sFormData], ['formName' => 'sf_approach', 'formUri' => '/form/approach']);
         $rs9 = _sendFormRequest($formData, false);
         if ($rs9 !== false) {
             sendMailForm($_POST['sf_approach'], 'info@inventure.ua', 'InVenture form submission');
-            //
+
             if (isset($_POST['sf_approach']['latel_deal_name']) && !empty($_POST['sf_approach']['latel_deal_name'])) {
                 $formName = $_POST['sf_approach']['latel_deal_name'];
                 if ($formName != 'Рекламное продвижение') {
@@ -127,7 +126,7 @@ if (!empty($_REQUEST)) {
             }
         }
     }
-    //
+
     if (isset($_POST, $_POST['sf_investor']) && is_array($_POST['sf_investor']) && !empty($_POST['sf_investor'])) { // Add investment proposal
 
         l_m(__FILE__ . ' +' . __LINE__ . ' @ts original $_POST: ' . var_export($_POST, true));
@@ -156,8 +155,7 @@ if (!empty($_REQUEST)) {
             }
         }
     }
-    //
-    // 2023-12-29 ts debug here
+
     if (
         isset($_REQUEST, $_REQUEST['sf_investment_callback'])
         && is_array($_REQUEST['sf_investment_callback'])
@@ -200,7 +198,7 @@ if (!empty($_REQUEST)) {
             if ($cloudflareCaptchaValid) {
                 sendMailForm($_REQUEST['sf_investment_callback'], 'info@inventure.ua', 'InVenture form submission');
             }
-            //
+
             if (!empty($_SERVER['HTTP_REFERER'])) {
                 $p99 = strpos($_SERVER['HTTP_REFERER'], '?');
                 l_m(__FILE__ . ' +' . __LINE__ . ' $p99: ' . var_export($p99, true));
@@ -215,10 +213,9 @@ if (!empty($_REQUEST)) {
                 l_m(__FILE__ . ' +' . __LINE__ . ' Make reirect to: ' . var_export($redirectTo, true));
                 die('<meta http-equiv="refresh" content="2; url=' . $redirectTo . '">');
             }
-            //
         }
     }
-    //
+
     if (isset($_POST, $_POST['sf_msb_form1']) && is_array($_POST['sf_msb_form1']) && !empty($_POST['sf_msb_form1'])) {
         if (!isset($_POST['sf_msb_form1']['latel_deal_name'])) {
             $_POST['sf_msb_form1']['latel_deal_name'] = 'MSB Callback';
@@ -230,7 +227,7 @@ if (!empty($_REQUEST)) {
             sendMailForm($_POST['sf_msb_form1'], 'yuriikantordrabkin1+rnrsnorabrmpbqizxyqs@boards.trello.com', 'Лид форма');
         }
     }
-    //
+
     if (isset($_POST, $_POST['sf_msb_form2']) && is_array($_POST['sf_msb_form2']) && !empty($_POST['sf_msb_form2'])) {
         if (!isset($_POST['sf_msb_form2']['latel_deal_name'])) {
             $_POST['sf_msb_form2']['latel_deal_name'] = 'MSB Quiz';
@@ -242,7 +239,7 @@ if (!empty($_REQUEST)) {
             sendMailForm($_POST['sf_msb_form2'], 'yuriikantordrabkin1+rnrsnorabrmpbqizxyqs@boards.trello.com', 'Квиз');
         }
     }
-    //
+
     if (isset($_REQUEST['action']) && ($_REQUEST['action'] == 'get')) { // Get data action
         if (isset($_REQUEST['href']) && !empty($_REQUEST['href'])) {
             $url2Parse = $_REQUEST['href'];
@@ -343,6 +340,16 @@ if (!empty($_REQUEST)) {
                 'offer' => 25266,
                 'franchising' => 25267,
             ];
+        } elseif ($lang == 'en') {
+            $categoryMap = [
+                'projects' => 9778,
+                'business' => 9779,
+                'realestate' => 9780,
+                'land' => 9781,
+                'offer' => 9782,
+                'franchising' => 19304,
+                'en_franchising' => 19304,
+            ];
         }
         l_m(__FILE__ . ' +' . __LINE__ . ' $categoryMap: ' . var_export($categoryMap, true) . PHP_EOL);
 
@@ -350,8 +357,6 @@ if (!empty($_REQUEST)) {
         $parentCategoryWhere = '';
 
         /*
-
-        //
         if (isset($_REQUEST['parent']) && !empty($_REQUEST['parent'])) {
             if (isset($categoryMap[$_REQUEST['parent']]) && !empty($categoryMap[$_REQUEST['parent']])) {
                 $parentCategoryWhere .= ' AND p0_.parent_id = "' . $categoryMap[$_REQUEST['parent']] . '" ';
@@ -360,7 +365,7 @@ if (!empty($_REQUEST)) {
             }
         }
         */
-        //
+
         if (
             isset($cat, $cat['category'], $cat['category']['parent'])
             && is_array($cat)
@@ -392,7 +397,7 @@ if (!empty($_REQUEST)) {
                 $parentCategoryWhere .= ' AND p0_.parent_id = "' . intval($_REQUEST['filter']['category']['parent']) . '" ';
             }
         }
-        //
+
         if (empty($parentCategoryWhere)) {
             if (!empty($_SERVER['HTTP_REFERER']) && !empty($_REQUEST['filter']['category']['parent'])) {
                 $checkUrlPath = $_SERVER['HTTP_REFERER'] . '/' . $_REQUEST['filter']['category']['parent'];
@@ -409,10 +414,9 @@ if (!empty($_REQUEST)) {
                 }
             }
         }
-        //
         l_m(__FILE__ . ' +' . __LINE__ . ' $parentCategoryWhere: ' . $parentCategoryWhere . PHP_EOL);
         l_m(__FILE__ . ' +' . __LINE__ . ' $fixPriceFilter: ' . var_export($fixPriceFilter, true) . PHP_EOL);
-        //
+
         $filterRegionWhere = '';
         /*
         if (isset($p1['https://dev_inventure_com_ua/investments?filter'], $p1['https://dev_inventure_com_ua/investments?filter']['attr_10'])) {
@@ -446,7 +450,7 @@ if (!empty($_REQUEST)) {
             }
         }
         l_m(__FILE__ . ' +' . __LINE__ . ' $filterRegionWhere: ' . $filterRegionWhere . PHP_EOL);
-        //
+
         $filterSoldWhere = '';
         if (isset($_REQUEST['is_sold']) && ($_REQUEST['is_sold'] == '1')) {
             $filterSoldWhere = ' AND p0_.`attr` LIKE \'%"attr58":"1"%\' ';
@@ -466,7 +470,6 @@ if (!empty($_REQUEST)) {
         ) {
             $filterBranchWhere = ' AND p0_.attr LIKE "%\"attr16\":[\"' . $cat['attr_16'][0] . '\"%" ';
         }
-        //
         if (isset($_REQUEST['filter'], $_REQUEST['filter']['attr_16'], $_REQUEST['filter']['attr_16'][0])
             && (strlen($_REQUEST['filter']['attr_16'][0]) > 0)
         ) {
@@ -490,7 +493,6 @@ if (!empty($_REQUEST)) {
             }
             l_m(__FILE__ . ' +' . __LINE__ . ' $sqlOrderBy: ' . $sqlOrderBy . PHP_EOL);
         }
-        //
 
         $minp = 9999999; // Минимальна цена инвестиций
         $num = $maxp = 0; // Максимальная цена инвестиций
@@ -532,11 +534,9 @@ if (!empty($_REQUEST)) {
         $res4 = [];
         if (!empty($res2) && is_array($res2)) {
             foreach ($res2 as $a2) {
-                //
                 // l_m( __FILE__ . ' +' . __LINE__ . ' project data: ' . var_export($a2, true) . PHP_EOL );
                 $j2 = json_decode($a2['attr'], true);
                 // l_m( __FILE__ . ' +' . __LINE__ . ' project attributes: ' . var_export($j2, true) . PHP_EOL );
-                //
                 if (
                     isset($j2['attr16'], $j2['attr16'][0])
                     && !empty($j2['attr16'][0])
@@ -548,7 +548,7 @@ if (!empty($_REQUEST)) {
                         continue;
                     }
                 }
-                //
+
                 /*
                 if (
                     isset($j2['attr10'], $j2['attr10']['loc'])
@@ -564,7 +564,7 @@ if (!empty($_REQUEST)) {
                     }
                 }
                 */
-                //
+
                 if (
                     !isset($j2['attr15'])
                     && (!empty($minPrice) || !empty($maxPrice))
@@ -572,15 +572,17 @@ if (!empty($_REQUEST)) {
                     l_m(__FILE__ . ' +' . __LINE__ . ' Skip item with empty price then minPrice: ' . var_export($minPrice, true) . '; maxPrice: ' . var_export($maxPrice, true));
                     continue;
                 }
-                //
+
                 $priceStr = 'Договорная';
                 if ($lang === 'en') {
                     $priceStr = 'Negotiable';
+                } elseif ($lang == 'uk') {
+                    $priceStr = 'Договірна';
                 }
-                //
+
                 if (isset($j2['attr15']) && !empty($j2['attr15'])) {
                     $priceStr = '$' . number_format($j2['attr15'], 0, ',', ' ');
-                    //
+
                     if (isset($price1, $price2, $j2['attr15'])) {
                         l_m(__FILE__ . ' +' . __LINE__ . ' price1: ' . var_export($price1, true) . '; price: ' . var_export($j2['attr15'], true) . '; price2: ' . var_export($price2, true));
                     }
@@ -612,12 +614,12 @@ if (!empty($_REQUEST)) {
                         }
                     }
                 }
-                //
+
                 $imgUrl = '/img/resize.375.225/images/noThumb.jpg';
                 if (isset($a2['image_url']) && !empty($a2['image_url'])) {
                     $imgUrl = $a2['image_url'];
                 }
-                //
+
                 $placeHtml = '';
                 if (isset($p1['filter'], $p1['filter']['attr_10']) && ($p1['filter']['attr_10'] == 'Украина')) {
                     $placeHtml .= '<img src="/i/ukraine.png">';
@@ -625,7 +627,7 @@ if (!empty($_REQUEST)) {
                 if (isset($a2['attr_10'], $j2['attr_10']['parts']) && !empty($j2['attr_10']['parts'])) {
                     $placeHtml .= ' ' . implode(', ', $j2['attr_10']['parts']);
                 }
-                //
+
                 $categoryHtml = '';
                 if (isset($a2['parent_id']) && !empty($a2['parent_id'])) {
                     if ($a2['parent_id'] == '7860') {
@@ -654,9 +656,9 @@ if (!empty($_REQUEST)) {
                         $categoryHtml .= '</a>';
                     }
                 }
-                //
+
                 $dateFormatted = DateTime::createFromFormat('Y-m-d H:i:s', $a2['published'])->format('d.m.y');
-                //
+
                 $isSold = 0;
                 $soldHtml = '';
                 if (isset($j2['attr58']) && ($j2['attr58'] == 1)) {
@@ -681,7 +683,7 @@ if (!empty($_REQUEST)) {
                     $soldHtml .= '</div>';
                     $isSold = 1;
                 }
-                //
+
                 $isChecked = 0;
                 $checkedHtml = '';
                 if (isset($j2['attr73']) && ($j2['attr73'] == 1)) {
@@ -764,13 +766,13 @@ if (!empty($_REQUEST)) {
                 $num++;
             }
         }
-        //
+
         l_m(__FILE__ . ' +' . __LINE__ . ' $res4: ' . var_export($res4, true));
         $query = "SELECT FOUND_ROWS()";
         l_m(__FILE__ . ' +' . __LINE__ . ' SQL: ' . $query);
         $res3 = $db->query($query);
         l_m(__FILE__ . ' +' . __LINE__ . ' Result: ' . var_export($res3, true));
-        //
+
         if (
             isset($_REQUEST['type'])
             && ($_REQUEST['type'] == 'json')
@@ -820,7 +822,7 @@ if (!empty($_REQUEST)) {
         }
     }
 }
-//
+
 if (!headers_sent()) {
     header('Access-Control-Allow-Origin: *');
     header('Content-Type: text/html; charset=utf-8');
