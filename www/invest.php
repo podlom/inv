@@ -5,9 +5,9 @@
  * User: shtaras
  * Date: 2020-04-18
  * Time: 07:38
- * Updated: 2024-03-18 13:20
+ * Updated: 2025-05-27 14:11
  *
- * @author Taras Shkodenko <taras@shkodenko.com>
+ * @author Taras Shkodenko <taras.shkodenko@gmail.com>
  */
 
 require_once 'lib/functions.php';
@@ -32,18 +32,17 @@ try {
 } catch (Throwable $e) {
     echo $app->getService('template')->renderException($e);
 }
-//
+
 $resHmtl = '';
-//
 $lang = 'ru';
 $urlLangPrefix = '';
 $sqlPath = '/investments';
 if (!empty($_SERVER['HTTP_REFERER'])) {
     $urlPath = parse_url($_SERVER['HTTP_REFERER'], PHP_URL_PATH);
-    //
+
     $msg = __FILE__ . ' +' . __LINE__ . ' HTTP_REFERER PHP_URL_PATH: ' . var_export($urlPath, true);
     l_m($msg);
-    //
+
     if (($urlPath === '/en/investments')
         || preg_match('%/en/investments/(.*)%s', $urlPath)
     ) {
@@ -58,12 +57,13 @@ if (!empty($_SERVER['HTTP_REFERER'])) {
         $lang = 'uk';
         $urlLangPrefix = '/' . $lang;
     }
-    //
     $msg = __FILE__ . ' +' . __LINE__ . ' $sqlPath: ' . var_export($sqlPath, true);
     l_m($msg);
-    //
 }
-//
+
+$msg = __FILE__ . ' +' . __LINE__ . ' $lang: ' . var_export($lang, true);
+l_m($msg);
+
 if (!empty($_REQUEST)) {
     require_once app()->getPath() . '/cli/lib/db.class.php';
     $cfg = app()->getService('config')->get('app')->db;
@@ -396,8 +396,6 @@ if (!empty($_REQUEST)) {
                     $parentCategoryWhere .= ' AND p0_.parent_id = "' . $parentCategoryId . '" ';
                 }
             }
-
-            // = parse_url($_SERVER['HTTP_REFERER'], PHP_URL_PATH);
         }
         //
         l_m(__FILE__ . ' +' . __LINE__ . ' $parentCategoryWhere: ' . $parentCategoryWhere . PHP_EOL);
