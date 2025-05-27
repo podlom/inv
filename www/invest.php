@@ -451,8 +451,9 @@ if (!empty($_REQUEST)) {
         if (isset($_REQUEST['is_sold']) && ($_REQUEST['is_sold'] == '1')) {
             $filterSoldWhere = ' AND p0_.`attr` LIKE \'%"attr58":"1"%\' ';
         }
-        //
+
         $filterBranchWhere = '';
+        /*
         if (
             isset($filter, $filter['attr_16'], $filter['attr_16'][0])
             && !empty($filter['attr_16'][0])
@@ -471,8 +472,9 @@ if (!empty($_REQUEST)) {
         ) {
             $filterBranchWhere = ' AND p0_.attr LIKE "%\"attr16\":[\"' . intval($_REQUEST['filter']['attr_16'][0]) . '\"%" ';
         }
+        */
         l_m(__FILE__ . ' +' . __LINE__ . ' $filterBranchWhere: ' . $filterBranchWhere . PHP_EOL);
-        //
+
         $sqlAndWherePub0 = '';
         $sqlOrderBy = 'p0_.published DESC';
         if (isset($_REQUEST['filter'], $_REQUEST['filter']['sort']) && !empty($_REQUEST['filter']['sort'])) {
