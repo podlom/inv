@@ -325,7 +325,7 @@ if (!empty($_REQUEST)) {
             $priceSql = ' AND p0_.attr NOT LIKE "%\"attr15\":\"\"%" ';
         }
         l_m(__FILE__ . ' +' . __LINE__ . ' price SQL: ' . $priceSql . PHP_EOL);
-        //
+
         $categoryMap = [
             'projects' => 7860,
             'business' => 7861,
@@ -334,9 +334,21 @@ if (!empty($_REQUEST)) {
             'offer' => 7864,
             'franchising' => 19303,
         ];
-        //
+        if ($lang == 'uk') {
+            $categoryMap = [
+                'projects' => 25261,
+                'business' => 25262,
+                'realestate' => 25264,
+                'land' => 25265,
+                'offer' => 25266,
+                'franchising' => 25267,
+            ];
+        }
+        l_m(__FILE__ . ' +' . __LINE__ . ' $categoryMap: ' . var_export($categoryMap, true) . PHP_EOL);
+
         $fixPriceFilter = false;
         $parentCategoryWhere = '';
+
         /*
 
         //
