@@ -400,6 +400,7 @@ if (!empty($_REQUEST)) {
             }
         }
 
+		/*
         if (empty($parentCategoryWhere)) {
             if (!empty($_SERVER['HTTP_REFERER']) && !empty($_REQUEST['filter']['category']['parent'])) {
                 $checkUrlPath = $_SERVER['HTTP_REFERER'] . '/' . $_REQUEST['filter']['category']['parent'];
@@ -418,6 +419,7 @@ if (!empty($_REQUEST)) {
         }
         l_m(__FILE__ . ' +' . __LINE__ . ' $parentCategoryWhere: ' . $parentCategoryWhere . PHP_EOL);
         l_m(__FILE__ . ' +' . __LINE__ . ' $fixPriceFilter: ' . var_export($fixPriceFilter, true) . PHP_EOL);
+        */
 
         $filterRegionWhere = '';
         /*
