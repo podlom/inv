@@ -27,7 +27,7 @@ $dotenv->load();
 
 function l_m(string $msg)
 {
-    $debugIp = $_ENV['DEBUG_IP'] ?? '95.158.48.69'; // use debug IP value from env or default one if env is not set
+    $debugIp = $_ENV['DEBUG_IP'] ?? '194.44.103.149'; // use debug IP value from env or default one if env is not set
     error_log(__METHOD__ . ' +' . __LINE__ . ' $debugIp: ' . var_export($debugIp, true));
 
     // Do not log on prod by default
