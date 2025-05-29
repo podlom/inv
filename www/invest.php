@@ -331,6 +331,7 @@ if (!empty($_REQUEST)) {
             'offer' => 7864,
             'franchising' => 19303,
         ];
+        /*
         if ($lang == 'uk') {
             $categoryMap = [
                 'projects' => 25261,
@@ -351,6 +352,7 @@ if (!empty($_REQUEST)) {
                 'en_franchising' => 19304,
             ];
         }
+        */
         l_m(__FILE__ . ' +' . __LINE__ . ' $categoryMap: ' . var_export($categoryMap, true) . PHP_EOL);
 
         $fixPriceFilter = false;
