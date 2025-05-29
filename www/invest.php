@@ -331,7 +331,6 @@ if (!empty($_REQUEST)) {
             'offer' => 7864,
             'franchising' => 19303,
         ];
-        /*
         if ($lang == 'uk') {
             $categoryMap = [
                 'projects' => 25261,
@@ -352,13 +351,11 @@ if (!empty($_REQUEST)) {
                 'en_franchising' => 19304,
             ];
         }
-        */
         l_m(__FILE__ . ' +' . __LINE__ . ' $categoryMap: ' . var_export($categoryMap, true) . PHP_EOL);
 
         $fixPriceFilter = false;
         $parentCategoryWhere = '';
 
-        /*
         if (isset($_REQUEST['parent']) && !empty($_REQUEST['parent'])) {
             if (isset($categoryMap[$_REQUEST['parent']]) && !empty($categoryMap[$_REQUEST['parent']])) {
                 $parentCategoryWhere .= ' AND p0_.parent_id = "' . $categoryMap[$_REQUEST['parent']] . '" ';
@@ -366,7 +363,6 @@ if (!empty($_REQUEST)) {
                 $parentCategoryWhere .= ' AND p0_.parent_id = "' . intval($_REQUEST['parent']) . '" ';
             }
         }
-        */
 
         if (
             isset($cat, $cat['category'], $cat['category']['parent'])
