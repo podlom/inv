@@ -5,9 +5,9 @@
  * User: shtaras
  * Date: 2024-03-08
  * Time: 19:25
- * Modified: 2024-06-19 13:25
+ * Modified: 2025-05-30 14:48
  *
- * @author Taras Shkodenko <taras@shkodenko.com>
+ * @author Taras Shkodenko <taras.shkodenko@gmail.com>
  */
 
 require_once 'lib/functions.php';

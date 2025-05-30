@@ -5,8 +5,9 @@
  * User: shtaras
  * Date: 5/6/20
  * Time: 20:34
+ * Modified: 2025-05-30 14:48
  *
- * @author Taras Shkodenko <taras@shkodenko.com>
+ * @author Taras Shkodenko <taras.shkodenko@gmail.com>
  *
  * @see https://www.codeofaninja.com/2014/06/google-maps-geocoding-example-php.html
  *

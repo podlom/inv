@@ -4,8 +4,9 @@
  * User: shtaras
  * Date: 01/02/20
  * Time: 12:21
+ * Modified: 2025-05-30 14:48
  *
- * @author Taras Shkodenko <taras@shkodenko.com>
+ * @author Taras Shkodenko <taras.shkodenko@gmail.com>
  */
 
 use Auth\Access\Role;

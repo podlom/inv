@@ -5,8 +5,9 @@
  * User: shtaras
  * Date: 2020-08-16
  * Time: 17:52
+ * Modified: 2025-05-30 14:48
  *
- * @author Taras Shkodenko <taras@shkodenko.com>
+ * @author Taras Shkodenko <taras.shkodenko@gmail.com>
  */
 
 function l_m($msg)
