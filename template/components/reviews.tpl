@@ -131,24 +131,30 @@
 	};
 
 	new Glide(".glide", config).mount();
+</script>
+
+<div id="reviews-data" data-reviews='[
+        {assign "reviewCount" 0}
+        {rlent '/review' 20 var='review' analytics=0 category=$category}
+            {if $reviewCount > 0},{/if}
+            {
+                "id": {$review->getId()},
+                "fullName": "{$review->getFullName()|escape:'html'}",
+                "company": "{$review->getCompany()|escape:'html'}",
+                "job": "{$review->getJob()|escape:'html'}",
+                "text": "{$review->getRtext()|escape:'html'}",
+                "imageUrl": "{$review->getImageUrl()}",
+                "facebookUrl": "{$review->getFacebookUrl()}",
+                "linkedinUrl": "{$review->getLinkedinUrl()}"
+            }
+            {assign "reviewCount" $reviewCount+1}
+        {/rlent}
+     ]'>
+</div>
+
+<script>
 	document.addEventListener("DOMContentLoaded", function() {
-		// Assign reviews data to window object
-		window.reviewsData = [
-			{assign "reviewCount" "0"}
-			{rlent '/review' 20 var='review' analytics=0 category=$category }
-			{if $reviewCount > 0},{/if}
-			{
-				id: {$review->getId()},
-				fullName: "{$review->getFullName()}",
-				company: "{$review->getCompany()}",
-				job: "{$review->getJob()}",
-				text: "{$review->getRtext()|escape:'javascript'}",
-				imageUrl: "{$review->getImageUrl()}",
-				facebookUrl: "{$review->getFacebookUrl()}",
-				linkedinUrl: "{$review->getLinkedinUrl()}"
-			}
-			{assign "reviewCount" $reviewCount+1}
-			{/rlent}
-		];
+		const reviewsElement = document.getElementById('reviews-data');
+		window.reviewsData = JSON.parse(reviewsElement.dataset.reviews);
 	});
 </script>
