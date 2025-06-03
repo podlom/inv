@@ -153,8 +153,6 @@
 </div>
 
 <script>
-	document.addEventListener("DOMContentLoaded", function() {
-		const reviewsElement = document.getElementById('reviews-data');
-		window.reviewsData = JSON.parse(reviewsElement.dataset.reviews));
-	});
+	const reviewsElement = document.getElementById('reviews-data');
+	window.reviewsData = JSON.parse(reviewsElement.dataset.reviews));
 </script>
