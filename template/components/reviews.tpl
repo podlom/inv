@@ -55,11 +55,11 @@
 										</a>
 									{/if}
 									{if $review->getLinkedinUrl()}
-										<a href="#" class="reviews__socials-link" draggable="true" data-href="{$review->getLinkedinUrl()}"
-											href="{$review->getLinkedinUrl()}">
+										<a href="#" class="reviews__socials-link" draggable="true"
+											data-href="{$review->getLinkedinUrl()}" href="{$review->getLinkedinUrl()}">
 											<img src="/images/icons/in-icon.svg" class="reviews__socials-icon" alt="alt="
 												{$review->getFullName()}" " />
-	                    </a>
+				                    </a>
                   {/if}
                 </div>
               </div>
@@ -130,4 +130,25 @@
 	};
 
 	new Glide(".glide", config).mount();
+
+	// Assign reviews data to window object
+	window.reviewsData = {
+		{assign "reviewCount" "0"}
+		reviews: [
+			{rlent '/review' 20 var='review' analytics=0 category=$category }
+			{if $reviewCount > 0},{/if}
+			{
+				id: {$review->getId()},
+				fullName: "{$review->getFullName()}",
+				company: "{$review->getCompany()}",
+				job: "{$review->getJob()}",
+				text: "{$review->getRtext()|escape:'javascript'}",
+				imageUrl: "{$review->getImageUrl()}",
+				facebookUrl: "{$review->getFacebookUrl()}",
+				linkedinUrl: "{$review->getLinkedinUrl()}"
+			}
+			{assign "reviewCount" $reviewCount+1}
+			{/rlent}
+		]
+	};
 </script>
