@@ -142,7 +142,7 @@
                 "fullName": "{$review->getFullName()|escape:'html'}",
                 "company": "{$review->getCompany()|escape:'html'}",
                 "job": "{$review->getJob()|escape:'html'}",
-                "text": "{$review->getRtext()|escape:'html'}",
+                "text": "{$review->getRtext()}",
                 "imageUrl": "{$review->getImageUrl()}",
                 "facebookUrl": "{$review->getFacebookUrl()}",
                 "linkedinUrl": "{$review->getLinkedinUrl()}"
