@@ -133,7 +133,7 @@
 	new Glide(".glide", config).mount();
 	document.addEventListener("DOMContentLoaded", function() {
 		// Assign reviews data to window object
-		document.reviewsData = [
+		window.reviewsData = [
 			{assign "reviewCount" "0"}
 			{rlent '/review' 20 var='review' analytics=0 category=$category }
 			{if $reviewCount > 0},{/if}
