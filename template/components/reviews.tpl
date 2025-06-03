@@ -153,8 +153,28 @@
 </div>
 
 <script>
+	function parseJsonSafely(jsonString) {
+		try {
+			return JSON.parse(jsonString);
+		} catch (error) {
+			console.log('JSON parsing failed, attempting to fix quotes...');
+
+			// Try to fix common quote issues
+			const fixed = jsonString
+				.replace(/: "([^"]*)"([^"]*)"([^"]*)",/g, ': "$1\\"$2\\"$3",')
+				.replace(/: "([^"]*)"([^"]*)"([^"]*)"/g, ': "$1\\"$2\\"$3"');
+
+			try {
+				return JSON.parse(fixed);
+			} catch (secondError) {
+				console.error('Could not parse JSON even after fixing:', secondError);
+				return null;
+			}
+		}
+	}
+
 	document.addEventListener("DOMContentLoaded", function() {
 		const reviewsElement = document.getElementById('reviews-data');
-		window.reviewsData = JSON.parse(reviewsElement.dataset.reviews);
+		window.reviewsData = parseJsonSafely(reviewsElement.dataset.reviews);
 	});
 </script>
