@@ -57,28 +57,29 @@
 									{if $review->getLinkedinUrl()}
 										<a href="#" class="reviews__socials-link" draggable="true"
 											data-href="{$review->getLinkedinUrl()}" href="{$review->getLinkedinUrl()}">
-											<img src="/images/icons/in-icon.svg" class="reviews__socials-icon" alt="alt="
-												{$review->getFullName()}" " />
-				                    </a>
-                  {/if}
-                </div>
-              </div>
-            </div>
-          </li>
-          {/rlent}
-          <!-- } -->
-
-        </ul>
-      </div>
-
-      <div class=" glide__bullets" data-glide-el="controls[nav]">
-										{assign "count" "0"}
-										{rlent '/review' 20 var='review' analytics=0 category='add-inv-prop'}
-										<button class="glide__bullet" data-glide-dir="={$count++}"></button>
-										{/rlent}
+											<img src="/images/icons/in-icon.svg" class="reviews__socials-icon"
+												alt="{$review->getFullName()}" />
+										</a>
+									{/if}
 								</div>
 							</div>
 						</div>
+					</li>
+					{/rlent}
+					<!-- } -->
+
+				</ul>
+			</div>
+
+			<div class=" glide__bullets" data-glide-el="controls[nav]">
+				{assign "count" "0"}
+				{rlent '/review' 20 var='review' analytics=0 category=$category}
+				<button class="glide__bullet" data-glide-dir="={$count}"></button>
+				{assign "count" $count+1}
+				{/rlent}
+			</div>
+		</div>
+	</div>
 </section>
 
 {* 
@@ -130,11 +131,10 @@
 	};
 
 	new Glide(".glide", config).mount();
-
-	// Assign reviews data to window object
-	window.reviewsData = {
-		{assign "reviewCount" "0"}
-		reviews: [
+	document.addEventListener("DOMContentLoaded", function() {
+		// Assign reviews data to window object
+		document.reviewsData = [
+			{assign "reviewCount" "0"}
 			{rlent '/review' 20 var='review' analytics=0 category=$category }
 			{if $reviewCount > 0},{/if}
 			{
@@ -149,6 +149,6 @@
 			}
 			{assign "reviewCount" $reviewCount+1}
 			{/rlent}
-		]
-	};
+		];
+	});
 </script>
