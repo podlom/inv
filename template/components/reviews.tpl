@@ -139,10 +139,10 @@
             {if $reviewCount > 0},{/if}
             {
                 "id": {$review->getId()},
-                "fullName": "{$review->getFullName()|escape:'html'}",
-                "company": "{$review->getCompany()|escape:'html'}",
-                "job": "{$review->getJob()|escape:'html'}",
-                "text": "{$review->getRtext()}",
+                "fullName": "{$review->getFullName()|escape:'javascript'}",
+                "company": "{$review->getCompany()|escape:'javascript'}",
+                "job": "{$review->getJob()|escape:'javascript'}",
+                "text": "{$review->getRtext()|escape:'javascript'}",
                 "imageUrl": "{$review->getImageUrl()}",
                 "facebookUrl": "{$review->getFacebookUrl()}",
                 "linkedinUrl": "{$review->getLinkedinUrl()}"
@@ -153,28 +153,8 @@
 </div>
 
 <script>
-	function parseJsonSafely(jsonString) {
-		try {
-			return JSON.parse(jsonString);
-		} catch (error) {
-			console.log('JSON parsing failed, attempting to fix quotes...');
-
-			// Try to fix common quote issues
-			const fixed = jsonString
-				.replace(/: "([^"]*)"([^"]*)"([^"]*)",/g, ': "$1\\"$2\\"$3",')
-				.replace(/: "([^"]*)"([^"]*)"([^"]*)"/g, ': "$1\\"$2\\"$3"');
-
-			try {
-				return JSON.parse(fixed);
-			} catch (secondError) {
-				console.error('Could not parse JSON even after fixing:', secondError);
-				return null;
-			}
-		}
-	}
-
 	document.addEventListener("DOMContentLoaded", function() {
 		const reviewsElement = document.getElementById('reviews-data');
-		window.reviewsData = parseJsonSafely(reviewsElement.dataset.reviews);
+		window.reviewsData = JSON.parse(reviewsElement.dataset.reviews));
 	});
 </script>
