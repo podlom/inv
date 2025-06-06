@@ -82,8 +82,7 @@
 					<div class="proposal__discounts --grid">
 						<div class="proposal__discounts-item">
 							<img alt="Иконка" class="lazyimg proposal__discounts-icon"
-								data-src="/images/advert-packages-min.svg" width="44"
-								height="44" />
+								data-src="/images/advert-packages-min.svg" width="44" height="44" />
 							<div>
 								<h3 class="proposal__discounts-title --blue">Рекламные пакеты</h3>
 								<p>от $450</p>
@@ -99,16 +98,14 @@
 						</div>
 						<div class="proposal__discounts-item">
 							<img alt="Иконка" class="lazyimg proposal__discounts-icon"
-								data-src="/images/discount-small-business-min.svg" width="44"
-								height="44" />
+								data-src="/images/discount-small-business-min.svg" width="44" height="44" />
 							<div>
 								<h3 class="proposal__discounts-title --blue">Скидка 20%</h3>
 								<p>для малого бизнеса <small>(до $50 000)</small></p>
 							</div>
 						</div>
 					</div>
-					<button data-deal-id="adv" data-deal-name="Рекламное продвижение"
-						data-remodal-target="approach"
+					<button data-deal-id="adv" data-deal-name="Рекламное продвижение" data-remodal-target="approach"
 						class="btn btn--blue btn--blue-text w-full add-inv-prop-btn">
 						Получить условия
 					</button>
@@ -139,8 +136,7 @@
 					<div class="proposal__discounts --double-rows">
 						<div class="proposal__discounts-item --white">
 							<img alt="Иконка" class="lazyimg proposal__discounts-icon"
-								data-src="/images/commission-payment-min.svg" width="44"
-								height="44" />
+								data-src="/images/commission-payment-min.svg" width="44" height="44" />
 							<div>
 								<h3 class="proposal__discounts-title --blue">Комиссия</h3>
 								<p>% + авансовый платеж от $5 000</p>
@@ -148,8 +144,7 @@
 						</div>
 					</div>
 
-					<button data-deal-id="ind" data-deal-name="Индивидуальный подход"
-						data-remodal-target="approach"
+					<button data-deal-id="ind" data-deal-name="Индивидуальный подход" data-remodal-target="approach"
 						class="btn btn--white btn--blue-text w-full add-inv-prop-btn">
 
 						Получить условия
@@ -208,13 +203,18 @@
 			<p>
 				Наш менеджер свяжется с Вами в течение одного рабочего дня.
 			</p>
-			<a id="openNowLink" target="_blank"
-				href="https://drive.google.com/open?id=1sFGhi5u4wVwNH8-pJat4EX8ufHSBIXVS"
+			<a id="openNowLink" target="_blank" href="https://drive.google.com/open?id=1sFGhi5u4wVwNH8-pJat4EX8ufHSBIXVS"
 				class="w-full blue_but cell-but small-12" type="submit">Открыть
 				призентацию</a>
 			<button data-remodal-action="close" type='button'
 				class="w-full blue_but cell-but  small-12 close__popup">Закрыть</button>
 		</div>
+	</div>
+
+	<div class="hidden">
+		<script type="module" crossorigin src="/pricing-page/dist/assets/index.js"></script>
+		<link rel="stylesheet" crossorigin href="/pricing-page/dist/assets/index.css">
+		<div id="root"></div>
 	</div>
 
 {/block}
