@@ -1,0 +1,137 @@
+{
+  "welcome": "Welcome",
+  "hello": "Hello",
+  "goodbye": "Goodbye",
+  "yes": "Yes",
+  "no": "No",
+  "save": "Save",
+  "cancel": "Cancel",
+  "delete": "Delete",
+  "edit": "Edit",
+  "add": "Add",
+  "remove": "Remove",
+  "search": "Search",
+  "loading": "Loading...",
+  "error": "Error",
+  "success": "Success",
+  "warning": "Warning",
+  "info": "Information",
+  "close": "Close",
+  "open": "Open",
+  "submit": "Submit",
+  "reset": "Reset",
+  "back": "Back",
+  "next": "Next",
+  "previous": "Previous",
+  "home": "Home",
+  "about": "About",
+  "contact": "Contact",
+  "settings": "Settings",
+  "profile": "Profile",
+  "logout": "Logout",
+  "login": "Login",
+  "register": "Register",
+  "email": "Email",
+  "password": "Password",
+  "username": "Username",
+  "name": "Name",
+  "phone": "Phone",
+  "address": "Address",
+  "city": "City",
+  "country": "Country",
+  "language": "Language",
+  "theme": "Theme",
+  "dark": "Dark",
+  "light": "Light",
+  "auto": "Auto",
+  "hero": {
+    "title": "Attracting investments, selling operating businesses,\nselling commercial real estate,\npromoting franchises in Ukraine",
+    "button": "Explore cooperation options"
+  },
+  "pricing": {
+    "advertising": {
+      "title": "Marketing Approach",
+      "shortDescription": "When you need to reach a wide investor audience",
+      "description": "Ideal for promoting the sale of a small or medium-sized business, commercial property, franchise, investment attraction, or investment products",
+      "button": "Get conditions",
+      "features": {
+        "portal": "Listing on the InVenture investment platform",
+        "magazine": "Publication in InVenture Investment Digest",
+        "banner": "Ad banner placement on the InVenture investment platform",
+        "social": "Promotion on social media (Facebook, LinkedIn, Telegram)",
+        "ads": "Google Ads campaign",
+        "platforms": "Distribution across specialized listing platforms",
+        "research": "Inclusion in an industry-specific analytical report",
+        "mailing": "Email campaign to Ukraine's largest investor database",
+        "youtube": "Creation of video presentations and YouTube marketing"
+      },
+      "priceLabel": "Advertising Packages",
+      "priceValue": "From $450 to $1,500\nBrokerage support option",
+      "discount": "20% discount for small businesses (up to $50,000)",
+      "militaryFree": "Free for military-tech projects"
+    },
+    "fullSupport": {
+      "title": "Full Deal Support",
+      "shortDescription": "When you need a personalized investor search strategy",
+      "description": "Best for selling a large business or commercial real estate asset, or attracting investment into large-scale projects",
+      "button": "Get conditions",
+      "features": {
+        "presentation": "Professional investment presentation materials",
+        "recommendations": "Strategic guidance for pre-sale preparation",
+        "directSales": "Targeted investor outreach and direct sales",
+        "comprehensive": "Holistic approach to investment offer promotion",
+        "consulting": "Expert support throughout the entire transaction",
+        "dueDiligence": "Coordination of the Due Diligence process",
+        "mediation": "Mediation in negotiations"
+      },
+      "commissionLabel": "Success fee",
+      "commissionValue": "from 2% to 5%",
+      "advanceLabel": "Advance payment",
+      "advanceValue": "from $5,000"
+    },
+    "youWillGet": "What you get:"
+  },
+  "gallery": {
+    "projects": {
+      "title": "Closed Deals",
+      "viewAll": "View all"
+    },
+    "reviews": {
+      "title": "What Our Clients Say",
+      "description": "Proven Results, Trusted by Clients! Our clients' testimonials reflect the quality of our deal advisory in business exits, commercial real estate, and capital raising",
+      "readMore": "Read more",
+      "reviewTitle": "Client Review"
+    }
+  },
+  "projectCard": {
+    "defaultTitle": "Sale of operating business in metalworking sphere in Kyiv"
+  },
+  "bentoGrid": {
+    "experience": {
+      "value": "15+",
+      "unit": "years",
+      "description": "on the investment market"
+    },
+    "dealsValue": {
+      "value": "$300M+",
+      "unit": "",
+      "description": "Closed\ndeal value"
+    },
+    "visitors": {
+      "value": "300,000+",
+      "description": "Monthly marketplace visitors"
+    },
+    "subscribers": {
+      "value": "50,000+",
+      "description": "Social media followers"
+    },
+    "dealsCount": {
+      "value": "250+",
+      "description": "Successfully\nclosed deals"
+    },
+    "investorBase": {
+      "value": "17,500+",
+      "description": "Verified investor database"
+    }
+  }
+}

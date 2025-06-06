@@ -1,0 +1,102 @@
+.pricing-section {
+
+    /* Light gray background */
+    color: #333;
+    /* Darker text for readability */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* Align items to the left */
+}
+
+
+.pricing-card {
+    background-color: #ffffff;
+    /* White card background */
+    border-radius: 8px;
+    padding: 25px;
+    width: 400px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Softer shadow for light theme */
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    /* Ensure text within card is left-aligned */
+}
+
+.plan-description {
+
+    color: #555;
+    /* Slightly lighter gray for description */
+    margin-bottom: 20px;
+    line-height: 1.6;
+    flex-grow: 1;
+}
+
+.cta-button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    font-weight: bold;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 25px;
+    align-self: stretch;
+}
+
+.blue-button {
+    background-color: #3279a0;
+}
+
+.blue-button:hover {
+    background-color: #286080;
+}
+
+.red-button {
+    background-color: #c83737;
+}
+
+.red-button:hover {
+    background-color: #a02c2c;
+}
+
+
+.pricing-card ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 25px;
+    flex-grow: 1;
+}
+
+.pricing-card ul li {
+    margin-bottom: 10px;
+    font-size: 0.9em;
+    color: #555;
+    /* Consistent text color */
+    display: flex;
+    align-items: baseline;
+}
+
+.price-details {
+    margin-top: auto;
+    border-top: 1px solid #ddd;
+    /* Lighter separator line */
+    padding-top: 20px;
+}
+
+.price-details p {
+    margin: 5px 0;
+    font-size: 0.9em;
+    color: #555;
+    /* Consistent text color */
+}
+
+.price-details p.price {
+    font-size: 1.4em;
+    font-weight: bold;
+    color: #333;
+    /* Dark text for price */
+    margin-bottom: 10px;
+}
