@@ -24,7 +24,7 @@
 			}
 		}
 	</style>
-
+	{* 
 	<section class="investor-proposals">
 		<div class="container">
 			<div class="investor-proposals__header">
@@ -180,7 +180,7 @@
 	</section>
 
 
-	{include 'components/reviews' category='add-inv-prop'}
+	{include 'components/reviews' category='add-inv-prop'} *}
 
 	<div class="remodal callback" data-remodal-id="approach">
 		<button data-remodal-action="close" class="remodal-close"></button>
@@ -211,11 +211,11 @@
 		</div>
 	</div>
 
-	<div class="hidden">
-		<script type="module" crossorigin src="/pricing-page/dist/assets/index.js?v=1"></script>
-		<link rel="stylesheet" crossorigin href="/pricing-page/dist/assets/index.css?v=1">
-		<div class="pricing-page" style="width: 100dvw;" id="root"></div>
-	</div>
+
+	<script type="module" crossorigin src="/pricing-page/dist/assets/index.js?v=1"></script>
+	<link rel="stylesheet" crossorigin href="/pricing-page/dist/assets/index.css?v=1">
+	<div class="pricing-page" style="width: 100dvw;" id="root"></div>
+
 
 {/block}
 

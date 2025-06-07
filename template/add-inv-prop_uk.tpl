@@ -25,7 +25,7 @@
 		}
 	</style>
 
-	<section class="investor-proposals">
+	{* <section class="investor-proposals">
 		<div class="container">
 			<div class="investor-proposals__header">
 				<div>
@@ -163,40 +163,40 @@
 </section>
 
 
-{include 'components/reviews' category='add-inv-prop'}
-
-<div class="remodal callback" data-remodal-id="approach">
-	<button data-remodal-action="close" class="remodal-close"></button>
-	<div class="remodal__title">
-		Заповніть контактні дані та ми направимо умови співпраці
-	</div>
-	<div class="callback__form">
-		{form 'approach'}
-	</div>
-</div>
-
-<div class="remodal callback" data-remodal-id="successModal">
-	<button data-remodal-action="close" class="remodal-close"></button>
-	<div class="text-left callback__form">
-		<p>
-			Ми надіслали Вам на пошту презентацію з описом умов співпраці.
-		</p>
-		<p>
-			Наш менеджер зв'яжеться з Вами протягом одного робочого дня.
-			</p>
-			<a id="openNowLink" target="_blank" href="https://drive.google.com/open?id=1sFGhi5u4wVwNH8-pJat4EX8ufHSBIXVS"
-				class="w-full blue_but cell-but small-12" type="submit">Відкрити
-				презентацію</a>
-			<button data-remodal-action="close" type='button'
-				class="w-full blue_but cell-but  small-12 close__popup">Закрити</button>
+	{include 'components/reviews' category='add-inv-prop'}
+ *}
+	<div class="remodal callback" data-remodal-id="approach">
+		<button data-remodal-action="close" class="remodal-close"></button>
+		<div class="remodal__title">
+			Заповніть контактні дані та ми направимо умови співпраці
+		</div>
+		<div class="callback__form">
+			{form 'approach'}
 		</div>
 	</div>
 
-	<div class="hidden">
-		<script type="module" crossorigin src="/pricing-page/dist/assets/index.js?v=1"></script>
-		<link rel="stylesheet" crossorigin href="/pricing-page/dist/assets/index.css?v=1">
-		<div class="pricing-page" style="width: 100dvw;" id="root"></div>
+	<div class="remodal callback" data-remodal-id="successModal">
+		<button data-remodal-action="close" class="remodal-close"></button>
+		<div class="text-left callback__form">
+			<p>
+				Ми надіслали Вам на пошту презентацію з описом умов співпраці.
+			</p>
+			<p>
+			Наш менеджер зв'яжеться з Вами протягом одного робочого дня.
+		</p>
+		<a id="openNowLink" target="_blank" href="https://drive.google.com/open?id=1sFGhi5u4wVwNH8-pJat4EX8ufHSBIXVS"
+			class="w-full blue_but cell-but small-12" type="submit">Відкрити
+			презентацію</a>
+		<button data-remodal-action="close" type='button'
+			class="w-full blue_but cell-but  small-12 close__popup">Закрити</button>
 	</div>
+</div>
+
+
+<script type="module" crossorigin src="/pricing-page/dist/assets/index.js?v=1"></script>
+<link rel="stylesheet" crossorigin href="/pricing-page/dist/assets/index.css?v=1">
+<div class="pricing-page" style="width: 100dvw;" id="root"></div>
+
 {/block}
 
 {*
