@@ -49,6 +49,24 @@ const PricingCard: React.FC<PricingCardProps> = ({
 }) => {
   const { t } = useTranslation();
 
+  // Define data attributes based on button variant
+  const getDataAttributes = () => {
+    if (buttonVariant === "green") {
+      return {
+        "data-deal-id": "adv",
+        "data-deal-name": "Рекламное продвижение",
+        "data-remodal-target": "approach",
+      };
+    } else if (buttonVariant === "red") {
+      return {
+        "data-deal-id": "ind",
+        "data-deal-name": "Индивидуальный подход",
+        "data-remodal-target": "approach",
+      };
+    }
+    return {};
+  };
+
   return (
     <div
       className={cn(
@@ -69,6 +87,7 @@ const PricingCard: React.FC<PricingCardProps> = ({
           buttonClasses[buttonVariant]
         )}
         onClick={onButtonClick}
+        {...getDataAttributes()}
       >
         {buttonText}
       </button>

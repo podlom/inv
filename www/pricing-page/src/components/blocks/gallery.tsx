@@ -188,7 +188,7 @@ export const Gallery = ({
           }}
         >
           {/* sm:mx-[calc((100vw-640px)/2+24px)] md:mx-[calc((100vw-768px)/2+24px)] lg:mx-[calc((100vw-1024px)/2+32px)] xl:mx-[calc((100vw-1280px)/2+32px)] 2xl:mx-[calc((100vw-80rem)/2+32px)] */}
-          <CarouselContent className="mx-5 sm:mx-[calc((100vw-640px)/2+20px)] md:mx-[calc((100vw-768px)/2+20px)] lg:mx-[calc((100vw-1024px)/2+28px)] xl:mx-[calc((100vw-1280px)/2+28px)] 2xl:mx-[calc((100vw-96rem)/2+24px)]">
+          <CarouselContent className="mx-5 sm:mx-[calc((100vw-640px)/2+24px)] md:mx-[calc((100vw-768px)/2+24px)] lg:mx-[calc((100vw-1024px)/2+28px)] xl:mx-[calc((100vw-1280px)/2+28px)] 2xl:mx-[calc((100vw-96rem)/2+24px)]">
             {displayItems.map((item, index) => (
               <CarouselItem
                 key={item.id}
