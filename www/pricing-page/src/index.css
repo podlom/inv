@@ -199,6 +199,6 @@ button:focus-visible {
 }
 
 .container {
-  @apply mx-auto px-4 sm:px-6 lg:px-8 2xl:max-w-[80rem];
+  @apply mx-auto px-4 sm:px-6 lg:px-8;
 }
 
