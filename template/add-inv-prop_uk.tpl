@@ -70,8 +70,7 @@
 				<div class="proposal__discounts --grid">
 					<div class="proposal__discounts-item">
 						<img alt="Иконка" class="lazyimg proposal__discounts-icon"
-							data-src="/images/advert-packages-min.svg" width="44"
-							height="44" />
+							data-src="/images/advert-packages-min.svg" width="44" height="44" />
 						<div>
 							<h3 class="proposal__discounts-title --blue">Рекламні пакети</h3>
 							<p>від $450</p>
@@ -87,8 +86,7 @@
 					</div>
 					<div class="proposal__discounts-item">
 						<img alt="Иконка" class="lazyimg proposal__discounts-icon"
-							data-src="/images/discount-small-business-min.svg" width="44"
-							height="44" />
+							data-src="/images/discount-small-business-min.svg" width="44" height="44" />
 						<div>
 							<h3 class="proposal__discounts-title --blue">Знижка 20%</h3>
 							<p>для малого бізнесу <small>(до $50 000)</small></p>
@@ -96,8 +94,7 @@
 					</div>
 				</div>
 
-				<button data-deal-id="adv" data-deal-name="Рекламное продвижение"
-					data-remodal-target="approach"
+				<button data-deal-id="adv" data-deal-name="Рекламное продвижение" data-remodal-target="approach"
 					class="btn btn--blue btn--blue-text w-full add-inv-prop-btn">
 					Отримати умови
 				</button>
@@ -124,8 +121,7 @@
 				<div class="proposal__discounts --double-rows">
 					<div class="proposal__discounts-item --white">
 						<img alt="Иконка" class="lazyimg proposal__discounts-icon"
-							data-src="/images/commission-payment-min.svg" width="44"
-							height="44" />
+							data-src="/images/commission-payment-min.svg" width="44" height="44" />
 						<div>
 							<h3 class="proposal__discounts-title --blue">Комісія</h3>
 							<p>% + авансовий платіж від $5000</p>
@@ -133,8 +129,7 @@
 					</div>
 				</div>
 
-				<button data-deal-id="ind" data-deal-name="Индивидуальный подход"
-					data-remodal-target="approach"
+				<button data-deal-id="ind" data-deal-name="Индивидуальный подход" data-remodal-target="approach"
 					class="btn btn--white btn--blue-text w-full add-inv-prop-btn">
 					Отримати умови
 				</button>
@@ -189,8 +184,7 @@
 		<p>
 			Наш менеджер зв'яжеться з Вами протягом одного робочого дня.
 			</p>
-			<a id="openNowLink" target="_blank"
-				href="https://drive.google.com/open?id=1sFGhi5u4wVwNH8-pJat4EX8ufHSBIXVS"
+			<a id="openNowLink" target="_blank" href="https://drive.google.com/open?id=1sFGhi5u4wVwNH8-pJat4EX8ufHSBIXVS"
 				class="w-full blue_but cell-but small-12" type="submit">Відкрити
 				презентацію</a>
 			<button data-remodal-action="close" type='button'
@@ -198,6 +192,11 @@
 		</div>
 	</div>
 
+	<div class="hidden">
+		<script type="module" crossorigin src="/pricing-page/dist/assets/index.js?v=1"></script>
+		<link rel="stylesheet" crossorigin href="/pricing-page/dist/assets/index.css?v=1">
+		<div class="pricing-page" style="width: 100dvw;" id="root"></div>
+	</div>
 {/block}
 
 {*

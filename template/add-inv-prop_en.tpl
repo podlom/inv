@@ -95,8 +95,7 @@
 					<div class="proposal__discounts --grid">
 						<div class="proposal__discounts-item">
 							<img alt="Icon" class="lazyimg proposal__discounts-icon"
-								data-src="/images/advert-packages-min.svg" width="44"
-								height="44" />
+								data-src="/images/advert-packages-min.svg" width="44" height="44" />
 							<div>
 								<h3 class="proposal__discounts-title --blue">
 									Advertising packages
@@ -114,8 +113,7 @@
 						</div>
 						<div class="proposal__discounts-item">
 							<img alt="Icon" class="lazyimg proposal__discounts-icon"
-								data-src="/images/discount-small-business-min.svg" width="44"
-								height="44" />
+								data-src="/images/discount-small-business-min.svg" width="44" height="44" />
 							<div>
 								<h3 class="proposal__discounts-title --blue">20% discount</h3>
 								<p>for small businesses <small>(up to $50,000)</small></p>
@@ -123,8 +121,7 @@
 						</div>
 					</div>
 
-					<button data-deal-name="Рекламное продвижение"
-						data-remodal-target="approach"
+					<button data-deal-name="Рекламное продвижение" data-remodal-target="approach"
 						class="btn btn--blue btn--blue-text w-full add-inv-prop-btn">
 
 						Get terms
@@ -156,8 +153,7 @@
 					<div class="proposal__discounts --double-rows">
 						<div class="proposal__discounts-item --white">
 							<img alt="Иконка" class="lazyimg proposal__discounts-icon"
-								data-src="/images/commission-payment-min.svg" width="44"
-								height="44" />
+								data-src="/images/commission-payment-min.svg" width="44" height="44" />
 							<div>
 								<h3 class="proposal__discounts-title --blue">Success fee</h3>
 								<p>% + advance payment, starting from $5,000</p>
@@ -166,8 +162,7 @@
 					</div>
 
 
-					<button data-deal-name="Индивидуальный подход"
-						data-remodal-target="approach"
+					<button data-deal-name="Индивидуальный подход" data-remodal-target="approach"
 						class="btn btn--white btn--blue-text w-full add-inv-prop-btn">
 						Get terms
 					</button>
@@ -218,6 +213,12 @@
 		</div>
 	</div>
 
+
+	<div class="hidden">
+		<script type="module" crossorigin src="/pricing-page/dist/assets/index.js?v=1"></script>
+		<link rel="stylesheet" crossorigin href="/pricing-page/dist/assets/index.css?v=1">
+		<div class="pricing-page" style="width: 100dvw;" id="root"></div>
+	</div>
 {/block}
 
 {*
