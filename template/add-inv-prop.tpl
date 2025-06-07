@@ -214,7 +214,7 @@
 	<div class="hidden">
 		<script type="module" crossorigin src="/pricing-page/dist/assets/index.js?v=1"></script>
 		<link rel="stylesheet" crossorigin href="/pricing-page/dist/assets/index.css?v=1">
-		<div class="pricing-page" id="root"></div>
+		<div class="pricing-page" style="width: 100dvw;" id="root"></div>
 	</div>
 
 {/block}
