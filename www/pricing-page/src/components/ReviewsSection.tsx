@@ -222,7 +222,10 @@ export const ReviewsSection: React.FC = () => {
 
     if (typeof window !== "undefined" && (window as any).reviewsData) {
       try {
-        const windowData = (window as any).reviewsData;
+        const reviewsElement = document.getElementById(
+          "reviews-data"
+        ) as HTMLElement;
+        const windowData = JSON.parse(reviewsElement.dataset.reviews || "[]");
         if (Array.isArray(windowData) && windowData.length > 0) {
           sourceData = windowData;
         }
