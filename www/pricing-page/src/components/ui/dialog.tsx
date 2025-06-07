@@ -23,7 +23,7 @@ function DialogPortal({
     <DialogPrimitive.Portal
       container={document.body.querySelector(".pricing-page")}
       data-slot="dialog-portal"
-      forceMount={true}
+      forceMount
       {...props}
     />
   );

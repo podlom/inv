@@ -4,7 +4,7 @@ import PricingSection from "./components/PricingSection";
 import { Gallery } from "./components/blocks/gallery";
 import { Hero } from "./components/blocks/hero";
 import { ReviewsSection } from "./components/ReviewsSection";
-import { LanguageSwitcher } from "./components/LanguageSwitcher";
+// import { LanguageSwitcher } from "./components/LanguageSwitcher";
 import { useTranslation } from "./hooks/useTranslation";
 import {
   useProjects,
@@ -50,9 +50,9 @@ function App() {
   return (
     <div className="overflow-x-hidden">
       {/* Language Switcher - positioned at top right */}
-      <div className="fixed top-4 right-4 z-50">
+      {/* <div className="fixed top-4 right-4 z-50">
         <LanguageSwitcher />
-      </div>
+      </div> */}
 
       <Hero />
       <div id="pricing" className="pt-24 pb-16 container mx-auto">

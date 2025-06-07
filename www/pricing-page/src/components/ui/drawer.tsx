@@ -22,7 +22,7 @@ function DrawerPortal({
     <DrawerPrimitive.Portal
       container={document.body.querySelector(".pricing-page")}
       data-slot="drawer-portal"
-      forceMount={true}
+      forceMount
       {...props}
     />
   );
