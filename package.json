@@ -1,0 +1,9 @@
+{
+  "name": "inv",
+  "version": "1.0.0",
+  "description": "Investment platform project",
+  "private": true,
+  "devDependencies": {
+    "postcss-scope": "^1.7.4"
+  }
+}
