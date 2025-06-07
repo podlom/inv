@@ -23,6 +23,10 @@
 				display: block;
 			}
 		}
+
+		.pricing-page {
+			min-height: 100dvh;
+		}
 	</style>
 	{* 
 	<section class="investor-proposals">
