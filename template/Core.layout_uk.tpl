@@ -165,20 +165,27 @@
 
 			<!-- Meta Pixel Code -->
 			<script>
-				!function(f,b,e,v,n,t,s)
+				! function(f, b, e, v, n, t, s)
 				{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-						n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-					if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-					n.queue=[];t=b.createElement(e);t.async=!0;
-					t.src=v;s=b.getElementsByTagName(e)[0];
-					s.parentNode.insertBefore(t,s)}(window, document,'script',
-						'https://connect.facebook.net/en_US/fbevents.js');
+				n.callMethod.apply(n, arguments): n.queue.push(arguments)
+				};
+				if (!f._fbq) f._fbq = n;
+				n.push = n;
+				n.loaded = !0;
+				n.version = '2.0';
+				n.queue = [];
+				t = b.createElement(e);
+				t.async = !0;
+				t.src = v;
+				s = b.getElementsByTagName(e)[0];
+				s.parentNode.insertBefore(t, s)
+				}(window, document, 'script',
+					'https://connect.facebook.net/en_US/fbevents.js');
 				fbq('init', '899661058367676');
 				fbq('track', 'PageView');
 			</script>
 			<noscript><img height="1" width="1" style="display:none"
-						   src="https://www.facebook.com/tr?id=899661058367676&ev=PageView&noscript=1"
-				/></noscript>
+					src="https://www.facebook.com/tr?id=899661058367676&ev=PageView&noscript=1" /></noscript>
 			<!-- End Meta Pixel Code -->
 
 		{/literal}
@@ -230,7 +237,9 @@
 		</div>
 	</div>
 	{#mod 'Widget'}
-	<ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-2">
+	<ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-2"
+		{if $request->getPathInfo() === '/add-inv-prop' || $request->getPathInfo() === '/en/add-inv-prop' || $request->getPathInfo() === '/uk/add-inv-prop' || $request->getPathInfo() === '/en/investor' || $request->getPathInfo() === '/uk/investor' || $request->getPathInfo() === '/investor' }style="position: relative; z-index: 1000;"
+		{/if}>
 		<li>
 			{widget_slot 'footer_1 (728x90)' size=[729, 90]}
 		</li>

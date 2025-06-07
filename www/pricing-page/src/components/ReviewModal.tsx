@@ -114,7 +114,7 @@ export const ReviewModal: React.FC<ReviewModalProps> = ({
           <Dialog.Content forceMount asChild>
             <animated.div
               style={styles}
-              className="fixed left-1/2 top-1/2 z-50 w-full max-w-2xl -translate-x-1/2 -translate-y-1/2 bg-white max-h-[80dvh] xl:max-h-[90dvh] mt-8 overflow-hidden rounded-lg shadow-lg"
+              className="fixed left-1/2 top-1/2 z-50 w-full max-w-2xl -translate-x-1/2 -translate-y-1/2 bg-white max-h-[80dvh] mt-8 overflow-hidden rounded-lg shadow-lg"
             >
               {/* Header */}
               <div className="p-4 border-b border-gray-200 flex items-center justify-between">
@@ -141,7 +141,7 @@ export const ReviewModal: React.FC<ReviewModalProps> = ({
               </div>
 
               {/* Review Content */}
-              <div className="p-6 overflow-y-auto max-h-[calc(90vh-200px)]">
+              <div className="p-6 overflow-y-auto max-h-[calc(80vh-200px)]">
                 <p className="text-gray-700 text-base leading-relaxed mb-6">
                   {review}
                 </p>
