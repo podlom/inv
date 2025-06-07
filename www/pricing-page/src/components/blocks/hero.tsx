@@ -47,7 +47,7 @@ export const Hero = () => {
             ease: "easeInOut",
           }}
           onClick={scrollToPricing}
-          className="cursor-pointer mt-8 h-12 shadow-[0_4px_14px_0_rgb(50,121,160,39%)] hover:shadow-[0_6px_20px_rgba(50,121,160,50%)] px-6 py-2 bg-white rounded-md text-[#3279a0] font-bold transition duration-200 ease-linear border border-[#3279a0]"
+          className="cursor-pointer mt-8 min-h-12 shadow-[0_4px_14px_0_rgb(50,121,160,39%)] hover:shadow-[0_6px_20px_rgba(50,121,160,50%)] px-6 py-2 bg-white rounded-md text-[#3279a0] font-bold transition duration-200 ease-linear border border-[#3279a0]"
         >
           {t("hero.button")}
         </motion.button>
