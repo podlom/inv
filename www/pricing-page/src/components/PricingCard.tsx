@@ -91,7 +91,7 @@ const PricingCard: React.FC<PricingCardProps> = ({
       >
         {buttonText}
       </button>
-      <div className="border-t border-[#C7CCD1] -mx-6 pt-5"></div>
+      <div className="border-t border-[#C7CCD1] -mx-4 lg:-mx-6 pt-5"></div>
       <h3 className="font-bold mb-2">{t("pricing.youWillGet")}</h3>
       <ul className="list-none p-0 mb-6 flex-grow space-y-2">
         {features.map((feature, index) => (
@@ -103,9 +103,9 @@ const PricingCard: React.FC<PricingCardProps> = ({
           </li>
         ))}
       </ul>
-      <div className="border-t border-[#C7CCD1] -mx-6 mb-5"></div>
+      <div className="border-t border-[#C7CCD1] -mx-4 lg:-mx-6 mb-5"></div>
 
-      <div className="flex-1 space-y-8 min-h-[180px] xl:min-h-[172px]">
+      <div className="flex-1 space-y-8 lg:min-h-[180px] xl:min-h-[172px]">
         <div className="space-y-5">
           {priceDetails.map((detail, index) => (
             <div
