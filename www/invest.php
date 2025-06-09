@@ -658,9 +658,9 @@ if (!empty($_REQUEST)) {
                 $soldHtml = '';
                 if (isset($j2['attr58']) && ($j2['attr58'] == 1)) {
                     if ($lang === 'ru') {
-                        if (($a2['parent_id'] == 7860)
-                            || ($a2['parent_id'] == 19303)
-                            || ($a2['parent_id'] == 7864)
+                        if (($a2['parent_id'] == 7860) // 7860 | Инвестиционные проекты и стартапы в Украине
+                            || ($a2['parent_id'] == 19303) // 19303 | Франчайзинг и франшизы в Украине
+                            || ($a2['parent_id'] == 7864) // 7864 | Найти инвестора в Украине: ищу инвестора / поиск инвесторов
                         ) {
                             $soldHtml = '<div class="previewstatus preview__status" style="width:155px;">';
                             $soldHtml .= 'Реализовано';
