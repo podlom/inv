@@ -131,6 +131,13 @@
                         </div>
                     </div>
                 </div>
+
+                <div>
+                    <label>
+                        Lang
+                        {$form->getField('lang')->getInput()}
+                    </label>
+                </div>
             </div>
         </div>
 
