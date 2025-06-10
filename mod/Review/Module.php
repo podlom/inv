@@ -19,6 +19,8 @@ class Module extends AbstractModule
     public function review($id, $params = [], $render = true)
     {
         $params = new ArrayHelper($params);
+        error_log(__METHOD__ . ' +' . __LINE__ . ' params: ' . print_r($params, true));
+
         $cache_name = 'review.' . $id . ($params->get('target')?'.'.$params->get('target'):'');
         $assets_manager = $this->getService('assets');
         $cache = $this->getService('cache')->fetch($cache_name);

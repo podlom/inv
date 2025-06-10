@@ -145,6 +145,14 @@ class Review extends \Skynar\BaseModel
     }
 
     /**
+     * @var string
+     *
+     * @Sync\Input
+     * @ORM\Column(type="string", length=2)
+     */
+    protected $lang = 'uk';
+
+    /**
      * Get Image URL
      *
      * @return string
@@ -471,6 +479,30 @@ class Review extends \Skynar\BaseModel
     public function getStatus()
     {
         return $this->status;
+    }
+
+    /**
+     * Set lang
+     *
+     * @param string $lang
+     *
+     * @return Review
+     */
+    public function setLang($lang): Review
+    {
+        $this->lang = $lang;
+
+        return $this;
+    }
+
+    /**
+     * Get lang
+     *
+     * @return integer
+     */
+    public function getLang()
+    {
+        return $this->lang;
     }
 
     /**

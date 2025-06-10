@@ -36,6 +36,9 @@ class Smarty
         if ($count < 1 || $count > 10000) $count = 10;
         // error_log( __METHOD__ . ' +' . __LINE__ . ' $count: ' . print_r($count, true));
         $path = $params[0];
+        
+        $lang = isset($params[2]) ? (string)$params[2] : 'ru';
+
         // error_log( __METHOD__ . ' +' . __LINE__ . ' $path: ' . print_r($path, true));
         $type = isset($params['table']) ? $params['table'] : self::TABLE_NAME;
         $select = 'p';
@@ -56,7 +59,7 @@ class Smarty
             $q = app()->getService('doctrine')->getQueryBuilder()
                 ->select($select)
                 ->from($type, 'p')
-                ->where('p.status = :visible');
+                ->where('p.status = :visible and p.lang = :lang');
             // ->where('c.path like :path and p.status = :visible and p.published < CURRENT_TIMESTAMP()');
         }
         if ($params['order_by']=='rand')
@@ -81,6 +84,7 @@ class Smarty
         }
         $items = $q->getQuery()
             ->setParameter('visible', 1)
+            ->setParameter('lang', $lang)
             ->setMaxResults($count)
             ->getResult();
 
