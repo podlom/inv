@@ -179,11 +179,7 @@ export const Gallery = ({
           setApi={setCarouselApi}
           className="mb-4 md:mb-8"
           opts={{
-            breakpoints: {
-              "(max-width: 768px)": {
-                dragFree: true,
-              },
-            },
+            dragFree: true,
             align: "start",
           }}
         >
