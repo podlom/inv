@@ -54,11 +54,20 @@ const extractPriceFromAttr = (attrString: string): string => {
 
 export const mapApiProjectToProjectItem = (
   apiProject: ApiProject,
-  baseUrl = "https://inventure.com.ua"
+  baseUrl = "https://inventure.com.ua",
+  language = ""
 ): ProjectItem => {
   const fullImageUrl = apiProject.image_url.startsWith("http")
     ? apiProject.image_url
     : `${baseUrl}${apiProject.image_url}`;
+    
+  // Add language key between baseUrl and /investments for English or Ukrainian
+  let investmentsPath = "/investments/";
+  if (language === "en") {
+    investmentsPath = "/en/investments/";
+  } else if (language === "uk") {
+    investmentsPath = "/uk/investments/";
+  }
 
   return {
     id: apiProject.id.toString(),
@@ -69,7 +78,7 @@ export const mapApiProjectToProjectItem = (
     starCount: apiProject.rating_2 || 0,
     viewCount: apiProject.views_1 || 0,
     altText: apiProject.short_text,
-    href: `${baseUrl}/investments/${apiProject.subpath}`,
+    href: `${baseUrl}${investmentsPath}${apiProject.subpath}`,
   };
 };
 
@@ -112,7 +121,7 @@ export const useProjects = (options: UseProjectsOptions = {}) => {
 
       const data: ApiProject[] = await response.json();
       const mappedProjects = data.map((project) =>
-        mapApiProjectToProjectItem(project, "https://inventure.com.ua")
+        mapApiProjectToProjectItem(project, "https://inventure.com.ua", currentLanguage)
       );
 
       setProjects(mappedProjects);
