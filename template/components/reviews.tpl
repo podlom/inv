@@ -26,7 +26,7 @@
 			<div class="glide__track" data-glide-el="track">
 				<ul class="glide__slides">
 					<!-- { @ts -->
-					{rlent '/review' 20 var='review' analytics=0 category=$category }
+					{rlent '/review' 20 lang=$lang var='review' analytics=0 category=$category }
 					<li class="glide__slide">
 						<div class="reviews__slide">
 							<div class="reviews__header">
@@ -73,7 +73,7 @@
 
 			<div class=" glide__bullets" data-glide-el="controls[nav]">
 				{assign "count" "0"}
-				{rlent '/review' 20 var='review' analytics=0 category=$category}
+				{rlent '/review' 20 lang=$lang var='review' analytics=0 category=$category}
 				<button class="glide__bullet" data-glide-dir="={$count}"></button>
 				{assign "count" $count+1}
 				{/rlent}
@@ -135,7 +135,7 @@
 
 <div id="reviews-data" data-reviews='[
         {assign "reviewCount" 0}
-        {rlent '/review' 20 var='review' analytics=0 category=$category}
+        {rlent '/review' 20 lang=$lang var='review' analytics=0 category=$category}
             {if $reviewCount > 0},{/if}
             {
                 "id": {$review->getId()},
