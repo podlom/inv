@@ -86,10 +86,11 @@ if (!empty($_REQUEST))
 
         if (!empty($res911) && is_array($res911))
         {
+            $resHmtl .= '<section>';
+
             foreach ($res911 as $a1)
             {
-				$resHmtl .= '<section>' .
-					'<div class="mx-auto mb-6 md:mb-8" data-aria-hidden="true" aria-hidden="true">' . 
+				$resHmtl .= '<div class="mx-auto mb-6 md:mb-8" data-aria-hidden="true" aria-hidden="true">' .
 						'<div class="container mx-auto flex items-end justify-between">' . 
 							'<div class="flex flex-col"><h2 class="text-3xl md:text-4xl leading-none font-bold max-w-xs"><span>Ось що кажуть<br></span><span>про нас клієнти</span></h2>' . 
 								'<p class="max-w-lg mt-6 text-muted-foreground">Відгуки наших клієнтів — найкраще свідчення нашої ефективності у супроводженні угод продажу бізнесу, комерційної нерухомості та залучення інвестицій</p>' .
@@ -111,10 +112,11 @@ if (!empty($_REQUEST))
 								'</div>'.
 							'</div>' . 
 						'</div>' .
-					'</div>' . 
-				'</section>';
+					'</div>';
 
             }
+            $resHmtl .= '</section>';
+
         }
     }
 }
