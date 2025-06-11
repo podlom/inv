@@ -77,7 +77,10 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
     price === "0" || price === "$0" || price === "$ 0" ? "Договорная" : price;
 
   return (
-    <article className="flex overflow-hidden flex-col h-full rounded-lg border border-gray-100 border-solid w-full max-md:mx-auto max-md:my-0 max-md:w-full">
+    <article className="relative flex overflow-hidden flex-col h-full rounded-lg border border-gray-100 border-solid w-full max-md:mx-auto max-md:my-0 max-md:w-full">
+      <div className="absolute top-0 left-0 flex p-3">
+        <div className="font-bold text-sm leading-[30px] text-center tracking-wider uppercase text-white h-[30px] w-auto px-3 bg-[#db8686] shadow-md rounded z-[9]">{t("projectCard.sold")}</div>
+      </div>
       <img
         src={imageUrl}
         className="object-cover w-full h-[240px]"

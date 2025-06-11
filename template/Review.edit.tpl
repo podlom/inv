@@ -135,9 +135,14 @@
                 <div>
                     <label>
                         Lang
-                        {$form->getField('lang')->getInput()}
+                        <select name="entity[lang]" class="user-success" data-sci>
+                            <option value="ru"{if $entity->getLang() == 'ru'} selected{/if}>Русский (ru)</option>
+                            <option value="uk"{if $entity->getLang() == 'uk'} selected{/if}>Українська (uk)</option>
+                            <option value="en"{if $entity->getLang() == 'en'} selected{/if}>English (en)</option>
+                        </select>
                     </label>
                 </div>
+
             </div>
         </div>
 
