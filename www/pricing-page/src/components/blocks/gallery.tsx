@@ -155,7 +155,7 @@ export const Gallery = ({
               ))}
             </h2>
             {localizedDescription && (
-              <p className="max-w-lg mt-6 text-muted-foreground">
+              <p className="max-w-lg lg:text-lg mt-6 text-muted-foreground">
                 {localizedDescription}
               </p>
             )}
@@ -165,7 +165,7 @@ export const Gallery = ({
               <a
                 href={showAllLink}
                 target="_blank"
-                className="flex items-center gap-2 text-sm font-medium text-[#286080] hover:text-[#286080]/80 transition-colors"
+                className="flex  items-center gap-2 font-medium text-[#286080] hover:text-[#286080]/80 transition-colors"
               >
                 {t("gallery.projects.viewAll")}
                 <ArrowRight className="size-4" />
@@ -230,10 +230,10 @@ export const Gallery = ({
             ))}
           </CarouselContent>
         </Carousel>
-        <div className=" flex justify-between items-center container mx-auto">
+        <div className="flex justify-between items-center container mx-auto">
           <div
             className={cn(
-              "w-[88px] overflow-hidden rounded-full p-2",
+              "w-[88px] h-[40px] flex items-center overflow-hidden rounded-full p-2",
               type === "reviews"
                 ? "bg-white border border-[#ECEEF0]"
                 : "bg-[#286080]/10"
@@ -275,13 +275,13 @@ export const Gallery = ({
               }}
               disabled={!canScrollPrev}
               className={cn(
-                "disabled:pointer-events-auto h-8 w-8 rounded-full disabled:opacity-50",
+                "disabled:pointer-events-auto h-10 w-10 rounded-full disabled:opacity-50",
                 type === "reviews"
                   ? "bg-white hover:bg-gray-50 disabled:text-[#286080]/50"
                   : "bg-[#286080]/10 hover:bg-[#286080]/20 disabled:bg-[#286080]/5"
               )}
             >
-              <ArrowLeft className="size-4 text-[#286080]" />
+              <ArrowLeft className="size-5 text-[#286080]" />
             </Button>
             <Button
               size="icon"
@@ -291,13 +291,13 @@ export const Gallery = ({
               }}
               disabled={!canScrollNext}
               className={cn(
-                "disabled:pointer-events-auto h-8 w-8 rounded-full disabled:opacity-50",
+                "disabled:pointer-events-auto h-10 w-10 rounded-full disabled:opacity-50",
                 type === "reviews"
                   ? "bg-white hover:bg-gray-50 disabled:bg-gray-50"
                   : "bg-[#286080]/10 hover:bg-[#286080]/20 disabled:bg-[#286080]/5"
               )}
             >
-              <ArrowRight className="size-4 text-[#286080]" />
+              <ArrowRight className="size-5 text-[#286080]" />
             </Button>
           </div>
           {showAllLink && (
