@@ -27,6 +27,8 @@ $lang = 'ru';
 $limit = 34;
 $offset = 0;
 $sqlOrderBy = ' r0_.id ';
+$h2 = '<span>Вот что говорят<br></span><span>о нас клиенты</span>';
+$h3 = 'Отзывы наших клиентов — лучшее свидетельство нашей эффективности в сопровождении сделок продажи бизнеса, коммерческой недвижимости и привлечения инвестиций';
 
 $msg = __FILE__ . ' +' . __LINE__ . ' $lang: ' . var_export($lang, true);
 l_m($msg);
@@ -55,6 +57,14 @@ if (!empty($_REQUEST))
     {
 		$lang = $_REQUEST['lang'];
 		$sqlAndWhereLang = ' AND r0_.lang = "' . $lang . '" ';
+    }
+
+    if ($lang == 'en') {
+        $h2 = '<span>What Our Clients Say</span>';
+        $h3 = 'Proven Results, Trusted by Clients! Our clients&apos; testimonials reflect the quality of our deal advisory in business exits, commercial real estate, and capital raising';
+    } elseif ($lang == 'uk') {
+        $h2 = '<span>Ось що кажуть<br></span><span>про нас клієнти</span>';
+        $h3 = 'Відгуки наших клієнтів — найкраще свідчення нашої ефективності у супроводженні угод продажу бізнесу, комерційної нерухомості та залучення інвестицій';
     }
 
     if (isset($_REQUEST['action']) && ($_REQUEST['action'] == 'get')) 
@@ -86,18 +96,18 @@ if (!empty($_REQUEST))
 
         if (!empty($res911) && is_array($res911))
         {
-            $resHmtl .= '<section>';
+            $resHmtl .= '<section>' .
+                '<div class="mx-auto mb-6 md:mb-8" data-aria-hidden="true" aria-hidden="true">' .
+                    '<div class="container mx-auto flex items-end justify-between">' .
+                        '<div class="flex flex-col"><h2 class="text-3xl md:text-4xl leading-none font-bold max-w-xs">' . $h2 .'</h2>' .
+                            '<p class="max-w-lg mt-6 text-muted-foreground">' . $h3 . '</p>' .
+                        '</div>' .
+                    '</div>' .
+                '</div>';
 
             foreach ($res911 as $a1)
             {
-				$resHmtl .= '<div class="mx-auto mb-6 md:mb-8" data-aria-hidden="true" aria-hidden="true">' .
-						'<div class="container mx-auto flex items-end justify-between">' . 
-							'<div class="flex flex-col"><h2 class="text-3xl md:text-4xl leading-none font-bold max-w-xs"><span>Ось що кажуть<br></span><span>про нас клієнти</span></h2>' . 
-								'<p class="max-w-lg mt-6 text-muted-foreground">Відгуки наших клієнтів — найкраще свідчення нашої ефективності у супроводженні угод продажу бізнесу, комерційної нерухомості та залучення інвестицій</p>' .
-							'</div>' .
-						'</div>' .
-					'</div>' .
-					'<div class="relative " data-aria-hidden="true" aria-hidden="true"><div class="relative mb-4 md:mb-8" role="region" aria-roledescription="carousel"><div class="overflow-hidden"><div class="flex mx-5 sm:mx-[calc((100vw-640px)/2+24px)] md:mx-[calc((100vw-768px)/2+24px)] lg:mx-[calc((100vw-1024px)/2+28px)] xl:mx-[calc((100vw-1280px)/2+28px)] 2xl:mx-[calc((100vw-96rem)/2+24px)]" style="transform: translate3d(-3200px, 0px, 0px);"><div role="group" aria-roledescription="slide" class="min-w-0 shrink-0 grow-0 basis-full max-w-[320px] pr-[20px] lg:max-w-[360px] pl-0">' . 
+				$resHmtl .= '<div class="relative " data-aria-hidden="true" aria-hidden="true"><div class="relative mb-4 md:mb-8" role="region" aria-roledescription="carousel"><div class="overflow-hidden"><div class="flex mx-5 sm:mx-[calc((100vw-640px)/2+24px)] md:mx-[calc((100vw-768px)/2+24px)] lg:mx-[calc((100vw-1024px)/2+28px)] xl:mx-[calc((100vw-1280px)/2+28px)] 2xl:mx-[calc((100vw-96rem)/2+24px)]" style="transform: translate3d(-3200px, 0px, 0px);"><div role="group" aria-roledescription="slide" class="min-w-0 shrink-0 grow-0 basis-full max-w-[320px] pr-[20px] lg:max-w-[360px] pl-0">' .
 						'<div class="group relative h-full max-w-full overflow-hidden ">' .
 							'<div class="rounded-lg border text-card-foreground shadow-sm max-w-md mx-auto h-full bg-white/50 backdrop-blur-xl border-[#ECEEF0] transition-shadow duration-300"><div class="p-4 lg:p-6 h-full flex flex-col">' .
 								'<div class="mb-4"><p class="text-gray-700 text-base leading-relaxed line-clamp-5">' . $a1['rtext'] . '</p><button class="text-[#286080] flex items-center gap-2 hover:text-[#286080]/80 text-sm font-medium mt-2 transition-colors focus:outline-none focus:ring-2 focus:ring-[#286080]/20 rounded">Читати повністю<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right size-4" aria-hidden="true"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></button></div>' . 
