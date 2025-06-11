@@ -3,13 +3,11 @@
 require_once dirname(__FILE__) . '/../../vendor/autoload.php';
 require_once realpath(__DIR__ . '/../../bootstrap.php');
 
-
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 use Symfony\Component\Yaml\Yaml;
 use Dotenv\Dotenv;
-
 
 /**
  * Created by PhpStorm.
@@ -21,13 +19,13 @@ use Dotenv\Dotenv;
  * @author Taras Shkodenko <taras.shkodenko@gmail.com>
  */
 
-// Bootstrap .env
-$dotenv = Dotenv::createImmutable(dirname(__DIR__, 2)); // Adjust to the directory with your .env file
-$dotenv->load();
-
 function l_m(string $msg)
 {
-    $debugIp = $_ENV['DEBUG_IP'] ?? '194.88.153.138'; // use debug IP value from env or default one if env is not set
+    // Bootstrap .env
+    $dotenv = Dotenv::createImmutable(dirname(__DIR__, 2)); // Adjust to the directory with your .env file
+    $dotenv->load();
+
+    $debugIp = $_ENV['DEBUG_IP'] ?: '95.158.48.69'; // use debug IP value from env or default one if env is not set
     error_log(__METHOD__ . ' +' . __LINE__ . ' $debugIp: ' . var_export($debugIp, true));
 
     // Do not log on prod by default
