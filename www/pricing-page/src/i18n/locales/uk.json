@@ -105,7 +105,8 @@
   },
   "projectCard": {
     "defaultTitle": "Продаж діючого бізнесу у сфері металообробки в м. Київ",
-    "sold": "Продано"
+    "sold": "Продано",
+    "negotiable": "Договірна"
   },
   "bentoGrid": {
     "experience": {

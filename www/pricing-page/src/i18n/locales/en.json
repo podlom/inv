@@ -105,7 +105,8 @@
   },
   "projectCard": {
     "defaultTitle": "Sale of operating business in metalworking sphere in Kyiv",
-    "sold": "Sold"
+    "sold": "Sold",
+    "negotiable": "Negotiable"
   },
   "bentoGrid": {
     "experience": {
