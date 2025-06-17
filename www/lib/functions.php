@@ -14,7 +14,8 @@ use Dotenv\Dotenv;
  * User: Taras
  * Date: 16.08.2018
  * Time: 14:54
- * Updated: 2025-05-30 14:55
+ *
+ * Updated: 2025-06-17 16:30
  *
  * @author Taras Shkodenko <taras.shkodenko@gmail.com>
  */
@@ -25,7 +26,7 @@ function l_m(string $msg)
     $dotenv = Dotenv::createImmutable(dirname(__DIR__, 2)); // Adjust to the directory with your .env file
     $dotenv->load();
 
-    $debugIp = $_ENV['DEBUG_IP'] ?: '95.158.48.69'; // use debug IP value from env or default one if env is not set
+    $debugIp = $_ENV['DEBUG_IP']; // use debug IP value from env or default one if env is not set
     error_log(__METHOD__ . ' +' . __LINE__ . ' $debugIp: ' . var_export($debugIp, true));
 
     // Do not log on prod by default
