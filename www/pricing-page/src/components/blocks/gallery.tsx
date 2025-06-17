@@ -3,18 +3,19 @@
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { useEffect, useState } from "react";
 
-import { Button } from "@/components/ui/button";
+import { Button } from "../ui/button";
 import {
   Carousel,
   type CarouselApi,
   CarouselContent,
   CarouselItem,
-} from "@/components/ui/carousel";
+} from "../ui/carousel";
 import { ProjectCard } from "../ProjectCard";
 import { ProjectCardSkeleton } from "../ProjectCardSkeleton";
 import { ReviewCard } from "../ReviewCard";
+import { ReviewCardSkeleton } from "../ReviewCardSkeleton";
 import { ReviewModal } from "../ReviewModal";
-import { cn } from "@/lib/utils";
+import { cn } from "../../lib/utils";
 import { useTranslation } from "../../hooks/useTranslation";
 
 // Project item interface
@@ -84,17 +85,31 @@ export const Gallery = ({
   const galleryItems = data || [];
 
   // Create skeleton items when loading
-  const skeletonItems = Array.from({ length: 6 }, (_, index) => ({
-    id: `skeleton-${index}`,
-    title: "",
-    imageUrl: "",
-    date: "",
-    price: "",
-    starCount: 0,
-    viewCount: 0,
-    altText: "",
-    href: "",
-  }));
+  const skeletonItems = Array.from({ length: 6 }, (_, index) => {
+    if (type === "reviews") {
+      return {
+        id: `skeleton-${index}`,
+        name: "",
+        title: "",
+        subtitle: "",
+        review: "",
+        profileImage: "",
+        linkedinUrl: "",
+        facebookUrl: "",
+      };
+    }
+    return {
+      id: `skeleton-${index}`,
+      title: "",
+      imageUrl: "",
+      date: "",
+      price: "",
+      starCount: 0,
+      viewCount: 0,
+      altText: "",
+      href: "",
+    };
+  });
 
   // Use skeleton items when loading, otherwise use actual data
   const displayItems = loading ? skeletonItems : galleryItems;
@@ -197,6 +212,10 @@ export const Gallery = ({
                 {loading && type === "projects" ? (
                   <div className="group relative h-full max-w-full overflow-hidden">
                     <ProjectCardSkeleton />
+                  </div>
+                ) : loading && type === "reviews" ? (
+                  <div className="group relative h-full max-w-full overflow-hidden">
+                    <ReviewCardSkeleton />
                   </div>
                 ) : type === "projects" && isProjectItem(item) ? (
                   <a href={item.href} target="_blank" className="group h-full">

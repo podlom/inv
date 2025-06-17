@@ -105,7 +105,8 @@
   },
   "projectCard": {
     "defaultTitle": "Продажа действующего бизнеса в сфере металлообработки в г. Киев",
-    "sold": "Продано"
+    "sold": "Продано",
+    "negotiable": "Договорная"
   },
   "bentoGrid": {
     "experience": {
