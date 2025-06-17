@@ -1,6 +1,7 @@
 import React, { useMemo } from "react";
 import { Gallery, type ReviewItem } from "./blocks/gallery";
 import { useTranslation } from "../hooks/useTranslation";
+import { useReviews } from "../hooks/useReviews";
 import reviewsBg from "../assets/reviews-bg.svg";
 
 // Define the structure of the fallback review data
@@ -215,31 +216,24 @@ const transformReviewData = (
 
 export const ReviewsSection: React.FC = () => {
   const { t } = useTranslation();
+  const {
+    reviews,
+    loading: reviewsLoading,
+    error: reviewsError,
+  } = useReviews();
+
+  // Map fallback reviews from raw API format to ReviewItem format
+  const fallbackReviewsFormatted = useMemo(() => {
+    return fallbackReviews.map(transformReviewData);
+  }, []);
 
   const reviewsData = useMemo(() => {
-    // Try to get data from window.reviewsData
-    let sourceData: (WindowReviewData | FallbackReviewData)[] = fallbackReviews;
-
-    if (typeof window !== "undefined" && (window as any).reviewsData) {
-      try {
-        const reviewsElement = document.getElementById(
-          "reviews-data"
-        ) as HTMLElement;
-        const windowData = JSON.parse(reviewsElement.dataset.reviews || "[]");
-        if (Array.isArray(windowData) && windowData.length > 0) {
-          sourceData = windowData;
-        }
-      } catch (error) {
-        console.warn(
-          "Error accessing window.reviewsData, using fallback:",
-          error
-        );
-      }
+    // If there's an error or no reviews from API, use fallback
+    if (reviewsError || !reviews.length) {
+      return fallbackReviewsFormatted;
     }
-
-    // Transform the data to match ReviewItem interface
-    return sourceData.map(transformReviewData);
-  }, []);
+    return reviews;
+  }, [reviews, reviewsError, fallbackReviewsFormatted]);
 
   return (
     <div className="relative">
@@ -254,6 +248,7 @@ export const ReviewsSection: React.FC = () => {
           description={t("gallery.reviews.description")}
           type="reviews"
           data={reviewsData}
+          loading={reviewsLoading}
         />
       </div>
     </div>
