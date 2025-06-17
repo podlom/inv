@@ -293,36 +293,21 @@ if (!empty($_REQUEST)) {
             $offset = 0;
         }
 
-        $minPrice = $minPriceSql = '';
-        if (isset($p1['price1']) && !empty($p1['price1'])) {
-            $minPrice = intval($p1['price1']);
-            if ($minPrice >= 0) {
-                $minPriceSql = ' AND p0_.attr NOT LIKE "%\"attr15\":\"\"%" ';
-            }
-        }
-        $maxPrice = $maxPriceSql = '';
-        if (isset($p1['price2']) && !empty($p1['price2'])) {
-            $maxPrice = intval($p1['price2']);
-            if ($maxPrice >= 0) {
-                $maxPriceSql = ' AND p0_.attr NOT LIKE "%\"attr15\":\"\"%" ';
-            }
-        }
-        if (isset($p1['price1']) && !empty($p1['price1']) && isset($p1['price2']) && !empty($p1['price2'])) {
-            $minPrice = intval($p1['price1']);
-            $maxPrice = intval($p1['price2']);
-            if (($maxPrice > 0) && ($minPrice > 0)) {
-                $maxPriceSql = ' AND p0_.attr NOT LIKE "%\"attr15\":\"\"%" ';
-            }
-        }
         $priceSql = '';
-        if (!empty($minPriceSql)) {
-            $priceSql = $minPriceSql;
-        } elseif (!empty($maxPriceSql)) {
-            $priceSql = $maxPriceSql;
-        }
-        if (!empty($price1) || !empty($price2)) {
-            $priceSql = ' AND p0_.attr NOT LIKE "%\"attr15\":\"\"%" ';
-        }
+		$minPrice = isset($p1['price1']) && is_numeric($p1['price1']) ? (int) $p1['price1'] : null;
+		$maxPrice = isset($p1['price2']) && is_numeric($p1['price2']) ? (int) $p1['price2'] : null;
+		$conditions = [];
+		if (!is_null($minPrice)) {
+			$conditions[] = "CAST(JSON_UNQUOTE(JSON_EXTRACT(p0_.attr, '$.attr15')) AS UNSIGNED) >= {$minPrice}";
+		}
+		if (!is_null($maxPrice)) {
+			$conditions[] = "CAST(JSON_UNQUOTE(JSON_EXTRACT(p0_.attr, '$.attr15')) AS UNSIGNED) <= {$maxPrice}";
+		}
+		if (!empty($conditions)) {
+			// Загальна умова з перевіркою на наявність значення
+			$priceSql = " AND JSON_UNQUOTE(JSON_EXTRACT(p0_.attr, '$.attr15')) IS NOT NULL AND JSON_UNQUOTE(JSON_EXTRACT(p0_.attr, '$.attr15')) != ''";
+			$priceSql .= ' AND ' . implode(' AND ', $conditions);
+		}
 
         $categoryMap = [
             'projects' => 7860,
