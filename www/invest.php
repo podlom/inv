@@ -516,14 +516,14 @@ if (!empty($_REQUEST)) {
             " ORDER BY {$sqlOrderBy} " .
             " LIMIT {$limit} OFFSET {$offset}";
         l_m(__FILE__ . ' +' . __LINE__ . ' SQL: ' . $query . PHP_EOL);
+
         $res2 = $db->query($query);
-        // l_m( __FILE__ . ' +' . __LINE__ . ' Result: ' . var_export($res2, true) . PHP_EOL );
         $res4 = [];
+
         if (!empty($res2) && is_array($res2)) {
             foreach ($res2 as $a2) {
-                // l_m( __FILE__ . ' +' . __LINE__ . ' project data: ' . var_export($a2, true) . PHP_EOL );
                 $j2 = json_decode($a2['attr'], true);
-                // l_m( __FILE__ . ' +' . __LINE__ . ' project attributes: ' . var_export($j2, true) . PHP_EOL );
+
                 if (
                     isset($j2['attr16'], $j2['attr16'][0])
                     && !empty($j2['attr16'][0])
@@ -535,22 +535,6 @@ if (!empty($_REQUEST)) {
                         continue;
                     }
                 }
-
-                /*
-                if (
-                    isset($j2['attr10'], $j2['attr10']['loc'])
-                    && !empty($j2['attr10']['loc'])
-                    && isset($p1['https://dev_inventure_com_ua/investments?filter'], $p1['https://dev_inventure_com_ua/investments?filter']['attr_10'])
-                ) {
-                    $p0 = mb_strpos($j2['attr10']['loc'], $p1['https://dev_inventure_com_ua/investments?filter']['attr_10']);
-                    if ($p0 !== false) {
-                        // filter region matches
-                    } else {
-                        l_m(__FILE__ . ' +' . __LINE__ . ' Skip item with wrong location: ' . var_export($j2['attr10']['loc'], true) . '; loc filter: ' . var_export($p1['https://dev_inventure_com_ua/investments?filter']['attr_10'], true));
-                        continue;
-                    }
-                }
-                */
 
                 if (
                     !isset($j2['attr15'])
@@ -781,26 +765,18 @@ if (!empty($_REQUEST)) {
             die(json_encode($result));
         }
     } elseif (isset($_REQUEST['action']) && ($_REQUEST['action'] == 'set')) { // Set data action
-        // l_m( __FILE__ . ' +' . __LINE__ );
         if (!empty($_REQUEST['path'])) {
             $p2 = explode('/', $_REQUEST['path']);
-            // l_m( __FILE__ . ' +' . __LINE__ . ' $p2: ' . var_export($p2, true) );
             $path = array_pop($p2);
             $query = "SELECT * FROM Page WHERE `subpath` = '{$path}'";
-            // l_m( __FILE__ . ' +' . __LINE__ . ' SQL: ' . $query );
             $r99 = $db->query($query);
-            // l_m( __FILE__ . ' +' . __LINE__ . ' $r99: ' . var_export($r99, true) );
             if (isset($r99[0]['id'])) {
                 $query = "SELECT * FROM PagePart WHERE `page_id` = '{$r99[0]['id']}' AND `name` = 'content' LIMIT 1";
-                // l_m( __FILE__ . ' +' . __LINE__ . ' SQL: ' . $query );
                 $r98 = $db->query($query);
-                // l_m( __FILE__ . ' +' . __LINE__ . ' $r98: ' . var_export($r98, true) );
                 if (isset($r98[0]['id'])) {
                     $newText = $db->escape($_REQUEST['data']);
                     $query = "UPDATE PagePart SET `text` = '{$newText}' WHERE id = '{$r98[0]['id']}'";
-                    // l_m( __FILE__ . ' +' . __LINE__ . ' SQL: ' . $query );
                     $r97 = $db->query($query);
-                    // l_m( __FILE__ . ' +' . __LINE__ . ' $r97: ' . var_export($r97, true) );
                     if ($r97 === true) {
                         $resHmtl .= '<p class="success">Изменения сохранены</p>';
                     }
