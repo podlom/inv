@@ -323,7 +323,6 @@ if (!empty($_REQUEST)) {
         if (!empty($price1) || !empty($price2)) {
             $priceSql = ' AND p0_.attr NOT LIKE "%\"attr15\":\"\"%" ';
         }
-        l_m(__FILE__ . ' +' . __LINE__ . ' price SQL: ' . $priceSql . PHP_EOL);
 
         $categoryMap = [
             'projects' => 7860,
@@ -404,16 +403,9 @@ if (!empty($_REQUEST)) {
             }
         }
         l_m(__FILE__ . ' +' . __LINE__ . ' $parentCategoryWhere: ' . $parentCategoryWhere . PHP_EOL);
-        
         l_m(__FILE__ . ' +' . __LINE__ . ' $fixPriceFilter: ' . var_export($fixPriceFilter, true) . PHP_EOL);
 
         $filterRegionWhere = '';
-        
-        /*
-        if (isset($p1['https://dev_inventure_com_ua/investments?filter'], $p1['https://dev_inventure_com_ua/investments?filter']['attr_10'])) {
-            $filterRegionWhere = ' AND p0_.attr LIKE "%' . urldecode($p1['https://dev_inventure_com_ua/investments?filter']['attr_10']) . '%" ';
-        }
-        */
         
         if (isset($region, $region['attr_10']) && !empty($region['attr_10'])) {
             $filterRegionWhere = ' AND p0_.attr LIKE "%' . urldecode($region['attr_10']) . '%" ';
