@@ -522,7 +522,7 @@ if (!empty($_REQUEST)) {
             " LIMIT {$limit} OFFSET {$offset}";
 
         if ($debugSql) {
-            l_m(__FILE__ . ' +' . __LINE__ . ' SQL: ' . $query . PHP_EOL);
+            debugSql(__FILE__ . ' +' . __LINE__ . ' SQL: ' . $query . PHP_EOL);
         }
 
         $res2 = $db->query($query);

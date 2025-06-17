@@ -1007,3 +1007,19 @@ function getParentCategoryIdByHref(string $urlPath) : ?int
 
     return $parentCategoryId;
 }
+
+function debugSql(string $msg)
+{
+    $logFileName = realpath(__DIR__ . '/../../log') . '/debug_sql.log';
+
+    if (!file_exists($logFileName))
+    {
+        touch($logFileName);
+        @chmod($logFileName, 0664);
+    }
+
+    if (is_writeable($logFileName))
+    {
+        error_log(date('r') . ' ' . $msg . PHP_EOL, 3, $logFileName);
+    }
+}
