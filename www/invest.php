@@ -33,6 +33,7 @@ try {
     echo $app->getService('template')->renderException($e);
 }
 
+$debugSql = 0;
 $resHmtl = '';
 $lang = 'ru';
 $urlLangPrefix = '';
@@ -238,6 +239,10 @@ if (!empty($_REQUEST)) {
     }
 
     if (isset($_REQUEST['action']) && ($_REQUEST['action'] == 'get')) { // Get data action
+        if (isset($_REQUEST['debugSql']) && $_REQUEST['debugSql'] == 1) {
+            $debugSql = 1;
+        }
+
         if (isset($_REQUEST['href']) && !empty($_REQUEST['href'])) {
             $url2Parse = $_REQUEST['href'];
             $u1 = parse_url($url2Parse);
@@ -515,7 +520,10 @@ if (!empty($_REQUEST)) {
             // " AND p0_.class IN ('16') " .
             " ORDER BY {$sqlOrderBy} " .
             " LIMIT {$limit} OFFSET {$offset}";
-        l_m(__FILE__ . ' +' . __LINE__ . ' SQL: ' . $query . PHP_EOL);
+
+        if ($debugSql) {
+            l_m(__FILE__ . ' +' . __LINE__ . ' SQL: ' . $query . PHP_EOL);
+        }
 
         $res2 = $db->query($query);
         $res4 = [];
