@@ -426,25 +426,18 @@ if (!empty($_REQUEST)) {
         }
 
         $filterBranchWhere = '';
-        /*
-        if (
-            isset($filter, $filter['attr_16'], $filter['attr_16'][0])
-            && !empty($filter['attr_16'][0])
-        ) {
-            $filterBranchWhere = ' AND p0_.attr LIKE "%\"attr16\":[\"' . $filter['attr_16'][0] . '\"%" ';
-        }
-        if (
-            isset($cat, $cat['attr_16'], $cat['attr_16'][0])
-            && !empty($cat['attr_16'][0])
-        ) {
-            $filterBranchWhere = ' AND p0_.attr LIKE "%\"attr16\":[\"' . $cat['attr_16'][0] . '\"%" ';
-        }
-        if (isset($_REQUEST['filter'], $_REQUEST['filter']['attr_16'], $_REQUEST['filter']['attr_16'][0])
-            && (strlen($_REQUEST['filter']['attr_16'][0]) > 0)
-        ) {
-            $filterBranchWhere = ' AND p0_.attr LIKE "%\"attr16\":[\"' . intval($_REQUEST['filter']['attr_16'][0]) . '\"%" ';
-        }
-        */
+		$attr16Value = null;
+		// Пріоритет: $_REQUEST > $filter
+		if (!empty($_REQUEST['filter']['attr_16'][0])) {
+			$attr16Value = (int) $_REQUEST['filter']['attr_16'][0];
+		} elseif (!empty($filter['attr_16'][0])) {
+			$attr16Value = (int) $filter['attr_16'][0];
+		}
+		if (!is_null($attr16Value)) {
+			// Для JSON-масиву рядків — значення має бути в подвійних лапках
+			$filterBranchWhere = " AND JSON_CONTAINS(JSON_EXTRACT(p0_.attr, '$.attr16'), '\"{$attr16Value}\"')";
+		}
+
         l_m(__FILE__ . ' +' . __LINE__ . ' $filterBranchWhere: ' . $filterBranchWhere . PHP_EOL);
 
         $sqlAndWherePub0 = '';
