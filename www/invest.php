@@ -426,7 +426,9 @@ if (!empty($_REQUEST)) {
         }
 
         $filterBranchWhere = '';		
-		$values = [];
+		$filterBranchWhere = '';
+		$values = array();
+		// Get values from the most prioritized source
 		if (!empty($_REQUEST['filter']['attr_16'])) {
 			foreach ($_REQUEST['filter']['attr_16'] as $v) {
 				$v = trim($v);
@@ -443,9 +445,10 @@ if (!empty($_REQUEST)) {
 			}
 		}
 		if (!empty($values)) {
-			$jsonConditions = array_map(fn($val) =>
-				"JSON_CONTAINS(JSON_EXTRACT(p0_.attr, '$.attr16'), '\"{$val}\"')", $values
-			);
+			$jsonConditions = array();
+			foreach ($values as $val) {
+				$jsonConditions[] = 'JSON_CONTAINS(JSON_EXTRACT(p0_.attr, \'$.attr16\'), \'"' . $val . '"\')';
+			}
 
 			$filterBranchWhere = ' AND (' . implode(' OR ', $jsonConditions) . ')';
 		}
