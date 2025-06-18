@@ -425,19 +425,30 @@ if (!empty($_REQUEST)) {
             $filterSoldWhere = ' AND p0_.`attr` LIKE \'%"attr58":"1"%\' ';
         }
 
-        $filterBranchWhere = '';
-		$attr16Value = null;
-		// Пріоритет: $_REQUEST > $filter
-		if (!empty($_REQUEST['filter']['attr_16'][0])) {
-			$attr16Value = (int) $_REQUEST['filter']['attr_16'][0];
-		} elseif (!empty($filter['attr_16'][0])) {
-			$attr16Value = (int) $filter['attr_16'][0];
+        $filterBranchWhere = '';		
+		$values = [];
+		if (!empty($_REQUEST['filter']['attr_16'])) {
+			foreach ($_REQUEST['filter']['attr_16'] as $v) {
+				$v = trim($v);
+				if ($v !== '' && is_numeric($v)) {
+					$values[] = (int) $v;
+				}
+			}
+		} elseif (!empty($filter['attr_16'])) {
+			foreach ($filter['attr_16'] as $v) {
+				$v = trim($v);
+				if ($v !== '' && is_numeric($v)) {
+					$values[] = (int) $v;
+				}
+			}
 		}
-		if (!is_null($attr16Value)) {
-			// Для JSON-масиву рядків — значення має бути в подвійних лапках
-			$filterBranchWhere = " AND JSON_CONTAINS(JSON_EXTRACT(p0_.attr, '$.attr16'), '\"{$attr16Value}\"')";
-		}
+		if (!empty($values)) {
+			$jsonConditions = array_map(fn($val) =>
+				"JSON_CONTAINS(JSON_EXTRACT(p0_.attr, '$.attr16'), '\"{$val}\"')", $values
+			);
 
+			$filterBranchWhere = ' AND (' . implode(' OR ', $jsonConditions) . ')';
+		}
         l_m(__FILE__ . ' +' . __LINE__ . ' $filterBranchWhere: ' . $filterBranchWhere . PHP_EOL);
 
         $sqlAndWherePub0 = '';
