@@ -152,7 +152,7 @@ export const Gallery = ({
   const localizedDescription = getLocalizedDescription();
 
   return (
-    <section>
+    <div>
       <div className="mx-auto mb-6 md:mb-8">
         <div className="container mx-auto flex items-end justify-between">
           <div className="flex flex-col">
@@ -343,6 +343,6 @@ export const Gallery = ({
           facebookUrl={selectedReview.facebookUrl}
         />
       )}
-    </section>
+    </div>
   );
 };

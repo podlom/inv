@@ -47,28 +47,30 @@ const PricingSection: React.FC = () => {
   ];
 
   return (
-    <section className="pricing-section">
-      <div className="pricing-container grid lg:grid-cols-2 gap-5">
-        <PricingCard
-          title={t("pricing.advertising.title")}
-          shortDescription={t("pricing.advertising.shortDescription")}
-          description={t("pricing.advertising.description")}
-          buttonText={t("pricing.advertising.button")}
-          buttonVariant="green"
-          features={firstCardFeatures}
-          priceDetails={firstCardPriceDetails}
-          discount={t("pricing.advertising.discount")}
-          isMilitaryFree={true}
-        />
-        <PricingCard
-          title={t("pricing.fullSupport.title")}
-          shortDescription={t("pricing.fullSupport.shortDescription")}
-          description={t("pricing.fullSupport.description")}
-          buttonText={t("pricing.fullSupport.button")}
-          buttonVariant="red"
-          features={secondCardFeatures}
-          priceDetails={secondCardPriceDetails}
-        />
+    <section id="pricing" className="pt-24 pb-16 container mx-auto">
+      <div className="pricing-section">
+        <div className="pricing-container grid lg:grid-cols-2 gap-5">
+          <PricingCard
+            title={t("pricing.advertising.title")}
+            shortDescription={t("pricing.advertising.shortDescription")}
+            description={t("pricing.advertising.description")}
+            buttonText={t("pricing.advertising.button")}
+            buttonVariant="green"
+            features={firstCardFeatures}
+            priceDetails={firstCardPriceDetails}
+            discount={t("pricing.advertising.discount")}
+            isMilitaryFree={true}
+          />
+          <PricingCard
+            title={t("pricing.fullSupport.title")}
+            shortDescription={t("pricing.fullSupport.shortDescription")}
+            description={t("pricing.fullSupport.description")}
+            buttonText={t("pricing.fullSupport.button")}
+            buttonVariant="red"
+            features={secondCardFeatures}
+            priceDetails={secondCardPriceDetails}
+          />
+        </div>
       </div>
     </section>
   );
