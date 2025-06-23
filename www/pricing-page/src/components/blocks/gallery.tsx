@@ -1,15 +1,12 @@
 "use client";
 
 import { ArrowLeft, ArrowRight } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, FreeMode } from "swiper/modules";
+import type { Swiper as SwiperType } from "swiper";
 
 import { Button } from "../ui/button";
-import {
-  Carousel,
-  type CarouselApi,
-  CarouselContent,
-  CarouselItem,
-} from "../ui/carousel";
 import { ProjectCard } from "../ProjectCard";
 import { ProjectCardSkeleton } from "../ProjectCardSkeleton";
 import { ReviewCard } from "../ReviewCard";
@@ -74,12 +71,14 @@ export const Gallery = ({
   loading = false,
 }: GalleryProps) => {
   const { t } = useTranslation();
-  const [carouselApi, setCarouselApi] = useState<CarouselApi>();
+  const [swiperRef, setSwiperRef] = useState<SwiperType | null>(null);
   const [canScrollPrev, setCanScrollPrev] = useState(false);
   const [canScrollNext, setCanScrollNext] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [selectedReview, setSelectedReview] = useState<ReviewItem | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const prevButtonRef = useRef<HTMLButtonElement>(null);
+  const nextButtonRef = useRef<HTMLButtonElement>(null);
 
   // Use data prop, then items prop, then default data based on type
   const galleryItems = data || [];
@@ -119,21 +118,17 @@ export const Gallery = ({
     setIsModalOpen(true);
   };
 
+  const updateNavigationState = (swiper: SwiperType) => {
+    setCanScrollPrev(!swiper.isBeginning);
+    setCanScrollNext(!swiper.isEnd);
+    setCurrentSlide(swiper.activeIndex);
+  };
+
   useEffect(() => {
-    if (!carouselApi) {
-      return;
+    if (swiperRef) {
+      updateNavigationState(swiperRef);
     }
-    const updateSelection = () => {
-      setCanScrollPrev(carouselApi.canScrollPrev());
-      setCanScrollNext(carouselApi.canScrollNext());
-      setCurrentSlide(carouselApi.selectedScrollSnap());
-    };
-    updateSelection();
-    carouselApi.on("select", updateSelection);
-    return () => {
-      carouselApi.off("select", updateSelection);
-    };
-  }, [carouselApi]);
+  }, [swiperRef]);
 
   // Get localized title and description based on type
   const getLocalizedTitle = () => {
@@ -189,25 +184,39 @@ export const Gallery = ({
           )}
         </div>
       </div>
-      <div className="relative ">
-        <Carousel
-          setApi={setCarouselApi}
-          className="mb-4 md:mb-8"
-          opts={{
-            dragFree: true,
-            align: "start",
-          }}
-        >
-          {/* sm:mx-[calc((100vw-640px)/2+24px)] md:mx-[calc((100vw-768px)/2+24px)] lg:mx-[calc((100vw-1024px)/2+32px)] xl:mx-[calc((100vw-1280px)/2+32px)] 2xl:mx-[calc((100vw-80rem)/2+32px)] */}
-          <CarouselContent className="mx-5 sm:mx-[calc((100vw-640px)/2+24px)] md:mx-[calc((100vw-768px)/2+24px)] lg:mx-[calc((100vw-1024px)/2+28px)] xl:mx-[calc((100vw-1280px)/2+28px)] 2xl:mx-[calc((100vw-96rem)/2+24px)]">
-            {displayItems.map((item, index) => (
-              <CarouselItem
+      <div className="relative">
+        <div className="mb-4 md:mb-8">
+          <Swiper
+            modules={[Navigation, Pagination, FreeMode]}
+            onSwiper={setSwiperRef}
+            onSlideChange={(swiper) => updateNavigationState(swiper)}
+            spaceBetween={20}
+            slidesPerView="auto"
+            freeMode={{
+              enabled: true,
+              sticky: false,
+            }}
+            grabCursor={true}
+            breakpoints={{
+              640: {
+                spaceBetween: 24,
+              },
+              768: {
+                spaceBetween: 24,
+              },
+              1024: {
+                spaceBetween: 28,
+              },
+              1280: {
+                spaceBetween: 28,
+              },
+            }}
+            className="!px-5 sm:!px-[calc((100vw-640px)/2+24px)] md:!px-[calc((100vw-768px)/2+24px)] lg:!px-[calc((100vw-1024px)/2+28px)] xl:!px-[calc((100vw-1280px)/2+28px)] 2xl:!px-[calc((100vw-96rem)/2+24px)]"
+          >
+            {displayItems.map((item) => (
+              <SwiperSlide
                 key={item.id}
-                className={cn(
-                  "max-w-[320px] pl-0 pr-[20px] lg:max-w-[360px]",
-                  index === 0 && "pl-0",
-                  index === displayItems.length - 1 && "pr-0"
-                )}
+                className="!w-auto max-w-[320px] lg:max-w-[360px]"
               >
                 {loading && type === "projects" ? (
                   <div className="group relative h-full max-w-full overflow-hidden">
@@ -245,10 +254,10 @@ export const Gallery = ({
                     />
                   </div>
                 ) : null}
-              </CarouselItem>
+              </SwiperSlide>
             ))}
-          </CarouselContent>
-        </Carousel>
+          </Swiper>
+        </div>
         <div className="flex justify-between items-center container mx-auto">
           <div
             className={cn(
@@ -274,7 +283,7 @@ export const Gallery = ({
                   className={`h-2 w-2 rounded-full transition-colors flex-shrink-0 ${
                     currentSlide === index ? "bg-[#286080]" : "bg-[#286080]/20"
                   }`}
-                  onClick={() => carouselApi?.scrollTo(index)}
+                  onClick={() => swiperRef?.slideTo(index)}
                   aria-label={`Go to slide ${index + 1}`}
                 />
               ))}
@@ -287,11 +296,10 @@ export const Gallery = ({
             )}
           >
             <Button
+              ref={prevButtonRef}
               size="icon"
               variant="ghost"
-              onClick={() => {
-                carouselApi?.scrollPrev();
-              }}
+              onClick={() => swiperRef?.slidePrev()}
               disabled={!canScrollPrev}
               className={cn(
                 "disabled:pointer-events-auto h-10 w-10 rounded-full disabled:opacity-50",
@@ -303,11 +311,10 @@ export const Gallery = ({
               <ArrowLeft className="size-5 text-[#286080]" />
             </Button>
             <Button
+              ref={nextButtonRef}
               size="icon"
               variant="ghost"
-              onClick={() => {
-                carouselApi?.scrollNext();
-              }}
+              onClick={() => swiperRef?.slideNext()}
               disabled={!canScrollNext}
               className={cn(
                 "disabled:pointer-events-auto h-10 w-10 rounded-full disabled:opacity-50",
