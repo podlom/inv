@@ -14,19 +14,24 @@ use Dotenv\Dotenv;
  * User: Taras
  * Date: 16.08.2018
  * Time: 14:54
- * Updated: 2025-05-30 14:55
+ *
+ * Updated: 2025-06-17 16:38
  *
  * @author Taras Shkodenko <taras.shkodenko@gmail.com>
  */
 
 function l_m(string $msg)
 {
-    // Bootstrap .env
-    $dotenv = Dotenv::createImmutable(dirname(__DIR__, 2)); // Adjust to the directory with your .env file
+    $dotenv = Dotenv::createImmutable(dirname(__DIR__, 2));
     $dotenv->load();
 
-    $debugIp = $_ENV['DEBUG_IP'] ?: '95.158.48.69'; // use debug IP value from env or default one if env is not set
-    error_log(__METHOD__ . ' +' . __LINE__ . ' $debugIp: ' . var_export($debugIp, true));
+    $debugIp = $_ENV['DEBUG_IP']; // use debug IP value from env or default one if env is not set
+
+    if (empty($debugIp)) { // Do not log any data if debug IP is empty
+        return false;
+    } else {
+        error_log(__METHOD__ . ' +' . __LINE__ . ' $debugIp: ' . var_export($debugIp, true));
+    }
 
     // Do not log on prod by default
     // if ($_SERVER['SERVER_NAME'] === 'inventure.com.ua') {
@@ -1001,4 +1006,20 @@ function getParentCategoryIdByHref(string $urlPath) : ?int
     }
 
     return $parentCategoryId;
+}
+
+function debugSql(string $msg)
+{
+    $logFileName = realpath(__DIR__ . '/../../log') . '/debug_sql.log';
+
+    if (!file_exists($logFileName))
+    {
+        touch($logFileName);
+        @chmod($logFileName, 0664);
+    }
+
+    if (is_writeable($logFileName))
+    {
+        error_log(date('r') . ' ' . $msg . PHP_EOL, 3, $logFileName);
+    }
 }

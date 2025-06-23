@@ -33,6 +33,7 @@ try {
     echo $app->getService('template')->renderException($e);
 }
 
+$debugSql = 0;
 $resHmtl = '';
 $lang = 'ru';
 $urlLangPrefix = '';
@@ -238,6 +239,10 @@ if (!empty($_REQUEST)) {
     }
 
     if (isset($_REQUEST['action']) && ($_REQUEST['action'] == 'get')) { // Get data action
+        if (isset($_REQUEST['debugSql']) && $_REQUEST['debugSql'] == 1) {
+            $debugSql = 1;
+        }
+
         if (isset($_REQUEST['href']) && !empty($_REQUEST['href'])) {
             $url2Parse = $_REQUEST['href'];
             $u1 = parse_url($url2Parse);
@@ -288,37 +293,21 @@ if (!empty($_REQUEST)) {
             $offset = 0;
         }
 
-        $minPrice = $minPriceSql = '';
-        if (isset($p1['price1']) && !empty($p1['price1'])) {
-            $minPrice = intval($p1['price1']);
-            if ($minPrice >= 0) {
-                $minPriceSql = ' AND p0_.attr NOT LIKE "%\"attr15\":\"\"%" ';
-            }
-        }
-        $maxPrice = $maxPriceSql = '';
-        if (isset($p1['price2']) && !empty($p1['price2'])) {
-            $maxPrice = intval($p1['price2']);
-            if ($maxPrice >= 0) {
-                $maxPriceSql = ' AND p0_.attr NOT LIKE "%\"attr15\":\"\"%" ';
-            }
-        }
-        if (isset($p1['price1']) && !empty($p1['price1']) && isset($p1['price2']) && !empty($p1['price2'])) {
-            $minPrice = intval($p1['price1']);
-            $maxPrice = intval($p1['price2']);
-            if (($maxPrice > 0) && ($minPrice > 0)) {
-                $maxPriceSql = ' AND p0_.attr NOT LIKE "%\"attr15\":\"\"%" ';
-            }
-        }
         $priceSql = '';
-        if (!empty($minPriceSql)) {
-            $priceSql = $minPriceSql;
-        } elseif (!empty($maxPriceSql)) {
-            $priceSql = $maxPriceSql;
-        }
-        if (!empty($price1) || !empty($price2)) {
-            $priceSql = ' AND p0_.attr NOT LIKE "%\"attr15\":\"\"%" ';
-        }
-        l_m(__FILE__ . ' +' . __LINE__ . ' price SQL: ' . $priceSql . PHP_EOL);
+		$minPrice = isset($p1['price1']) && is_numeric($p1['price1']) ? (int) $p1['price1'] : null;
+		$maxPrice = isset($p1['price2']) && is_numeric($p1['price2']) ? (int) $p1['price2'] : null;
+		$conditions = [];
+		if (!is_null($minPrice)) {
+			$conditions[] = "CAST(JSON_UNQUOTE(JSON_EXTRACT(p0_.attr, '$.attr15')) AS UNSIGNED) >= {$minPrice}";
+		}
+		if (!is_null($maxPrice)) {
+			$conditions[] = "CAST(JSON_UNQUOTE(JSON_EXTRACT(p0_.attr, '$.attr15')) AS UNSIGNED) <= {$maxPrice}";
+		}
+		if (!empty($conditions)) {
+			// Загальна умова з перевіркою на наявність значення
+			$priceSql = " AND JSON_UNQUOTE(JSON_EXTRACT(p0_.attr, '$.attr15')) IS NOT NULL AND JSON_UNQUOTE(JSON_EXTRACT(p0_.attr, '$.attr15')) != ''";
+			$priceSql .= ' AND ' . implode(' AND ', $conditions);
+		}
 
         $categoryMap = [
             'projects' => 7860,
@@ -399,16 +388,9 @@ if (!empty($_REQUEST)) {
             }
         }
         l_m(__FILE__ . ' +' . __LINE__ . ' $parentCategoryWhere: ' . $parentCategoryWhere . PHP_EOL);
-        
         l_m(__FILE__ . ' +' . __LINE__ . ' $fixPriceFilter: ' . var_export($fixPriceFilter, true) . PHP_EOL);
 
         $filterRegionWhere = '';
-        
-        /*
-        if (isset($p1['https://dev_inventure_com_ua/investments?filter'], $p1['https://dev_inventure_com_ua/investments?filter']['attr_10'])) {
-            $filterRegionWhere = ' AND p0_.attr LIKE "%' . urldecode($p1['https://dev_inventure_com_ua/investments?filter']['attr_10']) . '%" ';
-        }
-        */
         
         if (isset($region, $region['attr_10']) && !empty($region['attr_10'])) {
             $filterRegionWhere = ' AND p0_.attr LIKE "%' . urldecode($region['attr_10']) . '%" ';
@@ -443,26 +425,33 @@ if (!empty($_REQUEST)) {
             $filterSoldWhere = ' AND p0_.`attr` LIKE \'%"attr58":"1"%\' ';
         }
 
-        $filterBranchWhere = '';
-        /*
-        if (
-            isset($filter, $filter['attr_16'], $filter['attr_16'][0])
-            && !empty($filter['attr_16'][0])
-        ) {
-            $filterBranchWhere = ' AND p0_.attr LIKE "%\"attr16\":[\"' . $filter['attr_16'][0] . '\"%" ';
-        }
-        if (
-            isset($cat, $cat['attr_16'], $cat['attr_16'][0])
-            && !empty($cat['attr_16'][0])
-        ) {
-            $filterBranchWhere = ' AND p0_.attr LIKE "%\"attr16\":[\"' . $cat['attr_16'][0] . '\"%" ';
-        }
-        if (isset($_REQUEST['filter'], $_REQUEST['filter']['attr_16'], $_REQUEST['filter']['attr_16'][0])
-            && (strlen($_REQUEST['filter']['attr_16'][0]) > 0)
-        ) {
-            $filterBranchWhere = ' AND p0_.attr LIKE "%\"attr16\":[\"' . intval($_REQUEST['filter']['attr_16'][0]) . '\"%" ';
-        }
-        */
+        $filterBranchWhere = '';		
+		$filterBranchWhere = '';
+		$values = array();
+		// Get values from the most prioritized source
+		if (!empty($_REQUEST['filter']['attr_16'])) {
+			foreach ($_REQUEST['filter']['attr_16'] as $v) {
+				$v = trim($v);
+				if ($v !== '' && is_numeric($v)) {
+					$values[] = (int) $v;
+				}
+			}
+		} elseif (!empty($filter['attr_16'])) {
+			foreach ($filter['attr_16'] as $v) {
+				$v = trim($v);
+				if ($v !== '' && is_numeric($v)) {
+					$values[] = (int) $v;
+				}
+			}
+		}
+		if (!empty($values)) {
+			$jsonConditions = array();
+			foreach ($values as $val) {
+				$jsonConditions[] = 'JSON_CONTAINS(JSON_EXTRACT(p0_.attr, \'$.attr16\'), \'"' . $val . '"\')';
+			}
+
+			$filterBranchWhere = ' AND (' . implode(' OR ', $jsonConditions) . ')';
+		}
         l_m(__FILE__ . ' +' . __LINE__ . ' $filterBranchWhere: ' . $filterBranchWhere . PHP_EOL);
 
         $sqlAndWherePub0 = '';
@@ -515,15 +504,18 @@ if (!empty($_REQUEST)) {
             // " AND p0_.class IN ('16') " .
             " ORDER BY {$sqlOrderBy} " .
             " LIMIT {$limit} OFFSET {$offset}";
-        l_m(__FILE__ . ' +' . __LINE__ . ' SQL: ' . $query . PHP_EOL);
+
+        if ($debugSql) {
+            debugSql(__FILE__ . ' +' . __LINE__ . ' SQL: ' . $query . PHP_EOL);
+        }
+
         $res2 = $db->query($query);
-        // l_m( __FILE__ . ' +' . __LINE__ . ' Result: ' . var_export($res2, true) . PHP_EOL );
         $res4 = [];
+
         if (!empty($res2) && is_array($res2)) {
             foreach ($res2 as $a2) {
-                // l_m( __FILE__ . ' +' . __LINE__ . ' project data: ' . var_export($a2, true) . PHP_EOL );
                 $j2 = json_decode($a2['attr'], true);
-                // l_m( __FILE__ . ' +' . __LINE__ . ' project attributes: ' . var_export($j2, true) . PHP_EOL );
+
                 if (
                     isset($j2['attr16'], $j2['attr16'][0])
                     && !empty($j2['attr16'][0])
@@ -535,22 +527,6 @@ if (!empty($_REQUEST)) {
                         continue;
                     }
                 }
-
-                /*
-                if (
-                    isset($j2['attr10'], $j2['attr10']['loc'])
-                    && !empty($j2['attr10']['loc'])
-                    && isset($p1['https://dev_inventure_com_ua/investments?filter'], $p1['https://dev_inventure_com_ua/investments?filter']['attr_10'])
-                ) {
-                    $p0 = mb_strpos($j2['attr10']['loc'], $p1['https://dev_inventure_com_ua/investments?filter']['attr_10']);
-                    if ($p0 !== false) {
-                        // filter region matches
-                    } else {
-                        l_m(__FILE__ . ' +' . __LINE__ . ' Skip item with wrong location: ' . var_export($j2['attr10']['loc'], true) . '; loc filter: ' . var_export($p1['https://dev_inventure_com_ua/investments?filter']['attr_10'], true));
-                        continue;
-                    }
-                }
-                */
 
                 if (
                     !isset($j2['attr15'])
@@ -781,26 +757,18 @@ if (!empty($_REQUEST)) {
             die(json_encode($result));
         }
     } elseif (isset($_REQUEST['action']) && ($_REQUEST['action'] == 'set')) { // Set data action
-        // l_m( __FILE__ . ' +' . __LINE__ );
         if (!empty($_REQUEST['path'])) {
             $p2 = explode('/', $_REQUEST['path']);
-            // l_m( __FILE__ . ' +' . __LINE__ . ' $p2: ' . var_export($p2, true) );
             $path = array_pop($p2);
             $query = "SELECT * FROM Page WHERE `subpath` = '{$path}'";
-            // l_m( __FILE__ . ' +' . __LINE__ . ' SQL: ' . $query );
             $r99 = $db->query($query);
-            // l_m( __FILE__ . ' +' . __LINE__ . ' $r99: ' . var_export($r99, true) );
             if (isset($r99[0]['id'])) {
                 $query = "SELECT * FROM PagePart WHERE `page_id` = '{$r99[0]['id']}' AND `name` = 'content' LIMIT 1";
-                // l_m( __FILE__ . ' +' . __LINE__ . ' SQL: ' . $query );
                 $r98 = $db->query($query);
-                // l_m( __FILE__ . ' +' . __LINE__ . ' $r98: ' . var_export($r98, true) );
                 if (isset($r98[0]['id'])) {
                     $newText = $db->escape($_REQUEST['data']);
                     $query = "UPDATE PagePart SET `text` = '{$newText}' WHERE id = '{$r98[0]['id']}'";
-                    // l_m( __FILE__ . ' +' . __LINE__ . ' SQL: ' . $query );
                     $r97 = $db->query($query);
-                    // l_m( __FILE__ . ' +' . __LINE__ . ' $r97: ' . var_export($r97, true) );
                     if ($r97 === true) {
                         $resHmtl .= '<p class="success">Изменения сохранены</p>';
                     }
