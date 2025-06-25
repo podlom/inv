@@ -478,6 +478,10 @@ if (!empty($_REQUEST)) {
             $skipBranchFilter = 1;
             $filterBranchWhere = '';
         }
+        if (isset($cat['category']['parent']) && !empty($cat['category']['parent']) && in_array($cat['category']['parent'], ['realestate'])) {
+            $skipBranchFilter = 1;
+            $filterBranchWhere = '';
+        }
 
         $query = "SELECT SQL_CALC_FOUND_ROWS p0_.id AS id, " .
             " p0_.h1 AS h1, " .
