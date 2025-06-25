@@ -474,7 +474,7 @@ if (!empty($_REQUEST)) {
         $minp = 9999999; // Минимальна цена инвестиций
         $num = $maxp = 0; // Максимальная цена инвестиций
 
-        if (in_array($categoryMap[$_REQUEST['parent']], [7862, 25264, 9780])) {
+        if (isset($_REQUEST['parent']) && !empty($_REQUEST['parent']) && in_array($categoryMap[$_REQUEST['parent']], [7862, 25264, 9780])) {
             $skipBranchFilter = 1;
             $filterBranchWhere = '';
         }
