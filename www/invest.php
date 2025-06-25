@@ -474,11 +474,24 @@ if (!empty($_REQUEST)) {
         $minp = 9999999; // Минимальна цена инвестиций
         $num = $maxp = 0; // Максимальная цена инвестиций
 
-        if (isset($_REQUEST['parent']) && !empty($_REQUEST['parent']) && in_array($categoryMap[$_REQUEST['parent']], ['realestate', 7862, 25264, 9780])) {
+        if (isset($_REQUEST['parent'])
+            && !empty($_REQUEST['parent'])
+            && in_array($categoryMap[$_REQUEST['parent']], ['realestate', 7862, 25264, 9780])
+        ) {
             $skipBranchFilter = 1;
             $filterBranchWhere = '';
         }
-        if (isset($cat['category']['parent']) && !empty($cat['category']['parent']) && in_array($cat['category']['parent'], ['realestate'])) {
+        elseif (isset($cat['category']['parent'])
+            && !empty($cat['category']['parent'])
+            && in_array($cat['category']['parent'], ['realestate'])
+        ) {
+            $skipBranchFilter = 1;
+            $filterBranchWhere = '';
+        }
+        elseif (isset($_REQUEST['filter'], $_REQUEST['filter']['category'], $_REQUEST['filter']['category']['parent'])
+            && !empty($_REQUEST['filter']['category']['parent'])
+            && in_array($_REQUEST['filter']['category']['parent'], ['realestate'])
+        ) {
             $skipBranchFilter = 1;
             $filterBranchWhere = '';
         }
