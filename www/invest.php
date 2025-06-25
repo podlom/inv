@@ -33,6 +33,7 @@ try {
     echo $app->getService('template')->renderException($e);
 }
 
+$skipBranchFilter = 0;
 $debugSql = 0;
 $resHmtl = '';
 $lang = 'ru';
@@ -472,6 +473,11 @@ if (!empty($_REQUEST)) {
 
         $minp = 9999999; // Минимальна цена инвестиций
         $num = $maxp = 0; // Максимальная цена инвестиций
+
+        if (in_array($categoryMap[$_REQUEST['parent']], [7862, 25264, 9780])) {
+            $skipBranchFilter = 1;
+            $filterBranchWhere = '';
+        }
 
         $query = "SELECT SQL_CALC_FOUND_ROWS p0_.id AS id, " .
             " p0_.h1 AS h1, " .
