@@ -68,6 +68,18 @@ if (!empty($_SERVER['HTTP_REFERER'])) {
     l_m($msg);
 }
 
+if (isset($_REQUEST['lang']) && !empty($_REQUEST['lang']) && in_array($_REQUEST['lang'], ['uk', 'en'])) {
+    if ($_REQUEST['lang'] == 'en') {
+        $sqlPath = '/en/investments';
+        $lang = 'en';
+        $urlLangPrefix = '/' . $lang;
+    } else {
+        $sqlPath = '/uk/investments';
+        $lang = 'uk';
+        $urlLangPrefix = '/' . $lang;
+    }
+}
+
 $msg = __FILE__ . ' +' . __LINE__ . ' $lang: ' . var_export($lang, true);
 l_m($msg);
 
