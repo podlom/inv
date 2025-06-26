@@ -699,7 +699,14 @@ if (!empty($_REQUEST)) {
                     $isChecked = 1;
                 }
                 
-                $nextPageLink = '/invest.php?action=get&limit=23&page=' . ($page + 1);
+                // Build next page link with all original parameters
+                $nextPageParams = $_REQUEST;
+                $nextPageParams['action'] = 'get';
+                $nextPageParams['limit'] = 23;
+                $nextPageParams['page'] = $page + 1;
+                // Remove href parameter if it exists as it's not needed for pagination
+                unset($nextPageParams['href']);
+                $nextPageLink = '/invest.php?' . http_build_query($nextPageParams);
                 $isLast = $num === count($res2) - 1;
                 $nextPageRequest = $isLast ? 'hx-get="' . $nextPageLink . '" hx-trigger="revealed" hx-indicator="#spinner" hx-swap="afterend"' : '';
 
