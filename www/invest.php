@@ -33,6 +33,7 @@ try {
     echo $app->getService('template')->renderException($e);
 }
 
+$skipBranchFilter = 0;
 $debugSql = 0;
 $resHmtl = '';
 $lang = 'ru';
@@ -65,6 +66,18 @@ if (!empty($_SERVER['HTTP_REFERER'])) {
     }
     $msg = __FILE__ . ' +' . __LINE__ . ' $sqlPath: ' . var_export($sqlPath, true);
     l_m($msg);
+}
+
+if (isset($_REQUEST['lang']) && !empty($_REQUEST['lang']) && in_array($_REQUEST['lang'], ['uk', 'en'])) {
+    if ($_REQUEST['lang'] == 'en') {
+        $sqlPath = '/en/investments';
+        $lang = 'en';
+        $urlLangPrefix = '/' . $lang;
+    } else {
+        $sqlPath = '/uk/investments';
+        $lang = 'uk';
+        $urlLangPrefix = '/' . $lang;
+    }
 }
 
 $msg = __FILE__ . ' +' . __LINE__ . ' $lang: ' . var_export($lang, true);
@@ -472,6 +485,28 @@ if (!empty($_REQUEST)) {
 
         $minp = 9999999; // Минимальна цена инвестиций
         $num = $maxp = 0; // Максимальная цена инвестиций
+
+        if (isset($_REQUEST['parent'])
+            && !empty($_REQUEST['parent'])
+            && in_array($categoryMap[$_REQUEST['parent']], ['realestate', 7862, 25264, 9780])
+        ) {
+            $skipBranchFilter = 1;
+            $filterBranchWhere = '';
+        }
+        elseif (isset($cat['category']['parent'])
+            && !empty($cat['category']['parent'])
+            && in_array($cat['category']['parent'], ['realestate'])
+        ) {
+            $skipBranchFilter = 1;
+            $filterBranchWhere = '';
+        }
+        elseif (isset($_REQUEST['filter'], $_REQUEST['filter']['category'], $_REQUEST['filter']['category']['parent'])
+            && !empty($_REQUEST['filter']['category']['parent'])
+            && in_array($_REQUEST['filter']['category']['parent'], ['realestate'])
+        ) {
+            $skipBranchFilter = 1;
+            $filterBranchWhere = '';
+        }
 
         $query = "SELECT SQL_CALC_FOUND_ROWS p0_.id AS id, " .
             " p0_.h1 AS h1, " .
