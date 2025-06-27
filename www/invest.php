@@ -66,17 +66,17 @@ if (!empty($_SERVER['HTTP_REFERER'])) {
     }
     $msg = __FILE__ . ' +' . __LINE__ . ' $sqlPath: ' . var_export($sqlPath, true);
     l_m($msg);
-}
-
-if (isset($_REQUEST['lang']) && !empty($_REQUEST['lang']) && in_array($_REQUEST['lang'], ['uk', 'en'])) {
-    if ($_REQUEST['lang'] == 'en') {
-        $sqlPath = '/en/investments';
-        $lang = 'en';
-        $urlLangPrefix = '/' . $lang;
-    } else {
-        $sqlPath = '/uk/investments';
-        $lang = 'uk';
-        $urlLangPrefix = '/' . $lang;
+} else {
+    if (isset($_REQUEST['lang']) && !empty($_REQUEST['lang']) && in_array($_REQUEST['lang'], ['uk', 'en'])) {
+        if ($_REQUEST['lang'] == 'en') {
+            $sqlPath = '/en/investments';
+            $lang = 'en';
+            $urlLangPrefix = '/' . $lang;
+        } else {
+            $sqlPath = '/uk/investments';
+            $lang = 'uk';
+            $urlLangPrefix = '/' . $lang;
+        }
     }
 }
 
@@ -706,6 +706,10 @@ if (!empty($_REQUEST)) {
                 $nextPageParams['page'] = $page + 1;
                 // Remove href parameter if it exists as it's not needed for pagination
                 unset($nextPageParams['href']);
+                // Add lang param
+                if (!isset($nextPageParams['lang']) && !empty($lang) && in_array($lang, ['ru', 'uk', 'en'])) {
+                    $nextPageParams['lang'] = $lang;
+                }
                 $nextPageLink = '/invest.php?' . http_build_query($nextPageParams);
                 $isLast = $num === count($res2) - 1;
                 $nextPageRequest = $isLast ? 'hx-get="' . $nextPageLink . '" hx-trigger="revealed" hx-indicator="#spinner" hx-swap="afterend"' : '';
