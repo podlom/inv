@@ -307,8 +307,8 @@ if (!empty($_REQUEST)) {
         }
 
         $priceSql = '';
-		$minPrice = isset($p1['price1']) && is_numeric($p1['price1']) ? (int) $p1['price1'] : null;
-		$maxPrice = isset($p1['price2']) && is_numeric($p1['price2']) ? (int) $p1['price2'] : null;
+		$minPrice = isset($_REQUEST['price1']) && is_numeric($_REQUEST['price1']) ? (int) $_REQUEST['price1'] : null;
+		$maxPrice = isset($_REQUEST['price2']) && is_numeric($_REQUEST['price2']) ? (int) $_REQUEST['price2'] : null;
 		$conditions = [];
 		if (!is_null($minPrice)) {
 			$conditions[] = "CAST(JSON_UNQUOTE(JSON_EXTRACT(p0_.attr, '$.attr15')) AS UNSIGNED) >= {$minPrice}";
