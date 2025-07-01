@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import type { ProjectItem } from "../components/blocks/gallery";
 import { useTranslation } from "./useTranslation";
 
@@ -25,6 +25,8 @@ export interface ApiProject {
 
 interface UseProjectsOptions {
   baseUrl?: string;
+  pageSize?: number;
+  enablePagination?: boolean;
 }
 
 const formatDate = (dateString: string): string => {
@@ -60,7 +62,7 @@ export const mapApiProjectToProjectItem = (
   const fullImageUrl = apiProject.image_url.startsWith("http")
     ? apiProject.image_url
     : `${baseUrl}${apiProject.image_url}`;
-    
+
   // Add language key between baseUrl and /investments for English or Ukrainian
   let investmentsPath = "/investments/";
   if (language === "en") {
@@ -83,32 +85,50 @@ export const mapApiProjectToProjectItem = (
 };
 
 // Get the appropriate API endpoint based on language
-const getApiEndpoint = (language: string, baseUrl: string): string => {
+const getApiEndpoint = (
+  language: string,
+  baseUrl: string,
+  page?: number
+): string => {
+  const pageParam = page ? `&page=${page}` : "";
+
   switch (language) {
     case "en":
-      return `${baseUrl}/investments?InvestsEnSearch%5Battr58%5D=1`;
+      return `${baseUrl}/investments?InvestsEnSearch%5Battr58%5D=1${pageParam}`;
     case "uk":
-      return `${baseUrl}/investycii?InvestsUkSearch%5Battr58%5D=1`;
+      return `${baseUrl}/investycii?InvestsUkSearch%5Battr58%5D=1${pageParam}`;
     case "ru":
     default:
-      return `${baseUrl}/investicii?InvestsRuSearch[attr58]=1`;
+      return `${baseUrl}/investicii?InvestsRuSearch[attr58]=1${pageParam}`;
   }
 };
 
 export const useProjects = (options: UseProjectsOptions = {}) => {
   const [projects, setProjects] = useState<ProjectItem[]>([]);
   const [loading, setLoading] = useState(true);
+  const [loadingMore, setLoadingMore] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [hasMore, setHasMore] = useState(true);
+  const [currentPage, setCurrentPage] = useState(1);
   const { currentLanguage } = useTranslation();
 
   const baseUrl = options.baseUrl || "https://api.inventure.com.ua";
+  const enablePagination = options.enablePagination ?? true;
 
-  const fetchProjects = async () => {
+  const fetchProjects = async (page = 1, append = false) => {
     try {
-      setLoading(true);
+      if (append) {
+        setLoadingMore(true);
+      } else {
+        setLoading(true);
+        setProjects([]);
+      }
       setError(null);
 
-      const endpoint = getApiEndpoint(currentLanguage, baseUrl);
+      const endpoint = enablePagination
+        ? getApiEndpoint(currentLanguage, baseUrl, page)
+        : getApiEndpoint(currentLanguage, baseUrl);
+
       const response = await fetch(endpoint, {
         headers: {
           Accept: "application/json",
@@ -121,25 +141,59 @@ export const useProjects = (options: UseProjectsOptions = {}) => {
 
       const data: ApiProject[] = await response.json();
       const mappedProjects = data.map((project) =>
-        mapApiProjectToProjectItem(project, "https://inventure.com.ua", currentLanguage)
+        mapApiProjectToProjectItem(
+          project,
+          "https://inventure.com.ua",
+          currentLanguage
+        )
       );
 
-      setProjects(mappedProjects);
+      if (append) {
+        setProjects((prev) => [...prev, ...mappedProjects]);
+      } else {
+        setProjects(mappedProjects);
+      }
+
+      // Check if we have more data (API returns 20 items per page by default)
+      if (enablePagination) {
+        setHasMore(mappedProjects.length === 20);
+      } else {
+        setHasMore(false);
+      }
+
+      setCurrentPage(page);
     } catch (err) {
       setError(err instanceof Error ? err.message : "Failed to fetch projects");
     } finally {
       setLoading(false);
+      setLoadingMore(false);
     }
   };
 
+  const loadMore = useCallback(() => {
+    if (!loadingMore && !loading && hasMore && enablePagination) {
+      const nextPage = currentPage + 1;
+      fetchProjects(nextPage, true);
+    }
+  }, [loadingMore, loading, hasMore, currentPage, enablePagination]);
+
+  const refetch = useCallback(() => {
+    setCurrentPage(1);
+    setHasMore(true);
+    fetchProjects(1, false);
+  }, []);
+
   useEffect(() => {
-    fetchProjects();
+    fetchProjects(1, false);
   }, [baseUrl, currentLanguage]);
 
   return {
     projects,
     loading,
+    loadingMore,
     error,
-    refetch: fetchProjects,
+    hasMore,
+    loadMore,
+    refetch,
   };
 };

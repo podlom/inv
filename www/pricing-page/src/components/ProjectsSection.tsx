@@ -12,8 +12,13 @@ export const ProjectsSection = () => {
   const {
     projects,
     loading: projectsLoading,
+    loadingMore: projectsLoadingMore,
     error: projectsError,
-  } = useProjects();
+    hasMore: projectsHasMore,
+    loadMore: loadMoreProjects,
+  } = useProjects({
+    enablePagination: true,
+  });
 
   // Map fallback projects from raw API format to ProjectItem format
   const fallbackProjects = (fallbackProjectsRaw as ApiProject[]).map(
@@ -33,6 +38,7 @@ export const ProjectsSection = () => {
     }
   };
 
+  console.log({ projectsHasMore });
   return (
     <section id="projects" className="pb-24 pt-16">
       <Gallery
@@ -41,6 +47,9 @@ export const ProjectsSection = () => {
         data={projectsError || !projects.length ? fallbackProjects : projects}
         showAllLink={getShowAllLink()}
         loading={projectsLoading}
+        loadingMore={projectsLoadingMore}
+        hasMore={projectsHasMore}
+        onLoadMore={loadMoreProjects}
       />
     </section>
   );
