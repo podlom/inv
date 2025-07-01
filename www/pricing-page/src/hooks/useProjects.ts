@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useMemo } from "react";
 import type { ProjectItem } from "../components/blocks/gallery";
 import { useTranslation } from "./useTranslation";
 
@@ -27,6 +27,16 @@ interface UseProjectsOptions {
   baseUrl?: string;
   pageSize?: number;
   enablePagination?: boolean;
+}
+
+// Consolidated state interface
+interface ProjectsState {
+  projects: ProjectItem[];
+  loading: boolean;
+  loadingMore: boolean;
+  error: string | null;
+  hasMore: boolean;
+  currentPage: number;
 }
 
 const formatDate = (dateString: string): string => {
@@ -104,95 +114,132 @@ const getApiEndpoint = (
 };
 
 export const useProjects = (options: UseProjectsOptions = {}) => {
-  const [projects, setProjects] = useState<ProjectItem[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [loadingMore, setLoadingMore] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-  const [hasMore, setHasMore] = useState(true);
-  const [currentPage, setCurrentPage] = useState(1);
   const { currentLanguage } = useTranslation();
 
-  const baseUrl = options.baseUrl || "https://api.inventure.com.ua";
-  const enablePagination = options.enablePagination ?? true;
+  // Consolidated state to reduce rerenders
+  const [state, setState] = useState<ProjectsState>({
+    projects: [],
+    loading: true,
+    loadingMore: false,
+    error: null,
+    hasMore: true,
+    currentPage: 1,
+  });
 
-  const fetchProjects = async (page = 1, append = false) => {
-    try {
-      if (append) {
-        setLoadingMore(true);
-      } else {
-        setLoading(true);
-        setProjects([]);
+  // Memoize configuration to prevent unnecessary effect triggers
+  const config = useMemo(
+    () => ({
+      baseUrl: options.baseUrl || "https://api.inventure.com.ua",
+      enablePagination: options.enablePagination ?? true,
+      displayBaseUrl: "https://inventure.com.ua",
+    }),
+    [options.baseUrl, options.enablePagination]
+  );
+
+  // Memoize the fetch function to prevent recreation on every render
+  const fetchProjects = useCallback(
+    async (page = 1, append = false) => {
+      try {
+        if (append) {
+          setState((prev) => ({ ...prev, loadingMore: true }));
+        } else {
+          setState((prev) => ({
+            ...prev,
+            loading: true,
+            projects: [],
+          }));
+        }
+        setState((prev) => ({ ...prev, error: null }));
+
+        const endpoint = config.enablePagination
+          ? getApiEndpoint(currentLanguage, config.baseUrl, page)
+          : getApiEndpoint(currentLanguage, config.baseUrl);
+
+        const response = await fetch(endpoint, {
+          headers: {
+            Accept: "application/json",
+          },
+        });
+
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const data: ApiProject[] = await response.json();
+        const mappedProjects = data.map((project) =>
+          mapApiProjectToProjectItem(
+            project,
+            config.displayBaseUrl,
+            currentLanguage
+          )
+        );
+
+        setState((prev) => ({
+          ...prev,
+          projects: append
+            ? [...prev.projects, ...mappedProjects]
+            : mappedProjects,
+          hasMore: config.enablePagination
+            ? mappedProjects.length === 20
+            : false,
+          currentPage: page,
+          loading: false,
+          loadingMore: false,
+        }));
+      } catch (err) {
+        setState((prev) => ({
+          ...prev,
+          error:
+            err instanceof Error ? err.message : "Failed to fetch projects",
+          loading: false,
+          loadingMore: false,
+        }));
       }
-      setError(null);
+    },
+    [config, currentLanguage]
+  );
 
-      const endpoint = enablePagination
-        ? getApiEndpoint(currentLanguage, baseUrl, page)
-        : getApiEndpoint(currentLanguage, baseUrl);
-
-      const response = await fetch(endpoint, {
-        headers: {
-          Accept: "application/json",
-        },
-      });
-
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-
-      const data: ApiProject[] = await response.json();
-      const mappedProjects = data.map((project) =>
-        mapApiProjectToProjectItem(
-          project,
-          "https://inventure.com.ua",
-          currentLanguage
-        )
-      );
-
-      if (append) {
-        setProjects((prev) => [...prev, ...mappedProjects]);
-      } else {
-        setProjects(mappedProjects);
-      }
-
-      // Check if we have more data (API returns 20 items per page by default)
-      if (enablePagination) {
-        setHasMore(mappedProjects.length === 20);
-      } else {
-        setHasMore(false);
-      }
-
-      setCurrentPage(page);
-    } catch (err) {
-      setError(err instanceof Error ? err.message : "Failed to fetch projects");
-    } finally {
-      setLoading(false);
-      setLoadingMore(false);
-    }
-  };
-
+  // Stabilize loadMore callback to prevent unnecessary rerenders
   const loadMore = useCallback(() => {
-    if (!loadingMore && !loading && hasMore && enablePagination) {
-      const nextPage = currentPage + 1;
+    if (
+      !state.loadingMore &&
+      !state.loading &&
+      state.hasMore &&
+      config.enablePagination
+    ) {
+      const nextPage = state.currentPage + 1;
       fetchProjects(nextPage, true);
     }
-  }, [loadingMore, loading, hasMore, currentPage, enablePagination]);
+  }, [
+    state.loadingMore,
+    state.loading,
+    state.hasMore,
+    state.currentPage,
+    config.enablePagination,
+    fetchProjects,
+  ]);
 
+  // Stabilize refetch callback
   const refetch = useCallback(() => {
-    setCurrentPage(1);
-    setHasMore(true);
+    setState((prev) => ({
+      ...prev,
+      currentPage: 1,
+      hasMore: true,
+    }));
     fetchProjects(1, false);
-  }, []);
+  }, [fetchProjects]);
 
+  // Effect to fetch projects when dependencies change
   useEffect(() => {
     fetchProjects(1, false);
-  }, [baseUrl, currentLanguage]);
+  }, [fetchProjects]);
 
   return {
-    projects,
-    loading,
-    loadingMore,
-    error,
-    hasMore,
+    projects: state.projects,
+    loading: state.loading,
+    loadingMore: state.loadingMore,
+    error: state.error,
+    hasMore: state.hasMore,
     loadMore,
     refetch,
   };

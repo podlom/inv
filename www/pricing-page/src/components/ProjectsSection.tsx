@@ -1,3 +1,4 @@
+import React from "react";
 import { Gallery } from "./blocks/gallery";
 import { useTranslation } from "../hooks/useTranslation";
 import {
@@ -7,7 +8,7 @@ import {
 } from "../hooks/useProjects";
 import fallbackProjectsRaw from "../data/projects.json";
 
-export const ProjectsSection = () => {
+export const ProjectsSection = React.memo(() => {
   const { t, currentLanguage } = useTranslation();
   const {
     projects,
@@ -20,13 +21,20 @@ export const ProjectsSection = () => {
     enablePagination: true,
   });
 
-  // Map fallback projects from raw API format to ProjectItem format
-  const fallbackProjects = (fallbackProjectsRaw as ApiProject[]).map(
-    (project) => mapApiProjectToProjectItem(project)
-  );
+  // Memoize fallback projects mapping to prevent recreation on every render
+  const fallbackProjects = React.useMemo(() => {
+    return (fallbackProjectsRaw as ApiProject[]).map((project) =>
+      mapApiProjectToProjectItem(project)
+    );
+  }, []);
 
-  // Generate showAllLink based on current language
-  const getShowAllLink = () => {
+  // Memoize data selection to prevent unnecessary rerenders
+  const galleryData = React.useMemo(() => {
+    return projectsError || !projects.length ? fallbackProjects : projects;
+  }, [projectsError, projects, fallbackProjects]);
+
+  // Memoize showAllLink generation based on current language
+  const showAllLink = React.useMemo(() => {
     switch (currentLanguage) {
       case "en":
         return "https://inventure.com.ua/en/investments";
@@ -36,16 +44,20 @@ export const ProjectsSection = () => {
       default:
         return "https://inventure.com.ua/investments";
     }
-  };
+  }, [currentLanguage]);
 
-  console.log({ projectsHasMore });
+  // Memoize gallery title to prevent translation recalculation
+  const galleryTitle = React.useMemo(() => {
+    return t("gallery.projects.title");
+  }, [t]);
+
   return (
     <section id="projects" className="pb-24 pt-16">
       <Gallery
-        title={t("gallery.projects.title")}
+        title={galleryTitle}
         type="projects"
-        data={projectsError || !projects.length ? fallbackProjects : projects}
-        showAllLink={getShowAllLink()}
+        data={galleryData}
+        showAllLink={showAllLink}
         loading={projectsLoading}
         loadingMore={projectsLoadingMore}
         hasMore={projectsHasMore}
@@ -53,4 +65,6 @@ export const ProjectsSection = () => {
       />
     </section>
   );
-};
+});
+
+ProjectsSection.displayName = "ProjectsSection";
