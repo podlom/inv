@@ -76,8 +76,9 @@
       </div>
       {if ($post->getAttr(6))}
         <div class="flex flex-col mb-1 mt-1">
-          <h2>{if $lang === 'ru'}Сайт{elseif $lang === 'uk'}Сайт{else}Website{/if}</h2> <a href="{$post->getAttr(6)}"
-            target="_blank" itemprop="url" rel="nofollow">{$post->getAttr(6)}</a>
+          <h2>{if $lang === 'ru'}Сайт{elseif $lang === 'uk'}Сайт{else}Website{/if}</h2> <a
+            style="text-decoration: underline;" href="{$post->getAttr(6)}" target="_blank" itemprop="url"
+            rel="nofollow">{$post->getAttr(6)}</a>
         </div>
       {/if}
     </div>

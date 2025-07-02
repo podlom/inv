@@ -85,7 +85,7 @@
         <div style="position: relative;" class="mt-6">
             <div class="box-shadow box-shadow2"></div>
             <div class="map" id="eventMapBlock" itemprop="contentLocation" itemscope itemtype="http://schema.org/Place">
-                <h2 class="section__title">{if $lang === 'ru'}Расположение{else}Location{/if}</h2>
+                <h2 class="section__title">{if $lang === 'ru'}Расположение:{elseif $lang === 'uk'}Розташування:{else}Location:{/if}</h2>
                 <div class="post__map mt-4" id="google_map" itemprop="maps"></div>
             </div>
         </div>
@@ -131,7 +131,7 @@
     {block 'contacts'}
     <section class="contact-form {if $request->getPathInfo()|strpos:'/tools/events' === 0}contact-form--white mb-4 mt-4{/if}">
         <h2 class="section__title contact-form__title">
-            {if $lang === 'ru'}Контакты{else}Contacts{/if}
+            {if $lang === 'ru'}Контакты{elseif $lang === 'uk'}Контакти{else}Contacts{/if}
         </h2>
 
         <form method="post" action="/invest.php" class="contact-form__form" id="contact-form-19">
