@@ -33,39 +33,43 @@ try {
     echo date('r') . ' SQL: ' . $query . PHP_EOL;
 
     $results = $db->query($query);
+
     if (!empty($results) && is_array($results)) {
         foreach ($results as $row) {
             $original = $row['text'];
-            echo date('r') . ' Original: ' . var_export($original, true) . PHP_EOL;
+            echo date('r') . ' Original: ' . PHP_EOL . $original . PHP_EOL;
 
-            $doc = new DOMDocument('1.0', 'UTF-8');
-            libxml_use_internal_errors(true);
-            // Конвертуємо для DOMDocument (HTML без <html><body>)
-            $html = mb_convert_encoding($original, 'HTML-ENTITIES', 'UTF-8');
-            $doc->loadHTML('<meta http-equiv="Content-Type" content="text/html; charset=utf-8">' . $html, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
-            libxml_clear_errors();
+            // Знайти всі теги <a> з href="http..."
+            $newText = preg_replace_callback(
+                '#<a\s+([^>]*?href="https?://[^"]+"[^>]*)>#i',
+                function ($match) {
+                    $aTag = $match[1];
 
-            $anchors = $doc->getElementsByTagName('a');
-            foreach ($anchors as $a) {
-                $href = $a->getAttribute('href');
-                if (stripos($href, 'http://') === 0 || stripos($href, 'https://') === 0) {
-                    $rel = $a->getAttribute('rel');
-                    $relValues = preg_split('/\s+/', $rel, -1, PREG_SPLIT_NO_EMPTY);
-                    if (!in_array('nofollow', $relValues)) {
-                        $relValues[] = 'nofollow';
-                        $a->setAttribute('rel', implode(' ', array_unique($relValues)));
+                    if (stripos($aTag, 'rel=') !== false) {
+                        // Є rel – додати nofollow, якщо відсутній
+                        return preg_replace_callback(
+                            '/rel=["\']([^"\']*)["\']/i',
+                            function ($relMatch) {
+                                $rels = preg_split('/\s+/', $relMatch[1]);
+                                if (!in_array('nofollow', $rels)) {
+                                    $rels[] = 'nofollow';
+                                }
+                                return 'rel="' . implode(' ', array_unique($rels)) . '"';
+                            },
+                            '<a ' . $aTag . '>'
+                        );
+                    } else {
+                        // Додати rel="nofollow"
+                        return '<a ' . $aTag . ' rel="nofollow">';
                     }
-                }
-            }
+                },
+                $original
+            );
 
-            $newHtml = $doc->saveHTML();
-            $newHtml = str_replace('<meta http-equiv="Content-Type" content="text/html; charset=utf-8">', '', $newHtml);
+            if ($newText !== $original) {
+                echo date('r') . ' Modified: ' . PHP_EOL . $newText . PHP_EOL;
 
-            if ($original !== $newHtml) {
-                echo date('r') . ' Modified:' . PHP_EOL . var_export($newHtml, true) . PHP_EOL;
-
-                // Збереження в базу
-                $safeText = $db->escape($newHtml); // або використати prepared statement
+                $safeText = $db->escape($newText); // якщо немає – використай mysqli_real_escape_string()
                 $updateQuery = "UPDATE `PagePart` SET `text` = '{$safeText}' WHERE `id` = {$row['id']}";
                 echo date('r') . ' Update SQL: ' . $updateQuery . PHP_EOL;
                 // $db->query($updateQuery);
