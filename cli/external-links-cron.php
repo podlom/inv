@@ -27,7 +27,7 @@ try {
             AND pp.`text` NOT LIKE '%href=\"mailto:%' 
             AND pp.`text` NOT LIKE '%rel=\"nofollow\"%')
         ORDER BY rand()
-        LIMIT 0, 1
+        LIMIT 0, 7
     ";
 
     echo date('r') . ' SQL: ' . $query . PHP_EOL;
@@ -81,7 +81,7 @@ try {
                 $safeText = $db->escape($newText); // екранування, якщо потрібно
                 $updateQuery = "UPDATE `PagePart` SET `text` = '{$safeText}' WHERE `id` = {$row['id']}";
                 echo date('r') . ' Update SQL: ' . $updateQuery . PHP_EOL;
-                // $db->query($updateQuery);
+                $db->query($updateQuery);
             }
         }
     }
