@@ -27,7 +27,7 @@ try {
             AND pp.`text` NOT LIKE '%href=\"mailto:%' 
             AND pp.`text` NOT LIKE '%rel=\"nofollow\"%')
         ORDER BY rand()
-        LIMIT 0, 5
+        LIMIT 0, 1
     ";
 
     echo date('r') . ' SQL: ' . $query . PHP_EOL;
