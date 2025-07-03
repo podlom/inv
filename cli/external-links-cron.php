@@ -1,6 +1,6 @@
 <?php
 
-(PHP_SAPI !== 'cli' || isset($_SERVER['HTTP_USER_AGENT'])) && die(' +' . __LINE__ . ' PHP Fatal Error: cli only usage allowed.' . PHP_EOL);
+(PHP_SAPI !== 'cli' || isset($_SERVER['HTTP_USER_AGENT'])) && die('CLI only' . PHP_EOL);
 
 /**
  * CLI Tool to Add rel="nofollow" to external links
@@ -27,7 +27,7 @@ try {
             AND pp.`text` NOT LIKE '%href=\"mailto:%' 
             AND pp.`text` NOT LIKE '%rel=\"nofollow\"%')
         ORDER BY rand()
-        LIMIT 0, 1
+        LIMIT 0, 5
     ";
 
     echo date('r') . ' SQL: ' . $query . PHP_EOL;
@@ -35,11 +35,13 @@ try {
     $results = $db->query($query);
     if (!empty($results) && is_array($results)) {
         foreach ($results as $row) {
-            echo date('r') . ' Original: ' . PHP_EOL . $row['text'] . PHP_EOL;
+            $original = $row['text'];
 
-            $doc = new DOMDocument();
+            $doc = new DOMDocument('1.0', 'UTF-8');
             libxml_use_internal_errors(true);
-            $doc->loadHTML('<?xml encoding="UTF-8">' . $row['text'], LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+            // Конвертуємо для DOMDocument (HTML без <html><body>)
+            $html = mb_convert_encoding($original, 'HTML-ENTITIES', 'UTF-8');
+            $doc->loadHTML('<meta http-equiv="Content-Type" content="text/html; charset=utf-8">' . $html, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
             libxml_clear_errors();
 
             $anchors = $doc->getElementsByTagName('a');
@@ -47,7 +49,7 @@ try {
                 $href = $a->getAttribute('href');
                 if (stripos($href, 'http://') === 0 || stripos($href, 'https://') === 0) {
                     $rel = $a->getAttribute('rel');
-                    $relValues = array_filter(explode(' ', strtolower($rel)));
+                    $relValues = preg_split('/\s+/', $rel, -1, PREG_SPLIT_NO_EMPTY);
                     if (!in_array('nofollow', $relValues)) {
                         $relValues[] = 'nofollow';
                         $a->setAttribute('rel', implode(' ', array_unique($relValues)));
@@ -56,14 +58,13 @@ try {
             }
 
             $newHtml = $doc->saveHTML();
+            $newHtml = str_replace('<meta http-equiv="Content-Type" content="text/html; charset=utf-8">', '', $newHtml);
 
-            // Видаляємо заголовок <?xml encoding="UTF-8">
-            $newHtml = preg_replace('/^<\?xml.*?\?>/', '', $newHtml);
+            if ($original !== $newHtml) {
+                echo date('r') . ' Modified:' . PHP_EOL . $newHtml . PHP_EOL;
 
-            if ($newHtml !== $row['text']) {
-                echo date('r') . ' Modified: ' . PHP_EOL . $newHtml . PHP_EOL;
-
-                $safeText = $db->escape($newHtml);
+                // Збереження в базу
+                $safeText = $db->escape($newHtml); // або використати prepared statement
                 $updateQuery = "UPDATE `PagePart` SET `text` = '{$safeText}' WHERE `id` = {$row['id']}";
                 echo date('r') . ' Update SQL: ' . $updateQuery . PHP_EOL;
                 // $db->query($updateQuery);
