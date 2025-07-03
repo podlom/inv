@@ -40,7 +40,7 @@ try {
         " WHERE (pp.`text` LIKE '%<a%' " .
         "     AND pp.`text` LIKE '%href=\"http%' ".
         "     AND pp.`text` NOT LIKE '%href=\"mailto:%' " .
-        "     AND NOT LIKE '%rel=\"nofollow\"%') " .
+        "     AND pp.`text` NOT LIKE '%rel=\"nofollow\"%') " .
         " ORDER BY rand() " .
         " LIMIT 0, 5"
         ; //  FOR UPDATE
