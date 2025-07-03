@@ -39,14 +39,24 @@ try {
             $original = $row['text'];
             echo date('r') . ' Original: ' . PHP_EOL . $original . PHP_EOL;
 
-            // Знайти всі теги <a> з href="http..."
             $newText = preg_replace_callback(
                 '#<a\s+([^>]*?href="https?://[^"]+"[^>]*)>#i',
                 function ($match) {
                     $aTag = $match[1];
 
+                    // Отримаємо URL
+                    if (preg_match('/href="([^"]+)"/i', $aTag, $hrefMatch)) {
+                        $url = $hrefMatch[1];
+
+                        // Якщо це inventure.com.ua — пропускаємо
+                        $host = parse_url($url, PHP_URL_HOST);
+                        if ($host && preg_match('/(^|\.)inventure\.com\.ua$/i', $host)) {
+                            return '<a ' . $aTag . '>';
+                        }
+                    }
+
+                    // Якщо є rel – додаємо nofollow
                     if (stripos($aTag, 'rel=') !== false) {
-                        // Є rel – додати nofollow, якщо відсутній
                         return preg_replace_callback(
                             '/rel=["\']([^"\']*)["\']/i',
                             function ($relMatch) {
@@ -59,7 +69,6 @@ try {
                             '<a ' . $aTag . '>'
                         );
                     } else {
-                        // Додати rel="nofollow"
                         return '<a ' . $aTag . ' rel="nofollow">';
                     }
                 },
@@ -69,7 +78,7 @@ try {
             if ($newText !== $original) {
                 echo date('r') . ' Modified: ' . PHP_EOL . $newText . PHP_EOL;
 
-                $safeText = $db->escape($newText); // якщо немає – використай mysqli_real_escape_string()
+                $safeText = $db->escape($newText); // екранування, якщо потрібно
                 $updateQuery = "UPDATE `PagePart` SET `text` = '{$safeText}' WHERE `id` = {$row['id']}";
                 echo date('r') . ' Update SQL: ' . $updateQuery . PHP_EOL;
                 // $db->query($updateQuery);
