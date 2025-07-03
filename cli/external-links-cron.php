@@ -37,7 +37,10 @@ try {
     $query = "SELECT pp.*, p.h1 as page_title " .
         " FROM `PagePart` AS pp " .
         " LEFT JOIN `Page` AS p ON p.id = pp.page_id".
-        " WHERE (pp.`text` LIKE '%<a%' AND pp.`text` LIKE '%href=\"http%' AND pp.`text` NOT LIKE '%href=\"mailto:%' NOT LIKE '%rel=\"nofollow\"%') " .
+        " WHERE (pp.`text` LIKE '%<a%' " .
+        "     AND pp.`text` LIKE '%href=\"http%' ".
+        "     AND pp.`text` NOT LIKE '%href=\"mailto:%' " .
+        "     AND NOT LIKE '%rel=\"nofollow\"%') " .
         " ORDER BY rand() " .
         " LIMIT 0, 5"
         ; //  FOR UPDATE
