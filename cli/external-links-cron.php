@@ -7,79 +7,80 @@
  * User: podlo
  * Date: 2025-07-03
  * Time: 14:23
+ * Updated: 2025-07-03 15:13
  *
  * @author Taras Shkodenko <taras.shkodenko@gmail.com>
  */
 
 require_once 'lib/db.class.php';
 
-
 try {
     require_once 'config' . DIRECTORY_SEPARATOR . 'inv-prod-settings.php';
     $db = new DB(INV_PROD_DBHOST, INV_PROD_DBUSER, INV_PROD_DBPASS, INV_PROD_DBNAME);
-    //
-    $query = "SET collation_connection = utf8_unicode_ci";
-    $res1001 = $db->query($query);
-    $query = "SET NAMES utf8";
-    $res1002 = $db->query($query);
-    $query = "SET CHARACTER SET utf8";
-    $res1003 = $db->query($query);
-    $query = "set @@collation_server = utf8_unicode_ci";
-    $res1004 = $db->query($query);
-    //
-    // $doCommit = false;
-    //
-    // $query = "START TRANSACTION;";
-    // echo date('r') . ' ' . __FILE__ . ' +' . __LINE__ . ' SQL: ' . $query . PHP_EOL;
-    // $res18 = $db->query($query);
-    // echo date('r') . ' ' . __FILE__ . ' +' . __LINE__ . ' res: ' . var_export($res18, true) . PHP_EOL;
-    //
-    $query = "SELECT pp.*, p.h1 as page_title " .
-        " FROM `PagePart` AS pp " .
-        " LEFT JOIN `Page` AS p ON p.id = pp.page_id".
-        " WHERE (pp.`text` LIKE '%<a%' " .
-        "     AND pp.`text` LIKE '%href=\"http%' ".
-        "     AND pp.`text` NOT LIKE '%href=\"mailto:%' " .
-        "     AND pp.`text` NOT LIKE '%rel=\"nofollow\"%') " .
-        " ORDER BY rand() " .
-        " LIMIT 0, 5"
-        ; //  FOR UPDATE
 
-    echo date('r') . ' ' . __FILE__ . ' +' . __LINE__ . ' SQL: ' . $query . PHP_EOL;
+    $db->query("SET collation_connection = utf8_unicode_ci");
+    $db->query("SET NAMES utf8");
+    $db->query("SET CHARACTER SET utf8");
+    $db->query("SET @@collation_server = utf8_unicode_ci");
 
-    $res19 = $db->query($query);
-    if (!empty($res19) && is_array($res19)) {
-        foreach ($res19 as $r) {
-            echo date('r') . ' ' . __FILE__ . ' +' . __LINE__ . ' DB result: ' . var_export($r, true) . PHP_EOL;
-            preg_match_all('|href="(.*)"|', $r['text'], $m, PREG_OFFSET_CAPTURE);
-            if (!empty($m)) {
-                echo date('r') . ' ' . __FILE__ . ' +' . __LINE__ . ' Found matches: ' . PHP_EOL . var_export($m, true) . PHP_EOL;
-                if (isset($m[0][0][1])) {
-                    $s1 = substr($r['text'], 0, $m[0][0][1]);
-                    $s1 .= ' alt="' . str_replace('"', '&quot;', trim($r['page_title'])) . '" ';
-                    $s1 .= substr($r['text'], $m[0][0][1] + 6);
-                    //
-                    $newTextValue = str_replace("'", '', $s1);
-                    echo date('r') . ' ' . __FILE__ . ' +' . __LINE__ . ' New text value: ' . PHP_EOL . $newTextValue . PHP_EOL;
+    $query = "
+        SELECT pp.*, p.h1 as page_title
+        FROM `PagePart` AS pp
+        LEFT JOIN `Page` AS p ON p.id = pp.page_id
+        WHERE (pp.`text` LIKE '%<a%' 
+            AND pp.`text` LIKE '%href=\"http%' 
+            AND pp.`text` NOT LIKE '%href=\"mailto:%' 
+            AND pp.`text` NOT LIKE '%rel=\"nofollow\"%')
+        ORDER BY rand()
+        LIMIT 0, 5
+    ";
 
-                    // $query = "UPDATE `PagePart` SET `text` = '{$newTextValue}' WHERE `id` = '{$r['id']}'";
-                    // echo date('r') . ' ' . __FILE__ . ' +' . __LINE__ . ' SQL: ' . PHP_EOL . $query . PHP_EOL;
-                    // $res20 = $db->query($query);
-                    // echo date('r') . ' ' . __FILE__ . ' +' . __LINE__ . ' DB result: ' . var_export($res20, true) . PHP_EOL;
+    echo date('r') . ' SQL: ' . $query . PHP_EOL;
 
-                    // $doCommit = true;
-                }
+    $results = $db->query($query);
+    if (!empty($results) && is_array($results)) {
+        foreach ($results as $row) {
+            echo date('r') . ' Original DB entry: ' . var_export($row, true) . PHP_EOL;
+
+            $updatedText = $row['text'];
+
+            $updatedText = preg_replace_callback(
+                '#<a\s+([^>]*?)href="https?://[^"]+"([^>]*)>#i',
+                function ($matches) use ($row) {
+                    $beforeHref = $matches[1];
+                    $afterHref = $matches[2];
+
+                    // Знайдемо або додамо rel
+                    if (preg_match('/rel\s*=\s*["\']([^"\']+)["\']/i', $beforeHref . $afterHref, $relMatch)) {
+                        $existingRel = $relMatch[1];
+                        $relParts = explode(' ', $existingRel);
+                        if (!in_array('nofollow', $relParts)) {
+                            $relParts[] = 'nofollow';
+                        }
+                        $newRel = 'rel="' . implode(' ', array_unique($relParts)) . '"';
+                        $newTag = preg_replace('/rel\s*=\s*"[^"]*"/i', $newRel, "<a {$beforeHref}{$afterHref}>");
+                    } else {
+                        // rel не існує — додаємо rel="nofollow"
+                        $newTag = "<a {$beforeHref} rel=\"nofollow\" {$afterHref}>";
+                    }
+
+                    return $newTag;
+                },
+                $updatedText
+            );
+
+            if ($updatedText !== $row['text']) {
+                echo date('r') . ' Modified HTML: ' . PHP_EOL . $updatedText . PHP_EOL;
+
+                // Розкоментуйте рядки нижче, щоб оновити БД
+                $safeText = $db->escape($updatedText); // or use parameterized query if possible
+                $updateQuery = "UPDATE `PagePart` SET `text` = '{$safeText}' WHERE `id` = {$row['id']}";
+                echo date('r') . ' Update SQL: ' . $updateQuery . PHP_EOL;
+                // $db->query($updateQuery);
             }
         }
-        /* if ($doCommit) {
-            $query = "COMMIT;";
-            echo date('r') . ' ' . __FILE__ . ' +' . __LINE__ . ' SQL: ' . $query . PHP_EOL;
-            $res21 = $db->query($query);
-            echo date('r') . ' ' . __FILE__ . ' +' . __LINE__ . ' res: ' . var_export($res21, true) . PHP_EOL;
-        } */
     }
 
 } catch (\Exception $e) {
-    $msg = date('r') . ' ' . __FILE__ . ' +' . __LINE__ . ' Fatal error: ' . $e->getMessage() . PHP_EOL;
-    die($msg);
+    die(date('r') . ' Fatal error: ' . $e->getMessage() . PHP_EOL);
 }
