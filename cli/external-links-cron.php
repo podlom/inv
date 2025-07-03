@@ -37,11 +37,10 @@ try {
     $query = "SELECT pp.*, p.h1 as page_title " .
         " FROM `PagePart` AS pp " .
         " LEFT JOIN `Page` AS p ON p.id = pp.page_id".
-        " WHERE pp.`id` > 3000 " .
-        " AND (pp.`text` LIKE '%<a%' AND pp.`text` LIKE '%href=\"\"%') " .
+        " WHERE (pp.`text` LIKE '%<a%' AND pp.`text` LIKE '%href=%' AND pp.`text` NOT LIKE '%rel=\"nofollow\"%') " .
         " ORDER BY rand() " .
-        " LIMIT 0, 5 FOR UPDATE"
-        ;
+        " LIMIT 0, 5"
+        ; //  FOR UPDATE
 
     echo date('r') . ' ' . __FILE__ . ' +' . __LINE__ . ' SQL: ' . $query . PHP_EOL;
 
