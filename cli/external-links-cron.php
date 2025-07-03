@@ -36,6 +36,7 @@ try {
     if (!empty($results) && is_array($results)) {
         foreach ($results as $row) {
             $original = $row['text'];
+            echo date('r') . ' Original: ' . var_export($original, true) . PHP_EOL;
 
             $doc = new DOMDocument('1.0', 'UTF-8');
             libxml_use_internal_errors(true);
