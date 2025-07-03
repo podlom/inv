@@ -62,7 +62,7 @@ try {
             $newHtml = str_replace('<meta http-equiv="Content-Type" content="text/html; charset=utf-8">', '', $newHtml);
 
             if ($original !== $newHtml) {
-                echo date('r') . ' Modified:' . PHP_EOL . $newHtml . PHP_EOL;
+                echo date('r') . ' Modified:' . PHP_EOL . var_export($newHtml, true) . PHP_EOL;
 
                 // Збереження в базу
                 $safeText = $db->escape($newHtml); // або використати prepared statement
