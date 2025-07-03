@@ -3,12 +3,7 @@
 (PHP_SAPI !== 'cli' || isset($_SERVER['HTTP_USER_AGENT'])) && die(' +' . __LINE__ . ' PHP Fatal Error: cli only usage allowed.' . PHP_EOL);
 
 /**
- * Created by PhpStorm
- * User: podlo
- * Date: 2025-07-03
- * Time: 14:23
- * Updated: 2025-07-03 15:13
- *
+ * CLI Tool to Add rel="nofollow" to external links
  * @author Taras Shkodenko <taras.shkodenko@gmail.com>
  */
 
@@ -40,40 +35,35 @@ try {
     $results = $db->query($query);
     if (!empty($results) && is_array($results)) {
         foreach ($results as $row) {
-            echo date('r') . ' Original DB entry: ' . var_export($row, true) . PHP_EOL;
+            echo date('r') . ' Original: ' . PHP_EOL . $row['text'] . PHP_EOL;
 
-            $updatedText = $row['text'];
+            $doc = new DOMDocument();
+            libxml_use_internal_errors(true);
+            $doc->loadHTML('<?xml encoding="UTF-8">' . $row['text'], LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+            libxml_clear_errors();
 
-            $updatedText = preg_replace_callback(
-                '#<a\s+([^>]*?)href="https?://[^"]+"([^>]*)>#i',
-                function ($matches) use ($row) {
-                    $beforeHref = $matches[1];
-                    $afterHref = $matches[2];
-
-                    // Знайдемо або додамо rel
-                    if (preg_match('/rel\s*=\s*["\']([^"\']+)["\']/i', $beforeHref . $afterHref, $relMatch)) {
-                        $existingRel = $relMatch[1];
-                        $relParts = explode(' ', $existingRel);
-                        if (!in_array('nofollow', $relParts)) {
-                            $relParts[] = 'nofollow';
-                        }
-                        $newRel = 'rel="' . implode(' ', array_unique($relParts)) . '"';
-                        $newTag = preg_replace('/rel\s*=\s*"[^"]*"/i', $newRel, "<a {$beforeHref}{$afterHref}>");
-                    } else {
-                        // rel не існує — додаємо rel="nofollow"
-                        $newTag = "<a {$beforeHref} rel=\"nofollow\" {$afterHref}>";
+            $anchors = $doc->getElementsByTagName('a');
+            foreach ($anchors as $a) {
+                $href = $a->getAttribute('href');
+                if (stripos($href, 'http://') === 0 || stripos($href, 'https://') === 0) {
+                    $rel = $a->getAttribute('rel');
+                    $relValues = array_filter(explode(' ', strtolower($rel)));
+                    if (!in_array('nofollow', $relValues)) {
+                        $relValues[] = 'nofollow';
+                        $a->setAttribute('rel', implode(' ', array_unique($relValues)));
                     }
+                }
+            }
 
-                    return $newTag;
-                },
-                $updatedText
-            );
+            $newHtml = $doc->saveHTML();
 
-            if ($updatedText !== $row['text']) {
-                echo date('r') . ' Modified HTML: ' . PHP_EOL . $updatedText . PHP_EOL;
+            // Видаляємо заголовок <?xml encoding="UTF-8">
+            $newHtml = preg_replace('/^<\?xml.*?\?>/', '', $newHtml);
 
-                // Розкоментуйте рядки нижче, щоб оновити БД
-                $safeText = $db->escape($updatedText); // or use parameterized query if possible
+            if ($newHtml !== $row['text']) {
+                echo date('r') . ' Modified: ' . PHP_EOL . $newHtml . PHP_EOL;
+
+                $safeText = $db->escape($newHtml);
                 $updateQuery = "UPDATE `PagePart` SET `text` = '{$safeText}' WHERE `id` = {$row['id']}";
                 echo date('r') . ' Update SQL: ' . $updateQuery . PHP_EOL;
                 // $db->query($updateQuery);
