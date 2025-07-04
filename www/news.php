@@ -2,10 +2,10 @@
 
 /**
  * Created by PhpStorm
- * User: shtaras
+ * User: podlo
  * Date: 2024-03-08
  * Time: 19:25
- * Modified: 2025-05-30 14:48
+ * Modified: 2025-07-04 21:27
  *
  * @author Taras Shkodenko <taras.shkodenko@gmail.com>
  */
@@ -22,6 +22,7 @@ try {
     echo $app->getService('template')->renderException($e);
 }
 //
+$debugSql = 0;
 $resHmtl = '';
 //
 if (!empty($_REQUEST)) {
@@ -137,6 +138,10 @@ if (!empty($_REQUEST)) {
                 $categorySqlValue = ' WHERE `parent_id` = "9750" ';
             }
         }
+    }
+
+    if (isset($_REQUEST['debugSql']) && $_REQUEST['debugSql'] == 1) {
+        $debugSql = 1;
     }
 
     // 2024-06-06 added by @ts
@@ -277,6 +282,9 @@ if (!empty($_REQUEST)) {
         l_m(__FILE__ . ' +' . __LINE__ . ' SQL1: ' . $query . PHP_EOL);
         $res2 = $db->query($query);
         // l_m( __FILE__ . ' +' . __LINE__ . ' Result1: ' . var_export($res2, true) . PHP_EOL );
+        if ($debugSql) {
+            debugSql(__FILE__ . ' +' . __LINE__ . ' SQL: ' . $query . PHP_EOL);
+        }
         //
         $query = "SELECT FOUND_ROWS()";
         l_m(__FILE__ . ' +' . __LINE__ . ' SQL2: ' . $query);
