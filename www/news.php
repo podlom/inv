@@ -232,13 +232,6 @@ if (!empty($_REQUEST)) {
     $msg = __FILE__ . ' +' . __LINE__ . ' @ts $categorySqlValue: ' . var_export($categorySqlValue, true);
     l_m($msg);
 
-    //
-    // $msg = __FILE__ . ' +' . __LINE__ . ' $_SERVER HTTP_USER_AGENT: ' . var_export($_SERVER['HTTP_USER_AGENT'], true);
-    // l_m($msg);
-    //
-    // $msg = __FILE__ . ' +' . __LINE__ . ' $_GET: ' . var_export($_GET, true) . '; $_POST: ' . var_export($_POST, true) . '; $_REQUEST: ' . var_export($_REQUEST, true);
-    // l_m($msg);
-    //
     if (isset($_REQUEST['action']) && ($_REQUEST['action'] == 'news-list')) { // Get events for home page action
         if (isset($_REQUEST['limit'])) {
             $limit = intval($_REQUEST['limit']);
@@ -264,17 +257,20 @@ if (!empty($_REQUEST)) {
         }
         l_m(__FILE__ . ' +' . __LINE__ . ' SQL1: ' . $query . PHP_EOL);
         $res2 = $db->query($query);
+
         // l_m( __FILE__ . ' +' . __LINE__ . ' Result1: ' . var_export($res2, true) . PHP_EOL );
         if ($debugSql) {
-            debugSql(__FILE__ . ' +' . __LINE__ . ' SQL: ' . $query . PHP_EOL);
+            debugSql(__FILE__ . ' +' . __LINE__ . ' SQL 1: ' . $query . PHP_EOL);
         }
-        //
+
         $query = "SELECT FOUND_ROWS()";
-        l_m(__FILE__ . ' +' . __LINE__ . ' SQL2: ' . $query);
+        // l_m(__FILE__ . ' +' . __LINE__ . ' SQL2: ' . $query);
+        if ($debugSql) {
+            debugSql(__FILE__ . ' +' . __LINE__ . ' SQL 2: ' . $query . PHP_EOL);
+        }
         $res322 = $db->query($query);
         l_m(__FILE__ . ' +' . __LINE__ . ' Result2: ' . var_export($res322, true));
-        //
-        //
+
         $nextPage = $page + 1;
         $itemNo = 0;
 
@@ -282,7 +278,7 @@ if (!empty($_REQUEST)) {
         if (!empty($res2) && is_array($res2)) {
             foreach ($res2 as $r9) {
                 $itemNo++;
-                //
+
                 if ($r9['category_title'] == 'Новости инвестиций Украины') {
                     $categoryUrl = '/news/ukraine';
                 } elseif ($r9['category_title'] == 'Новости инвестиций мира') {
@@ -298,7 +294,7 @@ if (!empty($_REQUEST)) {
                 } else {
                     $categoryUrl = '';
                 }
-                //
+
                 $lastItem = false;
                 if ($limit == $itemNo) {
                     $lastItem = true;
@@ -308,9 +304,8 @@ if (!empty($_REQUEST)) {
                 if ($lastItem) {
                     $linkAttributes = 'hx-get="' . $nextPageUrl . '" hx-trigger="revealed" hx-indicator="#spinner" hx-swap="afterend"';
                 }
-                // $pageId[] = $r9['id'];
                 $dateStr = date("d.m.y", strtotime($r9['created']));
-                //
+
                 $resHmtl .= '<div ' . $linkAttributes . '  data-item-no="' . $itemNo . '" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/Article">' .
                     '<meta itemprop="position" content="0">' .
                     '<a href="' . $categoryUrl . '/' . $r9['subpath'] . '" class="cards__item">' .
@@ -331,11 +326,9 @@ if (!empty($_REQUEST)) {
                     '</a></div>';
             }
         }
-
     }
-
 }
-//
+
 if (!headers_sent()) {
     header('Access-Control-Allow-Origin: *');
     header('Content-Type: text/html; charset=utf-8');
