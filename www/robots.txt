@@ -3,11 +3,17 @@ Allow: /
 
 User-agent: Googlebot-news
 Allow: /
+Disallow: *?*
+Disallow: *filter*
 
 User-agent: *
 Disallow: /admin/*
 Disallow: /skynar/*
 Disallow: /tools/experts/*
+Disallow: /user/login*
+Disallow: /user/*
+Disallow: /login*
+
 
 Sitemap: https://inventure.com.ua/news-sitemap.xml
 Sitemap: https://inventure.com.ua/sitemap.xml
