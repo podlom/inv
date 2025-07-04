@@ -21,38 +21,21 @@ try {
 } catch (Throwable $e) {
     echo $app->getService('template')->renderException($e);
 }
-//
+
 $debugSql = 0;
 $resHmtl = '';
-//
 if (!empty($_REQUEST)) {
-    require_once app()->getPath() . '/cli/lib/db.class.php';
-    $cfg = app()->getService('config')->get('app')->db;
-    //
     try {
-        $db = new \DB($cfg['host'], $cfg['user'], $cfg['password'], $cfg['dbname']);
-        $query = "SET collation_connection = utf8_unicode_ci";
-        $res0 = $db->query($query);
-        $query = "SET NAMES " . $cfg['charset'];
-        $res1 = $db->query($query);
-        $query = "SET CHARACTER SET " . $cfg['charset'];
-        $res2 = $db->query($query);
-        $query = "set @@collation_server = utf8_unicode_ci";
-        $res3 = $db->query($query);
+        $db = getDb();
     } catch (\Exception $e) {
         $msg = date('r') . ' ' . __FILE__ . ' +' . __LINE__ . ' Fatal error: ' . $e->getMessage() . PHP_EOL;
         die($msg);
     }
-    //
     $msg = __FILE__ . ' +' . __LINE__ . ' $_SERVER: ' . var_export($_SERVER, true);
     l_m($msg);
-    //
-    // $msg = __FILE__ . ' +' . __LINE__ . ' $_SERVER HTTP_ACCEPT_LANGUAGE: ' . var_export($_SERVER['HTTP_ACCEPT_LANGUAGE'], true);
-    // l_m($msg);
-    //
+
     $lang = $defaultLang = 'ru';
-    //
-    if (isset($_REQUEST['lang']) && !empty($_REQUEST['lang'])) {
+    if (isset($_REQUEST['lang']) && !empty($_REQUEST['lang']) && in_array($_REQUEST['lang'], ['uk', 'en', 'ru'])) {
         $lang = $_REQUEST['lang'];
     } else {
         if (isset($_SERVER['HTTP_ACCEPT_LANGUAGE']) && !empty($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {

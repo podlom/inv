@@ -1023,3 +1023,18 @@ function debugSql(string $msg)
         error_log(date('r') . ' ' . $msg . PHP_EOL, 3, $logFileName);
     }
 }
+
+function getDb()
+{
+    require_once app()->getPath() . '/cli/lib/db.class.php';
+    $cfg = app()->getService('config')->get('app')->db;
+
+    $db = new \DB($cfg['host'], $cfg['user'], $cfg['password'], $cfg['dbname']);
+
+    $db->query("SET collation_connection = utf8_unicode_ci");
+    $db->query("SET NAMES " . $cfg['charset']);
+    $db->query("SET CHARACTER SET " . $cfg['charset']);
+    $db->query("SET @@collation_server = utf8_unicode_ci");
+
+    return $db;
+}
