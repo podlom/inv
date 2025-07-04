@@ -19,7 +19,6 @@ export const Hero = () => {
 
   return (
     <div className="pt-[4rem] ">
-      {/* bg-gradient-to-b from-white from-[5%] to-[#F0F8FF] to-[90%] */}
       <div className="container  w-full flex flex-col items-center">
         <motion.h1
           initial={{ opacity: 0, y: 70 }}
@@ -29,7 +28,7 @@ export const Hero = () => {
             duration: 0.8,
             ease: "easeInOut",
           }}
-          className="bg-gradient-to-br from-[#8dbbd2] to-sky-900 py-4 bg-clip-text text-center text-3xl font-medium tracking-tight text-transparent md:text-5xl"
+          className="bg-gradient-to-br from-sky-900 to-sky-900 py-4 bg-clip-text text-center text-3xl font-medium tracking-tight text-transparent md:text-5xl"
         >
           {t("hero.title")
             .split("\n")

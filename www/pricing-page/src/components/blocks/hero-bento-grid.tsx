@@ -104,8 +104,8 @@ const CustomBentoGrid = ({ className }: { className?: string }) => {
           }
         >
           <h2 className="text-white font-bold">
-            <p className="text-3xl">
-              {t("bentoGrid.experience.value")}
+            <p className="text-3xl space-x-1">
+              <span>{t("bentoGrid.experience.value")}</span>
               <span className="text-2xl">{t("bentoGrid.experience.unit")}</span>
             </p>
             <p className="max-w-lg leading-tight ">
@@ -127,8 +127,8 @@ const CustomBentoGrid = ({ className }: { className?: string }) => {
           }
         >
           <h2 className="text-white font-bold">
-            <p className="text-3xl">
-              {t("bentoGrid.dealsValue.value")}
+            <p className="text-3xl space-x-1">
+              <span>{t("bentoGrid.dealsValue.value")}</span>
               <span className="text-2xl">{t("bentoGrid.dealsValue.unit")}</span>
             </p>
             <p className="max-w-lg leading-tight">
