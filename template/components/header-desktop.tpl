@@ -61,7 +61,7 @@
 											</li>
 										</a>
 										<a
-											href="{if $lang == 'en'}/en{elseif $lang == 'uk'}/uk{/if}/investments/{if $lang == 'en'}/en_{/if}franchising">
+											href="{if $lang == 'en'}/en{elseif $lang == 'uk'}/uk{/if}/investments/{if $lang == 'en'}en_{/if}franchising">
 											<li>
 												<svg class="franchising-svg" width="22" height="22" viewBox="0 0 22 22"
 													fill="none">
