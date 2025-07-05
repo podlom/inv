@@ -91,6 +91,7 @@ if (!empty($_REQUEST)) {
         }
     }
     */
+    $category = '';
     if (isset($_REQUEST['category']) && !empty($_REQUEST['category'])) {
         $category = $_REQUEST['category'];
         $msg = __FILE__ . ' +' . __LINE__ . ' @ts $category: ' . var_export($category, true);
@@ -279,6 +280,7 @@ if (!empty($_REQUEST)) {
             foreach ($res2 as $r9) {
                 $itemNo++;
 
+                $categoryUrl = '';
                 if ($r9['category_title'] == 'Новости инвестиций Украины') {
                     $categoryUrl = '/news/ukraine';
                 } elseif ($r9['category_title'] == 'Новости инвестиций мира') {
@@ -292,7 +294,14 @@ if (!empty($_REQUEST)) {
                 } elseif ($r9['category_title'] == 'World news') {
                     $categoryUrl = '/en/news/world';
                 } else {
-                    $categoryUrl = '';
+                    if ($lang == 'uk' || $lang == 'en') {
+                        $categoryUrl .= '/' . $lang;
+                    }
+                    if (!empty($category)) {
+                        $categoryUrl .= '/news/' . $category;
+                    } else {
+                        $categoryUrl .= '/news';
+                    }
                 }
 
                 $lastItem = false;
