@@ -86,14 +86,14 @@
 						{else}Investment Projects and
 						Startups{/if}</a></p>
 				<p><a
-						href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}investments/business">
+						href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/investments/business">
 						{if $lang === 'ru'}Продажа бизнеса
 						{elseif $lang === 'uk'}Продаж бізнесу
 						{else}Business for
 						Sale{/if} </a></p>
 				<p>
 					<a
-						href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}investments/realestate">
+						href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/investments/realestate">
 						{if $lang === 'ru'}Коммерческая недвижимость
 						{elseif $lang === 'uk'}Комерційна
 						нерухомість{else}Commercial
@@ -101,13 +101,13 @@
 					</a>
 				</p>
 				<p><a
-						href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/investments/land">{if $lang === 'ru'}Земля{elseif $lang === 'uk'}Земля{else}Land{/if}</a>
+						href="{if $lang == 'en'}/en{elseif $lang === 'uk'}/uk{/if}/investments/land">{if $lang === 'ru'}Земля{elseif $lang === 'uk'}Земля{else}Land{/if}</a>
 				</p>
 				<p><a
-						href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/investments/{if $lang === 'en'}en_{/if}franchising">{if $lang === 'ru'}Франчайзинг{elseif $lang === 'uk'}Франчайзинг{else}Franchising{/if}</a>
+						href="{if $lang == 'en'}/en{elseif $lang === 'uk'}/uk{/if}/investments/{if $lang === 'en'}en_{/if}franchising">{if $lang === 'ru'}Франчайзинг{elseif $lang === 'uk'}Франчайзинг{else}Franchising{/if}</a>
 				</p>
 				<p><a
-						href="{if $lang === 'en'}/en{elseif $lang === 'uk'}/uk{/if}/investments/offer">{if $lang === 'ru'}Предложения
+						href="{if $lang == 'en'}/en{elseif $lang === 'uk'}/uk{/if}/investments/offer">{if $lang === 'ru'}Предложения
 						инвесторов{elseif $lang === 'uk'}Пропозиції інвесторів
 						{else}Investor Offers
 						{/if}</a></p>
