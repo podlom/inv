@@ -93,7 +93,6 @@ if (!empty($_REQUEST)) {
         $sqlVideoCategoryFilter = '';
         if (
             isset($_REQUEST['lang'], $_REQUEST['video_category']) &&
-            $_REQUEST['lang'] === 'uk' &&
             in_array((int)$_REQUEST['video_category'], $allowedVideoCategories, true)
         ) {
             $videoCategory = (int)$_REQUEST['video_category'];
