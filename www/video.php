@@ -110,7 +110,7 @@ if (!empty($_REQUEST)) {
                     break;
             }
 
-            $sqlVideoCategoryFilter = " AND JSON_CONTAINS(JSON_EXTRACT(p.attr, '$.attr{$attrVideoCategoryId}'), " . '"' . json_encode((string)$videoCategory) . '"' . ")";
+            $sqlVideoCategoryFilter = " AND JSON_CONTAINS(JSON_EXTRACT(p.attr, '$.attr{$attrVideoCategoryId}'), " . '\'"' . json_encode((string)$videoCategory) . '"\'' . ")";
         }
 
         $query = "SELECT SQL_CALC_FOUND_ROWS p.*, '' AS picture_url, ap.`views` AS `page_views` " .
