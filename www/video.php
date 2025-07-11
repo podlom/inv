@@ -5,7 +5,7 @@
  * User: podlo
  * Date: 2024-03-11
  * Time: 18:21
- * Modified: 2025-07-11 23:19
+ * Modified: 2025-07-11 23:49
  *
  * @author Taras Shkodenko <taras.shkodenko@gmail.com>
  */
@@ -22,6 +22,7 @@ try {
     echo $app->getService('template')->renderException($e);
 }
 
+$debugSql = 0;
 $resHmtl = '';
 if (!empty($_REQUEST)) {
     try {
@@ -49,15 +50,16 @@ if (!empty($_REQUEST)) {
         $msg = __FILE__ . ' +' . __LINE__ . ' used default $lang: ' . var_export($lang, true);
         l_m($msg);
     }
-    //
-    // $msg = __FILE__ . ' +' . __LINE__ . ' $_SERVER HTTP_USER_AGENT: ' . var_export($_SERVER['HTTP_USER_AGENT'], true);
-    // l_m($msg);
-    //
     $msg = __FILE__ . ' +' . __LINE__ . ' $_GET: ' . var_export($_GET, true) . '; $_POST: ' . var_export($_POST, true) . '; $_REQUEST: ' . var_export($_REQUEST, true);
     l_m($msg);
-    
+
     if (isset($_REQUEST['action']) && ($_REQUEST['action'] == 'video-list'))
-    { // Get events for home page action
+    {
+        if (isset($_REQUEST['debugSql']) && $_REQUEST['debugSql'] == 1) {
+            $debugSql = 1;
+        }
+
+        // Get events for home page action
         if (isset($_REQUEST['limit'])) {
             $limit = intval($_REQUEST['limit']);
         } else {
@@ -74,7 +76,7 @@ if (!empty($_REQUEST)) {
         }
         l_m(__FILE__ . ' +' . __LINE__ . ' $page: ' . var_export($page, true) . PHP_EOL);
         l_m(__FILE__ . ' +' . __LINE__ . ' $offset: ' . var_export($offset, true) . PHP_EOL);
-        
+
         $videoCategoryId = 77;
         if ($lang == 'uk') {
             $routeId = 7548;
@@ -86,23 +88,39 @@ if (!empty($_REQUEST)) {
             $videoCategoryId = 76;
         }
         $atrrName = 'attr' . $videoCategoryId;
-        
+
+        $allowedVideoCategories = [0, 1, 2];
+        $sqlVideoCategoryFilter = '';
+        if (
+            isset($_REQUEST['lang'], $_REQUEST['video_category']) &&
+            $_REQUEST['lang'] === 'uk' &&
+            in_array((int)$_REQUEST['video_category'], $allowedVideoCategories, true)
+        ) {
+            $videoCategory = (int)$_REQUEST['video_category'];
+            $sqlVideoCategoryFilter = " AND JSON_CONTAINS(JSON_EXTRACT(p.attr, '$.attr75'), " . json_encode((string)$videoCategory) . ")";
+        }
+
         $query = "SELECT SQL_CALC_FOUND_ROWS p.*, '' AS picture_url, ap.`views` AS `page_views` " .
             " FROM `Page` AS `p` " .
             " LEFT JOIN `Analytics_Page` AS `ap` ON ((`p`.`id` = `ap`.`page_id`)) " .
             " WHERE p.`status` = 1 AND p.route_id = {$routeId} " .
+            $sqlVideoCategoryFilter .
             " ORDER BY p.`id` DESC " .
             " LIMIT {$limit} OFFSET {$offset} ";
 
-        l_m(__FILE__ . ' +' . __LINE__ . ' SQL: ' . $query . PHP_EOL);
+        if ($debugSql) {
+            debugSql(__FILE__ . ' +' . __LINE__ . ' SQL: ' . $query . PHP_EOL);
+        }
         $res2 = $db->query($query);
         // l_m( __FILE__ . ' +' . __LINE__ . ' Result: ' . var_export($res2, true) . PHP_EOL );
-        
+
         $query = "SELECT FOUND_ROWS()";
-        l_m(__FILE__ . ' +' . __LINE__ . ' SQL: ' . $query);
+        if ($debugSql) {
+            debugSql(__FILE__ . ' +' . __LINE__ . ' SQL: ' . $query . PHP_EOL);
+        }
         $res322 = $db->query($query);
-        l_m(__FILE__ . ' +' . __LINE__ . ' Result322: ' . var_export($res322, true));
-        
+        l_m(__FILE__ . ' +' . __LINE__ . ' Result123: ' . var_export($res322, true));
+
         $nextPage = $page + 1;
         $itemNo = 0;
 
@@ -116,9 +134,7 @@ if (!empty($_REQUEST)) {
                         $attr55 = $decodedAttr['attr55'];
                     }
                 }
-                //
                 $itemNo ++;
-                //
                 $lastItem = false;
                 if ($limit == $itemNo) {
                     $lastItem = true;
