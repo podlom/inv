@@ -2,10 +2,10 @@
 
 /**
  * Created by PhpStorm
- * User: shtaras
+ * User: podlo
  * Date: 2024-03-11
  * Time: 18:21
- * Modified: 2025-05-30 21:39
+ * Modified: 2025-07-11 23:19
  *
  * @author Taras Shkodenko <taras.shkodenko@gmail.com>
  */
@@ -21,44 +21,22 @@ try {
 } catch (Throwable $e) {
     echo $app->getService('template')->renderException($e);
 }
-//
+
 $resHmtl = '';
-//
 if (!empty($_REQUEST)) {
-    require_once app()->getPath() . '/cli/lib/db.class.php';
-    $cfg = app()->getService('config')->get('app')->db;
-    //
     try {
-        $db = new \DB($cfg['host'], $cfg['user'], $cfg['password'], $cfg['dbname']);
-        $query = "SET collation_connection = utf8_unicode_ci";
-        $res0 = $db->query($query);
-        $query = "SET NAMES " . $cfg['charset'];
-        $res1 = $db->query($query);
-        $query = "SET CHARACTER SET " . $cfg['charset'];
-        $res2 = $db->query($query);
-        $query = "set @@collation_server = utf8_unicode_ci";
-        $res3 = $db->query($query);
+        $db = getDb();
     } catch (\Exception $e) {
         $msg = date('r') . ' ' . __FILE__ . ' +' . __LINE__ . ' Fatal error: ' . $e->getMessage() . PHP_EOL;
         die($msg);
     }
-    //
     $msg = __FILE__ . ' +' . __LINE__ . ' $_SERVER: ' . var_export($_SERVER, true);
     l_m($msg);
-    //
-    // $msg = __FILE__ . ' +' . __LINE__ . ' $_SERVER HTTP_ACCEPT_LANGUAGE: ' . var_export($_SERVER['HTTP_ACCEPT_LANGUAGE'], true);
-    // l_m($msg);
-    //
+
     $lang = $defaultLang = 'ru';
-    //
-    if (isset($_REQUEST['lang']) && !empty($_REQUEST['lang'])) {
+    if (isset($_REQUEST['lang']) && !empty($_REQUEST['lang']) && in_array($_REQUEST['lang'], ['uk', 'en', 'ru'])) {
         $lang = $_REQUEST['lang'];
-    } else {
-        if (isset($_SERVER['HTTP_ACCEPT_LANGUAGE']) && !empty($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
-            $lang = locale_accept_from_http($_SERVER['HTTP_ACCEPT_LANGUAGE']);
-        }
     }
-    //
     $categoryUrl = '/tools/video';
     $routeId = 7331;
     if (strlen($lang) > 2) {
@@ -109,7 +87,13 @@ if (!empty($_REQUEST)) {
         }
         $atrrName = 'attr' . $videoCategoryId;
         
-        $query = "SELECT SQL_CALC_FOUND_ROWS p.*, '' AS picture_url, ap.`views` AS `page_views` FROM `Page` AS `p` LEFT JOIN `Analytics_Page` AS `ap` ON ((`p`.`id` = `ap`.`page_id`)) WHERE p.`status` = 1 AND p.route_id = {$routeId} ORDER BY p.`id` DESC LIMIT {$limit} OFFSET {$offset} ";
+        $query = "SELECT SQL_CALC_FOUND_ROWS p.*, '' AS picture_url, ap.`views` AS `page_views` " .
+            " FROM `Page` AS `p` " .
+            " LEFT JOIN `Analytics_Page` AS `ap` ON ((`p`.`id` = `ap`.`page_id`)) " .
+            " WHERE p.`status` = 1 AND p.route_id = {$routeId} " .
+            " ORDER BY p.`id` DESC " .
+            " LIMIT {$limit} OFFSET {$offset} ";
+
         l_m(__FILE__ . ' +' . __LINE__ . ' SQL: ' . $query . PHP_EOL);
         $res2 = $db->query($query);
         // l_m( __FILE__ . ' +' . __LINE__ . ' Result: ' . var_export($res2, true) . PHP_EOL );
