@@ -97,7 +97,7 @@ if (!empty($_REQUEST)) {
             in_array((int)$_REQUEST['video_category'], $allowedVideoCategories, true)
         ) {
             $videoCategory = (int)$_REQUEST['video_category'];
-            $sqlVideoCategoryFilter = " AND JSON_CONTAINS(JSON_EXTRACT(p.attr, '$.attr75'), " . json_encode((string)$videoCategory) . ")";
+            $sqlVideoCategoryFilter = " AND JSON_CONTAINS(JSON_EXTRACT(p.attr, '$.attr75'), '" . json_encode((string)$videoCategory) . "')";
         }
 
         $query = "SELECT SQL_CALC_FOUND_ROWS p.*, '' AS picture_url, ap.`views` AS `page_views` " .
