@@ -34,27 +34,17 @@
 	<link rel="dns-prefetch" href="https://fonts.gstatic.com/">
 	<link rel="dns-prefetch" href="//netdna.bootstrapcdn.com">
 
-	{* Поточна URL-частина без query string *}
+	{* Отримаємо поточний URI без query-рядка *}
 	{assign var="currentPath" value=$smarty.server.REQUEST_URI|replace:$querystr:''}
 
-	{* Витягаємо мовний префікс (uk, en) якщо є *}
-	{assign var="langPrefix" value=$currentPath|regex_replace:"^/(uk|en)(/.*)?$":"$1"}
+	{* Видаляємо мовний префікс зі шляху (uk або en) для x-default *}
+	{assign var="basePath" value=$currentPath|regex_replace:"/^\/(uk|en)(\/|$)/":"/"}
 
-	{* Отримуємо шлях без мовного префікса *}
-	{assign var="basePath" value=$currentPath|regex_replace:"^/(uk|en)\/?":""}
-
-	{* Формуємо шляхи без подвійних слешів і без слеша в кінці на головних мовних сторінках *}
-	{assign var="pathUk" value="https://inventure.com.ua/uk"|cat:($basePath != "" ? "/"|cat:$basePath : "")}
-	{assign var="pathEn" value="https://inventure.com.ua/en"|cat:($basePath != "" ? "/"|cat:$basePath : "")}
-	{assign var="pathDefault" value="https://inventure.com.ua"|cat:($basePath != "" ? "/"|cat:$basePath : "")}
-
-	{* Canonical URL завжди як є *}
+	{* Формуємо hreflang посилання *}
 	<link rel="canonical" href="https://{$smarty.server.HTTP_HOST}{$currentPath}" />
-
-	{* hreflang-посилання без `/` у кінці на головних сторінках *}
-	<link rel="alternate" hreflang="x-default" href="{$pathDefault}" />
-	<link rel="alternate" hreflang="en" href="{$pathEn}" />
-	<link rel="alternate" hreflang="uk" href="{$pathUk}" />
+	<link rel="alternate" hreflang="x-default" href="https://inventure.com.ua{$basePath}" />
+	<link rel="alternate" hreflang="en" href="https://inventure.com.ua/en{$basePath}" />
+	<link rel="alternate" hreflang="uk" href="https://inventure.com.ua/uk{$basePath}" />
 
 	{literal}
 		<!-- Google Tag Manager -->
