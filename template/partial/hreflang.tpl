@@ -1,5 +1,5 @@
 {* Поточний URI без query string *}
-{assign var="currentPath" value=$smarty.server.REQUEST_URI|regex_replace:"/\?.*$":""}
+{assign var="currentPath" value=$smarty.server.REQUEST_URI|replace:$querystr:''}
 
 {* Видаляємо мовний префікс з URI *}
 {assign var="basePath" value=$currentPath|regex_replace:"^/uk/?":" "}
