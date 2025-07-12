@@ -34,36 +34,7 @@
 	<link rel="dns-prefetch" href="https://fonts.gstatic.com/">
 	<link rel="dns-prefetch" href="//netdna.bootstrapcdn.com">
 
-	{* ---------- SEO hreflang / canonical ---------- *}
-	{* Поточна URL-частина без query string *}
-	{assign var="currentPath" value=$smarty.server.REQUEST_URI|replace:$querystr:''}
-
-	{* Визначаємо чи це головна мовна сторінка (типу /uk або /en) *}
-	{assign var="isRootLangPage" value=false}
-	{if $currentPath == "/uk" || $currentPath == "/en" || $currentPath == "/"}
-		{assign var="isRootLangPage" value=true}
-	{/if}
-
-	{* Видаляємо мовний префікс з URL *}
-	{assign var="basePath" value=$currentPath|regex_replace:"^/(uk|en)\/?":""}
-
-	{* Створюємо hreflang URL-и *}
-	{if $isRootLangPage}
-		{assign var="pathUk" value="https://{$smarty.server.HTTP_HOST}/uk"}
-		{assign var="pathEn" value="https://{$smarty.server.HTTP_HOST}/en"}
-		{assign var="pathDefault" value="https://{$smarty.server.HTTP_HOST}/?lang=ru"}
-	{else}
-		{assign var="pathUk" value="https://{$smarty.server.HTTP_HOST}/uk/`$basePath`"}
-		{assign var="pathEn" value="https://{$smarty.server.HTTP_HOST}/en/`$basePath`"}
-		{assign var="pathDefault" value="https://{$smarty.server.HTTP_HOST}/`$basePath`"}
-	{/if}
-
-	{* Canonical посилання *}
-	<link rel="canonical" href="https://{$smarty.server.HTTP_HOST}{$currentPath}" />
-	<link rel="alternate" hreflang="x-default" href="{$pathDefault}" />
-	<link rel="alternate" hreflang="en" href="{$pathEn}" />
-	<link rel="alternate" hreflang="uk" href="{$pathUk}" />
-	{* ---------- /SEO hreflang / canonical ---------- *}
+	{include file="partial/hreflang.tpl"}
 
 	{literal}
 		<!-- Google Tag Manager -->
