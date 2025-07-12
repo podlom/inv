@@ -51,7 +51,7 @@
 	{if $isRootLangPage}
 		{assign var="pathUk" value="https://{$smarty.server.HTTP_HOST}/uk"}
 		{assign var="pathEn" value="https://{$smarty.server.HTTP_HOST}/en"}
-		{assign var="pathDefault" value="https://{$smarty.server.HTTP_HOST}"}
+		{assign var="pathDefault" value="https://{$smarty.server.HTTP_HOST}/?lang=ru"}
 	{else}
 		{assign var="pathUk" value="https://{$smarty.server.HTTP_HOST}/uk/`$basePath`"}
 		{assign var="pathEn" value="https://{$smarty.server.HTTP_HOST}/en/`$basePath`"}
