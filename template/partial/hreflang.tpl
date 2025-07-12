@@ -1,33 +1,25 @@
 {* 1. Поточний URI без query-параметрів *}
 {assign var="currentPath" value=$smarty.server.REQUEST_URI|replace:$querystr:''}
 
-{* 2. Чи це головна сторінка мови? (/, /uk, /en) *}
-{assign var="isRoot" value=0}
-{if $currentPath == "/"}
-    {assign var="isRoot" value=1}
-{elseif $currentPath == "/uk"}
-    {assign var="isRoot" value=1}
-{elseif $currentPath == "/en"}
-    {assign var="isRoot" value=1}
+{* Визначаємо мовний префікс (uk, en) *}
+{assign var="langPrefix" value=""}
+{if $currentPath|strpos:'/uk' == 0}
+    {assign var="langPrefix" value="uk"}
+{elseif $currentPath|strpos:'/en' == 0}
+    {assign var="langPrefix" value="en"}
 {/if}
 
-{* 3. Отримаємо шлях без мовного префікса *}
-{assign var="basePath" value=$currentPath|regex_replace:"^/(uk|en)(/|$)":"\/"}
-{assign var="basePath" value=$basePath|regex_replace:"^/":""}
+{* Витягаємо внутрішній шлях без мовного префіксу *}
+{assign var="pathWithoutLang" value=$currentPath|regex_replace:"^/(uk|en)",""}
 
-{* 4. Формуємо базові посилання *}
-{assign var="hrefDefault" value="https://{$smarty.server.HTTP_HOST}"}
-{assign var="hrefUk" value="https://{$smarty.server.HTTP_HOST}/uk"}
-{assign var="hrefEn" value="https://{$smarty.server.HTTP_HOST}/en"}
-
-{if $isRoot neq 1 and $basePath != ""}
-    {assign var="hrefDefault" value=$hrefDefault|cat:"/"|cat:$basePath}
-    {assign var="hrefUk" value=$hrefUk|cat:"/"|cat:$basePath}
-    {assign var="hrefEn" value=$hrefEn|cat:"/"|cat:$basePath}
-{/if}
-
-{* 5. Canonical і hreflang *}
+{* Canonical *}
 <link rel="canonical" href="https://{$smarty.server.HTTP_HOST}{$currentPath}" />
-<link rel="alternate" hreflang="x-default" href="{$hrefDefault}" />
-<link rel="alternate" hreflang="en" href="{$hrefEn}" />
-<link rel="alternate" hreflang="uk" href="{$hrefUk}" />
+
+{* Формування hreflang URLів — додаємо внутрішній шлях без мови *}
+{assign var="alt_default" value="https://inventure.com.ua"|cat:$pathWithoutLang}
+{assign var="alt_en" value="https://inventure.com.ua/en"|cat:$pathWithoutLang}
+{assign var="alt_uk" value="https://inventure.com.ua/uk"|cat:$pathWithoutLang}
+
+<link rel="alternate" hreflang="x-default" href="{$alt_default}" />
+<link rel="alternate" hreflang="en" href="{$alt_en}" />
+<link rel="alternate" hreflang="uk" href="{$alt_uk}" />
