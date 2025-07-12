@@ -34,17 +34,33 @@
 	<link rel="dns-prefetch" href="https://fonts.gstatic.com/">
 	<link rel="dns-prefetch" href="//netdna.bootstrapcdn.com">
 
-	{* Отримаємо поточний URI без query-рядка *}
-	{assign var="currentPath" value=$smarty.server.REQUEST_URI|replace:$querystr:''}
+	{* ---------- SEO hreflang / canonical ---------- *}
+	{* 1. Шлях поточної сторінки без query-параметрів *}
+	{assign var="currentPath" value=$smarty.server.REQUEST_URI|regex_replace:"/\?.*$/":""}
 
-	{* Видаляємо мовний префікс зі шляху (uk або en) для x-default *}
-	{assign var="basePath" value=$currentPath|regex_replace:"/^\/(uk|en)(\/|$)/":"/"}
+	{* 2. Вирізаємо мовний префікс uk або en (якщо він є) *}
+	{assign var="basePath" value=$currentPath|regex_replace:"^/(uk|en)":""}
+	{* Приберемо початковий слеш, щоб легше конкатенувати *}
+	{assign var="basePath" value=$basePath|regex_replace:"^/":""}
 
-	{* Формуємо hreflang посилання *}
+	{* 3. Базові URL-и *}
+	{assign var="pathDefault" value="https://{$smarty.server.HTTP_HOST}"}
+	{assign var="pathUk"      value="https://{$smarty.server.HTTP_HOST}/uk"}
+	{assign var="pathEn"      value="https://{$smarty.server.HTTP_HOST}/en"}
+
+	{* 4. Якщо це НЕ коренева сторінка – додаємо підшлях *}
+	{if $basePath ne ""}
+		{assign var="pathDefault" value=$pathDefault|cat:"/"|cat:$basePath}
+		{assign var="pathUk"      value=$pathUk|cat:"/"|cat:$basePath}
+		{assign var="pathEn"      value=$pathEn|cat:"/"|cat:$basePath}
+	{/if}
+
+	{* 5. Вивід тегів (без {literal}) *}
 	<link rel="canonical" href="https://{$smarty.server.HTTP_HOST}{$currentPath}" />
-	<link rel="alternate" hreflang="x-default" href="https://inventure.com.ua{$basePath}" />
-	<link rel="alternate" hreflang="en" href="https://inventure.com.ua/en{$basePath}" />
-	<link rel="alternate" hreflang="uk" href="https://inventure.com.ua/uk{$basePath}" />
+	<link rel="alternate" hreflang="x-default" href="{$pathDefault}" />
+	<link rel="alternate" hreflang="en"        href="{$pathEn}" />
+	<link rel="alternate" hreflang="uk"        href="{$pathUk}" />
+	{* ---------- /SEO hreflang / canonical ---------- *}
 
 	{literal}
 		<!-- Google Tag Manager -->
