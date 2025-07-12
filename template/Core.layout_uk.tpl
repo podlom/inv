@@ -33,9 +33,18 @@
 	<link rel="preload" href="/css/font-awesome.min.css" as="style">
 	<link rel="dns-prefetch" href="https://fonts.gstatic.com/">
 	<link rel="dns-prefetch" href="//netdna.bootstrapcdn.com">
-	<link rel="alternate" hreflang="x-default" href="https://inventure.com.ua/" />
-	<link rel="alternate" hreflang="en" href="https://inventure.com.ua/en" />
-	<link rel="alternate" hreflang="uk" href="https://inventure.com.ua/uk" />
+
+	{* Отримаємо поточний URI без query-рядка *}
+	{assign var="currentPath" value=$smarty.server.REQUEST_URI|replace:$querystr:''}
+
+	{* Видаляємо мовний префікс зі шляху (uk або en) для x-default *}
+	{assign var="basePath" value=$currentPath|regex_replace:"/^\/(uk|en)(\/|$)/":"/"}
+
+	{* Формуємо hreflang посилання *}
+	<link rel="canonical" href="https://{$smarty.server.HTTP_HOST}{$currentPath}" />
+	<link rel="alternate" hreflang="x-default" href="https://inventure.com.ua{$basePath}" />
+	<link rel="alternate" hreflang="en" href="https://inventure.com.ua/en{$basePath}" />
+	<link rel="alternate" hreflang="uk" href="https://inventure.com.ua/uk{$basePath}" />
 
 	{literal}
 		<!-- Google Tag Manager -->
@@ -98,8 +107,6 @@
     || $request->getPathInfo()|strpos:'/tools' === 0
     || $request->getPathInfo()|strpos:'/board' === 0
     || $request->getPathInfo()|strpos:'/search' === 0 *}
-
-	<link rel="canonical" href="https://{$smarty.server.HTTP_HOST}{$smarty.server.REQUEST_URI|replace:$querystr:''}" />
 
 	{* {if $isNewStylesAvaible}
       {style '/css/style-v2.css'}

@@ -48,10 +48,17 @@
 
 	<link rel="dns-prefetch" href="//netdna.bootstrapcdn.com">
 
-	<link rel="canonical" href="https://{$smarty.server.HTTP_HOST}{$smarty.server.REQUEST_URI|replace:$querystr:''}" />
-	<link rel="alternate" hreflang="x-default" href="https://{$smarty.server.HTTP_HOST}/" />
-	<link rel="alternate" hreflang="en" href="https://{$smarty.server.HTTP_HOST}/en" />
-	<link rel="alternate" hreflang="uk" href="https://{$smarty.server.HTTP_HOST}/uk" />
+	{* Отримаємо поточний URI без query-рядка *}
+	{assign var="currentPath" value=$smarty.server.REQUEST_URI|replace:$querystr:''}
+
+	{* Видаляємо мовний префікс зі шляху (uk або en) для x-default *}
+	{assign var="basePath" value=$currentPath|regex_replace:"/^\/(uk|en)(\/|$)/":"/"}
+
+	{* Формуємо hreflang посилання *}
+	<link rel="canonical" href="https://{$smarty.server.HTTP_HOST}{$currentPath}" />
+	<link rel="alternate" hreflang="x-default" href="https://inventure.com.ua{$basePath}" />
+	<link rel="alternate" hreflang="en" href="https://inventure.com.ua/en{$basePath}" />
+	<link rel="alternate" hreflang="uk" href="https://inventure.com.ua/uk{$basePath}" />
 
 	{literal}
 		<!-- Google Tag Manager -->
