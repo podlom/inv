@@ -35,31 +35,34 @@
 	<link rel="dns-prefetch" href="//netdna.bootstrapcdn.com">
 
 	{* ---------- SEO hreflang / canonical ---------- *}
-	{* 1. Поточний шлях без query-параметрів *}
-	{assign var="currentPath" value=$smarty.server.REQUEST_URI|regex_replace:"/\?.*$":""}
+	{* Поточна URL-частина без query string *}
+	{assign var="currentPath" value=$smarty.server.REQUEST_URI|replace:$querystr:''}
 
-	{* 2. Визначаємо мовний префікс uk або en на початку URI *}
-	{assign var="langPrefix" value=""}
-	{if $currentPath|strpos:'/uk' === 0}
-		{assign var="langPrefix" value="uk"}
-	{elseif $currentPath|strpos:'/en' === 0}
-		{assign var="langPrefix" value="en"}
+	{* Визначаємо чи це головна мовна сторінка (типу /uk або /en) *}
+	{assign var="isRootLangPage" value=false}
+	{if $currentPath == "/uk" || $currentPath == "/en" || $currentPath == "/"}
+		{assign var="isRootLangPage" value=true}
 	{/if}
 
-	{* 3. Видаляємо мовний префікс (uk/en) із шляху *}
+	{* Видаляємо мовний префікс з URL *}
 	{assign var="basePath" value=$currentPath|regex_replace:"^/(uk|en)\/?":""}
 
-	{* 4. Формуємо повні посилання *}
-	{assign var="baseUrl" value="https://{$smarty.server.HTTP_HOST}"}
-	{assign var="hrefDefault" value=$baseUrl|cat:($basePath != "" ? "/"|cat:$basePath : "")}
-	{assign var="hrefUk" value=$baseUrl|cat:"/uk"|cat:($basePath != "" ? "/"|cat:$basePath : "")}
-	{assign var="hrefEn" value=$baseUrl|cat:"/en"|cat:($basePath != "" ? "/"|cat:$basePath : "")}
+	{* Створюємо hreflang URL-и *}
+	{if $isRootLangPage}
+		{assign var="pathUk" value="https://{$smarty.server.HTTP_HOST}/uk"}
+		{assign var="pathEn" value="https://{$smarty.server.HTTP_HOST}/en"}
+		{assign var="pathDefault" value="https://{$smarty.server.HTTP_HOST}/?lang=ru"}
+	{else}
+		{assign var="pathUk" value="https://{$smarty.server.HTTP_HOST}/uk/`$basePath`"}
+		{assign var="pathEn" value="https://{$smarty.server.HTTP_HOST}/en/`$basePath`"}
+		{assign var="pathDefault" value="https://{$smarty.server.HTTP_HOST}/`$basePath`"}
+	{/if}
 
-	{* 5. Canonical як є *}
+	{* Canonical посилання *}
 	<link rel="canonical" href="https://{$smarty.server.HTTP_HOST}{$currentPath}" />
-	<link rel="alternate" hreflang="x-default" href="{$hrefDefault}" />
-	<link rel="alternate" hreflang="en" href="{$hrefEn}" />
-	<link rel="alternate" hreflang="uk" href="{$hrefUk}" />
+	<link rel="alternate" hreflang="x-default" href="{$pathDefault}" />
+	<link rel="alternate" hreflang="en" href="{$pathEn}" />
+	<link rel="alternate" hreflang="uk" href="{$pathUk}" />
 	{* ---------- /SEO hreflang / canonical ---------- *}
 
 	{literal}
