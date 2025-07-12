@@ -34,7 +34,7 @@
 	<link rel="dns-prefetch" href="https://fonts.gstatic.com/">
 	<link rel="dns-prefetch" href="//netdna.bootstrapcdn.com">
 
-	{include file="partial/hreflang.tpl"}
+	{include "partial/hreflang"}
 
 	{literal}
 		<!-- Google Tag Manager -->
