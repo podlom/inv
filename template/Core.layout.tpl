@@ -48,7 +48,7 @@
 
 	<link rel="dns-prefetch" href="//netdna.bootstrapcdn.com">
 
-	{include "partial/hreflang"}
+	{include "partial/hreflang2"}
 
 	{literal}
 		<!-- Google Tag Manager -->
