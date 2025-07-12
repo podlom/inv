@@ -1,24 +1,29 @@
-{* Поточний URI без query-параметрів *}
+{* 1. Поточний URI без query-параметрів *}
 {assign var="currentPath" value=$smarty.server.REQUEST_URI|replace:$querystr:''}
 
-{* Видаляємо мовний префікс (uk|en) із початку URI *}
-{assign var="basePath" value=$currentPath|regex_replace:"^/(uk|en)(/|$)":"\/"}
+{* 2. Визначаємо, чи це головна сторінка мови (тільки /, /uk, /en) *}
+{assign var="isRoot" value=0}
+{if $currentPath == "/" || $currentPath == "/uk" || $currentPath == "/en"}
+    {assign var="isRoot" value=1}
+{/if}
 
-{* Видаляємо зайвий початковий слеш, якщо є *}
+{* 3. Видаляємо мовний префікс (uk|en) із початку URI *}
+{assign var="basePath" value=$currentPath|regex_replace:"^/(uk|en)(/|$)":"\/"}
 {assign var="basePath" value=$basePath|regex_replace:"^/":""}
 
-{* Формуємо посилання *}
-{assign var="hrefDefault" value="https://inventure.com.ua"}
-{assign var="hrefUk" value="https://inventure.com.ua/uk"}
-{assign var="hrefEn" value="https://inventure.com.ua/en"}
+{* 4. Формуємо базові посилання *}
+{assign var="hrefDefault" value="https://{$smarty.server.HTTP_HOST}"}
+{assign var="hrefUk" value="https://{$smarty.server.HTTP_HOST}/uk"}
+{assign var="hrefEn" value="https://{$smarty.server.HTTP_HOST}/en"}
 
-{if $basePath != ""}
+{* 5. Якщо не головна сторінка — додаємо підшлях до hreflang-посилань *}
+{if !$isRoot && $basePath != ""}
     {assign var="hrefDefault" value=$hrefDefault|cat:"/"|cat:$basePath}
     {assign var="hrefUk" value=$hrefUk|cat:"/"|cat:$basePath}
     {assign var="hrefEn" value=$hrefEn|cat:"/"|cat:$basePath}
 {/if}
 
-{* Canonical: завжди як є, без query-параметрів *}
+{* 6. Canonical *}
 <link rel="canonical" href="https://{$smarty.server.HTTP_HOST}{$currentPath}" />
 <link rel="alternate" hreflang="x-default" href="{$hrefDefault}" />
 <link rel="alternate" hreflang="en" href="{$hrefEn}" />
