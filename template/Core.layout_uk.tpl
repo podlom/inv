@@ -36,9 +36,7 @@
 
 	{include "partial/canonical"}
 
-	<link rel="alternate" hreflang="x-default" href="https://inventure.com.ua/" />
-	<link rel="alternate" hreflang="en" href="https://inventure.com.ua/en" />
-	<link rel="alternate" hreflang="uk" href="https://inventure.com.ua/uk" />
+	{include "partial/hreflang2"}
 
 	{literal}
 		<!-- Google Tag Manager -->
