@@ -1,3 +1,5 @@
+{* prefilter=off *}
+
 {* 1. Поточний URI без query-параметрів *}
 {assign var="currentPath" value=$smarty.server.REQUEST_URI|replace:$querystr:''}
 
