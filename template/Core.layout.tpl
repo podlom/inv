@@ -50,7 +50,7 @@
 
 	{include "partial/canonical"}
 
-	<link rel="alternate" hreflang="x-default" href="https://inventure.com.ua/" />
+	{include "partial/hreflang3"}
 
 	{literal}
 		<!-- Google Tag Manager -->
