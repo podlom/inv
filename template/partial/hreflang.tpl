@@ -26,8 +26,7 @@
     {assign var="hrefEn" value=$hrefEn|cat:"/"|cat:$basePath}
 {/if}
 
-{* 5. Canonical і hreflang *}
-<link rel="canonical" href="https://{$smarty.server.HTTP_HOST}{$currentPath}" />
+{* 5. hreflang *}
 <link rel="alternate" hreflang="x-default" href="{$hrefDefault}" />
 <link rel="alternate" hreflang="en" href="{$hrefEn}" />
 <link rel="alternate" hreflang="uk" href="{$hrefUk}" />

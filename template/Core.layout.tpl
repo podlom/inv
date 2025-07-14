@@ -48,6 +48,8 @@
 
 	<link rel="dns-prefetch" href="//netdna.bootstrapcdn.com">
 
+	{include "partial/canonical"}
+
 	<link rel="alternate" hreflang="x-default" href="https://inventure.com.ua/" />
 
 	{literal}
@@ -87,8 +89,6 @@
 	{else}
 		{meta 'og:5' raw=1  property='og:image' content=full_link('/i/inventure_corp.png')}
 	{/if}
-
-	<link rel="canonical" href="https://{$smarty.server.HTTP_HOST}{$smarty.server.REQUEST_URI|replace:$querystr:''}" />
 
 	{meta 'fb1' property='fb:app_id' content='160711107658620' raw=1}
 	{*style '/css/foundation.min.css'*}
@@ -270,9 +270,9 @@
 
 
 <div class="up" style="display: none;">
-	<img src="/images/up.svg" alt="{if lang=='en'}Go up{else}Наверх{/if}"
-		 title="{if lang=='en'}Go up{else}Наверх{/if}">
-	{* <img src="/i/up.png" alt="Наверх" title="Наверх"> *}
+	<img src="/images/up.svg" alt="{if $lang == 'ru'}Вверх{else}Go up{/if}"
+		 title="{if $lang == 'ru'}Вверх{else}Go up{/if}">
+	{* <img src="/i/up.png" alt="{if $lang == 'ru'}Вверх{else}Go up{/if}" title="{if $lang == 'ru'}Вверх{else}Go up{/if}"> *}
 </div>
 
 
@@ -302,7 +302,7 @@
 </div><!-- wrapper end -->
 {*
 <div id="questionForm" class="reveal-modal questionFormCenter" data-reveal style="display:none">
-<h2>Зворотній зв`язок</h2>
+<h2>{if $lang == 'ru'}Обратная связь{else}Callback{/if}</h2>
 {form callback}
 <a class="close-reveal-modal">&#215;</a>
 </div>
@@ -310,14 +310,14 @@
 {if $user && $user->canAccess('Page.publish') && ($page || $post || $blog)}
 	<div class="admin_edit">
 		<a href="{if $page}/admin/page/edit/{$page->getId()}{else}{if $post}/admin/blog/{$blog->getId()}/edit/{$post->getId()}{else}/admin/blog/{$blog->getId()}{/if}{/if}"
-		   title="edit" class="icon-edit">Редагувати</a>
+		   title="edit" class="icon-edit">{if $lang == 'ru'}Редактировать{else}Edit{/if}</a>
 	</div>
 
 	{script_code require="jquery"}
 		console.log('+815 content editable init');
 
 		jQuery('.the_post_content').attr('contenteditable', true);
-		jQuery('.admin_edit').append('<br><button class="save-inline-edits">Зберегти</button>');
+		jQuery('.admin_edit').append('<br><button class="save-inline-edits">{if $lang == 'ru'}Сохранить{else}Save{/if}</button>');
 		jQuery('.save-inline-edits').click(function(){
 		console.log('+821 save edits with new text: ' + jQuery('.the_post_content').html());
 		console.log('+822 location path: ' + window.location.pathname);

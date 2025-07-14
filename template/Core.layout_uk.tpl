@@ -34,6 +34,8 @@
 	<link rel="dns-prefetch" href="https://fonts.gstatic.com/">
 	<link rel="dns-prefetch" href="//netdna.bootstrapcdn.com">
 
+	{include "partial/canonical"}
+
 	<link rel="alternate" hreflang="x-default" href="https://inventure.com.ua/" />
 	<link rel="alternate" hreflang="en" href="https://inventure.com.ua/en" />
 	<link rel="alternate" hreflang="uk" href="https://inventure.com.ua/uk" />
@@ -99,8 +101,6 @@
     || $request->getPathInfo()|strpos:'/tools' === 0
     || $request->getPathInfo()|strpos:'/board' === 0
     || $request->getPathInfo()|strpos:'/search' === 0 *}
-
-	<link rel="canonical" href="https://{$smarty.server.HTTP_HOST}{$smarty.server.REQUEST_URI|replace:$querystr:''}" />
 
 	{* {if $isNewStylesAvaible}
       {style '/css/style-v2.css'}
