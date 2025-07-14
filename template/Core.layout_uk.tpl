@@ -33,9 +33,10 @@
 	<link rel="preload" href="/css/font-awesome.min.css" as="style">
 	<link rel="dns-prefetch" href="https://fonts.gstatic.com/">
 	<link rel="dns-prefetch" href="//netdna.bootstrapcdn.com">
+
 	<link rel="alternate" hreflang="x-default" href="https://inventure.com.ua/" />
-	<link rel="alternate" hreflang="en" href="https://inventure.com.ua/en/" />
-	<link rel="alternate" hreflang="uk" href="https://inventure.com.ua/uk/" />
+	<link rel="alternate" hreflang="en" href="https://inventure.com.ua/en" />
+	<link rel="alternate" hreflang="uk" href="https://inventure.com.ua/uk" />
 
 	{literal}
 		<!-- Google Tag Manager -->
