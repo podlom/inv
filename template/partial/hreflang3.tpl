@@ -17,10 +17,10 @@
 {locale_data}
 {foreach $locale_data as $langCode => $data}
     {if $data && $data.url}
-        <link rel="alternate" hreflang="{$langCode}" href="https://inventure.com.ua/{$data.url}" />
+        <link rel="alternate" hreflang="{$langCode}" href="https://inventure.com.ua{$data.url}" />
     {/if}
 {/foreach}
 {#/mod}
 
 {* 6. x-default для пошукових систем *}
-<link rel="alternate" hreflang="x-default" href="https://inventure.com.ua/{$pathWithoutLang}" />
+<link rel="alternate" hreflang="x-default" href="https://inventure.com.ua{$pathWithoutLang}" />
