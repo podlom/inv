@@ -36,7 +36,7 @@
 
 	{include "partial/canonical"}
 
-	{include "partial/hreflang2"}
+	{include "partial/hreflang3"}
 
 	{literal}
 		<!-- Google Tag Manager -->
