@@ -219,8 +219,8 @@
 	<div class="grid-container tablet_buttons">
 		<div class="grid-x grid-margin-x">
 			{block 'side_buttons'}
-				<a href="/uk/investor" class="tablet_button1">╤Ц╨╜╨▓╨╡╤Б╤В╤Г╨▓╨░╤В╨╕</a>
-				<a href="/uk/add-inv-prop" class="tablet_button2">╨Ч╨╜╨░╨╣╤В╨╕ ╤Ц╨╜╨▓╨╡╤Б╤В╨╛╤А╨░</a>
+				<a href="/uk/investor" class="tablet_button1">Інвестувати</a>
+				<a href="/uk/add-inv-prop" class="tablet_button2">Знайти інвестора</a>
 			{/block}
 		</div>
 	</div>
@@ -259,8 +259,8 @@
 
 
 <div class="up" style="display: none;">
-	<img src="/images/up.svg" alt="╨Э╨░╨▓╨╡╤А╤Е" title="╨Э╨░╨▓╨╡╤А╤Е">
-	{* <img src="/i/up.png" alt="╨Т╨▓╨╡╤А╤Е" title="╨Т╨▓╨╡╤А╤Е"> *}
+	<img src="/images/up.svg" alt="Наверх" title="Наверх">
+	{* <img src="/i/up.png" alt="Наверх" title="Наверх"> *}
 </div>
 
 
@@ -290,7 +290,7 @@
 </div><!-- wrapper end -->
 {*
 <div id="questionForm" class="reveal-modal questionFormCenter" data-reveal style="display:none">
-<h2>╨Ч╨░╨┤╨░╤В╤М ╨▓╨╛╨┐╤А╨╛╤Б</h2>
+<h2>Зворотній зв`язок</h2>
 {form callback}
 <a class="close-reveal-modal">&#215;</a>
 </div>
@@ -298,14 +298,14 @@
 {if $user && $user->canAccess('Page.publish') && ($page || $post || $blog)}
 	<div class="admin_edit">
 		<a href="{if $page}/admin/page/edit/{$page->getId()}{else}{if $post}/admin/blog/{$blog->getId()}/edit/{$post->getId()}{else}/admin/blog/{$blog->getId()}{/if}{/if}"
-		   title="edit" class="icon-edit">╨а╨╡╨┤╨░╨║╤В╨╕╤А╨╛╨▓╨░╤В╤М</a>
+		   title="edit" class="icon-edit">Редагувати</a>
 	</div>
 
 	{script_code require="jquery"}
 		console.log('+246 uk content editable init');
 
 		jQuery('.the_post_content').attr('contenteditable', true);
-		jQuery('.admin_edit').append('<br><button class="save-inline-edits">╨Ч╨▒╨╡╤А╨╡╨│╤В╨╕ ╨╖╨╝╤Ц╨╜╨╕</button>');
+		jQuery('.admin_edit').append('<br><button class="save-inline-edits">Зберегти</button>');
 		jQuery('.save-inline-edits').click(function(){
 		console.log('+251 save edits with new text: ' + jQuery('.the_post_content').html());
 		console.log('+252 location path: ' + window.location.pathname);
